@@ -7,7 +7,12 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About
+      - href: finmgmt.qmd
+        text: Financial Management
+      - href: finstrat.qmd
+        text: Financial Strategy
 
 format:
   html:

@@ -1,0 +1,7 @@
+---
+title: "Financial Management"
+listing:
+ contents: fin-mgmt
+---
+
+This site contains lectures.

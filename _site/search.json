@@ -1,0 +1,639 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "lectures",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "finmgmt.html",
+    "href": "finmgmt.html",
+    "title": "Financial Management",
+    "section": "",
+    "text": "This site contains lectures.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Analysis\n\n\n\n\n\n\n\n\n\n\n\nLucas S. Macoris\n\n\n\n\n\n\n\n\n\n\n\n\nIntro and Course Overview Financial Management\n\n\n\n\n\n\n\n\n\n\n\nLucas S. Macoris\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#outline",
+    "href": "fin-mgmt/financial-analysis/index.html#outline",
+    "title": "Financial Analysis",
+    "section": "Outline",
+    "text": "Outline\n\n\nThis lecture will extensively use the following text-books:\n\n\n(Healy and Palepu 2012): Business Analysis Valuation: Using Financial Statements\n(Berk and DeMarzo 2019): Corporate Finance\n\n\n(Healy and Palepu 2012) provides a more comprehensive discussion around the use of financial indications, although the content pretty much resembles (Berk and DeMarzo 2019)\nIt is important to be familiarized with financial reporting concepts, such as understanding Balance-Sheet, Income Statements, and Cash-Flow Statements. For a summarized discussion on these reports, refer to (Berk and DeMarzo 2019), Chapter 2.\nIn the Appendix, you’ll find additional content (non-mandatory, but recommended) that can be used to get a deeper understanding and/or comprehend applications in real-world problems."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#financial-analysis",
+    "href": "fin-mgmt/financial-analysis/index.html#financial-analysis",
+    "title": "Financial Analysis",
+    "section": "Financial Analysis",
+    "text": "Financial Analysis\n\nWe saw in our previous lecture that:\n\nFinance Managers have to deal with investment and financing decisions\nThe extent of their actions in these two areas can either create or destroy value\n\nHow to analyze the effect of their actions on the firm value?\nTo this point, the goal of financial analysis is to assess the performance of a firm:\n\nIs the firm getting too risky?\nIs the profitability aligned with its industry peers?\nIs the firm growing its business?\nAre profits trending upwards or downwards?\n\nProblem: not all information about the firm’s actual and past performance is disclosed."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#analyzing-financial-statements",
+    "href": "fin-mgmt/financial-analysis/index.html#analyzing-financial-statements",
+    "title": "Financial Analysis",
+    "section": "Analyzing Financial Statements",
+    "text": "Analyzing Financial Statements\n\nInvestors often use accounting statements to evaluate a firm in one of two ways:\n\nCompare the firm with itself by analyzing how the firm has changed over time.\nCompare the firm to other similar firms using a common set of financial ratios.\n\nDespite being a high-level view of complexity that is the firm’s business, such information can shed light on some areas that dictate the firm’s performance\nAccounting statements are the inputs of a series of analysis that can be done to assess financial performance.\nIn this (and the next lectures), we’ll look at a particular type of analysis that uses financial statements as an input: ratio analysis"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#what-drives-firm-performance",
+    "href": "fin-mgmt/financial-analysis/index.html#what-drives-firm-performance",
+    "title": "Financial Analysis",
+    "section": "What drives firm performance?",
+    "text": "What drives firm performance?"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#introducing-ratio-analysis",
+    "href": "fin-mgmt/financial-analysis/index.html#introducing-ratio-analysis",
+    "title": "Financial Analysis",
+    "section": "Introducing ratio analysis",
+    "text": "Introducing ratio analysis\n\nObjective: evaluate the effectiveness of the firm’s policies in each of the previously mentioned areas\nHigh-level view: while ratio analysis may not give an analyst all the answers regarding the firm’s performance, it will help the analyst frame questions for further probing.\nOn the investment side, we have:\n\nManaging Revenue and Expenses\nManaging Working Capital and Fixed Assets\n\nOn the financing side, we have:\n\nManaging Liabilities and Equity\nManaging Payout\n\nFor each of these areas, we can use financial statements and create indicators that shed light on important factors that drive firm’s performance!"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#liquidity-and-financial-strength",
+    "href": "fin-mgmt/financial-analysis/index.html#liquidity-and-financial-strength",
+    "title": "Financial Analysis",
+    "section": "Liquidity and Financial Strength",
+    "text": "Liquidity and Financial Strength\n\nOur starting point will be looking at the capacity that a firm has to honor its liabilities\nFinancial analysts often use the information in the firm’s balance sheet to assess its financial solvency and liquidity:\nBefore we dive into the calculations, let’s look at two important definitions:\n\n\n\n\n\n\n\n\nSolvency - Definition\n\n\nThe ability of a company to meet its long-term debts and financial obligations. Solvency portrays the ability of a business (or individual) to pay off its financial obligations.\n\n\n\n\n\n\n\n\n\nLiquidity - Definition\n\n\nLiquidity refers to the ease with which an asset, or security, can be converted into cash without affecting its market price. In other words, liquidity describes the degree to which an asset can be quickly bought or sold in the market at a price reflecting its true value."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#solvency-measures",
+    "href": "fin-mgmt/financial-analysis/index.html#solvency-measures",
+    "title": "Financial Analysis",
+    "section": "Solvency Measures",
+    "text": "Solvency Measures\n\n\n\n\n\n\n\nThe amount of Debt vs. Equity can shed light on the solvency of a firm\nThe higher the % of Equity, all things equal, the higher its solvency\nWhat happens if we change the % of Equity and Debt?"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#solvency-measures-1",
+    "href": "fin-mgmt/financial-analysis/index.html#solvency-measures-1",
+    "title": "Financial Analysis",
+    "section": "Solvency Measures",
+    "text": "Solvency Measures\n\n\n\n\n\n\n\nFrom Case 1 \\(\\rightarrow\\) Case 2: firm increased its leverage\nCase 2 may face higher difficulty in paying back its debt \\(\\rightarrow\\) increased risk of insolvency"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#solvency-ratios",
+    "href": "fin-mgmt/financial-analysis/index.html#solvency-ratios",
+    "title": "Financial Analysis",
+    "section": "Solvency Ratios",
+    "text": "Solvency Ratios\n\nTo evaluate the mix of debt and equity in a firm’s capital structure, we can use:\n\nLiabilities-to-Equity: measures the overall solvency:\n\n\n\n\\[\n\\text{Liabilities to Equity}=\\dfrac{\\text{Total Liabilities}}{\\text{Equity}}\n\\]\n\nDebt-to-Equity: focus on the Debt component, which is generally more binding:\n\n\n\n\\[\n\\text{Debt to Equity}=\\dfrac{\\text{Short-Term Debt + Long-Term Debt}}{\\text{Equity}}\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#interpreting-solvency-ratios",
+    "href": "fin-mgmt/financial-analysis/index.html#interpreting-solvency-ratios",
+    "title": "Financial Analysis",
+    "section": "Interpreting Solvency Ratios",
+    "text": "Interpreting Solvency Ratios\n\nIs less Debt always a good idea? No! There are several potential benefits of having debt:\n\n\nLess costly: debt is typically cheaper than equity because the firm promises predefined payment terms to debt holders\nTax-shield: in most countries, interest on debt financing is tax deductible \\(\\rightarrow\\) lower taxes\nDebt holders as monitors debt can impose discipline on the firm’s management and motivate it to reduce wasteful expenditures\n\n\nAll-in-all, the optimal level of debt needs to trade-off:\n\n\nThe benefits of having debt in the financing mix\nThe inherent risks related to having a high amount of debt and not being able to honor it\n\n\nFirms with low business risk can rely more on debt than more volatile firms"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#liquidity-measures",
+    "href": "fin-mgmt/financial-analysis/index.html#liquidity-measures",
+    "title": "Financial Analysis",
+    "section": "Liquidity Measures",
+    "text": "Liquidity Measures\n\n\n\n\n\n\n\nRegardless of having enough resources to pay off its obligations, can the firm pay on time?\nLiquidity evaluates the risk related to a firm’s current liabilities\nIn general, ratios attempt to measure the firm’s ability to repay its current liabilities using its the current assets"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#liquidity-measures-1",
+    "href": "fin-mgmt/financial-analysis/index.html#liquidity-measures-1",
+    "title": "Financial Analysis",
+    "section": "Liquidity Measures",
+    "text": "Liquidity Measures\n\n\n\n\n\n\n\nFrom Case 1 \\(\\rightarrow\\) Case 2: firm decreased its liquidity\nCase 2, even if it is a profitable business, can run out of cash due to a liquidity mismatch!"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#liquidity-ratios",
+    "href": "fin-mgmt/financial-analysis/index.html#liquidity-ratios",
+    "title": "Financial Analysis",
+    "section": "Liquidity Ratios",
+    "text": "Liquidity Ratios\n\nCurrent Ratio: measures overall liquidity\n\n\n\\[\n\\text{Current Ratio}=\\dfrac{\\text{Current Assets}}{\\text{Current Liabilities}}\n\\]\n\nQuick Ratio: focus on the more liquid components of current assets\n\n\n\n\\[\n\\text{Quick Ratio}=\\dfrac{\\text{Cash + Short-Term Investments + Accounts Receivable}}{\\text{Current Liabilities}}\n\\]\n\nCash Ratio: focus only on the portion that is straighforward to convert into cash:\n\n\n\n\\[\n\\text{Cash Ratio}=\\dfrac{\\text{Cash + Marketable Securities}}{\\text{Current Liabilities}}\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#interpreting-liquidity-ratios",
+    "href": "fin-mgmt/financial-analysis/index.html#interpreting-liquidity-ratios",
+    "title": "Financial Analysis",
+    "section": "Interpreting Liquidity Ratios",
+    "text": "Interpreting Liquidity Ratios\n\nIf a Liquidity Index is higher than 1 \\(\\rightarrow\\) the firm has, to some extent, enough resources to pay its current obligations\nIf a Liquidity Index lower than 1 \\(\\rightarrow\\) the firm may not have enough resources when its current debt is finally due\nNote that a the firm can face a short-term liquidity problem even with a Current Ratio exceeding one when some of its current assets are not easy to liquidate\nFor these reasons, the Quick Ratio and the Cash Ratio are more conservative:\n\n\n\\[\n\\underbrace{\\text{Cash Ratio} &gt;&gt; \\text{Quick Ratio} &gt;&gt; \\text{Current Ratio}  }_{\\text{From highest-to-lowest in the degree of conservativeness}}\n\\]\n\nThe higher the liquidity index, the better? Not necessarily!"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\n\nAssume the following data: Current Assets = 450; Current Liabilities = 250; Inventory = 200; Cash = 50; Account Receivables = 200. Calculate and interpret the Quick Ratio.\n\n1.0\n2.0\n1.2\n0.4\n\n\n\n\nA: using the formula, we have:\n\n\n\\[\n\\text{Quick Ratio}=\\dfrac{\\text{Cash and ST Investments + Account Receivables}}{\\text{Current Liabilities}}=\\dfrac{50+200}{250}=1\n\\]\n\n\n\nA Quick Ratio of 1 means that for each dollar due in the short-term, the firm has the same dollar value in assets."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-1",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-1",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\nUsing the same information as before, calculate the Current Ratio.\n\n\nA: using the formula, we have:\n\\[\n\\text{Current Ratio}=\\dfrac{\\text{Current Assets}}{\\text{Current Liabilities}}\\rightarrow\\dfrac{450}{250}=2.25\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-2",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-2",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\nWhat can you say about the firm’s liquidity in this case as the Current Ratio is &gt;1 and the Quick Ratio is equal to 1? Can we asset that the firm has a zero risk of incurring in liquidity issues?\n\n\nA: we can’t assert that the firm has not liquidity risk\n\nFirst, the Current Ratio does not take into consideration the fact that Inventories are, in general, less liquid, and by definition, cannot be guaranteed to be liquidated at book value.\nIn addition to that, even if the Quick Ratio is equal to one, one might think about situations where a firm cannot recover the totality of its account receivables, which could also hinder the firms’ ability to honor its current obligations.\n\n\nOverall, these two points are examples of (potential) accounting distortions that affect the interpretation of financial ratios."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-3",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-3",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\n\nConsidered alone, which of the following would increase a company’s current ratio?\n\nAn increase in accounts payable.\nAn increase in net fixed assets.\nAn increase in accrued liabilities.\nAn increase in notes payable.\nAn increase in accounts receivable."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-4",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-4",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\n\nConsidered alone, which of the following would increase a company’s Current Ratio?\n\nAn increase in accounts payable.\nAn increase in net fixed assets.\nAn increase in accrued liabilities.\nAn increase in notes payable.\nAn increase in accounts receivable.\n\n\nA: any positive changes on a company’s Current should come from a increase in Current Assets or a decrease in Current Liabilities. The only alternative where we see such pattern is when there is an increase in Account Receivable."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#calculate-and-interpret-all-ratios-using-the-data-below",
+    "href": "fin-mgmt/financial-analysis/index.html#calculate-and-interpret-all-ratios-using-the-data-below",
+    "title": "Financial Analysis",
+    "section": "Calculate and interpret all ratios using the data below",
+    "text": "Calculate and interpret all ratios using the data below"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#solvency-ratios-1",
+    "href": "fin-mgmt/financial-analysis/index.html#solvency-ratios-1",
+    "title": "Financial Analysis",
+    "section": "Solvency Ratios",
+    "text": "Solvency Ratios\n\nLiabilities-to-Equity\n\n\n\\[\n\\dfrac{(\\text{S.T Liabilities + L.T Liabilities})}{Equity} =\\dfrac{(24,500+52,500)}{150,000}=\\dfrac{77,000}{150,000}\\approx 0.51\n\\]\n\nDebt-to-Equity\n\n\n\n\\[\n\\dfrac{(\\text{S.T Debt + L.T Debt})}{Equity} =\\dfrac{(10,00+50,000)}{150,000}=\\dfrac{60,000}{150,000}= 0.40\n\\]\n\nInterpretation: for each $0.4 in debt, the firm has $1 or 2.5 times the amount, to cover"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#liquidity-ratios-1",
+    "href": "fin-mgmt/financial-analysis/index.html#liquidity-ratios-1",
+    "title": "Financial Analysis",
+    "section": "Liquidity Ratios",
+    "text": "Liquidity Ratios\n\nCalculating the Liquidity Ratios:\n\n\n\\[\n\\text{Current Ratio}\\small=\\dfrac{\\text{Current Assets}}{\\text{Current Liabilities}}=\\dfrac{77,000}{24,500}\\approx3.14\n\\] \\[\n\\text{Quick Ratio}=\\small \\dfrac{\\text{Cash+S.T Inv + Acc. Rec.}}{\\text{Current Liabilities}}=\\dfrac{15,000+4,500+7,500}{24,500}=\\dfrac{27,000}{24,500}\\approx1.1\n\\]\n\\[\n\\text{Cash Ratio}=\\small \\dfrac{\\text{Cash + S.T Financials}}{\\text{Current Liabilities}}=\\dfrac{15,000+4,500}{24,500}=\\dfrac{19,500}{24,500}\\approx0.8\n\\]\n\nInterpretation: firm is heavily dependent upon the firm’s capability to quickly liquidate its inventory at the book price!"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#integrating-different-financial-statements",
+    "href": "fin-mgmt/financial-analysis/index.html#integrating-different-financial-statements",
+    "title": "Financial Analysis",
+    "section": "Integrating different Financial Statements",
+    "text": "Integrating different Financial Statements\n\nWe’ll now move towards profitability ratios\nIn order to understand profitability, we need to understand the relationship between the firms’ assets and its income generation:"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#one-indicator-to-rule-them-all",
+    "href": "fin-mgmt/financial-analysis/index.html#one-indicator-to-rule-them-all",
+    "title": "Financial Analysis",
+    "section": "One indicator to rule them all",
+    "text": "One indicator to rule them all\n\nAt the end of the day, shareholders will ask: for each dollar invested, how much does the firm return back to its shareholders?\nThe Return on Equity (ROE) measures exactly this:\n\n\n\\[\nROE=\\dfrac{\\text{Net Income}}{\\text{Equity}}\n\\]\n\nROE is a comprehensive indicator of a firm’s performance because it provides an indication of how well managers are employing the funds invested by the firm’s shareholders to generate returns:\n\n\n\n\\[\nROE=\\dfrac{\\text{Net Income}}{\\text{Equity}}=\\dfrac{150,000}{500,000}=30\\%\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#analyzing-roe",
+    "href": "fin-mgmt/financial-analysis/index.html#analyzing-roe",
+    "title": "Financial Analysis",
+    "section": "Analyzing ROE",
+    "text": "Analyzing ROE\n\nIn the long-run, firms are expected to earn a ROE that is higher than its cost of capital:\n\nConsistently generating ROE above average, absent any barriers to entry, makes entry attractive for competitors\n\\(\\uparrow\\) Competition \\(\\rightarrow\\) ROE tends to go down to a “normal”, benchmark level\n\nShort-term deviations from such “benchmark” level of ROE can occur due to:\n\nIndustry conditions and competitive strategy\nAccounting distortions\n\nDrawbacks:\n\nROE doesn’t explain the whole story: it shows how well managers are employing shareholders’ capital, but it cannot explain what were the drivers of such performance\nAccounting distortions: ROE comparisons can be misleading if, for some reason, different firms are exposed to different accounting treatments"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#decomposing-roe",
+    "href": "fin-mgmt/financial-analysis/index.html#decomposing-roe",
+    "title": "Financial Analysis",
+    "section": "Decomposing ROE",
+    "text": "Decomposing ROE\n\nSay that you want to understand how the firm has generated the \\(30\\%\\) ROE previously shown. A firm’s ROE can be broke down in two factors:\n\nThe profitably it employs its assets\nHow big the firm’s asset base is relative to shareholders’ investment.\n\n\n\n\\[\nROE=\\dfrac{\\text{Net Income}}{\\text{Equity}}=\\underbrace{\\dfrac{\\text{Net Income}}{\\text{Assets}}}_{ROA}\\times \\underbrace{\\dfrac{\\text{Assets}}{\\text{Equity}}}_{Leverage}\n\\]\n\nThe Return on Assets (ROA) tells us how much profit a company is able to generate for each dollar of assets invested, irrespective of the mix of financing\nFinancial leverage indicates how many dollars of assets the firm is able to deploy for each dollar invested by its shareholders"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#roa-and-financial-leverage",
+    "href": "fin-mgmt/financial-analysis/index.html#roa-and-financial-leverage",
+    "title": "Financial Analysis",
+    "section": "ROA and Financial Leverage",
+    "text": "ROA and Financial Leverage\n\nUsing the numbers from our company, we have:\n\n\n\\[\nROA = \\dfrac{\\text{Net Income}}{\\text{Assets}}=\\dfrac{150,000}{750,000}=20\\%\n\\]\n\n\n\\[\nLeverage= \\dfrac{\\text{Assets}}{\\text{Equity}}=\\dfrac{750,000}{500,000}=1.5\n\\]\n\nTherefore, we can compute ROE as:\n\n\n\n\\[\nROE= ROA \\times Leverage = 20\\% \\times 1.5 = 30\\%\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#the-effects-of-financial-leverage",
+    "href": "fin-mgmt/financial-analysis/index.html#the-effects-of-financial-leverage",
+    "title": "Financial Analysis",
+    "section": "The effects of financial leverage",
+    "text": "The effects of financial leverage"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#analyzing-the-roe-decomposition",
+    "href": "fin-mgmt/financial-analysis/index.html#analyzing-the-roe-decomposition",
+    "title": "Financial Analysis",
+    "section": "Analyzing the ROE decomposition",
+    "text": "Analyzing the ROE decomposition\n\nOur ROE decompositon yielded the following results:\n\nThe Return on Assets is 20%\nFirm’s leverage is 1.5\n\nWe can see that leverage acts in this case by bumping up the shareholder’s return\n\nAs the firm uses debt in its mix, after paying out the interest expenses, all the remaining net income is accrued to the shareholders\nTherefore, using debt leverages the returns since the the value of assets being employed in the operation are higher than what the shareholders are employing"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-in",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-in",
+    "title": "Financial Analysis",
+    "section": "Concept check-in",
+    "text": "Concept check-in\n\nDefine if the statements below are TRUE or FALSE:\n\nSince ROE is a high-level view of the return to the shareholders, it can be safely used to compare firms from different industries\nLooking at the ROA portion of ROE, it can inform about the value that managers get from the assets, but it does not point to the operational levers that generated such performance\nHigher leverage always helps by leveraging up the returns to the shareholders\nCalculating a given industry’s ROE can shed light on the industry’s equilibrium return, and it is useful for benchmarking\nIf a firm opts to perform a sale-and-leaseback operation, it will never affect its calculated ROE"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-in-1",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-in-1",
+    "title": "Financial Analysis",
+    "section": "Concept check-in",
+    "text": "Concept check-in\n\nDefine if the statements below are TRUE or FALSE:\n\nSince ROE is a high-level view of the return to the shareholders, it can be safely used to compare firms from different industries\nLooking at the ROA portion of ROE, it can inform about the value that managers get from the assets, but it does not point to the operational levers that generated such performance\nHigher leverage always helps by leveraging up the returns to the shareholders\nCalculating a given industry’s ROE can shed light on the industry’s equilibrium return, and it is useful for benchmarking\nIf a firm opts to perform a sale-and-leaseback operation, it will never affect its calculated ROE"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#understanding-operational-performance---duponts-formula",
+    "href": "fin-mgmt/financial-analysis/index.html#understanding-operational-performance---duponts-formula",
+    "title": "Financial Analysis",
+    "section": "Understanding operational performance - DuPont’s Formula",
+    "text": "Understanding operational performance - DuPont’s Formula\nSuppose you now want to dissect the ROE levers even deeper. A way to do this is to analyze the composition of the ROA portion:\n\\[\n\\small ROE=ROA\\times Leverage=\\dfrac{\\text{Net Income}}{\\text{Assets}}\\times \\dfrac{\\text{Assets}}{\\text{Equity}}=\\bigg[\\bigg(\\dfrac{\\text{Net Income}}{\\text{Sales}}\\times \\dfrac{\\text{Sales}}{\\text{Assets}}\\bigg)\\bigg]\\times \\dfrac{\\text{Assets}}{\\text{Equity}}\n\\] Therefore, we can view ROE as a composite of:\n\\[\n\\small ROE=\\underbrace{\\dfrac{\\text{Net Income}}{\\text{Sales}}}_{\\text{Net Profit Margin}}\\times \\underbrace{\\dfrac{\\text{Sales}}{\\text{Assets}}}_{\\text{Asset Turnover}}\\times \\underbrace{\\dfrac{\\text{Assets}}{\\text{Equity}}}_{Leverage}\n\\]\n\nThe Net Profit Margin indicates how much a firm keeps for each dollar of sales it makes\nThe Asset Turnover indicates how many sales it gets for each dollar of assets"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#applying-the-duponts-roe-decomposition",
+    "href": "fin-mgmt/financial-analysis/index.html#applying-the-duponts-roe-decomposition",
+    "title": "Financial Analysis",
+    "section": "Applying the DuPont’s ROE Decomposition",
+    "text": "Applying the DuPont’s ROE Decomposition\n\nUsing the numbers from our example, we have:\n\n\n\\[\n\\small ROE=\\underbrace{\\dfrac{150,000}{1,000,000}}_{\\text{Net Profit Margin}}\\times \\underbrace{\\dfrac{1,000,000}{750,000}}_{\\text{Asset Turnover}}\\times\\underbrace{\\dfrac{750,000}{500,000}}_{\\text{Leverage}}=0.15\\times 1.33 \\times 1.5 = 30\\%\n\\]\n\n\nThis preliminary decomposition of ROE begins to show us how an examination of the building blocks of these ratios can yield a deeper understanding of how strategic, investment, and financing decisions made by the firm affect its ratios:\n\nBy nailing ROE down to specific determinants, one can understand how managers are generating return to the shareholders\nUnderstanding and comparing these specific drivers to benchmarks help us understanding the areas where the managers are over(under)performing\n\n\n\n\\(\\rightarrow\\) See Leverage Example.xlsx (available on eClass®) for a detailed explanation."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-5",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-5",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\n\nBonner Corp.’s sales last year were $430,500, and its year-end total assets were $360,000. The average firm in the industry has a total assets turnover ratio (TATO) of 2.2. Bonner’s new CFO believes the firm has excess assets that can be sold so as to bring the TATO down to the industry average without affecting sales. By how much must the assets be reduced to bring the TATO to the industry average, holding sales constant?\n\n$164,318\n$172,979\n$182,083\n$191,188\n$200,747"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-6",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-6",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\nUsing that the assets turnover formula with the actual firm’s sales and the target TATO, we have that:\n\n\n\\[\n\\small \\text{Target Asset Turnover}=\\dfrac{Sales}{Assets}\\rightarrow 2.2=\\dfrac{430,500}{Assets}\\rightarrow Assets=\\dfrac{430,500}{2.2}\\approx 195,682\n\\]\n\nThus, the amount that needs to be reduced in terms of assets is given by:\n\n\n\n\\[\n\\Delta Assets = \\text{Actual Assets}-\\text{Target Assets}\\rightarrow 360,000-195,681.8\\approx 164,318\n\\]\n\nTherefore, if we believe that freeing up assets is not going to affect sales, Bonner Corp needs to reduce $164,318 to get to the desired industry average."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-7",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-7",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\nAfter figuring out that the amount of assets to be liquidated is around $164,318, the CFO was given two options:\n\nA mix of selling Properly, Plant and Equipment, worth $120,000 in book value, and liquidating $44,318 in inventories, to be paid as dividends\nLiquidating $130,000 in short-term financial investments and $34,318 in cash, to be paid as dividends\n\nWhich one should get Bonner Corp. closer to the desired TATO and why?\n\n\nA: in most cases, Option 2 should lead Bonner Corp. closer to its objective, since short-term financial investments and cash are more liquid than real assets. Therefore, not only they are liquidated faster, but they also are more easily liquidated by its intrinsic value."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-8",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-8",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\nThe CEO insists on the fact that Bonner Corp. should stick with Option 1 with the argument that holding Cash and Short-Term investments due to a precautionary savings motivation makes the company less risky, and that they are pretty sure that the assets can be sold at book value. Which assumption of the strategy described to bring the TATO to the industry benchmark can be violated if the CFO chooses Option 1?\n\n\nA: even assuming that PPE and Inventories can be liquidated at book value, the assumption that sales will not be affected by the strategy can not hold. Since PPE and Inventories are, in general, actively used in the firm’s operations, reducing the amount of operational assets can negatively impact sales."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-9",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-9",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\nWhich of the following statements is CORRECT?\n\nThe modified DuPont equation provides information about how operations affect the ROE, but the equation does not include the effects of debt on the ROE.\nSuppose a firm’s total assets turnover ratio falls from 1.0 to 0.9, but at the same time its profit margin rises from 9% to 10% and its debt increases from 40% of total assets to 60%. Without additional information, we cannot tell what will happen to the ROE.\nSuppose a firm’s total assets turnover ratio falls from 1.0 to 0.9, but at the same time its profit margin rises from 9% to 10%, and its debt increases from 40% of total assets to 60%. Under these conditions, the ROE will decrease.\nSuppose a firm’s total assets turnover ratio falls from 1.0 to 0.9, but at the same time its profit margin rises from 9% to 10% and its debt increases from 40% of total assets to 60%. Under these conditions, the ROE will increase.\nOther things held constant, an increase in the debt ratio will result in an increase in the profit margin on sales."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-10",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-10",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\nFrom our formula, we have that:\n\n\n\\[\n\\small ROE=\\underbrace{\\dfrac{\\text{Net Income}}{\\text{Sales}}}_{\\text{Net Profit Margin}}\\times \\underbrace{\\dfrac{\\text{Sales}}{\\text{Assets}}}_{\\text{Asset Turnover}}\\times \\underbrace{\\dfrac{\\text{Assets}}{\\text{Equity}}}_{Leverage}\n\\]\n\nIf Asset Turnover went from 1 to 0.9 \\(\\rightarrow\\) a decrease of -10% (\\(\\Delta A.T\\))\nIf Margins went up from 9% to 10% \\(\\rightarrow\\) an increase of 11.11% (\\(\\Delta Margin\\))\n\n\nEven with no changes in debt, we would know that \\(\\uparrow ROA \\rightarrow ROE\\).\nNotwithstanding, we can calculate both ROEs and contrast"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#concept-check-11",
+    "href": "fin-mgmt/financial-analysis/index.html#concept-check-11",
+    "title": "Financial Analysis",
+    "section": "Concept Check",
+    "text": "Concept Check\n\nFirst Scenario:\n\n\n\\[\n\\dfrac{Debt}{Assets}=40\\% \\rightarrow Equity = 60\\% \\rightarrow\\dfrac{Assets}{Equity}\\approx1.66\n\\\\\nROE_{1}=1\\times9\\%\\times1.66=15\\%\n\\]\n\nSecond Scenario:\n\n\n\n\\[\n\\dfrac{Debt}{Assets}=60\\% \\rightarrow Equity = 40\\% \\rightarrow\\dfrac{Assets}{Equity}\\approx2.5\n\\\\ ROE_{2}=0.9\\times10\\%\\times2.5=22.5\\%\n\\]\n\nTherefore, statement D is correct."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#a-deep-dive-on-the-firms-net-profit-margin",
+    "href": "fin-mgmt/financial-analysis/index.html#a-deep-dive-on-the-firms-net-profit-margin",
+    "title": "Financial Analysis",
+    "section": "A deep-dive on the firm’s net profit margin",
+    "text": "A deep-dive on the firm’s net profit margin\n\nA firm’s net profit margin, or return on sales (ROS), shows the profitability of the company’s operating activities, and is the first component of a firm’s ROE:\n\n\n\\[\n\\text{Net Profit Margin}=\\dfrac{\\text{Net Income}}{\\text{Total Sales}}\n\\]\n\nFurther decomposition of a firm’s ROS allows an analyst to assess the efficiency of the firm’s operating management:\n\nBy analyzing each line item of an income statement, one can shed light on what were the specific cost items that drove the net profit margin result\nIn order to do that, a popular tool is to calculate indexes in which all the line items are expressed as a percentage of sales revenues - this is also known as vertical analysis"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#the-anatomy-of-an-income-statement",
+    "href": "fin-mgmt/financial-analysis/index.html#the-anatomy-of-an-income-statement",
+    "title": "Financial Analysis",
+    "section": "The anatomy of an income statement",
+    "text": "The anatomy of an income statement\n\n\n\nEach line item can be thought of an index that represents the % of sales. Net Profit Margin is thus a composite effect of these impacts on firm’s total sales!"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#gross-profit-margin",
+    "href": "fin-mgmt/financial-analysis/index.html#gross-profit-margin",
+    "title": "Financial Analysis",
+    "section": "Gross Profit Margin",
+    "text": "Gross Profit Margin\n\nIt is the difference between a firm’s sales and cost of sales is gross profit, and is an indication of the extent to which revenues exceed direct costs associated with sales:\n\n\n\\[\n\\small\\text{Gross Profit Margin}=\\dfrac{\\text{Sales - Cost of Sales}}{\\text{Total Sales}}\n\\]\n\nUsing the numbers from our example, we have:\n\n\n\n\\[\n\\small\\text{Gross Profit Margin}=\\dfrac{\\text{Sales - Cost of Sales}}{\\text{Total Sales}}=\\dfrac{1,000,000-600,000}{1,000,000}=40\\%\n\\]\n\nFactors that influence Gross Profit Margins:\n\nThe price premium that a firm’s products or services operate\nThe efficiency of the firm’s operations"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#net-operating-profit-after-taxes-nopat",
+    "href": "fin-mgmt/financial-analysis/index.html#net-operating-profit-after-taxes-nopat",
+    "title": "Financial Analysis",
+    "section": "Net Operating Profit After Taxes (NOPAT)",
+    "text": "Net Operating Profit After Taxes (NOPAT)\n\nAfter deducting direct costs, there are still indirect operating costs (or revenues) to be taken into consideration. NOPAT takes into account all non-financial components\nNOPAT Margin is then calculated as:\n\n\n\\[\n\\small \\text{NOPAT Margin}=\\dfrac{(\\text{Sales}-\\text{COGS}-\\text{SG&A}-\\text{Depr./Am.}\\pm\\text{Other Non. Fin.})\\times(1-\\text{Tax Rate})}{\\text{Total Sales}}\n\\]\n\nUsing our example (and assuming a 40% tax rate), we have:\n\n\n\n\\[\n\\small \\text{NOPAT Margin}=\\dfrac{(1,000,000-600,000-125,000)\\times(1-40\\%)}{1,000,000}=16.5\\%\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#understanding-nopat",
+    "href": "fin-mgmt/financial-analysis/index.html#understanding-nopat",
+    "title": "Financial Analysis",
+    "section": "Understanding NOPAT",
+    "text": "Understanding NOPAT\n\nNOPAT margin provides a comprehensive indication of the operating performance of a company because it reflects all operating costs and eliminates the effects of debt policy:\nIn special, Selling, General, and Administrative Expenses (SG&A) expenses are influenced by the operating activities it has to undertake to implement its competitive strategy:\n\nFirms with differentiation strategies have to undertake activities to achieve that differentiation (e.g, R&D-intensive firms)\nSimilarly, a company that attempts to build a brand-equity is likely to have higher selling and administration costs\n\nOn the other hand, SG&A expenses are also influenced by the efficiency with which it manages its overhead activities"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#ebitda",
+    "href": "fin-mgmt/financial-analysis/index.html#ebitda",
+    "title": "Financial Analysis",
+    "section": "EBITDA",
+    "text": "EBITDA\n\nA potential criticism around NOPAT is that it takes into consideration a significant non-cash item: Depreciation and Amortization expenses\nFurthermore, tax expenses may be highly influenced by firm-specific and period-specific factors that can distort comparisons\nThe Earnings Before Interest, Taxes, Depreciation, and Amortization adds back Depreciation/Amortization expenses and does not deduct taxes:\n\n\n\\[\n\\small\\text{EBITDA Margin}=\\dfrac{\\text{Net Income} + \\text{Interest Expenses} + \\text{Taxes}+ \\text{Depreciation/Amortization}}{\\text{Total Sales}}\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#understanding-ebitda",
+    "href": "fin-mgmt/financial-analysis/index.html#understanding-ebitda",
+    "title": "Financial Analysis",
+    "section": "Understanding EBITDA",
+    "text": "Understanding EBITDA\n\nUsing the numbers from our example, we have:\n\n\n\\[\n\\small\\text{EBITDA Margin}=\\dfrac{\\text{Net Income} +\\text{Int. Expenses} +\\text{Taxes}+ \\text{Depr./Am.}}{\\text{Total Sales}}=\\dfrac{325,000}{1,000,000}=32.5\\%\n\\]\n\nEBITDA can be useful to contrast operations by disregarding the potential differences stemming from:\n\n\nNon-cash items (Depreciation and Amortization)\nTaxes (different firms may have different effective tax rates)\nDebt policy"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#market-valuation-ratios",
+    "href": "fin-mgmt/financial-analysis/index.html#market-valuation-ratios",
+    "title": "Financial Analysis",
+    "section": "Market-valuation Ratios",
+    "text": "Market-valuation Ratios\n\nWe saw a series of Liquidity, Solvency, and Profitability indices that could shed light on specific aspects of firm’s performance\nNotwithstanding, these indices are not deterministic: although they provide valuable information, they cannot fully determine how much a firm is worth\nIdeally, the balance sheet would provide us with an accurate assessment of the true value of the firm’s equity. Unfortunately, this is unlikely to be the case:\n\nMany of the assets listed on the balance sheet are valued based on their historical cost rather than their true value today.\nMore importantly, a substantial amount of the firm’s valuable assets are not captured on the balance sheet (expertise of its employees, reputation, relationships with customers and suppliers, among others)\n\nFor these reasons, we should expect that Market Value of Equity \\(\\neq\\) Book Value of Equity"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#market-valuation-ratios---enterprise-value",
+    "href": "fin-mgmt/financial-analysis/index.html#market-valuation-ratios---enterprise-value",
+    "title": "Financial Analysis",
+    "section": "Market-valuation Ratios - Enterprise value",
+    "text": "Market-valuation Ratios - Enterprise value\n\nThe total market value of a firm’s equity equals the number of shares outstanding times the firm’s market price per share - often referred to as market capitalization:\n\n\n\\[\n\\text{Market Value of Equity}= \\text{Shares Outstanding} \\times \\text{Market Price per Share}\n\\]\nNote: Shares Outstanding refer to the total number of shares issued by the company, and can include publicly traded (float) insider stocks and closely held stocks.\n\nIt does not depend on the historical cost of the firm’s assets\nRather, it depends on what investors expect those assets to produce in the future\n\n\nWe can calculate the Enterprise Value (known as the “cost to take over the business”) as:\n\n\n\n\\[\n\\text{Enterprise Value}=\\text{Market Value of Equity} + Debt - Cash\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#market-valuation-ratios---mb-ratio",
+    "href": "fin-mgmt/financial-analysis/index.html#market-valuation-ratios---mb-ratio",
+    "title": "Financial Analysis",
+    "section": "Market-valuation Ratios - M/B Ratio",
+    "text": "Market-valuation Ratios - M/B Ratio\nWe can also calculate indices that contrast market and book measurements:\n\nThe Market-to-Book Ratio highlights the differences in fundamental firm characteristics as well as the value added by management:\n\n\n\\[\n\\small \\text{M/B Ratio}=\\dfrac{\\text{Market Value of Equity}}{\\text{Book Value of Equity}}\n\\]\n\nWhere market capitalization is defined as before, and the Book Value of Equity is the accounting value of the firm’s equity (i.e, Assets - Liabilities).\nSome common patterns on M/B Ratios:\n\nA successful firm’s market-to-book ratio typically exceeds 1.\nLow market-to-book ratios \\(\\rightarrow\\) also known as value stocks\nHigh market-to-book ratios \\(\\rightarrow\\) also known as growth stocks"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#market-valuation-ratios---pe-ratio",
+    "href": "fin-mgmt/financial-analysis/index.html#market-valuation-ratios---pe-ratio",
+    "title": "Financial Analysis",
+    "section": "Market-valuation Ratios - P/E Ratio",
+    "text": "Market-valuation Ratios - P/E Ratio\n\n\\[\n\\small \\text{P/E Ratio} = \\dfrac{\\text{Market Capitalization}}{\\text{Net Income}}\\equiv \\dfrac{\\text{Share Price}}{\\text{Earnings per Share}}\n\\]\n\nThe P/E ratio is a simple measure that is used to assess whether a stock is over- or under-valued based on the idea that the value of a stock should be proportional to the level of earnings it can generate for its shareholders\n\nThis indicator tends to be highest for industries with high expected growth rates\nBecause the P/E ratio considers the value of the firm’s equity, it is sensitive to the firm’s choice of leverage.\nWe can avoid this limitation by instead assessing the market value of the underlying business using valuation ratios based on the firm’s enterprise value1.\n\n\n\nSee BDM Comment on Mismatched Ratios, p. 77"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#sustainable-growth-rate",
+    "href": "fin-mgmt/financial-analysis/index.html#sustainable-growth-rate",
+    "title": "Financial Analysis",
+    "section": "Sustainable Growth Rate",
+    "text": "Sustainable Growth Rate\n\nWe have studied factors that, ultimately, show how a firm’s profitability and {growth}{.blue} can be broke down in terms of investment and financing decisions\nQuestion what could be considered a sustainable growth rate of a business:\nWe can shed light on this question by relating a firm’s long-term ROE to its payout policy:\n\n\nROE shows how much the firm can generate in terms of cash for its shareholders\nPayout indicates how much of the profits have been paid out as dividends\n\n\nHence, an estimate for a firm’s sustainable growth rate (i.e, using only funds from its own operations and not issuing any new debt/equity) is:\n\n\n\\[\n\\small g = ROE \\times \\text{% Retailed Profits} \\equiv ROE \\times \\bigg(1-\\dfrac{\\text{Divivends Paid}}{\\text{Net Income}}\\bigg) \\equiv ROE \\times (1-\\text{Payout Ratio})\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#wrapping-up-on-financial-indicators",
+    "href": "fin-mgmt/financial-analysis/index.html#wrapping-up-on-financial-indicators",
+    "title": "Financial Analysis",
+    "section": "Wrapping up on Financial Indicators",
+    "text": "Wrapping up on Financial Indicators\n\nWe have studied how Liquidity, Solvency, and Profitability can shed light on the firm’s future profits and growth rates\nAlso, Market Valuation indices can help us relate how investors see (and price) these businesses based on the available information\nAlthough these indices provide valuable information for us, there are some caveats:\n\nIndices are backward-looking: it does not mean that a firm will continue to deliver the same indices year-over-year\nThey may suffer from accounting distortions\nFinally, they only provide a high-level view of a firm performance, and does not necessarily go in lockstep with market evaluations about the firm\n\n\n\n\\(\\rightarrow\\) Practice these concepts analyzing 3M using the Exercise - 3M Ratios.xlsx (available on eClass®)"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#criticism-around-traditional-financial-ratio-analysis",
+    "href": "fin-mgmt/financial-analysis/index.html#criticism-around-traditional-financial-ratio-analysis",
+    "title": "Financial Analysis",
+    "section": "Criticism around traditional financial ratio analysis",
+    "text": "Criticism around traditional financial ratio analysis\n\nFinancial reporting serves as an important role as means of communication between managers and stakeholders – in special, investors\nNotwithstanding, traditional financial reporting falls short on understanding the value driven from intangibles, which have been becoming a more important portion of the asset base\nThe most concrete proposal for this shortcoming is called Integrated Reporting:\n\nHow an organization creates integrated value\nAdds Intellectual, Social , Relationship, Human, and Natural dimensions to the analysis\n\nIntegrated Reporting is facilitated by the recent widespread in ESG data (e.g, gender in boards, wages, carbon emissions, etc)\n\n\n\\(\\rightarrow\\) Full content on Integrated Reporting: see (Schoenmaker and Schramade 2019), available on eClass®"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#the-role-of-credit-ratings",
+    "href": "fin-mgmt/financial-analysis/index.html#the-role-of-credit-ratings",
+    "title": "Financial Analysis",
+    "section": "The role of Credit Ratings",
+    "text": "The role of Credit Ratings\n\nWho might be interested in getting a full view of the firm’s financial prospects?\nBorrowers which seek credit in capital markets need to signal their financial conditions to potential creditholders\nA rating agency is responsible for translating firm’s financials into creditworthiness\nAgencies provide a grading on a given firm’s creditworthiness, which can guide financing decisions (for example, a investor fund may only invest in business that are rated as AAA, which stands for the highest creditworthiness firms)\n\n\nRating firms were at the focus of the 2008 global financial crisis (see the movie The Big Short)\nCredit ratings are affected (and have the potential to affect) business outcomes\n\n\n\\(\\rightarrow\\) Full content on Credit Ratings: see UV8009 - Credit Rating Basics, available on eClass®"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#appendix-i-decomposing-profitability-an-alternative-approach",
+    "href": "fin-mgmt/financial-analysis/index.html#appendix-i-decomposing-profitability-an-alternative-approach",
+    "title": "Financial Analysis",
+    "section": "Appendix I: decomposing profitability: an alternative approach",
+    "text": "Appendix I: decomposing profitability: an alternative approach\n\nDecomposing ROE using DuPont’s approach provide us with key insights on specific factors that can drive shareholder’s profitability. Notwithstanding, it has some limitations:\n\nIn the computation of ROA, the denominator includes the assets claimed by all providers of capital to the firm, but the numerator includes only the earnings available to equity holders\nThe assets themselves include both operating assets and financial assets such as cash and short-term investments\nNet income includes income from operating activities as well as interest income and expense, which are consequences of financing decisions\nFinally, financial leverage ratio used above does not recognize the fact that a firm’s cash and short-term investments are in essence “negative debt” because they can be used to pay down the debt on the company’s balance sheet\n\nWe can use the terms discussed in this lecture to further decompose ROE"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-1",
+    "href": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-1",
+    "title": "Financial Analysis",
+    "section": "Decomposing profitability: Step 1",
+    "text": "Decomposing profitability: Step 1\nStarting from the general equation:\n\\[\n\\small\nROE=\\dfrac{\\text{Net Income}}{\\text{Equity}}\n\\]\nUsing the fact that Net Income is the difference between NOPAT and Net Interest Expenses after Taxes, we have:\n\\[\n\\small\nROE=\\dfrac{\\text{Net Income}}{\\text{Equity}}=\\dfrac{\\text{NOPAT-Net Interest Expenses after Taxes}}{\\text{Equity}}\n\\]\nWhich we can disentangle into two terms:\n\\[\n\\small\nROE=\\dfrac{\\text{Net Income}}{\\text{Equity}}=\\dfrac{\\text{NOPAT}}{\\text{Equity}}-\\dfrac{\\text{Net Interest Expenses after Taxes}}{\\text{Equity}}\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-2",
+    "href": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-2",
+    "title": "Financial Analysis",
+    "section": "Decomposing profitability: Step 2",
+    "text": "Decomposing profitability: Step 2\nBy now, let’s focus on the first term, highlighted with a \\(\\star\\) :\n\\[\n\\small\nROE=\\underbrace{\\dfrac{\\text{NOPAT}}{\\text{Equity}}}_{\\star}-\\dfrac{\\text{Net Interest Expenses after Taxes}}{\\text{Equity}}\n\\] We can divide and multipy by Net Assets, which is the sum of Long Term Assets and Operating working Capital:\n\\[\n\\small\n\\dfrac{\\text{NOPAT}}{\\text{Equity}}\\times \\dfrac{\\text{Net Assets}}{\\text{Net Assets}}\\equiv \\dfrac{\\text{NOPAT}}{\\text{Net Assets}}\\times \\dfrac{\\text{Net Assets}}{\\text{Equity}}\n\\] Finally, since Net Assets are just the sum of Equity and Net Debt, we can subtstitue the terms into the Net Assets in the numerator:\n\\[\n\\small\n\\dfrac{\\text{NOPAT}}{\\text{Net Assets}}\\times \\dfrac{\\text{Net Assets}}{\\text{Equity}}=\\dfrac{\\text{NOPAT}}{\\text{Net Assets}}\\times \\bigg[\\bigg(\\dfrac{\\text{Equity + Net Debt}}{\\text{Equity}}\\bigg)\\bigg]\n\\]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-2-1",
+    "href": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-2-1",
+    "title": "Financial Analysis",
+    "section": "Decomposing profitability: Step 2",
+    "text": "Decomposing profitability: Step 2\n\nSimplifying, we have:\n\n\n\\[\n\\small\n\\dfrac{\\text{NOPAT}}{\\text{Net Assets}}\\times \\bigg[\\bigg(\\dfrac{\\text{Equity}}{\\text{Equity}}+\\dfrac{\\text{Net Debt}}{\\text{Equity}}\\bigg)\\bigg]=\\dfrac{\\text{NOPAT}}{\\text{Net Assets}}\\times \\bigg(1+\\dfrac{\\text{Net Debt}}{\\text{Equity}}\\bigg)\n\\]\n\nLets hold off this term for on and focus on the other term of the ROE decomposition."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-3",
+    "href": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-3",
+    "title": "Financial Analysis",
+    "section": "Decomposing profitability: Step 3",
+    "text": "Decomposing profitability: Step 3\nNow, let’s focus on the second component of the ROE decomposition:\n\\[\n\\small\nROE=\\dfrac{\\text{NOPAT}}{\\text{Equity}}-\\underbrace{\\dfrac{\\text{Net Interest Expenses after Taxes}}{\\text{Equity}}}_{\\star}\n\\]\nUsing the same rationale,divide and multipy by Net Debt, which is the difference between all Interest-bearing liabilities and Cash + Marketable securities:\n\\[\n\\small\n\\dfrac{\\text{Net Interest Expenses after Taxes}}{\\text{Equity}}\\times \\dfrac{\\text{Net Debt}}{\\text{Net Debt}}\\equiv \\dfrac{\\text{Net Interest Expenses after Taxes}}{\\text{Net Debt}} \\times \\dfrac{\\text{Net Debt}}{\\text{Equity}}\n\\] This is the second term of our ROE equation, and we’ll use it to simplify the equation even further."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-4",
+    "href": "fin-mgmt/financial-analysis/index.html#decomposing-profitability-step-4",
+    "title": "Financial Analysis",
+    "section": "Decomposing profitability: Step 4",
+    "text": "Decomposing profitability: Step 4\n\nJoining steps 2-3 altogether, our ROE can be expressed as:\n\n\n\\[\n\\small\nROE= \\dfrac{\\text{NOPAT}}{\\text{Net Assets}}\\times \\bigg(1+\\dfrac{\\text{Net Debt}}{\\text{Equity}}\\bigg)- \\dfrac{\\text{Net Interest Expenses after Taxes}}{\\text{Net Debt}} \\times \\dfrac{\\text{Net Debt}}{\\text{Equity}}\n\\]\n\nSimplifying and rearranging, we have:\n\n\n\n\\[\n\\small\nROE= \\underbrace{\\dfrac{\\text{NOPAT}}{\\text{Net Assets}}}_{\\text{Operating ROA}} + \\bigg[\\underbrace{\\dfrac{\\text{Net Debt}}{\\text{Equity}}}_{\\text{Net Financial Leverage}}\\times\\bigg(\\underbrace{\\dfrac{\\text{NOPAT}}{\\text{Net Assets}}- \\dfrac{\\text{Net Interest Expenses after Taxes}}{\\text{Net Debt}}\\bigg)}_{\\text{Spread}}\\bigg]\n\\]\n\nFor more details on the calculations, see (Healy and Palepu 2012). The next slide explains each term of the new ROE decomposition"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#understanding-the-roe-decomposition---operating-roa",
+    "href": "fin-mgmt/financial-analysis/index.html#understanding-the-roe-decomposition---operating-roa",
+    "title": "Financial Analysis",
+    "section": "Understanding the ROE decomposition - Operating ROA",
+    "text": "Understanding the ROE decomposition - Operating ROA\n\n\\[\n\\small\n\\dfrac{\\text{NOPAT}}{\\text{Net Assets}}\n\\]\n\nThe first term yields us the Operating ROA:\n\nThis is a measure of how profitably a company is able to deploy its operating assets to generate operating profits\nThis would be a company’s ROE if it were financed entirely with equity\n\nAnalyzing the Operating ROA in isolation is very important, as it focus on the operational portion of the firms’ profits and assets. Therefore, we get a more clear view on how the operating assets of a firm are being put in production\nIn other words, absent any effects coming from financing decisions, how well are the firm’s operating activities?"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#understanding-the-roe-decomposition---spread",
+    "href": "fin-mgmt/financial-analysis/index.html#understanding-the-roe-decomposition---spread",
+    "title": "Financial Analysis",
+    "section": "Understanding the ROE decomposition - Spread",
+    "text": "Understanding the ROE decomposition - Spread\n\\[\n\\small\n\\bigg(\\dfrac{\\text{NOPAT}}{\\text{Net Assets}}- \\dfrac{\\text{Net Interest Expenses after Taxes}}{\\text{Net Debt}}\\bigg)\n\\]\n\nThe second term yields us the Spread:\n\nSpread is the incremental economic effect from introducing debt into the capital structure.\nThis economic effect of borrowing is positive as long as the return on operating assets is greater than the cost of borrowing\n\nConsequently, firms that do not earn adequate operating returns to pay for interest cost reduce their ROE by borrowing debt"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#understanding-the-roe-decomposition---net-financial-leverage",
+    "href": "fin-mgmt/financial-analysis/index.html#understanding-the-roe-decomposition---net-financial-leverage",
+    "title": "Financial Analysis",
+    "section": "Understanding the ROE decomposition - Net Financial Leverage",
+    "text": "Understanding the ROE decomposition - Net Financial Leverage\n\n\\[\n\\small\n\\dfrac{\\text{Net Debt}}{\\text{Equity}}\n\\]\n\nThe third (and final) term of the decomposition is the Net Financial Leverage:\n\nBoth the positive and negative effects of introducing debt into the capital structure are magnified by the extent to which a firm borrows relative to its equity base\nThe ratio of net debt to equity provides a measure of this net financial leverage.\nA firm’s spread times its net financial leverage, therefore, provides a measure of the financial leverage gain (or loss) to the shareholders."
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#appendix-ii-from-financial-ratios-to-investment-strategies-tbd",
+    "href": "fin-mgmt/financial-analysis/index.html#appendix-ii-from-financial-ratios-to-investment-strategies-tbd",
+    "title": "Financial Analysis",
+    "section": "Appendix II: from Financial Ratios to Investment Strategies [TBD]",
+    "text": "Appendix II: from Financial Ratios to Investment Strategies [TBD]"
+  },
+  {
+    "objectID": "fin-mgmt/financial-analysis/index.html#references",
+    "href": "fin-mgmt/financial-analysis/index.html#references",
+    "title": "Financial Analysis",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2019. Corporate Finance, Global Edition. Global Edition / English Textbooks. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ.\n\n\nHealy, P. M., and K. G. Palepu. 2012. Business Analysis Valuation: Using Financial Statements. Cengage Learning. https://books.google.com.br/books?id=Qp0IzgEACAAJ.\n\n\nSchoenmaker, D., and W. Schramade. 2019. Principles of Sustainable Finance. Oxford University Press. https://books.google.com.br/books?id=zoN8DwAAQBAJ."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This site contains lectures."
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#outline",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#outline",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Outline",
+    "text": "Outline"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#welcome-to-the-course",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#welcome-to-the-course",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Welcome to the Course",
+    "text": "Welcome to the Course\n\n\nOverview and Course Organization\nGrading and Evaluations\nNavigating through the syllabus\nHow you can get the best of this course\nOverall Q&A\nIntroduction to Corporate Finance"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#overview-and-course-organization",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#overview-and-course-organization",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Overview and course organization",
+    "text": "Overview and course organization\n\n\nBasic text-book\n\nWe will extensively follow Corporate Finance (Berk and DeMarzo 2019), as our text-book\nThroughout the syllabus, it will be referred as [BDM]\n\nOther mandatory reading\n\n[BMA] Principles of Corporate Finance (Brealey, Myers, and Allen 2020)\n[PH] Business Analysis and Valuation (Healy and Palepu 2012)\n[SS] Principles of Sustainable Finance (Schoenmaker and Schramade 2019)\n\nSupplementary Reading\n\nHarvard Business Review (selected cases) - access granted on e-Class®\nOther focused contents previously defined on the syllabus"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#grading-and-evaluations",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#grading-and-evaluations",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Grading and Evaluations",
+    "text": "Grading and Evaluations\n\nGrading will be composed of the following activities:\n\nMid-term Examination (30%)\nFinal Examination (35%)\n4x Quizzes throughout the semester (15%)\nPractical work (15%)\nClass participation and handout exercises (5%)\n\n\n\n\nYou can find the details of any of these activities in the official syllabus (available on eClass)\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#getting-the-best-of-this-course",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#getting-the-best-of-this-course",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Getting the best of this course",
+    "text": "Getting the best of this course"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#getting-the-best-of-this-course-1",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#getting-the-best-of-this-course-1",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Getting the best of this course",
+    "text": "Getting the best of this course\n\n How you can get the best of this course\n\nFollow FGV-EAESP code of conduct\nBe organized: pay attention to pre-readings and deliverables!\nBe proactive: ask questions and participate in discussions\nTake the lead on your learning: you are the ultimate responsible for your success!\n\n\n\n How the professor can facilitate you getting the best of this course\n\nAll mandatory content will be provided in English, classes will be held in Portuguese\nProvide a safe and open space for questions, both in-person and remote\nMotivate students, both from the academic and practitioner standpoints\nProvide opportunities to extend knowledge beyond the mandatory readings"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#introduction-to-corporate-finance",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#introduction-to-corporate-finance",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Introduction to Corporate Finance",
+    "text": "Introduction to Corporate Finance\nWhat is a Corporation, anyway? Think about any business opportunity, like opening a small pizza vendor facility…\n\nOn the one hand, there is an endless variety of real assets needed to carry on such business\nOn the other hand, these assets simply do not come for free – there has to be some way to acquire them!\n\n\nBroadly speaking, these are:\n\nInvestment Decisions \\(\\rightarrow\\) acquisition of real assets - e.g, oven, machinery, powerplant\nFinancing Decisions: \\(\\rightarrow\\) sale of financial assets - bank financing, equity\n\nNot surprisingly, these decisions are intertwinned:\n\nWhile Investment decisions define what is the set of assets to be organized…\nFinancing decisions define how these assets will be acquired!"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#examples-of-investment-and-financing-decisions",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#examples-of-investment-and-financing-decisions",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Examples of Investment and Financing Decisions",
+    "text": "Examples of Investment and Financing Decisions"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#investment-decisions",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#investment-decisions",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Investment Decisions",
+    "text": "Investment Decisions\n\nInvestment decisions are generally thought of as a capital investment made today to generate returns in the future\nThe extent to when these returns are expected to happen depends on the specific investment\nExamples of Investment decisions:\n\n\nResearch and Development (R&D) on creating/optimizing new products/services\nMachinery, Property, Pland, and Equipment\nOpening new stores\nAcquiring an operation from a company\nExpanding trade credit to leverage sales\nStock up warehouses with inventory during high seasonality"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#financing-decisions",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#financing-decisions",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Financing Decisions",
+    "text": "Financing Decisions\n\nAfter you decide on what to invest: how are you going to fund it?\nOverall, a firm can raise money by two ways:\n\nA firm can borrow money from a lender \\(\\rightarrow\\) firm receives the money, but now has a promise to pay back the debt plus interest\nAlternatively, the firm can raise money from the shareholders \\(\\rightarrow\\) equity financing\n\nThe choice between the amount of equity vs is often referred to Capital Structure decisions\nWithin each type of financing, there are specific decisions that increase the complexity:\n\n\nWould the firm be better-off by having a 1-year or 20-year financing? Should it include collateral or not? Fixed or variable interest rate?\nFor equity financing, should the firm issue new equity or reinvest profits into its operations?\n\n\nQuestion: between investment and financing, which one is the most important?"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#managing-investment-and-financing-decisions",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#managing-investment-and-financing-decisions",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Managing investment and financing decisions",
+    "text": "Managing investment and financing decisions\n\nWe saw that any business opportunity must be accompained by an investment and a financing decision\nManaging these decisions is a hard task, especially if you have to conduct the front-end of the business altogether\nTo this point, there has to be someone to organize these flows on behalf of the firm…\n\n\n\n\n\nInvestment and Financing Decisions (Brealey, Myers, and Allen 2020)"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#the-role-of-the-financial-manager",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#the-role-of-the-financial-manager",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "The role of the Financial Manager",
+    "text": "The role of the Financial Manager\n\n\n\n\nInvestment and Financing Decisions (Brealey, Myers, and Allen 2020)\n\n\n\nA Financial Manager1 stands between the firm and outside investors:\n\nOn the one hand, it helps managing the firm’s operations, particularly by helping to make good investment decisions\nOn the other hand, it deals with investors such as shareholders and financial institutions\n\n\n\nFollowing (Brealey, Myers, and Allen 2020), we use this term to refer to anyone (or a group of people) responsible for an investment or financing decision."
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#the-investment-trade-off",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#the-investment-trade-off",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "The Investment Trade-off",
+    "text": "The Investment Trade-off\n\n\n\n\nInvestment and Financing Decisions (Brealey, Myers, and Allen 2020)\n\n\n\nSuppose that firm has a proposed investment project (a real asset) and has cash on hand to finance the project\nThe Financial Manager has to decide whether to invest in the project:\n\nIf investing, cash goes to fund the project\nIf not investing, the firm can then pay out the cash to shareholders as an extra-dividend"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#the-investment-trade-off-continued",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#the-investment-trade-off-continued",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "The Investment Trade-off, continued",
+    "text": "The Investment Trade-off, continued\n\nAssume that this financial manager acts on behalf of the shareholder’s interests. What do they want the financial manager to do?\nThe answer depends on the project’s rate of return:\n\nIf the return offered by project is higher than what the shareholders can get elsewhere investing on their own \\(\\rightarrow\\) shareholders would be better off with the project\nIf it offers a return rate that is lower than what the shareholders can achieve on their own \\(\\rightarrow\\) shareholders would be better off by having the cash on their hands\n\nThis decision is tied to an important concept called the opportunity cost of capital:\n\nWhenever a corporation invests in a project, its shareholders lose the opportunity to invest the cash on their own\nCorporations increase value by accepting all investment projects that earn more than the opportunity cost of capital."
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#ibovespa-and-interest-rate-dynamics",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#ibovespa-and-interest-rate-dynamics",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Ibovespa and interest rate dynamics",
+    "text": "Ibovespa and interest rate dynamics"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#how-to-take-actions-on-behalf-of-the-shareholders",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#how-to-take-actions-on-behalf-of-the-shareholders",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "How to take actions on behalf of the shareholders",
+    "text": "How to take actions on behalf of the shareholders\n\nShareholders differ in several dimensions:\n\nAge\nTastes\nConsumption Patterns\nWealth\nRisk Aversion\nInvestment Horizon\n\n\n\nQuestion: which criteria should the Financial Manager use to take investment and financing decisions?\n\nFortunately, there is a widely accepted criteria: maximize the current market value of shareholders’ investment!"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#shareholder-value-maximization",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#shareholder-value-maximization",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Shareholder Value Maximization",
+    "text": "Shareholder Value Maximization\n\nMaximizing shareholder wealth is a sensible goal when the they have access to well-functioning financial markets:\n\nFinancial markets allow them to share risks and transport savings across time\nIt also gives them the flexibility to manage their own savings and investment plans\n\nWhy it works like this? Assume that the Financial Manager acts on behalf of the stockholders of the firm. A plausible assumption is that:\n\n\nShareholders want to be as rich as possible…\nAnd transform such wealth into his/her specific consumption pattern via borrowing/lending\nFinally, shareholders need to manage the risk of his/her chosen consumption pattern\n\n\nNote that points 2 and 3 can be done by the shareholder\nHow then can the financial manager help the firm’s stockholders? Increasing their wealth!"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#the-separation-of-ownership-and-control",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#the-separation-of-ownership-and-control",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "The separation of ownership and control",
+    "text": "The separation of ownership and control\n\nWhen we introduced the figure of the Financial Manager and the existence of financial markets, we implicitly discussed the separation of ownership and control\nIn other words, the shareholders of the firm cannot fully control what the managers do\nIs this a problem? Up to now, we are assuming that the Financial Manager should look after the interests of the shareholders\nAlthough this separation is necessary, there are reasons to think that managers could pursue their own objectives:\n\n\nMaximize their bonuses\nPass attractive, but risky projects to increase job safety\nOverinvest to show hard work\nTake on too much risk as the downside will be ultimately borne out by the shareholders"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#the-agency-problem",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#the-agency-problem",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "The Agency Problem",
+    "text": "The Agency Problem\n\nThe manager (or the agent) does not have incentives to maximize shareholder value; and\nShareholders (the principals) need to incur in monitoring costs to constrain value-destroying decisions\n\n\nThat sets up the stage for Corporate Governance: the design of actions that aims to align the interests of the different stakeholders of the firm and reduce Agency Costs. Examples:\n\n\nLegal and regulatory requirements - SEC (U.S), Comissão de Valores Mobiliários (CVM) (Brazil)\nCompensation plans based on metrics that are tied to maximizing shareholder value (stock options, restricted stock units, variable compensation, etc)\nThe creation of the Board of Directors\nHostile Takeovers and Market Monitoring\nShareholder Pressure, also called the “Wall Street walk”"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#supplementary-reading",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#supplementary-reading",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "Supplementary Reading",
+    "text": "Supplementary Reading\nAfter-class reading (available at e-Class):\n\nCarbon Credit Markets\nWhat Every Leader Needs to Know About Carbon Credits\nNews about the recent change on relevant brazilian market instruments for Financing Decisions (LCI, LCA, CRIs, CRAs, etc)\n\n\nMiscellaneous (social media, video content, etc):\n\nBruno Paolinelli (“Resumo do Mercado de Hoje”): daily market news with a lot of fun (and irony) - link\nBarbarians at the Gate: movie from 1993 describing some corporate governance conflicts in the 80’s - link"
+  },
+  {
+    "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#references",
+    "href": "fin-mgmt/introduction-to-corporate-finance/index.html#references",
+    "title": "Intro and Course Overview Financial Management",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2019. Corporate Finance, Global Edition. Global Edition / English Textbooks. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ.\n\n\nBrealey, R. A., S. C. Myers, and F. Allen. 2020. Principles of Corporate Finance. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. https://books.google.com.br/books?id=nsrHuwEACAAJ.\n\n\nHealy, P. M., and K. G. Palepu. 2012. Business Analysis Valuation: Using Financial Statements. Cengage Learning. https://books.google.com.br/books?id=Qp0IzgEACAAJ.\n\n\nSchoenmaker, D., and W. Schramade. 2019. Principles of Sustainable Finance. Oxford University Press. https://books.google.com.br/books?id=zoN8DwAAQBAJ."
+  },
+  {
+    "objectID": "finstrat.html",
+    "href": "finstrat.html",
+    "title": "About",
+    "section": "",
+    "text": "This site contains lectures."
+  }
+]
