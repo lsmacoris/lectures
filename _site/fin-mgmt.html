@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lucas S. Macoris - Lecture Notes and Handouts</title>
+<title>Lucas S. Macoris - Financial Management</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -159,15 +159,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./finmgmt.html"> 
+    <a class="nav-link active" href="./fin-mgmt.html" aria-current="page"> 
 <span class="menu-text">Financial Management</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./finstrat.html"> 
+    <a class="nav-link" href="./fin-strat.html"> 
 <span class="menu-text">Financial Strategy</span></a>
   </li>  
 </ul>
@@ -210,7 +210,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>Lecture Notes and Handouts</strong></h1>
+<h1 class="title">Financial Management</h1>
 </div>
 
 
@@ -228,68 +228,62 @@ window.Quarto = {
 
 
 <hr>
-<div class="cell">
-<style type="text/css">
-.justify {
-  text-align: justify !important
-}
-</style>
-</div>
-<div class="justify">
-<p>Within this section, you’ll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. Most, if not all, of these resources extensively leverage <a href="www.quarto.org">Quarto</a>, an open-source scientific and technical publishing system that supports <em>R</em>, <em>Python</em>, <em>Julia</em>, and <em>Observable</em>. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by <a href="https://revealjs.com/">Reveal JS</a>.</p>
-<p>For comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official <a href="https://quarto.org/docs/reference/">reference</a> material.</p>
-</div>
+<section id="about-the-course" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-course"><strong>About the course</strong></h2>
+<p>The Financial Administration course is the second training program in the financial field within the EAESP Business Administration undergradute track.</p>
+<p>It proposes to present, in a context of risk <span class="math inline">\(\times\)</span> return and from a long-term perspective, the fundamental decisions of Corporate Finance: <em>investment</em>, <em>financing</em>, and shareholder <em>compensation</em>. It particularly addresses the fundamentals of capital investment analysis, working capital management, economic-financial analysis of companies, cash generation capacity and its influence on the objective of maximizing shareholder wealth. These approaches will consider the fundamental factors of ESG (Environmental, Social and Corporate Governance) policies and their consequences for companies.</p>
 
 
 
+</section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1720734992251" data-listing-reading-time-sort="1" data-listing-word-count-sort="4">
-<div class="thumbnail">
-<p><a href="./finstrat.html" class="no-external"></a></p><a href="./finstrat.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./finstrat.html" class="no-external"></a></p>
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title-sort" data-direction="asc">
+          Title
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./finstrat.html" class="no-external">About</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./finstrat.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./finstrat.html" class="no-external">This site contains lectures.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./finstrat.html" class="no-external"></a></p><a href="./finstrat.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1720735230095" data-listing-reading-time-sort="1" data-listing-word-count-sort="4">
-<div class="thumbnail">
-<p><a href="./finmgmt.html" class="no-external"></a></p><a href="./finmgmt.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./finmgmt.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./finmgmt.html" class="no-external">Financial Management</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./finmgmt.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./finmgmt.html" class="no-external">This site contains lectures.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./finmgmt.html" class="no-external"></a></p><a href="./finmgmt.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+<th>
+Reading Time
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-file-modified-sort="1720732609048" data-listing-reading-time-sort="31" data-listing-word-count-sort="6048" data-listing-title-sort="Financial Analysis" data-listing-filename-sort="index.qmd">
+<td>
+<a href="./fin-mgmt/financial-analysis/index.html" class="title listing-title">Financial Analysis</a>
+</td>
+<td>
+<span class="listing-reading-time">31 min</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-file-modified-sort="1720718775005" data-listing-reading-time-sort="10" data-listing-word-count-sort="1940" data-listing-title-sort="Intro and Course Overview Financial Management" data-listing-filename-sort="index.qmd">
+<td>
+<a href="./fin-mgmt/introduction-to-corporate-finance/index.html" class="title listing-title">Intro and Course Overview Financial Management</a>
+</td>
+<td>
+<span class="listing-reading-time">10 min</span>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -833,7 +827,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/lsmacoris/edit/main/about.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lsmacoris/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/lsmacoris/edit/main/fin-mgmt.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lsmacoris/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

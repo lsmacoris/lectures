@@ -5,5 +5,26 @@
       "/fin-mgmt/financial-analysis/index.html",
       "/fin-mgmt/introduction-to-corporate-finance/index.html"
     ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/fin-mgmt.html",
+      "/fin-strat.html"
+    ]
+  },
+  {
+    "listing": "/about.html",
+    "items": [
+      "/finstrat.html",
+      "/finmgmt.html"
+    ]
+  },
+  {
+    "listing": "/fin-mgmt.html",
+    "items": [
+      "/fin-mgmt/financial-analysis/index.html",
+      "/fin-mgmt/introduction-to-corporate-finance/index.html"
+    ]
   }
 ]

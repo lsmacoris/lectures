@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "lectures",
+    "title": "Lecture Notes and Handouts",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Within this section, you’ll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. Most, if not all, of these resources extensively leverage Quarto, an open-source scientific and technical publishing system that supports R, Python, Julia, and Observable. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by Reveal JS.\nFor comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official reference material.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Management\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Strategy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "finmgmt.html",
@@ -478,9 +478,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Lecture Notes and Handouts",
     "section": "",
-    "text": "This site contains lectures."
+    "text": "Within this section, you’ll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. Most, if not all, of these resources extensively leverage Quarto, an open-source scientific and technical publishing system that supports R, Python, Julia, and Observable. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by Reveal JS.\nFor comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official reference material.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAbout\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Management\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "fin-mgmt/introduction-to-corporate-finance/index.html#outline",
@@ -635,5 +635,61 @@
     "title": "About",
     "section": "",
     "text": "This site contains lectures."
+  },
+  {
+    "objectID": "about.html#financial-management",
+    "href": "about.html#financial-management",
+    "title": "Lecture Notes and Handouts",
+    "section": "Financial Management",
+    "text": "Financial Management\nThese series of slides and lecture notes relate to the Financial Management course (undergraduate level, FGV-EAESP).\nLecture 1 - Introduction to Corporate Finance\nLecture 2 - Financial Analysis\nLecture 3 - Financial Analysis\nLecture 4 - Financial Analysis\nLecture 5 - Economic Value Added\nLecture 6 - Working Capital Management\nLecture 7 - Working Capital Management\nLecture 8 - Short-term Financial Planning\nLecture 9 - Short-term Financial Planning\nLecture 10 - Free Cash Flow\nLecture 11 - Investment Decision Rules\nLecture 12 - Investment Decision Rules\nLecture 13 - Capital Budgeting\nLecture 14 - Ensuring Positive NPVs\nLecture 15 - Valuation with Leverage\nLecture 16 - Valuation with Leverage\nLecture 17 - Valuation: Practical Case\nLecture 18 - Valuation: Practical Case\nLecture 19 - Mergers and Acquisitions"
+  },
+  {
+    "objectID": "about.html#applied-quantitative-methods",
+    "href": "about.html#applied-quantitative-methods",
+    "title": "Lecture Notes and Handouts",
+    "section": "Applied Quantitative Methods",
+    "text": "Applied Quantitative Methods\nThese series of slides and lecture notes relate to the Applied uantitative Methods and Marketing Analytics course (master’s, University of Navarra).\nLecture 1 - Choice Models and its Applications\nLecture 2 - Choice Models and its Applications - pt 2\nLecture 3 - Multiple Choice Models\nLecture 4 - Multiple Choice Models - pt 2"
+  },
+  {
+    "objectID": "index.html#financial-management",
+    "href": "index.html#financial-management",
+    "title": "Lecture Notes and Handouts",
+    "section": "Financial Management",
+    "text": "Financial Management\nThese series of slides and lecture notes relate to the Financial Management course (undergraduate level, FGV-EAESP).\nLecture 1 - Introduction to Corporate Finance\nLecture 2 - Financial Analysis\nLecture 3 - Financial Analysis\nLecture 4 - Financial Analysis\nLecture 5 - Economic Value Added\nLecture 6 - Working Capital Management\nLecture 7 - Working Capital Management\nLecture 8 - Short-term Financial Planning\nLecture 9 - Short-term Financial Planning\nLecture 10 - Free Cash Flow\nLecture 11 - Investment Decision Rules\nLecture 12 - Investment Decision Rules\nLecture 13 - Capital Budgeting\nLecture 14 - Ensuring Positive NPVs\nLecture 15 - Valuation with Leverage\nLecture 16 - Valuation with Leverage\nLecture 17 - Valuation: Practical Case\nLecture 18 - Valuation: Practical Case\nLecture 19 - Mergers and Acquisitions"
+  },
+  {
+    "objectID": "index.html#applied-quantitative-methods",
+    "href": "index.html#applied-quantitative-methods",
+    "title": "Lecture Notes and Handouts",
+    "section": "Applied Quantitative Methods",
+    "text": "Applied Quantitative Methods\nThese series of slides and lecture notes relate to the Applied uantitative Methods and Marketing Analytics course (master’s, University of Navarra).\nLecture 1 - Choice Models and its Applications\nLecture 2 - Choice Models and its Applications - pt 2\nLecture 3 - Multiple Choice Models\nLecture 4 - Multiple Choice Models - pt 2"
+  },
+  {
+    "objectID": "fin-strat.html",
+    "href": "fin-strat.html",
+    "title": "Financial Strategy",
+    "section": "",
+    "text": "Familiarize students with the concepts and techniques of analyzing and making strategic investment and financing decisions in a risk environment that maximize the company’s value. At the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company’s value."
+  },
+  {
+    "objectID": "fin-mgmt.html",
+    "href": "fin-mgmt.html",
+    "title": "Financial Management",
+    "section": "",
+    "text": "The Financial Administration course is the second training program in the financial field within the EAESP Business Administration undergradute track.\nIt proposes to present, in a context of risk \\(\\times\\) return and from a long-term perspective, the fundamental decisions of Corporate Finance: investment, financing, and shareholder compensation. It particularly addresses the fundamentals of capital investment analysis, working capital management, economic-financial analysis of companies, cash generation capacity and its influence on the objective of maximizing shareholder wealth. These approaches will consider the fundamental factors of ESG (Environmental, Social and Corporate Governance) policies and their consequences for companies."
+  },
+  {
+    "objectID": "fin-mgmt.html#about-the-course",
+    "href": "fin-mgmt.html#about-the-course",
+    "title": "Financial Management",
+    "section": "About the course",
+    "text": "About the course\nThe Financial Administration course is the second training program in the financial field within the EAESP Business Administration undergradute track.\nIt proposes to present, in a context of risk \\(\\times\\) return and from a long-term perspective, the fundamental decisions of Corporate Finance: investment, financing, and shareholder compensation. It particularly addresses the fundamentals of capital investment analysis, working capital management, economic-financial analysis of companies, cash generation capacity and its influence on the objective of maximizing shareholder wealth. These approaches will consider the fundamental factors of ESG (Environmental, Social and Corporate Governance) policies and their consequences for companies."
+  },
+  {
+    "objectID": "fin-strat.html#about-the-course",
+    "href": "fin-strat.html#about-the-course",
+    "title": "Financial Strategy",
+    "section": "About the course",
+    "text": "About the course\nFamiliarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk \\(\\times\\) return.\nAt the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company’s value."
   }
 ]

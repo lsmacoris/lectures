@@ -1,0 +1,12 @@
+---
+title: "Financial Strategy"
+image: 'fin-strat/thumbnail.jpg'
+---
+
+------------------------------------------------------------------------
+
+## **About the course**
+
+Familiarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk $\times$ return.
+
+At the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company's value.

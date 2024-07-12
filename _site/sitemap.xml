@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lsmacoris.github.io/lectures/index.html</loc>
-    <lastmod>2024-07-11T21:16:49.234Z</lastmod>
+    <loc>https://lsmacoris.github.io/index.html</loc>
+    <lastmod>2024-07-12T13:07:28.591Z</lastmod>
   </url>
   <url>
-    <loc>https://lsmacoris.github.io/lectures/finmgmt.html</loc>
-    <lastmod>2024-07-11T22:00:30.095Z</lastmod>
+    <loc>https://lsmacoris.github.io/about.html</loc>
+    <lastmod>2024-07-12T12:45:48.548Z</lastmod>
   </url>
   <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/financial-analysis/index.html</loc>
-    <lastmod>2024-07-11T21:16:49.048Z</lastmod>
+    <loc>https://lsmacoris.github.io/fin-strat.html</loc>
+    <lastmod>2024-07-12T13:14:17.232Z</lastmod>
   </url>
   <url>
-    <loc>https://lsmacoris.github.io/lectures/about.html</loc>
-    <lastmod>2024-07-11T21:56:32.251Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/introduction-to-corporate-finance/index.html</loc>
-    <lastmod>2024-07-11T17:26:15.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/finstrat.html</loc>
-    <lastmod>2024-07-11T21:56:32.251Z</lastmod>
+    <loc>https://lsmacoris.github.io/fin-mgmt.html</loc>
+    <lastmod>2024-07-12T13:11:03.430Z</lastmod>
   </url>
 </urlset>

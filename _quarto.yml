@@ -2,23 +2,47 @@ project:
   type: website
 
 website:
-  title: "lectures"
+  title: "Lucas S. Macoris"
+  repo-url: https://github.com/lsmacoris
+  repo-actions: [edit, issue]
+  site-url: 'https://lsmacoris.github.io'
+  site-path: '/'
+  google-analytics: "G-87FLN5SXEJ"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About
-      - href: finmgmt.qmd
+        text: Overview
+      - href: fin-mgmt.qmd
         text: Financial Management
-      - href: finstrat.qmd
+      - href: fin-strat.qmd
         text: Financial Strategy
+    right:
+      - icon: github
+        href: https://github.com/lsmacoris
+        aria-label: GitHub
+      - icon: envelope
+        href: mailto:lucasmacoris@gmail.com
+        aria-label: Email
+      - icon: linkedin
+        href: https://www.linkedin.com/in/lucas-macoris-390a47160/
+        aria-label: LinkedIn
+      - icon: file-pdf
+        href: https://drive.google.com/file/d/184m-BDeB-31SSyEuzqINco2UzqRFXhma/view?usp=drive_link
+        aria-label: CV
+
+  page-footer: 
+   background: dark
+   left: Copyright 2024, Lucas Macoris. Photography by [Juliana Rizieri](https://www.jurizieri.com.br/).
+   right: Built with [Quarto](https://quarto.org/)
+
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
+    page-layout: full
+    theme:
+      light: [flatly,light.scss]
+      dark: [darkly,dark.scss]
 
+from: markdown+emoji
 
 
