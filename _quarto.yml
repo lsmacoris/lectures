@@ -3,9 +3,9 @@ project:
 
 website:
   title: "Lucas S. Macoris"
-  repo-url: https://github.com/lsmacoris
+  repo-url: https://github.com/lsmacoris/lectures
   repo-actions: [edit, issue]
-  site-url: 'https://lsmacoris.github.io'
+  site-url: 'https://lsmacoris.github.io/lectures'
   site-path: '/'
   google-analytics: "G-87FLN5SXEJ"
   navbar:

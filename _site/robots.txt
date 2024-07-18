@@ -1,1 +1,1 @@
-Sitemap: https://lsmacoris.github.io/sitemap.xml
+Sitemap: https://lsmacoris.github.io/lectures/sitemap.xml

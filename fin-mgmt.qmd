@@ -5,13 +5,14 @@ listing:
  type: table
  contents: fin-mgmt
  fields: [title, reading-time]
+ sort: "title"
 ---
 
 ------------------------------------------------------------------------
 
 ## **About the course**
 
-The Financial Administration course is the second training program in the financial field within the EAESP Business Administration undergradute track.
+The Financial Administration course is the second training program in the financial field within the EAESP Business Administration undergraduate track.
 
 It proposes to present, in a context of risk $\times$ return and from a long-term perspective, the fundamental decisions of Corporate Finance: *investment*, *financing*, and shareholder *compensation*. It particularly addresses the fundamentals of capital investment analysis, working capital management, economic-financial analysis of companies, cash generation capacity and its influence on the objective of maximizing shareholder wealth. These approaches will consider the fundamental factors of ESG (Environmental, Social and Corporate Governance) policies and their consequences for companies.
 
