@@ -1330,48 +1330,6 @@
     "text": "References\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\nBerk, J., and P. DeMarzo. 2019. Corporate Finance, Global Edition. Global Edition / English Textbooks. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ."
   },
   {
-    "objectID": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html",
-    "href": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html",
-    "title": "Lucas S. Macoris",
-    "section": "",
-    "text": "According to [@MM1958], Corporate Finance is useless\n. . .\n## Introduction to Corporate Finance"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#if-that-is-true-then-what-are-we-doing-here",
-    "href": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#if-that-is-true-then-what-are-we-doing-here",
-    "title": "Lucas S. Macoris",
-    "section": "If that is true, then what are we doing here?",
-    "text": "If that is true, then what are we doing here?\n\n\n\n\n\nvia GIPHY"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#a-deep-dive-on-modigiliani-millers-assumptions",
-    "href": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#a-deep-dive-on-modigiliani-millers-assumptions",
-    "title": "Lucas S. Macoris",
-    "section": "A deep-dive on Modigiliani-Miller’s assumptions",
-    "text": "A deep-dive on Modigiliani-Miller’s assumptions\n\nPerfect Capital markets: market has all relevant information about the firm\n\n\nIf that is true, how do we explain the prevalence of active fund managers?\n\n\nAbsence of Agency Costs:\n\n\nIf that is true, why do we see disputes between Creditors and Equityholders?\nSee, for example, the case of Americanas and IRB\n\n\nAbsence of taxes:\n\n\nFirms can benefit from debt tax-shields as interest expenses are deductible"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#assumption-4",
-    "href": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#assumption-4",
-    "title": "Lucas S. Macoris",
-    "section": "Assumption 4:",
-    "text": "Assumption 4:"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#assumption-5",
-    "href": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#assumption-5",
-    "title": "Lucas S. Macoris",
-    "section": "Assumption 5:",
-    "text": "Assumption 5:"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#redefining-our-initial-though-on-corporate-finance",
-    "href": "fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/backlog.html#redefining-our-initial-though-on-corporate-finance",
-    "title": "Lucas S. Macoris",
-    "section": "Redefining our initial though on Corporate Finance",
-    "text": "Redefining our initial though on Corporate Finance\n\nUnder very strict conditions, Corporate Finance is useless\nHowever, when we relax some of these assumptions, financial decisions becomes key to the firm’s value:\n\nThe Finance manager needs to think about Investment Activities, such as how to evaluate and choose the best projects…\n… but also needs to take into account how these projects are financed and provide incentives for the various set of stakeholders to maximize the value!\n\nAll-in-all, Corporate Finance is the study of the frictions that makes financing decisions interesting:\n\nWith imperfect capital markets \\(\\rightarrow\\) firms can seek opportunities to issue debt/equity in favorable conditions\nWith the presence of Agency Costs \\(\\rightarrow\\) Corporate Governance is key to maximize shareholder value\nWith the presence of Taxes \\(\\rightarrow\\) firms can reduce their effective tax rate by borrowing on debt\n\nTo wrap-up: our goal in this course is twofold:\n\nUnderstand why several financing decisions are important to the firm’s value\n\n\n\nBe able to evaluate how much value a firm is worth"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Lecture Notes and Handouts",
@@ -2354,315 +2312,315 @@
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#revisiting-the-free-cash-flow",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#revisiting-the-free-cash-flow",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Revisiting the Free Cash Flow",
     "text": "Revisiting the Free Cash Flow\n\n(+) Revenues\n(-) Costs\n(-) Depreciation\n(=) EBIT\n(-) Tax Expenses\n(=) Unlevered Net Income\n(+) Depreciation\n(-) CAPEX\n(-) \\(\\Delta\\) NWC\n(=) Free Cash Flow\n\nThis is the standard estimate of a Free Cash Flow, which is the amount of incremental cash that a project can actually bring to the firm!"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#introducing-different-financing-decisions",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#introducing-different-financing-decisions",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Introducing different Financing Decisions",
     "text": "Introducing different Financing Decisions\n\nSo far, we’ve assumed that this project was financed only through equity.\nHow the financing decision of the firm can affect both the cost of capital and the set of cash flows that we ultimately discount?\nIn this lecture, we’ll revisit the three main methods that can consider leverage decisions and market imperfections:\n\nThe Weighted-Average Cost of Capital (WACC) method\nThe Adjusted Present Value (APV) method\nThe flow-to-equity (FTE) method\n\nWhile their details differ, when appropriately applied each method produces the same estimate of an investment’s (or firm’s) value"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#underlying-assumptions",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#underlying-assumptions",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Underlying assumptions",
     "text": "Underlying assumptions\n\nTo illustrate these methods most clearly, we begin the chapter by applying each method to a single example in which we have made a number of simplifying assumptions:\n\nThe project has average risk: in essence, the market risk of the project is equivalent to the average market risk of the firm’s investments. In that case, the project’s cost of capital can be assessed based on the risk of the firm.\nThe firm’s debt-equity ratio is constant: we consider a firm that adjusts its leverage to maintain a constant debt-equity ratio in terms of market values.\nCorporate taxes are the only imperfection: we assume that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, are abstracted away\n\nWhile these assumptions are restrictive, they are also a reasonable approximation for many projects and firms"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#method-1-the-wacc",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#method-1-the-wacc",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Method #1: the WACC",
     "text": "Method #1: the WACC\n\nRecall that our definition of free cash flow measures the after-tax cash flow of a project before regardless how it is financed\nIn a perfect capital markets, choosing debt of equity shouldn’t change the value of the firm. However, because interest expenses are tax deductible, leverage reduces the firm’s total tax liability, enhancing its value!\nWe can directly incorporate market imperfections using the WACC method:\n\n\n\\[\nr_{\\text{WACC}}=\\underbrace{\\dfrac{E}{D+E}}_{\\text{% of Equity}}\\times r_e+ \\underbrace{\\dfrac{D}{D+E}}_{\\text{% of Debt}}\\times r_{D}\\times (1-\\tau)\n\\]\nwhere \\(E\\) is the market-value of Equity, \\(D\\) is the market-value of debt, \\(r_e\\) is the cost of equity, \\(r_d\\) is the cost of debt, and \\(\\tau\\) is the marginal tax rate"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#method-1-the-wacc-continued",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#method-1-the-wacc-continued",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Method #1: the WACC (continued)",
     "text": "Method #1: the WACC (continued)\n\nBecause the WACC incorporates the tax savings from debt, we can compute the levered value of an investment by looking at its stream of cash flows discounted by \\(r_{\\text{WACC}}\\):\n\n\n\\[\nV^{L}= \\dfrac{FCF_1}{(1+r_{\\text{WACC}})}+ \\dfrac{FCF_2}{(1+r_{\\text{WACC}})^2}+...+\\dfrac{FCF_n}{(1+r_{\\text{WACC}})^n}\n\\]\n\nIn what follows, we’ll be using an example taken from (Berk and DeMarzo 2019), Chapter 18, to see how the WACC and the other methods can be applied in practice for the RFX project that is being studied by AVCO’s company"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#practical-application-wacc",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#practical-application-wacc",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Practical Application: WACC",
     "text": "Practical Application: WACC\n\n\n\n\n\n\\(\\rightarrow\\) See accompaining Excel document for the calculations"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#practical-application-wacc-continued",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#practical-application-wacc-continued",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Practical Application: WACC (continued)",
     "text": "Practical Application: WACC (continued)\n\nAs said before, we’ll be assuming that the market risk of the RFX project is expected to be similar to that for the company’s other lines of business\nBecause of that, we can use Avco’s equity and debt to determine the weighted average cost of capital for the new project:\n\n\n\n\n\n\n\n\\(\\rightarrow\\) Important: because market values reflect the true economic claim of each type of financing, while calculating the WACC, market value weights for each financing element (equity, debt, etc.) must be used, and not historical, book values"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#practical-application-wacc-continued-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#practical-application-wacc-continued-1",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Practical Application: WACC (continued)",
     "text": "Practical Application: WACC (continued)\n\nUsing our example, we can calculate the WACC as:\n\n\n\\[\n\\small\nr_{\\text{WACC}}=\\underbrace{\\dfrac{300}{300+300}}_{\\text{% of Equity}}\\times 10\\%+ \\underbrace{\\dfrac{320}{300+300}}_{\\text{% of Debt}}\\times 6\\%\\times (1-25\\%)=7.25\\%\n\\]\n\nNow, using \\(\\small r_{\\text{WACC}}=7.25\\%\\), we can calculate the value of the project, including the tax shield from debt, by calculating the present value of its future free cash flows. Note that we’re using Net Debt \\(\\small (320-20)\\) to weight-in the debt potion in the capital structure:\n\n\n\n\\[\n\\small\nV^{L}=\\sum_{T=1}^{T=4}\\dfrac{21}{(1+7.25\\%)^t}=70.73\n\\]\n\nBecause the investment in \\(\\small t=0\\) is \\(\\small 29\\), \\(\\small NPV=70.73-29=41.73\\) million."
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#general-thoughts-on-the-wacc-method",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#general-thoughts-on-the-wacc-method",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "General thoughts on the WACC method",
     "text": "General thoughts on the WACC method\n\nThis is the method that is most commonly used in practice for capital budgeting purposes\nAfter calculating \\(r_{\\text{WACC}}\\), the rate can then be used throughout the firm assuming that:\n\nThis rate represents the company-wide cost of capital for new investments that are of comparable risk to the rest of the firm\nPursuing the project will not alter the firm’s debt-equity ratio\n\nQuestion: how to ensure that the Debt-to-Equity will remain constant when implementing new projects?\n\nThus far, we have simply assumed the firm adopted a policy of keeping its debt-equity ratio constant. An important advantage of the WACC method is that you do not need to know how this leverage policy is implemented in order to make the capital budgeting decision\nNevertheless, keeping the Debt-to-Equity ratio constant has implications for how the firm’s total debt will change with new investment - we’ll refer to this as Debt-Capacity"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#debt-capacity",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#debt-capacity",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Debt Capacity",
     "text": "Debt Capacity\n\nDebt Capacity refers to the the amount of debt that a firm needs to raise in order to keep its debt-to-equity ratio constant. Why is that important?\n\n\nWACC is a weighted average based on the proportions of Equity and Debt\nBecause of that, any changes in these proportions affect the WACC\nTherefore, after calculating \\(r_\\text{WACC}\\), to ensure that you can use it over the years, you need to ensure that the firm maintains the same debt-to-equity ratio\n\n\nYou can find the the debt capacity for a given period \\(t\\) by:\n\n\n\\[\nD_t=d\\times V^L_t\n\\]\nWhere \\(d\\) is the debt-to-value ratio, which is the proportion of (market-value) debt over the market value of the firm or project (debt + equity)"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#debt-capacity-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#debt-capacity-1",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Debt Capacity",
     "text": "Debt Capacity\n\nYou can estimate the value of the levered firm, \\(V^L_t\\), over each period \\(t\\) by summing up the discounted stream of cash-flows remaining:\n\n\n\\[\nV^L_t=\\dfrac{FCF_{t+1}+V^L_{t+1}}{(1+r_{\\text{WACC}})}\n\\] where \\(V^L_{t+1}\\) refers to the continuation value – see the accompanying Excel spreadsheet for a comprehensive example\n\nWhile the WACC does not require you to know exactly the debt capacity of the project, this component is essential when calculating the value of the project using other methods, such as the APV, as we’ll see in the next set of slides"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-adjusted-present-value-apv-method",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-adjusted-present-value-apv-method",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "The APV Adjusted Present Value (APV) method",
     "text": "The APV Adjusted Present Value (APV) method\n\nOur previous method estimated the value of a levered firm, \\(\\small V^L\\), by considering the interest-tax shields into the cost of capital calculation, \\(r_{\\text{WACC}}\\)\nWhat if we wanted to gauge the impact of the interest tax-shields separately from the actual value of the unlevered project?\nThe Adjusted Present Value (APV) method does it so by calculating two components: \\(V^U\\), which is the present value of the unlevered project (i.e, no debt) and the present value of the interest tax-shields stemming from the financing decision:\n\n\n\\[\n\\small\nV^{L}_{APV}=V^U+ PV(\\text{Interest Tax Shield})\n\\]\n\nThe APV method incorporates the value of the interest tax shield directly, rather than by adjusting the discount rate as in the WACC method"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "The APV method in practice",
     "text": "The APV method in practice\n\nThe first step in the APV method is to calculate the value of these free cash flows using the project’s cost of capital if it were financed without leverage \\(\\rightarrow V^U\\)\nWhat is the project’s unlevered cost of capital?\n\nBecause the RFX project has similar risk to Avco’s other investments, its unlevered cost of capital is the same as for the firm as a whole\nWe can calculate the unlevered cost of capital using Avco’s pre-tax WACC, the average return the firm’s investors expect to earn\n\n\n\n\\[\nr_U = \\dfrac{E}{E+D}\\times r_e + \\dfrac{D}{E+D}\\times r_d=\\text{Pre-Tax WACC}\n\\]\n\nNote that this formula is the same as of the \\(r_{WACC}\\), but we’re not including the tax-shield effect, \\((1-\\tau)\\), into account!"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice-continued",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice-continued",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "The APV method in practice (continued)",
     "text": "The APV method in practice (continued)\n\nTo understand why the firm’s unlevered cost of capital equals its pre-tax WACC, note that the pre-tax WACC represents investors’ required return for holding the entire firm (equity and debt)\nSo long as the firm’s leverage choice does not change the overall risk of the firm, the pre-tax WACC must be the same whether the firm is levered or unlevered!\nApplying it to our case, we have:\n\n\n\\[\nr_U = 0.5\\times 10\\% + 0.5\\times 6\\% = 8\\%\n\\]\n\nWith that, our estimate for \\(V^U\\) is:\n\n\n\n\\[\n\\small\nV^{U}=\\sum_{T=1}^{T=4}\\dfrac{21}{(1+8\\%)^t}=69.55\n\\]"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice-continued-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice-continued-1",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "The APV method in practice (continued)",
     "text": "The APV method in practice (continued)\n\nThe value of the unlevered project, \\(V^U\\), does not include the value of the tax shield provided by the interest payments on debt\nKnowing the project’s debt capacity for the future, we can explicitly calculate the the present value of the interest tax-shields. First, determine the amount of interest expenses at each period \\(t\\):\n\n\n\\[\n\\text{Interest Expenses}_t= r_D\\times D_{t-1}\n\\]\n\nAfter that, assuming a corporate tax rate of \\(\\tau\\), the interest tax-shield is just:\n\n\n\n\\[\n\\text{Interest Tax-Shield}= \\text{Interest Expenses}_t\\times \\tau\n\\]"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice-continued-2",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice-continued-2",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "The APV method in practice (continued)",
     "text": "The APV method in practice (continued)\n\n\n\n\n\n\nTo compute the present value of the interest tax shield, we need to determine the appropriate cost of capital. Which rate shall we use? Note that:\n\nIf the project does well, its value will be higher \\(\\rightarrow\\) more debt \\(\\rightarrow\\) more interest tax-shield\nIf the project performs poorly, its value will be lower \\(\\rightarrow\\) less debt \\(\\rightarrow\\) less interest tax-shield\n\nBecause the interest tax-shield fluctuates with the risk of the project, we should discount it using the same same, \\(r_U\\)!"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice-continued-3",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-apv-method-in-practice-continued-3",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "The APV method in practice (continued)",
     "text": "The APV method in practice (continued)\n\nUsing \\(\\small r_U=8\\%\\) and evaluating the present value of the interest tax-shield, we have:\n\n\n\\[\n\\small PV(\\text{Interest Tax-Shield})=\\dfrac{0.53}{(1+8\\%)}+\\dfrac{0.41}{(1+8\\%)^2}+\\dfrac{0.28}{(1+8\\%)^3}+\\dfrac{0.15}{(1+8\\%)^4}=1.18\n\\]\n\nNow, to determine the value of the levered firm, \\(V^L\\), we add the value of the interest tax shield to the unlevered value of the project:\n\n\n\n\\[\n\\small V^L=V^U+PV(\\text{Interest Tax-Shield})= 69.55+1.18=70.73\n\\]\n\nWhich is exactly the same value that we’ve found using the WACC method!"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#general-thoughts-on-the-apv-method",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#general-thoughts-on-the-apv-method",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "General thoughts on the APV method",
     "text": "General thoughts on the APV method\n\nIn the APV method, we separately calculated the value of the unlevered firm and the value stemming from the tax-shields\nIn this case, the APV method is more complicated than the WACC method because we must compute two separate valuations\nNotwithstanding, the APV method has some advantages:\n\nIt can be easier to apply than the WACC method when the firm does not maintain a constant debt-equity ratio\nIt also provides managers with an explicit valuation of the tax shield itself\n\nThere could be cases where the value of the project heavily depends on the tax-shield, and not on the operating gains themselves \\(\\rightarrow\\) if taxes change, the value of the project may be severely affected!"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#exercise-apv",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#exercise-apv",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Exercise: APV",
     "text": "Exercise: APV\nConsider again Avco’s acquisition from Examples 18.1 and 18.2. The acquisition will contribute $4.25 million in free cash flows the first year, which will grow by 3% per year thereafter. The acquisition cost of $80 million will be financed with $50 million in new debt initially. Compute the value of the acquisition using the APV method, assuming Avco will maintain a constant debt-equity ratio for the acquisition.\n\\(\\rightarrow\\) Taken from (Berk and DeMarzo 2019), p. 689\n\nSolution Rationale: proceed in the following steps to compute the value using the APV method:\n\nCalculate \\(V^U\\) - the value of the unlevered project\nCalculate the present value of the tax-shields\nSum them up\n\n\nNote that, because the project will grow at a 3% rate, debt capacity will also grow at the same rate. Therefore, the growth-rate of the interest tax-shield is also 3% - see details"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#exercise-apv-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#exercise-apv-1",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Exercise: APV",
     "text": "Exercise: APV\n\nCalculating \\(V^U\\): this is just the value of a growing perpetuity for the unlevered cash-flows:\n\n\n\\[\n\\small V^U= \\dfrac{FCFC}{r-g}=\\dfrac{4.25}{8\\%-3\\%}= 85\n\\]\n\nNow, if the firm will start with $50MM in debt, interest expenses are \\(50\\times6\\%=3\\) millions. The present value of the interest tax-shield is:\n\n\n\n\\[\n\\small \\dfrac{25\\%\\times 3}{8\\%-3\\%}=\\dfrac{0.75}{5\\%}=15\n\\]\n\nTherefore, \\(\\small V^L=V^U+PV(\\text{Tax-Shield})=85+15=100\\)"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-flow-to-equity-fte-method",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-flow-to-equity-fte-method",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "The Flow-to-Equity (FTE) Method",
     "text": "The Flow-to-Equity (FTE) Method\n\nIn the WACC and APV methods, we value a project based on its free cash flow, which is computed ignoring interest and debt payments\nWhat if we take these into consideration and value the cash flows that pertain only to shareholders? The Flow to Equity method does this by:\n\nExplicitly calculating the free cash flow available to equity holders after taking into account all payments to and from debt holders\nThe cashflow to equity holders are then discounted using the equity cost of capital\n\nDespite this difference in implementation, the FTE method produces the same assessment of the project’s value as the WACC or APV methods"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-flow-to-equity-fte-method-continued",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-flow-to-equity-fte-method-continued",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "The Flow-to-Equity (FTE) Method, continued",
     "text": "The Flow-to-Equity (FTE) Method, continued\n\nIn order to implement the FTE method, we need to compute the Free Cash Flow to Equity (FCFE), which shows the available proceeds for the shareholders of the firm after paying out all costs, considering all working capital and CAPEX investments, deducting interest expenses and considering the firm’s net borrowing activity:\n\n\n\\[\n\\small FCFE = FCF - (1-\\tau)\\times (\\text{Interest Expenses})\\pm \\text{Net Borrowing}\n\\]\n\nCompared to our previous case, there will be two differences:\n\nFirst, we deduct interest expenses before calculating taxes\nWe add the proceeds from the firm’s net borrowing activity.\n\nThese will be positive when the firm increases its net debt\nOn the other hand, these will be negative when the firm reduces its net debt"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#previous-estimation-of-free-cash-flow-for-wacc-and-apv",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#previous-estimation-of-free-cash-flow-for-wacc-and-apv",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Previous Estimation of Free Cash Flow (for WACC and APV)",
     "text": "Previous Estimation of Free Cash Flow (for WACC and APV)"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#estimation-of-free-cash-flow-to-equity",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#estimation-of-free-cash-flow-to-equity",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Estimation of Free Cash Flow to Equity",
     "text": "Estimation of Free Cash Flow to Equity\n\n\n\n\n\n\\(\\rightarrow\\) See accompaining Excel document for the calculations"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#estimation-of-free-cash-flow-to-equity-explanation",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#estimation-of-free-cash-flow-to-equity-explanation",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Estimation of Free Cash Flow to Equity, explanation",
     "text": "Estimation of Free Cash Flow to Equity, explanation\n\nFrom the previous table, you can see that we have made two major changes relative to our regular Free Cash Flow estimation:\n\nWe explicitly included interest expenses - as calculated in our previous class - before calculating taxes. As a consequence, our taxable income was lower, and so does the tax expense for each year\nBecause we’re measuring the cash flows to equity holders and not all the claimants of the firm, we need to include all dynamics in debt levels (inclusions or deductions). We can do it by considering changes in debt levels from one period to the other:\n\n\n\n\\[\n\\small \\text{Net Borrowing}_t= Debt_t-Debt_{t-1}\n\\]\n\nAs we did in our previous class when calculating the amount of necessary Debt that the firm needed in order to keep the debt-to-equity ratio constant, we can use the calculated debt capacity to calculate the increases/decreases in net debt for each period"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#valuing-equity-cash-flows",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#valuing-equity-cash-flows",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Valuing Equity Cash Flows",
     "text": "Valuing Equity Cash Flows\n\nYou now have the cash flows that pertain exclusively to the shareholders of the firm. Now what?\nThe project’s free cash flow to equity shows the expected amount of additional cash the firm will have available to pay dividends (or conduct share repurchases) each year\nBecause these cash flows represent payments to equity holders, they should be discounted at the project’s equity cost of capital.\nGiven that the risk and leverage of the RFX project are the same as for Avco overall, we can use Avco’s equity cost of capital of (\\(r_e=10\\%\\)):\n\n\n\\[\n\\small NPV(FCFE)=6.37 + \\dfrac{11.47}{1.10}+ \\dfrac{11.25}{1.10^2} +\\dfrac{11.02}{1.10^3}+ \\dfrac{10.77}{1.10^4}=41.73\n\\]\n… which yields exactly the same NPV as of the previous methods!"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#overall-thoughts-on-the-fte-method",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#overall-thoughts-on-the-fte-method",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Overall thoughts on the FTE method",
     "text": "Overall thoughts on the FTE method\n\nSteps to compute the value using the FTE method:\n\nCompute the Free Cash Flow to Equity by directly including interest expenses and net debt\nCalculate the project’s cost of equity, \\(r_e\\)\nDiscount the cash flows using \\(r_e\\)\n\nApplying the FTE method was simplified in our example because the project’s risk and leverage matched the firm’s, and the firm’s equity cost of capital was expected to remain constant.\nJust as with the WACC, however, this assumption is reasonable only if the firm maintains a constant debt-equity ratio. If the debt-equity ratio changes over time, the risk of equity—and, therefore, its cost of capital—will change as well"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#overall-thoughts-on-the-fte-method-continued",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#overall-thoughts-on-the-fte-method-continued",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Overall thoughts on the FTE method, continued",
     "text": "Overall thoughts on the FTE method, continued\n\nLimitations: the FTE method carries the same limitations as of the APV method: we need to compute the project’s debt capacity to determine interest and net borrowing before we can make the capital budgeting decision. Because of that, the WACC method is easier to apply\n\n\nBenefits: whenever we have a complex capital structure, using the FTE has some advantages over the other two methods:\n\nThe APV and WACC methods estimate the the firm’s enterprise value, and need a separate valuation of the other components to separate the value of equity\nIn constrast, the FTE method can be used to estimate the equity value directly\nFinally, by emphasizing a project’s implications for the firm’s payouts to equity, the FTE method may be viewed as a more transparent method for discussing a project’s benefit to shareholders—a managerial concern."
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#projects-based-cost-of-capital",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#projects-based-cost-of-capital",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Project’s Based Cost of Capital",
     "text": "Project’s Based Cost of Capital\n\nWe began the last class with three simplifying assumptions:\n\nThe project has average risk: in essence, the market risk of the project is equivalent to the average market risk of the firm’s investments. In that case, the project’s cost of capital can be assessed based on the risk of the firm.\nThe firm’s debt-equity ratio is constant: we consider a firm that adjusts its leverage to maintain a constant debt-equity ratio in terms of market values.\nCorporate taxes are the only imperfection: we assume that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, are abstracted away\n\nQuestion: what if we now relax Assumptions 1 and 2?"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#projects-based-cost-of-capital-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#projects-based-cost-of-capital-1",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Project’s Based Cost of Capital",
     "text": "Project’s Based Cost of Capital\n\nRelaxing hypothesis about the project’s risk and leverage does have a lot of practical relevance:\n\nSpecific projects often differ from the average investment made by the firm \\(\\rightarrow\\) different risks\nFurthermore, acquisitions of real estate or capital equipment are often highly levered, whereas investments in intellectual property are not. Thus, depending on the specific investment being made, the leverage policy used may differ substantially from the firm’s average leverage policy\n\nTo take differences in the project relative to the average firm’s risk and leverage, we proceed by:\n\nEstimating \\(r_U\\), the unlevered cost of capital, based on a sample of comparable projects;\n(Re)lever the result based on the specific leverage policy adopted"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-1-projects-based-cost-of-capital",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-1-projects-based-cost-of-capital",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Step 1: Project’s Based Cost of Capital",
     "text": "Step 1: Project’s Based Cost of Capital\n\nThe first step involves estimating \\(r_U\\) not based on the firm’s unlevered cost of capital, but rather a set of comparable projects that share similar risks. Suppose that our project relates to a new plastics manufacturing division that faces different market risks than the firm’s main packaging business.\nWe can estimate \\(r_U\\) for the plastics division by looking at other single-division plastics firms that have similar business risks. For example, suppose two firms are comparable to the plastics division and have the following characteristics:\n\n\n\n\n\n\n\n\n\n\n\nFirm\nEquity Cost of Capital\nDebt Cost of Capital\nD/(D+E)\n\n\n\n\n1\n12%\n6%\n40%\n\n\n2\n10.7%\n5.5%\n25%"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-1-projects-based-cost-of-capital-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-1-projects-based-cost-of-capital-1",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Step 1: Project’s Based Cost of Capital",
     "text": "Step 1: Project’s Based Cost of Capital\n\n\n\n\n\n\n\n\n\n\nFirm\nEquity Cost of Capital\nDebt Cost of Capital\nD/(D+E)\n\n\n\n\n1\n12%\n6%\n40%\n\n\n2\n10.7%\n5.5%\n25%\n\n\n\n\nBased on this, we calculate each firm’s \\(r_U\\) and get the average:\n\\(\\small r_U^1= 0.6 \\times 12\\% + 0.4 \\times 6\\% = 9.6\\%\\)\n\\(\\small r_U^2= 0.75 \\times 10.7\\% + 0.25 \\times 5.5\\% = 9.4\\%\\)\nIn this way, a reasonable estimate for \\(r_U\\) of our project is around \\(\\small 9.5\\%\\). If we wanted to use the APV approach to calculate the value of the project, we could use this estimate.\nIf we wanted to use the WACC or FTE methods, however, we need to estimate \\(r_E\\), which will depend on the incremental debt the firm will take on as a result of the project"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Step 2: Project’s Based Cost of Capital",
     "text": "Step 2: Project’s Based Cost of Capital\n\nRecall that our expression for the unlevered cost of capital, \\(r_U\\), was:\n\n\n\\[\n\\small r_U= \\dfrac{E}{E+D}\\times r_E + \\dfrac{D}{E+D}\\times r_D\n\\]\n\nRearranging terms, we have:\n\n\n\n\\[\n\\small  \\dfrac{E}{E+D}\\times r_E = r_U - \\dfrac{D}{E+D}\\times r_D \\\\\n\\small r_E=\\dfrac{E+D}{E}\\times r_U - \\dfrac{D}{E}\\times r_D \\\\\n\\small r_E = r_U+ \\dfrac{D}{E}\\times r_U - \\dfrac{D}{E}\\times r_D \\\\\n\\small r_E = r_U+ \\dfrac{D}{E}( r_U -  r_D)\n\\]"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital-1",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Step 2: Project’s Based Cost of Capital",
     "text": "Step 2: Project’s Based Cost of Capital\n\nOur last equation shows us that:\n\n\n\\[\n\\small r_E = r_U+ \\dfrac{D}{E}( r_U -  r_D)\n\\]\n\nIn words, the project’s cost of capital depends on:\n\nThe unlevered cost of capital, \\(r_U\\)\nThe specific debt-to-equity ratio that the project will use\n\nSuppose that the firm will use a debt-to-equity ratio of 1, and the cost of debt remains at 6%. Then, we can calculate \\(r_E\\) as:\n\n\n\n\\[\n\\small r_E = 9.5\\% + \\dfrac{0.5}{0.5}(9.5\\% - 6\\%) = 13\\%\n\\]"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital-2",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital-2",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Step 2: Project’s Based Cost of Capital",
     "text": "Step 2: Project’s Based Cost of Capital\n\nWe can use this estimate of \\(r_E\\) to estimate the project’s WACC, assuming that the tax-rate if 25%:\n\n\n\\[\n\\small r_{\\text{WACC}}=50\\% \\times 13\\% + 50\\% \\times 6\\% \\times(1-25\\%)= 8.75\\%\n\\]\n\nBased on these estimates, Avco should use a WACC of 8.75% for the plastics division, compared to the WACC of 7.25% that has been previously estimated based on the firm’s overall\nIntuition: because the project had a higher unlevered risk (9.5% vs. 8%), after applying the adopted leverage policy, will also have a higher cost of capital. Using the previous formulas, you could also reach the project’s WACC without estimating \\(r_E\\):\n\n\n\n\\[\n\\small r_\\text{WACC} = r_U-D\\times\\tau\\times r_D= 9.5\\% - 50\\%\\times 25\\% \\times 0.06= 8.75\\%\n\\]"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-determining-the-incremental-leverage-of-a-project",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-determining-the-incremental-leverage-of-a-project",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Common misconception: determining the Incremental Leverage of a project",
     "text": "Common misconception: determining the Incremental Leverage of a project\n\nTo determine the equity or weighted average cost of capital for a project, we need to know the amount of debt to associate with the project\nHow to determine the correct \\(\\small D/(D+E)\\) ratio to use in our estimations?\n\n\nSuppose a project involves buying a new warehouse, and the purchase of the warehouse is financed with a mortgage for 90% of its value.\nHowever, if the firm has an overall policy to maintain a 40% debt-to-value ratio, it will reduce debt elsewhere in the firm once the warehouse is purchased in an effort to maintain that ratio.\n\n\n\\(\\rightarrow\\) In that case, the appropriate debt-to-value ratio to use when evaluating the warehouse project is 40%, not 90%! For capital budgeting purposes, the project’s financing is the change in the firm’s total debt (net of cash) with the project versus without the project!"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-relevering-the-wacc",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-relevering-the-wacc",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Common misconception: (re)levering the WACC",
     "text": "Common misconception: (re)levering the WACC\n\nSuppose that a firm has a debt-to-value ratio of 25%, a debt cost of capital of 5.33%, an equity cost of capital of 12%, and a tax rate of 25%. The current WACC is\n\n\n\\[\n\\small r_{\\text{WACC}}=0.75 \\times 12\\% + 0.25\\times 5.33\\% \\times (1- 25\\%) = 10\\%\n\\]\n\nWhat happens to WACC if the firm increases its debt-to-value ratio to 50%? It is tempting to do:\n\n\n\n\\[\n\\small  r_{\\text{WACC}}=0.5 \\times 12\\% + 0.5\\times 5.33\\% \\times (1- 25\\%) = 8\\%\n\\]\n\nNote, however, that this is wrong, because we’re keeping \\(r_E\\) and \\(r_D\\) fixed! Since these are the cost of equity and debt, we should expect these to increase with leverage, as the risk of both shareholders and debt holders increase!"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-relevering-the-wacc-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-relevering-the-wacc-1",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Common misconception: (re)levering the WACC",
     "text": "Common misconception: (re)levering the WACC\n\nWhen the firm increases leverage, the risk of its equity and debt will increase, increasing \\(\\small r_E\\) and \\(\\small r_D\\)! To compute the new WACC correctly, we must first determine the firm’s unlevered cost of capital:\n\n\n\\[\n\\small\nr_U = 0.75 \\times 12\\% + 0.25\\times 5.33\\% = 10.33\\%\n\\]\n\nIf \\(r_D\\) has risen to \\(6.67\\%\\) with the change in leverage, then:\n\n\n\n\\[\n\\small\nr_E = 10.33\\% + \\dfrac{0.5}{0.5}\\times(10.33\\%-6.67\\%)=14\\%\n\\]\n\nFinally, the correct new WACC is:\n\n\n\n\\[\n\\small\nr_{\\text{WACC}}=0.5 \\times 14\\% + 0.5\\times 6.67\\% \\times (1- 25\\%) = 9.5\\%\n\\]"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#comparing-the-three-methods",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#comparing-the-three-methods",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Comparing the three methods",
     "text": "Comparing the three methods\n\nWe saw how we could value a project’s cash flows using three methods:\n\nThe Weigthed Average Cost of Capital (WACC) method\nThe Adjusted Present Value (APV) method\nThe Flow-to-Equity (FTE) method\n\nStarting from the same assumptions, all methods yield the same results. However:\n\n\nWACC is the method that is the easiest to use when the firm will maintain a fixed debt-to-value ratio over the life of the investment\nFor alternative leverage policies, the APV method is usually the most straightforward approach.\nThe FTE method is typically used only in complicated settings for which the values of other securities in the firm’s capital structure or the interest tax shield are themselves difficult to determine"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Other Effects of Financing",
     "text": "Other Effects of Financing\n\nPreviously, we assumed that:\n\n\nCorporate taxes are the only imperfection: we assume that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, are abstracted away\n\nThe three methods that we saw determine the value of an investment incorporating the tax shields associated with leverage. What if we have more than one market imperfection?\n\n\nIssuing Costs\nSecurity Mispricing\nFinancial Distress and Bankruptcy Costs\n\n\nIn what follows, we’ll investigate how to adjust for these three potential imperfections"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing-issuing-costs",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing-issuing-costs",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Other Effects of Financing: Issuing Costs",
     "text": "Other Effects of Financing: Issuing Costs\n\nWhen a firm takes out a loan or raises capital by issuing securities, the banks that provide the loan or underwrite the sale of the securities charge fees\nThe fees associated with the financing of the project are a cost that should be included as part of the project’s required investment, reducing the NPV of the project\n\n\n\\[\nNPV = V^L - \\text{Investment} - \\text{Issuance Costs}\n\\]\n\nThis calculation presumes the cash flows generated by the project will be paid out. If instead they will be reinvested in a new project, and thereby save future issuance costs, the present value of these savings should also be incorporated and will offset the current issuance costs."
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing-security-mispricing",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing-security-mispricing",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Other Effects of Financing: Security Mispricing",
     "text": "Other Effects of Financing: Security Mispricing\n\nWith perfect capital markets, all securities are fairly priced and issuing securities is a zero-NPV transaction. However, there are situations where the pricing is more (or less) relative to the true value!\nEquity mispricing: if management believes that the equity will sell at a price that is less than its true value, this mispricing is a cost of the project for the existing shareholders. It can be deducted from the project NPV in addition to other issuance costs\nLoan mispricing: a firm may pay an interest rate that is too high if news that would improve its credit rating has not yet become public\n\nWith the WACC, we could adjust it using the higher interest rate\nWith the APV, we must add to the value of the project the NPV of the loan cash flows when evaluated at the “correct” rate that corresponds to their actual risk"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing-financial-distress",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing-financial-distress",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Other Effects of Financing: Financial Distress",
     "text": "Other Effects of Financing: Financial Distress\n\nOne consequence of debt financing is the possibility of financial distress and agency costs:\n\nWhen the debt level—and, therefore, the probability of financial distress—is high, the expected free cash flow will be reduced by the expected costs associated with financial distress and agency problems\nFinancial distress costs therefore tend to increase the sensitivity of the firm’s value to market risk, further raising the cost of capital for highly levered firms\n\nHow to adjust for potential financial distress and agency costs?\n\n\nOne approach is to adjust our free cash flow estimates to account for the costs, and increased risk, resulting from financial distress\nAn alternative method is to first value the project ignoring these costs, and then add the present value of the incremental cash flows associated with financial distress and agency problems separately"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#supplementary-reading",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#supplementary-reading",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "Supplementary Reading",
     "text": "Supplementary Reading\n\nSee Note on Cash Flow Valuation Methods: Comparison of WACC, FTE, CCF and APV Approaches (910N31) for a detailed discussion on the valuation methods\n\n\n\\(\\rightarrow\\) All contents are available on eClass®."
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#references",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#references",
-    "title": "Capital Budgeting and Valuation with Leverage",
+    "title": "9. Valuation with Leverage",
     "section": "References",
     "text": "References\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\nBerk, J., and P. DeMarzo. 2019. Corporate Finance, Global Edition. Global Edition / English Textbooks. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ."
   },

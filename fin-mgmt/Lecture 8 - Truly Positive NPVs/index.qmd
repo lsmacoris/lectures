@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '9. How to Ensure that Projects Truly Have Positive NPVs'
+    title: '8. How to Ensure that Projects Truly Have Positive NPVs'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
