@@ -16,56 +16,56 @@
   {
     "objectID": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#ensuring-truly-positive-npvs",
     "href": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#ensuring-truly-positive-npvs",
-    "title": "9. How to Ensure that Projects Truly Have Positive NPVs",
+    "title": "8. How to Ensure that Projects Truly Have Positive NPVs",
     "section": "Ensuring Truly Positive NPVs",
     "text": "Ensuring Truly Positive NPVs\n\nIn the last lecture, you saw how the choice of assumptions may severely change our NPV estimates\nHow to ensure that the NPV you’re measuring is really positive?\nSome areas to consider\n\nBehavioral Biases\nAvoiding Forecast Errors\nIdentifying Competitive Advantage\n\n\n\n\\(\\rightarrow\\) For this lecture, refer to (Brealey, Myers, and Allen 2020)"
   },
   {
     "objectID": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#behavioral-biases",
     "href": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#behavioral-biases",
-    "title": "9. How to Ensure that Projects Truly Have Positive NPVs",
+    "title": "8. How to Ensure that Projects Truly Have Positive NPVs",
     "section": "Behavioral Biases",
     "text": "Behavioral Biases\n\nSenior management needs to be closely involved in strategic investment decisions, but it must rely heavily on information that is provided by project proposers\nInformation providers may have incentives to exacerbate assumptions:\n\nOptimism bias\n\n\n\nEntrepreneurs tend to overestimate the likelihood of success, although the survival rate of start-up firms is generally low\nThey also tend to keep their “pet-projects” - i.e, projects that they assign a much higher success probability than what it actually is\n\n\n\nOverconfidence bias\n\n\n\nProject managers tend to overestimate “success” scenarios and underestimate “fail” ones\nNot considering worst-case scenarios may hinder investors to understand the real NPV"
   },
   {
     "objectID": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#avoiding-forecast-errors",
     "href": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#avoiding-forecast-errors",
-    "title": "9. How to Ensure that Projects Truly Have Positive NPVs",
+    "title": "8. How to Ensure that Projects Truly Have Positive NPVs",
     "section": "Avoiding Forecast Errors",
     "text": "Avoiding Forecast Errors\n\nSuppose you have your project sponsors to give you honest forecasts\nThey are unbiased: on average, the error will be zero\nWhat about the deviations from it? As a manager, you can’t be expected to check every cash-flow forecast, but you can ask some questions to ensure that each project really does have a positive NPV\nHow can you “gut-check” the estimates before diving into each single assumption? Whenever available, look at market values\n\nMany capital assets are traded in a competitive market, so it makes sense to start with the market price and then ask why you can earn more than your rivals from these assets\nStocks, for example, have both public and private information embedded on their values. Investors have already evaluated the information that is generally known. Security analysts do not need to evaluate this information again, and can concentrate on their private information"
   },
   {
     "objectID": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#keeping-competitive-advantage",
     "href": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#keeping-competitive-advantage",
-    "title": "9. How to Ensure that Projects Truly Have Positive NPVs",
+    "title": "8. How to Ensure that Projects Truly Have Positive NPVs",
     "section": "Keeping Competitive Advantage",
     "text": "Keeping Competitive Advantage\n\nWhat does a positive NPV metric tells us, in reality? It means that a given investment earns more than it should after factoring its risk\nQuestion: if that is the case, then can we assert that no one else is going to pursue the same project? A couple of thoughts:\n\nNPV goes hand in hand with economic profits. As markets become more competitive, economic rents go down, and so does NPV\nIn a perfect equilibrium, an investment should earn zero NPV - i.e, it would yield only the value that compensates its risks, but no economic rents\n\nThat leaves us with another question: if a given project is actually a positive NPV one, which factors sustain such economic rents so that other players do not erode it?\nA competitive advantage will protect a firm only if it is durable and can be sustained against competition from other businesses!"
   },
   {
     "objectID": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#example-the-ai-race",
     "href": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#example-the-ai-race",
-    "title": "9. How to Ensure that Projects Truly Have Positive NPVs",
+    "title": "8. How to Ensure that Projects Truly Have Positive NPVs",
     "section": "Example: the AI race",
     "text": "Example: the AI race\n\nAfter the widespread diffusion of OpenAI’s ChatGPT, there has been an arms race for the dominance of the artificial intelligence (AI) market\nWhen you look at how investors value the big-tech firms, no other firm has benefited from the boom in artificial intelligence as much as Nvidia (ticker: NVDA)!\nWhy? We do have big competitors, such as AMZ, MSFT, GOOGL, as well as other newborns, such as OpenAI and Anthropic\n\nNVDIA’s competitive advantage in the market, at least seem by the lens of the investors, makes them assign a high probability of success to its projects\nAs a consequence, stock prices surged more than any other publicly-traded firm in the AI race\n\n\n\n\\(\\rightarrow\\) Suggested Reading: Why do Nvidia’s chips dominate the AI market?"
   },
   {
     "objectID": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#example-the-ai-race-1",
     "href": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#example-the-ai-race-1",
-    "title": "9. How to Ensure that Projects Truly Have Positive NPVs",
+    "title": "8. How to Ensure that Projects Truly Have Positive NPVs",
     "section": "Example: the AI race",
     "text": "Example: the AI race"
   },
   {
     "objectID": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#wrapping-up",
     "href": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#wrapping-up",
-    "title": "9. How to Ensure that Projects Truly Have Positive NPVs",
+    "title": "8. How to Ensure that Projects Truly Have Positive NPVs",
     "section": "Wrapping-up",
     "text": "Wrapping-up\n\nPositive NPV projects should be accompanied with clear competitive advantage rationales:\n\nIf your project does not have a clear competitive advantage, how you can then justify that economic profits would not erode over time?\nWhat makes your investment/project so special in such a way that other firms cannot easily replicate the same investment project?\n\nThese questions help us as investors to think beyond simply math and scenario simulation, and think more thoroughly about the factors that justify the assumptions used in our free cash-flow models"
   },
   {
     "objectID": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#references",
     "href": "fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html#references",
-    "title": "9. How to Ensure that Projects Truly Have Positive NPVs",
+    "title": "8. How to Ensure that Projects Truly Have Positive NPVs",
     "section": "References",
     "text": "References\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\nBrealey, R. A., S. C. Myers, and F. Allen. 2020. Principles of Corporate Finance. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. https://books.google.com.br/books?id=nsrHuwEACAAJ."
   },

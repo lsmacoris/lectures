@@ -10,6 +10,8 @@ website:
   google-analytics: "G-87FLN5SXEJ"
   navbar:
     left:
+      - href: https://lsmacoris.github.io/
+        text: Home
       - href: index.qmd
         text: Overview
       - href: fin-mgmt.qmd
