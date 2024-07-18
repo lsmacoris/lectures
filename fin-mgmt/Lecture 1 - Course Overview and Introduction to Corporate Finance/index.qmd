@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Intro and Course Overview Financial Management'
+    title: '1. Intro and Course Overview Financial Management'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
