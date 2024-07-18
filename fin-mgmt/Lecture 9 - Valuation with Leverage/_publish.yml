@@ -1,0 +1,4 @@
+- source: index.qmd
+  quarto-pub:
+    - id: 1f8e8716-dfb0-4450-920e-9374c1d7ebf0
+      url: 'https://lsmacoris.quarto.pub/lecture-15---capital-budgeting-and-valuation-with-leverage'

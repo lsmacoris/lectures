@@ -1,0 +1,4 @@
+- source: index.qmd
+  quarto-pub:
+    - id: 08817dbf-1885-432e-8977-04d9fc76b239
+      url: 'https://lsmacoris.quarto.pub/lecture-11---investment-decision-rules'

@@ -1,0 +1,56 @@
+/*-- scss:defaults --*/
+
+$body-bg: #fff;
+$body-color: #222;
+$link-color: #42affa;
+$code-color: #3c75d6;
+$presentation-heading-color: #0178FF;
+$presentation-h1-font-size: 2.5em;
+$presentation-h2-font-size: 1.6em;
+$theme-blue: #42affa;
+$theme-red: #E00808;
+$theme-yellow: #F7d108;
+$theme-green: #077125;
+
+/*-- scss:rules --*/
+
+.reveal .slide ul {
+    counter-reset: ul;
+    list-style-type: "\25FC    ";
+  }
+
+.reveal .slide li::marker {
+color: $theme-blue;
+}
+
+.blue {
+  color: $theme-blue;
+}
+
+.red {
+  color: $theme-red;
+}
+
+.green {
+  color: $theme-green;
+}
+
+.yellow {
+  color: $theme-yellow;
+}
+
+.justify {
+  text-align: justify !important
+}
+
+.center {
+  text-align: center !important
+}
+
+.reveal .slide-logo {
+  display: block;
+  position: fixed;
+  height:70px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}

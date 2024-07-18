@@ -1,0 +1,23 @@
+Company,Industry,Receivable Days,InventoryDays,Payable Days,Cash Conversion Cycle
+Coca-Cola,Beverages,43,81,297,-173
+T-Mobile,Telecommunications,36,24,155,-95
+Sirius XM,Cable and Satellite,14,2,108,-92
+Molson Coors Brewing,Brewing,26,34,143,-83
+Apple,Computer Hardware,24,19,106,-63
+Amazon.com,Internet Retail,11,43,76,-22
+Southwest Airlines,Airlines,12,11,31,-8
+Chipotle Mexican Grill,Restaurants,2,2,11,-7
+Walmart,Superstores,4,42,44,2
+Kroger,Grocery Stores,5,25,23,6
+Microsoft,Software,66,22,72,17
+Macy's,Department Stores,4,140,124,21
+Starbucks,Restaurants,12,29,19,23
+FedEx,Air Freight,46,4,23,27
+Nordstrom,Department Stores,4,83,57,30
+Bristol-Myers Squibb,Pharmaceuticals,88,70,101,57
+Nike,Footwear,34,90,37,88
+ONE Gas,Gas Utilities,73,47,30,90
+Lennar Corporation,Homebuilding,5,376,21,359
+Tiffany & Co.,Luxury Goods,20,532,58,494
+Brown-Forman,Distillers and Vintners,83,548,122,509
+U.S. Firms,-,50,70,79,41

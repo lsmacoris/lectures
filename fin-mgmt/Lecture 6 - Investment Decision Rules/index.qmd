@@ -1,0 +1,955 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Investment Decision Rules'
+    theme: [default, custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: logo.jpg
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: abntex2.cls
+    incremental: true
+    bibliography: 'Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+
+editor: visual
+from: markdown+emoji
+---
+
+## Evaluating Cash Flow Streams
+
+-   Financial Managers are often faced with a decision regarding a stream of cash flows stemming from an investment opportunity
+
+-   There are multiple ways to evaluate an investment opportunity:
+
+    1.  Compare the *discounted* value of the cash-flows among alternatives
+    2.  Analyze the rate of return of the alternatives
+    3.  Verify the amount of time that a project takes to repay its investment
+
+-   As we'll see throughout this (and the next) lectures, we'll compare the *net present value* rule to other investment rules that firms sometimes use and explain why the net present value rule is [superior]{.blue}
+
+## The *Net Present Value (NPV)*
+
+The present value of any given stream of cash-flows is given by:
+
+$$
+PV= \dfrac{FV}{(1+i)^n}
+$$
+
+where $FV$ is the future value of the cash-flows (in periods other than the one in analysis), $r$ is the discount rate, and $n$ is the number of periods.
+
+-   For a general case with $n$ periods, we have:
+
+. . .
+
+$$
+PV= \dfrac{FC_1}{(1+r)^1}+ \dfrac{FC_2}{(1+r)^2}+...+\dfrac{FC_t}{(1+r)^n} \equiv \sum_{t=0}^{t=n}\dfrac{FC_t}{(1+r)^t}
+$$
+
+## The *Net Present Value (NPV)* rule
+
+-   We begin our discussion of investment decision rules by considering a *take-it-or-leave-it* decision involving a single, stand-alone project.
+
+-   **NPV Investment Rule**: *When making an investment decision, take the alternative with the [highest NPV]{.blue}. Choosing this alternative is equivalent to receiving its NPV in cash today*:
+
+    1.  In the case of a stand-alone project, we must choose between accepting or rejecting the project.
+    2.  Therefore, the NPV rule then says we should compare the project's NPV to zero (the NPV of doing nothing) and accept the project if its NPV is positive
+
+-   Let's use this rationable to analyze how the *NPV* rule applies to the *Cia Amazônia* case. For these exercises, we'll assume a discount rate (i.e, a cost of capital) of [15%]{.blue}.
+
+## Applying *Net Present Value (NPV)* rule
+
+-   Recall that our cash flows were:
+
+. . .
+
+|                  |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| *Free Cash Flow* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
+
+-   Therefore, the *NPV* is given by:
+
+. . .
+
+$$
+\small
+NPV= \dfrac{-219,000}{(1+15\%)^0}+\dfrac{46,592}{(1+15\%)^1}+\dfrac{69,266}{(1+15\%)^2}+\dfrac{80,218}{(1+15\%)^3}+\dfrac{101,293}{(1+15\%)^4}+\dfrac{130,684}{(1+15\%)^5}=48,922.22
+$$ **Caution**: in *Microsoft Excel*'s NPV formula, the first period is, by default, $t=1$, and not $t=0$
+
+## Bridging *NPV* and *IRR*
+
+-   The NPV of a project depends on the appropriate cost of capital.
+
+-   There may be some [uncertainty]{.blue} regarding the project's cost of capital. Therefore, it is helpful to compute an *NPV profile*: a graph of the project's NPV over a range of discount rates, $r$:
+
+    1.  For each $r$ in a sequence of discount rates, compute the $NPV$ of the project using the NPV formula
+    2.  Store the results
+    3.  Plot it in a chart using all the different $r$ in the *x-axis* and the estimated *NPV* in the *y-axis*
+
+-   As you'll see in the next slide, it seems that for $\small r=22.61\%$, the *NPV* of the project is exactly zero: this is the [Internal Rate of Return (IRR)]{.blue} of the project!
+
+-   The *IRR* of a project provides useful information regarding the sensitivity of the project's NPV to errors in the estimate of its cost of capital
+
+## NPV Profile for *Cia Amazônia*
+
+```{r,fig.width=16,fig.height=8}
+
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
+NPV_Profile=data.frame(FC=c(-219600,46592,69266,80218,101293,130684),
+              t=c(0:5))
+
+NPV=data.frame()
+
+for(r in seq(0.01,0.3,0.01)){
+  
+NPV=NPV%>%rbind(data.frame(NPV=NPV_Profile%>%reframe(DCF=FC/((1+r)^t))%>%pull()%>%sum(),
+                           Discount=r))
+  
+}
+
+Chart=NPV%>%ggplot(aes(x=Discount,y=NPV))+
+  geom_line(size=2,col='darkgreen')+
+  theme_minimal()+
+  labs(x='Discount Rate (r)',y='Net Present Value (NPV)',
+       title='')+
+  scale_y_continuous(labels=scales::dollar)+
+  scale_x_continuous(labels=scales::percent,breaks=seq(0.01,0.3,0.05))+
+  geom_hline(yintercept = 0,linetype='dashed')+
+  geom_vline(xintercept = 0.226,linetype='dashed')+
+  theme(axis.title = element_text(size=20,face='bold'),
+        axis.text = element_text(size=15),
+        title = element_text(size=25,face='bold'))+
+  annotate("text",
+           x=0.226,
+           y=50000,
+           xmax=0.03,
+           label="For r = 22.6%, the NPV is exactly zero.",size=7)
+
+Chart%>%ggplotly()
+
+
+```
+
+## Analyzing the *NPV* rule
+
+-   Looking at the results, we can see that:
+
+1.  For any value of $\small r$ that is [lower]{.blue} than $\small r=22.6%$, the *NPV* of the project is [positive]{.green}
+2.  For any value of $\small r$ that is [greater]{.blue} than $\small r=22.6%$, the *NPV* of the project is [negative]{.red}
+
+-   From a practical perspective, the decision to accept the project is correct as long as our estimate of $\small r=15%$ is within $\small 22.6\%-15\%=7.6\%$ of the true cost of capital
+
+-   In general, the difference between the cost of capital and the IRR is the [*maximum estimation error in the cost of capital that can exist without altering the original decision*]{.blue}.
+
+-   But wait...how do we know that $r=22.6\%$ is the value that sets the *NPV* exactly to zero?
+
+-   This value is also known as the *internal rate of return*, and it is defined as the $\small r$ that satisfies $\small NPV = 0$
+
+## The Internal Rate of Return (IRR)
+
+-   Formally, the [IRR]{.blue} and it is defined as the $\small r$ that satisfies:
+
+. . .
+
+$$
+\small
+r_{IRR} = r \text{ such that } \sum_{t=0}^{t=n}\dfrac{FC_t}{(1+r)}=0 
+$$
+
+-   Applying this concept to our case, we have:
+
+. . .
+
+$$
+\small
+0= \dfrac{-219,000}{(1+i)^0}+\dfrac{46,592}{(1+i)^1}+\dfrac{69,266}{(1+i)^2}+\dfrac{80,218}{(1+i)^3}+\dfrac{101,293}{(1+i)^4}+\dfrac{130,684}{(1+i)^5}
+$$
+
+. . .
+
+$$
+\small
+\rightarrow \dfrac{46,592}{(1+i)^1}+\dfrac{69,266}{(1+i)^2}+\dfrac{80,218}{(1+i)^3}+\dfrac{101,293}{(1+i)^4}+\dfrac{130,684}{(1+i)^5} = 219,000
+$$
+
+## The Internal Rate of Return (IRR)
+
+-   Setting $a={(1+i)^{-1}}$, we have:
+
+. . .
+
+$$
+\small
+(46,592\times a) + (69,266\times a^2) + (80,218\times a^3) + (101,293\times a^4) + (130,684\times a^5) -219,000 = 0
+$$
+
+-   Theoretically, this is a $5th$-order polynomial, and we need to find $\small a=\dfrac{1}{(1+i)}$ that satisfies this equation.
+
+-   In practice, we generally do this in *Excel* by using:
+
+    1.  Use the $IRR(\cdot)$ (or $TIR(\cdot)$) formula
+    2.  *Goal-seek* functions: set the sum of the discounted cash-flows to zero by varying the discount rate, $r$.
+
+## The IRR rule
+
+-   **IRR Investment Rule**: *Take any investment opportunity where the IRR exceeds the opportunity cost of capital. Turn down any opportunity whose IRR is less than the opportunity cost of capital*:
+
+    1.  One interpretation of the internal rate of return is the average return earned by taking on the investment opportunity
+
+    2.  If the average return on the investment opportunity (i.e., the IRR) is [greater]{.green} than the return on other alternatives in the market with equivalent risk and maturity (i.e., the project's cost of capital), one should undertake the investment opportunity
+
+-   **Caution**: the IRR investment rule will give the correct answer (that is, the same answer as the NPV rule) in many---but not all situations
+
+-   The IRR rule is *only guaranteed to work* for a stand-alone project if *all of the project's negative cash flows precede its positive cash flows*
+
+-   In what follows, we'll review the many IRR pitfalls
+
+## IRR Pitfall #1: delayed investments
+
+-   Say that you have the following cash-flow streams:
+
+. . .
+
+|                  |      **Year 0**       |     **Year 1**     |     **Year2**      |     **Year3**      |
+|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| *Free Cash Flow* | [\$1,000,000]{.green} | [-\$500,000]{.red} | [-\$500,000]{.red} | [-\$500,000]{.red} |
+
+-   Therefore, the $\small IRR$ is found by setting when:
+
+. . .
+
+$$
+\small
+NPV=0 \rightarrow +1,000,000-\dfrac{500,000}{(1+i)^1}-\dfrac{500,000}{(1+i)^2}-\dfrac{500,000}{(1+i)^3}=0
+$$
+
+-   If you use the $\small IRR(\cdot)$ function in *Excel*, you'll find that $\small r\approx0.23$. However, if you calculate the $\small NPV$ using $\small r=10\%$, you'll find a [negative]{.red} value.
+
+## NPV profile when inflows precede outflows
+
+```{r,fig.width=16,fig.height=8}
+
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
+NPV_Profile=data.frame(FC=c(1000000,-500000,-500000,-500000),
+              t=c(0:3))
+
+NPV=data.frame()
+
+for(r in seq(0.01,0.4,0.01)){
+  
+NPV=NPV%>%rbind(data.frame(NPV=NPV_Profile%>%reframe(DCF=FC/((1+r)^t))%>%pull()%>%sum(),
+                           Discount=r))
+  
+}
+
+Chart=NPV%>%ggplot(aes(x=Discount,y=NPV))+
+  geom_line(size=2,col='darkgreen')+
+  theme_minimal()+
+  labs(x='Discount Rate (r)',y='Net Present Value (NPV)',
+       title='')+
+  scale_y_continuous(labels=scales::dollar)+
+  scale_x_continuous(labels=scales::percent,breaks=seq(0.01,0.4,0.05))+
+  geom_hline(yintercept = 0,linetype='dashed')+
+  geom_vline(xintercept = 0.2338,linetype='dashed')+
+  theme(axis.title = element_text(size=20,face='bold'),
+        axis.text = element_text(size=15),
+        title = element_text(size=25,face='bold'))+
+  annotate("text",
+           x=0.2338,
+           y=-100000,
+           xmax=0.03,
+           label="For r = 23.38%, the NPV is exactly zero.",size=7)
+
+Chart%>%ggplotly()
+
+
+```
+
+## IRR Pitfall #2: multiple IRR solutions
+
+-   Say that you have the following cash-flow streams:
+
+. . .
+
+|                  |     **Year 0**      |     **Year 1**     |     **Year2**      |     **Year3**      |       **Year4**        |
+|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| *Free Cash Flow* | [\$550,000]{.green} | [-\$500,000]{.red} | [-\$500,000]{.red} | [-\$500,000]{.red} | [+\$1,000,000]{.green} |
+
+-   Therefore, the $\small IRR$ is found by setting when:
+
+. . .
+
+$$
+\small
+NPV=0 \rightarrow +550,000-\dfrac{500,000}{(1+i)^1}-\dfrac{500,000}{(1+i)^2}-\dfrac{500,000}{(1+i)^3}+\dfrac{1,000,000}{(1+i)^4}=0
+$$
+
+-   As it is described in the next slide, [*when there is more than a one-time change in the sign of the cash-flows*]{.blue}, the *IRR* will yield multiple solutions!
+
+-   In cases like this, **the NPV rule should be used**.
+
+## NPV profile when inflows precede outflows
+
+```{r,fig.width=16,fig.height=8}
+
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
+NPV_Profile=data.frame(FC=c(550000,-500000,-500000,-500000,1000000),
+              t=c(0:4))
+
+NPV=data.frame()
+
+for(r in seq(0,0.5,0.01)){
+  
+NPV=NPV%>%rbind(data.frame(NPV=NPV_Profile%>%reframe(DCF=FC/((1+r)^t))%>%pull()%>%sum(),
+                           Discount=r))
+  
+}
+
+Chart=NPV%>%ggplot(aes(x=Discount,y=NPV))+
+  geom_line(size=2,col='darkgreen')+
+  theme_minimal()+
+  labs(x='Discount Rate (r)',y='Net Present Value (NPV)',
+       title='')+
+  scale_y_continuous(labels=scales::dollar)+
+  scale_x_continuous(labels=scales::percent,breaks=seq(0.01,0.4,0.05))+
+  geom_hline(yintercept = 0,linetype='dashed')+
+  theme(axis.title = element_text(size=20,face='bold'),
+        axis.text = element_text(size=15),
+        title = element_text(size=25,face='bold'))+
+  annotate("text",
+           x=0.2338,
+           y=-25000,
+           xmax=0.03,
+           label="The are multiple values that satisfy the IRR rule",size=7)
+
+Chart%>%ggplotly()
+
+
+```
+
+## Pitfall #3: non-existent IRR
+
+-   Say that you have the following cash-flow streams:
+
+. . .
+
+|                  |     **Year 0**      |     **Year 1**     |     **Year2**      |     **Year3**      |       **Year4**        |
+|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| *Free Cash Flow* | [\$750,000]{.green} | [-\$500,000]{.red} | [-\$500,000]{.red} | [-\$500,000]{.red} | [+\$1,000,000]{.green} |
+
+-   Therefore, the $\small IRR$ is found by setting when:
+
+. . .
+
+$$
+\small
+NPV=0 \rightarrow +750,000-\dfrac{500,000}{(1+i)^1}-\dfrac{500,000}{(1+i)^2}-\dfrac{500,000}{(1+i)^3}+\dfrac{1,000,000}{(1+i)^4}=0
+$$
+
+-   If you try to do this in excel, you'll see that [*there is no* $\small r$ that satisfies the IRR rule]{.blue} - in words, $\small NPV>0$ for any $r\geq0$!
+
+-   In cases like this, **the NPV rule should be used**.
+
+## NPV profile when there is no IRR that satisfies
+
+```{r,fig.width=16,fig.height=8}
+
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
+NPV_Profile=data.frame(FC=c(750000,-500000,-500000,-500000,1000000),
+              t=c(0:4))
+
+NPV=data.frame()
+
+for(r in seq(0,0.5,0.01)){
+  
+NPV=NPV%>%rbind(data.frame(NPV=NPV_Profile%>%reframe(DCF=FC/((1+r)^t))%>%pull()%>%sum(),
+                           Discount=r))
+  
+}
+
+Chart=NPV%>%ggplot(aes(x=Discount,y=NPV))+
+  geom_line(size=2,col='darkgreen')+
+  theme_minimal()+
+  labs(x='Discount Rate (r)',y='Net Present Value (NPV)',
+       title='')+
+  scale_y_continuous(labels=scales::dollar)+
+  scale_x_continuous(labels=scales::percent,breaks=seq(0.01,0.4,0.05))+
+  geom_hline(yintercept = 0,linetype='dashed')+
+  theme(axis.title = element_text(size=20,face='bold'),
+        axis.text = element_text(size=15),
+        title = element_text(size=25,face='bold'))+
+  annotate("text",
+           x=0.2338,
+           y=150000,
+           xmax=0.03,
+           label="There is no value that satisfies the IRR rule",size=7)
+
+Chart%>%ggplotly()
+
+
+```
+
+## IRR rule: overall thoughts
+
+-   Given the mathematical caveats of the IRR rule expression, one needs to be cautious when using it to evaluate a project (or compare across projects):
+
+    1.  If a project has [positive]{.green} cash flows that precede [negative]{.red} ones, it is important to look at the project's NPV profile in order to interpret the IRR
+
+    2.  If there is more than a one-time-change in the sign of the cash-flow streams (say, for example, [-]{.red} [+]{.green} [+]{.green} [+]{.green} [-]{.red}), there will be a case of multiple IRRs that satisfy the $\small NPV=0$ condition!
+
+    3.  Depending on the magnitude of the cash-flows, there may be no $r$ that satisfies $\small NPV=0$
+
+    4.  Even if these caveats are not applicable, the IRR rule will yield the same solution as of the NPV rule (i.e, accept/reject, or indicate the rank the best investment projects)
+
+-   Because of these reasons, it is always recommended to use the NPV rule!
+
+## IRR and the reinvestment assumption
+
+-   Let's go back to our *Cia Amazônia* example where the IRR rule coincided with the NPV rule:
+
+. . .
+
+|                  |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| *Free Cash Flow* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
+
+-   And we know that when $\small r=22.61\%$, $\small NPV=0$:
+
+. . .
+
+$$
+\small
+-219,000+\dfrac{46,592}{(1+22.61\%)^1}+\dfrac{69,266}{(1+22.61\%)^2}+\dfrac{80,218}{(1+22.61\%)^3}+\dfrac{101,293}{(1+22.61\%)^4}+\dfrac{130,684}{(1+22.61\%)^5}=0
+$$
+
+-   Notably, $r$ is just adjusting each cash-flow stream to accomodate the time-value of money in each given period.
+
+-   If that is true, then moving $\small FC_{1}$ to $\small FC_{4}$ to $\small t=5$ using the approriate $\small r$ should **not** change our $\small IRR$ calculation
+
+## IRR and the reinvestment assumption
+
+-   Rearranging our cash-flows from periods $\small t=2$ to $\small t=4$ to the last period, we now have a new cash-flow stream:
+
+. . .
+
+|                  |     **Year 0**     |  **Year 1**   |   **Year2**   |   **Year3**   |  **Year 4**   |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| *Free Cash Flow* | [-\$219,600]{.red} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$608,405]{.green} |
+
+-   Again, if we use $\small IRR(\cdot)$ in *Excel*, $\small r=22.61\%$ as expected, since we've just reorganized all intermediate cash-flows to the last period. But what this is telling us?
+
+-   Recall that the IRR is an [average]{.blue} of the project's profitability. Behind the scenes, [we are assuming that the intermediate cash-flows could have been reinvested at the same $r=\small 22.61\%$ rate]{.blue}. This may not hold true if, for example:
+
+    1.  A project does not have enough room to expand and receive reinvestments
+    2.  The rate of return of new investments is not the same as of the actual project
+
+## The *Modified IRR* (M-TIR)
+
+-   As outlined in the previous example, one of the main problems with the IRR is the assumption that the obtained positive cash flows are reinvested at the same rate at which they were generated
+
+-   The *Modified IRR* (M-TIR) considers that the proceeds from the positive cash flows of a project will be reinvested using a *different* rate of return. Frequently, the external rate of return is set equal to the company's cost of capital.
+
+-   Using $\small MIRR(\cdot)$ - or $\small MTIR(\cdot)$ - in *Excel*, one can specify different *financing* rates (i.e, the cost of capital) and *reinvestment* rates
+
+## The *Modified IRR* (M-TIR) in the *Cia Amazônia* case
+
+-   Let's say that, in our example, we would be able to reinvest the proceeds of the intermediate cash-flows at a 15% rate. If that is the case, then we would have the following cash-flow stream:
+
+. . .
+
+|                  |     **Year 0**     |  **Year 1**   |   **Year2**   |   **Year3**   |  **Year 4**   |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| *Free Cash Flow* | [-\$219,600]{.red} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$540,094]{.green} |
+
+-   If we now use the $IRR(\cdot)$ function in *Excel*, our new estimate for $\small r$ is $19.72\%$!
+
+-   Alternatively, if we kept the original cash-flow stream, but applied the $MIRR(\cdot)$ function and set the reinvestment rate to be $15\%$, we would have gotten the exact same result!
+
+-   In other words, one needs to be very cautious when interpreting *IRR* estimates
+
+## Comparing IRRs for multiple projects
+
+-   The complications around the use of *IRR* as a general rule for investment decisions are clearer when, instead of comparing a single project to an outside option of not investment at all, we have [multiple]{.blue} potential projects:
+
+. . .
+
+| **Project** | **Year 0** | **Year 1** | **Year 2** |
+|-------------|------------|------------|------------|
+| *A*         | -\$375     | -\$300     | \$900      |
+| *B*         | -\$22,222  | \$50,000   | -\$28,000  |
+| *C*         | \$400      | \$400      | -\$1,056   |
+| *D*         | -\$4,300   | \$10,000   | -\$6,000   |
+
+**Question:** Which of these projects have an IRR close to 20%? For which of these projects does the IRR rule provide the correct decision? For this, we'll analyze an NPV profile for each of these projects - see the example in [@BDM]
+
+## Comparing IRRs for multiple projects
+
+```{r,fig.width=16,fig.height=8}
+
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
+A=data.frame(FC=c(-375,-300,900),t=c(0:2),Project='A')
+B=data.frame(FC=c(-22222,50000,-28000),t=c(0:2),Project='B')
+C=data.frame(FC=c(400,400,-1056),t=c(0:2),Project='C')
+D=data.frame(FC=c(-4300,10000,-6000),t=c(0:2),Project='D')
+
+NPV_Profile=rbind(A,B,C,D)
+
+NPV=data.frame()
+
+for(r in seq(0,0.3,0.01)){
+
+NPV=NPV%>%rbind(data.frame(NPV=NPV_Profile%>%group_by(Project)%>%reframe(DCF=sum(FC/((1+r)^t))),Discount=r))
+  
+}
+
+Chart=NPV%>%rename(Project=NPV.Project)%>%ggplot(aes(x=Discount,y=NPV.DCF,col=Project))+
+  geom_line(size=2)+
+  theme_minimal()+
+  labs(x='',y='Net Present Value (NPV)',
+       title='')+
+  scale_y_continuous(labels=scales::dollar)+
+  scale_x_continuous(labels=scales::percent,breaks=seq(0.01,0.4,0.05))+
+  geom_hline(yintercept = 0,linetype='dashed')+
+  theme(axis.title = element_text(size=20,face='bold'),
+        axis.text = element_text(size=15),
+        title = element_text(size=25,face='bold'))
+
+Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07))
+
+
+```
+
+## Evaluating Cash Flow Streams
+
+-   Financial Managers are often faced with a decision regarding a stream of cash flows stemming from an investment opportunity
+
+-   There are multiple ways to evaluate an investment opportunity:
+
+    1.  Compare the *discounted* value of the cash-flows among alternatives
+    2.  Analyze the rate of return of the alternatives
+    3.  Verify the amount of time that a project takes to repay its investment
+
+-   As we'll see throughout this (and the next) lectures, we'll compare the *net present value* rule to other investment rules that firms sometimes use and explain why the net present value rule is [superior]{.blue}
+
+## IRR rule: overall thoughts
+
+-   Given the mathematical caveats of the IRR rule expression, one needs to be cautious when using it to evaluate a project (or compare across projects):
+
+    1.  If a project has [positive]{.green} cash flows that precede [negative]{.red} ones, it is important to look at the project's NPV profile in order to interpret the IRR
+
+    2.  If there is more than a one-time-change in the sign of the cash-flow streams (say, for example, [-]{.red} [+]{.green} [+]{.green} [+]{.green} [-]{.red}), there will be a case of multiple IRRs that satisfy the $\small NPV=0$ condition!
+
+    3.  Depending on the magnitude of the cash-flows, there may be no $r$ that satisfies $\small NPV=0$
+
+    4.  Even if these caveats are not applicable, the IRR rule will yield the same solution as of the NPV rule (i.e, accept/reject, or indicate the rank the best investment projects)
+
+-   Because of these reasons, it is always recommended to use the NPV rule!
+
+## The *Payback* rule
+
+-   Managers are often concerned about the length of time, considering the initial investment, by which a given investment is going to pay off in terms of free cash-flows
+
+-   The [payback investment rule]{.blue} states that you should only accept a project if its cash flows pay back its initial investment within a prespecified period.
+
+-   To apply the payback rule, you first calculate the amount of time it takes to pay back the initial investment, called the *payback period*
+
+-   With that, the [payback]{.blue} rule:
+
+1.  Accept the project if the payback period is [less than or equal to]{.blue} a pre-specified length of time
+
+2.  Reject otherwise
+
+## Payback rule, *Cia Amazônia* example
+
+-   Recall that our free-cash flow analysis for *Cia Amazônia* yields the following results:
+
+. . .
+
+|       |     **Year 0**     |     **Year 1**     |     **Year 2**     |     **Year 3**     |     **Year 4**      |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| *FCF* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
+
+-   With that, for each period, we calculate the cumulative sum of the cash-flows:
+
+    1.  **Year 1**: $-219,600+46,592 =$ [-173,008]{.red}
+    2.  **Year 2**: $-173,008+69,266 =$ [-103,742]{.red}
+    3.  **Year 3**: $-103,742+80,218 =$ [-23,524]{.red}
+    4.  **Year 4**: $-23,524+101,293 =$ [+77,769]{.green}
+
+-   As we can see, the payback occurs in Year 4, because it is the first year when the cumulative cash-flows from the project (considering the investment) are [positive]{.green}
+
+-   If we were to set a payback period of, for example, 4 (four) years, in this case, we would [accept]{.green} the project
+
+## Payback pitfalls
+
+-   The *payback rule* is arguably the easiest rule that one can have in order to decide on whether to [accept]{.green} or [reject]{.red} a project
+
+-   Naturally, it comes with a series of pitfalls that may hinder its straightforward application
+
+-   In what follows, we'll detail some of the most important ones that make the case for the use of *NPV* as our "ground truth":
+
+1.  it [ignores]{.red} the time value of money and the project's cost of capital
+2.  it [ignores]{.red} the cash-flow realizations after the payback period
+3.  it relies on an *ad-hoc* decision around the payback period threshold
+
+## Payback pitfall #1
+
+**Pitfall #1**: the *payback rule* ignores the time value of money and the project's cost of capital
+
+. . .
+
+-   Consider the *Cia Amazônia* project:
+
+. . .
+
+| **Project 1** |     **Year 0**     |     **Year 1**     |     **Year 2**     |     **Year 3**     |     **Year 4**      |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|     *FCF*     | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
+
+. . .
+
+-   The traditional *payback rule* is calculated based of a simple sum of the cash-flows, which totally abstract away from differences in the time value of money and risk!
+
+-   A way to overcome that would be to use the *discounted payback*, which sums over the cumulative *discounted cash-flows*. Assuming a 15% discount rate:
+
+. . .
+
+| **Project 1** |     **Year 0**     |     **Year 1**     |     **Year 2**     |     **Year3**      |     **Year 4**     |     **Year 5**     |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|     *FCF*     | [-\$219,600]{.red} | [\$40,514]{.green} | [\$52,375]{.green} | [\$52,744]{.green} | [\$57,914]{.green} | [\$64,973]{.green} |
+
+## Payback pitfall #1 (continued)
+
+| **Project 1** |     **Year 0**     |     **Year 1**     |     **Year 2**     |     **Year 3**     |     **Year 4**     |     **Year 5**     |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|     *FCF*     | [-\$219,600]{.red} | [\$40,514]{.green} | [\$52,375]{.green} | [\$52,744]{.green} | [\$57,914]{.green} | [\$64,973]{.green} |
+
+. . .
+
+-   The *payback rule* using the discounted flow then yields:
+
+    1.  **Year 1**: $-219,600+40,514 =$ [-179,085]{.red}
+    2.  **Year 2**: $-179,085+52,375 =$ [-126,710]{.red}
+    3.  **Year 3**: $-126,710+52,744 =$ [-73,965]{.red}
+    4.  **Year 4**: $-73,965+57,914 =$ [-16,050]{.red}
+    5.  **Year 5**: $-16,050+64,973 =$ [+48,922]{.green}
+
+-   Therefore, using the *discounted* cash-flows, the payback period is actually 5 (five), and not 4 (four) years. If our payback period threshold was 4 years, we would reject the project!
+
+## Payback pitfall #2
+
+**Pitfall #2**: the *payback rule* ignores the cash-flow realizations after the payback period
+
+. . .
+
+-   We saw that using the *discounted* cash-flows from the project could address the first pitfall. Notwithstanding, there is still an issue with the way that we look at the cash-flows
+
+-   In order to see that, consider two variations of projects:
+
+. . .
+
+| **Project 1** |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|     *FCF*     | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
+
+. . .
+
+| **Project 2** |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|     *FCF*     | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$150,000]{.green} | [\$500,000]{.green} |
+
+-   If you were to calculate the payback for these two projects, it would yield the same result (4 years), but **Project 2** generates substantially higher free cash flows in the subsequent periods!
+
+-   As the payback rule is just concerned around the *timing* of cash-flows, it ignores these differences
+
+## Payback pitfall #3
+
+**Pitfall #3**: it relies on an *ad-hoc* decision around the payback period threshold
+
+-   In our example, we've set a payback period of 4 years, in such a way that:
+
+    1.  If the payback of the project was [equal to or less]{.green} than 4 years, we would [accept]{.green} the project
+    2.  If the payback of the project was [higher]{.red} than 4 years, we would [reject]{.red} the project
+
+-   Why did the come up with **4 years** to begin with?
+
+-   Note that the choice of a given threshold for the payback rule might abstract away from good projects that have long-term returns:
+
+    1.  Innovative and disruptive industries may have NPV\>0 projects where the payback period is in the long-term
+    2.  Theoretically, if project owners within a company know that the payback rule is applied, they may have incentives to exacerbate short-term gains in spite of long-term value!
+
+## Wrapping up on *payback*
+
+-   **Question:** if the *payback* rule has so many caveats, why do we even bother using it?
+
+-   Despite these failings, along with the *IRR*, the *payback* rule is widespread in the context of business decision-making
+
+-   Why? The answer probably relates to its [simplicity]{.blue}:
+
+    1.  This rule is typically used for small investment decisions
+    2.  The payback rule also provides budgeting information regarding the length of time capital will be committed to a project
+    3.  Finally, if the required payback period is short (one or two years), then most projects that satisfy the payback rule will have a positive NPV
+
+-   As a consequence, firms might save effort by first applying the payback rule, and only if it fails take the time to analyze differences in NPV
+
+## Choosing between projects
+
+-   So far, we were concerned about making a decision around a binary outcome: we either [accepted]{.green} or [rejected]{.red} a stand-alone project
+
+-   What if we must choose [one]{.blue} project from a much higher set of projects?
+
+-   For example, a manager may be evaluating alternative package designs for a new product. When choosing any one project excludes us from taking the others, we are facing mutually exclusive investments
+
+-   For cases like this, we can still stick with the *NPV* rule:
+
+. . .
+
+**NPV Decision rule for mutually exclusive projects**: *because the NPV expresses the value of the project in terms of cash today, picking the project with the highest NPV leads to the greatest increase in wealth. Therefore, you should pick the project with the highest NPV*
+
+## Choosing between projects, the *NPV* rule
+
+*A small commercial property is for sale near your university. Given its location, you believe a student-oriented business would be very successful there. You have researched several possibilities and come up with the following cash flow estimates (including the cost of purchasing the property). Which investment should you choose?*
+
+. . .
+
+|     **Project**     | **Investment** | **First Year Cash-Flow** | **Growth Rate** | **Cost of Capital** |
+|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+|    *Book Store*     |   \$300,000    |         \$63,000         |      3.00%      |         8%          |
+|    *Coffee Shop*    |   \$400,000    |         \$80,000         |      3.00%      |         8%          |
+|    *Music Store*    |   \$400,000    |        \$104,000         |      0.00%      |         8%          |
+| *Electronics Store* |   \$400,000    |        \$100,000         |      3.00%      |         11%         |
+
+## Choosing between projects, the *NPV* rule
+
+-   Calculating the *NPV* for each project assuming a constant growth in perpetuity:
+
+1.  Book Store: $\small -300,000 + \dfrac{63,000}{8\%-3\%}=960,000$
+2.  Coffee Shop: $\small -400,000 + \dfrac{80,000}{8\%-3\%}=1,200,000$
+3.  Music Store: $\small -400,000 + \dfrac{104,000}{8\%}=900,000$
+4.  Electronics Store: $\small -400,000 + \dfrac{100,000}{11\%-3\%}=850,000$
+
+. . .
+
+*Thus, all of the alternatives have a positive NPV. But, because we can only choose one, the coffee shop is the best alternative.*
+
+## Comments on the *NPV* rule for mutually exclusive projects
+
+-   As we saw before, the *NPV* rule should also be considered the ground-truth for establishing a decision among mutually exclusive projects
+
+-   Importantly, different investment projects being considered can vary across several dimensions:
+
+1.  Investment levels
+2.  Cash-flow profiles
+3.  Cost of Capital (which is inherently tied to the riskiness of the project)
+
+-   Because of this, the *NPV* rule provides flexibility when assessing a rank-order of investment projects that vary across several dimensions
+
+## IRR and mutually exclusive projects
+
+-   One might be tempted to use the *IRR* rule to assess mutually exclusive projects when the assumptions of the *IRR* rule about the cash-flow profiles are satisfied
+
+-   As a consequence, extending the IRR investment rule to the case of mutually exclusive projects would imply picking the project with the highest IRR
+
+-   Unfortunately, one cannot confidently use the *IRR* rule to choose among different projects whenever the alternatives differ in terms of:
+
+1.  The scale of investment
+2.  The timing of the cashflows
+3.  Their riskiness
+
+-   In what follows, we'll redo our exercise to consider these three caveats
+
+## *IRR* caveat #1: scale of investment
+
+-   **Problem**: whenever projects differ in terms of scale of investment, simply contrasting the *IRR*s may not provide the correct answers
+
+-   Because the *IRR* is a [return]{.blue} metric, you really cannot tell how much [monetary value]{.blue} will actually be created without knowing the scale of the investment!
+
+1.  Book Store: $\small -300,000 + \dfrac{63,000}{IRR-3\%}\rightarrow IRR = 24\%$
+2.  Coffee Shop: $\small -400,000 + \dfrac{80,000}{IRR-3\%}\rightarrow IRR = 23\$$
+
+-   *Book Store* has a [higher]{.blue} *IRR*. However, *Coffee Shop* has a higher scale of investment level (400,000 *vs.* 300,000), generating a higher *NPV*!
+
+-   *What if we increase the size of the smaller project?* One needs to think if this possibility is plausible from a business perspective and, if that is the case, if the *IRR* can be maintained (*e.g*, market saturation)
+
+## *IRR* caveat #2: timing of cashflows
+
+-   **Problem**: even when projects have the same scale, the *IRR* may lead you to rank them incorrectly due to differences in the *timing* of the cash flows
+
+-   Earning a very high annual return is much more valuable if you earn it for several years than if you earn it for only a few days
+
+-   Because the *IRR* expresses the average compensation at a given interval, it is insensitive to how many periods these returns may actually be realized!
+
+-   For example, consider the following projects:
+
+1.  Invest \$100 today, earn 150 in one year
+2.  Invest \$100 today, earn $\small (1.5^5)\times100=759.4$ in 5 years
+
+-   The *IRR* for both cases is 50%, but the second one has a much higher monetary value because of its capacity to generate a 50% over a higher horizon!
+
+## *IRR* caveat #3: riskiness of projects
+
+-   To know whether the IRR of a project is attractive, we must compare it to the project's cost of capital, which is determined by the project's risk
+
+-   Thus, an *IRR* that is attractive for a safe project need not be attractive for a risky project.
+
+-   In order to see that, consider the last project of the previous exercise (*i.e*, *Electronics Store*):
+
+. . .
+
+$$
+\small -400,000 + \dfrac{100,000}{11\%-3\%}=850,000
+$$
+
+-   *Electronics Store* is the project with the lowest NPV, even with higher cash-flows over time, because its cost of capital is higher!
+
+-   Despite having a higher IRR, it is not sufficiently profitable to be as attractive as the safer alternatives.
+
+## Choosing projects with resource constraints
+
+1.  In principle, the firm should take on all positive-NPV investments it can identify...
+
+2.  In practice, there are often limitations on the number of projects the firm can undertake
+
+-   When projects are mutually exclusive, the firm can only take on one of the projects even if many of them are attractive
+
+-   So far, we've assumed that all projects have similar effects on the resource constraint. In the *book-store* example, all potential projects fully exhaust the resource constraint (*i.e*, there is only one property available that will be 100% used for the chosen project)
+
+-   What if *different* projects demand *different* amounts of a particular scarce resource? For example, different products may consume different proportions of a firm's production capacity, or might demand different amounts of managerial time and attention
+
+## Choosing projects with resource constraints, continued
+
+-   Consider the following list of projects:
+
+. . .
+
+| **Project** | **NPV \$** | **Investment** |
+|:-----------:|:----------:|:--------------:|
+|    **I**    |    110     |      100       |
+|   **II**    |     70     |       50       |
+|   **III**   |     60     |       50       |
+
+1.  If there were no budget constraints, we would invest in all three projects since they all have $\small NPV>0$
+
+2.  If now you have a budget constraint of \$100, how to maximize the gains from the investment?
+
+-   Note that although *project I* has the highest *NPV*, it consumes all the budget constraint, making impossible to invest in projects *II* and *III*
+
+## The *Profitability Index*
+
+-   One can identify projects that *efficiently* generate *NPV* by using the profitability index:
+
+. . .
+
+$$
+\small \text{Profitability Index}=\dfrac{\text{NPV Generated}}{\text{Resource Consumed}}
+$$
+
+-   Applying this to our example, we have:
+
+. . .
+
+| **Project** | **NPV \$** | **Investment** | **Profitability Index** |
+|:-----------:|:----------:|:--------------:|:-----------------------:|
+|    **I**    |    110     |      100       |           1.1           |
+|   **II**    |     70     |       50       |           1.4           |
+|   **III**   |     60     |       50       |           1.2           |
+
+-   Starting with the project with the highest index, we move down the ranking, taking all projects until the resource is consumed - in this case, taking projects $\small II$ and $\small III$ yields a combined *NPV* of $\small 70+60=130$
+
+## Profitability Index: practical example
+
+*NetIt, a large networking company, has put together a project proposal to develop a new home networking router. The expected NPV of the project is \$17.7 million, and the project will require 50 software engineers. NetIt has a total of 190 engineers available and there are competing projects:*
+
+| **Project** |  **NPV**  | **Engineering Headcount** |
+|:-----------:|:---------:|:-------------------------:|
+|   Router    |   17.7    |            50             |
+|  Project A  |   22.7    |            47             |
+|  Project B  |    8.1    |            44             |
+|  Project C  |    14     |            40             |
+|  Project D  |   11.5    |            61             |
+|  Project E  |   20.6    |            58             |
+|  Project F  |   12.9    |            32             |
+|  **Total**  | **107.5** |          **332**          |
+
+## Profitability Index: practical example (continued)
+
+-   How should *NetIt* prioritize these projects? We can calculate the *Profitability Index*, rank the projects from highest-to-lowest, and choose the projects up to a point where all the resources are exhausted:
+
+. . .
+
+| **Project** | **NPV** | **Eng. Count** | **Prof. Index** | **Rank** | **Consumed** |
+|:----------:|:----------:|:----------:|:----------:|:----------:|------------|
+| *Project A* |  22.7   |       47       |     0.4830      |    1     | 47           |
+| *Project F* |  12.9   |       32       |     0.4031      |    2     | 79           |
+| *Project E* |  20.6   |       58       |     0.3552      |    3     | 137          |
+|  *Router*   |  17.7   |       50       |     0.3540      |    4     | 187          |
+| *Project C* |   14    |       40       |     0.3500      |    5     | \-           |
+| *ProjectD*  |  11.5   |       61       |     0.1885      |    6     | \-           |
+| *Project B* |   8.1   |       44       |     0.1841      |    7     | \-           |
+
+## Profitability Index: practical example (continued)
+
+-   Ranking the projects from highest-to-lowest, we have:
+
+    1.  *Project A*, with $\small NPV= 22.7$
+    2.  *Project F*, with $\small NPV= 12.9$
+    3.  *Project E*, with $\small NPV= 20.6$
+    4.  *Router*, with $\small NPV= 17.7$
+
+-   Therefore, the combined *NPV* is $\small 22.7+12.9+20.6+17.7=73.9$. There is no other combination of projects that will create more value without using more engineers than we have
+
+-   Note, however, that the resource constraint forces *NetIt* to forgo three otherwise valuable projects (*C*, *D*, and *B*) with a total *NPV* of \$33.6 million
+
+## Shortcomings of the *Profitability Index*
+
+-   Although the profitability index is simple to compute and use, for it to be completely reliable, two conditions must be satisfied:
+
+    1.  *The set of projects taken following the profitability index ranking [completely exhausts]{.blue} the available resource*
+
+    -   Say that we have a new project, with $\small NPV=120,000$ that uses 3 engineers
+    -   Its index is $\small 0.12/3=0.04$, the lowest from all the projects
+    -   However, because there are still 3 engineers available, we could pursue it!
+
+    2.  *There is only a [single]{.blue} relevant resource constraint*
+
+    -   In practice, there are more scarce resources that need to be considered altogether: budget limitations, production inputs, physical space, etc
+
+    -   For dealing with a *multiple* resource problem, we can use linear programming techniques
+
+
+## Supplementary Reading
+
+
+- See [Present Value: A Note on Personal Applications (UV5136)]{.blue} for a detailed 
+discussion on how the diffent applications of the *Net Present Value* rule
+
+. . .
+
+*$\rightarrow$ All contents are available on eClass®.*
+
+## References

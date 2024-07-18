@@ -1,0 +1,586 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Working Capital Management'
+    theme: [default, custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: logo.jpg
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: abntex2.cls
+    incremental: true
+    bibliography: 'Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+
+editor: visual
+from: markdown+emoji
+---
+
+```{r echo=FALSE}
+library(dplyr)
+library(flextable)
+library(readxl)
+library(ggplot2)
+library(plotly)
+library(tidyr)
+```
+
+## Decomposing Asset Turnover
+
+In this lecture, we'll focus on the [Asset Turnover]{.blue} component:
+
+$$
+\small ROE=\dfrac{\text{Net Income}}{\text{Sales}}\times \underbrace{\dfrac{\text{Sales}}{\text{Assets}}}_{\text{Asset Turnover}}\times \dfrac{\text{Assets}}{\text{Equity}}
+$$
+
+-   Since firms invest considerable resources in their assets, using them productively is critical to overall profitability.
+
+-   There are two primary areas of investment management that are relevant to Asset Turnover:
+
+    1.  Working capital Management
+    2.  Management of long-term assets
+
+-   In this lecture, we'll extensively follow [@BDM] to study [Working Capital Management]{.blue}
+
+## Working Capital Management
+
+![](Figures/F2.jpg)
+
+-   **Definition**: working capital is the difference between a firm's current assets and current liabilities. It does not distinguish between [operating]{.blue} and [financing]{.blue} components:
+    1.  Operating: Accounts Receivable, Inventory, and Accounts Payable, Cash (excluding non-excess cash), etc
+    2.  Financing components: Excess Cash, Marketable securities, and Notes Payable.
+
+## Why Working Capital is so important?
+
+-   Our general definition for Net Working Capital is *Current Assets - Current Liabilities*
+
+-   If this number is positive, is this [good]{.green} or [bad]{.red}? It depends!
+
+    1.  Having current assets higher than current liabilities tells us something about the firm's liquidity...
+    2.  However, within these accounts, we'll see items such as *Cash*, *Inventories*, and *Accounts Receivable*...
+
+-   Notably, there are [opportunity costs]{.blue} associated with investing in inventories and accounts receivable, and from holding cash
+
+    1.  For example, excess funds invested in these accounts could instead be used to pay down debt or returned to shareholders in the form of a dividend or share repurchase.
+
+    2.  To this point, Working Capital Management aims to manage working capital efficiently and thereby minimize these opportunity costs!
+
+## Why Working Capital is so important? An example...
+
+-   Let's get back to the pizza vendor example that we had in our first class...
+
+    1.  We know that, to run a food-business like this, we need *fixed* investments on Equipments, Machinerys, Buildings, etc
+    2.  But after these are set in place, we need to worry about the *flow* of the operations!
+
+-   Examples:
+
+    1.  We need money to buy the core ingredients and to make up some inventory
+    2.  We also need to have a cushion to pay salaries for delivery/production/waiter workers
+    3.  There will also be electric, water, sewage bills, along with other fixed costs that we'll need to cushion
+
+-   Note that the operation **cannot** generate cash if we don't have these assets in place
+
+-   These are certain expenditures that we will continuously have as the operation flows -- hence *working capital*
+
+## Working Capital, another example
+
+-   A certain amount of investment in working capital is generally necessary for the firm to run its normal operations
+
+-   To make this point clear, think about any mass retailer, such as *Arezzo* (ticker: [ARZZ3]{.blue}):
+
+1.  To ensure that consumers are buying, retailers might need to provide a flexible payment method $\rightarrow$ increased investment on [*Accounts Receivable*]{.blue}
+2.  To ensure that the goods are delivered on time, we might need to have inventories in place $\rightarrow$ increased investment on [*Inventories*]{.blue}
+3.  However, as [ARZZ3]{.blue} is a big retailer, it also may have good contracting terms with its suppliers to pay its inventory later $\rightarrow$ increased [*Accounts Payable*]{.blue}
+
+-   Often, the interaction between these three accounts yields an important part of operating working capital needed for the business!
+
+## The Cash and Operating Cycle
+
+-   The level of working capital reflects the length of time between when cash goes out of a firm at the beginning of the production process and when it comes back in:
+
+1.  A company first buys inventory from its suppliers, in the form of either raw materials or finished goods
+2.  After receiving the inventory, even if the inventory is in the form of finished goods, it may sit on the shelf for some time.
+3.  Finally, when the inventory is ultimately sold, the firm may extend credit to its customers, delaying when it will receive the cash.
+
+-   The main components of net working capital are cash, inventory, receivables, and payables. To that matter, we can use the most important parts of a firm's net working capital to define the [cash]{.blue} and [operating]{.blue} cycle
+
+## Cash and Operating Cycle Dynamics
+
+![](Figures/F1.jpg){fig-align="center" width="80%"}
+
+. . .
+
+**Definition:** *A firm's cash cycle is the length of time between [when the firm pays cash to purchase its initial inventory]{.blue} and when it [receives cash from the sale]{.blue} of the output produced from that inventory*
+
+## Cash Cycle Dynamics, continued
+
+-   The [longer]{.blue} the firm's cash cycle, the [more working capital]{.blue} it has, and the [more cash]{.blue} it needs to carry to conduct its daily operations
+
+-   Because of the characteristics of different industries, working capital levels vary significantly
+
+. . .
+
+**Policies that increase the firm's Cash Cycle:**
+
+1.  If a firm extends the credit terms to its clients from 30 to 60 days $\rightarrow$ increased investment in *Accounts Receivable*
+
+2.  If the firm takes more time to produce its finished goods $\rightarrow$ the higher is the time that inventories are stocked $\rightarrow$ increased investment in *Inventories*
+
+. . .
+
+**Policies that decrease the firm's Cash Cycle:**
+
+1.  If a firm receives more time to pay for its raw materials $\rightarrow$ increased liabilities in *Accounts Payable*
+
+## Cash Conversion Cycles by Industry
+
+```{r}
+#| html-table-processing: none
+#| echo: false
+read.csv('Figures/F2.csv',check.names=FALSE)%>%
+  flextable()%>%
+  fontsize(size=15)%>%
+  fontsize(part='header',size=15)%>%
+  bold(part='header')%>%
+  width(width=4)%>%
+  height(height=0.8)
+
+```
+
+## Determining the Cash Cycle
+
+-   Some practitioners measure the cash cycle by calculating the cash conversion cycle. The cash conversion cycle (CCC) is defined as
+
+. . .
+
+$$
+\small CCC= \text{Accounts Receivable Days}+\text{Inventory Days}- \text{Accounts Payable Days}
+$$ Where:
+
+$$
+\small
+\text{Accounts Receivable Days}= \dfrac{\text{Accounts Receivable}}{\text{Average Daily Sales}}
+$$
+
+$$
+\small
+\text{Inventory Days}= \dfrac{\text{Inventory}}{\text{Average Daily COGS}}
+$$
+
+$$
+\small
+\text{Accounts Payable Days}= \dfrac{\text{Accounts Payable}}{\text{Average Daily COGS}}
+$$
+
+## Estimating the Cash Conversion Cycle
+
+-   Suppose that a firm has \$100,000 in account receivables, \$50,000 in inventory, and \$25,000 in accounts payable. It has reported sales of about \$1MM and its Cost of Goods Sold (COGS) represent 40% of total revenues. Calculate the Cash Conversion Cycle. Assume a 365-day year.
+
+-   Now, we'll calculate the Cash Conversion Cycle of the firm by looking at its individual components
+
+. . .
+
+*$\rightarrow$ See [CCC Dynamics.xlsx]{.blue}, available on eClass®, for a detailed explanation on cash conversion cycle dynamics using this lecture's example.*
+
+## Step 1: Inventory Days
+
+-   The firm has \$50,000 in Inventory
+-   It had reported COGS of $40\% \times 1,000,0000=400,000$
+-   The Inventory Conversion is then:
+
+. . .
+
+$$
+\small
+IC=\dfrac{Inventory}{\dfrac{COGS}{365}}\rightarrow \dfrac{50,000}{\dfrac{400,000}{365}}\rightarrow \dfrac{50,000}{1,096}\approx \text{45.6 days}
+$$
+
+-   **Interpretation**: if the firm had 400,000 in Inventory Costs yearly, this translates to a daily average of 1,096. If there's 50,000 in Inventories, it means that it takes, on average, $50,000/1,096=45.6$ days for Inventories to be finished.
+
+## Step 2: Accounts Receivable Days
+
+-   The firm has \$100,000 in Receivables
+-   It had reported Sales of $1,000,0000$
+-   The Accounts Receivable Conversion is then:
+
+. . .
+
+$$
+\small
+ACC=\dfrac{Receivables}{\dfrac{Sales}{365}}\rightarrow \dfrac{100,000}{\dfrac{1,000,000}{365}}\rightarrow \dfrac{100,000}{2,739}\approx \text{36.5 days}
+$$
+
+-   **Interpretation**: if the firm had 1,000,000 in Sales yearly, this translates to a daily average of 2,739. If there's 100,000 in Receivables, it means that it takes, on average, $100,000/2,739=36.5$ days for a given client to pay the firm, after it has bought the product.
+
+## Step 3: Accounts Payable Days
+
+-   The firm has \$25,000 in Receivables
+-   It had reported COGS of $40\% \times 1,000,0000=400,000$
+-   The Accounts Payable Conversion is then:
+
+. . .
+
+$$
+\small
+APC=\dfrac{Payables}{\dfrac{COGS}{365}}\rightarrow \dfrac{25,000}{\dfrac{400,000}{365}}\rightarrow \dfrac{25,000}{1,096}\approx \text{22.8 days}
+$$
+
+-   **Interpretation**: if the firm had 400,000 in COGS yearly, this translates to a daily average of 1,096 If there's 25,000 in Receivables, it means that it takes, on average, $25,000/1,096=22.8$ days for the firm to pay its suppliers, after it bought the Inventory.
+
+## Step 3: putting all together
+
+-   Recall tha the Cash Conversion Cycle is defined as:
+
+. . .
+
+$$
+\small CCC= \text{Accounts Receivable Days}+\text{Inventory Days}- \text{Accounts Payable Days}
+$$
+
+-   Using our formula, we have:
+
+. . .
+
+$$
+\small CCC= \text{36.5}+\text{45.6}- \text{22.8}\approx \text{59.3 days}
+$$
+
+-   It means that, on average, it takes roughly 60 days for the firm to receive from its clients after it paid for its inventories.
+
+    1.  If [CCC\>0]{.blue} $\rightarrow$ the firm needs to invest in Working Capital to be able to pay its obligations before receiving from clients
+    2.  If [CCC\<0]{.blue} $\rightarrow$ the firm receives from clients *before* it actually had to pay its suppliers
+
+## Changing the Accounts Payable
+
+-   Suppose that the firm has made an arrangement with its suppliers to be able to pay in [40 days]{.blue}. What is the effect of this policy?
+
+1.  First, we can see that the new *CCC* is $36.5+45.6-40\approx 42.1$ days. Why is this important? Because it reduces the net working capital requirement!
+
+2.  In order to see that, recall that, on average, the firm pays $\$400,000/365\approx \$1,096$ to its suppliers on a daily basis. Therefore, as there's an increase from 22.8 $\rightarrow$ 40 days, the new level of accounts payable is:
+
+. . .
+
+$$
+\small
+APC=\dfrac{Payables}{\dfrac{COGS}{365}}\rightarrow 40=\dfrac{Payables}{1,096}\rightarrow Payables=  43,835
+$$
+
+## Changing the Accounts Payable, continued
+
+-   Therefore, the change in the Net Working Capital is simply given by the difference in Accounts Payable:
+
+. . .
+
+$$
+\small
+\Delta Payables=43,835-25,000=18,835
+$$
+
+1.  The company was able to free-up \$18,835 of resources that can be either paid off to shareholders as dividends or reinvested in other activities or even financial instruments
+
+2.  Also, if we distributed this value, as we're keeping the Sales numbers constant, but being able to do so with a [lower]{.blue} level of assets, we are increasing the firms's [Operating Asset Turnover]{.blue}, and hence, the [ROIC]{.blue}
+
+## Practical Example, Arezzo (ARZZ3)
+
+```{r,fig.width=20,fig.height=8}
+
+Data=read_excel('Exercises/Planilha Arezzo.xlsx',sheet = 'CCC')%>%gather(Key,Value,-Variable)
+CCC=Data%>%filter(Variable== 'Cash Conversion Cycle')
+
+
+Plot=Data%>%
+  filter(Variable!= 'Cash Conversion Cycle')%>%
+  ggplot(aes(x=Key,y=Value,fill=Variable))+
+  geom_col()+
+  geom_text(data=CCC,aes(x=Key,y=Value,label=round(Value,0)),size=10)+
+  labs(title='Cash Conversion Cycle - Arezzo (ARZZ3)',fill='Days in',x='',y='Average Days')+
+  theme_minimal()+
+  theme(legend.position = 'bottom',
+        axis.text = element_text(size=12),
+        axis.title = element_text(size=12),
+        title = element_text(size=20,face='bold'),
+        legend.text = element_text(size=12))
+
+ggplotly(Plot)%>%
+  plotly::layout(legend=list(x=0, 
+                                 xanchor='left',
+                                 yanchor='bottom',
+                                 orientation='h'))
+
+```
+
+## Understanding Working Capital nuances
+
+-   [Working capital (or Net Working Capital)]{.blue} is the difference between a firm's current assets and current liabilities
+
+-   **It does not** distinguish between [operating]{.blue} and [financing]{.blue} components:
+
+    1.  Operating: Accounts Receivable, Inventory, and Accounts Payable, Cash (excluding non-excess cash), etc
+    2.  Financing components: Excess Cash, Marketable securities, and Notes Payable.
+
+-   To what it concerns us the most, [Operating Working Capital]{.blue} is the portion that relates to the cash that is needed to run the operating part
+
+-   Think, for example, about our last lecture on [Economic Value Added - EVA]{.blue}. Ideally, we would like to know the amount of capital that has been invested in the Operation, excluding any financial effects.
+
+## Important: watchout for definitions!
+
+. . .
+
+::: callout-important
+In *Chapter 2* of *Berk and DeMarzo*, Working Capital is defined as *Current Assets* - *Current Liabilities*. In *Chapter 26*, however the authors state that *"\[...\] working capital management involves short-term asset accounts such as cash, inventory, and accounts receivable, as well as short-term liability accounts such as accounts payable"*.
+:::
+
+-   Why do we have these distinctions? It is important to understand that, *within* working capital, we have *Financing* and *Operating Accounts*.
+
+-   We can use the operating accounts to calculate the *Operating Working Capital*, which is formally defined as Current Operating Assets - Current Operating Liabilities
+
+. . .
+
+$\rightarrow$ *Berk and DeMarzo* uses *Accounts Payable*, *Receivables*, and *Inventories* (the main components) to calculate the Cash Conversion Cycle, but keep in mind that Operating Working Capital contains [all]{.blue} current operating accounts!
+
+## Cash and Operating Cycle Dynamics
+
+![](Figures/F1.jpg){fig-align="center" width="80%"}
+
+. . .
+
+-   As of now, we defined what *Working Capital* is and how to measure it
+
+-   **Question**: which policies a Financial manager can adopt to manage working capital?
+
+## Working Capital Policies
+
+-   We saw that investment in working capital are [necessary]{.blue}, but incur in an [opportunity cost]{.blue}:
+
+    1.  By increasing inventories, not only there are increasing costs of maintaning a physical structure, but also we are losing the opportunity to invest and earn additional income
+
+    2.  Holding cash as a precautionary motive precludes the firm from being able to earn interest
+
+    3.  Having a high level of account receivables also precludes the firm from earning interest on the money
+
+-   Because of these reasons, aiming to optimize working management entails the creation of policies that seek to:
+
+    1.  Provide all the resources that the firm needs in order to run its operations; and
+    2.  At the same time, minimize the (opportunity) costs related to it
+
+-   In this lecture, we will look at the most common working capital policies, understand how their work, and estimate their effects
+
+## Trade Credit
+
+-   The credit that the firm is extending to its customer is known as [trade credit]{.blue}
+
+    1.  A firm would, of course, prefer to be paid in cash at the time of purchase
+    2.  However, a "cash-only" policy may cause it to lose its customers to competition
+
+-   Trade credit is, in essence, a loan from the selling firm to its customer
+
+    1.  The price discount represents an interest rate
+    2.  Firms offer favorable interest rates on trade credit as a price discount to their customers
+
+-   Understanding the terminology: what is [*"2/10, Net 30"*]{.blue}? It means that the buying firm will receive a [2%]{.blue} discount if it pays for the goods within [10 days]{.blue}; otherwise, the full amount is due in [30 days]{.blue}.
+
+-   As a Financial Manager, it is important to understand that Trade Credit has a cost (or a discount): by taking an offer to pay later, what is the additional cost that the firm needs to incur?
+
+## Calculating the Cost of Trade Credit
+
+-   Suppose that a firm purchases goods from its supplier on terms of [5/15, Net 40]{.blue}. What is the effective annual cost to your firm if it chooses not to take advantage of the trade discount offered?
+
+-   Because the discount is 5%, for a \$100 bill, a firm faces the following options:
+
+    1.  Pay \$95 in 15 days; or
+    2.  Pay \$100 in 40 days
+
+-   Given that the difference is (40-15)=25 days, it means that the cost is $100/95-1\approx 5.26\%$ during the period. In order to see this in annual terms, we have:
+
+. . .
+
+$$
+\dfrac{100}{95}\approx 1.0526\rightarrow(1.0526)^{365/25}-1\approx111.5\%!
+$$
+
+## If Trade Credit is costly, why it exists?
+
+-   In our previous example, by not taking the discount, the firm is effectively paying [111.5%]{.blue}, at an annual rate, to borrow the money.
+
+-   If the firm can obtain a bank loan at a lower interest rate, it would be better off borrowing at the lower rate and using the cash proceeds of the loan to take advantage of the discount offered by the supplier
+
+-   But if that is the case, why we see so much trade credit in the market?
+
+1.  It is simple and convenient $\rightarrow$ lower transaction costs
+2.  It is flexible
+3.  Sometimes, it is the only funding resource that a firm can obtain
+
+-   Why should a firm ever provide trade credit?
+
+## Reasons to provide Trade Credit
+
+-   Screening different client types: rather than lowering the price for all clients, we may offer specific credit terms that are attractive to customers with bad credit, but unattractive to customers with good credit:
+    1.  Bad credit clients would take the discount since they would not have any better offer elsewhere; and
+    2.  Good credit clients would not be interested in taking the discount and would pay the full price
+-   Customer-Supplier relationships:
+    1.  Sometimes, the supplier may have more information about the customer than the bank has, and thus provide more interesting terms
+    2.  It could also threaten to cut off future supplies
+    3.  Finally, seizing the inventory collateral in case of default is likely to be much more valuable to the supplier than the bank
+
+## Float
+
+-   Float refers to the length of a firm's receivables and payables is the delay between the time a bill is paid and the cash is actually received. This delay, or processing float, will impact a firm's working capital requirements.
+
+-   In the past, Float seemed to be much more relevant due to the alternatives that were in place:
+
+    1.  Cash
+    2.  Electronic Check processing
+    3.  Transfer Deposits (in Brazil, *DOC* and *TED*)
+
+-   As technology disputs the financial marketplace, float reduced significantly
+
+-   **Question**: what happens with the introduction of *PIX*?
+
+## Credit Policy
+
+-   A firm can better manage its [receivables]{.blue} by establishing a clear [credit policy]{.blue}:
+
+1.  Establishing Credit Standards:
+    -   What is the criteria to extend credit?
+    -   Internal evaluation *versus* the use of credit rating agencies
+2.  Establishing Credit Terms:
+    -   After creating the criteria, what will be the credit terms?
+    -   This is also highly influenced by competition and industry standards
+3.  Establishing a Collection Policy:
+    -   In case of default, what should the firm do?
+    -   Policies range from seizing inventory, interest expenses, legal actions
+    -   Debt Collection business (collection agencies)
+
+## Monitoring Accounts Receivable - Average Receivable Days
+
+-   After establishing a credit policy, a firm must monitor its accounts receivable to analyze whether its credit policy is working effectively. There are two common ways of doing so:
+
+-   Monitoring the average receivable days: the accounts receivable days is the average number of days that it takes a firm to collect on its sales.
+
+    1 A firm can compare this number to the payment policy specified in its credit terms to judge the effectiveness of its credit policy 2 If the credit terms specify "Net 30" and the accounts receivable days outstanding is 50 days, the firm can conclude that its customers are paying 20 days late, on average.
+
+-   Note that this has the benefit of being feasible only with balance-sheet data. Notwithstanding, it conveys little information about the specificities of the due payments
+
+## Monitoring Accounts Receivable - Aging Schedules
+
+-   Aging Schedules provide more detailed information regarding the specifics of due payments.
+
+. . .
+
+![](Figures/F3.jpg){fig-align="center"}
+
+-   If, for example, the Credit Policy established [30 days]{.blue}, it means that the dollar percentage due is $21.9+12.5+4.4=38.8\%$
+
+## Payables Management
+
+-   What to do with the liabilities that we have with suppliers?
+
+    1.  A firm should choose to borrow using accounts payable [only if trade credit is the cheapest source of funding]{.blue}.
+    2.  If not, a firm can finance its working capital needs via other sources or pay in advance
+
+-   A firm should strive to keep its money working for it as long as possible without developing a bad relationship with its suppliers or engaging in unethical practices
+
+-   In addition, a firm should always pay on the latest day allowed, considering the option taken:
+
+    1.  If the discount period is 10 days and the firm is taking the discount, payment should be made on day 10, not on day 2
+    2.  If the discount is not taken and the terms are 2/10, Net 30, the full payment should be made on day 30, not on day 16
+
+-   There are two widespread tools to monitor accounts receivable
+
+## Payables Management - Accounts Payable Outstanding
+
+-   Similar to the situation with its accounts receivable, a firm should monitor its accounts payable to ensure that it is making its payments at an optimal time
+
+-   One way is to the accounts payable days outstanding and compare it to the credit terms
+
+-   Suppose that a firm has an average accounts payable balance of \$250,000. Its average daily cost of goods sold is \$14,000, and it receives terms of 2/15, Net 40, from its suppliers. The firm chooses to forgo the discount. Is the firm managing its accounts payable well?
+
+. . .
+
+::: nonincremental
+**A:** the account payable days is $250,000/14,000= 17.9$ days. There are two cases:
+
+1.  If the firm made payment [three days earlier]{.blue}, it could take advantage of the 2% discount.
+2.  If for some reason it chooses to [forgo]{.blue} the discount, it should not be paying the full amount until the fortieth day.
+
+**Important Note**: these are *average terms* and do not refer to specific payments.
+:::
+
+## Payables Management - Stretching Accounts Payable
+
+-   Some firms ignore the payment due period and pay later, in a practice referred to as stretching the accounts payable.
+
+-   For example, given terms of 2/10, Net 30, for example, a firm may choose to not pay until 45 days have passed.
+
+-   **Example:** what is the effective annual cost of credit terms of 1/15, Net 40, if the firm stretches the accounts payable to 60 days?
+
+. . .
+
+::: nonincremental
+**A:** the interest rate per period is $\small 1/99=1.01\%$. If the firm delays the payment until the 60th day, it has used the funds for 45 days [beyond]{.blue} the agreed period. Therefore, the annual effective rate is $\small (1.0101)^{365/45}-1=8.49\%$, as opposed to what has been established before, which is $\small (1.0101)^{365/15}-1=27.39\%$
+:::
+
+-   There may be direct and indirect costs of streching the accounts payable (e.g, retaliation, cash-on delivery and cash-before delivery policies, reduced supply, lower credit ratings)
+
+## Inventory Management
+
+-   If holding inventory is costly, why do firms ever keep high levels of inventory?
+
+1.  Benefits of holding inventory
+
+    -   If a firm holds too little inventory, stock-outs, the situation when a firm runs out of goods, may occur, leading to lost sales.
+    -   Likewise, disappointed customers may switch to one of the firm's competitors.
+    -   It might be optimal for firms to hold inventory because of the seasonality in demand
+
+2.  Costs of holding inventory
+
+    -   Acquisition Costs
+    -   Order Costs
+    -   Carrying Costs
+
+. . .
+
+For a detailed discussion, see [@BDM], Chapter 26.
+
+## Cash Management
+
+-   If firms could perfectly tap into resources at any time needed, there would be no need for holding cash:
+    1.  Firms could invest 100% of its money in operations
+    2.  In case of a mismatch, raise money at a fair rate to make up the differences
+-   On the one hand, holding cash is [costly]{.blue}, as we liquid assets may earn below-average returns
+-   On the other hand, firm's may face a much higher cost if there's ever need for raising cash quickly (e.g, financial distress periods)
+
+. . .
+
+**Because of these reasons, firms may hold cash for some specific reasons:**
+
+1.  Transactions Balance: day-to-day operations
+2.  Precautionary Motives: uncertainty regarding the firms cash flows
+3.  Compensating Balance: credit agreements
+
+## Supplementary Material
+
+-   Harvard Notes
+
+    1.  [Credit Analysis Basics (UV8009)]{.blue}
+    2.  [Trade Credit (UV8022)]{.blue}
+
+-   What to do with excess cash? See more on the *Money Market Industry* (in special, the [American Money Market Funds](https://braziljournal.com/brands/alternativa-em-dolar-a-reserva-de-emergencia-conheca-os-money-market-funds/))
+
+-   A note on *The Economist* about the [Debt Collection]{.blue} industry: access [here](https://www.economist.com/finance-and-economics/2017/06/08/in-praise-of-americas-third-party-debt-collectors?utm_medium=cpc.adword.pd&utm_source=google&ppccampaignID=19495686130&ppcadID=&utm_campaign=a.22brand_pmax&utm_content=conversion.direct-response.anonymous&gad_source=1&gclid=Cj0KCQiA84CvBhCaARIsAMkAvkKYDLF6jqf8wA63yGJV22lhLAx7Becsqth7flyK1tEx59dxsf-nunsaAmZAEALw_wcB&gclsrc=aw.ds)
+
+. . .
+
+*$\rightarrow$ All contents are available on eClass®.*
+
+## References

@@ -1,0 +1,502 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Short-term Financial Planning'
+    theme: [default, custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: logo.jpg
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: abntex2.cls
+    incremental: true
+    bibliography: 'Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+
+editor: visual
+from: markdown+emoji
+---
+
+```{r echo=FALSE}
+library(dplyr)
+library(flextable)
+library(readxl)
+library(ggplot2)
+library(plotly)
+library(stringr)
+library(tidyr)
+library(highcharter)
+```
+
+## Financing Short-term needs
+
+-   In our previous lecture, we saw that firms need not only *long-term*, but also *short-term* investments
+
+-   These, in general, are referred to as [net working capital]{.blue}:
+
+    1.  If a firm is growing, it is likely the case that its [net working capital]{.blue} needs are also trending [upwards]{.blue}
+    2.  In order to foster such growth, the firm needs to firm about *how* to fund it!
+
+-   Firms may also present seasonal sales patterns:
+
+    1.  A firm can generate surpluses in some given quarters...
+    2.  But it might demand capital in other quarters
+
+-   **Question**: how does a company manage its short-term needs within the year?
+
+## Financing Short-term needs - ARRZ3
+
+```{r,fig.height=8,fig.width=16}
+
+WC=read_excel('Exercises/Financials.xlsx',sheet=9)[4:8,]%>%
+  gather('Key','Working Capital',-Account)%>%
+  filter(Account=='Working Capital')%>%
+  mutate(Key=as.factor(Key),row=row_number())%>%
+  select(-Account)
+
+
+Sales=read_excel('Exercises/Financials.xlsx',sheet=3)[1,]%>%
+  gather('Key','Sales',-Account)%>%
+  mutate(Key=as.factor(Key),Sales=as.numeric(Sales))%>%
+  select(-Account)
+
+Dates=data.frame('Date'=seq(as.Date("2011-04-01"), length = 48, by = "quarters"))
+
+Data=WC%>%
+  left_join(Sales,by='Key')%>%
+  cbind(Dates)%>%
+  select(Date,Sales,`Working Capital`)%>%
+  gather(key = 'Key',value='Value',-Date)
+
+# set options
+hcoptslang <- getOption("highcharter.lang")
+hcoptslang$thousandsSep <- ","
+options(highcharter.lang = hcoptslang)
+
+hchart(Data, "line",hcaes(x = Date, y = Value, group = Key))%>%
+  hc_title(text='ARZZ3 Historical Sales and Net Working Capital Levels',
+           style=list(fontSize= '40px',fontWeight='bold'))%>%
+  hc_yAxis(title = list(text = "Value (in $ 000's)",
+                        style=list(fontSize= '25px',fontWeight='bold')),
+           labels = list(style=list(fontSize= '25px')))%>%
+  hc_xAxis(title = list(text = 'Quarters',
+                        style=list(fontSize= '25px',fontWeight='bold')),
+           labels = list(style=list(fontSize= '25px')))
+
+```
+
+## Breaking Down Short-Term Financing Needs - ARRZ3
+
+```{r,fig.height=8,fig.width=16}
+
+Data=read_excel('Exercises/Financials.xlsx',sheet=9)[4:8,]%>%
+  gather('Key','Value',-Account)%>%
+  filter(!Account %in% c('Others','Working Capital'))%>%
+  mutate(Key=as.factor(Key),row=row_number())
+
+Plot=Data%>%
+  ggplot(aes(x=reorder(Key,row),y=Value,fill=Account))+
+  geom_col()+
+  theme_minimal()+
+  labs(title="Breakdown of ARZZ3's working capital needs",
+       x='Quarter',
+       y="Value ('000s)",
+       fill='')+
+  scale_y_continuous(labels = scales::dollar,breaks=seq(-2000000,2000000,500000))+
+  theme(axis.title = element_text(face='bold',size=15),
+        title= element_text(face='bold',size=20),
+        axis.text = element_text(size=12),
+        axis.text.x = element_text(angle = 90),
+        legend.position = 'bottom')
+
+  ggplotly(Plot)%>%layout(legend = list(orientation = 'h'))
+    
+
+
+```
+
+## Breaking Down Debt Trends - ARRZ3
+
+```{r,fig.height=8,fig.width=16}
+
+Data=read_excel('Exercises/Financials.xlsx',sheet=5)%>%
+  gather('Key','Value',-Account)%>%
+  filter(str_detect(Account,'Loans'))%>%
+  mutate(Key=as.factor(Key),Value=as.numeric(Value),row=row_number())
+
+Plot=Data%>%
+  ggplot(aes(x=reorder(Key,row),y=Value,fill=Account))+
+  geom_col()+
+  theme_minimal()+
+  labs(title="Breakdown of ARZZ3's Loans",
+       x='Quarter',
+       y="Value ('000s)",
+       fill='')+
+  scale_y_continuous(labels = scales::dollar,breaks=seq(0,1000000,250000))+
+  theme(axis.title = element_text(face='bold',size=15),
+        title= element_text(face='bold',size=20),
+        axis.text = element_text(size=12),
+        axis.text.x = element_text(angle = 90),
+        legend.position = 'bottom')
+
+  ggplotly(Plot)%>%layout(legend = list(orientation = 'h'))
+    
+
+
+```
+
+## Overview
+
+-   Overall, it seems that both Sales and Net Working Capital are trending upwards
+
+    1.  High demand for products $\rightarrow$ higher working capital needs
+    2.  Higher need to extend funding to foster increased activity
+
+-   Looking at the specifics of *Arezzo's* working capital accounts, it seems it is being fueled mainly by [Inventories]{.blue}, although [Receivables]{.blue} have also increased significantly
+
+-   [Payables]{.blue} have substantially increased to sustain the firm's growth. However, overall net capital needs have increased.
+
+-   How to finance the remaining part?
+
+-   In the next slides, we'll study a step-by-step guide in short-term financing, following [@BDM]
+
+## Step 1: Forecasting Short-term Financing Needs
+
+-   The first step in short-term financial planning is to forecast the company's future cash flows
+
+    1.  A company forecasts its cash flows to determine whether it will have surplus cash or a cash deficit for each period
+    2.  The management needs to decide whether that surplus or deficit is [temporary]{.blue} or [permanent]{.blue}
+
+-   Within short-term financing planning, we are interested in analyzing the types of cash surpluses or deficits that are [temporary]{.blue} and, therefore, [short-term]{.blue} in nature
+
+-   Typically, firmsrequire short-term financing for three reasons:
+
+1.  Seasonalities
+2.  Negative Cash-Flow shocks
+3.  Positive Cash-Flow shocks
+
+## Seasonalities
+
+-   When sales are concentrated during a few months, sources and uses of cash are also likely to be seasonal.
+
+    1.  Firms in this position may find themselves with a surplus of cash during some months that is sufficient to compensate for a shortfall during other months
+    2.  However, because of timing differences, such firms often have short-term financing needs.
+
+-   The introduction of seasonal sales creates some dramatic swings in short-term cash flows:
+
+    1.  While Cost of Goods Sold generally fluctuates proportionally with sales, other costs (such as administrative overhead and depreciation) do not, leading to large changes in the firm's net income by quarter
+
+    2.  Net working capital changes are more pronounced
+
+-   Seasonal sales create large short-term cash flow deficits and surpluses: because of this, a firm may opt to invest surpluses in short-term investment options and use it during downturns
+
+## Negative and Positive Cash-Flows
+
+**Negative Cash-Flow Shocks**
+
+. . .
+
+-   Occasionally, a company will encounter circumstances in which cash flows are temporarily negative for an *unexpected* reason (e.g, higher costs, legal actions, supply shortages, etc)
+
+-   Such unexpected hits in the firm's cash flow expectations might induce to an increase in financing needs
+
+-   **Example**: what happened to delivery food chains during the onset of the pandemic in Brazil?
+
+. . .
+
+**Positive Cash-Flow Shocks**
+
+-   Increases in firm's expected sales can leader to increases in short-term financing needs. Going back to the example that we saw, *ARZZ's* growth in sales was accompanied by a surge in working capital needs!
+
+-   A firm may have a temporary deficit before it actually reaps out the benefits of positive cash-flow shocks (e.g, Marketing investments)
+
+## An example of projected financial statements
+
+![](Figures/F1.jpg){height="750" fig-align="center"}
+
+## Step 2: Financing Short-term Financing Needs
+
+-   Right after forecasting the need for short-term financing, it is time to decide [how]{.blue} it will be financed
+
+1.  On the one hand, there is an opportunity cost of holding cash in accounts that pay little or no interest
+
+2.  On the other hand, firms also face high transaction costs if they need to negotiate a loan on short notice to cover a cash shortfall
+
+-   The [Matching Principle]{.blue}: firms can increase their value by adopting a policy that minimizes these kinds of costs:
+
+1.  [Short-term needs]{.blue} should be financed with [Short-term debt]{.blue}
+
+2.  [Long-term needs]{.blue} should be financed with [Long-term sources of funds]{.blue}
+
+## Matching Principle in practice - Permanent Working Capital
+
+-   We saw that we can distinguish permanent and short-term working capital needs.
+
+- The [permanent portion of working capital]{.blue} is the amount that a firm must keep invested in its short-term assets to support its continuing operations. This investment in working capital is required so long as the firm remains in business
+
+-   The matching principle indicates that the firm should finance this [permanent]{.blue} portion of working capital with [long-term]{.blue} sources of funds
+
+-   Why? In general, such sources have lower transaction costs than short-term sources of funds, which would have to be replaced more often.
+
+. . .
+
+**Example:** after forecasting permanent working capital needs, if funding occurs through short-term sources (say, 1 year), firms are exposed to [interest rate risk]{.blue} -- you may have to refinance at a higher rate in the future! During *COVID-19*, interest rate risk made smaller firms to shut-down its operations.
+
+## Matching Principle in practice - Temporary Working Capital
+
+-   Another portion of a firm's investment in its accounts receivable and inventory is temporary and results from seasonal fluctuations in the firm's business or unanticipated shocks
+
+-   This [temporary working capital]{.blue} need is the difference between the actual level of investment in short-term assets and the permanent working capital investment. Following the Matching Principle, it should be financed with short-term sources!
+
+-   Using our previous example, we can use the minimum net working capital of a given quarter and fix it as our permanent component ($X-\$2,125$)
+
+. . .
+
+![](Figures/F2.jpg){fig-align="center"}
+
+## Financing Policies - Aggresive Policy
+
+-   What if we depart from the *Matching Principle* whenever financing firm's activity? An [Aggresive Policy]{.blue} is the case if we financed permanent working capital needs with short-term debt:
+
+    1.  When the short-term debt comes due, the firm will have to negotiate a new loan
+    2.  This new loan will involve additional transaction costs, and it will carry whatever market interest rate exists at the time
+
+-   [When firms can benefit from this policy?]{.blue} As short-term debt is less sensitive to the firm's credit quality than long-term debt, firms can benefit from it whenever market imperfection are more acute
+
+-   Furthermore, when the yield curve is upward sloping, the interest rate on short-term debt is lower than the rate on long-term debt
+
+-   However, shareholders incur in [funding risk]{.blue}, which is the risk of incurring financial distress costs if firm is not able to refinance its debt in a timely manner or at a reasonable rate
+
+## Financing Policies - Conservative Policy
+
+-   Alternatively, a firm could finance its short-term needs with long-term debt, a practice known as a [Conservative Financing]{.blue} policy: use long-term sources of funds to finance its fixed assets, permanent working capital, and some of its seasonal needs
+
+-   Whenever implementing such policy, there will be periods where there is *excess cash* - *i.e*, those periods when the firm requires little or no investment in temporary working capital
+
+-   While such policy significantly reduces funding risks, it has its drawbacks:
+
+    1.  Excess cash may earn below-average interest rates
+    2.  Holding higher cash levels can also distort managers incentives - i.e, pay perks for themselves or use it non-productively
+
+## Hands-on Exercise: analyzing Arezzo's Financing Policy
+
+- Download *Arezzos*'s Annual Financial Statements through its *Investors Relations* website (access [here](https://ri.arezzoco.com.br/en/), also available on eClass®)
+
+- Go straight to the supplementary notes ("Notes to the financial statements") section and identify its loans breakdown ("Loans and Borrowings"), p. 62. Which sources are being employed and for what types of investments?
+
+- How would you describe the company's short-term financing policy?
+
+
+## Short-term Financing Sources
+
+-   So far, we saw that firm's short-term capital needs can arise due to from [temporary]{.blue} and [permanent]{.blue} needs, according to [@BDM]:
+
+    1.  Permanent needs relate, in general, to working capital investment that will be necessary throughout the lifetime of a firm (or a project)
+
+    2.  Temporary needs, on the other hand, arise due to seasonalities, positive and negative cash-flow shocks
+
+-   Ways for financing short-term working capital needs range from a variety of sources:
+
+    1.  Bank Financing\
+    2.  Commercial Papers
+    3.  Secured Financing
+
+-   In what follows, we'll details the main aspects of each financing source
+
+## Bank Financing
+
+-   One of the primary sources of short-term financing, especially for small businesses, is the commercial bank. Some types include:
+
+1.  Single Payment Loan: pay interest on the loan and pay back the principal in one lump sum at the end of the loan. Can have a [fixed]{.blue} or [variable]{.blue} interest rate structure
+
+2.  Credit lines: case where a bank agrees to lend a firm [any amount up to a stated maximum]{.blue}
+
+    -   Generally used for [seasonal]{.blue} needs
+    -   Commited *versus* uncommited
+    -   Revolving Credit lines
+
+3.  Bridge Loans: used to "bridge the gap" until a firm can obtain long-term financing
+
+-   Watch-out for stipulations and fees! These increase the effective interest rate: origination fees, commitment fees, compensating balance requirements etc
+
+## Commitment Fee - Example
+
+-   Various loan fees charged by banks affect the effective interest rate that the borrower pays
+
+-   For example, the commitment fee associated with a committed line of credit increases the effective cost of the loan to the firm. The "fee" can really be considered an interest charge under another name.
+
+. . .
+
+**Example**: Suppose that a firm has negotiated a committed line of credit with a stated maximum of \$1 million and an interest rate of 10% ( EAR) with a bank. The commitment fee is 0.5% (EAR). At the beginning of the year, the firm borrows \$800,000. It then repays this loan at the end of the year, leaving \$200,000 unused for the rest of the year. The total cost of the loan is:
+
+. . .
+
+(+) [Interest on borrowed funds]{.blue}: \$800,000 $\times$ 10% = 80,000\
+(+) [Commitment on unused portion]{.blue}: \$200,000 $\times$ 0.5% = 1,000\
+(=) [Total Cost]{.blue} = 81,000\
+(=) [Effective Interest Rate, inclusive of Fees]{.blue}: (881,000/800,000)-1=**10.125%**
+
+## Loan Origination Fee - Example
+
+-   Another common type of fee is a loan origination fee, which a bank charges to cover credit checks and legal fees:
+    1.  The firm pays the fee when the loan is initiated; like a discount loan, it reduces the amount of usable proceeds that the firm receives.
+    2.  And like the commitment fee, it is effectively an additional interest charge.
+
+. . .
+
+**Example**: assume that it is offered a \$500,000 loan for 3 months at an annual percentage rate (APR) of 12%. This loan has a loan origination fee of 1% charged on the principal.
+
+1.  The amount of the loan origination fee is $1\% \times 500,000 = 5,000$
+2.  The actual amount borrowed is $500,000-5,000=495,000$\
+3.  The interest rate is charged on the total, not the discounted value: \$500,000 $\times$ (3%) = $15,000$
+4.  Therefore, the annual effective interest rate is 515,000/495,000 - 1 = 4.04%
+
+## Compensating Balance Requirements - Example
+
+-   Regardless of the loan structure, the bank may include a compensating balance requirement in the loan agreement that reduces the usable loan proceeds
+
+. . .
+
+**Example**: assume that, in the previous example, rather than charging a loan origination fee, the bank requires that the firm keep an amount equal to 10% of the loan principal in a non-interest-bearing account with the bank as long as the loan remains outstanding
+
+1.  If that is the case, then the requirement amount is 10% $\times$ 500,000 = 50,000
+2.  Thus, the firm has only \$450,000 of the loan proceeds actually available for use, although it must pay interest on the full loan amount
+3.  Therefore, the actual three-month interest rate paid is:
+
+. . .
+
+$$
+\small \dfrac{(500,000 + 15,000 -50,000)}{(500,000-50,000)}-1 = \dfrac{465,000}{450,000}-1=3.33\%
+$$
+
+## Other thoughts on bank financing
+
+-   The three examples outlined before are situations where banks charge extra costs from customers. Why these costs arise?
+
+    1.  Legal requirement checks
+    2.  Credit analysis
+    3.  Need to reduce the risk of the amount to recover in case of default
+
+-   Some firms (in general, smaller and newer firms) may not have other options rather than a bank. But that does not mean that bank financing will always lead to higher implied costs:
+
+    1.  Long-standing client-bank relationships can convey information about the credit quality of the firm and reduce interest rates
+    2.  Some banks specialize in certain activities (e.g, *Rabobank*) to better manage risks and understand client's inherent risks
+
+-   There can also be [subsidized]{.blue} operations for certain activities. See, for example, the role of [*BNDES*](https://www.bndes.gov.br/SiteBNDES/bndes/bndes_pt/Galerias/Convivencia/Restauracao_Ecologica/linhas_financiamento.html%20https://www.bndes.gov.br/wps/portal/site/home/financiamento/guia) in Brazil
+
+## Commercial Papers
+
+-   Commercial paper is a short-term, [unsecured]{.blue} debt used by large corporations
+
+-   The interest on commercial paper is typically paid by selling it at an initial discount
+
+-   In Brazil, also referred to as *nota promisória comercial*: the goal is to target short-term financing
+
+. . .
+
+**Example:** suppose that a firm issues three-month commercial paper with a \$100,000 face value and receives \$98,000. What is the annual effective rate is the firm paying for its funds?
+
+-   Using our present value formula to analyze the full 3-period interest rate, we have:
+
+. . .
+
+$$
+FV=PV\times(1+i)^n \rightarrow i=\dfrac{100,000}{98,000}-1 =2.04\%
+$$
+
+## Commercial Papers in the U.S. at the onset of the COVID-19 pandemic:
+
+-   The Covid-19 crisis severely disrupted the functioning of short-term US dollar funding markets, in particular the commercial paper and certificate of deposit segments[^1]
+
+    1.  Investors become reluctant or unable to provide new credit or roll over existing ones...
+    2.  Issuers faced challenges in obtaining short-term financing at reasonable rates...
+    3.  Fligh to safety: investors withdrawn money from riskier assets to move it to safer affects...
+    4.  This movement cascaded over to fund managers in which, pressured by withdraws, had to fire-sale assets at higher discounts to make liquidity
+    5.  Contagion Effect: due to these accumulated effects, other markets such as the stock market experienced unusually high volatility during the period
+
+[^1]: See, for example, the [BIS Report](https://www.bis.org/publ/bisbull14.pdf) on the Commercial Paper Turnmoil.
+
+## Secured Financing
+
+-   Businesses can also obtain short-term financing by using [secured loans]{.blue}, which are loans collateralized with short-term assets
+
+-   Commercial banks, finance companies, and *factorings*, which are firms that purchase the receivables of other companies, are the most common sources for secured short-term loans:
+
+    1.  Using Accounts Receivable as collateral
+    2.  Using Inventories as collateral
+    3.  PPE as collateral
+
+## Secured Financing in Brazil - *Desconto de Duplicatas*
+
+-   This type of operation is, in essence, a loan from the bank to the firm that is secured by *accounts receivable*:
+
+1.  The firm sells its products to customers, which will pay in a determined date
+2.  The bank then extends a loan to the firm, that will receive a *discounted* value at the present time
+3.  The bank will then receive the original amount in the *accounts receivable*
+
+-   All else held constant, this operation has a lower cost than a simple loan, as *accounts receivables* are backing up the loan and reducing the bank's risk
+
+-   It is important to note that the bank *does not bear the risk* of not being paid - the obligation from the firm to repay the bank persists
+
+## Secured Financing in Brazil - *Vendor*
+
+-   A [vendor]{.blue} operation occurs when a firm sells a product to a client, which will pay with a predefined date, and [transfers]{.blue} the credit function to the bank
+
+-   The firm bears the responsibility of paying the amount due if the client does not pay
+
+. . .
+
+![](Figures/F3.jpg){fig-align="center" width="800"}
+
+## Secured Financing in Brazil - *Compor*
+
+-   On the other hand, a [compor]{.blue} operation occurs when the customer pays the firm upfront, and the bank provides credit to the customer for a specific commercial operation
+
+-   The customer contracts the credit directly with the bank, and thus the firm does not bear any risk in the event of non-payment
+
+. . .
+
+![](Figures/F4.jpg){fig-align="center" width="800"}
+
+## Institutional stability and investor protection
+
+1.  Whenever property rights and contract-enforcement are put in risk, lenders adjust interest rates to cope with the expected risk
+2.  For example, as seizing collateral may involve a lot of bureaucracy, banks adjust the interest rates for some specific credit contracts
+
+## Factorings
+
+-   Similar to a discount operation, the key difference reside in the [risk in the event of non-payment]{.blue}:
+
+    1.  On the one hand, in discount operations (*desconto de duplicatas*), a *financial institution* provides cash-in-advance to a firm using its accounts receivable as a collateral, with the firm bearing the risk of non-payment from its customers
+
+    2.  On the other hand, in a factoring operation, a commercial partner *acquires* the credit and bears the full responsibility of its risk, providing the firm with cash-in-advance
+
+-   Factoring firms are not financial institutions, but rather commercial partners (*sociedade mercantil*), which can be financed through equity or bank financing, but it cannot issue publicly shares
+
+-   Although it does not involve merely a *financial service*, involves a series of continuous *commercial services*, such as credit analysis and management, risk management, payables and receivables management, and buying the firm's account's receivables and bearing its risk
+
+## *Fundos de Investimento em Direito Creditório - FIDCs*
+
+-   A common way to organize resources to finance short-term mismatches is through the use of a FIDC[^2], which is similar to discount operations and factoring
+
+-   How it works: suppose that a firm sells its products to customers with a 90-days payment, and it needs money today to finance its operations:
+
+[^2]: For detailed information on how FIDCs work, see a detailed description by [ANBIMA](https://cursos.anbima.com.br/scorm/61a6acb466850a001240aa95_1/data/pdf/anb021_01_05_01.pdf)
+
+1.  A *FIDC* collects money from investors aiming to be exposed to credit operations
+2.  A *FIDC* then buys several credit obligations, in the same way that a factoring firm does, and bears the risk of the operation
+3.  Ultimately, the shareholders of the *FIDC* are the ones bearing the risk in the event of non-payment by the firm's clients
+
+-   **Key benefit**: *FIDCs* do not need to concentrate risk in only one type of credit operation/customer
+
+
+## References

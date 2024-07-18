@@ -1,0 +1,78 @@
+
+-   According to [@MM1958], Corporate Finance is useless
+
+. . .
+
+<iframe src="https://giphy.com/embed/ghuvaCOI6GOoTX0RmH" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen>
+  
+  </iframe>
+  
+  <p><a href="https://giphy.com/gifs/theoffice-the-office-tv-manager-and-salesman-ghuvaCOI6GOoTX0RmH"></a></p>
+  
+  ## Introduction to Corporate Finance
+  
+  -   In their seminal work, Modigliani and Miller hypothesized that, under some very specific conditions, the value of a firm is **independent** from how it is financed!
+  
+  1.  What really matters is how firms are going to generate profits for the shareholders
+2.  The way that a firm structures its capital structure, on the other hand, does not affect the firms' value
+
+-   More formally, under the following conditions, the value of a firm is not affected by decisions between the mix of debt financing and equity financing:
+
+    1.  Perfect Capital markets
+    2.  Absence of Agency Costs
+    3.  
+    4.  
+    5.  
+
+## If that is true, then what are we doing here?
+
+::: {style="width:100%;height:0;padding-bottom:100%;position:relative;"}
+<iframe src="https://giphy.com/embed/7ThEaNdB7oOGyj3OvF" width="40%" height="40%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen>
+
+</iframe>
+:::
+
+<p><a href="https://giphy.com/gifs/thenextstep-the-next-step-tns-tns8-7ThEaNdB7oOGyj3OvF">via GIPHY</a></p>
+
+## A deep-dive on Modigiliani-Miller's assumptions
+
+1.  **Perfect Capital markets**: market has all relevant information about the firm
+
+-   If that is true, how do we explain the prevalence of active fund managers?
+  
+  2.  **Absence of Agency Costs**:
+  
+  -   If that is true, why do we see disputes between Creditors and Equityholders?
+  -   See, for example, the case of Americanas and IRB
+
+3.  **Absence of taxes**:
+  
+  -   Firms can benefit from debt tax-shields as interest expenses are deductible
+
+4.  
+
+## **Assumption 4**:
+
+5.  
+
+## **Assumption 5**:
+
+## Redefining our initial though on Corporate Finance
+
+-   **Under very strict conditions**, Corporate Finance is useless
+
+-   However, when we **relax** some of these assumptions, financial decisions becomes key to the firm's value:
+
+    1.  The Finance manager needs to think about **Investment Activities**, such as how to evaluate and choose the best projects...
+    2.  ... but also needs to take into account *how these projects are financed* and *provide incentives* for the various set of stakeholders to maximize the value!
+
+-   All-in-all, *Corporate Finance is the study of the frictions that makes financing decisions interesting*:
+
+    1.  With *imperfect* capital markets $\rightarrow$ firms can seek opportunities to issue debt/equity in favorable conditions
+    2.  With the *presence* of Agency Costs $\rightarrow$ Corporate Governance is key to maximize shareholder value
+    3.  With the *presence* of Taxes $\rightarrow$ firms can reduce their effective tax rate by borrowing on debt
+
+-   To wrap-up: our goal in this course is twofold:
+
+    1.  Understand **why** several financing decisions are important to the firm's value
+2.  Be able to **evaluate** how much value a firm is worth

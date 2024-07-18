@@ -1,0 +1,4 @@
+- source: index.qmd
+  quarto-pub:
+    - id: 1719487b-7627-4743-81a5-fd4a8eec93d7
+      url: 'https://lsmacoris.quarto.pub/lecture-10---free-cash-flow'
