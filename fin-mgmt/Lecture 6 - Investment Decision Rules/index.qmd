@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Investment Decision Rules'
+    title: '6. Investment Decision Rules'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
@@ -941,15 +941,12 @@ $$
 
     -   For dealing with a *multiple* resource problem, we can use linear programming techniques
 
-
 ## Supplementary Reading
 
-
-- See [Present Value: A Note on Personal Applications (UV5136)]{.blue} for a detailed 
-discussion on how the diffent applications of the *Net Present Value* rule
+-   See [Present Value: A Note on Personal Applications (UV5136)]{.blue} for a detailed discussion on how the diffent applications of the *Net Present Value* rule
 
 . . .
 
-*$\rightarrow$ All contents are available on eClass®.*
+$\rightarrow$ All contents are available on eClass®.
 
 ## References

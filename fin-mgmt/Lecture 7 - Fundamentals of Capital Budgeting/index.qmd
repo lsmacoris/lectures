@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Fundamentals of Capital Budgeting'
+    title: '7. Fundamentals of Capital Budgeting'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
@@ -446,13 +446,12 @@ $\rightarrow$ Answer provided in Excel
 
 $\rightarrow$ Answer provided in Excel
 
-
 ## Supplementary Reading
 
-- See [Note on Capital Budgeting (TCG324)]{.blue} for a detailed discussion on more aspects of the capital budgeting process in practice
+-   See [Note on Capital Budgeting (TCG324)]{.blue} for a detailed discussion on more aspects of the capital budgeting process in practice
 
 . . .
 
-*$\rightarrow$ All contents are available on eClass®.*
+$\rightarrow$ All contents are available on eClass®.
 
 ## References

@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Firm Valuation and Financial Modeling'
+    title: '10. Firm Valuation and Financial Modeling'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris (FGV-EAESP)'
@@ -185,7 +185,7 @@ $\rightarrow$ *You can find the hardcoded numbers in the accompaining Microsoft 
 
 ![](Figures/USES.jpg){fig-align="center"}
 
-*$\rightarrow$ You can find the hardcoded numbers in the accompaining Microsoft Excel file*
+$\rightarrow$ You can find the hardcoded numbers in the accompaining Microsoft Excel file
 
 1.  In addition to the \$150 million purchase price for *Ideko*'s equity, \$4.5 million will be used to repay Ideko's existing debt.
 2.  With \$5 million in advisory and other fees associated with the transaction, the acquisition will require \$159.5 million in total funds
@@ -285,7 +285,6 @@ $\rightarrow$ *For a detailed discussion on Free Cash Flow, refer to the [Fundam
 
 -   Because *Ideko* is a [private]{.blue} firm, [we cannot use its own past returns to evaluate its risk]{.blue}, but must instead rely on [comparable publicly traded firms]{.blue}. In this stage, we will use data from the comparable firms identified earlier to estimate a cost of capital for *Ideko*:
 
-
 ## Step 5: Estimating the Cost of Capital
 
 -   Based on *Oakley*, *Luxxotica*, and *Nike*, we estimate the firms' cost of capital using the CAPM:
@@ -323,8 +322,7 @@ $$
 
 . . .
 
-*$\rightarrow$ See the accompanying Excel file for the numeric calculations*
-
+$\rightarrow$ See the accompanying Excel file for the numeric calculations
 
 ## Step 6: Valuing the Investment: Multiples
 
@@ -340,7 +338,7 @@ $$
 \small V^L=\text{Forecasted EBITDA}\times\text{EBITDA Multiple}
 $$
 
-*$\rightarrow$ See the accompanying Excel file for the numeric calculations*
+$\rightarrow$ See the accompanying Excel file for the numeric calculations
 
 ## A reality check
 

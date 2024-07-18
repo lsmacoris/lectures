@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Economic Value Added (EVA)'
+    title: '3. Economic Value Added (EVA)'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
@@ -28,17 +28,16 @@ from: markdown+emoji
 
 ## Outline
 
-- The contents herein are not directly discussed in any of the three main textbooks presented in the syllabus
+-   The contents herein are not directly discussed in any of the three main textbooks presented in the syllabus
 
-- In this sense, this lecture will extensively use the following materials:
+-   In this sense, this lecture will extensively use the following materials:
 
-1. [206016 - Understanding Economic Value Added]{.blue} 
-2. [XLS504 - Understanding Economic Value Added]{.blue} - supplementary *.xlsx* spreadsheet
+1.  [206016 - Understanding Economic Value Added]{.blue}
+2.  [XLS504 - Understanding Economic Value Added]{.blue} - supplementary *.xlsx* spreadsheet
 
 . . .
 
-*$\rightarrow$ Both contents are  available on eClass®.*
-
+$\rightarrow$ Both contents are available on eClass®.
 
 ## Dissecting Performance
 
@@ -404,7 +403,5 @@ $$
 -   **Case 2**: $\dfrac{\sum_{t=1}^{\infty}\text{EVA}_{t}}{(1+r)^t}$\<0
 :::
 :::
-
-
 
 ## References

@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Financial Analysis'
+    title: '2. Financial Analysis'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
@@ -580,7 +580,7 @@ This preliminary decomposition of ROE begins to show us how an examination of th
 
 . . .
 
-*$\rightarrow$ See [Leverage Example.xlsx]{.blue} (available on eClass®) for a detailed explanation.*
+$\rightarrow$ See [Leverage Example.xlsx]{.blue} (available on eClass®) for a detailed explanation.
 
 ## Concept Check
 
@@ -898,7 +898,7 @@ $$
 
 . . .
 
-*$\rightarrow$ Practice these concepts analyzing [3M]{.blue} using the [Exercise - 3M Ratios.xlsx]{.blue} (available on eClass®)*
+$\rightarrow$ Practice these concepts analyzing [3M]{.blue} using the [Exercise - 3M Ratios.xlsx]{.blue} (available on eClass®)
 
 ## Criticism around traditional financial ratio analysis
 
@@ -915,7 +915,7 @@ $$
 
 . . .
 
-*$\rightarrow$ Full content on Integrated Reporting: see [@SS], available on eClass®*
+$\rightarrow$ Full content on Integrated Reporting: see [@SS], available on eClass®
 
 ## The role of Credit Ratings
 
@@ -929,7 +929,7 @@ $$
 
 . . .
 
-*$\rightarrow$ Full content on Credit Ratings: see [UV8009 - Credit Rating Basics]{.blue}, available on eClass®*
+$\rightarrow$ Full content on Credit Ratings: see [UV8009 - Credit Rating Basics]{.blue}, available on eClass®
 
 ## *Appendix I*: decomposing profitability: an alternative approach
 

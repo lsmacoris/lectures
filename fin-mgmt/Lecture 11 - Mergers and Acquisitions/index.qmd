@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Mergers and Acquisitions'
+    title: '11. Mergers and Acquisitions'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'

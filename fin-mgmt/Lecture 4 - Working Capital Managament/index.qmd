@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Working Capital Management'
+    title: '4. Working Capital Management'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
@@ -190,7 +190,7 @@ $$
 
 . . .
 
-*$\rightarrow$ See [CCC Dynamics.xlsx]{.blue}, available on eClass®, for a detailed explanation on cash conversion cycle dynamics using this lecture's example.*
+$\rightarrow$ See [CCC Dynamics.xlsx]{.blue}, available on eClass®, for a detailed explanation on cash conversion cycle dynamics using this lecture's example.
 
 ## Step 1: Inventory Days
 
@@ -581,6 +581,6 @@ For a detailed discussion, see [@BDM], Chapter 26.
 
 . . .
 
-*$\rightarrow$ All contents are available on eClass®.*
+$\rightarrow$ All contents are available on eClass®.
 
 ## References

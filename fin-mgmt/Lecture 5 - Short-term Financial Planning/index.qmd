@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Short-term Financial Planning'
+    title: '5. Short-term Financial Planning'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
@@ -241,7 +241,7 @@ Plot=Data%>%
 
 -   We saw that we can distinguish permanent and short-term working capital needs.
 
-- The [permanent portion of working capital]{.blue} is the amount that a firm must keep invested in its short-term assets to support its continuing operations. This investment in working capital is required so long as the firm remains in business
+-   The [permanent portion of working capital]{.blue} is the amount that a firm must keep invested in its short-term assets to support its continuing operations. This investment in working capital is required so long as the firm remains in business
 
 -   The matching principle indicates that the firm should finance this [permanent]{.blue} portion of working capital with [long-term]{.blue} sources of funds
 
@@ -289,12 +289,11 @@ Plot=Data%>%
 
 ## Hands-on Exercise: analyzing Arezzo's Financing Policy
 
-- Download *Arezzos*'s Annual Financial Statements through its *Investors Relations* website (access [here](https://ri.arezzoco.com.br/en/), also available on eClass®)
+-   Download *Arezzos*'s Annual Financial Statements through its *Investors Relations* website (access [here](https://ri.arezzoco.com.br/en/), also available on eClass®)
 
-- Go straight to the supplementary notes ("Notes to the financial statements") section and identify its loans breakdown ("Loans and Borrowings"), p. 62. Which sources are being employed and for what types of investments?
+-   Go straight to the supplementary notes ("Notes to the financial statements") section and identify its loans breakdown ("Loans and Borrowings"), p. 62. Which sources are being employed and for what types of investments?
 
-- How would you describe the company's short-term financing policy?
-
+-   How would you describe the company's short-term financing policy?
 
 ## Short-term Financing Sources
 
@@ -497,6 +496,5 @@ $$
 3.  Ultimately, the shareholders of the *FIDC* are the ones bearing the risk in the event of non-payment by the firm's clients
 
 -   **Key benefit**: *FIDCs* do not need to concentrate risk in only one type of credit operation/customer
-
 
 ## References
