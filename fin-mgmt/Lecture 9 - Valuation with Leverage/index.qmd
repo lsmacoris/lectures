@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Capital Budgeting and Valuation with Leverage'
+    title: '9. Valuation with Leverage'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris (FGV-EAESP)'
@@ -478,7 +478,7 @@ $$
 . . .
 
 | **Firm** | **Equity Cost of Capital** | **Debt Cost of Capital** | **D/(D+E)** |
-|:-----------------:|:-----------------:|:-----------------:|-----------------|
+|:----------------:|:----------------:|:----------------:|------------------|
 |    1     |            12%             |            6%            | 40%         |
 |    2     |           10.7%            |           5.5%           | 25%         |
 
@@ -487,7 +487,7 @@ $$
 . . .
 
 | **Firm** | **Equity Cost of Capital** | **Debt Cost of Capital** | **D/(D+E)** |
-|:-----------------:|:-----------------:|:-----------------:|-----------------|
+|:----------------:|:----------------:|:----------------:|------------------|
 |    1     |            12%             |            6%            | 40%         |
 |    2     |           10.7%            |           5.5%           | 25%         |
 
@@ -701,10 +701,10 @@ $$
 
 ## Supplementary Reading
 
-- See [Note on Cash Flow Valuation Methods: Comparison of WACC, FTE, CCF and APV Approaches (910N31)]{.blue} for a detailed discussion on the valuation methods
+-   See [Note on Cash Flow Valuation Methods: Comparison of WACC, FTE, CCF and APV Approaches (910N31)]{.blue} for a detailed discussion on the valuation methods
 
 . . .
 
-*$\rightarrow$ All contents are available on eClass®.*
+$\rightarrow$ All contents are available on eClass®.
 
 ## References
