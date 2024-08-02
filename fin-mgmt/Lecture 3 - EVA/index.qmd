@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '3. Economic Value Added (EVA)'
+    title: 'Economic Value Added (EVA)'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
     logo: logo.jpg
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: abntex2.cls
     incremental: true
@@ -37,7 +37,7 @@ from: markdown+emoji
 
 . . .
 
-$\rightarrow$ Both contents are available on eClass®.
+$\rightarrow$ *Both contents are available on eClass®.*
 
 ## Dissecting Performance
 
@@ -92,14 +92,17 @@ We saw that we can calculate a series of performance indicators that decompose *
 ## Introducing EVA®
 
 -   Is the firm [generating value]{.blue} to the shareholders?
--   The first model that we'll use to answer such questions is known as the [Economic Value Added]{.blue} (also known as [EVA®]{.blue})
--   It has been introducted by [Stern and Stewart Co.](https://sternvaluemanagement.com/), a consulting firm
+-   The first model that we'll use to answer such questions is known as the [Economic Value Added]{.blue} ([EVA®]{.blue}). It has been introducted by [Stern and Stewart Co.](https://sternvaluemanagement.com/), a consulting firm
 
 . . .
 
-*Economic Value Added (EVA®) measures the wealth a company creates (or destroys) each year. It is a company's after-tax profit from operations minus a charge for the cost of all capital employed to produce those profits -- not just the cost of debt, but the cost of equity as well*
+:::{.callout-tip}
+### Defintion
 
--   Key differences when comparing to Net Income:
+EVA® measures the wealth a company [creates]{.green} (or [destroys]{.red}) each year. It is a company's after-tax profit from operations minus a charge for the cost of all capital employed to produce those profits -- not just the cost of debt, but the cost of equity as well
+:::
+
+-   Key differences when comparing to *Net Income*:
 
 1.  EVA® considers only the [operating]{.blue} portion of the firm, disregarding any non-operating results, such as interest income
 2.  It considers *both* cost of debt (also included in Net Income) and the cost of equity (not observable, but estimated)

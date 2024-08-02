@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '2. Financial Analysis'
+    title: 'Financial Analysis'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
     logo: logo.jpg
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: abntex2.cls
     incremental: true
@@ -471,7 +471,7 @@ $$
 
 ## The effects of financial leverage
 
-```{r,fig.width=16,fig.height=8}
+```{r,fig.width=14,fig.height=8}
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -504,7 +504,7 @@ theme(legend.position = 'none',
       title = element_text(size=25),
       axis.text  = element_text(size=15,face='bold'))
 
-ggplotly(Plot)
+Plot
 
 ```
 
@@ -580,7 +580,7 @@ This preliminary decomposition of ROE begins to show us how an examination of th
 
 . . .
 
-$\rightarrow$ See [Leverage Example.xlsx]{.blue} (available on eClass®) for a detailed explanation.
+$\rightarrow$ *See [Leverage Example.xlsx]{.blue} (available on eClass®) for a detailed explanation.*
 
 ## Concept Check
 
@@ -898,7 +898,7 @@ $$
 
 . . .
 
-$\rightarrow$ Practice these concepts analyzing [3M]{.blue} using the [Exercise - 3M Ratios.xlsx]{.blue} (available on eClass®)
+$\rightarrow$ *Practice these concepts analyzing [3M]{.blue} using the [Exercise - 3M Ratios.xlsx]{.blue} (available on eClass®)*
 
 ## Criticism around traditional financial ratio analysis
 
@@ -915,7 +915,7 @@ $\rightarrow$ Practice these concepts analyzing [3M]{.blue} using the [Exercise 
 
 . . .
 
-$\rightarrow$ Full content on Integrated Reporting: see [@SS], available on eClass®
+$\rightarrow$ *Full content on Integrated Reporting: see [@SS], available on eClass®*
 
 ## The role of Credit Ratings
 
@@ -929,7 +929,7 @@ $\rightarrow$ Full content on Integrated Reporting: see [@SS], available on eCla
 
 . . .
 
-$\rightarrow$ Full content on Credit Ratings: see [UV8009 - Credit Rating Basics]{.blue}, available on eClass®
+$\rightarrow$ *Full content on Credit Ratings: see [UV8009 - Credit Rating Basics]{.blue}, available on eClass®*
 
 ## *Appendix I*: decomposing profitability: an alternative approach
 
@@ -1081,7 +1081,5 @@ $$
     1.  Both the [positive]{.green} and [negative]{.red} effects of introducing debt into the capital structure are magnified by the extent to which a firm borrows relative to its equity base
     2.  The ratio of net debt to equity provides a measure of this net financial leverage.
     3.  A firm's spread times its net financial leverage, therefore, provides a measure of the financial leverage gain (or loss) to the shareholders.
-
-## *Appendix II*: from Financial Ratios to Investment Strategies \[TBD\]
 
 ## References

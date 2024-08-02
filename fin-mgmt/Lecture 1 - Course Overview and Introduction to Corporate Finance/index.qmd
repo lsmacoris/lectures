@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '1. Intro and Course Overview Financial Management'
+    title: 'Intro and Course Overview Financial Management'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
     logo: logo.jpg
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: abntex2.cls
     incremental: true
@@ -26,17 +26,12 @@ editor: visual
 from: markdown+emoji
 ---
 
-## Outline
-
-![](Images/intro.png){width="50%" fig-align="center"}
-
 ```{r warning = FALSE, message = FALSE, echo = FALSE, results = 'hide'}
 library(quantmod)
 library(PerformanceAnalytics)
-library(tidyverse)
+library(tidyr)
 library(highcharter)
 library(ggplot2)
-library(plotly)
 library(glue)
 library(DT)
 
@@ -103,7 +98,7 @@ load('Market_Data.RDATA')
 
 1.  Follow FGV-EAESP code of conduct
 2.  Be organized: pay attention to pre-readings and deliverables!
-3.  Be proactive: ask questions and participate in discussions
+3.  Be proactive: ask questions and participate in discussions, proactively study the list of exercises
 4.  Take the lead on your learning: you are the ultimate responsible for your success!
 
 . . .
@@ -297,13 +292,13 @@ highchart(type = "stock") %>%
 
 ## Supplementary Reading
 
+. . .
+
 **After-class reading (available at e-Class):**
 
 -   Carbon Credit Markets
 
 -   What Every Leader Needs to Know About Carbon Credits
-
--   News about the recent change on relevant brazilian market instruments for Financing Decisions (LCI, LCA, CRIs, CRAs, etc)
 
 . . .
 
@@ -312,7 +307,5 @@ highchart(type = "stock") %>%
 -   **Bruno Paolinelli ("Resumo do Mercado de Hoje")**: daily market news with a lot of fun (and irony) - [link](https://www.instagram.com/brunopaolinelli/?hl=en)
 
 -   **Barbarians at the Gate**: movie from 1993 describing some corporate governance conflicts in the 80's - [link](https://www.imdb.com/title/tt0106356/)
-
-## 
 
 ## References

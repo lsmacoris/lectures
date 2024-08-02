@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '9. Valuation with Leverage'
+    title: 'Capital Budgeting and Valuation with Leverage'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris (FGV-EAESP)'
     logo: logo.jpg
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: abntex2.cls
     incremental: true

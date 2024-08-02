@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '11. Mergers and Acquisitions'
+    title: 'Mergers and Acquisitions'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
     logo: logo.jpg
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: abntex2.cls
     incremental: true
@@ -178,7 +178,9 @@ $$
 
 $$
 \small \text{Value Acquired} = \text{Target Stand-Alone Value} + \text{PV(Synergies)}
-$$ $\rightarrow$ Combining both, we can see that the takeover is a positive-NPV project only if:
+$$
+
+$\rightarrow$ *Combining both, we can see that the takeover is a positive-NPV project only if:*
 
 $$
 \small \text{PV(Synergies)} > \text{Acquisition Premium} \rightarrow NPV>0

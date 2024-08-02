@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '5. Short-term Financial Planning'
+    title: 'Short-term Financial Planning'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
     logo: logo.jpg
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: abntex2.cls
     incremental: true
@@ -103,13 +103,15 @@ Data=read_excel('Exercises/Financials.xlsx',sheet=9)[4:8,]%>%
   filter(!Account %in% c('Others','Working Capital'))%>%
   mutate(Key=as.factor(Key),row=row_number())
 
-Plot=Data%>%
+Data%>%
+  mutate(Value=Value/1000)%>%
   ggplot(aes(x=reorder(Key,row),y=Value,fill=Account))+
   geom_col()+
+  geom_text(aes(label=round(Value,0)),position=position_stack(vjust=0.5))+
   theme_minimal()+
   labs(title="Breakdown of ARZZ3's working capital needs",
        x='Quarter',
-       y="Value ('000s)",
+       y="Value (Millions)",
        fill='')+
   scale_y_continuous(labels = scales::dollar,breaks=seq(-2000000,2000000,500000))+
   theme(axis.title = element_text(face='bold',size=15),
@@ -117,8 +119,6 @@ Plot=Data%>%
         axis.text = element_text(size=12),
         axis.text.x = element_text(angle = 90),
         legend.position = 'bottom')
-
-  ggplotly(Plot)%>%layout(legend = list(orientation = 'h'))
     
 
 
@@ -133,13 +133,15 @@ Data=read_excel('Exercises/Financials.xlsx',sheet=5)%>%
   filter(str_detect(Account,'Loans'))%>%
   mutate(Key=as.factor(Key),Value=as.numeric(Value),row=row_number())
 
-Plot=Data%>%
+Data%>%
+  mutate(Value=Value/1000)%>%
   ggplot(aes(x=reorder(Key,row),y=Value,fill=Account))+
   geom_col()+
+  geom_text(aes(label=round(Value,0)),position=position_stack(vjust=0.5))+
   theme_minimal()+
   labs(title="Breakdown of ARZZ3's Loans",
        x='Quarter',
-       y="Value ('000s)",
+       y="Value (Millions)",
        fill='')+
   scale_y_continuous(labels = scales::dollar,breaks=seq(0,1000000,250000))+
   theme(axis.title = element_text(face='bold',size=15),
@@ -147,9 +149,6 @@ Plot=Data%>%
         axis.text = element_text(size=12),
         axis.text.x = element_text(angle = 90),
         legend.position = 'bottom')
-
-  ggplotly(Plot)%>%layout(legend = list(orientation = 'h'))
-    
 
 
 ```
@@ -291,7 +290,7 @@ Plot=Data%>%
 
 -   Download *Arezzos*'s Annual Financial Statements through its *Investors Relations* website (access [here](https://ri.arezzoco.com.br/en/), also available on eClass®)
 
--   Go straight to the supplementary notes ("Notes to the financial statements") section and identify its loans breakdown ("Loans and Borrowings"), p. 62. Which sources are being employed and for what types of investments?
+-   Go straight to the supplementary notes (*"Notes to the financial statements"*) section and identify its loans breakdown (*"Loans and Borrowings"*), p. 62. Which sources are being employed and for what types of investments?
 
 -   How would you describe the company's short-term financing policy?
 
@@ -466,11 +465,6 @@ $$
 
 ![](Figures/F4.jpg){fig-align="center" width="800"}
 
-## Institutional stability and investor protection
-
-1.  Whenever property rights and contract-enforcement are put in risk, lenders adjust interest rates to cope with the expected risk
-2.  For example, as seizing collateral may involve a lot of bureaucracy, banks adjust the interest rates for some specific credit contracts
-
 ## Factorings
 
 -   Similar to a discount operation, the key difference reside in the [risk in the event of non-payment]{.blue}:
@@ -497,4 +491,22 @@ $$
 
 -   **Key benefit**: *FIDCs* do not need to concentrate risk in only one type of credit operation/customer
 
+
+## Institutional stability and investor protection
+
+1.  Whenever property rights and contract-enforcement are put in risk, lenders adjust interest rates to cope with the expected risk
+2.  For example, as seizing collateral may involve a lot of bureaucracy, banks adjust the interest rates for some specific credit contracts
+
+- That helps to explain, for example, why countries with higher levels of institutional development, such as higher investor protection and stable laws, have lower interest rates
+
+- It also helps to explain why, even with decreases in the baseline Brazilian interest rate (*SELIC*), these changes are not fully reflected in the interest rate offered to customers and firms
+
+. . .
+
+:::{.callout-tip}
+### Creating (dis)incentives?
+
+An interesting discussion in terms of firms' incentives to comply with credit terms rely on Credit Renegotiation programs, such as [Desenrola](https://desenrola.gov.br/novahome). When fully predicted by firms and customers, it can create distortions in terms of incentives, since firms anticipate that they'll be able to renegotiate at lower rates, thereby creating incentives for strategic defaults.
+
+:::
 ## References

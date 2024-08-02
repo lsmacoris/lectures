@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '4. Working Capital Management'
+    title: 'Working Capital Management'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
     logo: logo.jpg
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: abntex2.cls
     incremental: true
@@ -82,7 +82,7 @@ $$
     1.  We know that, to run a food-business like this, we need *fixed* investments on Equipments, Machinerys, Buildings, etc
     2.  But after these are set in place, we need to worry about the *flow* of the operations!
 
--   Examples:
+-   **Examples**:
 
     1.  We need money to buy the core ingredients and to make up some inventory
     2.  We also need to have a cushion to pay salaries for delivery/production/waiter workers
@@ -190,7 +190,7 @@ $$
 
 . . .
 
-$\rightarrow$ See [CCC Dynamics.xlsx]{.blue}, available on eClass®, for a detailed explanation on cash conversion cycle dynamics using this lecture's example.
+$\rightarrow$ *See [CCC Dynamics.xlsx]{.blue}, available on eClass®, for a detailed explanation on cash conversion cycle dynamics using this lecture's example.*
 
 ## Step 1: Inventory Days
 
@@ -292,17 +292,17 @@ $$
 
 ## Practical Example, Arezzo (ARZZ3)
 
-```{r,fig.width=20,fig.height=8}
+```{r,fig.width=20,fig.height=10}
 
 Data=read_excel('Exercises/Planilha Arezzo.xlsx',sheet = 'CCC')%>%gather(Key,Value,-Variable)
 CCC=Data%>%filter(Variable== 'Cash Conversion Cycle')
 
 
-Plot=Data%>%
+Data%>%
   filter(Variable!= 'Cash Conversion Cycle')%>%
   ggplot(aes(x=Key,y=Value,fill=Variable))+
   geom_col()+
-  geom_text(data=CCC,aes(x=Key,y=Value,label=round(Value,0)),size=10)+
+  geom_text(aes(label=round(Value,0)),size=10,position = position_stack(vjust=0.5))+
   labs(title='Cash Conversion Cycle - Arezzo (ARZZ3)',fill='Days in',x='',y='Average Days')+
   theme_minimal()+
   theme(legend.position = 'bottom',
@@ -311,11 +311,6 @@ Plot=Data%>%
         title = element_text(size=20,face='bold'),
         legend.text = element_text(size=12))
 
-ggplotly(Plot)%>%
-  plotly::layout(legend=list(x=0, 
-                                 xanchor='left',
-                                 yanchor='bottom',
-                                 orientation='h'))
 
 ```
 
@@ -346,7 +341,7 @@ In *Chapter 2* of *Berk and DeMarzo*, Working Capital is defined as *Current Ass
 
 . . .
 
-$\rightarrow$ *Berk and DeMarzo* uses *Accounts Payable*, *Receivables*, and *Inventories* (the main components) to calculate the Cash Conversion Cycle, but keep in mind that Operating Working Capital contains [all]{.blue} current operating accounts!
+$\rightarrow$ *Berk and DeMarzo uses Accounts Payable, Receivables, and Inventories (the main components) to calculate the Cash Conversion Cycle, but keep in mind that Operating Working Capital contains [all]{.blue} current operating accounts!*
 
 ## Cash and Operating Cycle Dynamics
 
@@ -581,6 +576,6 @@ For a detailed discussion, see [@BDM], Chapter 26.
 
 . . .
 
-$\rightarrow$ All contents are available on eClass®.
+$\rightarrow$ *All contents are available on eClass®.*
 
 ## References

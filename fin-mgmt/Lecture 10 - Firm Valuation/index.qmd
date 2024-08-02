@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '10. Firm Valuation and Financial Modeling'
+    title: 'Firm Valuation and Financial Modeling'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris (FGV-EAESP)'
     logo: logo.jpg
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: abntex2.cls
     incremental: true
@@ -185,7 +185,7 @@ $\rightarrow$ *You can find the hardcoded numbers in the accompaining Microsoft 
 
 ![](Figures/USES.jpg){fig-align="center"}
 
-$\rightarrow$ You can find the hardcoded numbers in the accompaining Microsoft Excel file
+$\rightarrow$ *You can find the hardcoded numbers in the accompaining Microsoft Excel file*
 
 1.  In addition to the \$150 million purchase price for *Ideko*'s equity, \$4.5 million will be used to repay Ideko's existing debt.
 2.  With \$5 million in advisory and other fees associated with the transaction, the acquisition will require \$159.5 million in total funds
@@ -322,7 +322,7 @@ $$
 
 . . .
 
-$\rightarrow$ See the accompanying Excel file for the numeric calculations
+$\rightarrow$ *See the accompanying Excel file for the numeric calculations*
 
 ## Step 6: Valuing the Investment: Multiples
 
@@ -338,7 +338,7 @@ $$
 \small V^L=\text{Forecasted EBITDA}\times\text{EBITDA Multiple}
 $$
 
-$\rightarrow$ See the accompanying Excel file for the numeric calculations
+$\rightarrow$ *See the accompanying Excel file for the numeric calculations*
 
 ## A reality check
 

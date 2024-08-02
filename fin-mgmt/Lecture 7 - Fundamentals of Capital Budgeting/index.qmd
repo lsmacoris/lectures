@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '7. Fundamentals of Capital Budgeting'
+    title: 'Fundamentals of Capital Budgeting'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
     logo: logo.jpg
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/handouts.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: abntex2.cls
     incremental: true
@@ -384,7 +384,7 @@ $$
 
 . . .
 
-$\rightarrow$ Answer provided in Excel
+$\rightarrow$ *Answer provided in Excel*
 
 ## Tax Carryforwards
 
@@ -392,7 +392,7 @@ $\rightarrow$ Answer provided in Excel
 
 . . .
 
-$\rightarrow$ Answer provided in Excel
+$\rightarrow$ *Answer provided in Excel*
 
 ## Continuation Value
 
@@ -404,7 +404,7 @@ $\rightarrow$ Answer provided in Excel
 
 . . .
 
-$\rightarrow$ Answer provided in Excel
+$\rightarrow$ *Answer provided in Excel*
 
 ## Dealing with Uncertainty
 
@@ -420,7 +420,7 @@ $\rightarrow$ Answer provided in Excel
 
 *Shareholders at Cia Amazônia are concerned that rising costs of activity may hinder any profitable investment opportunity projected in the original project. More specifically, their main concern is that the average growth rate in Unit Costs, which was estimated to be 6%, is estimated using very unreasonable scenario, and that higher increases in unit costs might induce the project's NPV to be negative. Estimate what is the maximum average increase in unit costs over the years that would change the decision to invest in the project.*
 
-$\rightarrow$ Answer provided in Excel
+$\rightarrow$ *Answer provided in Excel*
 
 ## Dealing with Uncertainty #2: *Sensitivity Analysis*
 
@@ -436,7 +436,7 @@ $\rightarrow$ Answer provided in Excel
 
 *Estimate how your NPV estimates change along with your inputs, each one at a time, and identify which input is more important for the project's NPV.*
 
-$\rightarrow$ Answer provided in Excel
+$\rightarrow$ *Answer provided in Excel*
 
 ## Dealing with Uncertainty #3: *Scenario Analysis*
 
@@ -444,7 +444,7 @@ $\rightarrow$ Answer provided in Excel
 
 . . .
 
-$\rightarrow$ Answer provided in Excel
+$\rightarrow$ *Answer provided in Excel*
 
 ## Supplementary Reading
 
@@ -452,6 +452,6 @@ $\rightarrow$ Answer provided in Excel
 
 . . .
 
-$\rightarrow$ All contents are available on eClass®.
+$\rightarrow$ *All contents are available on eClass®.*
 
 ## References
