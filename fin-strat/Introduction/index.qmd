@@ -1,0 +1,138 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: '1. Intro and Course Overview'
+    theme: [default, custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: logo.jpg
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/strat-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: abntex2.cls
+    incremental: true
+    bibliography: 'Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Welcome to the Course
+
+::: nonincremental
+1.  Overview and Course Organization
+2.  Grading and Evaluations
+3.  Navigating through the syllabus
+4.  How you can get the best of this course
+5.  Overall Q&A
+:::
+
+## Overview
+
+- Financial agents are constantly making strategic decisions trying to balance the trade-off between *risk* and *return*:
+  1. How many assets should I hold on my portfolio?
+  2. How much holdings from risky assets should I hold in my portfolio?
+  3. How can I fund profitable investment opportunities from my company?
+
+- In this course, we'll look at two sets of strategic decisions that financial agents (*e.g*, CFOs, Portfolio Managers) make:
+
+  1. The [first part]{.blue} will be focused at looking from a [portfolio manager]{.blue} view: if you have the money and need to allocate it across a set of potential assets, how should you do it?
+  
+  2. The second part (after the mid-term) will be more focused on [corporate finance]{.blue} decisions: if you have a good investment opportunity, how can you fund it, and What are the implications for the value of your company?
+
+## Course organization
+
+::: nonincremental
+-   **Basic text-book**
+
+    1.  We will extensively follow *Corporate Finance* [@BDM], as our text-book
+    2.  Throughout the syllabus, it will be referred as **\[BDM\]**
+
+-   **Supplementary text-book**
+
+    1.  *Principles of Corporate Finance* [@BMA]
+    2.  *Investments* [@BZK]
+    3.  *Financial Management: Theory and Practice* [@Brigham]
+    4.  *Dictionary of Finance and Investment Terms*[@Downes]
+
+-   **Supplementary Reading**
+
+    1.  Other optional contents will be referenced throughout the the course
+:::
+
+## Grading and Evaluations
+
+. . .
+
+**Grading will be composed of the following activities:**
+
+1.  Mid-term Examination (**40%**)
+2.  Final Examination (**40%**)
+3.  2x Quizzes throughout the semester (**10%**)
+4.  Practical work (**10%**)
+
+. . .
+
+-   You can find the details of any of these activities in the official syllabus (available on *eClass®*)
+-   In case of any questions, feel free to reach out to [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+
+. . .
+
+:::{.callout-important}
+### Office-hours
+
+I also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I'll be more than happy to help you with anything you need from this course. Use the *Office-hour Appointments* link at the bottom of this slide to schedule some time (or click [here](https://calendly.com/lucas-macoris-fgv/appointment-lsm)).
+
+:::
+
+
+## Getting the best of this course
+
+![](Images/what-a-week.jpeg){width="50%," fig-align="center"}
+
+## Getting the best of this course
+
+. . .
+
+{{< fa graduation-cap >}} **How you can get the best of this course**
+
+1.  Follow FGV-EAESP code of conduct
+2.  Be organized: pay attention to pre-readings and deliverables!
+3.  Be proactive: ask questions and participate in discussions
+4.  Take the lead on your learning: you are the ultimate responsible for your success!
+
+. . .
+
+{{< fa chalkboard-user >}} **How the professor can facilitate you getting the best of this course**
+
+1.  All mandatory content will be provided in *English*, classes will be held in *Portuguese*
+2.  Provide a safe and open space for questions, both in-person and remote
+3.  Motivate students, both from the academic and practitioner standpoints
+4.  Provide opportunities to extend knowledge beyond the mandatory readings
+
+## Getting the best of this course, continued
+
+. . .
+
+**Studying for examinations**
+
+1.  I highly recommend using [Prof. Henrique Martins (FGV-EAESP)](https://henriquemartins.net/) materiais. In his website, there are suggested exercises for each lecture of our course.
+
+. . .
+
+$\rightarrow$ *To access, click [here](https://henriquemartins.net/teaching/financial_strategy/) - I'll also refer to the specific links for each part of the content at the beginning of each lecture*
+
+2.  In the *Syllabus*, you can find a list of recommended exercises from our main text-book, [@BDM]. Note that these are not mandatory but rather serve as a way for your to practice
+
+3.  Use the handout as an opportunity to motivate your studies through real-world examples. These handouts will focus not only on providing you with a sense of how useful this is in a real-world application, but also can definitely help you better understand the mechanics behind everytine that we'll study throughout the course!
+
+## References

@@ -8,10 +8,10 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.5.55">
 
   <meta name="author" content="Lucas S. Macoris">
-  <title>Lucas S. Macoris - 2. Financial Analysis</title>
+  <title>Lucas S. Macoris – Financial Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -33,6 +33,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -186,7 +187,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -349,21 +351,13 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-  <script src="../../site_libs/plotly-binding-4.10.4/plotly.js"></script>
-  <script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
-  <script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
-  <link href="../../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-  <script src="../../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
-  <link href="../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-  <script src="../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">2. Financial Analysis</h1>
+  <h1 class="title">Financial Analysis</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -382,11 +376,11 @@ Lucas S. Macoris
 </ul>
 <ol type="1">
 <li><p><span class="citation" data-cites="PH">(<a href="#/references" role="doc-biblioref" onclick="">Healy and Palepu 2012</a>)</span>: Business Analysis Valuation: Using Financial Statements</p></li>
-<li><p><span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2019</a>)</span>: Corporate Finance</p></li>
+<li><p><span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span>: Corporate Finance</p></li>
 </ol>
 <ul>
-<li><p><span class="citation" data-cites="PH">(<a href="#/references" role="doc-biblioref" onclick="">Healy and Palepu 2012</a>)</span> provides a more comprehensive discussion around the use of financial indications, although the content pretty much resembles <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2019</a>)</span></p></li>
-<li><p>It is important to be familiarized with financial reporting concepts, such as understanding <em>Balance-Sheet</em>, <em>Income Statements</em>, and <em>Cash-Flow Statements</em>. For a summarized discussion on these reports, refer to <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2019</a>)</span>, <em>Chapter 2</em>.</p></li>
+<li><p><span class="citation" data-cites="PH">(<a href="#/references" role="doc-biblioref" onclick="">Healy and Palepu 2012</a>)</span> provides a more comprehensive discussion around the use of financial indications, although the content pretty much resembles <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span></p></li>
+<li><p>It is important to be familiarized with financial reporting concepts, such as understanding <em>Balance-Sheet</em>, <em>Income Statements</em>, and <em>Cash-Flow Statements</em>. For a summarized discussion on these reports, refer to <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span>, <em>Chapter 2</em>.</p></li>
 <li><p>In the <em>Appendix</em>, you’ll find additional content (non-mandatory, but recommended) that can be used to get a deeper understanding and/or comprehend applications in real-world problems.</p></li>
 </ul>
 </div>
@@ -427,7 +421,7 @@ Lucas S. Macoris
 <h2>What drives firm performance?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Images/F1.jpg"></p>
+<p><img data-src="Images/F1.jpg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </section>
@@ -498,14 +492,13 @@ Lucas S. Macoris
 <li class="fragment"><p>The <span class="green">higher</span> the % of Equity, all things equal, the <span class="green">higher</span> its solvency</p></li>
 <li class="fragment"><p>What happens if we change the % of Equity and Debt?</p></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="solvency-measures-1" class="slide level2">
 <h2>Solvency Measures</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Images/F3.jpg"></p>
+<p><img data-src="Images/F3.jpg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <div class="fragment">
@@ -571,14 +564,13 @@ Lucas S. Macoris
 <li class="fragment"><p><span class="blue">Liquidity</span> evaluates the risk related to a firm’s <strong>current liabilities</strong></p></li>
 <li class="fragment"><p>In general, ratios attempt to measure the firm’s ability to repay its <strong>current</strong> liabilities using its the <strong>current</strong> assets</p></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="liquidity-measures-1" class="slide level2">
 <h2>Liquidity Measures</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Images/F5.jpg"></p>
+<p><img data-src="Images/F5.jpg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <div class="fragment">
@@ -722,7 +714,7 @@ Lucas S. Macoris
 <h2>Calculate and interpret all ratios using the data below</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Images/F7.jpg"></p>
+<p><img data-src="Images/F7.jpg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </section>
@@ -779,8 +771,7 @@ Lucas S. Macoris
 <p><img data-src="Images/F8.jpg"></p>
 </div><div class="column" style="width:40%;">
 <p><img data-src="Images/F9.jpg"></p>
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="one-indicator-to-rule-them-all" class="slide level2">
@@ -870,8 +861,11 @@ ROE= ROA \times Leverage = 20\% \times 1.5 = 30\%
 <h2>The effects of financial leverage</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-6a81578adf2355303505" style="width:1536px;height:768px;"></div>
-<script type="application/json" data-for="htmlwidget-6a81578adf2355303505">{"x":{"data":[{"x":[1,1.1000000000000001,1.2,1.3,1.3999999999999999,1.5,1.6000000000000001,1.7000000000000002,1.8,1.8999999999999999,2],"y":[-0.20000000000000001,-0.22000000000000003,-0.23999999999999999,-0.26000000000000001,-0.27999999999999997,-0.30000000000000004,-0.32000000000000006,-0.34000000000000008,-0.36000000000000004,-0.38,-0.40000000000000002],"text":["Leverage: 1.0<br />Value: -0.20<br />Key: Negative","Leverage: 1.1<br />Value: -0.22<br />Key: Negative","Leverage: 1.2<br />Value: -0.24<br />Key: Negative","Leverage: 1.3<br />Value: -0.26<br />Key: Negative","Leverage: 1.4<br />Value: -0.28<br />Key: Negative","Leverage: 1.5<br />Value: -0.30<br />Key: Negative","Leverage: 1.6<br />Value: -0.32<br />Key: Negative","Leverage: 1.7<br />Value: -0.34<br />Key: Negative","Leverage: 1.8<br />Value: -0.36<br />Key: Negative","Leverage: 1.9<br />Value: -0.38<br />Key: Negative","Leverage: 2.0<br />Value: -0.40<br />Key: Negative"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(255,0,0,1)","dash":"solid"},"hoveron":"points","name":"Negative","legendgroup":"Negative","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,1.1000000000000001,1.2,1.3,1.3999999999999999,1.5,1.6000000000000001,1.7000000000000002,1.8,1.8999999999999999,2],"y":[0.20000000000000001,0.22000000000000003,0.23999999999999999,0.26000000000000001,0.27999999999999997,0.30000000000000004,0.32000000000000006,0.34000000000000008,0.36000000000000004,0.38,0.40000000000000002],"text":["Leverage: 1.0<br />Value:  0.20<br />Key: Positive","Leverage: 1.1<br />Value:  0.22<br />Key: Positive","Leverage: 1.2<br />Value:  0.24<br />Key: Positive","Leverage: 1.3<br />Value:  0.26<br />Key: Positive","Leverage: 1.4<br />Value:  0.28<br />Key: Positive","Leverage: 1.5<br />Value:  0.30<br />Key: Positive","Leverage: 1.6<br />Value:  0.32<br />Key: Positive","Leverage: 1.7<br />Value:  0.34<br />Key: Positive","Leverage: 1.8<br />Value:  0.36<br />Key: Positive","Leverage: 1.9<br />Value:  0.38<br />Key: Positive","Leverage: 2.0<br />Value:  0.40<br />Key: Positive"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(0,100,0,1)","dash":"solid"},"hoveron":"points","name":"Positive","legendgroup":"Positive","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,1],"y":[-0.44000000000000006,0.44000000000000006],"text":"xintercept: 1","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.25],"y":[-0.29999999999999999],"text":"ROA = -20%","hovertext":"x: 1.25<br />y: -0.3","textfont":{"size":37.795275590551185,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.25],"y":[0.29999999999999999],"text":"ROA = +20%","hovertext":"x: 1.25<br />y: 0.3","textfont":{"size":37.795275590551185,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":70.462432544624335,"r":7.3059360730593621,"b":64.757160647571624,"l":77.376504773765063},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"How different Leverage levels affects ROE?","font":{"color":"rgba(0,0,0,1)","family":"","size":39.850560398505614},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.94999999999999996,2.0499999999999998],"tickmode":"array","ticktext":["1.0","1.1","1.2","1.3","1.4","1.5","1.6","1.7","1.8","1.9","2.0"],"tickvals":[1,1.1000000000000001,1.2,1.3,1.3999999999999999,1.5,1.6000000000000001,1.7000000000000002,1.8,1.8999999999999999,2],"categoryorder":"array","categoryarray":["1.0","1.1","1.2","1.3","1.4","1.5","1.6","1.7","1.8","1.9","2.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":19.925280199252807},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Leverage","font":{"color":"rgba(0,0,0,1)","family":"","size":26.567040265670411}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.44000000000000006,0.44000000000000006],"tickmode":"array","ticktext":["-40%","-20%","0%","20%","40%"],"tickvals":[-0.40000000000000002,-0.19999999999999998,0,0.20000000000000007,0.40000000000000002],"categoryorder":"array","categoryarray":["-40%","-20%","0%","20%","40%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":19.925280199252807},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Return on Equity","font":{"color":"rgba(0,0,0,1)","family":"","size":26.567040265670411}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716894984}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"61843d2a3c6d":{"x":{},"y":{},"colour":{},"type":"scatter"},"618428ac6544":{"xintercept":{}},"61842d301747":{"x":{},"y":{}},"618422a43617":{"x":{},"y":{}}},"cur_data":"61843d2a3c6d","visdat":{"61843d2a3c6d":["function (y) ","x"],"618428ac6544":["function (y) ","x"],"61842d301747":["function (y) ","x"],"618422a43617":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="1344"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -948,7 +942,7 @@ ROE= ROA \times Leverage = 20\% \times 1.5 = 30\%
 </ol>
 </div>
 <div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> See <span class="blue">Leverage Example.xlsx</span> (available on eClass®) for a detailed explanation.</p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>See <span class="blue">Leverage Example.xlsx</span> (available on eClass®) for a detailed explanation.</em></p>
 </div>
 </section>
 <section id="concept-check-5" class="slide level2">
@@ -1292,7 +1286,7 @@ ROE_{1}=1\times9\%\times1.66=15\%
 </ol></li>
 </ul>
 <div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> Practice these concepts analyzing <span class="blue">3M</span> using the <span class="blue">Exercise - 3M Ratios.xlsx</span> (available on eClass®)</p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Practice these concepts analyzing <span class="blue">3M</span> using the <span class="blue">Exercise - 3M Ratios.xlsx</span> (available on eClass®)</em></p>
 </div>
 </section>
 <section id="criticism-around-traditional-financial-ratio-analysis" class="slide level2">
@@ -1308,7 +1302,7 @@ ROE_{1}=1\times9\%\times1.66=15\%
 <li class="fragment"><p><em>Integrated Reporting</em> is facilitated by the recent widespread in ESG data (e.g, gender in boards, wages, carbon emissions, etc)</p></li>
 </ul>
 <div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> Full content on Integrated Reporting: see <span class="citation" data-cites="SS">(<a href="#/references" role="doc-biblioref" onclick="">Schoenmaker and Schramade 2019</a>)</span>, available on eClass®</p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Full content on Integrated Reporting: see <span class="citation" data-cites="SS">(<a href="#/references" role="doc-biblioref" onclick="">Schoenmaker and Schramade 2019</a>)</span>, available on eClass®</em></p>
 </div>
 </section>
 <section id="the-role-of-credit-ratings" class="slide level2">
@@ -1324,7 +1318,7 @@ ROE_{1}=1\times9\%\times1.66=15\%
 <li class="fragment">Credit ratings are affected (and have the potential to affect) business outcomes</li>
 </ol>
 <div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> Full content on Credit Ratings: see <span class="blue">UV8009 - Credit Rating Basics</span>, available on eClass®</p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Full content on Credit Ratings: see <span class="blue">UV8009 - Credit Rating Basics</span>, available on eClass®</em></p>
 </div>
 </section>
 <section id="appendix-i-decomposing-profitability-an-alternative-approach" class="slide level2">
@@ -1476,19 +1470,18 @@ ROE= \underbrace{\dfrac{\text{NOPAT}}{\text{Net Assets}}}_{\text{Operating ROA}}
 </ul>
 </div>
 </section>
-<section id="appendix-ii-from-financial-ratios-to-investment-strategies-tbd" class="slide level2">
-<h2><em>Appendix II</em>: from Financial Ratios to Investment Strategies [TBD]</h2>
-</section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
+<div class="quarto-auto-generated-content">
 <p><img src="logo.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/handouts.html">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
+<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures/fin-mgmt.html">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-BDM" class="csl-entry" role="listitem">
-Berk, J., and P. DeMarzo. 2019. <em>Corporate Finance, Global Edition</em>. Global Edition / English Textbooks. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
+Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Global Edition / English Textbooks. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
 </div>
 <div id="ref-PH" class="csl-entry" role="listitem">
 Healy, P. M., and K. G. Palepu. 2012. <em>Business Analysis Valuation: Using Financial Statements</em>. Cengage Learning. <a href="https://books.google.com.br/books?id=Qp0IzgEACAAJ">https://books.google.com.br/books?id=Qp0IzgEACAAJ</a>.
@@ -1526,7 +1519,6 @@ Schoenmaker, D., and W. Schramade. 2019. <em>Principles of Sustainable Finance</
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1713,42 +1705,80 @@ Schoenmaker, D., and W. Schramade. 2019. <em>Principles of Sustainable Finance</
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1782,18 +1812,7 @@ Schoenmaker, D., and W. Schramade. 2019. <em>Principles of Sustainable Finance</
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1825,11 +1844,50 @@ Schoenmaker, D., and W. Schramade. 2019. <em>Principles of Sustainable Finance</
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/lsmacoris\.github\.io\/lectures");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1839,8 +1897,17 @@ Schoenmaker, D., and W. Schramade. 2019. <em>Principles of Sustainable Finance</
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1854,7 +1921,11 @@ Schoenmaker, D., and W. Schramade. 2019. <em>Principles of Sustainable Finance</
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

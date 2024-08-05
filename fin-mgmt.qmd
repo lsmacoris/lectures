@@ -16,3 +16,14 @@ The Financial Administration course is the second training program in the financ
 
 It proposes to present, in a context of risk $\times$ return and from a long-term perspective, the fundamental decisions of Corporate Finance: *investment*, *financing*, and shareholder *compensation*. It particularly addresses the fundamentals of capital investment analysis, working capital management, economic-financial analysis of companies, cash generation capacity and its influence on the objective of maximizing shareholder wealth. These approaches will consider the fundamental factors of ESG (Environmental, Social and Corporate Governance) policies and their consequences for companies.
 
+::: {.callout-note}
+### For students
+
+Below you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
+
+These slides leverage [Quarto](https://quarto.org/), an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:
+
+1. Hit `F` for full-screen mode
+2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`
+
+:::

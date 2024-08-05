@@ -10,3 +10,16 @@ image: 'fin-strat/thumbnail.jpg'
 Familiarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk $\times$ return.
 
 At the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company's value.
+
+
+::: {.callout-note}
+### For students
+
+Below you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
+
+These slides leverage [Quarto](https://quarto.org/), an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:
+
+1. Hit `F` for full-screen mode
+2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`
+
+:::
