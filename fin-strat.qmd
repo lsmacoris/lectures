@@ -1,6 +1,12 @@
 ---
 title: "Financial Strategy"
 image: 'fin-strat/thumbnail.jpg'
+listing:
+ type: table
+ contents: fin-strat
+ fields: [title, reading-time]
+ sort: "title"
+
 ---
 
 ------------------------------------------------------------------------

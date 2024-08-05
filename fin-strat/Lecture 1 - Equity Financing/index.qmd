@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '1. Equity Financing'
+    title: 'Equity Financing'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
@@ -121,7 +121,7 @@ A limited partnership that specializes in raising money to invest in the private
 
 ## Venture Capital
 
-![](Images/F1.png){width=75% fig-align='center'}
+![](Images/F1.png){width="75%" fig-align="center"}
 
 ## Private Equity
 
@@ -131,17 +131,16 @@ A limited partnership that specializes in raising money to invest in the private
 Organized very much like a venture capital firm, but it **invests in the equity of existing privately held firms** rather than start-up companies. Private equity firms also might initiate their investment by finding a publicly traded firm and purchasing the outstanding equity, thereby taking the company private in a transaction called a leveraged buyout (LBO).
 :::
 
-- In most cases, the private equity firms use debt as well as equity to finance the purchase
-- Private equity firms share the advantages of venture capital firms, and also charge similar fees. One key difference between private equity and venture capital is the magnitude invested:
-  1. The transaction volume in 2021 (the peak of the private equity market) was over [\$1 trillion]{.blue} (*versus* \$133 billion from Venture Capital)
-  2. The average deal size was over [$1 billion]{.blue} (*versus* \$21 million from Venture Capital)
-
+-   In most cases, the private equity firms use debt as well as equity to finance the purchase
+-   Private equity firms share the advantages of venture capital firms, and also charge similar fees. One key difference between private equity and venture capital is the magnitude invested:
+    1.  The transaction volume in 2021 (the peak of the private equity market) was over [\$1 trillion]{.blue} (*versus* \$133 billion from Venture Capital)
+    2.  The average deal size was over [\$1 billion]{.blue} (*versus* \$21 million from Venture Capital)
 
 ## Private Equity
 
-![](Images/F2.png){width=75% fig-align='center'}
+![](Images/F2.png){width="75%" fig-align="center"}
 
-- Examples of Brazilian Private Equity funds: [*Kinea*](https://www.kinea.com.br/fundos/private-equity/), [*Vinci Partners*](https://www.vincipartners.com/negocios/privateEquity), [*Opportunity*](https://www.opportunity.com.br/QuemSomos/PrivateEquity), [Pátria](https://www.patria.com/pt-BR/private-equity-pt/), among others
+-   Examples of Brazilian Private Equity funds: [*Kinea*](https://www.kinea.com.br/fundos/private-equity/), [*Vinci Partners*](https://www.vincipartners.com/negocios/privateEquity), [*Opportunity*](https://www.opportunity.com.br/QuemSomos/PrivateEquity), [Pátria](https://www.patria.com/pt-BR/private-equity-pt/), among others
 
 ## Institutional Investors
 
@@ -149,34 +148,31 @@ Organized very much like a venture capital firm, but it **invests in the equity 
 ### Definition
 
 Institutional investors such as mutual funds, pension funds, insurance companies, endowments, and foundations manage large quantities of money. They are major investors in many different types of assets, so, not surprisingly, they are also active investors in private companies.
-
 :::
 
-- Institutional investors **may invest directly** in private firms or they **may invest indirectly by becoming limited partners in venture capital firms**
+-   Institutional investors **may invest directly** in private firms or they **may invest indirectly by becoming limited partners in venture capital firms**
 
-- Examples include the retirement funds (*CalPERS - California Public Employees Retirement System*), [*Previ*](https://www.previ.com.br/portal-previ/), among others
+-   Examples include the retirement funds (*CalPERS - California Public Employees Retirement System*), [*Previ*](https://www.previ.com.br/portal-previ/), among others
 
-- These funds are responsible for managing large amounts of money, and are often seen as key players in the corporate governance of a company
+-   These funds are responsible for managing large amounts of money, and are often seen as key players in the corporate governance of a company
 
 ## Have you ever watched *Billions*?
+
 {{< video https://www.youtube.com/watch?v=lPgmt42-nNo&ab_channel=XuMedia> width="75%" height="75%">}}
 
 ## More on institutional investors
 
-- Some institutional investors are famous for their position on  *ETF* (Exchange Traded funds)
+-   Some institutional investors are famous for their position on *ETF* (Exchange Traded funds)
 
-- *BlackRock*, *Vanguard*, and *State Street* are the three largest *ETF* providers had more than [1 trillion]{.blue} dollars in ETF managed funds as of 2024 (see [here](https://www.etf.com/sections/etf-league-tables/etf-league-tables-jan-2-2024) for a comprehensive list)
+-   *BlackRock*, *Vanguard*, and *State Street* are the three largest *ETF* providers had more than [1 trillion]{.blue} dollars in ETF managed funds as of 2024 (see [here](https://www.etf.com/sections/etf-league-tables/etf-league-tables-jan-2-2024) for a comprehensive list)
 
 . . .
 
-:::{.callout-note}
+::: callout-note
 ### Curiosity
 
 While some of these investors are considered active, there could be cases where we can find passive institutional investors. For example, *Exchange Traded Funds (ETFs)*, which are funds that aim to match an index, like the *S&P500* or the *Ibovespa* indices, are generally thought of as passive, because they'll need to hold a specific portfolio of assets in any situation.
-
 :::
-
-
 
 ## Corporate Investors
 
@@ -186,28 +182,29 @@ While some of these investors are considered active, there could be cases where 
 A corporation that invests in private companies.
 :::
 
-- Many established corporations purchase equity in younger, private companies
-  1. Most of the other types of investors in private firms that we have considered so far are primarily interested in the [financial return]{.blue} that they will earn on their investments
-  2. Corporate investors, by contrast, might invest for corporate [strategic objectives]{.blue} in addition to the desire for investment returns.
+-   Many established corporations purchase equity in younger, private companies
 
-- These are also known as a [corporate partner]{.blue}, [strategic partner]{.blue}, or [strategic investor]{.blue}
+    1.  Most of the other types of investors in private firms that we have considered so far are primarily interested in the [financial return]{.blue} that they will earn on their investments
+    2.  Corporate investors, by contrast, might invest for corporate [strategic objectives]{.blue} in addition to the desire for investment returns.
 
-- Examples of Corporate Investors include *Google* and *Intel Capital*, which invest in highly specialized companies. Other recent examples include the ramp-up in investment from big-techs into generative-AI startups 
+-   These are also known as a [corporate partner]{.blue}, [strategic partner]{.blue}, or [strategic investor]{.blue}
+
+-   Examples of Corporate Investors include *Google* and *Intel Capital*, which invest in highly specialized companies. Other recent examples include the ramp-up in investment from big-techs into generative-AI startups
 
 # How investing takes place
 
 ## Venture capital investing
 
-- You gained knowledge on the main players of the equity-financing market. What happens next?
+-   You gained knowledge on the main players of the equity-financing market. What happens next?
 
-- Suppose that you have an investment opportunity and you are seeking for [external]{.blue} funding - *i.e*, you are looking to bringing new shareholders to your company
+-   Suppose that you have an investment opportunity and you are seeking for [external]{.blue} funding - *i.e*, you are looking to bringing new shareholders to your company
 
-- When a company founder decides to sell equity to outside investors for the first time, **it is common practice for private companies to issue preferred stock rather than common stock to raise capital**:
+-   When a company founder decides to sell equity to outside investors for the first time, **it is common practice for private companies to issue preferred stock rather than common stock to raise capital**:
 
     1.  For mature companies, it usually has a preferential dividend and seniority in any liquidation and, sometimes, has special voting rights
     2.  For young companies, it has seniority in any liquidation but typically does not pay regular cash dividends and often contains a right to convert to common stock
 
-- Each of these issuances are called *founds*, as we'll see in the next slide 
+-   Each of these issuances are called *founds*, as we'll see in the next slide
 
 ## Financing Rounds
 

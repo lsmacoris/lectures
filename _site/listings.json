@@ -28,5 +28,12 @@
       "/fin-mgmt.html",
       "/fin-strat.html"
     ]
+  },
+  {
+    "listing": "/fin-strat.html",
+    "items": [
+      "/fin-strat/Lecture 1 - Equity Financing/index.html",
+      "/fin-strat/Introduction/index.html"
+    ]
   }
 ]

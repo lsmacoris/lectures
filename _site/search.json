@@ -7,6 +7,286 @@
     "text": "Within this section, you’ll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. Most, if not all, of these resources extensively leverage Quarto, an open-source scientific and technical publishing system that supports R, Python, Julia, and Observable. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by Reveal JS.\nFor comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official reference material.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Management\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Strategy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#outline",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#outline",
+    "title": "Equity Financing",
+    "section": "Outline",
+    "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\n(Berk and DeMarzo 2023)\n(Brealey, Myers, and Allen 2020)\n\nStudy review and practice: I strongly recommend using Prof. Henrique Castro (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:\n\nMultiple Choice Exercises - click here\nNumeric Exercises - click here\n\n\n\n\\(\\rightarrow\\) For coding replications, whenever applicable, please follow this page or hover on the specific slides with coding chunks."
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#thinking-about-investment-opportunities",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#thinking-about-investment-opportunities",
+    "title": "Equity Financing",
+    "section": "Thinking about investment opportunities",
+    "text": "Thinking about investment opportunities\n\nSuppose you, as a sole entrepreneur, owns a local shoes retailer and you identify opportunities to expand your business to boost sales\n\nAlthough you clearly understand the investment opportunity, you run short of resources to fund it. Therefore, as a single entrepreneur, you have little capacity for growth\nFurthermore, you may not want to hold a large fraction (or the totality) of your wealth in a single asset\n\nBecause of these reasons, moving from a sole entrepreneur to a corporation provides several benefits:\n\nBy incorporating, businesses can gain access to capital\nFounders can reduce the risk of their portfolios by selling someof their equity and diversifying\n\nQuestion: how to raise capital for growth?"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#raising-equity-financing-for-private-companies",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#raising-equity-financing-for-private-companies",
+    "title": "Equity Financing",
+    "section": "Raising Equity Financing for Private Companies",
+    "text": "Raising Equity Financing for Private Companies\n\nOften, a private company must seek outside sources that can provide additional capital for growth. This can be done mainly using three financing sources:\n\nEquity Financing (using external resources)\nDebt Financing\nReinvesting retained profits (using internal resources)\n\nDepending on the option chosen, the inclusion of outside capital will affect the control of the company in a different way!\nAt this point, we’ll focus specifically on Equity Financing"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#how-equity-financing-takes-place",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#how-equity-financing-takes-place",
+    "title": "Equity Financing",
+    "section": "How Equity Financing Takes Place",
+    "text": "How Equity Financing Takes Place\n\n\n\n\n\n\nDefinition\n\n\nEquity Financing is the money that helps firms to grow through equity participation (i.e, acquiring a share of the company). Although the initial capital that is required to start a business is usually provided by the entrepreneur, Equity Financing is a source of funding that can come from external investors\n\n\n\n\nThere are several ways in which Equity Financing can be done, each with specific characteristics, such the funding amount (in $) and the firms’ stage in the business life cycle\nAs in (Berk and DeMarzo 2023), the usual types of Equity Financing come from:\n\nAngel Investors\nVenture Capital\nPrivate Equity\nInstitutional Investors\nCorporate Investors"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#angel-investors",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#angel-investors",
+    "title": "Equity Financing",
+    "section": "Angel Investors",
+    "text": "Angel Investors\n\n\n\n\n\n\n\nDefinition\n\n\nIndividual investors who buy equity in small private firms. Angel investors are often rich, successful entrepreneurs themselves who are willing to help new companies get started in exchange for a share of the business.\n\n\n\n\nThe angel investment is usually necessary to kick off the business and the angel market is more well organized these days. It often occurs at such an early stage in the business when it is difficult to assess a value for the firm\nAngel investors often circumvent this problem by holding either a convertible note or a SAFE (simple agreement for future equity) rather than equity:\n\nUsually, angel investors have a share price discount over new investors due to higher uncertainty\nStructuring the deal in this way allows angels and entrepreneurs to agree on terms without agreeing on a value for the firm, instead postponing the valuation decision until the firm is more mature and attractive to venture capitalists"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital",
+    "title": "Equity Financing",
+    "section": "Venture Capital",
+    "text": "Venture Capital\n\n\n\n\n\n\nDefinition\n\n\nA limited partnership that specializes in raising money to invest in the private equity of young firms. One of the general partners who work for and run a venture capital firm.\n\n\n\n\nVenture Capital firms offer limited partners advantages over investing directly in start-ups themselves as angel investors:\n\nLimited partners are more diversified\nThey also benefit from the expertise of the general partners\nGeneral partners usually charge substantial fees: in general, these funds receive return over the profits the firm make (carried interest) plus a an annual management fee of about 2% of the fund’s committed capital\nUsually, they demand greater control over the company’s ownership (e.g., board seats): there is evidence that monitoring these firms pay off (Bernstein, Giroud, and Townsend 2016)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital-1",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital-1",
+    "title": "Equity Financing",
+    "section": "Venture Capital",
+    "text": "Venture Capital"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#private-equity",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#private-equity",
+    "title": "Equity Financing",
+    "section": "Private Equity",
+    "text": "Private Equity\n\n\n\n\n\n\nDefinition\n\n\nOrganized very much like a venture capital firm, but it invests in the equity of existing privately held firms rather than start-up companies. Private equity firms also might initiate their investment by finding a publicly traded firm and purchasing the outstanding equity, thereby taking the company private in a transaction called a leveraged buyout (LBO).\n\n\n\n\nIn most cases, the private equity firms use debt as well as equity to finance the purchase\nPrivate equity firms share the advantages of venture capital firms, and also charge similar fees. One key difference between private equity and venture capital is the magnitude invested:\n\nThe transaction volume in 2021 (the peak of the private equity market) was over $1 trillion (versus $133 billion from Venture Capital)\nThe average deal size was over $1 billion (versus $21 million from Venture Capital)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#private-equity-1",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#private-equity-1",
+    "title": "Equity Financing",
+    "section": "Private Equity",
+    "text": "Private Equity\n\n\n\n\n\n\nExamples of Brazilian Private Equity funds: Kinea, Vinci Partners, Opportunity, Pátria, among others"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#institutional-investors",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#institutional-investors",
+    "title": "Equity Financing",
+    "section": "Institutional Investors",
+    "text": "Institutional Investors\n\n\n\n\n\n\nDefinition\n\n\nInstitutional investors such as mutual funds, pension funds, insurance companies, endowments, and foundations manage large quantities of money. They are major investors in many different types of assets, so, not surprisingly, they are also active investors in private companies.\n\n\n\n\nInstitutional investors may invest directly in private firms or they may invest indirectly by becoming limited partners in venture capital firms\nExamples include the retirement funds (CalPERS - California Public Employees Retirement System), Previ, among others\nThese funds are responsible for managing large amounts of money, and are often seen as key players in the corporate governance of a company"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#have-you-ever-watched-billions",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#have-you-ever-watched-billions",
+    "title": "Equity Financing",
+    "section": "Have you ever watched Billions?",
+    "text": "Have you ever watched Billions?"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#more-on-institutional-investors",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#more-on-institutional-investors",
+    "title": "Equity Financing",
+    "section": "More on institutional investors",
+    "text": "More on institutional investors\n\nSome institutional investors are famous for their position on ETF (Exchange Traded funds)\nBlackRock, Vanguard, and State Street are the three largest ETF providers had more than 1 trillion dollars in ETF managed funds as of 2024 (see here for a comprehensive list)\n\n\n\n\n\n\n\n\nCuriosity\n\n\nWhile some of these investors are considered active, there could be cases where we can find passive institutional investors. For example, Exchange Traded Funds (ETFs), which are funds that aim to match an index, like the S&P500 or the Ibovespa indices, are generally thought of as passive, because they’ll need to hold a specific portfolio of assets in any situation."
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#corporate-investors",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#corporate-investors",
+    "title": "Equity Financing",
+    "section": "Corporate Investors",
+    "text": "Corporate Investors\n\n\n\n\n\n\nDefinition\n\n\nA corporation that invests in private companies.\n\n\n\n\nMany established corporations purchase equity in younger, private companies\n\nMost of the other types of investors in private firms that we have considered so far are primarily interested in the financial return that they will earn on their investments\nCorporate investors, by contrast, might invest for corporate strategic objectives in addition to the desire for investment returns.\n\nThese are also known as a corporate partner, strategic partner, or strategic investor\nExamples of Corporate Investors include Google and Intel Capital, which invest in highly specialized companies. Other recent examples include the ramp-up in investment from big-techs into generative-AI startups"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital-investing",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital-investing",
+    "title": "Equity Financing",
+    "section": "Venture capital investing",
+    "text": "Venture capital investing\n\nYou gained knowledge on the main players of the equity-financing market. What happens next?\nSuppose that you have an investment opportunity and you are seeking for external funding - i.e, you are looking to bringing new shareholders to your company\nWhen a company founder decides to sell equity to outside investors for the first time, it is common practice for private companies to issue preferred stock rather than common stock to raise capital:\n\nFor mature companies, it usually has a preferential dividend and seniority in any liquidation and, sometimes, has special voting rights\nFor young companies, it has seniority in any liquidation but typically does not pay regular cash dividends and often contains a right to convert to common stock\n\nEach of these issuances are called founds, as we’ll see in the next slide"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#financing-rounds",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#financing-rounds",
+    "title": "Equity Financing",
+    "section": "Financing Rounds",
+    "text": "Financing Rounds\n\nEach time the firm raises money is referred to as a funding round, and each round will have its own set of securities with special terms and provisions - each called rounds\nAfter a potential initial “seed round”, it is common to name the securities alphabetically, starting with Series A, Series B, and so on\nOnly then, the company has a market value."
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#example-real-networks",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#example-real-networks",
+    "title": "Equity Financing",
+    "section": "Example: Real Networks",
+    "text": "Example: Real Networks\n\nReal Networks, which was founded by Robert Glaser in 1993, with an investment of approximately 1 million by Glaser\nIn April 1995, Glaser’s 1 million initial investment represented 13,713,439 shares of Series A preferred stock, implying an initial price of \\(\\approx\\) $0.07 per share\nThe company’s first round of outside equity funding was a Series B preferred stock. Real Networks sold 2,686,567 shares of Series B preferred stock at $0.67 per share\nAt the price the new shares were sold for, Glaser’s shares were worth 9.2 million and represented 83.6% of the outstanding shares:"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#example-real-networks-continued",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#example-real-networks-continued",
+    "title": "Equity Financing",
+    "section": "Example: Real Networks, continued",
+    "text": "Example: Real Networks, continued\n\nBased on this example, we may want to assess the firm’s value in two distinct periods of time:\n\nPre-Money Valuation\n\n\nAt the issuance of new equity, the value of the firm’s prior shares outstanding at the price in the funding round\nIn the Real Netkworks example, 9.2 million\n\n\nPost-Money Valuation\n\n\nAt the issue of new equity, the value of the whole firm (old plus new shares) at the price at which the new equity sold\nIn the Real Netkworks example, 11 million"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#adding-new-funding-series",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#adding-new-funding-series",
+    "title": "Equity Financing",
+    "section": "Adding new funding series",
+    "text": "Adding new funding series\n\nOver the next few years, Real Networks raised three additional rounds of external equity financing in addition to the Series B funding round\n\n\n\n\nEach of these rounds, along with the shares outstanding prior to the issuance, made the totality of the firm’s outstanding shares!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#exercise-equity-financing-dynamics",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#exercise-equity-financing-dynamics",
+    "title": "Equity Financing",
+    "section": "Exercise: Equity Financing Dynamics",
+    "text": "Exercise: Equity Financing Dynamics\n\nYou founded your own firm two years ago. Initially, you contributed 100,000 of your money and, in return, received 1,500,000 shares of stock.\nSince then, you have sold an additional 500,000 shares to angel investors.\nYou are now considering raising even more capital from a venture capitalist. The venture capitalist has agreed to invest 6 million with a post-money valuation of $10 million for the firm.\n\n\nAssuming that this is the venture capitalist’s first investment in your company, what percentage of the firm will she end up owning? What percentage will you own? What is the value of your shares?"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#exercise-equity-financing-dynamics---solution",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#exercise-equity-financing-dynamics---solution",
+    "title": "Equity Financing",
+    "section": "Exercise: Equity Financing Dynamics - Solution",
+    "text": "Exercise: Equity Financing Dynamics - Solution\n\nBecause the Venture Capitalist will invest 6 million out of the 10 million post-money valuation, her ownership percentage is 60%\nConsequently, the pre-money valuation is 10 − 6 = 4 million. As there are 2 million pre-money shares outstanding, this implies a share price of \\(\\frac{\\$4,000,000}{2,000,000}= \\small \\$2 \\text{ per share}\\)\nThus, the Venture Capitalist will receive \\(\\small \\frac{\\$6,000,000}{\\$2}=3\\) million shares for her investment, and after this funding round, there will be a total of 5,000,000 shares outstanding.\n\n\n\nYou will own \\(\\frac{1,500,000}{5,000,000} = \\small 30\\%\\) of the firm and the post-transaction valuation of your shares is $3 million."
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital-financing-terms",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital-financing-terms",
+    "title": "Equity Financing",
+    "section": "Venture Capital Financing Terms",
+    "text": "Venture Capital Financing Terms\n\nLiquidation Preference: The liquidation preference specifies a minimum amount that must be paid to these security holders—before any payments to common stockholders—in the event of a liquidation, sale, or merger of the company. It is typically set to between 1 and 3 times the value of the initial investment.\nSeniority: It is not uncommon for investors in later rounds to demand seniority over investors in earlier rounds, to ensure that they are repaid first. When later round investors accept securities with equal priority, they are said to be pari passu.\nAnti-Dilution Protection: If things are not going well and the firm raises new funding at a lower price than in a prior round, it is referred to as a “down round.” Anti-dilution protection lowers the price at which investors in earlier rounds can convert their shares to common, effectively increasing their ownership percentage in a down round at the expense of founders and employees.\nExit Strategy: It details how investors will eventually realize the return from their investment"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo",
+    "title": "Equity Financing",
+    "section": "The Initial Public Offering (IPO)",
+    "text": "The Initial Public Offering (IPO)\n\n\n\n\n\n\nDefinition\n\n\nThe process of selling stock to the public for the first time\n\n\n\n\nIt allows greater liquidity, and better access to capital at the cost of more external monitoring and more demand for transparency\nEquity offers can be distinguished in terms of:\n\nPrimary Offering: new shares available in a public offering that raise new capital\nSecondary Offering: shares sold by existing shareholders in an equity offering\n\n\n\n\\(\\rightarrow\\) In the former, there is new money on the table; in the latter, money is just “changing hands”!\n\nIn what follows, we’ll review some important characteristics of the IPO process"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-participants-of-an-ipo---the-underwriter",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-participants-of-an-ipo---the-underwriter",
+    "title": "Equity Financing",
+    "section": "The participants of an IPO - the underwriter",
+    "text": "The participants of an IPO - the underwriter\n\nAn IPO entails several market agents that are relevant for the offer to be completed\nAn important piece of this is the Underwriter: an investment banking firm that manages a security issuance and designs its structure\nThey can work on different schemes according to its exposure:\n\nBest-Efforts Basis: For smaller IPOs, a situation in which the underwriter does not guarantee that the stock will be sold, but instead tries to sell the sock for the best possible price. Often, such deals have an all-or-none clause: either all of the shares are sold on the IPO or the deal is called off.\nFirm Commitment: An agreement between an underwriter and an issuing firm in which the underwriter guarantees that it will sell all of the stock at the offer price. Most common.\nAuction: A method of selling new issues directly to the public rather than setting a price itself and then allocating shares to buyers, the underwriter in an auction IPO takes bids from investors and then sets the price that clears the market."
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering---underwriting-participants",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering---underwriting-participants",
+    "title": "Equity Financing",
+    "section": "The Initial Public Offering - Underwriting participants",
+    "text": "The Initial Public Offering - Underwriting participants\n\nLead Underwriter: The primary investment banking firm responsible for managing a security issuance\nSyndicate: A group of underwriters who jointly underwrite and distribute a security issuance\n\n\nUnderwriters market the IPO, and they help the company with all the necessary filings.\nMore importantly, they actively participate in determining the offer price.\nIn many cases, the underwriter will also commit to making a market in the stock after the issue, thereby guaranteeing that the stock will be liquid."
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo---filings",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo---filings",
+    "title": "Equity Financing",
+    "section": "The Initial Public Offering (IPO) - Filings",
+    "text": "The Initial Public Offering (IPO) - Filings\n\nRegistration Statement\n\n\nA legal document that provides financial and other information about a company to investors prior to a security issuance\nCompany managers work closely with the underwriters to prepare this registration statement\n\n\nPreliminary Prospectus\n\n\nPart of the registration statement prepared by a company prior to an IPO that is circulated to investors before the stock is offered\n\n\nFinal Prospectus\n\n\nPart of the final registration statement prepared by a company prior to an IPO that contains all the details of the offering, including the number of shares offered and the offer price"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo---stages",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo---stages",
+    "title": "Equity Financing",
+    "section": "The Initial Public Offering (IPO) - Stages",
+    "text": "The Initial Public Offering (IPO) - Stages\n\nValuation: an assessment of the company’s value done prior to the IPO. This is either done by:\n\nEstimating the present value of the estimated future cash flows; or\nExamining comparable operations (e.g, recent IPOs) based on characteristics\n\nRoad Show: occurs during an IPO\n\nSenior management and its underwriters travel around promoting the company and explaining their rationale for an offer price\nDirected towards the underwriters’ largest customers, mainly institutional investors such as mutual funds and pension funds\n\nBook Building: process made by underwriters during and IPO for coming up with an offer price based on customers’ expressions of interest\n\nProvides an early indication of the demand for the IPO\nIf demand appears to be weak in the target price range, the firm may choose to withdraw from the IPO process"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo---spread",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo---spread",
+    "title": "Equity Financing",
+    "section": "The Initial Public Offering (IPO) - Spread",
+    "text": "The Initial Public Offering (IPO) - Spread\n\nIf underwriters put effort on making the IPO process to run seamlessly, how they are paid for?\n\n\n\n\n\n\n\n\nDefinition\n\n\nThe fee a company pays to its underwriters that is a percentage of the issue price of a share of stock.\n\n\n\n\nConsider the final offer price is 12.50 per share. If the company paid the underwriters a spread of $0.875 per share, or exactly 7% of the issue price, the underwriters bought the stock for $ 11.625 per share and then resold it to their customers for $12.50 per share\nWhen an underwriter provides a firm commitment, it is potentially exposing itself to the risk that the banking firm might have to sell the shares at less than the offer price and take a loss\n\n\n\n\\(\\rightarrow\\) Research shows that about 75% of IPOs experience an increase in share price on the first day (only 9% experience a decrease)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-ipo-offering---additional-terms-and-conditions",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-ipo-offering---additional-terms-and-conditions",
+    "title": "Equity Financing",
+    "section": "The Initial Public (IPO) Offering - additional terms and conditions",
+    "text": "The Initial Public (IPO) Offering - additional terms and conditions\n\nOver-allotment allocation (greenshoe provision): In an IPO, an option that allows the underwriter to issue more stock, usually amounting to some % of the original offer size, at the IPO offer price\nLockup: A restriction that prevents existing shareholders from selling their shares for some period, usually 180 days, after an IPO"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#exercise---the-initial-public-offering-ipo",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#exercise---the-initial-public-offering-ipo",
+    "title": "Equity Financing",
+    "section": "Exercise - The Initial Public Offering (IPO)",
+    "text": "Exercise - The Initial Public Offering (IPO)\n\nRAX House is a private company considering going public. It has assets of 585 million and liabilities of 415 million. The firm’s cash flow from operations was 137 million for the previous year. After the IPO, RAX House will have 118 million shares outstanding\nThe industry average cash flow per share multiple is 3.0, and the average book value per share is 2.3. Based on these multiples, estimate the IPO price.\n\n\nSolution\n\nRAX House’s book value of equity is \\(\\small 585 - 415 = 170 million\\). With 118 million shares outstanding, book value per share is \\(\\frac{170}{118} = \\small 1.44\\) per share. Given the industry average of 2.3, the estimated IPO price would be \\(\\small 1.44 \\times 2.3 = \\small \\$3.31\\)\nThe firm’s cash flow from operations was 137 million, thus cash flow per share is \\(\\frac{137}{118} =\\small 1.16\\). Given the industry average multiple of 3.0, the estimated IPO price would be \\(\\small 1.16 \\times 3.0 = \\$3.48\\)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles-1",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles-1",
+    "title": "Equity Financing",
+    "section": "IPO Puzzles",
+    "text": "IPO Puzzles\n\nResearch conducted using historical IPOs show some important stylized facts\n\nOn average, IPOs appear to be underpriced: The price at the end of trading on the first day is often substantially higher than the IPO price\nThe number of issues is highly cyclical: When times are good, the market is flooded with new issues; when times are bad, the number of issues dries up\nThe costs of an IPO are very high, and it is unclear why firms willingly incur them\nThe long-run performance of a newly public company (three to five years from the date of issue) is poor. That is, on average, a three- to five-year buy and hold strategy appears to be a bad investment\n\nIn what follows, we’ll discuss each of these puzzles"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---underpricing",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---underpricing",
+    "title": "Equity Financing",
+    "section": "IPO Puzzles - Underpricing",
+    "text": "IPO Puzzles - Underpricing\n\nResearch has found that about 75% of first-day returns are positive: the average first-day return in the United States is 17%\nThe underwriters benefit from the under pricing because it allows them to manage their risk:\n\n\nIf the stock is underpriced and there’s market correction upwards \\(\\rightarrow\\) stock goes up, there’s positive momentum on the market, and the underwriter may sell shares at profit\nIf the stock is overvalued and the firm has some level of commitment, it might incur in a loss if stock prices go down in the first trading day\n\n\nConsequently, underwriters set the issue price so that the average first-day return is positive:\n\n\nThe pre-IPO shareholders bear the cost of underpricing\nIn effect, these owners are selling stock in their firm for less than they could get in the aftermarket."
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---underpricing-continued",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---underpricing-continued",
+    "title": "Equity Financing",
+    "section": "IPO Puzzles - Underpricing (continued)",
+    "text": "IPO Puzzles - Underpricing (continued)\n\nAlthough IPO returns are attractive, not all investors can earn these returns:\n\nWhen an IPO goes well, the demand for the stock exceeds the supply. Thus the allocation of shares for each investor is rationed (goes down) \\(\\rightarrow\\) you get only a fraction of the shares you requested\nWhen an IPO goes bad, demand at the issue price is weak, so all initial orders are filled completely\n\n\n\n\\(\\rightarrow\\) The typical investor will have their investment in good IPOs rationed while fully investing in bad IPOs!\n\n\n\n\n\n\n\n\nDefinition\n\n\nWinner’s Curse: refers to a situation in competitive bidding when the high bidder, by virtue of being the high bidder, has very likely overestimated the value of the item being bid on. You “win” (get all the shares you requested) when demand for the shares by others is low and the IPO is more likely to perform poorly."
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---cyclicality-and-recent-trends",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---cyclicality-and-recent-trends",
+    "title": "Equity Financing",
+    "section": "IPO Puzzles - Cyclicality and Recent Trends",
+    "text": "IPO Puzzles - Cyclicality and Recent Trends\n\nThe number of issues is highly cyclical:\n\n\nWhen times are good, the market is flooded with new issues\nWhen times are bad the number of issues dries up\n\n\nWhat is surprising is the magnitude of the swings\nAnother striking feature of the data in the following figure is that while the average dollar volume of IPOs since 2000 has been similar to that in the 1990s, the average number of IPOs per year has fallen significantly"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---costs-of-an-ipo",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---costs-of-an-ipo",
+    "title": "Equity Financing",
+    "section": "IPO Puzzles - Costs of an IPO",
+    "text": "IPO Puzzles - Costs of an IPO\n\nA typical spread is roughly 7% of the issue price\nBy most standards, this fee is large, especially considering the additional cost to the firm associated with underpricing (that is borne out by the shareholders of the firm prior to the IPO)\nIt is puzzling that there seems to be a lack of sensitivity of fees to issue size\nOne possible explanation is that by charging lower fees, an underwriter may risk signaling that it is not the same quality as its higher priced competitors"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---long-run-underperformance",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---long-run-underperformance",
+    "title": "Equity Financing",
+    "section": "IPO Puzzles - Long-Run Underperformance",
+    "text": "IPO Puzzles - Long-Run Underperformance\n\nAlthough shares of IPOs generally perform very well immediately following the public offering, it has been shown that newly listed firms subsequently appear to perform relatively poorly over the following three to five years after their IPOs"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-seasoned-equity-offering-seo-1",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-seasoned-equity-offering-seo-1",
+    "title": "Equity Financing",
+    "section": "The Seasoned Equity Offering (SEO)",
+    "text": "The Seasoned Equity Offering (SEO)\n\n\n\n\n\n\nDefinition\n\n\nWhen a public company offers new shares for sale\n\n\n\n\nPublic firms use SEOs to raise additional equity\nWhen a firm issues stock using a SEO, it follows many of the same steps as for an IPO\nThe main difference is that a market price for the stock already exists, so the price-setting process is not necessary: share issuance price is determined by\nThere are two types of seasoned equity offerings:\n\nA Cash Offer is a type of SEO in which a firm offers the new shares to investors at large.\nOn the other hand, a Rights Offer is a type of SEO in which a firm offers the new shares only to existing shareholders.\n\nIt is important to note that Rights Offers protect existing shareholders from underpricing!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#rights-offer-and-underpricing",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#rights-offer-and-underpricing",
+    "title": "Equity Financing",
+    "section": "Rights Offer and Underpricing",
+    "text": "Rights Offer and Underpricing\n\nSuppose a firm holds 100 in cash and has 50 shares out. Each share is worth $2\n\n\nOption 1: it announces a cash offer for 50 shares at $1 per share\n\nOnce this offer is complete, the company will have 150 in cash and 100 shares outstanding\nThe price per share is now $1.50\nThe new shareholders therefore receive a $0.50 benefit at the expense of the old shareholders\n\n\n\nOption 2: it announces a rights offer, where shareholders have the right to purchase an additional share for $1\n\nIf all shareholders chose to exercise their rights, then after the sale, the value of the firm is 150 with 100 shares outstanding and a price of 1.50 per share\nIn this case, however, the $0.50 benefit accrues to existing shareholders, which exactly offsets the drop in the stock price\nThe firm can continue to issue equity without imposing a loss on its current shareholders!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-seasoned-equity-offering-seo-price-reaction",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-seasoned-equity-offering-seo-price-reaction",
+    "title": "Equity Financing",
+    "section": "The Seasoned Equity Offering (SEO) price reaction",
+    "text": "The Seasoned Equity Offering (SEO) price reaction\n\nResearchers have found that, on average, the market greets the news of an SEO with a price decline. This is consistent with an Adverse Selection argument - i.e,\nAlthough not as costly as IPOs, seasoned offerings are still expensive. Underwriting fees amount to 5% of the proceeds of the issue. Rights offers have lower costs than cash offers."
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#practice",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#practice",
+    "title": "Equity Financing",
+    "section": "Practice",
+    "text": "Practice\n\n\n\n\n\n\n\nImportant\n\n\nPractice using the following links:\n\nMultiple-choice Questions\nNumeric Questions"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#references",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#references",
+    "title": "Equity Financing",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2023. Corporate Finance, Global Edition. Global Edition / English Textbooks. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ.\n\n\nBernstein, Shai, Xavier Giroud, and Richard R. Townsend. 2016. “The Impact of Venture Capital Monitoring.” The Journal of Finance 71 (4): 1591–1622. https://doi.org/10.1111/jofi.12370.\n\n\nBrealey, R. A., S. C. Myers, and F. Allen. 2020. Principles of Corporate Finance. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. https://books.google.com.br/books?id=nsrHuwEACAAJ."
+  },
+  {
     "objectID": "fin-mgmt.html#about-the-course",
     "href": "fin-mgmt.html#about-the-course",
     "title": "Financial Management",
@@ -2609,6 +2889,62 @@
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "References",
     "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2023. Corporate Finance, Global Edition. Global Edition / English Textbooks. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ."
+  },
+  {
+    "objectID": "fin-strat/Introduction/index.html#welcome-to-the-course",
+    "href": "fin-strat/Introduction/index.html#welcome-to-the-course",
+    "title": "Introduction and Course Overview",
+    "section": "Welcome to the Course",
+    "text": "Welcome to the Course\n\n\nOverview and Course Organization\nGrading and Evaluations\nNavigating through the syllabus\nHow you can get the best of this course\nOverall Q&A"
+  },
+  {
+    "objectID": "fin-strat/Introduction/index.html#overview",
+    "href": "fin-strat/Introduction/index.html#overview",
+    "title": "Introduction and Course Overview",
+    "section": "Overview",
+    "text": "Overview\n\nFinancial agents are constantly making strategic decisions trying to balance the trade-off between risk and return:\n\nHow many assets should I hold on my portfolio?\nHow much holdings from risky assets should I hold in my portfolio?\nHow can I fund profitable investment opportunities from my company?\n\nIn this course, we’ll look at two sets of strategic decisions that financial agents (e.g, CFOs, Portfolio Managers) make:\n\nThe first part will be focused at looking from a portfolio manager view: if you have the money and need to allocate it across a set of potential assets, how should you do it?\nThe second part (after the mid-term) will be more focused on corporate finance decisions: if you have a good investment opportunity, how can you fund it, and What are the implications for the value of your company?"
+  },
+  {
+    "objectID": "fin-strat/Introduction/index.html#course-organization",
+    "href": "fin-strat/Introduction/index.html#course-organization",
+    "title": "Introduction and Course Overview",
+    "section": "Course organization",
+    "text": "Course organization\n\n\nBasic text-book\n\nWe will extensively follow Corporate Finance (Berk and DeMarzo 2023), as our text-book\nThroughout the syllabus, it will be referred as [BDM]\n\nSupplementary text-book\n\nPrinciples of Corporate Finance (Brealey, Myers, and Allen 2020)\nInvestments (Bodie, Kane, and Marcus 2021)\nFinancial Management: Theory and Practice (Brigham and Ehrhardt 2023)\nDictionary of Finance and Investment Terms(Downes and Goodman 2014)\n\nSupplementary Reading\n\nOther optional contents will be referenced throughout the the course"
+  },
+  {
+    "objectID": "fin-strat/Introduction/index.html#grading-and-evaluations",
+    "href": "fin-strat/Introduction/index.html#grading-and-evaluations",
+    "title": "Introduction and Course Overview",
+    "section": "Grading and Evaluations",
+    "text": "Grading and Evaluations\n\nGrading will be composed of the following activities:\n\nMid-term Examination (40%)\nFinal Examination (40%)\n2x Quizzes throughout the semester (10%)\nPractical work (10%)\n\n\n\n\nYou can find the details of any of these activities in the official syllabus (available on eClass®)\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br\n\n\n\n\n\n\n\n\n\nOffice-hours\n\n\nI also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I’ll be more than happy to help you with anything you need from this course. Use the Office-hour Appointments link at the bottom of this slide to schedule some time (or click here)."
+  },
+  {
+    "objectID": "fin-strat/Introduction/index.html#getting-the-best-of-this-course",
+    "href": "fin-strat/Introduction/index.html#getting-the-best-of-this-course",
+    "title": "Introduction and Course Overview",
+    "section": "Getting the best of this course",
+    "text": "Getting the best of this course"
+  },
+  {
+    "objectID": "fin-strat/Introduction/index.html#getting-the-best-of-this-course-1",
+    "href": "fin-strat/Introduction/index.html#getting-the-best-of-this-course-1",
+    "title": "Introduction and Course Overview",
+    "section": "Getting the best of this course",
+    "text": "Getting the best of this course\n\n How you can get the best of this course\n\nFollow FGV-EAESP code of conduct\nBe organized: pay attention to pre-readings and deliverables!\nBe proactive: ask questions and participate in discussions\nTake the lead on your learning: you are the ultimate responsible for your success!\n\n\n\n How the professor can facilitate you getting the best of this course\n\nAll mandatory content will be provided in English, classes will be held in Portuguese\nProvide a safe and open space for questions, both in-person and remote\nMotivate students, both from the academic and practitioner standpoints\nProvide opportunities to extend knowledge beyond the mandatory readings"
+  },
+  {
+    "objectID": "fin-strat/Introduction/index.html#getting-the-best-of-this-course-continued",
+    "href": "fin-strat/Introduction/index.html#getting-the-best-of-this-course-continued",
+    "title": "Introduction and Course Overview",
+    "section": "Getting the best of this course, continued",
+    "text": "Getting the best of this course, continued\n\nStudying for examinations\n\nI highly recommend using Prof. Henrique Martins (FGV-EAESP) materiais. In his website, there are suggested exercises for each lecture of our course.\n\n\n\n\\(\\rightarrow\\) To access, click here - I’ll also refer to the specific links for each part of the content at the beginning of each lecture\n\nIn the Syllabus, you can find a list of recommended exercises from our main text-book, (Berk and DeMarzo 2023). Note that these are not mandatory but rather serve as a way for your to practice\nUse the handout as an opportunity to motivate your studies through real-world examples. These handouts will focus not only on providing you with a sense of how useful this is in a real-world application, but also can definitely help you better understand the mechanics behind everytine that we’ll study throughout the course!"
+  },
+  {
+    "objectID": "fin-strat/Introduction/index.html#references",
+    "href": "fin-strat/Introduction/index.html#references",
+    "title": "Introduction and Course Overview",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2023. Corporate Finance, Global Edition. Global Edition / English Textbooks. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ.\n\n\nBodie, Zvi, Alex Kane, and Alan J Marcus. 2021. Investments.\n\n\nBrealey, R. A., S. C. Myers, and F. Allen. 2020. Principles of Corporate Finance. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. https://books.google.com.br/books?id=nsrHuwEACAAJ.\n\n\nBrigham, Eugene F, and Michael C Ehrhardt. 2023. Financial Management : Theory & Practice. 16th ed. Mason, OH: CENGAGE Learning Custom Publishing.\n\n\nDownes, John, and Jordan Goodman. 2014. Dictionary of Finance and Investment Terms. 9th ed. Barron’s Business Dictionaries. Hauppauge, NY: Barron’s Educational Series."
   },
   {
     "objectID": "fin-strat.html#about-the-course",

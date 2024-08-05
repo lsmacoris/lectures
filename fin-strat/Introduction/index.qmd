@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: '1. Intro and Course Overview'
+    title: 'Introduction and Course Overview'
     theme: [default, custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
@@ -38,16 +38,17 @@ from: markdown+emoji
 
 ## Overview
 
-- Financial agents are constantly making strategic decisions trying to balance the trade-off between *risk* and *return*:
-  1. How many assets should I hold on my portfolio?
-  2. How much holdings from risky assets should I hold in my portfolio?
-  3. How can I fund profitable investment opportunities from my company?
+-   Financial agents are constantly making strategic decisions trying to balance the trade-off between *risk* and *return*:
 
-- In this course, we'll look at two sets of strategic decisions that financial agents (*e.g*, CFOs, Portfolio Managers) make:
+    1.  How many assets should I hold on my portfolio?
+    2.  How much holdings from risky assets should I hold in my portfolio?
+    3.  How can I fund profitable investment opportunities from my company?
 
-  1. The [first part]{.blue} will be focused at looking from a [portfolio manager]{.blue} view: if you have the money and need to allocate it across a set of potential assets, how should you do it?
-  
-  2. The second part (after the mid-term) will be more focused on [corporate finance]{.blue} decisions: if you have a good investment opportunity, how can you fund it, and What are the implications for the value of your company?
+-   In this course, we'll look at two sets of strategic decisions that financial agents (*e.g*, CFOs, Portfolio Managers) make:
+
+    1.  The [first part]{.blue} will be focused at looking from a [portfolio manager]{.blue} view: if you have the money and need to allocate it across a set of potential assets, how should you do it?
+
+    2.  The second part (after the mid-term) will be more focused on [corporate finance]{.blue} decisions: if you have a good investment opportunity, how can you fund it, and What are the implications for the value of your company?
 
 ## Course organization
 
@@ -87,13 +88,11 @@ from: markdown+emoji
 
 . . .
 
-:::{.callout-important}
+::: callout-important
 ### Office-hours
 
 I also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I'll be more than happy to help you with anything you need from this course. Use the *Office-hour Appointments* link at the bottom of this slide to schedule some time (or click [here](https://calendly.com/lucas-macoris-fgv/appointment-lsm)).
-
 :::
-
 
 ## Getting the best of this course
 
