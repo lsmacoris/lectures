@@ -42,6 +42,13 @@
     "text": "Angel Investors\n\n\n\n\n\n\n\nDefinition\n\n\nIndividual investors who buy equity in small private firms. Angel investors are often rich, successful entrepreneurs themselves who are willing to help new companies get started in exchange for a share of the business.\n\n\n\n\nThe angel investment is usually necessary to kick off the business and the angel market is more well organized these days. It often occurs at such an early stage in the business when it is difficult to assess a value for the firm\nAngel investors often circumvent this problem by holding either a convertible note or a SAFE (simple agreement for future equity) rather than equity:\n\nUsually, angel investors have a share price discount over new investors due to higher uncertainty\nStructuring the deal in this way allows angels and entrepreneurs to agree on terms without agreeing on a value for the firm, instead postponing the valuation decision until the firm is more mature and attractive to venture capitalists"
   },
   {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#angel-investors-continued",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#angel-investors-continued",
+    "title": "Equity Financing",
+    "section": "Angel Investors, continued",
+    "text": "Angel Investors, continued\n\nIn general, angel investment comes in place by an individual, and not an entity - click here for a list of famous angel investors\nHowever, in recent years, there’s the emerging figure of angel groups, groups of angel investors who pool their money and decide as a group which investments to fund\n\n\nThe typical size of an angel investment ranges from several hundred thousand dollars for individual investors to a few million dollars for angel groups\nCrowdfunding platforms may also help tunneling angel investments to early-stage startups\n\nIn this format, a firm raises very small amounts of money from a large number of people. Investment levels can be minute, in some cases less than $100\nIt is important to keep in mind that crowdfunding has its own specificities and is currently regulated\n\n\n\n\\(\\rightarrow\\) Examples: Angelist, Kickstarter"
+  },
+  {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital",
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital",
     "title": "Equity Financing",
@@ -101,15 +108,15 @@
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital-investing",
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital-investing",
     "title": "Equity Financing",
-    "section": "Venture capital investing",
-    "text": "Venture capital investing\n\nYou gained knowledge on the main players of the equity-financing market. What happens next?\nSuppose that you have an investment opportunity and you are seeking for external funding - i.e, you are looking to bringing new shareholders to your company\nWhen a company founder decides to sell equity to outside investors for the first time, it is common practice for private companies to issue preferred stock rather than common stock to raise capital:\n\nFor mature companies, it usually has a preferential dividend and seniority in any liquidation and, sometimes, has special voting rights\nFor young companies, it has seniority in any liquidation but typically does not pay regular cash dividends and often contains a right to convert to common stock\n\nEach of these issuances are called founds, as we’ll see in the next slide"
+    "section": "Venture Capital investing",
+    "text": "Venture Capital investing\n\nSuppose that you have an investment opportunity and you are seeking for external funding - i.e, you are looking to bringing new shareholders to your company\nWhen a company founder decides to sell equity to outside investors for the first time, it is common practice for private companies to issue preferred stock rather than common stock to raise capital:\n\nFor mature companies, it usually has a preferential dividend and seniority in any liquidation and, sometimes, has special voting rights\nFor young companies, it has seniority in any liquidation but typically does not pay regular cash dividends and often contains a right to convert to common stock\n\nWhy? If the company goes bad, the preferred stockholders have a senior claim on the assets of the firm relative to any common stockholders (who are often the employees of the firm). If things go well, then these investors will convert their preferred stock and receive all the rights and benefits of common stockholders"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#financing-rounds",
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#financing-rounds",
     "title": "Equity Financing",
     "section": "Financing Rounds",
-    "text": "Financing Rounds\n\nEach time the firm raises money is referred to as a funding round, and each round will have its own set of securities with special terms and provisions - each called rounds\nAfter a potential initial “seed round”, it is common to name the securities alphabetically, starting with Series A, Series B, and so on\nOnly then, the company has a market value."
+    "text": "Financing Rounds\n\nEach time the firm raises money is referred to as a funding round, and each round will have its own set of securities with special terms and provisions - each called rounds\nAfter a potential initial “seed round”, it is common to name the securities alphabetically, starting with Series A, Series B, and so on\nThese rounds mount up to the total shares outstanding of the firm\nIn what follows, we’ll see an example of how different funding rounds interact to generate the final shares outstanding"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#example-real-networks",
@@ -137,7 +144,7 @@
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#exercise-equity-financing-dynamics",
     "title": "Equity Financing",
     "section": "Exercise: Equity Financing Dynamics",
-    "text": "Exercise: Equity Financing Dynamics\n\nYou founded your own firm two years ago. Initially, you contributed 100,000 of your money and, in return, received 1,500,000 shares of stock.\nSince then, you have sold an additional 500,000 shares to angel investors.\nYou are now considering raising even more capital from a venture capitalist. The venture capitalist has agreed to invest 6 million with a post-money valuation of $10 million for the firm.\n\n\nAssuming that this is the venture capitalist’s first investment in your company, what percentage of the firm will she end up owning? What percentage will you own? What is the value of your shares?"
+    "text": "Exercise: Equity Financing Dynamics\n\nYou founded your own firm two years ago. Initially, you contributed 100,000 of your money and, in return, received 1,500,000 shares of stock\nSince then, you have sold an additional 500,000 shares to angel investors\nYou are now considering raising even more capital from a venture capitalist. The venture capitalist has agreed to invest 6 million with a post-money valuation of $10 million for the firm\n\n\nAssuming that this is the venture capitalist’s first investment in your company, what percentage of the firm will she end up owning? What percentage will you own? What is the value of your shares?"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#exercise-equity-financing-dynamics---solution",
@@ -151,14 +158,21 @@
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#venture-capital-financing-terms",
     "title": "Equity Financing",
     "section": "Venture Capital Financing Terms",
-    "text": "Venture Capital Financing Terms\n\nLiquidation Preference: The liquidation preference specifies a minimum amount that must be paid to these security holders—before any payments to common stockholders—in the event of a liquidation, sale, or merger of the company. It is typically set to between 1 and 3 times the value of the initial investment.\nSeniority: It is not uncommon for investors in later rounds to demand seniority over investors in earlier rounds, to ensure that they are repaid first. When later round investors accept securities with equal priority, they are said to be pari passu.\nAnti-Dilution Protection: If things are not going well and the firm raises new funding at a lower price than in a prior round, it is referred to as a “down round.” Anti-dilution protection lowers the price at which investors in earlier rounds can convert their shares to common, effectively increasing their ownership percentage in a down round at the expense of founders and employees.\nExit Strategy: It details how investors will eventually realize the return from their investment"
+    "text": "Venture Capital Financing Terms\n\nWe saw that outside investors generally receive preferred stock that is convertible at a later stage. When things go well, these securities will ultimately convert to common stock and so all investors are treated equally. But what happens when they don’t? There are a handful of contract terms that can help mitigating this risk:\n\nLiquidation Preference: specifies a minimum amount that must be paid to these security holders before any payments to common stockholders in the event of a liquidation, sale, or merger of the company\nSeniority: investors in later rounds can demand seniority over investors in earlier rounds to ensure that they are repaid first\nAnti-Dilution Protection: if things are not going well and the firm raises new funding at a lower price than in a prior round, this protection lowers the price at which early investors can convert their shares to common, increasing their ownership percentage\nBoard seats: appoint members to secure control rights"
+  },
+  {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#exit-strategies",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#exit-strategies",
+    "title": "Equity Financing",
+    "section": "Exit strategies",
+    "text": "Exit strategies\n\nLet’s get back to the Real Networks case. As investors in Series E were willing to pay $8.99 for a share of preferred stock, the valuation of existing preferred stock (earlier rounds) had increased significantly \\(\\rightarrow\\) early investors had substantial capital gains\nBecause Real Networks was still a private company, however, investors could not liquidate their investment by selling their stock in the public stock markets!\nHow can investors realize the return from their investment in terms of an exit strategy? This happens mainly through:\n\nAcquisitions: often, large corporations acquire startups by purchasing the outstanding stock of the private company, allowing all investors to cash out their investment and gains\nGoing public: a firm can also become a public traded company through a Initial Public Offering, allowing shareholders to publicly negotiate their shares\n\nIn the next session, we’ll focus on the latter exit strategy"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo",
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo",
     "title": "Equity Financing",
     "section": "The Initial Public Offering (IPO)",
-    "text": "The Initial Public Offering (IPO)\n\n\n\n\n\n\nDefinition\n\n\nThe process of selling stock to the public for the first time\n\n\n\n\nIt allows greater liquidity, and better access to capital at the cost of more external monitoring and more demand for transparency\nEquity offers can be distinguished in terms of:\n\nPrimary Offering: new shares available in a public offering that raise new capital\nSecondary Offering: shares sold by existing shareholders in an equity offering\n\n\n\n\\(\\rightarrow\\) In the former, there is new money on the table; in the latter, money is just “changing hands”!\n\nIn what follows, we’ll review some important characteristics of the IPO process"
+    "text": "The Initial Public Offering (IPO)\n\n\n\n\n\n\nDefinition\n\n\nThe process of selling stock to the public for the first time\n\n\n\n\nWhy going public? It allows greater liquidity and better access to capital at the cost of more external monitoring and more demand for transparency\nEquity offers can be distinguished in terms of:\n\nPrimary Offering: new shares available in a public offering that raise new capital\nSecondary Offering: shares sold by existing shareholders in an equity offering\n\n\n\n\\(\\rightarrow\\) In the former, there is new money on the table; in the latter, money is just “changing hands”!\n\nAn IPO process has important characteristics and agents - let’s dive into some of the key concepts behind this exit strategy"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-participants-of-an-ipo---the-underwriter",
@@ -172,7 +186,7 @@
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering---underwriting-participants",
     "title": "Equity Financing",
     "section": "The Initial Public Offering - Underwriting participants",
-    "text": "The Initial Public Offering - Underwriting participants\n\nLead Underwriter: The primary investment banking firm responsible for managing a security issuance\nSyndicate: A group of underwriters who jointly underwrite and distribute a security issuance\n\n\nUnderwriters market the IPO, and they help the company with all the necessary filings.\nMore importantly, they actively participate in determining the offer price.\nIn many cases, the underwriter will also commit to making a market in the stock after the issue, thereby guaranteeing that the stock will be liquid."
+    "text": "The Initial Public Offering - Underwriting participants\n\nLead Underwriter: The primary investment banking firm responsible for managing a security issuance\nSyndicate: A group of underwriters who jointly underwrite and distribute a security issuance\n\n\nUnderwriters market the IPO and help the company with all the necessary filings\nMore importantly, they actively participate in determining the offer price\nIn many cases, the underwriter will also commit to making a market in the stock after the issue, thereby guaranteeing that the stock will be liquid"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo---filings",
@@ -193,7 +207,7 @@
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-offering-ipo---spread",
     "title": "Equity Financing",
     "section": "The Initial Public Offering (IPO) - Spread",
-    "text": "The Initial Public Offering (IPO) - Spread\n\nIf underwriters put effort on making the IPO process to run seamlessly, how they are paid for?\n\n\n\n\n\n\n\n\nDefinition\n\n\nThe fee a company pays to its underwriters that is a percentage of the issue price of a share of stock.\n\n\n\n\nConsider the final offer price is 12.50 per share. If the company paid the underwriters a spread of $0.875 per share, or exactly 7% of the issue price, the underwriters bought the stock for $ 11.625 per share and then resold it to their customers for $12.50 per share\nWhen an underwriter provides a firm commitment, it is potentially exposing itself to the risk that the banking firm might have to sell the shares at less than the offer price and take a loss\n\n\n\n\\(\\rightarrow\\) Research shows that about 75% of IPOs experience an increase in share price on the first day (only 9% experience a decrease)"
+    "text": "The Initial Public Offering (IPO) - Spread\n\nIf underwriters put effort on making the IPO process to run seamlessly, how they are paid for?\n\n\n\n\n\n\n\n\nDefinition\n\n\nThe fee a company pays to its underwriters that is a percentage of the issue price of a share of stock.\n\n\n\n\nConsider the final offer price is $12.50 per share. If the company paid the underwriters a spread of $0.875 per share, or exactly 7% of the issue price, the underwriters bought the stock for $11.625 per share and then resold it to their customers for $12.50 per share\nWhen an underwriter provides a firm commitment, it is potentially exposing itself to the risk that the banking firm might have to sell the shares at less than the offer price and take a loss\n\n\n\n\\(\\rightarrow\\) Research shows that about 75% of IPOs experience an increase in share price on the first day (only 9% experience a decrease)"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-initial-public-ipo-offering---additional-terms-and-conditions",
@@ -207,21 +221,21 @@
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#exercise---the-initial-public-offering-ipo",
     "title": "Equity Financing",
     "section": "Exercise - The Initial Public Offering (IPO)",
-    "text": "Exercise - The Initial Public Offering (IPO)\n\nRAX House is a private company considering going public. It has assets of 585 million and liabilities of 415 million. The firm’s cash flow from operations was 137 million for the previous year. After the IPO, RAX House will have 118 million shares outstanding\nThe industry average cash flow per share multiple is 3.0, and the average book value per share is 2.3. Based on these multiples, estimate the IPO price.\n\n\nSolution\n\nRAX House’s book value of equity is \\(\\small 585 - 415 = 170 million\\). With 118 million shares outstanding, book value per share is \\(\\frac{170}{118} = \\small 1.44\\) per share. Given the industry average of 2.3, the estimated IPO price would be \\(\\small 1.44 \\times 2.3 = \\small \\$3.31\\)\nThe firm’s cash flow from operations was 137 million, thus cash flow per share is \\(\\frac{137}{118} =\\small 1.16\\). Given the industry average multiple of 3.0, the estimated IPO price would be \\(\\small 1.16 \\times 3.0 = \\$3.48\\)"
+    "text": "Exercise - The Initial Public Offering (IPO)\n\nRAX House is a private company considering going public. It has assets of 585 million and liabilities of 415 million. The firm’s cash flow from operations was 137 million for the previous year. After the IPO, RAX House will have 118 million shares outstanding\nThe industry average cash flow per share multiple is 3.0, and the average book value per share is 2.3. Based on these multiples, estimate the IPO price.\n\n\nSolution\n\nRAX House’s book value of equity is \\(\\small 585 - 415 = 170\\) million. With 118 million shares outstanding, the book value per share is \\(\\frac{170}{118} = \\small 1.44\\) per share. Given the industry average of 2.3, the estimated IPO price would be \\(\\small 1.44 \\times 2.3 = \\small \\$3.31\\)\nThe firm’s cash flow from operations was 137 million, thus cash flow per share is \\(\\frac{137}{118} =\\small 1.16\\). Given the industry average multiple of 3.0, the estimated IPO price would be \\(\\small 1.16 \\times 3.0 = \\$3.48\\)"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles-1",
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles-1",
     "title": "Equity Financing",
     "section": "IPO Puzzles",
-    "text": "IPO Puzzles\n\nResearch conducted using historical IPOs show some important stylized facts\n\nOn average, IPOs appear to be underpriced: The price at the end of trading on the first day is often substantially higher than the IPO price\nThe number of issues is highly cyclical: When times are good, the market is flooded with new issues; when times are bad, the number of issues dries up\nThe costs of an IPO are very high, and it is unclear why firms willingly incur them\nThe long-run performance of a newly public company (three to five years from the date of issue) is poor. That is, on average, a three- to five-year buy and hold strategy appears to be a bad investment\n\nIn what follows, we’ll discuss each of these puzzles"
+    "text": "IPO Puzzles\n\nResearch conducted using historical IPOs show some important stylized facts\n\nOn average, IPOs appear to be underpriced: The price at the end of trading on the first day is often substantially higher than the IPO price\nThe number of issues is highly cyclical: When times are good, the market is flooded with new issues; when times are bad, the number of issues dries up\nThe costs of an IPO are very high, and it is unclear why firms willingly incur them\nThe long-run performance of a newly public company (three to five years from the date of issue) is poor. That is, on average, a three-to five-year buy and hold strategy appears to be a bad investment\n\nIn what follows, we’ll discuss each of these puzzles"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---underpricing",
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---underpricing",
     "title": "Equity Financing",
     "section": "IPO Puzzles - Underpricing",
-    "text": "IPO Puzzles - Underpricing\n\nResearch has found that about 75% of first-day returns are positive: the average first-day return in the United States is 17%\nThe underwriters benefit from the under pricing because it allows them to manage their risk:\n\n\nIf the stock is underpriced and there’s market correction upwards \\(\\rightarrow\\) stock goes up, there’s positive momentum on the market, and the underwriter may sell shares at profit\nIf the stock is overvalued and the firm has some level of commitment, it might incur in a loss if stock prices go down in the first trading day\n\n\nConsequently, underwriters set the issue price so that the average first-day return is positive:\n\n\nThe pre-IPO shareholders bear the cost of underpricing\nIn effect, these owners are selling stock in their firm for less than they could get in the aftermarket."
+    "text": "IPO Puzzles - Underpricing\n\nResearch has found that about 75% of first-day returns are positive: the average first-day return in the United States is 17%\nThe underwriters benefit from the under pricing because it allows them to manage their risk:\n\n\nIf the stock is underpriced and there’s market correction upwards \\(\\rightarrow\\) stock goes up, there’s positive momentum on the market, and the underwriter may sell shares at profit\nIf the stock is overvalued and the firm has some level of commitment, it might incur in a loss if stock prices go down in the first trading day\n\n\nConsequently, underwriters set the issue price so that the average first-day return is positive:\n\n\nWho bears the cost of underpricing? The pre-IPO shareholders!\nWhy? In effect, these owners are selling stock in their firm for less than they could get in the aftermarket!"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---underpricing-continued",
@@ -235,14 +249,14 @@
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---cyclicality-and-recent-trends",
     "title": "Equity Financing",
     "section": "IPO Puzzles - Cyclicality and Recent Trends",
-    "text": "IPO Puzzles - Cyclicality and Recent Trends\n\nThe number of issues is highly cyclical:\n\n\nWhen times are good, the market is flooded with new issues\nWhen times are bad the number of issues dries up\n\n\nWhat is surprising is the magnitude of the swings\nAnother striking feature of the data in the following figure is that while the average dollar volume of IPOs since 2000 has been similar to that in the 1990s, the average number of IPOs per year has fallen significantly"
+    "text": "IPO Puzzles - Cyclicality and Recent Trends\n\nThe number of issues is highly cyclical:\n\n\nWhen times are good, the market is flooded with new issues\nWhen times are bad the number of issues dries up"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---costs-of-an-ipo",
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---costs-of-an-ipo",
     "title": "Equity Financing",
     "section": "IPO Puzzles - Costs of an IPO",
-    "text": "IPO Puzzles - Costs of an IPO\n\nA typical spread is roughly 7% of the issue price\nBy most standards, this fee is large, especially considering the additional cost to the firm associated with underpricing (that is borne out by the shareholders of the firm prior to the IPO)\nIt is puzzling that there seems to be a lack of sensitivity of fees to issue size\nOne possible explanation is that by charging lower fees, an underwriter may risk signaling that it is not the same quality as its higher priced competitors"
+    "text": "IPO Puzzles - Costs of an IPO\n\nA typical spread is roughly 7% of the issue price, which is by most standards large, especially considering the additional cost to the firm associated with underpricing\nWhy? One possible explanation is that by charging lower fees, an underwriter may risk signaling that it is not the same quality as its higher priced competitors"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#ipo-puzzles---long-run-underperformance",
@@ -252,11 +266,18 @@
     "text": "IPO Puzzles - Long-Run Underperformance\n\nAlthough shares of IPOs generally perform very well immediately following the public offering, it has been shown that newly listed firms subsequently appear to perform relatively poorly over the following three to five years after their IPOs"
   },
   {
+    "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#spacs-a-new-way-to-go-public",
+    "href": "fin-strat/Lecture 1 - Equity Financing/index.html#spacs-a-new-way-to-go-public",
+    "title": "Equity Financing",
+    "section": "SPACs: a new way to go public",
+    "text": "SPACs: a new way to go public\n\nIn recent years, an alternative process by which a private company can initially raise capital in public markets gained traction, called Special Purpose Acquisition Company (or SPAC)\n\nA SPAC is a shell company created solely for the purpose of finding a target private firm and taking it public by merging it with the SPAC\nAfter the merger transaction, referred to as a deSPAC, the SPAC shell company is renamed to match the target\n\nThe result is that the target receives cash from the SPAC and has shares that are publicly traded. In other words, the outcome for the target is the same as an IPO, but without the SEC’s rigorous listing requirements or the long IPO sales process!\n\n\n\\(\\rightarrow\\) Lower requirements are not always desirable: see here the fraudulent case of the electic vehicle startup Nikola involved in a SPAC merger"
+  },
+  {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#the-seasoned-equity-offering-seo-1",
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-seasoned-equity-offering-seo-1",
     "title": "Equity Financing",
     "section": "The Seasoned Equity Offering (SEO)",
-    "text": "The Seasoned Equity Offering (SEO)\n\n\n\n\n\n\nDefinition\n\n\nWhen a public company offers new shares for sale\n\n\n\n\nPublic firms use SEOs to raise additional equity\nWhen a firm issues stock using a SEO, it follows many of the same steps as for an IPO\nThe main difference is that a market price for the stock already exists, so the price-setting process is not necessary: share issuance price is determined by\nThere are two types of seasoned equity offerings:\n\nA Cash Offer is a type of SEO in which a firm offers the new shares to investors at large.\nOn the other hand, a Rights Offer is a type of SEO in which a firm offers the new shares only to existing shareholders.\n\nIt is important to note that Rights Offers protect existing shareholders from underpricing!"
+    "text": "The Seasoned Equity Offering (SEO)\n\n\n\n\n\n\nDefinition\n\n\nWhen a public company offers new shares for sale - also known as follow-on offer in Brazil\n\n\n\n\nPublic firms use SEOs to raise additional equity\nWhen a firm issues stock using a SEO, it follows many of the same steps as for an IPO\nThe main difference is that a market price for the stock already exists, so the price-setting process is not necessary: share issuance price is determined by\nThere are two types of seasoned equity offerings:\n\nA Cash Offer is a type of SEO in which a firm offers the new shares to investors at large.\nOn the other hand, a Rights Offer is a type of SEO in which a firm offers the new shares only to existing shareholders\n\nIt is important to note that Rights Offers protect existing shareholders from underpricing!"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#rights-offer-and-underpricing",
@@ -270,14 +291,14 @@
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#the-seasoned-equity-offering-seo-price-reaction",
     "title": "Equity Financing",
     "section": "The Seasoned Equity Offering (SEO) price reaction",
-    "text": "The Seasoned Equity Offering (SEO) price reaction\n\nResearchers have found that, on average, the market greets the news of an SEO with a price decline. This is consistent with an Adverse Selection argument - i.e,\nAlthough not as costly as IPOs, seasoned offerings are still expensive. Underwriting fees amount to 5% of the proceeds of the issue. Rights offers have lower costs than cash offers."
+    "text": "The Seasoned Equity Offering (SEO) price reaction\n\nResearchers have found that, on average, the market greets the news of an SEO with a price decline. This is consistent with an Adverse Selection argument:\n\n\nA company concerned about protecting its existing shareholders will tend to sell only at a price that correctly values or overvalues the firm, investors infer from the decision to sell that the company is likely to be overvalued\nAs a consequence, the price drops with the announcement of the SEO\n\n\nAlthough not as costly as IPOs, seasoned offerings are still expensive. Underwriting fees amount to 5% of the proceeds of the issue - rights offers have lower costs than cash offers\nCan SEOs go bad? Definitely! The recent case of Via Varejo/Casas Bahia shows how prior shareholders were severely diluted and had substantial losses in the first-trading day after the offer - click here to access"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#practice",
     "href": "fin-strat/Lecture 1 - Equity Financing/index.html#practice",
     "title": "Equity Financing",
     "section": "Practice",
-    "text": "Practice\n\n\n\n\n\n\n\nImportant\n\n\nPractice using the following links:\n\nMultiple-choice Questions\nNumeric Questions"
+    "text": "Practice\n\n\n\n\n\n\nImportant\n\n\n\nPractice using the following links:\n\nMultiple-choice Questions\nNumeric Questions\n\n\n\n\n\n\nTake a look at an example of an IPO Prospectus for Raízen S.A, made in 2021 by a syndicated group of underwriters, where BTG Pactuak was the lead underwriter - access on eClass®"
   },
   {
     "objectID": "fin-strat/Lecture 1 - Equity Financing/index.html#references",

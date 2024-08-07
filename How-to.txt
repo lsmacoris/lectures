@@ -1,0 +1,25 @@
+- We need to use SSH authentication to link RStudio to Github: https://www.youtube.com/watch?v=_Bn78aor_N4
+- Create a folder 'lectures'
+- Link this folder to a github using the process in the video
+- Add in folders with quarto reveal lectures in subfolders
+- In the lecture folder, use the terminal and type:
+
+git worktree prune
+git checkout main
+git add .
+git commit -m "Insert the message here"
+git push origin
+
+
+This ensures that the remote repository contains the changes. Now, check to see if the gh-pages branch is there.
+You need to delete it from both local and remote:
+git branch gh-pages -d
+git push origin -d gh-pages
+
+Finally, publish using
+
+quarto publish gh-pages
+
+- It will use the contents from main, render all .qmds and create a gh-pages branch with the rendered content
+- The rendered content will be uploaded inside the 'lectures' folder onto xxxx.github.io/lectures.
+
