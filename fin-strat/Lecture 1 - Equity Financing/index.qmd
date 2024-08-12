@@ -77,7 +77,7 @@ $\rightarrow$ *For coding replications, whenever applicable, please follow [this
 ::: callout-tip
 ## Definition
 
-[Equity Financing]{.blue} is the money that helps firms to grow through equity participation (*i.e*, acquiring a share of the company). Although the [initial capital]{.blue} that is required to start a business is usually provided by the entrepreneur, Equity Financing is a source of funding that can come from external investors
+[[Equity Financing]{.blue} is the money that helps firms to grow through equity participation (*i.e*, acquiring a share of the company). Although the [initial capital]{.blue} that is required to start a business is usually provided by the entrepreneur, this source of funding can also come from external investors]{.big}
 :::
 
 -   There are several ways in which [Equity Financing]{.blue} can be done, each with specific characteristics, such the funding amount (in \$) and the firms' stage in the business life cycle
@@ -97,13 +97,13 @@ $\rightarrow$ *For coding replications, whenever applicable, please follow [this
 ::: callout-tip
 ### Definition
 
-*Individual* investors who buy equity in small private firms. Angel investors are often rich, successful entrepreneurs themselves who are willing to help new companies get started in exchange for a share of the business.
+[*Individual* investors who buy equity in small private firms. Angel investors are often rich, successful entrepreneurs themselves who are willing to help new companies get started in exchange for a share of the business.]{.big}
 :::
 
 -   The angel investment is usually necessary to kick off the business and the angel market is more well organized these days. It often occurs at such an early stage in the business when it is difficult to assess a value for the firm
--   Angel investors often circumvent this problem by holding either a convertible note or a *SAFE* (*simple agreement for future equity*) rather than equity:
-    1.  Usually, angel investors have a [share price discount]{.blue} over new investors due to higher uncertainty
-    2.  Structuring the deal in this way allows **angels and entrepreneurs to agree on terms without agreeing on a value for the firm**, instead postponing the valuation decision until the firm is more mature and attractive to venture capitalists
+-   Angel investors often circumvent this uncertainty problem by holding either a convertible note or a *SAFE* (*simple agreement for future equity*) rather than equity:
+    1.  Angel investors may have a [share price discount]{.blue} over new investors
+    2.  This allows angels and entrepreneurs to agree on terms without agreeing on a value for the firm, postponing the valuation decision until the firm is more mature and attractive to venture capitalists
 
 ## Angel Investors, continued
 
@@ -126,14 +126,14 @@ $\rightarrow$ *Examples: [Angelist](https://www.angellist.com/), [Kickstarter](h
 ::: callout-tip
 ### Definition
 
-A limited partnership that specializes in raising money to invest in the private equity of [young]{.blue} firms. One of the general partners who work for and run a venture capital firm.
+[A limited partnership that specializes in raising money to invest in the private equity of [young]{.blue} firms. One of the general partners who work for and run a venture capital firm]{.big}.
 :::
 
 -   Venture Capital firms offer limited partners advantages over investing directly in start-ups themselves as angel investors:
     1.  Limited partners are more diversified
     2.  They also benefit from the expertise of the general partners
     3.  General partners usually charge substantial fees: in general, these funds receive return over the profits the firm make (carried interest) plus a an annual management fee of about 2% of the fund's committed capital
-    4.  Usually, they demand greater control over the company's ownership (*e.g.*, board seats): there is evidence that monitoring these firms pay off [@Bernstein]
+    4.  Often, they demand greater control over the company's ownership (*e.g.*, board seats): there is evidence that monitoring these firms pay off [@Bernstein]
 
 ## Venture Capital
 
@@ -144,11 +144,11 @@ A limited partnership that specializes in raising money to invest in the private
 ::: callout-tip
 ### Definition
 
-Organized very much like a venture capital firm, but it **invests in the equity of existing privately held firms** rather than start-up companies. Private equity firms also might initiate their investment by finding a publicly traded firm and purchasing the outstanding equity, thereby taking the company private in a transaction called a leveraged buyout (LBO).
+[Organized very much like a venture capital firm, but it **invests in the equity of existing privately held firms** rather than start-up companies. Private equity firms also might initiate their investment by finding a publicly traded firm and purchasing the outstanding equity, thereby taking the company private in a transaction called a leveraged buyout (LBO).]{.big}
 :::
 
 -   In most cases, the private equity firms use debt as well as equity to finance the purchase
--   Private equity firms share the advantages of venture capital firms, and also charge similar fees. One key difference between private equity and venture capital is the magnitude invested:
+-   Private equity firms share the advantages of Venture Capital firms, and also charge similar fees. One key difference between them is the magnitude of the investment:
     1.  The transaction volume in 2021 (the peak of the private equity market) was over [\$1 trillion]{.blue} (*versus* \$133 billion from Venture Capital)
     2.  The average deal size was over [\$1 billion]{.blue} (*versus* \$21 million from Venture Capital)
 
@@ -163,7 +163,7 @@ Organized very much like a venture capital firm, but it **invests in the equity 
 ::: callout-tip
 ### Definition
 
-Institutional investors such as mutual funds, pension funds, insurance companies, endowments, and foundations manage large quantities of money. They are major investors in many different types of assets, so, not surprisingly, they are also active investors in private companies.
+[Institutional investors such as mutual funds, pension funds, insurance companies, endowments, and foundations manage large quantities of money. They are major investors in many different types of assets, so, not surprisingly, they are also active investors in private companies.]{.big}
 :::
 
 -   Institutional investors **may invest directly** in private firms or they **may invest indirectly by becoming limited partners in venture capital firms**
@@ -187,15 +187,17 @@ Institutional investors such as mutual funds, pension funds, insurance companies
 ::: callout-note
 ### Curiosity
 
-While some of these investors are considered active, there could be cases where we can find passive institutional investors. For example, *Exchange Traded Funds (ETFs)*, which are funds that aim to match an index, like the *S&P500* or the *Ibovespa* indices, are generally thought of as passive, because they'll need to hold a specific portfolio of assets in any situation.
+[While some of these investors are considered active, there could be cases where we can find passive institutional investors. For example, *Exchange Traded Funds (ETFs)*, which are funds that aim to match an index, like the *S&P500* or the *Ibovespa* indices, are generally thought of as passive, because they'll need to hold a specific portfolio of assets in any situation.]{.big}
 :::
+
+- Institutional Investors are often in the scrutiny of regulatory agencies due to their relevance across many assets and industries
 
 ## Corporate Investors
 
 ::: callout-tip
 ### Definition
 
-A corporation that invests in private companies.
+[A corporation that invests in private companies.]{.big}
 :::
 
 -   Many established corporations purchase equity in younger, private companies
@@ -323,7 +325,7 @@ Assuming that this is the venture capitalist's first investment in your company,
 ::: callout-tip
 ### Definition
 
-The process of selling stock to the public [for the first time]{.blue}
+[The process of selling stock to the public [for the first time]{.blue}]{.big}
 :::
 
 -   Why going public? It allows [greater liquidity]{.blue} and [better access to capital]{.blue} at the cost of [more external monitoring]{.blue} and [more demand for transparency]{.blue}
@@ -400,7 +402,7 @@ $\rightarrow$ *In the former, there is [new money]{.blue} on the table; in the l
 ::: callout-tip
 ### Definition
 
-The fee a company pays to its underwriters that is a percentage of the issue price of a share of stock.
+[The *spread* is the fee a company pays to its underwriters, expressed in a percentage of the issue price of a share of stock.]{.big}
 :::
 
 -   Consider the final offer price is \$12.50 per share. If the company paid the underwriters a spread of \$0.875 per share, or exactly 7% of the issue price, the underwriters bought the stock for \$11.625 per share and then resold it to their customers for \$12.50 per share
@@ -416,6 +418,10 @@ $\rightarrow$ *Research shows that about 75% of IPOs experience an increase in s
 -   **Over-allotment allocation (greenshoe provision)**: In an IPO, an option that allows the underwriter to issue more stock, usually amounting to some % of the original offer size, at the IPO offer price
 
 -   **Lockup**: A restriction that prevents existing shareholders from selling their shares for some period, usually 180 days, after an IPO
+
+. . .
+
+$\rightarrow$ *Specific terms and conditions can be found in the IPO filings (Preliminary/Final Prospectus) outlining all the rules that the specific IPO will folow* 
 
 ## *Exercise* - The Initial Public Offering (IPO)
 
@@ -448,7 +454,7 @@ $\rightarrow$ *Research shows that about 75% of IPOs experience an increase in s
 
 ## IPO Puzzles - Underpricing
 
--   Research has found that about 75% of first-day returns are [positive]{.green}: the average first-day return in the United States is 17%
+-   Research has found that about 75% of first-day returns are [positive]{.green}: the average first-day return in the United States is [17%]{.green}
 -   The underwriters benefit from the under pricing because it allows them to manage their risk:
 
 1.  If the stock is underpriced and there's market correction upwards $\rightarrow$ stock goes [up]{.green}, there's positive momentum on the market, and the underwriter may sell shares at profit
@@ -467,14 +473,14 @@ $\rightarrow$ *Research shows that about 75% of IPOs experience an increase in s
 
 . . .
 
-$\rightarrow$ *The typical investor will have their investment in [good]{.green} IPOs rationed while fully investing in [bad]{.red} IPOs!*
+$\rightarrow$ *The typical investor will have their investment in [good]{.green} IPOs rationed while fully investing in [bad]{.red} IPOs - this is also known as the "winners curse"*
 
 . . .
 
 ::: callout-tip
 ### Definition
 
-**Winner's Curse**: refers to a situation in competitive bidding when the high bidder, by virtue of being the high bidder, has very likely overestimated the value of the item being bid on. You "win" (get all the shares you requested) when demand for the shares by others is low and the IPO is more likely to perform poorly.
+[**Winner's Curse**: refers to a situation in when the high bidder, by virtue of being the high bidder, has likely overestimated the value of the item being bid on. You "win" (get all the shares you requested) when demand for the shares by others is low and the IPO is more likely to perform poorly.]{.big}
 :::
 
 ## IPO Puzzles - Cyclicality and Recent Trends
@@ -502,37 +508,27 @@ $\rightarrow$ *The typical investor will have their investment in [good]{.green}
 
 ## IPO Puzzles - Long-Run Underperformance
 
--   Although shares of IPOs generally perform very well immediately following the public offering, it has been shown that newly listed firms subsequently appear to perform relatively poorly over the following three to five years after their IPOs
+-   Although shares of IPOs generally perform very well immediately following the public offering, it has been shown that newly listed firms subsequently appear to perform relatively [poorly]{.red} over the following three to five years after their IPOs
 
-## SPACs: a new way to go public
+- An important note is that underperformance is not unique to an initial public issuance of equity:
+  1. Underperformance is also found in subsequent issuances as well (*"seasoned offerings"*)
+  2. This raises the possibility that this phenomenum might not result from the issue of equity itself, but rather from the
+conditions that motivated the equity issuance in the first place
 
-- In recent years, an alternative process by which a private company can initially raise capital in public markets gained traction, called *Special Purpose Acquisition Company* (or [SPAC]{.blue})
-
-  1. A SPAC is a shell company created solely for the purpose of finding a target private firm and taking it public by merging it with the SPAC
-  
-  2. After the merger transaction, referred to as a deSPAC, the SPAC shell company is renamed to match the target
-  
-- The result is that the target receives cash from the SPAC and has shares that are publicly traded. In other words, the outcome for the target is the same as an IPO, but without the SEC’s rigorous listing requirements or the long IPO sales process!
-
-. . .
-
-$\rightarrow$ *Lower requirements are not always desirable: see [here](https://www.nasdaq.com/articles/electric-vehicle-startup-nikola-set-to-begin-trading-under-symbol-nkla-following-spac) the fraudulent case of the electic vehicle startup Nikola involved in a SPAC merger*
-
-# The Seasoned Equity Offering (SEO)
+- Recent studies also cast doubt on the interpretation of this long-run underperformance: is it really due to the IPO, or is the underperformance relative to the characteristics of the firm that has chosen to go public?
 
 ## The Seasoned Equity Offering (SEO)
 
 ::: callout-tip
 ### Definition
-
-When a public company offers [new]{.blue} shares for sale - also known as *follow-on* offer in Brazil
+[When a public company offers [new]{.blue} shares for sale - also known as *follow-on* offer in Brazil.]{.big}
 :::
 
 -   Public firms use SEOs to raise [additional]{.blue} equity
 
 -   When a firm issues stock using a SEO, it follows many of the same steps as for an IPO
 
--   The main difference is that a market price for the stock [already exists]{.blue}, so the price-setting process is *not* necessary: share issuance price is determined by
+-   The main difference is that a market price for the stock [already exists]{.blue}, so the price-setting process is *not* necessary anymore
 
 -   There are two types of seasoned equity offerings:
 
@@ -543,9 +539,7 @@ When a public company offers [new]{.blue} shares for sale - also known as *follo
 
 ## Rights Offer and Underpricing
 
-. . .
-
-Suppose a firm holds 100 in cash and has 50 shares out. Each share is worth \$2
+Suppose a firm holds 100 in cash and has 50 shares out. Each share is worth \$2.
 
 . . .
 
@@ -572,23 +566,45 @@ Suppose a firm holds 100 in cash and has 50 shares out. Each share is worth \$2
 
 -   Although not as costly as IPOs, seasoned offerings are still expensive. Underwriting fees amount to 5% of the proceeds of the issue - rights offers have lower costs than cash offers
 
-- Can SEOs go bad? Definitely! The recent case of *Via Varejo/Casas Bahia* shows how prior shareholders were severely diluted and had substantial losses in the first-trading day after the offer - click [here](https://investnews.com.br/negocios/casas-bahia-fracassa-em-follow-on-e-levanta-r622-milhoes-com-venda-de-acoes/) to access
+. . .
+
+$\rightarrow$  *Can SEOs go bad? Definitely! The recent case of [Via Varejo/Casas Bahia]{.blue} shows how prior shareholders were severely diluted and had substantial losses in the first-trading day after the offer - click [here](https://investnews.com.br/negocios/casas-bahia-fracassa-em-follow-on-e-levanta-r622-milhoes-com-venda-de-acoes/) and [here](https://braziljournal.com/via-lanca-follow-on-de-r-1-bi-diluicao-e-de-quase-50/) to access relevant news*
+
+
+## SPACs: a new way to go public
+
+- In recent years, an alternative process by which a private company can initially raise capital in public markets gained traction, called *Special Purpose Acquisition Company* (or [SPAC]{.blue})
+
+  1. A SPAC is a shell company created solely for the purpose of finding a target private firm and taking it public by merging it with the SPAC
+  
+  2. After the merger transaction, referred to as a deSPAC, the SPAC shell company is renamed to match the target
+  
+- The result is that the target receives cash from the SPAC and has shares that are publicly traded. In other words, the outcome for the target is the same as an IPO, but without the SEC’s rigorous listing requirements or the long IPO sales process!
+
+. . .
+
+$\rightarrow$ *Lower requirements are not always desirable: see [here](https://www.nasdaq.com/articles/electric-vehicle-startup-nikola-set-to-begin-trading-under-symbol-nkla-following-spac) the fraudulent case of the electic vehicle startup Nikola involved in a SPAC merger*
 
 
 ## Practice
+
+- Take a look at an example of an IPO Prospectus for *Raízen S.A*, made in 2021 by a syndicated group of underwriters, where *BTG Pactual* was the lead underwriter - access on *eClass®*
+
+. . .
 
 
 ::: callout-important
 
 :::{.nonincremental}
-Practice using the following links:
+
+[Practice using the following links:]{.big}
 
 1.  [Multiple-choice Questions](https://henriquemartins.net/teaching/financial_strategy/p1tf.html){preview-link="true"}
 2.  [Numeric Questions](https://henriquemartins.net/teaching/financial_strategy/p1num.html){preview-link="true"}
+
 :::
 :::
 
-- Take a look at an example of an IPO Prospectus for *Raízen S.A*, made in 2021 by a syndicated group of underwriters, where *BTG Pactuak* was the lead underwriter - access on *eClass®*
 
 
 ## References

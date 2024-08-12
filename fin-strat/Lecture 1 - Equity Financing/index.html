@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.55">
+
+  <meta name="author" content="Lucas S. Macoris">
+  <title>Equity Financing</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Equity Financing</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Lucas S. Macoris 
+</div>
+</div>
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li class="fragment"><p>This lecture is mainly based the following textbooks:</p>
+<ol type="1">
+<li class="fragment"><span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span></li>
+<li class="fragment"><span class="citation" data-cites="BMA">(<a href="#/references" role="doc-biblioref" onclick="">Brealey, Myers, and Allen 2020</a>)</span></li>
+</ol></li>
+<li class="fragment"><p>Study review and practice: I strongly recommend using <a href="https://henriquemartins.net/">Prof.&nbsp;Henrique Castro</a> (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:</p>
+<ol type="1">
+<li class="fragment">Multiple Choice Exercises - click <a href="https://henriquemartins.net/teaching/financial_strategy/p1tf.html">here</a></li>
+<li class="fragment">Numeric Exercises - click <a href="https://henriquemartins.net/teaching/financial_strategy/p1num.html">here</a></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>For coding replications, whenever applicable, please follow <a href="https://lsmacoris.github.io/lectures/fin-strat.html">this</a> page or hover on the specific slides with coding chunks.</em></p>
+</div>
+</section>
+<section>
+<section id="equity-financing" class="title-slide slide level1 center">
+<h1>Equity Financing</h1>
+
+</section>
+<section id="thinking-about-investment-opportunities" class="slide level2">
+<h2>Thinking about investment opportunities</h2>
+<ul>
+<li class="fragment"><p>Suppose you, as a sole entrepreneur, owns a local shoes retailer and you identify opportunities to expand your business to boost sales</p>
+<ol type="1">
+<li class="fragment"><p>Although you clearly understand the investment opportunity, <span class="blue">you run short of resources to fund it</span>. Therefore, as a single entrepreneur, you have little capacity for growth</p></li>
+<li class="fragment"><p>Furthermore, you may not want to hold a large fraction (or the totality) of your wealth in a single asset</p></li>
+</ol></li>
+<li class="fragment"><p>Because of these reasons, moving from a <span class="blue">sole entrepreneur</span> to a <span class="blue">corporation</span> provides several benefits:</p>
+<ol type="1">
+<li class="fragment"><p>By incorporating, businesses can gain access to capital</p></li>
+<li class="fragment"><p>Founders can reduce the risk of their portfolios by selling someof their equity and diversifying</p></li>
+</ol></li>
+<li class="fragment"><p><strong>Question:</strong> how to raise capital for growth?</p></li>
+</ul>
+</section>
+<section id="raising-equity-financing-for-private-companies" class="slide level2">
+<h2>Raising Equity Financing for Private Companies</h2>
+<ul>
+<li class="fragment"><p>Often, a private company must seek outside sources that can provide additional capital for growth. This can be done mainly using <span class="blue">three</span> financing sources:</p>
+<ol type="1">
+<li class="fragment">Equity Financing (using external resources)</li>
+<li class="fragment">Debt Financing</li>
+<li class="fragment">Reinvesting retained profits (using internal resources)</li>
+</ol></li>
+<li class="fragment"><p>Depending on the option chosen, the inclusion of outside capital will affect the control of the company in a different way!</p></li>
+<li class="fragment"><p>At this point, we’ll focus specifically on <span class="blue">Equity Financing</span></p></li>
+</ul>
+</section>
+<section id="how-equity-financing-takes-place" class="slide level2">
+<h2>How Equity Financing Takes Place</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big"><span class="blue">Equity Financing</span> is the money that helps firms to grow through equity participation (<em>i.e</em>, acquiring a share of the company). Although the <span class="blue">initial capital</span> that is required to start a business is usually provided by the entrepreneur, this source of funding can also come from external investors</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>There are several ways in which <span class="blue">Equity Financing</span> can be done, each with specific characteristics, such the funding amount (in $) and the firms’ stage in the business life cycle</p></li>
+<li class="fragment"><p>As in <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span>, the usual types of Equity Financing come from:</p>
+<ol type="1">
+<li class="fragment">Angel Investors</li>
+<li class="fragment">Venture Capital</li>
+<li class="fragment">Private Equity</li>
+<li class="fragment">Institutional Investors</li>
+<li class="fragment">Corporate Investors</li>
+</ol></li>
+</ul>
+</section>
+<section id="angel-investors" class="slide level2">
+<h2>Angel Investors</h2>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big"><em>Individual</em> investors who buy equity in small private firms. Angel investors are often rich, successful entrepreneurs themselves who are willing to help new companies get started in exchange for a share of the business.</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">The angel investment is usually necessary to kick off the business and the angel market is more well organized these days. It often occurs at such an early stage in the business when it is difficult to assess a value for the firm</li>
+<li class="fragment">Angel investors often circumvent this uncertainty problem by holding either a convertible note or a <em>SAFE</em> (<em>simple agreement for future equity</em>) rather than equity:
+<ol type="1">
+<li class="fragment">Angel investors may have a <span class="blue">share price discount</span> over new investors</li>
+<li class="fragment">This allows angels and entrepreneurs to agree on terms without agreeing on a value for the firm, postponing the valuation decision until the firm is more mature and attractive to venture capitalists</li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="angel-investors-continued" class="slide level2">
+<h2>Angel Investors, continued</h2>
+<ol type="1">
+<li class="fragment">In general, angel investment comes in place by an individual, and not an entity - click <a href="https://www.forbes.com/sites/alejandrocremades/2018/08/05/top-50-angel-investors-based-on-investment-volume-and-successful-exits/">here</a> for a list of famous angel investors</li>
+<li class="fragment">However, in recent years, there’s the emerging figure of <em>angel groups</em>, groups of angel investors who pool their money and decide as a group which investments to fund</li>
+</ol>
+<ul>
+<li class="fragment"><p>The typical size of an angel investment ranges from several hundred thousand dollars for individual investors to a few million dollars for angel groups</p></li>
+<li class="fragment"><p><em>Crowdfunding</em> platforms may also help tunneling angel investments to early-stage startups</p>
+<ol type="1">
+<li class="fragment">In this format, a firm raises very small amounts of money from a large number of people. Investment levels can be minute, in some cases less than $100</li>
+<li class="fragment">It is important to keep in mind that <em>crowdfunding</em> has its own specificities and is currently regulated</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Examples: <a href="https://www.angellist.com/">Angelist</a>, <a href="https://www.kickstarter.com/">Kickstarter</a></em></p>
+</div>
+</section>
+<section id="venture-capital" class="slide level2">
+<h2>Venture Capital</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big">A limited partnership that specializes in raising money to invest in the private equity of <span class="blue">young</span> firms. One of the general partners who work for and run a venture capital firm</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Venture Capital firms offer limited partners advantages over investing directly in start-ups themselves as angel investors:
+<ol type="1">
+<li class="fragment">Limited partners are more diversified</li>
+<li class="fragment">They also benefit from the expertise of the general partners</li>
+<li class="fragment">General partners usually charge substantial fees: in general, these funds receive return over the profits the firm make (carried interest) plus a an annual management fee of about 2% of the fund’s committed capital</li>
+<li class="fragment">Often, they demand greater control over the company’s ownership (<em>e.g.</em>, board seats): there is evidence that monitoring these firms pay off <span class="citation" data-cites="Bernstein">(<a href="#/references" role="doc-biblioref" onclick="">Bernstein, Giroud, and Townsend 2016</a>)</span></li>
+</ol></li>
+</ul>
+</section>
+<section id="venture-capital-1" class="slide level2">
+<h2>Venture Capital</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F1.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+</figure>
+</div>
+</section>
+<section id="private-equity" class="slide level2">
+<h2>Private Equity</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big">Organized very much like a venture capital firm, but it <strong>invests in the equity of existing privately held firms</strong> rather than start-up companies. Private equity firms also might initiate their investment by finding a publicly traded firm and purchasing the outstanding equity, thereby taking the company private in a transaction called a leveraged buyout (LBO).</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">In most cases, the private equity firms use debt as well as equity to finance the purchase</li>
+<li class="fragment">Private equity firms share the advantages of Venture Capital firms, and also charge similar fees. One key difference between them is the magnitude of the investment:
+<ol type="1">
+<li class="fragment">The transaction volume in 2021 (the peak of the private equity market) was over <span class="blue">$1 trillion</span> (<em>versus</em> $133 billion from Venture Capital)</li>
+<li class="fragment">The average deal size was over <span class="blue">$1 billion</span> (<em>versus</em> $21 million from Venture Capital)</li>
+</ol></li>
+</ul>
+</section>
+<section id="private-equity-1" class="slide level2">
+<h2>Private Equity</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F2.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+</figure>
+</div>
+<ul>
+<li class="fragment">Examples of Brazilian Private Equity funds: <a href="https://www.kinea.com.br/fundos/private-equity/"><em>Kinea</em></a>, <a href="https://www.vincipartners.com/negocios/privateEquity"><em>Vinci Partners</em></a>, <a href="https://www.opportunity.com.br/QuemSomos/PrivateEquity"><em>Opportunity</em></a>, <a href="https://www.patria.com/pt-BR/private-equity-pt/">Pátria</a>, among others</li>
+</ul>
+</section>
+<section id="institutional-investors" class="slide level2">
+<h2>Institutional Investors</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big">Institutional investors such as mutual funds, pension funds, insurance companies, endowments, and foundations manage large quantities of money. They are major investors in many different types of assets, so, not surprisingly, they are also active investors in private companies.</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Institutional investors <strong>may invest directly</strong> in private firms or they <strong>may invest indirectly by becoming limited partners in venture capital firms</strong></p></li>
+<li class="fragment"><p>Examples include the retirement funds (<em>CalPERS - California Public Employees Retirement System</em>), <a href="https://www.previ.com.br/portal-previ/"><em>Previ</em></a>, among others</p></li>
+<li class="fragment"><p>These funds are responsible for managing large amounts of money, and are often seen as key players in the corporate governance of a company</p></li>
+</ul>
+</section>
+<section id="have-you-ever-watched-billions" class="slide level2">
+<h2>Have you ever watched <em>Billions</em>?</h2>
+<iframe data-external="1" src="https://www.youtube.com/embed/lPgmt42-nNo" width="75%" height="75%" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</section>
+<section id="more-on-institutional-investors" class="slide level2">
+<h2>More on institutional investors</h2>
+<ul>
+<li class="fragment"><p>Some institutional investors are famous for their position on <em>ETF</em> (Exchange Traded funds)</p></li>
+<li class="fragment"><p><em>BlackRock</em>, <em>Vanguard</em>, and <em>State Street</em> are the three largest <em>ETF</em> providers had more than <span class="blue">1 trillion</span> dollars in ETF managed funds as of 2024 (see <a href="https://www.etf.com/sections/etf-league-tables/etf-league-tables-jan-2-2024">here</a> for a comprehensive list)</p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Curiosity</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big">While some of these investors are considered active, there could be cases where we can find passive institutional investors. For example, <em>Exchange Traded Funds (ETFs)</em>, which are funds that aim to match an index, like the <em>S&amp;P500</em> or the <em>Ibovespa</em> indices, are generally thought of as passive, because they’ll need to hold a specific portfolio of assets in any situation.</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Institutional Investors are often in the scrutiny of regulatory agencies due to their relevance across many assets and industries</li>
+</ul>
+</div>
+</section>
+<section id="corporate-investors" class="slide level2">
+<h2>Corporate Investors</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big">A corporation that invests in private companies.</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Many established corporations purchase equity in younger, private companies</p>
+<ol type="1">
+<li class="fragment">Most of the other types of investors in private firms that we have considered so far are primarily interested in the <span class="blue">financial return</span> that they will earn on their investments</li>
+<li class="fragment">Corporate investors, by contrast, might invest for corporate <span class="blue">strategic objectives</span> in addition to the desire for investment returns.</li>
+</ol></li>
+<li class="fragment"><p>These are also known as a <span class="blue">corporate partner</span>, <span class="blue">strategic partner</span>, or <span class="blue">strategic investor</span></p></li>
+<li class="fragment"><p>Examples of Corporate Investors include <em>Google</em> and <em>Intel Capital</em>, which invest in highly specialized companies. Other recent examples include the ramp-up in investment from big-techs into generative-AI startups</p></li>
+</ul>
+</section></section>
+<section>
+<section id="how-investing-takes-place" class="title-slide slide level1 center">
+<h1>How investing takes place</h1>
+
+</section>
+<section id="venture-capital-investing" class="slide level2">
+<h2>Venture Capital investing</h2>
+<ul>
+<li class="fragment"><p>Suppose that you have an investment opportunity and you are seeking for <span class="blue">external</span> funding - <em>i.e</em>, you are looking to bringing new shareholders to your company</p></li>
+<li class="fragment"><p>When a company founder decides to sell equity to outside investors for the first time, <strong>it is common practice for private companies to issue preferred stock rather than common stock to raise capital</strong>:</p>
+<ol type="1">
+<li class="fragment">For mature companies, it usually has a preferential dividend and seniority in any liquidation and, sometimes, has special voting rights</li>
+<li class="fragment">For young companies, it has seniority in any liquidation but typically does not pay regular cash dividends and often contains a right to convert to common stock</li>
+</ol></li>
+<li class="fragment"><p><strong>Why</strong>? If the company goes <span class="red">bad</span>, the preferred stockholders have a senior claim on the assets of the firm relative to any common stockholders (who are often the employees of the firm). If things go <span class="green">well</span>, then these investors will convert their preferred stock and receive all the rights and benefits of common stockholders</p></li>
+</ul>
+</section>
+<section id="financing-rounds" class="slide level2">
+<h2>Financing Rounds</h2>
+<ul>
+<li class="fragment"><p>Each time the firm raises money is referred to as a funding round, and each round will have its own set of securities with special terms and provisions - each called <em>rounds</em></p></li>
+<li class="fragment"><p>After a potential initial <em>“seed round”</em>, it is common to name the securities alphabetically, starting with <span class="blue">Series A</span>, <span class="blue">Series B</span>, and so on</p></li>
+<li class="fragment"><p>These rounds mount up to the total shares outstanding of the firm</p></li>
+<li class="fragment"><p>In what follows, we’ll see an example of how different funding rounds interact to generate the final shares outstanding</p></li>
+</ul>
+</section>
+<section id="example-real-networks" class="slide level2">
+<h2>Example: <em>Real Networks</em></h2>
+<ul>
+<li class="fragment"><p><em>Real Networks</em>, which was founded by Robert Glaser in 1993, with an investment of approximately 1 million by Glaser</p></li>
+<li class="fragment"><p>In April 1995, Glaser’s 1 million initial investment represented <span class="blue">13,713,439</span> shares of <span class="blue">Series A</span> preferred stock, implying an initial price of <span class="math inline">\(\approx\)</span> <span class="blue">$0.07</span> per share</p></li>
+<li class="fragment"><p>The company’s first round of outside equity funding was a <span class="blue">Series B</span> preferred stock. <em>Real Networks</em> sold <span class="blue">2,686,567</span> shares of Series B preferred stock at <span class="blue">$0.67</span> per share</p></li>
+<li class="fragment"><p>At the price the new shares were sold for, Glaser’s shares were worth 9.2 million and represented 83.6% of the outstanding shares:</p></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F3.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="example-real-networks-continued" class="slide level2">
+<h2>Example: <em>Real Networks</em>, continued</h2>
+<ul>
+<li class="fragment"><p>Based on this example, we may want to assess the firm’s value in two distinct periods of time:</p>
+<ol type="1">
+<li class="fragment"><strong>Pre-Money Valuation</strong></li>
+</ol>
+<ul>
+<li class="fragment">At the issuance of new equity, the value of the firm’s <span class="blue">prior</span> shares outstanding <span class="blue">at the price in the funding round</span></li>
+<li class="fragment">In the Real Netkworks example, 9.2 million</li>
+</ul>
+<ol start="2" type="1">
+<li class="fragment"><strong>Post-Money Valuation</strong></li>
+</ol>
+<ul>
+<li class="fragment">At the issue of new equity, the value of the whole firm (old plus new shares) at the price at which the new equity sold</li>
+<li class="fragment">In the Real Netkworks example, 11 million</li>
+</ul></li>
+</ul>
+</section>
+<section id="adding-new-funding-series" class="slide level2">
+<h2>Adding new funding series</h2>
+<ul>
+<li class="fragment">Over the next few years, Real Networks <span class="blue">raised three additional rounds</span> of external equity financing in addition to the Series B funding round</li>
+</ul>
+<div class="fragment">
+<p><img data-src="Images/F4.png"></p>
+<ul>
+<li class="fragment">Each of these rounds, along with the shares outstanding prior to the issuance, made the totality of the firm’s outstanding shares!</li>
+</ul>
+</div>
+</section>
+<section id="exercise-equity-financing-dynamics" class="slide level2">
+<h2><em>Exercise</em>: Equity Financing Dynamics</h2>
+<ul>
+<li class="fragment"><p>You founded your own firm two years ago. Initially, you contributed 100,000 of your money and, in return, received 1,500,000 shares of stock</p></li>
+<li class="fragment"><p>Since then, you have sold an additional 500,000 shares to angel investors</p></li>
+<li class="fragment"><p>You are now considering raising even more capital from a venture capitalist. The venture capitalist has agreed to invest 6 million with a post-money valuation of $10 million for the firm</p></li>
+</ul>
+<div class="fragment">
+<p>Assuming that this is the venture capitalist’s first investment in your company, <strong>what percentage of the firm will she end up owning? What percentage will you own? What is the value of your shares?</strong></p>
+</div>
+</section>
+<section id="exercise-equity-financing-dynamics---solution" class="slide level2">
+<h2><em>Exercise</em>: Equity Financing Dynamics - Solution</h2>
+<ul>
+<li class="fragment"><p>Because the Venture Capitalist will invest 6 million out of the 10 million post-money valuation, her ownership percentage is 60%</p></li>
+<li class="fragment"><p>Consequently, the pre-money valuation is 10 − 6 = 4 million. As there are 2 million pre-money shares outstanding, this implies a share price of <span class="math inline">\(\frac{\$4,000,000}{2,000,000}= \small \$2 \text{ per share}\)</span></p></li>
+<li class="fragment"><p>Thus, the Venture Capitalist will receive <span class="math inline">\(\small \frac{\$6,000,000}{\$2}=3\)</span> million shares for her investment, and after this funding round, there will be a total of 5,000,000 shares outstanding.</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment">You will own <span class="math inline">\(\frac{1,500,000}{5,000,000} = \small 30\%\)</span> of the firm and the post-transaction valuation of your shares is $3 million.</li>
+</ul>
+</div>
+</section>
+<section id="venture-capital-financing-terms" class="slide level2">
+<h2>Venture Capital Financing Terms</h2>
+<ul>
+<li class="fragment"><p>We saw that outside investors generally receive preferred stock that is convertible at a later stage. When things go <span class="green">well</span>, these securities will ultimately convert to common stock and so all investors are treated equally. But what happens when they <span class="red">don’t</span>? There are a handful of contract terms that can help mitigating this risk:</p>
+<ol type="1">
+<li class="fragment"><p><em>Liquidation Preference</em>: specifies a <em>minimum amount</em> that must be paid to these security holders before any payments to <em>common</em> stockholders in the event of a liquidation, sale, or merger of the company</p></li>
+<li class="fragment"><p><em>Seniority</em>: investors in later rounds can demand <span class="blue">seniority</span> over investors in earlier rounds to ensure that they are repaid first</p></li>
+<li class="fragment"><p><em>Anti-Dilution Protection</em>: if things are not going well and the firm raises new funding at a lower price than in a prior round, this protection lowers the price at which early investors can convert their shares to common, increasing their ownership percentage</p></li>
+<li class="fragment"><p><em>Board seats</em>: appoint members to secure control rights</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="exit-strategies" class="slide level2">
+<h2>Exit strategies</h2>
+<ul>
+<li class="fragment"><p>Let’s get back to the <em>Real Networks</em> case. As investors in <em>Series E</em> were willing to pay $8.99 for a share of preferred stock, the valuation of <em>existing</em> preferred stock (earlier rounds) had increased significantly <span class="math inline">\(\rightarrow\)</span> early investors had substantial <span class="green">capital gains</span></p></li>
+<li class="fragment"><p>Because <em>Real Networks</em> was still a private company, however, <span class="blue">investors could not liquidate their investment by selling their stock in the public stock markets</span>!</p></li>
+<li class="fragment"><p>How can investors realize the return from their investment in terms of an <span class="blue">exit strategy</span>? This happens mainly through:</p>
+<ol type="1">
+<li class="fragment"><p><em>Acquisitions</em>: often, large corporations acquire startups by purchasing the outstanding stock of the private company, allowing all investors to <em>cash out</em> their investment and gains</p></li>
+<li class="fragment"><p><em>Going public</em>: a firm can also become a public traded company through a <span class="blue">Initial Public Offering</span>, allowing shareholders to publicly negotiate their shares</p></li>
+</ol></li>
+<li class="fragment"><p>In the next session, we’ll focus on the latter exit strategy</p></li>
+</ul>
+</section>
+<section id="the-initial-public-offering-ipo" class="slide level2">
+<h2>The Initial Public Offering (IPO)</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big">The process of selling stock to the public <span class="blue">for the first time</span></span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Why going public? It allows <span class="blue">greater liquidity</span> and <span class="blue">better access to capital</span> at the cost of <span class="blue">more external monitoring</span> and <span class="blue">more demand for transparency</span></p></li>
+<li class="fragment"><p>Equity offers can be distinguished in terms of:</p>
+<ol type="1">
+<li class="fragment"><p><span class="blue">Primary Offering</span>: new shares available in a public offering that raise new capital</p></li>
+<li class="fragment"><p><span class="blue">Secondary Offering</span>: shares sold by existing shareholders in an equity offering</p></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>In the former, there is <span class="blue">new money</span> on the table; in the latter, money is just <span class="blue">“changing hands”</span>!</em></p>
+<ul>
+<li class="fragment">An IPO process has important characteristics and agents - let’s dive into some of the key concepts behind this exit strategy</li>
+</ul>
+</div>
+</section>
+<section id="the-participants-of-an-ipo---the-underwriter" class="slide level2">
+<h2>The participants of an IPO - the <em>underwriter</em></h2>
+<ul>
+<li class="fragment"><p>An IPO entails several market agents that are relevant for the offer to be completed</p></li>
+<li class="fragment"><p>An important piece of this is the <span class="blue">Underwriter</span>: an investment banking firm that manages a security issuance and designs its structure</p></li>
+<li class="fragment"><p>They can work on different schemes according to its <span class="blue">exposure</span>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Best-Efforts Basis</strong>: For smaller IPOs, a situation in which the underwriter <span class="blue">does not guarantee</span> that the stock will be sold, but instead tries to sell the sock for the best possible price. Often, such deals have an <em>all-or-none</em> clause: either all of the shares are sold on the IPO or the deal is called off.</p></li>
+<li class="fragment"><p><strong>Firm Commitment</strong>: An agreement between an underwriter and an issuing firm in which the underwriter <span class="blue">guarantees</span> that it will sell all of the stock at the offer price. Most common.</p></li>
+<li class="fragment"><p><strong>Auction</strong>: A method of selling new issues directly to the public rather than setting a price itself and then allocating shares to buyers, the underwriter in an auction IPO takes bids from investors and then sets the price that clears the market.</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="the-initial-public-offering---underwriting-participants" class="slide level2">
+<h2>The Initial Public Offering - Underwriting participants</h2>
+<ol type="1">
+<li class="fragment"><p><strong>Lead Underwriter</strong>: The primary investment banking firm responsible for managing a security issuance</p></li>
+<li class="fragment"><p><strong>Syndicate</strong>: A group of underwriters who <span class="blue">jointly</span> underwrite and distribute a security issuance</p></li>
+</ol>
+<ul>
+<li class="fragment">Underwriters market the IPO and help the company with all the necessary filings</li>
+<li class="fragment">More importantly, they actively participate in determining the offer price</li>
+<li class="fragment">In many cases, the underwriter will also commit to making a market in the stock after the issue, thereby guaranteeing that the stock will be liquid</li>
+</ul>
+</section>
+<section id="the-initial-public-offering-ipo---filings" class="slide level2">
+<h2>The Initial Public Offering (IPO) - Filings</h2>
+<ol type="1">
+<li class="fragment"><strong>Registration Statement</strong></li>
+</ol>
+<ul>
+<li class="fragment">A legal document that provides financial and other information about a company to investors prior to a security issuance</li>
+<li class="fragment">Company managers work closely with the underwriters to prepare this registration statement</li>
+</ul>
+<ol start="2" type="1">
+<li class="fragment"><strong>Preliminary Prospectus</strong></li>
+</ol>
+<ul>
+<li class="fragment">Part of the registration statement prepared by a company prior to an IPO that is circulated to investors before the stock is offered</li>
+</ul>
+<ol start="3" type="1">
+<li class="fragment"><strong>Final Prospectus</strong></li>
+</ol>
+<ul>
+<li class="fragment">Part of the final registration statement prepared by a company prior to an IPO that contains all the details of the offering, including the number of shares offered and the offer price</li>
+</ul>
+</section>
+<section id="the-initial-public-offering-ipo---stages" class="slide level2">
+<h2>The Initial Public Offering (IPO) - Stages</h2>
+<ol type="1">
+<li class="fragment"><strong>Valuation</strong>: an assessment of the company’s value done <span class="blue">prior</span> to the IPO. This is either done by:
+<ul>
+<li class="fragment">Estimating the present value of the estimated future cash flows; or</li>
+<li class="fragment">Examining comparable operations (<em>e.g</em>, recent IPOs) based on characteristics</li>
+</ul></li>
+<li class="fragment"><strong>Road Show</strong>: occurs <span class="blue">during</span> an IPO
+<ul>
+<li class="fragment">Senior management and its underwriters travel around promoting the company and explaining their rationale for an offer price</li>
+<li class="fragment">Directed towards the underwriters’ <em>largest</em> customers, mainly institutional investors such as mutual funds and pension funds</li>
+</ul></li>
+<li class="fragment"><strong>Book Building</strong>: process made by underwriters <span class="blue">during</span> and IPO for coming up with an offer price based on customers’ expressions of interest
+<ul>
+<li class="fragment">Provides an <span class="blue">early indication</span> of the demand for the IPO</li>
+<li class="fragment">If demand appears to be weak in the target price range, the firm may choose to withdraw from the IPO process</li>
+</ul></li>
+</ol>
+</section>
+<section id="the-initial-public-offering-ipo---spread" class="slide level2">
+<h2>The Initial Public Offering (IPO) - <em>Spread</em></h2>
+<ul>
+<li class="fragment">If underwriters put effort on making the IPO process to run seamlessly, how they are paid for?</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big">The <em>spread</em> is the fee a company pays to its underwriters, expressed in a percentage of the issue price of a share of stock.</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Consider the final offer price is $12.50 per share. If the company paid the underwriters a spread of $0.875 per share, or exactly 7% of the issue price, the underwriters bought the stock for $11.625 per share and then resold it to their customers for $12.50 per share</p></li>
+<li class="fragment"><p>When an underwriter provides a <strong>firm commitment</strong>, it is potentially exposing itself to the risk that the banking firm might have to sell the shares at <span class="blue">less than the offer price</span> and take a loss</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Research shows that about 75% of IPOs experience an increase in share price on the first day (only 9% experience a decrease)</em></p>
+</div>
+</section>
+<section id="the-initial-public-ipo-offering---additional-terms-and-conditions" class="slide level2">
+<h2>The Initial Public (IPO) Offering - additional terms and conditions</h2>
+<ul>
+<li class="fragment"><p><strong>Over-allotment allocation (greenshoe provision)</strong>: In an IPO, an option that allows the underwriter to issue more stock, usually amounting to some % of the original offer size, at the IPO offer price</p></li>
+<li class="fragment"><p><strong>Lockup</strong>: A restriction that prevents existing shareholders from selling their shares for some period, usually 180 days, after an IPO</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Specific terms and conditions can be found in the IPO filings (Preliminary/Final Prospectus) outlining all the rules that the specific IPO will folow</em></p>
+</div>
+</section>
+<section id="exercise---the-initial-public-offering-ipo" class="slide level2">
+<h2><em>Exercise</em> - The Initial Public Offering (IPO)</h2>
+<ul>
+<li class="fragment"><em>RAX House</em> is a private company considering going public. It has assets of 585 million and liabilities of 415 million. The firm’s cash flow from operations was 137 million for the previous year. After the IPO, <em>RAX House</em> will have 118 million shares outstanding</li>
+<li class="fragment">The industry average cash flow per share multiple is <span class="blue">3.0</span>, and the average book value per share is <span class="blue">2.3</span>. Based on these multiples, <strong>estimate the IPO price.</strong></li>
+</ul>
+<div class="fragment">
+<p><strong>Solution</strong></p>
+<ol type="1">
+<li class="fragment"><p><em>RAX House</em>’s book value of equity is <span class="math inline">\(\small 585 - 415 = 170\)</span> million. With 118 million shares outstanding, the book value per share is <span class="math inline">\(\frac{170}{118} = \small 1.44\)</span> per share. Given the industry average of 2.3, the estimated IPO price would be <span class="math inline">\(\small 1.44 \times 2.3 = \small \$3.31\)</span></p></li>
+<li class="fragment"><p>The firm’s cash flow from operations was 137 million, thus cash flow per share is <span class="math inline">\(\frac{137}{118} =\small 1.16\)</span>. Given the industry average multiple of 3.0, the estimated IPO price would be <span class="math inline">\(\small 1.16 \times 3.0 = \$3.48\)</span></p></li>
+</ol>
+</div>
+</section></section>
+<section>
+<section id="ipo-puzzles" class="title-slide slide level1 center">
+<h1>IPO Puzzles</h1>
+
+</section>
+<section id="ipo-puzzles-1" class="slide level2">
+<h2>IPO Puzzles</h2>
+<ul>
+<li class="fragment"><p>Research conducted using historical IPOs show some important stylized facts</p>
+<ol type="1">
+<li class="fragment"><p>On average, IPOs appear to be <strong>underpriced</strong>: The price at the end of trading on the first day is often substantially higher than the IPO price</p></li>
+<li class="fragment"><p>The number of issues is <strong>highly cyclical</strong>: When times are good, the market is flooded with new issues; when times are bad, the number of issues dries up</p></li>
+<li class="fragment"><p>The <strong>costs of an IPO are very high</strong>, and it is unclear why firms willingly incur them</p></li>
+<li class="fragment"><p>The <strong>long-run performance of a newly public company (three to five years from the date of issue) is poor</strong>. That is, on average, a three-to five-year buy and hold strategy appears to be a bad investment</p></li>
+</ol></li>
+<li class="fragment"><p>In what follows, we’ll discuss each of these puzzles</p></li>
+</ul>
+</section>
+<section id="ipo-puzzles---underpricing" class="slide level2">
+<h2>IPO Puzzles - Underpricing</h2>
+<ul>
+<li class="fragment">Research has found that about 75% of first-day returns are <span class="green">positive</span>: the average first-day return in the United States is <span class="green">17%</span></li>
+<li class="fragment">The underwriters benefit from the under pricing because it allows them to manage their risk:</li>
+</ul>
+<ol type="1">
+<li class="fragment">If the stock is underpriced and there’s market correction upwards <span class="math inline">\(\rightarrow\)</span> stock goes <span class="green">up</span>, there’s positive momentum on the market, and the underwriter may sell shares at profit</li>
+<li class="fragment">If the stock is overvalued and the firm has some level of commitment, it might incur in a loss if stock prices go <span class="red">down</span> in the first trading day</li>
+</ol>
+<ul>
+<li class="fragment">Consequently, underwriters set the issue price so that the average first-day return is <span class="green">positive</span>:</li>
+</ul>
+<ol type="1">
+<li class="fragment">Who bears the cost of underpricing? The pre-IPO shareholders!</li>
+<li class="fragment">Why? In effect, these owners are selling stock in their firm for <span class="red">less</span> than they could get in the aftermarket!</li>
+</ol>
+</section>
+<section id="ipo-puzzles---underpricing-continued" class="slide level2">
+<h2>IPO Puzzles - Underpricing (continued)</h2>
+<ul>
+<li class="fragment">Although IPO returns are attractive, not all investors can earn these returns:
+<ol type="1">
+<li class="fragment">When an IPO goes <span class="green">well</span>, the demand for the stock <span class="green">exceeds</span> the supply. Thus the allocation of shares for each investor is rationed (goes down) <span class="math inline">\(\rightarrow\)</span> you get only a fraction of the shares you requested</li>
+<li class="fragment">When an IPO goes <span class="red">bad</span>, demand at the issue price is <span class="red">weak</span>, so all initial orders are filled completely</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>The typical investor will have their investment in <span class="green">good</span> IPOs rationed while fully investing in <span class="red">bad</span> IPOs - this is also known as the “winners curse”</em></p>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big"><strong>Winner’s Curse</strong>: refers to a situation in when the high bidder, by virtue of being the high bidder, has likely overestimated the value of the item being bid on. You “win” (get all the shares you requested) when demand for the shares by others is low and the IPO is more likely to perform poorly.</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ipo-puzzles---cyclicality-and-recent-trends" class="slide level2">
+<h2>IPO Puzzles - Cyclicality and Recent Trends</h2>
+<ul>
+<li class="fragment">The number of issues is highly cyclical:</li>
+</ul>
+<ol type="1">
+<li class="fragment">When times are <span class="green">good</span>, the market is flooded with new issues</li>
+<li class="fragment">When times are <span class="red">bad</span> the number of issues dries up</li>
+</ol>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F5.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="ipo-puzzles---costs-of-an-ipo" class="slide level2">
+<h2>IPO Puzzles - Costs of an IPO</h2>
+<ul>
+<li class="fragment"><p>A typical spread is roughly <span class="blue">7%</span> of the issue price, which is by most standards large, especially considering the additional cost to the firm associated with underpricing</p></li>
+<li class="fragment"><p>Why? One possible explanation is that by charging lower fees, an underwriter may risk signaling that it is not the same quality as its higher priced competitors</p></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F6.png" class="quarto-figure quarto-figure-center" style="width:45.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="ipo-puzzles---long-run-underperformance" class="slide level2">
+<h2>IPO Puzzles - Long-Run Underperformance</h2>
+<ul>
+<li class="fragment"><p>Although shares of IPOs generally perform very well immediately following the public offering, it has been shown that newly listed firms subsequently appear to perform relatively <span class="red">poorly</span> over the following three to five years after their IPOs</p></li>
+<li class="fragment"><p>An important note is that underperformance is not unique to an initial public issuance of equity:</p>
+<ol type="1">
+<li class="fragment">Underperformance is also found in subsequent issuances as well (<em>“seasoned offerings”</em>)</li>
+<li class="fragment">This raises the possibility that this phenomenum might not result from the issue of equity itself, but rather from the conditions that motivated the equity issuance in the first place</li>
+</ol></li>
+<li class="fragment"><p>Recent studies also cast doubt on the interpretation of this long-run underperformance: is it really due to the IPO, or is the underperformance relative to the characteristics of the firm that has chosen to go public?</p></li>
+</ul>
+</section>
+<section id="the-seasoned-equity-offering-seo" class="slide level2">
+<h2>The Seasoned Equity Offering (SEO)</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big">When a public company offers <span class="blue">new</span> shares for sale - also known as <em>follow-on</em> offer in Brazil.</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Public firms use SEOs to raise <span class="blue">additional</span> equity</p></li>
+<li class="fragment"><p>When a firm issues stock using a SEO, it follows many of the same steps as for an IPO</p></li>
+<li class="fragment"><p>The main difference is that a market price for the stock <span class="blue">already exists</span>, so the price-setting process is <em>not</em> necessary anymore</p></li>
+<li class="fragment"><p>There are two types of seasoned equity offerings:</p>
+<ol type="1">
+<li class="fragment">A <span class="blue">Cash Offer</span> is a type of SEO in which a firm offers the new shares to investors at large.</li>
+<li class="fragment">On the other hand, a <span class="blue">Rights Offer</span> is a type of SEO in which a firm offers the new shares only to existing shareholders</li>
+</ol></li>
+<li class="fragment"><p>It is important to note that <span class="blue">Rights Offers</span> protect existing shareholders from underpricing!</p></li>
+</ul>
+</section>
+<section id="rights-offer-and-underpricing" class="slide level2">
+<h2>Rights Offer and Underpricing</h2>
+<p>Suppose a firm holds 100 in cash and has 50 shares out. Each share is worth $2.</p>
+<div class="fragment">
+<p><strong>Option 1: it announces a <span class="blue">cash offer</span> for 50 shares at $1 per share</strong></p>
+<ul>
+<li class="fragment">Once this offer is complete, the company will have 150 in cash and 100 shares outstanding</li>
+<li class="fragment">The price per share is now $1.50</li>
+<li class="fragment">The new shareholders therefore receive a $0.50 benefit <span class="red">at the expense of the old shareholders</span></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Option 2: it announces a <span class="blue">rights offer</span>, where shareholders have the right to purchase an additional share for $1</strong></p>
+<ul>
+<li class="fragment">If all shareholders chose to exercise their rights, then after the sale, the value of the firm is 150 with 100 shares outstanding and a price of 1.50 per share</li>
+<li class="fragment">In this case, however, the $0.50 benefit accrues to existing shareholders, which exactly offsets the drop in the stock price</li>
+<li class="fragment">The firm can continue to issue equity without imposing a loss on its current shareholders!</li>
+</ul>
+</div>
+</section>
+<section id="the-seasoned-equity-offering-seo-price-reaction" class="slide level2">
+<h2>The Seasoned Equity Offering (SEO) price reaction</h2>
+<ul>
+<li class="fragment">Researchers have found that, on average, the market greets the news of an SEO with a price decline. This is consistent with an <em>Adverse Selection</em> argument:</li>
+</ul>
+<ol type="1">
+<li class="fragment">A company concerned about protecting its existing shareholders will tend to sell only at a price that correctly values or overvalues the firm, investors infer from the decision to sell that the company is likely to be overvalued</li>
+<li class="fragment">As a consequence, the price drops with the announcement of the SEO</li>
+</ol>
+<ul>
+<li class="fragment">Although not as costly as IPOs, seasoned offerings are still expensive. Underwriting fees amount to 5% of the proceeds of the issue - rights offers have lower costs than cash offers</li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Can SEOs go bad? Definitely! The recent case of <span class="blue">Via Varejo/Casas Bahia</span> shows how prior shareholders were severely diluted and had substantial losses in the first-trading day after the offer - click <a href="https://investnews.com.br/negocios/casas-bahia-fracassa-em-follow-on-e-levanta-r622-milhoes-com-venda-de-acoes/">here</a> and <a href="https://braziljournal.com/via-lanca-follow-on-de-r-1-bi-diluicao-e-de-quase-50/">here</a> to access relevant news</em></p>
+</div>
+</section>
+<section id="spacs-a-new-way-to-go-public" class="slide level2">
+<h2>SPACs: a new way to go public</h2>
+<ul>
+<li class="fragment"><p>In recent years, an alternative process by which a private company can initially raise capital in public markets gained traction, called <em>Special Purpose Acquisition Company</em> (or <span class="blue">SPAC</span>)</p>
+<ol type="1">
+<li class="fragment"><p>A SPAC is a shell company created solely for the purpose of finding a target private firm and taking it public by merging it with the SPAC</p></li>
+<li class="fragment"><p>After the merger transaction, referred to as a deSPAC, the SPAC shell company is renamed to match the target</p></li>
+</ol></li>
+<li class="fragment"><p>The result is that the target receives cash from the SPAC and has shares that are publicly traded. In other words, the outcome for the target is the same as an IPO, but without the SEC’s rigorous listing requirements or the long IPO sales process!</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Lower requirements are not always desirable: see <a href="https://www.nasdaq.com/articles/electric-vehicle-startup-nikola-set-to-begin-trading-under-symbol-nkla-following-spac">here</a> the fraudulent case of the electic vehicle startup Nikola involved in a SPAC merger</em></p>
+</div>
+</section>
+<section id="practice" class="slide level2">
+<h2>Practice</h2>
+<ul>
+<li class="fragment">Take a look at an example of an IPO Prospectus for <em>Raízen S.A</em>, made in 2021 by a syndicated group of underwriters, where <em>BTG Pactual</em> was the lead underwriter - access on <em>eClass®</em></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<p><span class="big">Practice using the following links:</span></p>
+<ol type="1">
+<li><a href="https://henriquemartins.net/teaching/financial_strategy/p1tf.html" data-preview-link="true">Multiple-choice Questions</a></li>
+<li><a href="https://henriquemartins.net/teaching/financial_strategy/p1num.html" data-preview-link="true">Numeric Questions</a></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div class="quarto-auto-generated-content">
+<p><img src="logo.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-BDM" class="csl-entry" role="listitem">
+Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Global Edition / English Textbooks. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
+</div>
+<div id="ref-Bernstein" class="csl-entry" role="listitem">
+Bernstein, Shai, Xavier Giroud, and Richard R. Townsend. 2016. <span>“The Impact of Venture Capital Monitoring.”</span> <em>The Journal of Finance</em> 71 (4): 1591–1622. <a href="https://doi.org/10.1111/jofi.12370">https://doi.org/10.1111/jofi.12370</a>.
+</div>
+<div id="ref-BMA" class="csl-entry" role="listitem">
+Brealey, R. A., S. C. Myers, and F. Allen. 2020. <em>Principles of Corporate Finance</em>. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. <a href="https://books.google.com.br/books?id=nsrHuwEACAAJ">https://books.google.com.br/books?id=nsrHuwEACAAJ</a>.
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
