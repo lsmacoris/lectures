@@ -288,7 +288,7 @@ $$
 **A**: using the formula, we have:
 
 $$
-\text{Current Ratio}=\dfrac{\text{Current Assets}}{\text{Current Liabilities}}\rightarrow\dfrac{450}{250}=2.25
+\text{Current Ratio}=\dfrac{\text{Current Assets}}{\text{Current Liabilities}}\rightarrow\dfrac{450}{250}=1.8
 $$
 
 ## Concept Check
@@ -660,9 +660,8 @@ $$
 1.  If Asset Turnover went from 1 to 0.9 $\rightarrow$ a decrease of -10% ($\Delta A.T$)
 2.  If Margins went up from 9% to 10% $\rightarrow$ an increase of 11.11% ($\Delta Margin$)
 
--   Even with no changes in debt, we would know that $\uparrow ROA \rightarrow ROE$.
-
--   Notwithstanding, we can calculate both ROEs and contrast
+-   $0.9\times 1.11=1$, so the ROA components offset each other
+-   If ROA stays the same (and \>0) and we increase our leverage, we know that $ROE$ will increase
 
 ## Concept Check
 

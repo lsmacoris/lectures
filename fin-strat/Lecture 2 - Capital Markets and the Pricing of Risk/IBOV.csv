@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Índices</title>
+  <base href="/indexPage/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="/indexPage/ruxitagentjs_ICANVfgqru_10295240705110949.js" data-dtconfig="rid=RID_79320494|rpid=420576258|domain=b3.com.br|reportUrl=/indexPage/rb_ea8d7b8f-040c-423b-b726-54310cab2c40|app=fd69ce40c52bd20e|cuc=kju5m9kg|mel=100000|featureHash=ICANVfgqru|dpvc=1|lastModification=1722692529095|tp=500,50,0|rdnt=1|uxrgce=1|agentUri=/indexPage/ruxitagentjs_ICANVfgqru_10295240705110949.js"></script><link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94042116-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-94042116-5');
+  </script>
+<link rel="stylesheet" href="styles.a04572475365ddfed29a.css"></head>
+
+<body>
+  <app-root></app-root>
+<script src="runtime-es2015.0811dcefd377500b5b1a.js" type="module"></script><script src="runtime-es5.0811dcefd377500b5b1a.js" nomodule defer></script><script src="polyfills-es5.cb20faed44193e59a687.js" nomodule defer></script><script src="polyfills-es2015.798f07ce8a65b1df98bb.js" type="module"></script><script src="scripts.766930f48d35062e7a23.js" defer></script><script src="main-es2015.2db909ad7bdf99b1b88c.js" type="module"></script><script src="main-es5.2db909ad7bdf99b1b88c.js" nomodule defer></script></body>
+
+</html>
