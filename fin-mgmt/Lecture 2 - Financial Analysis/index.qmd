@@ -762,11 +762,32 @@ $$
 
 -   On the other hand, SG&A expenses are also influenced by the *efficiency* with which it manages its overhead activities
 
+- **A word of caution**: as we saw, although NOPAT is a comprehensible indicator for the operating performance of a firm, it can mask some important differences when it comes to account treatments!
+
+## EBIT, NOPAT, and the Tax Rate
+
+- **Question:** in the *NOPAT* calculation, why do we use a Tax Rate (that is generally given) instead of just collecting the Tax Expenses from the Income Statement?
+
+- Note that the tax expense in the Income Statement comes from the taxable income, which is, in turn, composed of [Operating]{.blue} as well as [Financing]{.blue} components
+
+- If you simply deduct Tax Expenses, you are potentially considering the tax-shield that comes from Net Interest Expenses into the calculation:
+  1. Firms with more debt in its capital structure, all else equal, will pay lower taxes
+  2. Firms that had previous losses can compensate future profits paying less taxes 
+
+- Therefore, he *Tax Rate* used can be a source of distortions due to different accounting treatments. Calculating the *EBIT* is a way to insulate the analysis from tax-effects:
+
+. . .
+
+$$
+\small \text{EBIT Margin}=\dfrac{(\text{Sales}-\text{COGS}-\text{SG&A}-\text{Depr./Am.}\pm\text{Other Non. Fin.})}{\text{Total Sales}}=\dfrac{275,000}{1,000,000}=27.5\%
+$$
+
+
 ## EBITDA
 
--   A potential criticism around *NOPAT* is that it takes into consideration a significant *non-cash* item: Depreciation and Amortization expenses
+-   We saw that tax expenses may be highly influenced by firm-specific and period-specific factors that can distort comparisons
 
--   Furthermore, tax expenses may be highly influenced by firm-specific and period-specific factors that can distort comparisons
+-   However, another criticism around *NOPAT* is that also it takes into consideration a significant *non-cash* item: Depreciation and Amortization expenses
 
 -   The *Earnings Before Interest, Taxes, Depreciation, and Amortization* [adds back]{.blue} *Depreciation/Amortization* expenses and does not deduct taxes:
 
@@ -775,6 +796,15 @@ $$
 $$
 \small\text{EBITDA Margin}=\dfrac{\text{Net Income} + \text{Interest Expenses} + \text{Taxes}+ \text{Depreciation/Amortization}}{\text{Total Sales}}
 $$
+
+- You can also calculate the EBITDA by summing up only the relevant accounts:
+
+. . .
+
+$$
+\small\text{EBITDA Margin}=\dfrac{\text{Sales} -\text{COGS}- \text{SG&A} \pm\text{ Other Op.}}{\text{Total Sales}}
+$$
+
 
 ## Understanding EBITDA
 
@@ -786,11 +816,16 @@ $$
 \small\text{EBITDA Margin}=\dfrac{\text{Net Income} +\text{Int. Expenses} +\text{Taxes}+ \text{Depr./Am.}}{\text{Total Sales}}=\dfrac{325,000}{1,000,000}=32.5\%
 $$
 
--   EBITDA can be useful to contrast operations by disregarding the potential differences stemming from:
+- Alternatively:
+$$
+\small\text{EBITDA Margin}=\dfrac{\text{Sales} -\text{COGS}- \text{SG&A} \pm\text{ Other Op.}}{\text{Total Sales}}= \dfrac{325,000}{1,000,000}=32.5\%
+$$
+
+-   EBITDA can be useful to contrast operations by disregarding differences stemming from:
 
 1.  Non-cash items (Depreciation and Amortization)
 2.  Taxes (different firms may have different effective tax rates)
-3.  Debt policy
+3.  Financing Policy (firms may have financial investment and also benefit from tax-shiedls through higher debt levels)
 
 ## Market-valuation Ratios
 

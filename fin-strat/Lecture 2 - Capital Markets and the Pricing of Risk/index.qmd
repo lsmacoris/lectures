@@ -39,6 +39,7 @@ library(highcharter)
 library(downloadthis)
 library(tibble)
 library(scales)
+library(tidyr)
 
 ```
 
@@ -544,13 +545,21 @@ $$\small CAGR = \bigg[\prod_{i=1}^{`r N`}(1+R_i)\bigg]^{\frac{1}{`r N`}}-1\appro
         1.  Their returns are equally likely to be [35%]{.green} or [−25%]{.red}, based on factors specific to each firm's local market
         2.  Because these risks are firm specific, if we hold a portfolio of many type I firms, risk is [diversified]{.blue}!
 
-## Limits to diversification
 
--   How much volatility can we shrink through diversification? The volatility will therefore decline until only the systematic risk remains - *e.g*, exposure to macroeconomic events.
+## Diversification - which risks are mitigated?
+
+-   Consider again [Type I]{.blue} firms, which are affected only by firm-specific risk. Because each individual [Type I]{.blue} firm is risky, should investors expect to earn a risk premium when investing in type I firms?
+
+-   The short answers is [no]{.blue}, because the risk premium for diversifiable risk is [zero]{.blue}, so investors are not compensated for holding firm-specific risk!
+
+    1.  The reason is that they can mitigate this part of risk through diversification
+    2.  Diversification eliminates this risk for free, implying that all investors should have a diversified portfolio. Otherwise, the investor is not rational
 
 . . .
 
-![](Images/F6.png){fig-align="center"}
+$\rightarrow$ *The key takeaway here is that the risk premium of a security is determined by [solely by its systematic risk]{.blue} and does not depend on its diversifiable risk*
+
+
 
 ## Measures of Risk and Return - Practice
 
@@ -564,6 +573,7 @@ $$\small CAGR = \bigg[\prod_{i=1}^{`r N`}(1+R_i)\bigg]^{\frac{1}{`r N`}}-1\appro
 . . .
 
 ::: callout-tip
+
 ### Data Exercise
 
 [Download the data using the following button and proceed with the practical exercise.]{.big}
@@ -585,7 +595,6 @@ if(!file.exists('Contents/Portfolio_Data.csv')){
   rownames_to_column('Date')%>%
   setNames(c('Date',tickers))%>%
   write.csv('Contents/Portfolio_Data.csv',row.names = FALSE)
-  
 }
 
   read.csv('Contents/Portfolio_Data.csv')%>%
@@ -599,18 +608,15 @@ if(!file.exists('Contents/Portfolio_Data.csv')){
 ```
 :::
 
-## Diversification - which risks are mitigated?
 
--   Consider again [Type I]{.blue} firms, which are affected only by firm-specific risk. Because each individual [Type I]{.blue} firm is risky, should investors expect to earn a risk premium when investing in type I firms?
+## Limits to diversification
 
--   The short answers is [no]{.blue}, because the risk premium for diversifiable risk is [zero]{.blue}, so investors are not compensated for holding firm-specific risk!
-
-    1.  The reason is that they can mitigate this part of risk through diversification
-    2.  Diversification eliminates this risk for free, implying that all investors should have a diversified portfolio. Otherwise, the investor is not rational
+-   How much volatility can we shrink through diversification? The volatility will therefore decline until only the systematic risk remains - *e.g*, exposure to macroeconomic events.
 
 . . .
 
-$\rightarrow$ *The key takeaway here is that the risk premium of a security is determined by [solely by its systematic risk]{.blue} and does not depend on its diversifiable risk*
+![](Images/F6.png){fig-align="center"}
+
 
 ## Diversification - wrapping-up
 

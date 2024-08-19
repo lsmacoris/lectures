@@ -67,7 +67,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---caveats",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return - Caveats",
-    "text": "Measures of Risk and Return - Caveats\n\nExpected Returns and the Variance (or the Standard Deviation) of returns are often used to characterize an asset in terms of risk and return. There are, notwithstanding, some caveats when we consider real cases of asset returns:\n\nRiskier assets, heavier tails: the likelihood of extreme negative or positive returns is bigger\nThe standard Deviation of an assets changes over time\nAssets that are considered to be riskier tend to remain riskier than others\n\n\n\n\n\n\n\n\n\nImportant\n\n\nStandard Deviation/Variance are correct measures of total riskonly if the returns are normally distributed!\n\n\n\n\nFinally, keep in mind that the underlying assumption for using historical data is that past returns are good enough in predicting future returns, which may not hold!"
+    "text": "Measures of Risk and Return - Caveats\n\nExpected Returns and the Variance (or the Standard Deviation) of returns are often used to characterize an asset in terms of risk and return. There are, notwithstanding, some caveats when we consider real cases of asset returns:\n\nRiskier assets, heavier tails: the likelihood of extreme negative or positive returns is bigger\nThe standard Deviation of an assets changes over time\nAssets that are considered to be riskier tend to remain riskier than others\n\n\n\n\n\n\n\n\n\nImportant\n\n\nStandard Deviation/Variance are correct measures of total risk only if the returns are normally distributed]{.blue}!\n\n\n\n\nFinally, keep in mind that the underlying assumption for using historical data is that past returns are good enough in predicting future returns, which may not hold!"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---a-global-perspective",
@@ -123,7 +123,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#example-annual-historic-returns-without-dividends",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Example: Annual Historic Returns, without dividends",
-    "text": "Example: Annual Historic Returns, without dividends\n\n\n\nDate\nPrice ($)\nDividends ($)\nReturn\n\n\n\n\n12/31/2015\n6.73\n-\n-\n\n\n3/31/2016\n5.72\n-\n-15.01%\n\n\n6/30/2016\n4.81\n-\n-15.91%\n\n\n9/30/2016\n5.20\n-\n8.11%\n\n\n12/31/2016\n2.29\n-\n-55.96%\n\n\n\n\\[\\small 𝑅_{2016}=(0.8499)\\times(0.8409)\\times(1.0811)\\times(0.4404)−1=−65.9\\%\\]\n\nAs the firm did not pay dividends in 2016, you can compute the annual return as:\n\n\n\\[\\small \\frac{2.29}{6.73}-1 = -65.9\\%\\]"
+    "text": "Example: Annual Historic Returns, without dividends\n\n\n\nDate\nPrice ($)\nDividends ($)\nReturn\n\n\n\n\n12/31/2015\n6.73\n-\n-\n\n\n3/31/2016\n5.72\n-\n-15.01%\n\n\n6/30/2016\n4.81\n-\n-15.91%\n\n\n9/30/2016\n5.20\n-\n8.11%\n\n\n12/31/2016\n2.29\n-\n-55.96%\n\n\n\n\\[  𝑅_{2016}=(0.8499)\\times(0.8409)\\times(1.0811)\\times(0.4404)−1=−65.9\\%\\]\n\nAs the firm did not pay dividends in 2016, you can compute the annual return as:\n\n\n\\[\\small \\frac{2.29}{6.73}-1 = -65.9\\%\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#average-annual-return-and-variance",
@@ -158,7 +158,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise---standard-error",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Data Exercise - Standard Error",
-    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 56 months, and an sample standard deviation of returns of 12.14%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.18 \\pm 1.96\\times \\dfrac{12.14}{\\sqrt{56}}=[-2\\%,+4.36\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -2% to 4.36%"
+    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 56 months, and an sample standard deviation of returns of 12.13%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.24 \\pm 1.96\\times \\dfrac{12.13}{\\sqrt{56}}=[-1.94\\%,+4.42\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.94% to 4.42%"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#standard-error---another-example",
@@ -179,7 +179,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr-1",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Compound Annual Growth Rate (CAGR)",
-    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{56}(1+R_i)\\bigg]^{\\frac{1}{56}}-1\\approx 0.39\\%\\]\n\nRemember the (arithmetic) average was 1.18%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
+    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{56}(1+R_i)\\bigg]^{\\frac{1}{56}}-1\\approx 0.45\\%\\]\n\nRemember the (arithmetic) average was 1.24%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#trade-off-between-risk-and-return",
@@ -235,7 +235,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---practice-1",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return - Practice",
-    "text": "Measures of Risk and Return - Practice\n\nLet’s use this rationale to understand how increasing the portfolio can reduce its volatility\n\nUse the download link at the bottom of the page to download a sample of daily returns for 10 selected stocks from Ibovespa\nStart from left to right and create a portfolio that consists of 100% of the first stock. Calculate the volatility of the returns. For \\(n&gt;2\\), assign equal-weights to each stock\nIterate until you have a portfolio comprised of \\(10\\) different stocks with 10% each\nPlot the annual volatility of each portfolio. How much were you able to reduce in terms of variance? How does this compare to an average volatility of the 10 stocks?\n\n\n\n\n\n\n\n\n\nData Exercise\n\n\nDownload the data using the following button and proceed with the practical exercise.\n\n\n Download Data"
+    "text": "Measures of Risk and Return - Practice\n\nLet’s use this rationale to understand how increasing the portfolio can reduce its volatility\n\nUse the download link at the bottom of the page to download a sample of daily returns for 10 selected stocks from Ibovespa\nStart from left to right and create a portfolio that consists of 100% of the first stock. Calculate the volatility of the returns. For \\(n\\geq2\\), assign equal-weights to each stock\nIterate until you have a portfolio comprised of \\(10\\) different stocks with 10% each\nPlot the annual volatility of each portfolio. How much were you able to reduce in terms of variance? How does this compare to an average volatility of the 10 stocks?\n\n\n\n\n\n\n\n\n\nData Exercise\n\n\nDownload the data using the following button and proceed with the practical exercise.\n\n\n Download Data"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---which-risks-are-mitigated",
@@ -263,7 +263,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measuring-systematic-risk-continued",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Measuring Systematic Risk, continued",
-    "text": "Measuring Systematic Risk, continued\n\nTo determine how sensitive a given stock \\(S\\) is to systematic risk, we can look at the average change in the return for each 1% change in the return of a portfolio that fluctuates solely due to systematic risk - which we’ll call \\(R_M\\) for now:\n\n\n\\[\n\\small \\dfrac{\\Delta \\overline R_S}{\\Delta \\overline{R}_{M}}\n\\]\n\nIn graphical terms: we’re trying to find the slope of a linear relationship!\nYou are probably seeing that one coming… this is the exact definition of \\(\\beta\\) in a linear regression!\nIn other words, \\(\\beta\\) measures the expected % change in the excess return of a security for a 1% change in the excess return of the market portfolio"
+    "text": "Measuring Systematic Risk, continued\n\nTo determine how sensitive a given stock \\(S\\) is to systematic risk, we can look at the average change in the return for each 1% change in the return of a portfolio that fluctuates solely due to systematic risk - which we’ll call \\(R_M\\) for now:\n\n\n\\[\n\\beta=\\dfrac{\\Delta \\overline R_S}{\\Delta \\overline{R}_{M}}\n\\]\n\nIn other words, \\(\\beta\\) measures the expected % change in the excess return of a security for a 1% change in the excess return of the market portfolio"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measuring-systematic-risk---estimating-beta",
@@ -284,14 +284,14 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#market-risk-premium-continued",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Market Risk Premium, continued",
-    "text": "Market Risk Premium, continued\n\nNote that MRP is an excess return: it is the return that investors receive net of what they would have earned if they invested in risk-free assets - investors are risk-averse and dislike risk\n\nTherefore, in order to invest in risky assets, investors demand an extra return\nFlipping the argument, a risky asset will have to pay an extra return for its additional risk in order to attract investors!\n\n\n\n\\[\\small E[R_m] =  R_{F} + MRP\\]\n\\(\\rightarrow\\) Key Takeaway: the return of the market portfolio is simply the sum of the risk-free return and the premium for bearing systematic risk!\n\nThere is some heterogeneity in the market risk premium across countries\nFurthermore, the Market Risk premium also changes over time due to macroeconomic conditions (for example, changes in SELIC)"
+    "text": "Market Risk Premium, continued\n\nNote that MRP is an excess return: it is the return that investors receive net of what they would have earned if they invested in risk-free assets - investors are risk-averse and dislike risk\n\nTherefore, in order to invest in risky assets, investors demand an extra return\nFlipping the argument, a risky asset will have to pay an extra return for its additional risk in order to attract investors!\n\n\n\n\\[E[R_m] =  R_{F} + MRP\\]\n\\(\\rightarrow\\) Key Takeaway: the return of the market portfolio is simply the sum of the risk-free return and the premium for bearing systematic risk!\n\nThere is some heterogeneity in the market risk premium across countries\nFurthermore, the Market Risk premium also changes over time due to macroeconomic conditions (for example, changes in SELIC)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#market-risk-premium---continued",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#market-risk-premium---continued",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Market Risk Premium - continued",
-    "text": "Market Risk Premium - continued\n\nEstimating the historical Market excess returns is fairly straightforward:\n\nDefine what the market portfolio is: it can be, for example, a representative index of a countrie’s stock exchange, such as the S&P500 (U.S) or Ibovespa (Brazil)\nDefine what is the corresponding risk-free asset - in the U.S. case, we generally use the return on Treasury Bills and Treasury-Bonds - similar to Tesouro Direto in Brazil\n\nA word of caution: again, note that this is not the same as of the expected Market Risk Premium, which is forward-looking! In practice, we often compute the historical average return and using this number as the best estimate of the expected returns\n\n\n\n\n\n\n\n\nMarket Risk Premium - Sources\n\n\n\n\nYou can find the Market Risk Premium estimation\n\nUnited States and other countries (A. Damodaran, NYU Stern): access here\nBrazil (CEQEF-FGV): access here"
+    "text": "Market Risk Premium - continued\n\nEstimating the historical Market excess returns is fairly straightforward:\n\nDefine what the market portfolio is: it can be, for example, a representative index of a country’s stock exchange, such as the S&P500 (U.S) or Ibovespa (Brazil)\nDefine what is the corresponding risk-free asset - in the U.S. case, we generally use the return on Treasury Bills and Treasury-Bonds - similar to Tesouro Direto in Brazil\n\nA word of caution: again, note that this is not the same as of the expected Market Risk Premium, which is forward-looking! In practice, we often compute the historical average return and using this number as the best estimate of the expected returns\n\n\n\n\n\n\n\n\nMarket Risk Premium - Sources\n\n\n\n\nYou can find the Market Risk Premium estimation\n\nUnited States and other countries (A. Damodaran, NYU Stern): access here\nBrazil (CEQEF-FGV): access here"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#expected-returns-for-individual-stocks",
@@ -305,7 +305,14 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#example-beta-and-the-cost-of-capital",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Example: \\(\\beta\\) and the Cost of Capital",
-    "text": "Example: \\(\\beta\\) and the Cost of Capital\n\nAssume the economy has a 60% chance that the market return will be 15% next year and a 40% chance the market return will be 5% next year. Assume the risk-free rate is 6%. If a company’s beta is 1.18, what is its expected return next year?\n\nFirst, compute \\(E[R_m]\\):\n\n\n\n\\[\\small E[R_m] = 60\\% \\times 15\\% + 40\\% \\times 5\\%  = 11\\%\\]\n\nSecond, compute \\(E[R]\\):\n\n\n\n\\[\\small E[R] = 6\\% + 1.18 \\times (11\\% - 6\\%) = 11.9\\%\\]"
+    "text": "Example: \\(\\beta\\) and the Cost of Capital\n\nAssume the economy has a 60% chance that the market return will be 15% next year and a 40% chance the market return will be 5% next year. Assume the risk-free rate is 6%. If a company’s beta is 1.18, what is its expected return next year?\n\nFirst, compute \\(E[R_m]\\):\n\n\n\n\\[ E[R_m] = 60\\% \\times 15\\% + 40\\% \\times 5\\%  = 11\\%\\]\n\nSecond, compute \\(E[R]\\):\n\n\n\n\\[E[R] = 6\\% + 1.18 \\times (11\\% - 6\\%) = 11.9\\%\\]\n\\(\\rightarrow\\) Key Takeaway: because the stock riskier than the market portfolio, the risk-premium is also higher!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#beta-for-selected-stocks-against-ibovespa",
+    "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#beta-for-selected-stocks-against-ibovespa",
+    "title": "Capital Markets and the Pricing of Risk",
+    "section": "\\(\\beta\\) for selected stocks (against Ibovespa)",
+    "text": "\\(\\beta\\) for selected stocks (against Ibovespa)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#practice",
