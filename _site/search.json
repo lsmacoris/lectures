@@ -9,315 +9,315 @@
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#outline",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#outline",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Outline",
     "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\n(Berk and DeMarzo 2023)\n(Brealey, Myers, and Allen 2020)\n\nStudy review and practice: I strongly recommend using Prof. Henrique Castro (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:\n\nMultiple Choice Exercises - click here\nNumeric Exercises - click here\n\n\n\n\\(\\rightarrow\\) For coding replications, whenever applicable, please follow this page or hover on the specific slides with coding chunks"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#risk-return-insights-from-history-1",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#risk-return-insights-from-history-1",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Risk & Return: Insights from History",
     "text": "Risk & Return: Insights from History\n\nThere are a couple of observations based on historical data:\n\nSmall stocks had the highest long-term return, while T-Bills had the lowest\nSmall stocks had the largest fluctuations in price, while T-Bills had the lowest\nHigher risk requires a higher return\n\nMore realistic investment horizons and different timeframes can greatly influence each investment’s risk and return over time"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#risk-return-insights-from-history-continued",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#risk-return-insights-from-history-continued",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Risk & Return: Insights from History (continued)",
     "text": "Risk & Return: Insights from History (continued)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#risk-return-insights-from-history-continued-1",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#risk-return-insights-from-history-continued-1",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Risk & Return: Insights from History (continued)",
     "text": "Risk & Return: Insights from History (continued)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return",
     "text": "Measures of Risk and Return\n\nIf an investment is risky, it means that the return of its investment is not guaranteed:\n\n\nThink about each possible return that a given investment can deliver. Each \\(R\\) has some likelihood (or probability) of occurring\nThis information is summarized with a probability distribution, which assigns a probability, \\(P_{R}\\) , that each possible return, \\(R\\), will occur\n\n\n\nFor example, assume that a given stock currently trades for $100 per share. In one year, there is a 25% chance the share price will be 140, a 50% chance it will be 110, and a 25% chance it will be 80. The likelihood is then summarized as:\n\n\n\n\\[\n\\small\nP(R)=\n\\begin{cases}\n25\\% \\text{, for } R = 140, \\\\\n50\\% \\text{, for } R = 110, \\\\\n25\\% \\text{, for } R = 80, \\\\\n\\end{cases}\n\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---expected-returns",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---expected-returns",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return - Expected Returns",
     "text": "Measures of Risk and Return - Expected Returns\n\nApart from the probability of occurrence, financial analysts are mostly interested in answering the following question: what is the expected return from a given investment?\n\n\n\n\n\n\n\n\nDefinition\n\n\nExpected Return is the average of all possible returns, weighted by its return probability:\n\\[\nE[R] = \\sum_{R} P_R \\times R\n\\]\n\n\n\n\nIn our simple example, we can compute expected returns as:\n\n\n\n\\[\\small E[R_{BFI}] = 25\\%\\times(−0.20) + 50\\%\\times(0.10) + 25\\%\\times(0.40) = 10\\%\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---standard-deviation",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---standard-deviation",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return - Standard Deviation",
     "text": "Measures of Risk and Return - Standard Deviation\n\nLook at our previous example on BMA\n\nWe know that \\(E[R]=10\\%\\)\nNotwithstanding, looking at individual returns, there is significant variation from this average (or expected value)\nIn other words, individual returns \\(R\\) can vary significantly from the expected value!\n\n\n\n\n\n\n\n\n\nDefinition\n\n\nStardard Deviation (Variance) of returns is the average deviation (average squared deviation) from the expected return:\n\\[Var(R) = E[(R-E[R])^2]   = \\sum_{R} P_R \\times (R-E[R])^2 \\]\n\\[SD(R) = \\sqrt{Var(R)}\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---standard-deviation-1",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---standard-deviation-1",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return - Standard Deviation",
     "text": "Measures of Risk and Return - Standard Deviation\n\nUsing the previous example from BMA, we have that the variance of the returns can be computed as:\n\n\n\\[\\text{Var}(R_{BMA})  = \\sigma^2_{BMA}=0.25 × (−0.2 − 0.1)^2  + 0.5 × (0.1 − 0.1)^2 + 0.25 × (0.4 − 0.1)^2  = 0.045\\]\n\nTherefore, the standard deviation of returns is simply:\n\n\n\n\\[SD(R_{BFI}) = \\sigma_{BMA}= \\sqrt{0.045} = 21.2\\%\\]\n\nIn words: on average, we know that BMA return is 10%. Notwithstanding, the actual return can vary significantly - the average deviation from this expected return of 10% is \\(\\pm 21\\%\\)."
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---caveats",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---caveats",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return - Caveats",
     "text": "Measures of Risk and Return - Caveats\n\nExpected Returns and the Variance (or the Standard Deviation) of returns are often used to characterize an asset in terms of risk and return. There are, notwithstanding, some caveats when we consider real cases of asset returns:\n\nRiskier assets, heavier tails: the likelihood of extreme negative or positive returns is bigger\nThe standard Deviation of an assets changes over time\nAssets that are considered to be riskier tend to remain riskier than others\n\n\n\n\n\n\n\n\n\nImportant\n\n\nStandard Deviation/Variance are correct measures of total riskonly if the returns are normally distributed!\n\n\n\n\nFinally, keep in mind that the underlying assumption for using historical data is that past returns are good enough in predicting future returns, which may not hold!"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---a-global-perspective",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---a-global-perspective",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return - a global perspective",
     "text": "Measures of Risk and Return - a global perspective\n\nAs we saw, there seems to be a positive relationship between risk and return:\n\nHigher returns are generally associated with higher risk\nLower returns, on the other hand, are less risky, and therefore more certain\n\nThis assumption can also be externalized to different asset classes and/or markets:\n\nStock market returns are higher and riskier than Treasury Bills\nBrazilian stock market returns are historically higher riskier than the U.S. stock market returns\nBrazilian Treasury Bill returns are historically higher and riskier than the U.S. Treasury Bill returns"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#look-at-the-difference-in-variationa-cross-asset-classes",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#look-at-the-difference-in-variationa-cross-asset-classes",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Look at the difference in variationa cross asset classes!",
     "text": "Look at the difference in variationa cross asset classes!"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#historical-returns-1",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#historical-returns-1",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Historical Returns",
     "text": "Historical Returns\n\nOur first example was a case where we knew the potential returns and their corresponding probabilities. With that, we were able to estimate the assets’ expected return\nIn real-world applications, however, we do not know the potential returns and their probabilities. Because of that, the distribution of past returns can be helpful when we seek to estimate the distribution of returns investors may expect in the future\n\n\n\n\n\n\n\n\nDefinition\n\n\nTherealized (or historical) return is the return that actually occurs over a particular time period. Suppose you invest in a stock on date \\(t\\) for price \\(P_t\\) . If the stock pays a dividend, \\(Div_{t +1}\\) , on date \\(t + 1\\), and you sell the stock at that time for price \\(P_{t +1}\\), then the realized return from your investment in the stock from \\(t\\rightarrow t + 1\\) is:\n\\[R_{t+1} = \\frac{\\overbrace{Div_{t+1}}^{\\text{Dividend yield}} + \\overbrace{P_{t+1}}^{\\text{Capital Gain}}}{P_t} - 1\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#a-note-on-future-value-calculations",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#a-note-on-future-value-calculations",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "A note on future value calculations",
     "text": "A note on future value calculations\n\nSometimes, we are interested in the compounded return over a longer period of time. Recall that the future value of an investment is given by:\n\n\n\\[\nPV=\\dfrac{FV}{(1+r)^n}\\rightarrow FV = PV \\times (1+r)^n\n\\]\n\nSay that you observe a stock’s return for four periods: \\(R_1,R_2,R_3\\), and \\(R_4\\). How would you calculate the final price over the whole period (i.e, in \\(t=4\\))? The most straightforward way is to use the future value formula with \\(PV\\) equal to the price of a given stock in \\(t=3\\):\n\n\n\n\\[\nFV= PV\\times(1+r)^n \\rightarrow P_4 = P_3\\times(1+R_4)^1\n\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#a-note-on-future-value-calculations-continued",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#a-note-on-future-value-calculations-continued",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "A note on future value calculations, continued",
     "text": "A note on future value calculations, continued\n\nBy the same rationale, note that \\(P_3\\) is simply \\(P_2\\times(1+R_3)\\). Iteratively, we have:\n\n\n\\[\n\\small P_4 = P_3\\times(1+R_4)\\\\\n\\small P_4 = P_2\\times(1+R_3)\\times(1+R_4)\\\\\n\\small P_4 = P_1\\times(1+R_2)\\times\\times(1+R_3)\\times(1+R_4)\\\\\n\\small P_4 = \\underbrace{P_0}_{\\text{Initial Price}}\\times\\underbrace{(1+R_1)\\times(1+R_2)\\times(1+R_3)\\times(1+R_4)}_{\\text{Total Return for the Period}}\n\\]\n\\(\\rightarrow\\) In words: the compounded return of a given asset over a period of time is just the product of all individual \\((1+R_t)\\)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#calculating-realized-annual-returns",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#calculating-realized-annual-returns",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Calculating realized annual returns",
     "text": "Calculating realized annual returns\n\nUsing the rationale presented before, if a stock pays dividends at the end of each quarter (with realized returns \\(R_{Q1}\\), \\(R_{Q2}\\), \\(R_{Q3}\\), and \\(R_{Q4}\\), then its annual realized return, \\(R_{Annual}\\), is computed as follows:\n\n\n\\[(1 + 𝑅_{Annual})   = (1+𝑅_{Q1})\\times(1+𝑅_{Q2})\\times(1+ 𝑅_{Q3})\\times (1+𝑅_{Q4})\\]\n\nTherefore, \\(R_{Annual}\\) (in percentage terms) is found subtracting by \\(1\\) from the previous formula\n\n\n\n\n\n\n\n\n\nImportant\n\n\nYou should know whether the return is calculated adjusted by dividends (they usually are, but always ask). For example, Yahoo! Finance provides Open, High, Low, Close, and Adjusted Close trading prices for each asset that is being tracked, where Adjusted Close is defined by the closing price adjusted for dividends and stock splits. If you use R, Python, or any API to pull this data, ensure to use the information adjusted by dividends and splits!"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#example-annual-historic-returns",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#example-annual-historic-returns",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Example: Annual Historic Returns",
     "text": "Example: Annual Historic Returns\n\nCompute the annual returns over \\(2011\\rightarrow 2012\\) for this MSFT:\n\n\n\n\n\nDate\nPrice ($)\nDividends ($)\nReturn\n\n\n\n\n12/31/2011\n58.69\n-\n-\n\n\n1/31/2012\n61.44\n0.26\n5.13%\n\n\n4/30/2012\n63.94\n0.26\n4.49%\n\n\n7/31/2012\n48.5\n0.26\n-23.74%\n\n\n10/31/2012\n54.88\n0.29\n13.75%\n\n\n12/31/2012\n53.31\n0\n-2.86%\n\n\n\n\n\n\\[𝑅_{2012}=(1.0513)\\times(1.0449)\\times(0.7626)\\times(1.1375)\\times(0.9714)−1=−7.43\\%\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#example-annual-historic-returns-without-dividends",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#example-annual-historic-returns-without-dividends",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Example: Annual Historic Returns, without dividends",
     "text": "Example: Annual Historic Returns, without dividends\n\n\n\nDate\nPrice ($)\nDividends ($)\nReturn\n\n\n\n\n12/31/2015\n6.73\n-\n-\n\n\n3/31/2016\n5.72\n-\n-15.01%\n\n\n6/30/2016\n4.81\n-\n-15.91%\n\n\n9/30/2016\n5.20\n-\n8.11%\n\n\n12/31/2016\n2.29\n-\n-55.96%\n\n\n\n\\[\\small 𝑅_{2016}=(0.8499)\\times(0.8409)\\times(1.0811)\\times(0.4404)−1=−65.9\\%\\]\n\nAs the firm did not pay dividends in 2016, you can compute the annual return as:\n\n\n\\[\\small \\frac{2.29}{6.73}-1 = -65.9\\%\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#average-annual-return-and-variance",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#average-annual-return-and-variance",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Average Annual Return and Variance",
     "text": "Average Annual Return and Variance\n\n\n\n\n\n\nDefinition\n\n\n\nThe average annual return of an investment during some historical period is simply the average of the realized returns for each year.\n\\[\\overline{R}  =  \\frac{1}{T} (𝑅_1  + 𝑅_2  + ⋯ + 𝑅_𝑇)  =  \\frac{1}{T} \\sum_{t=1}^{T} R_t\\]\nNow, using the estimate for \\(\\overline{R}\\), we can calculate the yearly variance and standard deviation as:\n\\[\\small Var[R] =  \\frac{1}{T-1} \\sum_{t=1}^{T} (R_t- \\overline{R})^2 \\]\n\\[\\small SD(R) = \\sqrt{Var(R)}\\]\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nWarning: because you are using a sample of historical returns (instead of the population) there is a T-1 in the variance formula. As \\(T\\rightarrow \\infty\\), then \\(T-1 \\rightarrow T\\) and the sample variance approximates the population one."
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---practice",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---practice",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return - Practice",
     "text": "Measures of Risk and Return - Practice\n\nLet’s use this rationale to calculate the expected returns from Petrobrás S.A (ticker: PETR3):\n\nUse the download link at the bottom of the page to download PETR3 monthly returns\nPlot the monthly returns over time. What do you see?\nCalculate the sample expected return by calculating the average monthly return over the period and add it to the chart\nCalculate the monthly volatility (or standard deviation of monthly returns)\n\n\n\n\n\n\n\n\n\nData Exercise\n\n\nBecause you don’t know the actual probabilities, you need to replace your expectation operator, \\(E(\\cdot)\\), by a sample analogue - in our case, we calculate the expected returns as the sample average of past returns and the volatility as the sample standard deviation.\n\n\n Download Data"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise-continued",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise-continued",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Data Exercise, continued",
     "text": "Data Exercise, continued"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#how-acurate-our-average-return-estimate-is",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#how-acurate-our-average-return-estimate-is",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "How acurate our average return estimate is?",
     "text": "How acurate our average return estimate is?\n\nAs you saw, we can use a security’s historical average return to estimate its actual expected return\nHowever, the historical average return is just an estimate of the expected return:\n\nIf you change your sample (e.g, use different periods), the average return will change\nThe historical average return may not be a good predictor of future return\n\nA way to assess such uncertainty is to estimate how much the average return is expected to change due to different samples\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nThe standard error of the average return is given by:\n\\[SE(R) = \\frac{SD(R)}{\\sqrt{\\text{Number of Observations}}}\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise---standard-error",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise---standard-error",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Data Exercise - Standard Error",
     "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 56 months, and an sample standard deviation of returns of 12.14%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.18 \\pm 1.96\\times \\dfrac{12.14}{\\sqrt{56}}=[-2\\%,+4.36\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -2% to 4.36%"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#standard-error---another-example",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#standard-error---another-example",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Standard Error - another example",
     "text": "Standard Error - another example\n\nFrom 1926 to 2017, the average return of the S&P 500 was 12.0%, with a standard deviation of 19.8%\n\n\n\\[E[R] \\pm 1.96\\times SE = 12\\% \\pm 1.96\\times\\frac{19.8\\%}{\\sqrt{92}}= 12\\% \\pm 4.05\\%\\]\n\nThis means that, with 95% confidence interval, the expected return of the S&P 500 during this period ranges from 7.9% and 16.1%\nThe longer the period, the more accurate you are. But even with 92 years of data, you are not very accurate to predict the expected return of the S&P500."
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Compound Annual Growth Rate (CAGR)",
     "text": "Compound Annual Growth Rate (CAGR)\n\n\n\n\n\n\n\nLet’s get back to our example. Note that there are heavy tails, both negative and positive\nNotwithstanding, a simple average return estimation gives the same weights to observations with small and big changes\n\n\nBecause of that, some analysts prefer to use a geometric average instead of arithmetic average, also called Compound Annual Growth Rate or CAGR"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr-1",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr-1",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Compound Annual Growth Rate (CAGR)",
     "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{56}(1+R_i)\\bigg]^{\\frac{1}{56}}-1\\approx 0.39\\%\\]\n\nRemember the (arithmetic) average was 1.18%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#trade-off-between-risk-and-return",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#trade-off-between-risk-and-return",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Trade-off between Risk and Return",
     "text": "Trade-off between Risk and Return\n\nWe saw that whenever average returns are higher, they’re generally riskier\nRelatedly, investors are assumed to be risk averse:\n\nTo assume risk, they need extra return for that risk\nIn other words, they demand excess returns relative to safer assets!\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\n\nExcess Return is difference between:\n\nThe average return for an investment with risk; and\nThe average return of a risk-free asset\n\n\n\n\n\n\n\nThe relationship is expected to be positve - higher excess returns should be accompained with higher volatility\nIn practice the association is not 100% linear as one might expect!"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#the-tradeoff-between-risk-and-return-in-u.s.-securities",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#the-tradeoff-between-risk-and-return-in-u.s.-securities",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "The tradeoff between risk and return in U.S. securities",
     "text": "The tradeoff between risk and return in U.S. securities"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#for-individual-stocks-there-is-no-clear-relationship",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#for-individual-stocks-there-is-no-clear-relationship",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "For individual stocks, there is no clear relationship!",
     "text": "For individual stocks, there is no clear relationship!"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Diversification",
     "text": "Diversification\n\nAs of now, we focused on a single asset case to analyze the risk and return\n\nIn practice, investors hold a portfolio of assets\nHow can we assess the portfolio average returns and its standard deviation?\n\nWhy? Diversification! To see that, can think of risk in terms of two components:\n\nFirm-specific risk\n\nGood or bad news about the company itself. For example, a firm might announce that it has been successful in gaining market share within its industry.\nAlso called firm-specific, idiosyncratic, unique, or diversifiable risk\n\nMarket-wide risk\n\nNews about the economy as a whole, affects all assets\nThis type of risk is common to all firms\nAlso called systematic, undiversifiable, or market risk"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#firm-specific-versus-systematic-risk",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#firm-specific-versus-systematic-risk",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Firm-specific versus systematic Risk",
     "text": "Firm-specific versus systematic Risk\n\nWhen investors hold a portfolio of assets, the portfolio risk is lower than the weighted-average of the individual asset’s risks\nWhy diversification works that way? The rationale behind the argument:\n\nWhen many stocks are combined in a large portfolio, the firm-specific risks for each stock will average out and be diversified\nThe systematic risk, however, will affect all firms and will not be averaged out due to diversification!\n\nIn practice, individual firms are affected by both market-wide risks and firm-specific risks\nWhen firms carry both types of risk, only the idiosyncratic risk will be diversified by forming a portfolio!\nThis also explains why you haven’t found a clear risk \\(\\times\\) return relationship between individual stocks, but when the firm-specific risk is eliminated (through portfolio formation), risk \\(\\times\\) return comparison only consider the different exposure to systematic risks!"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#firm-specific-versus-systematic-risk-continued",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#firm-specific-versus-systematic-risk-continued",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Firm-specific versus systematic Risk, continued",
     "text": "Firm-specific versus systematic Risk, continued\n\nTo build on the previous point, consider two types of firms:\n\nType S firms are affected only by systematic risk\n\nThere is a 50% chance the economy will be strong and they will earn a return of 40%\nThere is a 50% change the economy will be weak and their return will be −20%\nBecause all these firms face the same systematic risk, holding a large portfolio of type S firms will not diversify the risk\n\nType I firms are affected only by firm-specific risks\n\nTheir returns are equally likely to be 35% or −25%, based on factors specific to each firm’s local market\nBecause these risks are firm specific, if we hold a portfolio of many type I firms, risk is diversified!"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#limits-to-diversification",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#limits-to-diversification",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Limits to diversification",
     "text": "Limits to diversification\n\nHow much volatility can we shrink through diversification? The volatility will therefore decline until only the systematic risk remains - e.g, exposure to macroeconomic events."
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---practice-1",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---practice-1",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measures of Risk and Return - Practice",
     "text": "Measures of Risk and Return - Practice\n\nLet’s use this rationale to understand how increasing the portfolio can reduce its volatility\n\nUse the download link at the bottom of the page to download a sample of daily returns for 10 selected stocks from Ibovespa\nStart from left to right and create a portfolio that consists of 100% of the first stock. Calculate the volatility of the returns. For \\(n&gt;2\\), assign equal-weights to each stock\nIterate until you have a portfolio comprised of \\(10\\) different stocks with 10% each\nPlot the annual volatility of each portfolio. How much were you able to reduce in terms of variance? How does this compare to an average volatility of the 10 stocks?\n\n\n\n\n\n\n\n\n\nData Exercise\n\n\nDownload the data using the following button and proceed with the practical exercise.\n\n\n Download Data"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---which-risks-are-mitigated",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---which-risks-are-mitigated",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Diversification - which risks are mitigated?",
     "text": "Diversification - which risks are mitigated?\n\nConsider again Type I firms, which are affected only by firm-specific risk. Because each individual Type I firm is risky, should investors expect to earn a risk premium when investing in type I firms?\nThe short answers is no, because the risk premium for diversifiable risk is zero, so investors are not compensated for holding firm-specific risk!\n\nThe reason is that they can mitigate this part of risk through diversification\nDiversification eliminates this risk for free, implying that all investors should have a diversified portfolio. Otherwise, the investor is not rational\n\n\n\n\\(\\rightarrow\\) The key takeaway here is that the risk premium of a security is determined by solely by its systematic risk and does not depend on its diversifiable risk"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---wrapping-up",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---wrapping-up",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Diversification - wrapping-up",
     "text": "Diversification - wrapping-up\n\nAll in all, in a world where diversification exists, the Standard Deviation is not a good measure for risk anymore:\n\nIt is a measure a stock’s total risk, which includes diversifiable and non-diversifiable risks\nHowever, if you are diversified (and rationally, you should be), you are not incurring the total risk, only the systematic risk.\n\nDoes that mean that standard deviation (or the variance) should never be used?\n\nNo! Although the standard deviation of individual stocks contained in a portfolio is not a good measure of risk, the standard deviation of the returns of a portfolio itself is still a good measure for the portfolio’s risk\nTherefore, when comparing two portfolios, you are inherently comparing two “assets” that are already diversified, so the portfolio with the higher standard deviation is riskier!"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measuring-systematic-risk-1",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measuring-systematic-risk-1",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measuring Systematic Risk",
     "text": "Measuring Systematic Risk\n\nAs we saw before, when it comes to diversification benefits, only the idiosyncratic risk can be diversified, whereas the systematic risk remains in place\nAs a consequence, if you assume that diversification is possible, the standard deviation is not a good measure for risk anymore, as it mixes both types of risk: the one we can get rid out with diversification, and the one which we cannot get rid\nTo measure the systematic risk of a stock, we need to quantity of the variability of its return is due to:\n\nSystematic Risk , or the portion that is not eliminated through diversification\nIdiosyncratic Risk, or the portion that can be eliminated through diversification\n\nQuestion: how can we decompose the risk into these components and extract the systematic part of a given stock’s risk?"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measuring-systematic-risk-continued",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measuring-systematic-risk-continued",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measuring Systematic Risk, continued",
     "text": "Measuring Systematic Risk, continued\n\nTo determine how sensitive a given stock \\(S\\) is to systematic risk, we can look at the average change in the return for each 1% change in the return of a portfolio that fluctuates solely due to systematic risk - which we’ll call \\(R_M\\) for now:\n\n\n\\[\n\\small \\dfrac{\\Delta \\overline R_S}{\\Delta \\overline{R}_{M}}\n\\]\n\nIn graphical terms: we’re trying to find the slope of a linear relationship!\nYou are probably seeing that one coming… this is the exact definition of \\(\\beta\\) in a linear regression!\nIn other words, \\(\\beta\\) measures the expected % change in the excess return of a security for a 1% change in the excess return of the market portfolio"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measuring-systematic-risk---estimating-beta",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measuring-systematic-risk---estimating-beta",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Measuring Systematic Risk - estimating \\(\\beta\\)",
     "text": "Measuring Systematic Risk - estimating \\(\\beta\\)\n\nSuppose the market portfolio tends to increase by +47% when the economy is strong and decline by -25% when the economy is weak. What is the beta of a Type S (i.e, with only systematic risk) firm whose return is +40% on average when the economy is strong and −20% when the economy is weak?\n\nIf the Market increases by +47%, then Type S increases by +40% \\(\\rightarrow \\beta = \\frac{40}{47}=0.85\\)\nIf the Market decreases by -25%, then Type S decreases by -20% \\(\\rightarrow \\beta = \\frac{20}{25}=0.8\\)\nIf the Market changes from -25% to +47% = 72%, Type S changes from -20% to 40% \\(\\rightarrow \\beta = \\frac{60}{72}=0.833\\)\n\nImportant: it does not mean that the stock has three \\(\\beta\\)’s. Rather, it just means that we have three estimates for the stock’s sensitivity to systematic risk (\\(\\beta\\))\nAlso, note that, using the the same setting as before, the \\(\\beta\\) of a Type I firm that bears only idiosyncratic, firm-specific risk is zero: \\(\\beta=\\frac{0}{72}=0\\)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#market-risk-premium",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#market-risk-premium",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Market Risk Premium",
     "text": "Market Risk Premium\n\nLet’s say that you decide to hold the exact market portfolio (e.g, buy an ETF that mimicks the S&P500, Dow Jones Index, or even the Ibovespa Index for a brazilian setting). By definition, because your portfolio is exactly the market portfolio, then \\(\\beta=1\\)\nYou know that, rationally, the higher the risk, the higher the return you need to earn in order to justify holding this portfolio (and not holding, for example, risk-free assets)\nThe question that remains is…how much are you earning, in addition to a risk-free portfolio, for bearing systematic risk?\n\n\n\n\n\n\n\n\nDefinition\n\n\nThe Market (or Equity) Risk Premium (or MRP) is the reward investors expect to earn for holding a portfolio with a \\(\\beta\\) of 1 - i.e, the market portfolio:\n\\[\\text{MRP} = \\underbrace{E[R_m]}_{\\text{Return of the Market portfolio}} - \\underbrace{R_{F}}_{\\text{Return of a risk-free asset}}\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#market-risk-premium-continued",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#market-risk-premium-continued",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Market Risk Premium, continued",
     "text": "Market Risk Premium, continued\n\nNote that MRP is an excess return: it is the return that investors receive net of what they would have earned if they invested in risk-free assets - investors are risk-averse and dislike risk\n\nTherefore, in order to invest in risky assets, investors demand an extra return\nFlipping the argument, a risky asset will have to pay an extra return for its additional risk in order to attract investors!\n\n\n\n\\[\\small E[R_m] =  R_{F} + MRP\\]\n\\(\\rightarrow\\) Key Takeaway: the return of the market portfolio is simply the sum of the risk-free return and the premium for bearing systematic risk!\n\nThere is some heterogeneity in the market risk premium across countries\nFurthermore, the Market Risk premium also changes over time due to macroeconomic conditions (for example, changes in SELIC)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#market-risk-premium---continued",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#market-risk-premium---continued",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Market Risk Premium - continued",
     "text": "Market Risk Premium - continued\n\nEstimating the historical Market excess returns is fairly straightforward:\n\nDefine what the market portfolio is: it can be, for example, a representative index of a countrie’s stock exchange, such as the S&P500 (U.S) or Ibovespa (Brazil)\nDefine what is the corresponding risk-free asset - in the U.S. case, we generally use the return on Treasury Bills and Treasury-Bonds - similar to Tesouro Direto in Brazil\n\nA word of caution: again, note that this is not the same as of the expected Market Risk Premium, which is forward-looking! In practice, we often compute the historical average return and using this number as the best estimate of the expected returns\n\n\n\n\n\n\n\n\nMarket Risk Premium - Sources\n\n\n\n\nYou can find the Market Risk Premium estimation\n\nUnited States and other countries (A. Damodaran, NYU Stern): access here\nBrazil (CEQEF-FGV): access here"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#expected-returns-for-individual-stocks",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#expected-returns-for-individual-stocks",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Expected Returns for individual stocks",
     "text": "Expected Returns for individual stocks\n\nConsider an investment with \\(\\beta = 1.5\\)\n\nThis investment has 50% more risk than the market portfolio\nEvery 1% change in the market portfolio leads to a 1.5% percent change in the investment’s price\n\nQuestion: what is the expected return for investing in this specific stock? Based on these figures, we can compute the expected return for this investment, adjusted by the level or risk it provides:\n\n\n\\[E[R] = R_{rf} + \\beta \\times (E[R_m] - R_{rf})\\]\n\nWe will discuss more about this equation later when discussing the CAPM (or Capital Asset Pricing Model)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#example-beta-and-the-cost-of-capital",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#example-beta-and-the-cost-of-capital",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Example: \\(\\beta\\) and the Cost of Capital",
     "text": "Example: \\(\\beta\\) and the Cost of Capital\n\nAssume the economy has a 60% chance that the market return will be 15% next year and a 40% chance the market return will be 5% next year. Assume the risk-free rate is 6%. If a company’s beta is 1.18, what is its expected return next year?\n\nFirst, compute \\(E[R_m]\\):\n\n\n\n\\[\\small E[R_m] = 60\\% \\times 15\\% + 40\\% \\times 5\\%  = 11\\%\\]\n\nSecond, compute \\(E[R]\\):\n\n\n\n\\[\\small E[R] = 6\\% + 1.18 \\times (11\\% - 6\\%) = 11.9\\%\\]"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#practice",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#practice",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "Practice",
     "text": "Practice\n\n\n\n\n\n\n\nImportant\n\n\nPractice using the following links:\n\nMultiple-choice Questions\nNumeric Questions"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#references",
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#references",
-    "title": "2. Capital Markets and the Pricing of Risk",
+    "title": "Capital Markets and the Pricing of Risk",
     "section": "References",
     "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2023. Corporate Finance, Global Edition. Global Edition / English Textbooks. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ.\n\n\nBrealey, R. A., S. C. Myers, and F. Allen. 2020. Principles of Corporate Finance. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. https://books.google.com.br/books?id=nsrHuwEACAAJ."
   },

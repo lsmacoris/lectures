@@ -173,7 +173,7 @@ $$SD(R_{BFI}) = \sigma_{BMA}= \sqrt{0.045} = 21.2\%$$
 . . .
 
 ::: callout-important
-[*Standard Deviation*/*Variance* are correct measures of total risk]{.big}[only if the returns are normally distributed]{.blue}!
+[*Standard Deviation*/*Variance* are correct measures of total risk only if the returns are normally distributed]{.big}\]{.blue}!
 :::
 
 -   Finally, keep in mind that the underlying assumption for using historical data is that past returns are good enough in predicting future returns, which may not hold!
@@ -293,7 +293,7 @@ $$𝑅_{2012}=(1.0513)\times(1.0449)\times(0.7626)\times(1.1375)\times(0.9714)�
 | 9/30/2016  |      5.20      |         \-         |   8.11%    |
 | 12/31/2016 |      2.29      |         \-         |  -55.96%   |
 
-$$\small 𝑅_{2016}=(0.8499)\times(0.8409)\times(1.0811)\times(0.4404)−1=−65.9\%$$
+$$  𝑅_{2016}=(0.8499)\times(0.8409)\times(1.0811)\times(0.4404)−1=−65.9\%$$
 
 -   As the firm did not pay dividends in 2016, you can compute the annual return as:
 
@@ -557,7 +557,7 @@ $$\small CAGR = \bigg[\prod_{i=1}^{`r N`}(1+R_i)\bigg]^{\frac{1}{`r N`}}-1\appro
 -   Let's use this rationale to understand how increasing the portfolio can reduce its volatility
 
     1.  Use the download link at the bottom of the page to download a sample of daily returns for 10 selected stocks from *Ibovespa*
-    2.  Start from left to right and create a portfolio that consists of 100% of the first stock. Calculate the volatility of the returns. For $n>2$, assign *equal-weights* to each stock
+    2.  Start from left to right and create a portfolio that consists of 100% of the first stock. Calculate the volatility of the returns. For $n\geq2$, assign *equal-weights* to each stock
     3.  Iterate until you have a portfolio comprised of $10$ different stocks with 10% each
     4.  Plot the annual volatility of each portfolio. How much were you able to reduce in terms of variance? How does this compare to an average volatility of the 10 stocks?
 
@@ -646,12 +646,8 @@ $\rightarrow$ *The key takeaway here is that the risk premium of a security is d
 . . .
 
 $$
-\small \dfrac{\Delta \overline R_S}{\Delta \overline{R}_{M}}
+\beta=\dfrac{\Delta \overline R_S}{\Delta \overline{R}_{M}}
 $$
-
--   In [graphical]{.blue} terms: we're trying to find the *slope* of a linear relationship!
-
--   You are probably seeing that one coming... this is the exact definition of [$\beta$]{.blue} in a linear regression!
 
 -   In other words, [$\beta$]{.blue} measures the expected % change in the excess return of a security for a 1% change in the excess return of the market portfolio
 
@@ -693,9 +689,9 @@ $$\text{MRP} = \underbrace{E[R_m]}_{\text{Return of the Market portfolio}} - \un
 
 . . .
 
-$$\small E[R_m] =  R_{F} + MRP$$
+$$E[R_m] =  R_{F} + MRP$$
 
-$\rightarrow$ Key Takeaway: the return of the market portfolio is simply the sum of the risk-free return and the premium for bearing systematic risk!
+$\rightarrow$ *Key Takeaway: the return of the market portfolio is simply the sum of the risk-free return and the premium for bearing systematic risk!*
 
 1.  There is some heterogeneity in the market risk premium across countries
 2.  Furthermore, the Market Risk premium also changes over time due to macroeconomic conditions (for example, changes in *SELIC*)
@@ -703,7 +699,7 @@ $\rightarrow$ Key Takeaway: the return of the market portfolio is simply the sum
 ## Market Risk Premium - continued
 
 -   Estimating the [historical]{.blue} Market excess returns is fairly straightforward:
-    1.  Define what the [market]{.blue} portfolio is: it can be, for example, a representative index of a countrie's stock exchange, such as the *S&P500* (U.S) or *Ibovespa* (Brazil)
+    1.  Define what the [market]{.blue} portfolio is: it can be, for example, a representative index of a country's stock exchange, such as the *S&P500* (U.S) or *Ibovespa* (Brazil)
     2.  Define what is the corresponding [risk-free]{.blue} asset - in the U.S. case, we generally use the return on *Treasury Bills* and *Treasury-Bonds* - similar to *Tesouro Direto* in Brazil
 -   **A word of caution**: again, note that this is [not]{.blue} the same as of the [expected]{.blue} Market Risk Premium, which is forward-looking! In practice, we often compute the [historical]{.blue} average return and using this number as the [best estimate]{.blue} of the expected returns
 
@@ -744,13 +740,50 @@ $$E[R] = R_{rf} + \beta \times (E[R_m] - R_{rf})$$
 
 . . .
 
-$$\small E[R_m] = 60\% \times 15\% + 40\% \times 5\%  = 11\%$$
+$$ E[R_m] = 60\% \times 15\% + 40\% \times 5\%  = 11\%$$
 
 2.  Second, compute $E[R]$:
 
 . . .
 
-$$\small E[R] = 6\% + 1.18 \times (11\% - 6\%) = 11.9\%$$
+$$E[R] = 6\% + 1.18 \times (11\% - 6\%) = 11.9\%$$
+
+$\rightarrow$ *Key Takeaway: because the stock riskier than the market portfolio, the risk-premium is also higher!*
+
+## $\beta$ for selected stocks (against *Ibovespa*)
+
+```{r,fig.width=16,fig.height=8}
+#| warning: false
+#| message: false
+
+tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','BBDC4.SA','EGIE3.SA','B3SA3.SA','ARZZ3.SA','GRND3.SA','^BVSP')
+
+Data = sapply(tickers,function(x) getSymbols(x,auto.assign = FALSE))%>%
+      map(xts::.subset.xts,j=6)%>%
+      map(window,start='2022-01-01')%>%
+      map(dailyReturn)%>%
+      setNames(tickers)
+
+
+Betas=do.call('rbind',
+  Data%>%map(.,~lm(.~Data[[11]]))%>%
+  map(coefficients))%>%
+  as.data.frame()%>%
+  select(2)%>%
+  rownames_to_column('Stock')%>%
+  setNames(c('Stock','Beta'))%>%
+  arrange(desc(Beta))
+  
+hchart(object=Betas,type='column',hcaes(x=Stock,y=Beta,color=Stock),name='Beta')%>%
+hc_title(text='Which stock seems to correlate more with the market?',
+         style=list(fontSize='25px'))%>%
+hc_tooltip(valueDecimals=2)%>%
+hc_xAxis(labels = list(style=list(fontSize='20px')),
+         title = list(style=list(fontSize='20px')))%>%
+hc_yAxis(labels = list(style=list(fontSize='20px')),
+         title = list(style=list(fontSize='20px')))
+
+```
 
 ## Practice
 
