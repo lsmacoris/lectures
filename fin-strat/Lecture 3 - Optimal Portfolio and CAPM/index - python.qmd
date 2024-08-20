@@ -1,0 +1,567 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: '3. Optimal Portfolio and the CAPM'
+    theme: [default, custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: logo.jpg
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: abntex2.cls
+    incremental: true
+    bibliography: 'Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+```{r}
+#| echo: false
+reticulate::use_virtualenv("C:/Users/Lucas/Documents/fin-strat", required=TRUE)
+
+```
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+
+    1.  [@BDM]
+    2.  [@BMA]
+
+-   Study review and practice: I strongly recommend using [Prof. Henrique Castro](https://henriquemartins.net/) (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:
+
+    1.  Multiple Choice Exercises - click [here](https://henriquemartins.net/teaching/financial_strategy/p3tf.html)
+    2.  Numeric Exercises - click [here](https://henriquemartins.net/teaching/financial_strategy/p3num.html)
+
+. . .
+
+*$\rightarrow$ For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/fin-strat.html) page or hover on the specific slides with coding chunks*
+
+# From Assets to Portfolios
+
+## The Expected Return of a two-stock portfolio
+
+-   Previously, we looked at returns from [individual]{.blue} assets, but investors are always looking for ways to invest in [multiple]{.blue} assets at the same time. What if you hold a [portfolio]{.blue} of $n$ assets?
+
+-   Let's keep it simple for now. Suppose you have a two-stock [portfolio]{.blue} of assets that consists of:
+
+    1.  [Amazon (AMZN)]{.blue} 40% of the portfolio, 10% return and standard deviation (volatility) of 26.6%
+    2.  [Southwest (LUV)]{.blue}: 60% of the portfolio, 15% return and stardard deviation (volatility) of 27.9%
+
+-   If your portfolio is 40% [Amazon]{.blue} and 60% [Southwest]{.blue}, then the return of your portfolio, $R_p$ is:
+
+. . .
+
+$$\small R_p= \sum_{i=1}^{2}\big(x_i\times R_i\big)=(0.4 \times 10\%) +(0.6 \times 15\%) = 13\%$$
+
+. . .
+
+*$\rightarrow$ In other words, the return of a portfolio is the weighted average of the individual asset returns!*
+
+## The Expected Return of a two-stock portfolio, continued
+
+::: callout-important
+### Important
+
+The weights are selected by the investors and may change over time if the prices change (unless the investor actively rebalances it to match the same proportion by buying/selling). Without trading, the weights increase for those stocks whose returns exceed the portfolio’s return.
+:::
+
+-   To see that, assume that your initial holdings are \$100,000:
+
+    1.  If [Amazon]{.blue} is 40% of the portfolio with a 10% return $\small \rightarrow 40,000\times (1+10\%)=44,000$
+    2.  [Southwest]{.blue}: 60% of the portfolio with a 15% return $\small \rightarrow 60,000\times (1+15\%)=69,000$
+
+-   Your holdings are now worth $\small 44,000 + 69,000= 113,000$, which yields the 13% return, but now the weights from each stock are different:
+
+    1.  [Amazon]{.blue} holdings are $\small \frac{44}{113}\approx 38.9\%$ of the portfolio
+    2.  [Southwest]{.blue} holdings are $\small \frac{69}{113}\approx 61.1\%$ of the portfolio
+
+## Volatility of a two-stock portfolio
+
+-   As we now have a portfolio of two different assets, what should be the volatility? Recall that:
+
+    1.  [Amazon (AMZN)]{.blue}'s standard deviation (volatility) is 26.6%
+    2.  [Southwest (LUV)]{.blue}'s stardard deviation (volatility) of 27.9%
+
+-   As we'll see in the next slides, to compute the standard deviation of a portfolio, [we cannot rely on the weighted average]{.blue} anymore!
+
+-   In order to see that, let's look at the historical prices from both stocks and compare:
+
+    1.  The price trend from [Amazon]{.blue}
+    2.  The price trend from [Southwest]{.blue}
+    3.  The dollar holdings for a portfolio of \$1 that holds 40% [Amazon]{.blue} and 60% [Southwest]{.blue}
+
+-   In what follows, we'll see how these dynamics shed light on the covariance of the portfolio
+
+## Volatility of a two-stock portfolio, historical trends
+
+```{python}
+#| message: false
+#| warning: false
+
+
+import yfinance as yf
+import pandas as pd
+import polars as pl
+import polars.selectors as cs
+import plotly.express as px
+from itables import to_html_datatable
+
+tickers = ['AMZN','LUV']
+
+Data=yf.download(tickers =tickers,period='5y',progress=False).stack().reset_index(drop=False)
+
+Data=(Data.pipe(pl.from_pandas)
+    .select('Date','Ticker','Adj Close')
+    .pivot('Ticker',values='Adj Close') 
+    .with_columns((pl.col('AMZN')*0.5 + pl.col('LUV')*0.5).alias('Portfolio (Equally-weighted)'))   
+    )   
+
+fig = px.line(Data,x='Date',
+                   y=Data.columns,
+                   labels = {'variable':'Asset',
+                             'value':'Price (in $)'},
+                   hover_data={"Date": "|%B %d, %Y",
+                               "value": ":$.2f"},
+                   title='Historical trends for assets'
+                               
+            )
+
+fig.update_layout(legend=dict(yanchor='bottom',xanchor='center',y=-0.2,x=0.5,orientation='h'),
+                  title = dict(font=dict(size=24,family='Arial Black')),
+                  xaxis = dict(title=dict(font=dict(size=24))),
+                  yaxis = dict(title=dict(font=dict(size=24))),
+                  yaxis_tickprefix='$',
+                  height=800,
+                  width=1500,
+                  template='plotly_white')
+
+```
+
+## Intuitively, we can compare the results
+
+```{python}
+#| message: false
+#| warning: false
+#| results: asis
+
+Output=Data.select(cs.numeric())
+
+Output=(Output
+   .melt(variable_name='Asset')
+   .group_by('Asset').agg([
+    pl.col('value').mean().alias('Mean'),
+    pl.col('value').std().alias('Volatility')])
+   .with_columns([cs.numeric().round(2)])
+   .pipe(to_html_datatable)
+  )
+
+print(Output)
+
+```
+
+
+- If we were to do a weighted average of the individual volatilities, it would be around $18.6$
+
+- On the other hand, our portfolio show a volatility of $\small 16.5$, which is $\small \approx -11.2\%$ lower
+
+
+
+
+## Volatility of a two-stock portfolio, continued
+
+1.  $\sigma^2_1$ = variance of Asset 1.
+2.  $\sigma^2_2$ = variance of Asset 2
+3.  $\sigma_{1,2}$ = covariance between Assets 1 and 2
+
+## Volatility of a 2-stock portfolio
+
+-   Covariance is the product of the assets' standard deviations and and their correlation:
+
+. . .
+
+$$\sigma_{12} = \sigma_1 \times \sigma_2 \times \rho_{12}$$
+
+-   Covariance is the expected product of the deviations of two returns from their means.
+
+. . .
+
+$$Cov(R_i,R_j) = E[(R_i-E[R_i]) \times (R_j-E[R_j]) ]$$
+
+-   When using historical data:
+
+. . .
+
+$$Cov(R_i,R_j) = \frac{1}{T-1} (R_i-\tilde{R_i} ) \times (R_j-\tilde{R_j} )$$
+
+## Volatility of a 2-stock portfolio
+
+-   Correlation:
+
+. . .
+
+$$Corr(R_i,R_j) = \frac{Cov(R_i,R_j)}{Sd(R_i)\times  Sd(R_j)  }$$
+
+-   Therefore, the portfolio variance is:
+
+. . .
+
+$$var = (x_1^2 \times \sigma_1^2)  + (x_2^2 \times \sigma_2^2) + 2(x_1 \times x_2 \times \sigma_1 \times \sigma_2 \times \rho_{12})$$
+
+-   For example, if $\rho_{12} = 0.26$
+
+-   $$(0.4^2 \times 26.6^2)  + (0.6^2 \times 27.9^2) + 2(0.4 \times 0.6 \times 26.6 \times 27.9 \times 0.26) = 486.1$$
+
+-   The standard deviation of the portfolio is $\sqrt{486.1}= 22\%$, which is lower than 26.6% and 27.9%.
+
+## Volatility of a 2-stock portfolio
+
+-   Covariance and Correlation
+
+-   Let's remember the basics about correlation.
+
+![](figs/bm_11_1.png)
+
+## Volatility of a 2-stock portfolio
+
+-   Covariance and Correlation
+
+-   These assets have the same historical return and volatility, but they 'move' very differently:
+
+-   For example, when North Air performed well, Text Oil tended to do poorly, and when North Air did poorly, Text oil tended to do well
+
+-   North Air is not positively correlated with Text Oil.
+
+-   Consider the portfolio which consists of equal investments in West Air and Tex Oil. The average return of the portfolio is equal to the average return of the two stocks...
+
+-   ...However, the volatility of 5.1% is much less than the volatility of the two individual stocks.
+
+-   The amount of risk that is eliminated in a portfolio depends on the degree to which the stocks face common risks and their prices move together.
+
+## Volatility of a 2-stock portfolio
+
+-   If you don't remember how to calculate manually the correlation, please take a look at the notes of your statistics lectures.
+
+![](figs/bm_11_2.png)
+
+# Volatility of a large portfolio
+
+## Volatility of a large portfolio
+
+![](figs/bre13901_0713.jpg)
+
+## Volatility of a large portfolio
+
+-   The variance of a three-asset portfolio can be built using a previous slide...
+
+. . .
+
+$$var = (x_1^2 \times \sigma_1^2)  + (x_2^2 \times \sigma_2^2) + 2(x_1 \times x_2 \times \sigma_1 \times \sigma_2 \times \rho_{12})$$
+
+... plus the following terms.
+
+. . .
+
+$$+ (x_3^2 \times \sigma_3^2) + 2(x_1 \times x_3 \times \sigma_1 \times \sigma_3 \times \rho_{13}) +  2(x_2 \times x_3 \times \sigma_2 \times \sigma_3 \times \rho_{23})$$
+
+## Volatility of a large portfolio
+
+-   Note in the previous figure: as the number N of assets increases, the number of terms outside the main diagonal increases more than the main diagonal.
+
+-   Therefore, the variance of a well-diversified portfolio mostly contains covariances.
+
+-   For a portfolio with equal weights to all assets, We can write that:
+
+. . .
+
+$$Var(R_p) = \frac{1}{N} \times average\;variance + (1-\frac{1}{N}) \times average \; covariance$$
+
+-   As N grows to infinite, only the average covariance lasts.
+
+## Volatility of a large portfolio
+
+-   So, if you increase the size of your portfolio, the risk decreases (until to a certain amount).
+
+-   Usually, you can diversify about half of the initial variance.
+
+![](figs/bm_fig_11_2.jpg)
+
+## Volatility of a large portfolio
+
+-   You can also write that
+
+. . .
+
+$$Var(R_p) = \sum_i x_i \times Cov(R_i,R_p)$$
+
+-   This equation indicates that the variance of a portfolio is equal to the weighted average covariance of each stock with the portfolio.
+
+-   This expression reveals that the risk of a portfolio depends on how each stock’s return moves in relation to it.
+
+-   Additionally, notice that stocks can have different weights in this equation (the previous example assumed equal weights).
+
+## Volatility of a large portfolio
+
+-   The equation in the previous slide can also be written as (remember that $Cov = sd \times sd \times corr$):
+
+.. .
+
+$$Var(R_p) = \sum_i x_i \times Sd(R_i) \times Sd(R_p) \times Corr(R_i,R_p)$$
+
+-   If we divide both sides of this equation by $Sd(R_p)$, we find:
+
+. . .
+
+$$Sd(R_p) = \sum_i x_i \times Sd(R_i)  \times Corr(R_i,R_p)$$
+
+-   This equation shows the amount of risk that each security brings to portfolio. Each asset *i* contributes to the portfolio's volatility according to its Sd scaled by its correlation with the portfolio.
+
+## Volatility of a large portfolio
+
+-   In these graphs, I am assuming that you can invest a negative amount in a stock. This is called a short position. When you buy, you have a long position.
+
+-   Short sales are usually allowed if you provide enough security and collateral to the market.
+
+-   The idea is that you think that a stock's price will go down so you sell it. Later, you buy it back (but if the price goes up, you lose part of your investment).
+
+-   Notice that if you can short sale, you amplify the pairs return-risk available.
+
+# Choosing an Efficient Portfolio
+
+## Choosing an Efficient Portfolio
+
+-   Now, you can understand what an efficient portfolio is.
+    1.  It is the portfolio that brings the higher return for any given level of risk
+    2.  Or a portfolio that brings the lower risk for any given return.
+
+## Choosing an Efficient Portfolio
+
+-   As a financial manager, one crucial job you have is to find the efficient portfolios and the minimum variance portfolio.
+
+![](figs/bm_11_4.png)
+
+## Choosing an Efficient Portfolio
+
+-   If you add stocks you improve the frontier
+
+-   When you combine several assets, you will have what is called efficient frontier.
+
+![](figs/bm_11_8.png)
+
+## Choosing an Efficient Portfolio
+
+# Risk-Free Saving and Borrowing
+
+## Risk-Free Saving and Borrowing
+
+-   Thus far, we have considered the risk and return possibilities that result from combining risky investments into portfolios.
+
+-   By including all risky investments in the construction of the efficient frontier, we achieve the maximum diversification possible with risky assets.
+
+-   Now, let's see what happens when you combine a portfolio of risky assets with the risk free asset.
+
+## Risk-Free Saving and Borrowing
+
+-   The return is:
+
+. . .
+
+$$E[R_{px}] =  x \times E[R_p] + (1-x) \times R_f $$
+
+$x$ is the weight invested in the portfolio:
+
+. . .
+
+-   Which leads to:
+
+. . .
+
+$$E[R_{px}] =  x \times E[R_p] + R_f - x \times R_f $$
+
+. . .
+
+$$E[R_{px}] =  R_f + x \times ( E[R_p] - R_f ) $$
+
+-   The second equation shows that: The expected return is equal to the risk-free rate plus a fraction of the portfolio’s risk premium, $E[R_p] - R_f$, based on the fraction x that we invest in it.
+
+## Risk-Free Saving and Borrowing
+
+-   Remember that the risk free rate is assumed to have no risk, thus no variance. The standard deviation is:
+
+$$Sd(R_{px}) = \sqrt{(1-x)^2 \times Var(R_f) + x^2 \times Var(R_p)  + 2 \times(1-x) \times x \times Cov(R_f, R_p)}$$
+
+-   Which leads to
+
+$$Sd(R_{px}) = \sqrt{x^2 \times Var(R_p)}$$
+
+$$Sd(R_{px}) = x \times Sd(R_p)$$
+
+-   That is, the volatility is only a fraction of the volatility of the portfolio, based on the amount we invest in it.
+
+## Risk-Free Saving and Borrowing
+
+-   Remember that you can have short positions (*"buying stocks on margin"*)
+    1.  If you borrow at the Rf to invest in a portfolio, you have a levered position.
+    2.  You are investing more than 100% of your funds in the portolio. The weight is higher than 1.
+-   To identify the tangent portfolio, we compute the Sharpe ratio.
+
+$$Sharpe\;ratio = \frac{E[R_p]-R_f}{Sd(R_p)}$$
+
+-   To earn the highest possible expected return for any level of volatility we must find the portfolio that generates the steepest (highest inclination) possible line when combined with the risk-free investment.
+
+-   The optimal portfolio to combine with the risk-free asset will be the one with the highest Sharpe ratio, where the line with the risk-free investment just touches, and so is tangent to, the efficient frontier of risky investments
+
+-   The Sharpe ratio measures the ratio of reward-to-volatility provided by a portfolio.
+
+## Risk-Free Saving and Borrowing
+
+1.  Fact 1: The tangent portfolio is efficient.
+
+2.  Fact 2: Once we include the risk-free investment, all efficient portfolios are combinations of the risk-free investment and the tangent portfolio.
+
+-   All investors should have the tangent portfolio. All investors should combine the tangent portfolio with the risk free asset to adjust the level of risk.
+
+-   If you ignore the risk free asset, you have several efficient portfolios (efficient frontier). But once you combine with the risk free rate, there is only one.
+
+# Efficient Port. and Required Returns
+
+## Efficient Port. and Required Returns
+
+-   Let's now consider how much return we will demand from a risky asset in order to make its inclusion in our portfolio worthy
+
+-   Let's say that you hold an arbitrary portfolio P (it does not matter what is inside P for the moment).
+
+-   You only include an additional asset if it excess return to the level of risk, right? That is, if it increases the Sharpe ratio of the resulting portfolio (Portfolio P + New asset)
+
+-   What is the excess return that this asset *i* brings to your portfolio P?
+
+$E[R_i] - R_f$ (quite simple!)
+
+-   Now, what is the risk that this asset *i* brings to your portfolio P?
+
+$Sd(R_i) \times corr(R_i,R_p)$
+
+## Efficient Port. and Required Returns
+
+-   So now our question is: is the gain in return from investing in *i* adequate to make up for the increase in risk?
+
+-   To see that, we have to test if (because the right-hand part is the level of return-to-risk we already have in P).
+
+$$\frac{E[R_i] - R_f}{Sd(R_i) \times corr(R_i,R_p)} > \frac{E[R_p] - R_f}{Sd(R_p)}$$
+
+-   Moving the denominator to the right-hand side:
+
+$$E[R_i] - R_f > Sd(R_i) \times corr(R_i,R_p) \times \frac{E[R_p] - R_f}{Sd(R_p)}$$
+
+## Efficient Port. and Required Returns
+
+$$E[R_i] - R_f > \frac{Sd(R_i) \times corr(R_i,R_p)}{Sd(R_p)}  \times (E[R_p] - R_f)$$
+
+-   Using a Beta notation:
+
+$$E[R_i] - R_f > \beta_i^P  \times (E[R_p] - R_f)$$
+
+-   $$E[R_i]  >  R_f + \beta_i^P  \times (E[R_p] - R_f)$$
+
+## Efficient Port. and Required Returns
+
+-   That is, increasing the amount invested in i will increase the Sharpe ratio of portfolio P if its expected return $E[R_i]$ exceeds its required return given portfolio P, defined as
+
+$$R_i =  R_f + \beta_i^P  \times (E[R_p] - R_f)$$
+
+## Efficient Port. and Required Returns
+
+-   The required return is the expected return that is necessary to compensate for the risk investment i will contribute to the portfolio.
+
+-   The required return for an investment *i* is equal to the risk-free interest rate plus the risk premium of the current portfolio, P, scaled by *i*’s sensitivity to P, which is $\beta_i^P$.
+
+-   If *i*’s expected return exceeds this required return, then adding more of it will improve the performance of the portfolio.
+
+## Efficient Port. and Required Returns
+
+-   This equation establishes the relation between an investment’s risk and its expected return.
+
+-   It states that we can determine the appropriate risk premium for an investment from its beta with the efficient portfolio.
+
+$$R_i =  R_f + \beta_i^P  \times (E[R_p] - R_f)$$
+
+# The CAPM
+
+## The CAPM
+
+-   This is perhaps the most important model in Finance. Three main assumptions:
+
+    1.  Investors can buy and sell all securities at competitive market prices (without incurring taxes or transactions costs) and can borrow and lend at the risk-free interest rate.
+
+    2.  Investors hold only efficient portfolios of traded securities.
+
+    3.  Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities. There is no information asymmetry
+
+-   If investors have homogeneous expectations, they will identify the same efficient portfolio (the highest Sharpe).
+
+-   Under the CAPM assumptions, we can identify the efficient portfolio: It is equal to the market portfolio
+
+-   A Market portfolio contains all traded securities in a economy
+
+## The CAPM
+
+-   If investors identify the same market portfolio (the highest Sharpe), then we can identify the Capital Market Line (CML).
+
+-   All investors will have a combination of the Market Portfolio and the Rf rate.
+
+<img src="figs/bm_11_11.png" width="90%"/>
+
+# Determining the Risk Premium
+
+## Determining the Risk Premium
+
+-   Under the CAPM assumptions, we can identify the efficient portfolio: It is equal to the market portfolio.
+
+-   Thus, we can change $R_p$ to $R_m$
+
+$$E[R_i] =  R_f + \beta_i  \times (E[R_m] - R_f)$$
+
+-   The beta of a security measures its volatility due to market risk relative to the market as a whole, and thus captures the security’s sensitivity to market risk.
+
+## Determining the Risk Premium
+
+-   The Security Market Line: the CAPM implies there is a linear relationship between a stock's Beta and its expected return.
+
+-   This linear relationship has a name: Security Market Line (SML)
+
+## Determining the Risk Premium
+
+![](figs/bm_11_12.png){width="90%"}
+
+# Questions and Final comments
+
+## Question
+
+Imagine that you find the SML in the economy, and you find that two assets lies below it. Would you buy these assets?
+
+<img src="figs/bre13901_0807.jpg" width="100%"/>
+
+## Question
+
+Both assets are expensive. They are offering less return than they are expected to offer according to the CAPM.
+
+Because they are expensive, investors are expected to sell them. So prices are expected to drop.
+
+## Final comments I
+
+The beta of a portfolio is the weighted average beta of the assets in the portfolio.
+
+$$\beta_p = \sum_i x_i \times \beta_i$$
+
+## References

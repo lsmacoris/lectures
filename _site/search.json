@@ -224,11 +224,11 @@
     "text": "Firm-specific versus systematic Risk, continued\n\nTo build on the previous point, consider two types of firms:\n\nType S firms are affected only by systematic risk\n\nThere is a 50% chance the economy will be strong and they will earn a return of 40%\nThere is a 50% change the economy will be weak and their return will be −20%\nBecause all these firms face the same systematic risk, holding a large portfolio of type S firms will not diversify the risk\n\nType I firms are affected only by firm-specific risks\n\nTheir returns are equally likely to be 35% or −25%, based on factors specific to each firm’s local market\nBecause these risks are firm specific, if we hold a portfolio of many type I firms, risk is diversified!"
   },
   {
-    "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#limits-to-diversification",
-    "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#limits-to-diversification",
+    "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---which-risks-are-mitigated",
+    "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---which-risks-are-mitigated",
     "title": "Capital Markets and the Pricing of Risk",
-    "section": "Limits to diversification",
-    "text": "Limits to diversification\n\nHow much volatility can we shrink through diversification? The volatility will therefore decline until only the systematic risk remains - e.g, exposure to macroeconomic events."
+    "section": "Diversification - which risks are mitigated?",
+    "text": "Diversification - which risks are mitigated?\n\nConsider again Type I firms, which are affected only by firm-specific risk. Because each individual Type I firm is risky, should investors expect to earn a risk premium when investing in type I firms?\nThe short answers is no, because the risk premium for diversifiable risk is zero, so investors are not compensated for holding firm-specific risk!\n\nThe reason is that they can mitigate this part of risk through diversification\nDiversification eliminates this risk for free, implying that all investors should have a diversified portfolio. Otherwise, the investor is not rational\n\n\n\n\\(\\rightarrow\\) The key takeaway here is that the risk premium of a security is determined by solely by its systematic risk and does not depend on its diversifiable risk"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#measures-of-risk-and-return---practice-1",
@@ -238,11 +238,11 @@
     "text": "Measures of Risk and Return - Practice\n\nLet’s use this rationale to understand how increasing the portfolio can reduce its volatility\n\nUse the download link at the bottom of the page to download a sample of daily returns for 10 selected stocks from Ibovespa\nStart from left to right and create a portfolio that consists of 100% of the first stock. Calculate the volatility of the returns. For \\(n\\geq2\\), assign equal-weights to each stock\nIterate until you have a portfolio comprised of \\(10\\) different stocks with 10% each\nPlot the annual volatility of each portfolio. How much were you able to reduce in terms of variance? How does this compare to an average volatility of the 10 stocks?\n\n\n\n\n\n\n\n\n\nData Exercise\n\n\nDownload the data using the following button and proceed with the practical exercise.\n\n\n Download Data"
   },
   {
-    "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---which-risks-are-mitigated",
-    "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---which-risks-are-mitigated",
+    "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#limits-to-diversification",
+    "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#limits-to-diversification",
     "title": "Capital Markets and the Pricing of Risk",
-    "section": "Diversification - which risks are mitigated?",
-    "text": "Diversification - which risks are mitigated?\n\nConsider again Type I firms, which are affected only by firm-specific risk. Because each individual Type I firm is risky, should investors expect to earn a risk premium when investing in type I firms?\nThe short answers is no, because the risk premium for diversifiable risk is zero, so investors are not compensated for holding firm-specific risk!\n\nThe reason is that they can mitigate this part of risk through diversification\nDiversification eliminates this risk for free, implying that all investors should have a diversified portfolio. Otherwise, the investor is not rational\n\n\n\n\\(\\rightarrow\\) The key takeaway here is that the risk premium of a security is determined by solely by its systematic risk and does not depend on its diversifiable risk"
+    "section": "Limits to diversification",
+    "text": "Limits to diversification\n\nHow much volatility can we shrink through diversification? The volatility will therefore decline until only the systematic risk remains - e.g, exposure to macroeconomic events."
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#diversification---wrapping-up",
@@ -2174,21 +2174,28 @@
     "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#understanding-nopat",
     "title": "Financial Analysis",
     "section": "Understanding NOPAT",
-    "text": "Understanding NOPAT\n\nNOPAT margin provides a comprehensive indication of the operating performance of a company because it reflects all operating costs and eliminates the effects of debt policy:\nIn special, Selling, General, and Administrative Expenses (SG&A) expenses are influenced by the operating activities it has to undertake to implement its competitive strategy:\n\nFirms with differentiation strategies have to undertake activities to achieve that differentiation (e.g, R&D-intensive firms)\nSimilarly, a company that attempts to build a brand-equity is likely to have higher selling and administration costs\n\nOn the other hand, SG&A expenses are also influenced by the efficiency with which it manages its overhead activities"
+    "text": "Understanding NOPAT\n\nNOPAT margin provides a comprehensive indication of the operating performance of a company because it reflects all operating costs and eliminates the effects of debt policy:\nIn special, Selling, General, and Administrative Expenses (SG&A) expenses are influenced by the operating activities it has to undertake to implement its competitive strategy:\n\nFirms with differentiation strategies have to undertake activities to achieve that differentiation (e.g, R&D-intensive firms)\nSimilarly, a company that attempts to build a brand-equity is likely to have higher selling and administration costs\n\nOn the other hand, SG&A expenses are also influenced by the efficiency with which it manages its overhead activities\nA word of caution: as we saw, although NOPAT is a comprehensible indicator for the operating performance of a firm, it can mask some important differences when it comes to account treatments!"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#ebit-nopat-and-the-tax-rate",
+    "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#ebit-nopat-and-the-tax-rate",
+    "title": "Financial Analysis",
+    "section": "EBIT, NOPAT, and the Tax Rate",
+    "text": "EBIT, NOPAT, and the Tax Rate\n\nQuestion: in the NOPAT calculation, why do we use a Tax Rate (that is generally given) instead of just collecting the Tax Expenses from the Income Statement?\nNote that the tax expense in the Income Statement comes from the taxable income, which is, in turn, composed of Operating as well as Financing components\nIf you simply deduct Tax Expenses, you are potentially considering the tax-shield that comes from Net Interest Expenses into the calculation:\n\nFirms with more debt in its capital structure, all else equal, will pay lower taxes\nFirms that had previous losses can compensate future profits paying less taxes\n\nTherefore, he Tax Rate used can be a source of distortions due to different accounting treatments. Calculating the EBIT is a way to insulate the analysis from tax-effects:\n\n\n\\[\n\\small \\text{EBIT Margin}=\\dfrac{(\\text{Sales}-\\text{COGS}-\\text{SG&A}-\\text{Depr./Am.}\\pm\\text{Other Non. Fin.})}{\\text{Total Sales}}=\\dfrac{275,000}{1,000,000}=27.5\\%\n\\]"
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#ebitda",
     "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#ebitda",
     "title": "Financial Analysis",
     "section": "EBITDA",
-    "text": "EBITDA\n\nA potential criticism around NOPAT is that it takes into consideration a significant non-cash item: Depreciation and Amortization expenses\nFurthermore, tax expenses may be highly influenced by firm-specific and period-specific factors that can distort comparisons\nThe Earnings Before Interest, Taxes, Depreciation, and Amortization adds back Depreciation/Amortization expenses and does not deduct taxes:\n\n\n\\[\n\\small\\text{EBITDA Margin}=\\dfrac{\\text{Net Income} + \\text{Interest Expenses} + \\text{Taxes}+ \\text{Depreciation/Amortization}}{\\text{Total Sales}}\n\\]"
+    "text": "EBITDA\n\nWe saw that tax expenses may be highly influenced by firm-specific and period-specific factors that can distort comparisons\nHowever, another criticism around NOPAT is that also it takes into consideration a significant non-cash item: Depreciation and Amortization expenses\nThe Earnings Before Interest, Taxes, Depreciation, and Amortization adds back Depreciation/Amortization expenses and does not deduct taxes:\n\n\n\\[\n\\small\\text{EBITDA Margin}=\\dfrac{\\text{Net Income} + \\text{Interest Expenses} + \\text{Taxes}+ \\text{Depreciation/Amortization}}{\\text{Total Sales}}\n\\]\n\nYou can also calculate the EBITDA by summing up only the relevant accounts:\n\n\n\n\\[\n\\small\\text{EBITDA Margin}=\\dfrac{\\text{Sales} -\\text{COGS}- \\text{SG&A} \\pm\\text{ Other Op.}}{\\text{Total Sales}}\n\\]"
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#understanding-ebitda",
     "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#understanding-ebitda",
     "title": "Financial Analysis",
     "section": "Understanding EBITDA",
-    "text": "Understanding EBITDA\n\nUsing the numbers from our example, we have:\n\n\n\\[\n\\small\\text{EBITDA Margin}=\\dfrac{\\text{Net Income} +\\text{Int. Expenses} +\\text{Taxes}+ \\text{Depr./Am.}}{\\text{Total Sales}}=\\dfrac{325,000}{1,000,000}=32.5\\%\n\\]\n\nEBITDA can be useful to contrast operations by disregarding the potential differences stemming from:\n\n\nNon-cash items (Depreciation and Amortization)\nTaxes (different firms may have different effective tax rates)\nDebt policy"
+    "text": "Understanding EBITDA\n\nUsing the numbers from our example, we have:\n\n\n\\[\n\\small\\text{EBITDA Margin}=\\dfrac{\\text{Net Income} +\\text{Int. Expenses} +\\text{Taxes}+ \\text{Depr./Am.}}{\\text{Total Sales}}=\\dfrac{325,000}{1,000,000}=32.5\\%\n\\]\n\nAlternatively: \\[\n\\small\\text{EBITDA Margin}=\\dfrac{\\text{Sales} -\\text{COGS}- \\text{SG&A} \\pm\\text{ Other Op.}}{\\text{Total Sales}}= \\dfrac{325,000}{1,000,000}=32.5\\%\n\\]\nEBITDA can be useful to contrast operations by disregarding differences stemming from:\n\n\nNon-cash items (Depreciation and Amortization)\nTaxes (different firms may have different effective tax rates)\nFinancing Policy (firms may have financial investment and also benefit from tax-shiedls through higher debt levels)"
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#market-valuation-ratios",

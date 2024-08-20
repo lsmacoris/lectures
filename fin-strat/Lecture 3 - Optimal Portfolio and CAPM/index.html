@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.55">
+
+  <meta name="author" content="Lucas S. Macoris">
+  <title>Optimal Portfolio and the CAPM</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+  <script src="index_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+  <script src="index_files/libs/proj4js-2.3.15/proj4.js"></script>
+
+  <link href="index_files/libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+
+  <script src="index_files/libs/highcharts-9.3.1/highcharts.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/highcharts-3d.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/highcharts-more.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/stock.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/map.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/data.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/exporting.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/drilldown.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/item-series.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/annotations.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/export-data.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/funnel.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/heatmap.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/treemap.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/sankey.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/organization.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/sunburst.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/vector.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/xrange.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/tilemap.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/venn.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/gantt.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/timeline.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/bullet.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/lollipop.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/series-label.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/plugins/motion.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/custom/reset.js"></script>
+
+  <script src="index_files/libs/highcharts-9.3.1/modules/boost.js"></script>
+
+  <script src="index_files/libs/highchart-binding-0.9.4/highchart.js"></script>
+
+  <script src="index_files/libs/font-awesome-6.5.2/js/script.js"></script>
+
+  <link href="index_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+
+  <script src="index_files/libs/datatables-binding-0.31/datatables.js"></script>
+
+  <link href="index_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+  <link href="index_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+
+  <script src="index_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+
+  <link href="index_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+  <script src="index_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Optimal Portfolio and the CAPM</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Lucas S. Macoris 
+</div>
+</div>
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li class="fragment"><p>This lecture is mainly based the following textbooks:</p>
+<ol type="1">
+<li class="fragment"><span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span></li>
+<li class="fragment"><span class="citation" data-cites="BMA">(<a href="#/references" role="doc-biblioref" onclick="">Brealey, Myers, and Allen 2020</a>)</span></li>
+</ol></li>
+<li class="fragment"><p>Study review and practice: I strongly recommend using <a href="https://henriquemartins.net/">Prof.&nbsp;Henrique Castro</a> (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:</p>
+<ol type="1">
+<li class="fragment">Multiple Choice Exercises - click <a href="https://henriquemartins.net/teaching/financial_strategy/p3tf.html">here</a></li>
+<li class="fragment">Numeric Exercises - click <a href="https://henriquemartins.net/teaching/financial_strategy/p3num.html">here</a></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>For coding replications, whenever applicable, please follow <a href="https://lsmacoris.github.io/lectures/fin-strat.html">this</a> page or hover on the specific slides with coding chunks</em></p>
+</div>
+</section>
+<section>
+<section id="from-assets-to-portfolios" class="title-slide slide level1 center">
+<h1>From Assets to Portfolios</h1>
+
+</section>
+<section id="the-expected-return-of-a-two-stock-portfolio" class="slide level2">
+<h2>The Expected Return of a two-stock portfolio</h2>
+<ul>
+<li class="fragment"><p>Previously, we looked at returns from <span class="blue">individual</span> assets, but investors are always looking for ways to invest in <span class="blue">multiple</span> assets at the same time. What if you hold a <span class="blue">portfolio</span> of <span class="math inline">\(n\)</span> assets?</p></li>
+<li class="fragment"><p>Let’s keep it simple for now. Suppose you have a two-stock <span class="blue">portfolio</span> of assets that hipotetically consists of:</p>
+<ol type="1">
+<li class="fragment"><span class="blue">Amazon (AMZN)</span> 40% of the portfolio, 10% return and standard deviation (volatility) of 25%</li>
+<li class="fragment"><span class="blue">Ferrari (RACE)</span>: 60% of the portfolio, 15% return and stardard deviation (volatility) of 30%</li>
+</ol></li>
+<li class="fragment"><p>If your portfolio is 40% <span class="blue">Amazon</span> and 60% <span class="blue">Ferrari</span>, then the return of your portfolio, <span class="math inline">\(R_p\)</span> is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\small R_p= \sum_{i=1}^{2}\big(x_i\times R_i\big)=(0.4 \times 10\%) +(0.6 \times 15\%) = 13\%\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>In other words, the return of a portfolio is the weighted average of the individual asset returns!</em></p>
+</div>
+</section>
+<section id="the-expected-return-of-a-two-stock-portfolio-continued" class="slide level2">
+<h2>The Expected Return of a two-stock portfolio, continued</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>The weights are selected by the investors and may change over time if the prices change (unless the investor actively rebalances it to match the same proportion by buying/selling). Without trading, the weights increase for those stocks whose returns exceed the portfolio’s return.</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>To see that, assume that your initial holdings are $100,000:</p>
+<ol type="1">
+<li class="fragment">If <span class="blue">Amazon</span> is 40% of the portfolio with a 10% return <span class="math inline">\(\small \rightarrow 40,000\times (1+10\%)=44,000\)</span></li>
+<li class="fragment">If <span class="blue">Ferrari</span> is 60% of the portfolio with a 15% return <span class="math inline">\(\small \rightarrow 60,000\times (1+15\%)=69,000\)</span></li>
+</ol></li>
+<li class="fragment"><p>Your holdings are now worth <span class="math inline">\(\small 44,000 + 69,000= 113,000\)</span>, which yields the 13% return, but now the weights from each stock are different:</p>
+<ol type="1">
+<li class="fragment"><span class="blue">Amazon</span> holdings are <span class="math inline">\(\small \frac{44}{113}\approx 38.9\%\)</span> of the portfolio</li>
+<li class="fragment"><span class="blue">Ferrari</span> holdings are <span class="math inline">\(\small \frac{69}{113}\approx 61.1\%\)</span> of the portfolio</li>
+</ol></li>
+</ul>
+</section>
+<section id="volatility-of-a-two-stock-portfolio" class="slide level2">
+<h2>Volatility of a two-stock portfolio</h2>
+<ul>
+<li class="fragment"><p>As we now have a portfolio of two different assets, what should be the volatility? Recall that:</p>
+<ol type="1">
+<li class="fragment"><span class="blue">Amazon (AMZN)</span>’s standard deviation (volatility) was hipothetically 25%</li>
+<li class="fragment"><span class="blue">Ferrari (RACE)</span>’s stardard deviation (volatility) was hipothetically 30%</li>
+</ol></li>
+<li class="fragment"><p>As we’ll see in the next slides, to compute the standard deviation of a portfolio, <span class="blue">we cannot rely on the weighted average</span> anymore!</p></li>
+<li class="fragment"><p>In order to see that, let’s look at the historical prices from both stocks and compare:</p>
+<ol type="1">
+<li class="fragment">The price trend from <span class="blue">Amazon</span></li>
+<li class="fragment">The price trend from <span class="blue">Ferrari</span></li>
+<li class="fragment">The dollar holdings for a portfolio of $100 that holds 40% <span class="blue">Amazon</span> and 60% <span class="blue">Ferrari</span></li>
+</ol></li>
+<li class="fragment"><p>In what follows, we’ll see how these dynamics shed light on the covariance of the portfolio</p></li>
+</ul>
+</section>
+<section id="volatility-of-a-two-stock-portfolio-historical-trends" class="slide level2">
+<h2>Volatility of a two-stock portfolio, historical trends</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-9a7c258770d14d811787" style="width:1440px;height:768px;"></div>
+<script type="application/json" data-for="htmlwidget-9a7c258770d14d811787">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":"Price trends for individual assets and portfolio (2023-2024)","style":{"fontSize":"30px"}},"yAxis":{"title":{"text":null},"labels":{"format":"${value}","style":{"fontSize":"20px"}}},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"tooltip":{"valueDecimals":2,"valuePrefix":"$"},"series":[{"data":[[1672714800000,85.81999969482422],[1672801200000,85.13999938964844],[1672887600000,83.12000274658203],[1672974000000,86.08000183105469],[1673233200000,87.36000061035156],[1673319600000,89.87000274658203],[1673406000000,95.08999633789062],[1673492400000,95.26999664306641],[1673578800000,98.12000274658203],[1673924400000,96.05000305175781],[1674010800000,95.45999908447266],[1674097200000,93.68000030517578],[1674183600000,97.25],[1674442800000,97.51999664306641],[1674529200000,96.31999969482422],[1674615600000,97.18000030517578],[1674702000000,99.22000122070312],[1674788400000,102.2399978637695],[1675047600000,100.5500030517578],[1675134000000,103.129997253418],[1675220400000,105.1500015258789],[1675306800000,112.9100036621094],[1675393200000,103.3899993896484],[1675652400000,102.1800003051758],[1675738800000,102.1100006103516],[1675825200000,100.0500030517578],[1675911600000,98.23999786376953],[1675998000000,97.61000061035156],[1676257200000,99.54000091552734],[1676343600000,99.69999694824219],[1676430000000,101.1600036621094],[1676516400000,98.15000152587891],[1676602800000,97.19999694824219],[1676948400000,94.58000183105469],[1677034800000,95.79000091552734],[1677121200000,95.81999969482422],[1677207600000,93.5],[1677466800000,93.76000213623047],[1677553200000,94.23000335693359],[1677639600000,92.16999816894531],[1677726000000,92.12999725341797],[1677812400000,94.90000152587891],[1678071600000,93.75],[1678158000000,93.55000305175781],[1678244400000,93.91999816894531],[1678330800000,92.25],[1678417200000,90.73000335693359],[1678676400000,92.43000030517578],[1678762800000,94.87999725341797],[1678849200000,96.19999694824219],[1678935600000,100.0400009155273],[1679022000000,98.94999694824219],[1679281200000,97.70999908447266],[1679367600000,100.6100006103516],[1679454000000,98.69999694824219],[1679540400000,98.70999908447266],[1679626800000,98.12999725341797],[1679886000000,98.04000091552734],[1679972400000,97.23999786376953],[1680058800000,100.25],[1680145200000,102],[1680231600000,103.2900009155273],[1680490800000,102.4100036621094],[1680577200000,103.9499969482422],[1680663600000,101.0999984741211],[1680750000000,102.0599975585938],[1681095600000,102.1699981689453],[1681182000000,99.91999816894531],[1681268400000,97.83000183105469],[1681354800000,102.4000015258789],[1681441200000,102.5100021362305],[1681700400000,102.7399978637695],[1681786800000,102.3000030517578],[1681873200000,104.3000030517578],[1681959600000,103.8099975585938],[1682046000000,106.9599990844727],[1682305200000,106.2099990844727],[1682391600000,102.5699996948242],[1682478000000,104.9800033569336],[1682564400000,109.8199996948242],[1682650800000,105.4499969482422],[1682910000000,102.0500030517578],[1682996400000,103.629997253418],[1683082800000,103.6500015258789],[1683169200000,104],[1683255600000,105.6600036621094],[1683514800000,105.8300018310547],[1683601200000,106.620002746582],[1683687600000,110.1900024414062],[1683774000000,112.1800003051758],[1683860400000,110.2600021362305],[1684119600000,111.1999969482422],[1684206000000,113.4000015258789],[1684292400000,115.5],[1684378800000,118.1500015258789],[1684465200000,116.25],[1684724400000,115.0100021362305],[1684810800000,114.9899978637695],[1684897200000,116.75],[1684983600000,115],[1685070000000,120.1100006103516],[1685415600000,121.6600036621094],[1685502000000,120.5800018310547],[1685588400000,122.7699966430664],[1685674800000,124.25],[1685934000000,125.3000030517578],[1686020400000,126.6100006103516],[1686106800000,121.2300033569336],[1686193200000,124.25],[1686279600000,123.4300003051758],[1686538800000,126.5699996948242],[1686625200000,126.6600036621094],[1686711600000,126.4199981689453],[1686798000000,127.1100006103516],[1686884400000,125.4899978637695],[1687230000000,125.7799987792969],[1687316400000,124.8300018310547],[1687402800000,130.1499938964844],[1687489200000,129.3300018310547],[1687748400000,127.3300018310547],[1687834800000,129.1799926757812],[1687921200000,129.0399932861328],[1688007600000,127.9000015258789],[1688094000000,130.3600006103516],[1688353200000,130.2200012207031],[1688526000000,130.3800048828125],[1688612400000,128.3600006103516],[1688698800000,129.7799987792969],[1688958000000,127.129997253418],[1689044400000,128.7799987792969],[1689130800000,130.8000030517578],[1689217200000,134.3000030517578],[1689303600000,134.6799926757812],[1689562800000,133.5599975585938],[1689649200000,132.8300018310547],[1689735600000,135.3600006103516],[1689822000000,129.9600067138672],[1689908400000,130],[1690167600000,128.8000030517578],[1690254000000,129.1300048828125],[1690340400000,128.1499938964844],[1690426800000,128.25],[1690513200000,132.2100067138672],[1690772400000,133.6799926757812],[1690858800000,131.6900024414062],[1690945200000,128.2100067138672],[1691031600000,128.9100036621094],[1691118000000,139.5700073242188],[1691377200000,142.2200012207031],[1691463600000,139.9400024414062],[1691550000000,137.8500061035156],[1691636400000,138.5599975585938],[1691722800000,138.4100036621094],[1691982000000,140.5700073242188],[1692068400000,137.6699981689453],[1692154800000,135.0700073242188],[1692241200000,133.9799957275391],[1692327600000,133.2200012207031],[1692586800000,134.6799926757812],[1692673200000,134.25],[1692759600000,135.5200042724609],[1692846000000,131.8399963378906],[1692932400000,133.2599945068359],[1693191600000,133.1399993896484],[1693278000000,134.9100036621094],[1693364400000,135.0700073242188],[1693450800000,138.0099945068359],[1693537200000,138.1199951171875],[1693882800000,137.2700042724609],[1693969200000,135.3600006103516],[1694055600000,137.8500061035156],[1694142000000,138.2299957275391],[1694401200000,143.1000061035156],[1694487600000,141.2299957275391],[1694574000000,144.8500061035156],[1694660400000,144.7200012207031],[1694746800000,140.3899993896484],[1695006000000,139.9799957275391],[1695092400000,137.6300048828125],[1695178800000,135.2899932861328],[1695265200000,129.3300018310547],[1695351600000,129.1199951171875],[1695610800000,131.2700042724609],[1695697200000,125.9800033569336],[1695783600000,125.9800033569336],[1695870000000,125.9800033569336],[1695956400000,127.120002746582],[1696215600000,129.4600067138672],[1696302000000,124.7200012207031],[1696388400000,127],[1696474800000,125.9599990844727],[1696561200000,127.9599990844727],[1696820400000,128.2599945068359],[1696906800000,129.4799957275391],[1696993200000,131.8300018310547],[1697079600000,132.3300018310547],[1697166000000,129.7899932861328],[1697425200000,132.5500030517578],[1697511600000,131.4700012207031],[1697598000000,128.1300048828125],[1697684400000,128.3999938964844],[1697770800000,125.1699981689453],[1698030000000,126.5599975585938],[1698116400000,128.5599975585938],[1698202800000,121.3899993896484],[1698289200000,119.5699996948242],[1698375600000,127.7399978637695],[1698634800000,132.7100067138672],[1698721200000,133.0899963378906],[1698807600000,137],[1698894000000,138.0700073242188],[1698980400000,138.6000061035156],[1699239600000,139.7400054931641],[1699326000000,142.7100067138672],[1699412400000,142.0800018310547],[1699498800000,140.6000061035156],[1699585200000,143.5599975585938],[1699844400000,142.5899963378906],[1699930800000,145.8000030517578],[1700017200000,143.1999969482422],[1700103600000,142.8300018310547],[1700190000000,145.1799926757812],[1700449200000,146.1300048828125],[1700535600000,143.8999938964844],[1700622000000,146.7100067138672],[1700794800000,146.7400054931641],[1701054000000,147.7299957275391],[1701140400000,147.0299987792969],[1701226800000,146.3200073242188],[1701313200000,146.0899963378906],[1701399600000,147.0299987792969],[1701658800000,144.8399963378906],[1701745200000,146.8800048828125],[1701831600000,144.5200042724609],[1701918000000,146.8800048828125],[1702004400000,147.4199981689453],[1702263600000,145.8899993896484],[1702350000000,147.4799957275391],[1702436400000,148.8399963378906],[1702522800000,147.4199981689453],[1702609200000,149.9700012207031],[1702868400000,154.0700073242188],[1702954800000,153.7899932861328],[1703041200000,152.1199951171875],[1703127600000,153.8399963378906],[1703214000000,153.4199981689453],[1703559600000,153.4100036621094],[1703646000000,153.3399963378906],[1703732400000,153.3800048828125],[1703818800000,151.9400024414062]],"name":"AMZN"},{"data":[[1672714800000,212.4666900634766],[1672801200000,216.7087249755859],[1672887600000,213.1671295166016],[1672974000000,221.0592803955078],[1673233200000,225.6860656738281],[1673319600000,228.8231811523438],[1673406000000,230.5594635009766],[1673492400000,232.6607513427734],[1673578800000,232.7396545410156],[1673924400000,234.6535186767578],[1674010800000,236.4785766601562],[1674097200000,234.7817687988281],[1674183600000,239.1125946044922],[1674442800000,240.3556060791016],[1674529200000,240.7501983642578],[1674615600000,242.2694396972656],[1674702000000,244.429931640625],[1674788400000,250.2997131347656],[1675047600000,247.8630065917969],[1675134000000,247.9221954345703],[1675220400000,249.9051055908203],[1675306800000,261.9011840820312],[1675393200000,256.5345153808594],[1675652400000,257.7874145507812],[1675738800000,263.3119201660156],[1675825200000,262.9666137695312],[1675911600000,262.7200012207031],[1675998000000,256.1793823242188],[1676257200000,259.888671875],[1676343600000,262.0294189453125],[1676430000000,263.6275939941406],[1676516400000,262.2957763671875],[1676602800000,263.2823181152344],[1676948400000,259.2572937011719],[1677034800000,257.0869750976562],[1677121200000,258.6160583496094],[1677207600000,255.6170196533203],[1677466800000,257.8367004394531],[1677553200000,256.8600463867188],[1677639600000,259.1783752441406],[1677726000000,261.0133056640625],[1677812400000,267.7907104492188],[1678071600000,266.7153625488281],[1678158000000,265.0481872558594],[1678244400000,266.0248413085938],[1678330800000,261.1119689941406],[1678417200000,257.7084655761719],[1678676400000,256.5542602539062],[1678762800000,259.35595703125],[1678849200000,252.8350830078125],[1678935600000,260.7962646484375],[1679022000000,255.7058410644531],[1679281200000,258.9416198730469],[1679367600000,263.0455627441406],[1679454000000,261.5953674316406],[1679540400000,262.5325317382812],[1679626800000,261.7926635742188],[1679886000000,262.5818786621094],[1679972400000,262.7200012207031],[1680058800000,265.2454833984375],[1680145200000,265.2750549316406],[1680231600000,267.2875671386719],[1680490800000,267.2875671386719],[1680577200000,267.1790466308594],[1680663600000,266.90283203125],[1680750000000,268.2741088867188],[1681095600000,269.3099365234375],[1681182000000,270.5233459472656],[1681268400000,272.90087890625],[1681354800000,279.1257934570312],[1681441200000,281.680908203125],[1681700400000,277.2514343261719],[1681786800000,276.8173828125],[1681873200000,274.8739318847656],[1681959600000,272.2793579101562],[1682046000000,274.281982421875],[1682305200000,278.4045715332031],[1682391600000,275.4435424804688],[1682478000000,273.655029296875],[1682564400000,276.4669799804688],[1682650800000,276.8644714355469],[1682910000000,277.3612670898438],[1682996400000,274.0226745605469],[1683082800000,275.8708190917969],[1683169200000,289.9306640625],[1683255600000,294.9186706542969],[1683514800000,295.07763671875],[1683601200000,292.3153686523438],[1683687600000,290.3181457519531],[1683774000000,291.7390441894531],[1683860400000,294.382080078125],[1684119600000,291.1329345703125],[1684206000000,290.7355041503906],[1684292400000,291.4608154296875],[1684378800000,293.2791748046875],[1684465200000,296.3395385742188],[1684724400000,299.6085815429688],[1684810800000,288.0527038574219],[1684897200000,285.1314086914062],[1684983600000,284.7737426757812],[1685070000000,288.9072265625],[1685415600000,285.5288696289062],[1685502000000,284.8432922363281],[1685588400000,291.2223510742188],[1685674800000,296.697265625],[1685934000000,294.5410766601562],[1686020400000,295.2266845703125],[1686106800000,292.6531982421875],[1686193200000,296.3395385742188],[1686279600000,295.90234375],[1686538800000,298.6646118164062],[1686625200000,298.1976318359375],[1686711600000,300.8605651855469],[1686798000000,304.1593933105469],[1686884400000,306.0572204589844],[1687230000000,304.2090759277344],[1687316400000,306.33544921875],[1687402800000,305.3318786621094],[1687489200000,305.5603942871094],[1687748400000,304.5369567871094],[1687834800000,312.0885620117188],[1687921200000,315.9338684082031],[1688007600000,318.6266479492188],[1688094000000,323.1376953125],[1688353200000,323.7934875488281],[1688526000000,317.9708251953125],[1688612400000,311.5321044921875],[1688698800000,312.4859924316406],[1688958000000,316.2618103027344],[1689044400000,316.3611755371094],[1689130800000,320.6238098144531],[1689217200000,321.2994689941406],[1689303600000,326.6849365234375],[1689562800000,326.6153869628906],[1689649200000,324.2406311035156],[1689735600000,319.0439453125],[1689822000000,316.6294250488281],[1689908400000,315.9835815429688],[1690167600000,315.1390075683594],[1690254000000,314.0956726074219],[1690340400000,315.3277893066406],[1690426800000,315.248291015625],[1690513200000,319.769287109375],[1690772400000,318.3484191894531],[1690858800000,315.5960388183594],[1690945200000,311.5619201660156],[1691031600000,312.1581115722656],[1691118000000,309.4653930664062],[1691377200000,310.2503356933594],[1691463600000,308.9983825683594],[1691550000000,309.6243286132812],[1691636400000,312.7543029785156],[1691722800000,309.20703125],[1691982000000,313.5591430664062],[1692068400000,313.72802734375],[1692154800000,311.3433227539062],[1692241200000,304.0699768066406],[1692327600000,303.8016967773438],[1692586800000,309.9820556640625],[1692673200000,308.5810546875],[1692759600000,310.7968444824219],[1692846000000,305.5703430175781],[1692932400000,309.2765808105469],[1693191600000,311.3135070800781],[1693278000000,318.547119140625],[1693364400000,318.2490539550781],[1693450800000,315.7152709960938],[1693537200000,306.3553161621094],[1693882800000,303.2254028320312],[1693969200000,300.5823364257812],[1694055600000,296.8860473632812],[1694142000000,295.2962341308594],[1694401200000,300.7512512207031],[1694487600000,296.2203063964844],[1694574000000,297.1443786621094],[1694660400000,300.7413330078125],[1694746800000,299.0422058105469],[1695006000000,297.7703552246094],[1695092400000,297.2039794921875],[1695178800000,300.9797973632812],[1695265200000,289.7120666503906],[1695351600000,286.4132080078125],[1695610800000,286.2740783691406],[1695697200000,283.919189453125],[1695783600000,285.7772827148438],[1695870000000,292.5637817382812],[1695956400000,293.6567687988281],[1696215600000,294.7000732421875],[1696302000000,292.6730651855469],[1696388400000,297.6809387207031],[1696474800000,298.0386657714844],[1696561200000,303.4539184570312],[1696820400000,298.5950927734375],[1696906800000,303.26513671875],[1696993200000,307.8457641601562],[1697079600000,307.1005554199219],[1697166000000,310.03173828125],[1697425200000,313.0325012207031],[1697511600000,307.5973510742188],[1697598000000,301.5560913085938],[1697684400000,299.469482421875],[1697770800000,299.7775268554688],[1698030000000,301.4269104003906],[1698116400000,298.9826049804688],[1698202800000,297.4027404785156],[1698289200000,295.2167358398438],[1698375600000,296.3395385742188],[1698634800000,297.4822387695312],[1698721200000,299.7178955078125],[1698807600000,303.03662109375],[1698894000000,321.3591003417969],[1698980400000,329.2981872558594],[1699239600000,331.3748779296875],[1699326000000,331.2456970214844],[1699412400000,335.0711669921875],[1699498800000,333.7496643066406],[1699585200000,337.396240234375],[1699844400000,339.1052856445312],[1699930800000,351.4958190917969],[1700017200000,349.4390258789062],[1700103600000,351.7541809082031],[1700190000000,357.0502014160156],[1700449200000,361.9984741210938],[1700535600000,358.7890625],[1700622000000,361.9289245605469],[1700794800000,365.0986022949219],[1701054000000,367.304443359375],[1701140400000,365.9233093261719],[1701226800000,364.0851135253906],[1701313200000,356.672607421875],[1701399600000,354.7151794433594],[1701658800000,351.3865356445312],[1701745200000,359.9317321777344],[1701831600000,359.3753051757812],[1701918000000,361.4320983886719],[1702004400000,364.4129943847656],[1702263600000,369.5897827148438],[1702350000000,368.9836730957031],[1702436400000,367.5429077148438],[1702522800000,361.5314636230469],[1702609200000,352.2410583496094],[1702868400000,344.6994323730469],[1702954800000,346.4382629394531],[1703041200000,336.9093933105469],[1703127600000,333.9085998535156],[1703214000000,332.4877319335938],[1703559600000,333.7496643066406],[1703646000000,336.1840209960938],[1703732400000,334.8028869628906],[1703818800000,336.2734375]],"name":"RACE"},{"data":[[1672714800000,161.8080139160156],[1672801200000,164.0812347412109],[1672887600000,161.1482788085937],[1672974000000,167.0675689697266],[1673233200000,170.3556396484375],[1673319600000,173.2419097900391],[1673406000000,176.3716766357422],[1673492400000,177.7044494628906],[1673578800000,178.8917938232422],[1673924400000,179.2121124267578],[1674010800000,180.0711456298828],[1674097200000,178.3410614013672],[1674183600000,182.3675567626953],[1674442800000,183.2213623046875],[1674529200000,182.9781188964844],[1674615600000,184.2336639404297],[1674702000000,186.3459594726563],[1674788400000,191.0758270263672],[1675047600000,188.9378051757812],[1675134000000,190.0053161621094],[1675220400000,192.0030639648438],[1675306800000,202.3047119140625],[1675393200000,195.276708984375],[1675652400000,195.5444488525391],[1675738800000,198.83115234375],[1675825200000,197.7999694824219],[1675911600000,196.9279998779297],[1675998000000,192.7516296386719],[1676257200000,195.7492034912109],[1676343600000,197.0976501464844],[1676430000000,198.6405578613281],[1676516400000,196.6374664306641],[1676602800000,196.8493896484375],[1676948400000,193.386376953125],[1677034800000,192.5681854248047],[1677121200000,193.4976348876953],[1677207600000,190.7702117919922],[1677466800000,192.2060211181641],[1677553200000,191.8080291748047],[1677639600000,192.3750244140625],[1677726000000,193.4599822998047],[1677812400000,198.6344268798828],[1678071600000,197.5292175292969],[1678158000000,196.4489135742188],[1678244400000,197.1829040527344],[1678330800000,193.5671813964844],[1678417200000,190.9170806884765],[1678676400000,190.9045562744141],[1678762800000,193.5655731201172],[1678849200000,190.1810485839844],[1678935600000,196.4937591552734],[1679022000000,193.0035034179687],[1679281200000,194.4489715576172],[1679367600000,198.071337890625],[1679454000000,196.4372192382813],[1679540400000,197.0035186767578],[1679626800000,196.3275970458984],[1679886000000,196.7651275634766],[1679972400000,196.5279998779297],[1680058800000,199.2472900390625],[1680145200000,199.9650329589844],[1680231600000,201.6885406494141],[1680490800000,201.3365417480469],[1680577200000,201.8874267578125],[1680663600000,200.5816986083985],[1680750000000,201.7884643554687],[1681095600000,202.4539611816406],[1681182000000,202.2820068359375],[1681268400000,202.8725280761719],[1681354800000,208.4354766845703],[1681441200000,210.0125457763672],[1681700400000,207.4468597412109],[1681786800000,207.0104309082031],[1681873200000,206.6443603515625],[1681959600000,204.8916137695313],[1682046000000,207.3531890869141],[1682305200000,209.5267425537109],[1682391600000,206.2941253662109],[1682478000000,206.1850189208984],[1682564400000,209.8081878662109],[1682650800000,208.298681640625],[1682910000000,207.2367614746094],[1682996400000,205.8656036376953],[1683082800000,206.9824920654297],[1683169200000,215.5583984375],[1683255600000,219.2152038574219],[1683514800000,219.3785827636719],[1683601200000,218.0372222900391],[1683687600000,218.2668884277344],[1683774000000,219.9154266357422],[1683860400000,220.7332489013672],[1684119600000,219.1597595214844],[1684206000000,219.8013031005859],[1684292400000,221.0764892578125],[1684378800000,223.2275054931641],[1684465200000,224.3037231445312],[1684724400000,225.7691497802734],[1684810800000,218.8276214599609],[1684897200000,217.7788452148437],[1684983600000,216.8642456054687],[1685070000000,221.3883361816406],[1685415600000,219.9813232421875],[1685502000000,219.1379760742188],[1685588400000,223.8414093017578],[1685674800000,227.718359375],[1685934000000,226.8446472167969],[1686020400000,227.7800109863281],[1686106800000,224.0839202880859],[1686193200000,227.5037231445312],[1686279600000,226.9134063720703],[1686538800000,229.8267669677734],[1686625200000,229.5825805664062],[1686711600000,231.0843383789062],[1686798000000,233.3396362304688],[1686884400000,233.8303314208984],[1687230000000,232.8374450683594],[1687316400000,233.7332702636719],[1687402800000,235.2591247558594],[1687489200000,235.0682373046875],[1687748400000,233.6541748046875],[1687834800000,238.9251342773437],[1687921200000,241.176318359375],[1688007600000,242.3359893798828],[1688094000000,246.0266174316406],[1688353200000,246.3640930175781],[1688526000000,242.9344970703125],[1688612400000,238.2632629394531],[1688698800000,239.4035949707031],[1688958000000,240.6090850830078],[1689044400000,241.3287048339844],[1689130800000,244.694287109375],[1689217200000,246.4996826171875],[1689303600000,249.882958984375],[1689562800000,249.3932312011719],[1689649200000,247.6763793945313],[1689735600000,245.5703674316406],[1689822000000,241.9616577148437],[1689908400000,241.5901489257812],[1690167600000,240.6034057617188],[1690254000000,240.1094055175781],[1690340400000,240.4566711425781],[1690426800000,240.448974609375],[1690513200000,244.7455749511719],[1690772400000,244.4810485839844],[1690858800000,242.0336242675781],[1690945200000,238.2211547851562],[1691031600000,238.8588684082031],[1691118000000,241.5072387695313],[1691377200000,243.0382019042969],[1691463600000,241.3750305175781],[1691550000000,240.914599609375],[1691636400000,243.0765808105469],[1691722800000,240.8882202148437],[1691982000000,244.3634887695312],[1692068400000,243.3048156738281],[1692154800000,240.8339965820313],[1692241200000,236.033984375],[1692327600000,235.5690185546875],[1692586800000,239.86123046875],[1692673200000,238.8486328125],[1692759600000,240.6861083984375],[1692846000000,236.0782043457031],[1692932400000,238.8699462890625],[1693191600000,240.0441040039062],[1693278000000,245.0922729492188],[1693364400000,244.9774353027344],[1693450800000,244.6331604003906],[1693537200000,239.0611877441406],[1693882800000,236.8432434082031],[1693969200000,234.4934020996094],[1694055600000,233.271630859375],[1694142000000,232.4697387695313],[1694401200000,237.6907531738281],[1694487600000,234.2241821289062],[1694574000000,236.2266296386719],[1694660400000,238.3328002929688],[1694746800000,235.5813232421875],[1695006000000,234.6542114257812],[1695092400000,233.3743896484375],[1695178800000,234.7038757324219],[1695265200000,225.5592407226563],[1695351600000,223.4959228515625],[1695610800000,224.2724487304687],[1695697200000,220.7435150146484],[1695783600000,221.8583709716797],[1695870000000,225.9302703857422],[1695956400000,227.0420623779297],[1696215600000,228.6040466308594],[1696302000000,225.4918395996094],[1696388400000,229.4085632324219],[1696474800000,229.2071990966797],[1696561200000,233.2563507080078],[1696820400000,230.4610534667969],[1696906800000,233.7510803222656],[1696993200000,237.4394592285156],[1697079600000,237.192333984375],[1697166000000,237.9350402832031],[1697425200000,240.839501953125],[1697511600000,237.1464111328125],[1697598000000,232.1856567382812],[1697684400000,231.0416870117188],[1697770800000,229.9345153808594],[1698030000000,231.4801452636719],[1698116400000,230.8135620117188],[1698202800000,226.9976440429687],[1698289200000,224.958041381836],[1698375600000,228.8997222900391],[1698634800000,231.5733459472656],[1698721200000,233.0667358398437],[1698807600000,236.62197265625],[1698894000000,248.0434631347656],[1698980400000,253.0189147949219],[1699239600000,254.7209289550781],[1699326000000,255.8314208984375],[1699412400000,257.8747009277344],[1699498800000,256.4898010253906],[1699585200000,259.8617431640625],[1699844400000,260.499169921875],[1699930800000,269.2174926757813],[1700017200000,266.9434143066406],[1700103600000,268.1845092773438],[1700190000000,272.3021179199219],[1700449200000,275.6510864257813],[1700535600000,272.8334350585938],[1700622000000,275.841357421875],[1700794800000,277.7551635742187],[1701054000000,279.4746643066406],[1701140400000,278.3659851074219],[1701226800000,276.9790710449219],[1701313200000,272.4395629882812],[1701399600000,271.6411071777344],[1701658800000,268.767919921875],[1701745200000,274.7110412597656],[1701831600000,273.4331848144531],[1701918000000,275.6112609863281],[1702004400000,277.6157958984375],[1702263600000,280.1098693847656],[1702350000000,280.3822021484375],[1702436400000,280.0617431640625],[1702522800000,275.8868774414062],[1702609200000,271.3326354980469],[1702868400000,268.4476623535156],[1702954800000,269.378955078125],[1703041200000,262.9936340332031],[1703127600000,261.8811584472656],[1703214000000,260.8606384277344],[1703559600000,261.6138000488281],[1703646000000,263.0464111328125],[1703732400000,262.2337341308594],[1703818800000,262.5400634765625]],"name":"Portfolio"}],"xAxis":{"labels":{"style":{"fontSize":"20px"}}}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"stock","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+
+<section id="volatility-of-a-two-stock-portfolio-summary-statistics" class="slide level2">
+<h2>Volatility of a two-stock portfolio, summary statistics</h2>
+<ul>
+<li class="fragment">If we now look at the annualized statistics, we see that..</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-718644f8ba4cbebc0b0e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-718644f8ba4cbebc0b0e">{"x":{"filter":"none","vertical":false,"data":[["Portfolio","RACE","AMZN"],["67.48%","58.27%","77.04%"],["21.59%","21.24%","32.90%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Asset<\/th>\n      <th>Annualized Return<\/th>\n      <th>Annualized Volatility<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Asset","targets":0},{"name":"Annualized Return","targets":1},{"name":"Annualized Volatility","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ol type="1">
+<li class="fragment">The weighted average between the individual volatilies is around 25.9%</li>
+<li class="fragment">But our portfolio volatility is <span class="blue">lower</span> than the individual volatilities. <span class="blue">Why? Diversification!</span></li>
+</ol>
+<ul>
+<li class="fragment"><p>Intuitively, the returns from both stocks do not move in lockstep: whenever <span class="blue">Ferrari</span> prices goes down, <span class="blue">Amazon</span> prices move in a different fashion</p></li>
+<li class="fragment"><p>In fact, the correlation between the returns of these stocks is around <span class="blue">0.39</span>. In other words, these assets do not move in the same direction all the time!</p></li>
+</ul>
+</div>
+</section>
+<section id="an-interlude-variance-covariance-and-correlation" class="slide level2">
+<h2>An interlude: Variance, Covariance, and Correlation</h2>
+<ul>
+<li class="fragment">You can find the proofs for both definitions in the <em>Appendix</em></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<ol type="1">
+<li>The Variance (<span class="math inline">\(\sigma^2\)</span>) is the squared deviations of the returns from their means: <span class="math inline">\(\small E[X-E(X)]^2\)</span></li>
+<li>Covariance (<span class="math inline">\(Cov\)</span>) is the expected product of the deviations of two returns from their means: <span class="math inline">\(\small [X-E(X)][Y-Y(X)]\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Theorem I</strong>: the variance of the sum of two random variables equals the sum of the variances of those random variables, plus two times their covariance:</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+  \sigma^2(A+B) = \sigma^2_A + \sigma^2_B + 2\times Cov(A,B)
+  \]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Theorem II</strong>: The variance scales upon multiplication with a constant:</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+  \sigma^2(\beta \times A ) = \beta^2\times \sigma^2_A
+  \]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="volatility-of-a-two-stock-portfolio-continued" class="slide level2">
+<h2>Volatility of a two-stock portfolio, continued</h2>
+<ul>
+<li class="fragment"><p>Let’s now apply this to understand our portfolio’s volatility using daily data. Define:</p>
+<ol type="1">
+<li class="fragment"><span class="math inline">\(\sigma^2_1\)</span> = variance of Asset 1 (<span class="blue">Amazon</span>).</li>
+<li class="fragment"><span class="math inline">\(\sigma^2_2\)</span> = variance of Asset 2 (<span class="blue">Ferrari</span>)</li>
+<li class="fragment"><span class="math inline">\(\sigma_{1,2}\)</span> = covariance between both assets</li>
+<li class="fragment"><span class="math inline">\(w_1\)</span> and <span class="math inline">\(w_2\)</span> are the weights for both assets</li>
+</ol></li>
+<li class="fragment"><p>Using the definitions highlighted before, that the variance of our portfolio returns, <span class="math inline">\(R_p\)</span>, is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \sigma^2(R_p)=\sigma^2(w_1\times R_1+w_2\times R_2)=w_1^2\times \sigma^2_1 + w_2^2 \times \sigma^2_1 + 2\times w_1\times w_2\times \sigma_{1,2}
+\]</span></p>
+</div>
+</section>
+<section id="variance-in-terms-of-correlation" class="slide level2">
+<h2>Variance in terms of correlation</h2>
+<ul>
+<li class="fragment">We can further simplify this using the fact that the Covariance is the product of the assets’ standard deviations and their correlation:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \sigma^2(R_p)=w_1^2\times \sigma^2_1 + w_2^2 \times \sigma^2_1 + 2\times w_1\times w_2\times \underbrace{Cov(R_1,R_2)}_{\sigma_1 \times \sigma_2 \times Corr_{12}}\\
+\small = \underbrace{w_1^2\times \sigma^2_1}_{1} + \underbrace{w_2^2 \times \sigma^2_1}_{2} + \underbrace{2\times w_1\times w_2\times \sigma_1 \times \sigma_2 \times Corr_{12}}_{3}
+\]</span></p>
+</div>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">The <span class="blue">first</span> term relates to the first asset (in our case, <span class="blue">Amazon</span>) variance and its proportion in the portfolio</li>
+<li class="fragment">The <span class="blue">second</span> term relates to the second asset (in our case, <span class="blue">Ferrari</span>) variance and its proportion in the portfolio</li>
+<li class="fragment">The <span class="blue">third</span> term relates to the <span class="blue">relationship</span> between both assets</li>
+</ol>
+</div>
+</section>
+<section id="a-note-on-sample-analogues" class="slide level2">
+<h2>A note on sample analogues</h2>
+<ul>
+<li class="fragment"><p>Recall that we cannot rely on expectations to future outcomes and/or probabilities to calculate the expected returns of the portfolio and its volatility</p></li>
+<li class="fragment"><p>Because of that, as we did before, we replace the expectation estimator, <span class="math inline">\(E(\cdot)\)</span>, with our sample analogue, which is the sample average, and it is always <em>backward-looking</em>:</p>
+<ol type="1">
+<li class="fragment">Fix a period for calculation (for example, the latest 30 days)</li>
+<li class="fragment">Calculate the risk and return using sample averages</li>
+</ol></li>
+<li class="fragment"><p>To facilitate the notation, we’ll always refer to it using a bar: <span class="math inline">\(\overline{R}\)</span>. For example the covariance between the returns from stocks <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[Cov(R_i,R_j) = \frac{\sum_{1}^{T}(R_i-\overline{R_i} ) \times (R_j-\overline{R_j})}{T-1}\]</span></p>
+</div>
+</section>
+<section id="getting-back-to-our-portfolio" class="slide level2">
+<h2>Getting back to our portfolio</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-cfeacf66fcf85f85fba9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-cfeacf66fcf85f85fba9">{"x":{"filter":"none","vertical":false,"data":[["Portfolio","RACE","AMZN"],["67.48%","58.27%","77.04%"],["21.59%","21.24%","32.90%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Asset<\/th>\n      <th>Annualized Return<\/th>\n      <th>Annualized Volatility<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Asset","targets":0},{"name":"Annualized Return","targets":1},{"name":"Annualized Volatility","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ul>
+<li class="fragment">Using our formula for the variance of the portfolio:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \sigma^2_p= w_1^2\times \sigma^2_1 + w_2^2 \times \sigma^2_1 + 2\times w_1\times w_2\times \sigma_1 \times \sigma_2 \times Corr_{12}\\
+\small \underbrace{\small 0.4^2\times 0.3290^2+0.6^2\times 0.2124^2}_{I} + \underbrace{2\times 0.4\times0.6\times 0.3290\times 0.2124\times 0.3886}_{II} = 0.04659402
+\]</span></p>
+<ul>
+<li class="fragment">Therefore, <span class="math inline">\(\sigma_{p}\)</span> is simply <span class="math inline">\(\small \sqrt{0.04659402}=0.2159\)</span> or 21.59%. You could also calculate the daily portfolio variance and annualize it at the end multiplying it by <span class="math inline">\(\sqrt{n}\)</span></li>
+</ul>
+</div>
+</section>
+<section id="variance-of-a-2-stock-portfolio-continued" class="slide level2">
+<h2>Variance of a 2-stock portfolio, continued</h2>
+<ul>
+<li class="fragment">Looking at our formula, we have:</li>
+</ul>
+<p><span class="math display">\[
+\small \sigma^2_p= w_1^2\times \sigma^2_1 + w_2^2 \times \sigma^2_1 + 2\times w_1\times w_2\times \sigma_1 \times \sigma_2 \times Corr_{12}\\
+\small \underbrace{\small 0.4^2\times 0.3290^2+0.6^2\times 0.2124^2}_{I} + \underbrace{2\times 0.4\times0.6\times 0.3290\times 0.2124\times 0.3886}_{II} = 0.04659402
+\]</span></p>
+<ol type="1">
+<li class="fragment">The <span class="blue">first</span> term (<span class="blue">I</span>) captures the individual variances contribution</li>
+<li class="fragment">The <span class="blue">second</span> term (<span class="blue">II</span>) captures the relationship between assets (note that 0.3312 is the correlation between both individual returns)</li>
+</ol>
+</section>
+<section id="wrapping-up---2-stock-portfolio-volatility" class="slide level2">
+<h2>Wrapping up - 2-stock portfolio volatility</h2>
+<ul>
+<li class="fragment">These assets have roughly similar historical return and volatility, but they ‘move’ very differently:</li>
+</ul>
+<ol type="1">
+<li class="fragment">For example, when <span class="blue">Amazon</span> performed well, <span class="blue">Ferrari</span> did not move in lockstep</li>
+<li class="fragment">As a matter of fact, their correlation is about 0.39, meaning that their prices do not trend in the same direction most of the time!</li>
+</ol>
+<ul>
+<li class="fragment"><p>As you now see, the return of the portfolio is equal to the weighted average of the individual returns…</p></li>
+<li class="fragment"><p>…However, the volatility of is much lower than the volatility of the two individual stocks, as the assets are offseting each other and making the return “smoother”!</p></li>
+<li class="fragment"><p>How much risk is eliminated when creating a portfolio? It depends on the degree to which the stocks face common risks and their prices move together (in mathematical terms, this will be captured by the correlation parameter, <span class="math inline">\(\small Corr_{12}\)</span>!</p></li>
+</ul>
+</section>
+<section id="volatility-of-a-large-portfolio" class="slide level2">
+<h2>Volatility of a large portfolio</h2>
+<ul>
+<li class="fragment"><p><span class="blue">What if we added a third asset to our portfolio?</span> Let’s say that you’re really into discretionary goods and decide to place a bet on <span class="blue">Victoria’s Secret (<em>ticker: VSCO</em>)</span>, which had 30% of return in the previous last</p></li>
+<li class="fragment"><p>You decided to keep the weight on <span class="blue">Amazon</span> and split <span class="blue">Ferrari</span> and <span class="blue">Victoria’s Secret</span> evenly, with 30% each</p></li>
+<li class="fragment"><p>How does that play a role in your portfolio? As before, your portfolio <span class="blue">Return</span> is simply a weighted average of the individual returns:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+R_{p}=\sum_{i=1}^{3}w_i\times R_i = \underbrace{(0.4 \times 10\%)}_{\text{Amazon}} +\underbrace{(0.3 \times 15\%)}_{\text{Ferrari}}+ \underbrace{(0.3 \times 25\%)}_{\text{VSCO}}\approx 16\%
+\]</span></p>
+<ul>
+<li class="fragment">Let’s see how this strategy performed from 2023 up to now!</li>
+</ul>
+</div>
+</section>
+<section id="ouch-youve-seen-to-be-worse-off-now" class="slide level2">
+<h2>Ouch! You’ve seen to be worse off now!</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-1f25b3177e2cc8d1d41f" style="width:1440px;height:768px;"></div>
+<script type="application/json" data-for="htmlwidget-1f25b3177e2cc8d1d41f">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":"Price trends for individual assets and portfolio (2023-2024)","style":{"fontSize":"30px"}},"yAxis":{"title":{"text":null},"labels":{"format":"${value}","style":{"fontSize":"20px"}}},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"tooltip":{"valueDecimals":2,"valuePrefix":"$"},"series":[{"data":[[1672714800000,85.81999969482422],[1672801200000,85.13999938964844],[1672887600000,83.12000274658203],[1672974000000,86.08000183105469],[1673233200000,87.36000061035156],[1673319600000,89.87000274658203],[1673406000000,95.08999633789062],[1673492400000,95.26999664306641],[1673578800000,98.12000274658203],[1673924400000,96.05000305175781],[1674010800000,95.45999908447266],[1674097200000,93.68000030517578],[1674183600000,97.25],[1674442800000,97.51999664306641],[1674529200000,96.31999969482422],[1674615600000,97.18000030517578],[1674702000000,99.22000122070312],[1674788400000,102.2399978637695],[1675047600000,100.5500030517578],[1675134000000,103.129997253418],[1675220400000,105.1500015258789],[1675306800000,112.9100036621094],[1675393200000,103.3899993896484],[1675652400000,102.1800003051758],[1675738800000,102.1100006103516],[1675825200000,100.0500030517578],[1675911600000,98.23999786376953],[1675998000000,97.61000061035156],[1676257200000,99.54000091552734],[1676343600000,99.69999694824219],[1676430000000,101.1600036621094],[1676516400000,98.15000152587891],[1676602800000,97.19999694824219],[1676948400000,94.58000183105469],[1677034800000,95.79000091552734],[1677121200000,95.81999969482422],[1677207600000,93.5],[1677466800000,93.76000213623047],[1677553200000,94.23000335693359],[1677639600000,92.16999816894531],[1677726000000,92.12999725341797],[1677812400000,94.90000152587891],[1678071600000,93.75],[1678158000000,93.55000305175781],[1678244400000,93.91999816894531],[1678330800000,92.25],[1678417200000,90.73000335693359],[1678676400000,92.43000030517578],[1678762800000,94.87999725341797],[1678849200000,96.19999694824219],[1678935600000,100.0400009155273],[1679022000000,98.94999694824219],[1679281200000,97.70999908447266],[1679367600000,100.6100006103516],[1679454000000,98.69999694824219],[1679540400000,98.70999908447266],[1679626800000,98.12999725341797],[1679886000000,98.04000091552734],[1679972400000,97.23999786376953],[1680058800000,100.25],[1680145200000,102],[1680231600000,103.2900009155273],[1680490800000,102.4100036621094],[1680577200000,103.9499969482422],[1680663600000,101.0999984741211],[1680750000000,102.0599975585938],[1681095600000,102.1699981689453],[1681182000000,99.91999816894531],[1681268400000,97.83000183105469],[1681354800000,102.4000015258789],[1681441200000,102.5100021362305],[1681700400000,102.7399978637695],[1681786800000,102.3000030517578],[1681873200000,104.3000030517578],[1681959600000,103.8099975585938],[1682046000000,106.9599990844727],[1682305200000,106.2099990844727],[1682391600000,102.5699996948242],[1682478000000,104.9800033569336],[1682564400000,109.8199996948242],[1682650800000,105.4499969482422],[1682910000000,102.0500030517578],[1682996400000,103.629997253418],[1683082800000,103.6500015258789],[1683169200000,104],[1683255600000,105.6600036621094],[1683514800000,105.8300018310547],[1683601200000,106.620002746582],[1683687600000,110.1900024414062],[1683774000000,112.1800003051758],[1683860400000,110.2600021362305],[1684119600000,111.1999969482422],[1684206000000,113.4000015258789],[1684292400000,115.5],[1684378800000,118.1500015258789],[1684465200000,116.25],[1684724400000,115.0100021362305],[1684810800000,114.9899978637695],[1684897200000,116.75],[1684983600000,115],[1685070000000,120.1100006103516],[1685415600000,121.6600036621094],[1685502000000,120.5800018310547],[1685588400000,122.7699966430664],[1685674800000,124.25],[1685934000000,125.3000030517578],[1686020400000,126.6100006103516],[1686106800000,121.2300033569336],[1686193200000,124.25],[1686279600000,123.4300003051758],[1686538800000,126.5699996948242],[1686625200000,126.6600036621094],[1686711600000,126.4199981689453],[1686798000000,127.1100006103516],[1686884400000,125.4899978637695],[1687230000000,125.7799987792969],[1687316400000,124.8300018310547],[1687402800000,130.1499938964844],[1687489200000,129.3300018310547],[1687748400000,127.3300018310547],[1687834800000,129.1799926757812],[1687921200000,129.0399932861328],[1688007600000,127.9000015258789],[1688094000000,130.3600006103516],[1688353200000,130.2200012207031],[1688526000000,130.3800048828125],[1688612400000,128.3600006103516],[1688698800000,129.7799987792969],[1688958000000,127.129997253418],[1689044400000,128.7799987792969],[1689130800000,130.8000030517578],[1689217200000,134.3000030517578],[1689303600000,134.6799926757812],[1689562800000,133.5599975585938],[1689649200000,132.8300018310547],[1689735600000,135.3600006103516],[1689822000000,129.9600067138672],[1689908400000,130],[1690167600000,128.8000030517578],[1690254000000,129.1300048828125],[1690340400000,128.1499938964844],[1690426800000,128.25],[1690513200000,132.2100067138672],[1690772400000,133.6799926757812],[1690858800000,131.6900024414062],[1690945200000,128.2100067138672],[1691031600000,128.9100036621094],[1691118000000,139.5700073242188],[1691377200000,142.2200012207031],[1691463600000,139.9400024414062],[1691550000000,137.8500061035156],[1691636400000,138.5599975585938],[1691722800000,138.4100036621094],[1691982000000,140.5700073242188],[1692068400000,137.6699981689453],[1692154800000,135.0700073242188],[1692241200000,133.9799957275391],[1692327600000,133.2200012207031],[1692586800000,134.6799926757812],[1692673200000,134.25],[1692759600000,135.5200042724609],[1692846000000,131.8399963378906],[1692932400000,133.2599945068359],[1693191600000,133.1399993896484],[1693278000000,134.9100036621094],[1693364400000,135.0700073242188],[1693450800000,138.0099945068359],[1693537200000,138.1199951171875],[1693882800000,137.2700042724609],[1693969200000,135.3600006103516],[1694055600000,137.8500061035156],[1694142000000,138.2299957275391],[1694401200000,143.1000061035156],[1694487600000,141.2299957275391],[1694574000000,144.8500061035156],[1694660400000,144.7200012207031],[1694746800000,140.3899993896484],[1695006000000,139.9799957275391],[1695092400000,137.6300048828125],[1695178800000,135.2899932861328],[1695265200000,129.3300018310547],[1695351600000,129.1199951171875],[1695610800000,131.2700042724609],[1695697200000,125.9800033569336],[1695783600000,125.9800033569336],[1695870000000,125.9800033569336],[1695956400000,127.120002746582],[1696215600000,129.4600067138672],[1696302000000,124.7200012207031],[1696388400000,127],[1696474800000,125.9599990844727],[1696561200000,127.9599990844727],[1696820400000,128.2599945068359],[1696906800000,129.4799957275391],[1696993200000,131.8300018310547],[1697079600000,132.3300018310547],[1697166000000,129.7899932861328],[1697425200000,132.5500030517578],[1697511600000,131.4700012207031],[1697598000000,128.1300048828125],[1697684400000,128.3999938964844],[1697770800000,125.1699981689453],[1698030000000,126.5599975585938],[1698116400000,128.5599975585938],[1698202800000,121.3899993896484],[1698289200000,119.5699996948242],[1698375600000,127.7399978637695],[1698634800000,132.7100067138672],[1698721200000,133.0899963378906],[1698807600000,137],[1698894000000,138.0700073242188],[1698980400000,138.6000061035156],[1699239600000,139.7400054931641],[1699326000000,142.7100067138672],[1699412400000,142.0800018310547],[1699498800000,140.6000061035156],[1699585200000,143.5599975585938],[1699844400000,142.5899963378906],[1699930800000,145.8000030517578],[1700017200000,143.1999969482422],[1700103600000,142.8300018310547],[1700190000000,145.1799926757812],[1700449200000,146.1300048828125],[1700535600000,143.8999938964844],[1700622000000,146.7100067138672],[1700794800000,146.7400054931641],[1701054000000,147.7299957275391],[1701140400000,147.0299987792969],[1701226800000,146.3200073242188],[1701313200000,146.0899963378906],[1701399600000,147.0299987792969],[1701658800000,144.8399963378906],[1701745200000,146.8800048828125],[1701831600000,144.5200042724609],[1701918000000,146.8800048828125],[1702004400000,147.4199981689453],[1702263600000,145.8899993896484],[1702350000000,147.4799957275391],[1702436400000,148.8399963378906],[1702522800000,147.4199981689453],[1702609200000,149.9700012207031],[1702868400000,154.0700073242188],[1702954800000,153.7899932861328],[1703041200000,152.1199951171875],[1703127600000,153.8399963378906],[1703214000000,153.4199981689453],[1703559600000,153.4100036621094],[1703646000000,153.3399963378906],[1703732400000,153.3800048828125],[1703818800000,151.9400024414062]],"name":"AMZN"},{"data":[[1672714800000,212.4666900634766],[1672801200000,216.7087249755859],[1672887600000,213.1671295166016],[1672974000000,221.0592803955078],[1673233200000,225.6860656738281],[1673319600000,228.8231811523438],[1673406000000,230.5594635009766],[1673492400000,232.6607513427734],[1673578800000,232.7396545410156],[1673924400000,234.6535186767578],[1674010800000,236.4785766601562],[1674097200000,234.7817687988281],[1674183600000,239.1125946044922],[1674442800000,240.3556060791016],[1674529200000,240.7501983642578],[1674615600000,242.2694396972656],[1674702000000,244.429931640625],[1674788400000,250.2997131347656],[1675047600000,247.8630065917969],[1675134000000,247.9221954345703],[1675220400000,249.9051055908203],[1675306800000,261.9011840820312],[1675393200000,256.5345153808594],[1675652400000,257.7874145507812],[1675738800000,263.3119201660156],[1675825200000,262.9666137695312],[1675911600000,262.7200012207031],[1675998000000,256.1793823242188],[1676257200000,259.888671875],[1676343600000,262.0294189453125],[1676430000000,263.6275939941406],[1676516400000,262.2957763671875],[1676602800000,263.2823181152344],[1676948400000,259.2572937011719],[1677034800000,257.0869750976562],[1677121200000,258.6160583496094],[1677207600000,255.6170196533203],[1677466800000,257.8367004394531],[1677553200000,256.8600463867188],[1677639600000,259.1783752441406],[1677726000000,261.0133056640625],[1677812400000,267.7907104492188],[1678071600000,266.7153625488281],[1678158000000,265.0481872558594],[1678244400000,266.0248413085938],[1678330800000,261.1119689941406],[1678417200000,257.7084655761719],[1678676400000,256.5542602539062],[1678762800000,259.35595703125],[1678849200000,252.8350830078125],[1678935600000,260.7962646484375],[1679022000000,255.7058410644531],[1679281200000,258.9416198730469],[1679367600000,263.0455627441406],[1679454000000,261.5953674316406],[1679540400000,262.5325317382812],[1679626800000,261.7926635742188],[1679886000000,262.5818786621094],[1679972400000,262.7200012207031],[1680058800000,265.2454833984375],[1680145200000,265.2750549316406],[1680231600000,267.2875671386719],[1680490800000,267.2875671386719],[1680577200000,267.1790466308594],[1680663600000,266.90283203125],[1680750000000,268.2741088867188],[1681095600000,269.3099365234375],[1681182000000,270.5233459472656],[1681268400000,272.90087890625],[1681354800000,279.1257934570312],[1681441200000,281.680908203125],[1681700400000,277.2514343261719],[1681786800000,276.8173828125],[1681873200000,274.8739318847656],[1681959600000,272.2793579101562],[1682046000000,274.281982421875],[1682305200000,278.4045715332031],[1682391600000,275.4435424804688],[1682478000000,273.655029296875],[1682564400000,276.4669799804688],[1682650800000,276.8644714355469],[1682910000000,277.3612670898438],[1682996400000,274.0226745605469],[1683082800000,275.8708190917969],[1683169200000,289.9306640625],[1683255600000,294.9186706542969],[1683514800000,295.07763671875],[1683601200000,292.3153686523438],[1683687600000,290.3181457519531],[1683774000000,291.7390441894531],[1683860400000,294.382080078125],[1684119600000,291.1329345703125],[1684206000000,290.7355041503906],[1684292400000,291.4608154296875],[1684378800000,293.2791748046875],[1684465200000,296.3395385742188],[1684724400000,299.6085815429688],[1684810800000,288.0527038574219],[1684897200000,285.1314086914062],[1684983600000,284.7737426757812],[1685070000000,288.9072265625],[1685415600000,285.5288696289062],[1685502000000,284.8432922363281],[1685588400000,291.2223510742188],[1685674800000,296.697265625],[1685934000000,294.5410766601562],[1686020400000,295.2266845703125],[1686106800000,292.6531982421875],[1686193200000,296.3395385742188],[1686279600000,295.90234375],[1686538800000,298.6646118164062],[1686625200000,298.1976318359375],[1686711600000,300.8605651855469],[1686798000000,304.1593933105469],[1686884400000,306.0572204589844],[1687230000000,304.2090759277344],[1687316400000,306.33544921875],[1687402800000,305.3318786621094],[1687489200000,305.5603942871094],[1687748400000,304.5369567871094],[1687834800000,312.0885620117188],[1687921200000,315.9338684082031],[1688007600000,318.6266479492188],[1688094000000,323.1376953125],[1688353200000,323.7934875488281],[1688526000000,317.9708251953125],[1688612400000,311.5321044921875],[1688698800000,312.4859924316406],[1688958000000,316.2618103027344],[1689044400000,316.3611755371094],[1689130800000,320.6238098144531],[1689217200000,321.2994689941406],[1689303600000,326.6849365234375],[1689562800000,326.6153869628906],[1689649200000,324.2406311035156],[1689735600000,319.0439453125],[1689822000000,316.6294250488281],[1689908400000,315.9835815429688],[1690167600000,315.1390075683594],[1690254000000,314.0956726074219],[1690340400000,315.3277893066406],[1690426800000,315.248291015625],[1690513200000,319.769287109375],[1690772400000,318.3484191894531],[1690858800000,315.5960388183594],[1690945200000,311.5619201660156],[1691031600000,312.1581115722656],[1691118000000,309.4653930664062],[1691377200000,310.2503356933594],[1691463600000,308.9983825683594],[1691550000000,309.6243286132812],[1691636400000,312.7543029785156],[1691722800000,309.20703125],[1691982000000,313.5591430664062],[1692068400000,313.72802734375],[1692154800000,311.3433227539062],[1692241200000,304.0699768066406],[1692327600000,303.8016967773438],[1692586800000,309.9820556640625],[1692673200000,308.5810546875],[1692759600000,310.7968444824219],[1692846000000,305.5703430175781],[1692932400000,309.2765808105469],[1693191600000,311.3135070800781],[1693278000000,318.547119140625],[1693364400000,318.2490539550781],[1693450800000,315.7152709960938],[1693537200000,306.3553161621094],[1693882800000,303.2254028320312],[1693969200000,300.5823364257812],[1694055600000,296.8860473632812],[1694142000000,295.2962341308594],[1694401200000,300.7512512207031],[1694487600000,296.2203063964844],[1694574000000,297.1443786621094],[1694660400000,300.7413330078125],[1694746800000,299.0422058105469],[1695006000000,297.7703552246094],[1695092400000,297.2039794921875],[1695178800000,300.9797973632812],[1695265200000,289.7120666503906],[1695351600000,286.4132080078125],[1695610800000,286.2740783691406],[1695697200000,283.919189453125],[1695783600000,285.7772827148438],[1695870000000,292.5637817382812],[1695956400000,293.6567687988281],[1696215600000,294.7000732421875],[1696302000000,292.6730651855469],[1696388400000,297.6809387207031],[1696474800000,298.0386657714844],[1696561200000,303.4539184570312],[1696820400000,298.5950927734375],[1696906800000,303.26513671875],[1696993200000,307.8457641601562],[1697079600000,307.1005554199219],[1697166000000,310.03173828125],[1697425200000,313.0325012207031],[1697511600000,307.5973510742188],[1697598000000,301.5560913085938],[1697684400000,299.469482421875],[1697770800000,299.7775268554688],[1698030000000,301.4269104003906],[1698116400000,298.9826049804688],[1698202800000,297.4027404785156],[1698289200000,295.2167358398438],[1698375600000,296.3395385742188],[1698634800000,297.4822387695312],[1698721200000,299.7178955078125],[1698807600000,303.03662109375],[1698894000000,321.3591003417969],[1698980400000,329.2981872558594],[1699239600000,331.3748779296875],[1699326000000,331.2456970214844],[1699412400000,335.0711669921875],[1699498800000,333.7496643066406],[1699585200000,337.396240234375],[1699844400000,339.1052856445312],[1699930800000,351.4958190917969],[1700017200000,349.4390258789062],[1700103600000,351.7541809082031],[1700190000000,357.0502014160156],[1700449200000,361.9984741210938],[1700535600000,358.7890625],[1700622000000,361.9289245605469],[1700794800000,365.0986022949219],[1701054000000,367.304443359375],[1701140400000,365.9233093261719],[1701226800000,364.0851135253906],[1701313200000,356.672607421875],[1701399600000,354.7151794433594],[1701658800000,351.3865356445312],[1701745200000,359.9317321777344],[1701831600000,359.3753051757812],[1701918000000,361.4320983886719],[1702004400000,364.4129943847656],[1702263600000,369.5897827148438],[1702350000000,368.9836730957031],[1702436400000,367.5429077148438],[1702522800000,361.5314636230469],[1702609200000,352.2410583496094],[1702868400000,344.6994323730469],[1702954800000,346.4382629394531],[1703041200000,336.9093933105469],[1703127600000,333.9085998535156],[1703214000000,332.4877319335938],[1703559600000,333.7496643066406],[1703646000000,336.1840209960938],[1703732400000,334.8028869628906],[1703818800000,336.2734375]],"name":"RACE"},{"data":[[1672714800000,32.9900016784668],[1672801200000,34.20999908447266],[1672887600000,31.93000030517578],[1672974000000,32.43999862670898],[1673233200000,33.38999938964844],[1673319600000,34.2599983215332],[1673406000000,38.5],[1673492400000,38.27000045776367],[1673578800000,38.38999938964844],[1673924400000,38.45999908447266],[1674010800000,38.52000045776367],[1674097200000,37.70000076293945],[1674183600000,39.75],[1674442800000,40.13999938964844],[1674529200000,39.36000061035156],[1674615600000,39.18000030517578],[1674702000000,39.63999938964844],[1674788400000,39.09999847412109],[1675047600000,38.63000106811523],[1675134000000,42.15000152587891],[1675220400000,45.84000015258789],[1675306800000,46.18999862670898],[1675393200000,45.75],[1675652400000,43.77000045776367],[1675738800000,43.84999847412109],[1675825200000,42.63000106811523],[1675911600000,41.36000061035156],[1675998000000,40.72000122070312],[1676257200000,41.7599983215332],[1676343600000,41.79999923706055],[1676430000000,42.02999877929688],[1676516400000,41.45000076293945],[1676602800000,41.52999877929688],[1676948400000,39.56999969482422],[1677034800000,39.65999984741211],[1677121200000,40.16999816894531],[1677207600000,39.45000076293945],[1677466800000,39.22000122070312],[1677553200000,39.63999938964844],[1677639600000,38.54999923706055],[1677726000000,37.75],[1677812400000,35.77999877929688],[1678071600000,34.52999877929688],[1678158000000,34.70999908447266],[1678244400000,33.81000137329102],[1678330800000,32.5099983215332],[1678417200000,31.85000038146973],[1678676400000,30.81999969482422],[1678762800000,31.01000022888184],[1678849200000,30.28000068664551],[1678935600000,30.78000068664551],[1679022000000,30.32999992370605],[1679281200000,31.70000076293945],[1679367600000,31.76000022888184],[1679454000000,31.04000091552734],[1679540400000,30.63999938964844],[1679626800000,31.85000038146973],[1679886000000,31.94000053405762],[1679972400000,32.66999816894531],[1680058800000,33.13000106811523],[1680145200000,33.29999923706055],[1680231600000,34.15000152587891],[1680490800000,34.59000015258789],[1680577200000,34.18000030517578],[1680663600000,32.5],[1680750000000,32.33000183105469],[1681095600000,33.40999984741211],[1681182000000,34.0099983215332],[1681268400000,33],[1681354800000,32.66999816894531],[1681441200000,33.11000061035156],[1681700400000,33.13999938964844],[1681786800000,32.4900016784668],[1681873200000,32.47999954223633],[1681959600000,32.84000015258789],[1682046000000,33.2599983215332],[1682305200000,32.91999816894531],[1682391600000,31.07999992370605],[1682478000000,30.98999977111816],[1682564400000,30.89999961853027],[1682650800000,31.01000022888184],[1682910000000,30],[1682996400000,29.14999961853027],[1683082800000,27.45999908447266],[1683169200000,26.79000091552734],[1683255600000,27.82999992370605],[1683514800000,26.80999946594238],[1683601200000,26.01000022888184],[1683687600000,25.64999961853027],[1683774000000,25.54999923706055],[1683860400000,25.5],[1684119600000,25.84000015258789],[1684206000000,24.85000038146973],[1684292400000,26.30999946594238],[1684378800000,26.55999946594238],[1684465200000,25.44000053405762],[1684724400000,25.03000068664551],[1684810800000,23.56999969482422],[1684897200000,23.11000061035156],[1684983600000,21.68000030517578],[1685070000000,21.64999961853027],[1685415600000,21.3799991607666],[1685502000000,20.42000007629395],[1685588400000,18.63999938964844],[1685674800000,20.13999938964844],[1685934000000,18.54000091552734],[1686020400000,19.02000045776367],[1686106800000,18.81999969482422],[1686193200000,17.6200008392334],[1686279600000,18.07999992370605],[1686538800000,18.93000030517578],[1686625200000,18.53000068664551],[1686711600000,18.22999954223633],[1686798000000,19.79000091552734],[1686884400000,19.60000038146973],[1687230000000,18.81999969482422],[1687316400000,18.29999923706055],[1687402800000,17.84000015258789],[1687489200000,16.95999908447266],[1687748400000,17.14999961853027],[1687834800000,17.70000076293945],[1687921200000,17.28000068664551],[1688007600000,17.3700008392334],[1688094000000,17.43000030517578],[1688353200000,17.94000053405762],[1688526000000,19.31999969482422],[1688612400000,18.77000045776367],[1688698800000,19.40999984741211],[1688958000000,20.03000068664551],[1689044400000,20.53000068664551],[1689130800000,20.01000022888184],[1689217200000,19.20000076293945],[1689303600000,19.31999969482422],[1689562800000,19.14999961853027],[1689649200000,19.54000091552734],[1689735600000,20.36000061035156],[1689822000000,20.01000022888184],[1689908400000,19.56999969482422],[1690167600000,19.36000061035156],[1690254000000,19.17000007629395],[1690340400000,20.51000022888184],[1690426800000,20.11000061035156],[1690513200000,20.17000007629395],[1690772400000,20.48999977111816],[1690858800000,19.81999969482422],[1690945200000,19.69000053405762],[1691031600000,20.22999954223633],[1691118000000,20.40999984741211],[1691377200000,19.45999908447266],[1691463600000,19.31999969482422],[1691550000000,19.44000053405762],[1691636400000,19.64999961853027],[1691722800000,20.1299991607666],[1691982000000,21.44000053405762],[1692068400000,21.32999992370605],[1692154800000,21.47999954223633],[1692241200000,21.30999946594238],[1692327600000,20.59000015258789],[1692586800000,20.03000068664551],[1692673200000,18.79000091552734],[1692759600000,18],[1692846000000,17.35000038146973],[1692932400000,18.02000045776367],[1693191600000,17.54999923706055],[1693278000000,17.8799991607666],[1693364400000,17.94000053405762],[1693450800000,19.18000030517578],[1693537200000,19.80999946594238],[1693882800000,18.53000068664551],[1693969200000,18.06999969482422],[1694055600000,18.03000068664551],[1694142000000,16.55999946594238],[1694401200000,17.29999923706055],[1694487600000,17.13999938964844],[1694574000000,17.13999938964844],[1694660400000,17.80999946594238],[1694746800000,18.48999977111816],[1695006000000,17.72999954223633],[1695092400000,17.51000022888184],[1695178800000,17.18000030517578],[1695265200000,17.52000045776367],[1695351600000,17.18000030517578],[1695610800000,17.20000076293945],[1695697200000,16.8700008392334],[1695783600000,16.3700008392334],[1695870000000,16.30999946594238],[1695956400000,16.68000030517578],[1696215600000,16.10000038146973],[1696302000000,15.02999973297119],[1696388400000,14.51000022888184],[1696474800000,14.30000019073486],[1696561200000,14.57999992370605],[1696820400000,15.53999996185303],[1696906800000,16.35000038146973],[1696993200000,14.93000030517578],[1697079600000,15.22999954223633],[1697166000000,15.44999980926514],[1697425200000,16.36000061035156],[1697511600000,17.25],[1697598000000,17.90999984741211],[1697684400000,18],[1697770800000,19.45000076293945],[1698030000000,18.88999938964844],[1698116400000,18.30999946594238],[1698202800000,18.75],[1698289200000,18.6200008392334],[1698375600000,18.52000045776367],[1698634800000,17.31999969482422],[1698721200000,17.8799991607666],[1698807600000,17.57999992370605],[1698894000000,18.69000053405762],[1698980400000,19.57999992370605],[1699239600000,19.53000068664551],[1699326000000,18.80999946594238],[1699412400000,18.07999992370605],[1699498800000,18.42000007629395],[1699585200000,19.56999969482422],[1699844400000,18.78000068664551],[1699930800000,20.21999931335449],[1700017200000,20.92000007629395],[1700103600000,20.34000015258789],[1700190000000,21.46999931335449],[1700449200000,20.90999984741211],[1700535600000,21.1200008392334],[1700622000000,21.06999969482422],[1700794800000,21.20999908447266],[1701054000000,21.48999977111816],[1701140400000,22.32999992370605],[1701226800000,23.57999992370605],[1701313200000,26.95000076293945],[1701399600000,28.53000068664551],[1701658800000,27.17000007629395],[1701745200000,26],[1701831600000,26.15999984741211],[1701918000000,26.73999977111816],[1702004400000,26.25],[1702263600000,26.36000061035156],[1702350000000,25.48999977111816],[1702436400000,26.63999938964844],[1702522800000,26.84000015258789],[1702609200000,25.88999938964844],[1702868400000,25.20000076293945],[1702954800000,27.10000038146973],[1703041200000,26.14999961853027],[1703127600000,27.90999984741211],[1703214000000,27.95000076293945],[1703559600000,28.81999969482422],[1703646000000,27.61000061035156],[1703732400000,27.02000045776367],[1703818800000,26.54000091552734]],"name":"VSCO"},{"data":[[1672714800000,107.9650074005127],[1672801200000,109.3316169738769],[1672887600000,106.777140045166],[1672974000000,110.4817844390869],[1673233200000,112.6668197631836],[1673319600000,114.8729549407959],[1673406000000,118.7538375854492],[1673492400000,119.3872241973877],[1673578800000,120.586897277832],[1673924400000,120.3540565490723],[1674010800000,120.683572769165],[1674097200000,119.2165309906006],[1674183600000,122.5587783813477],[1674442800000,123.1566802978516],[1674529200000,122.5610595703125],[1674615600000,123.3068321228027],[1674702000000,124.9089797973633],[1674788400000,127.7159126281738],[1675047600000,126.1679035186768],[1675134000000,128.2736579895019],[1675220400000,130.783532333374],[1675306800000,137.5913562774658],[1675393200000,132.0413543701172],[1675652400000,131.3392246246338],[1675738800000,132.9925758361817],[1675825200000,131.6989856719971],[1675911600000,130.5199996948242],[1675998000000,128.1138153076172],[1676257200000,130.3106014251709],[1676343600000,131.0288242340088],[1676430000000,132.161279296875],[1676516400000,130.3837337493896],[1676602800000,130.3236938476562],[1676948400000,127.4801887512207],[1677034800000,127.3400928497314],[1677121200000,127.9638168334961],[1677207600000,125.9201061248779],[1677466800000,126.6210113525391],[1677553200000,126.6420150756836],[1677639600000,126.1865116119385],[1677726000000,126.4809906005859],[1677812400000,129.0312133789062],[1678071600000,127.8736083984375],[1678158000000,127.3474571228027],[1678244400000,127.5184520721435],[1678330800000,124.9865901947021],[1678417200000,123.1595411300659],[1678676400000,123.1842781066894],[1678762800000,125.0617860794067],[1678849200000,123.4145238876343],[1678935600000,127.4888799667359],[1679022000000,125.3907510757446],[1679281200000,126.276485824585],[1679367600000,128.6856691360474],[1679454000000,127.2706092834473],[1679540400000,127.435758972168],[1679626800000,127.3447980880737],[1679886000000,127.572564125061],[1679972400000,127.5129989624023],[1680058800000,129.6126453399658],[1680145200000,130.3725162506103],[1680231600000,131.7472709655762],[1680490800000,131.5272716522217],[1680577200000,131.9877128601074],[1680663600000,130.2608489990234],[1680750000000,131.0052322387695],[1681095600000,131.683980178833],[1681182000000,131.3280025482178],[1681268400000,130.9022644042969],[1681354800000,134.4987380981445],[1681441200000,135.4412734985352],[1681700400000,134.2134292602539],[1681786800000,133.7122165679932],[1681873200000,133.9261806488037],[1681959600000,133.0598064422608],[1682046000000,135.0465938568115],[1682305200000,135.8813705444336],[1682391600000,132.9850625991821],[1682478000000,133.3855100631714],[1682564400000,136.1380937576294],[1682650800000,134.5423402786255],[1682910000000,133.0283813476562],[1682996400000,132.4038011550903],[1683082800000,132.4592460632324],[1683169200000,136.6161994934082],[1683255600000,139.0886026382446],[1683514800000,138.8982915878296],[1683601200000,138.1456117630005],[1683687600000,138.8664445877075],[1683774000000,140.0587131500244],[1683860400000,140.0686248779297],[1684119600000,139.571879196167],[1684206000000,140.0356519699097],[1684292400000,141.531244468689],[1684378800000,143.2117528915406],[1684465200000,143.0338617324829],[1684724400000,143.3955755233765],[1684810800000,139.4828102111817],[1684897200000,139.1724227905273],[1684983600000,137.9361228942871],[1685070000000,141.2111680984497],[1685415600000,140.7366621017456],[1685502000000,139.8109884262085],[1685588400000,142.0667037963867],[1685674800000,144.7511795043945],[1685934000000,144.0443244934082],[1686020400000,144.9180057525635],[1686106800000,141.933960723877],[1686193200000,143.8878618240356],[1686279600000,143.5667032241821],[1686538800000,145.9063835144043],[1686625200000,145.6822912216186],[1686711600000,146.2951686859131],[1686798000000,148.0288185119629],[1686884400000,147.8931653976441],[1687230000000,147.2207221984863],[1687316400000,147.322635269165],[1687402800000,149.0115612030029],[1687489200000,148.4881187438965],[1687748400000,147.4380876541138],[1687834800000,150.60856590271],[1687921200000,151.5801580429077],[1688007600000,151.9589952468872],[1688094000000,154.3143089294434],[1688353200000,154.6080469131469],[1688526000000,153.339249420166],[1688612400000,150.434631729126],[1688698800000,151.4807971954346],[1688958000000,151.7395421981812],[1689044400000,152.5793523788452],[1689130800000,154.5101442337036],[1689217200000,155.8698421478271],[1689303600000,157.673477935791],[1689562800000,157.1536149978638],[1689649200000,156.2661903381348],[1689735600000,155.9651840209961],[1689822000000,152.9758302688599],[1689908400000,152.6660743713379],[1690167600000,151.8697036743164],[1690254000000,151.6317037582398],[1690340400000,152.0113344192505],[1690426800000,151.907487487793],[1690513200000,154.8657888412476],[1690772400000,155.1235227584839],[1690858800000,153.3008125305176],[1690945200000,150.6595788955688],[1691031600000,151.2804347991944],[1691118000000,154.790620803833],[1691377200000,155.8011009216309],[1691463600000,154.4715156555176],[1691550000000,153.8593011856079],[1691636400000,155.1452898025513],[1691722800000,154.1651105880737],[1691982000000,156.7277460098267],[1692068400000,155.585407447815],[1692154800000,153.8749996185303],[1692241200000,151.2059911727905],[1692327600000,150.6055095672608],[1692586800000,152.8756139755249],[1692673200000,151.9113166809082],[1692759600000,152.8470550537109],[1692846000000,149.6121015548706],[1692932400000,151.4929721832276],[1693191600000,151.915051651001],[1693278000000,154.8921369552612],[1693364400000,154.8847192764282],[1693450800000,155.6725791931152],[1693537200000,153.0975927352905],[1693882800000,151.4346227645874],[1693969200000,149.7397010803223],[1694055600000,149.6148168563843],[1694142000000,148.8488683700562],[1694401200000,152.6553775787353],[1694487600000,150.5000900268555],[1694574000000,152.2253158569336],[1694660400000,153.4534002304077],[1694746800000,151.4156614303589],[1695006000000,150.6421047210693],[1695092400000,149.4661958694458],[1695178800000,149.5639366149902],[1695265200000,143.9016208648682],[1695351600000,142.7259605407715],[1695610800000,143.5502254486084],[1695697200000,140.628758430481],[1695783600000,141.0361864089966],[1695870000000,143.0541357040405],[1695956400000,143.949031829834],[1696215600000,145.0240247726441],[1696302000000,142.1989199638367],[1696388400000,144.4572816848755],[1696474800000,144.0855994224548],[1696561200000,146.5941751480103],[1696820400000,145.5445256233215],[1696906800000,147.6765394210816],[1696993200000,149.5647300720215],[1697079600000,149.6311672210693],[1697166000000,149.5605187416077],[1697425200000,151.8377517700195],[1697511600000,150.0422058105469],[1697598000000,147.0918292999268],[1697684400000,146.6008422851563],[1697770800000,145.8362575531006],[1698030000000,146.7190719604492],[1698116400000,146.6117803573609],[1698202800000,143.4018218994141],[1698289200000,141.9790208816528],[1698375600000,145.5538608551026],[1698634800000,147.5246742248535],[1698721200000,148.51536693573],[1698807600000,150.9849863052368],[1698894000000,157.2427331924439],[1698980400000,160.1034585952759],[1699239600000,161.1674657821656],[1699326000000,162.1007116317749],[1699412400000,162.7773508071899],[1699498800000,161.8909017562866],[1699585200000,164.5138710021972],[1699844400000,164.4015844345093],[1699930800000,169.8347467422485],[1700017200000,168.3877065658569],[1700103600000,168.7602550506592],[1700190000000,171.6280572891235],[1700449200000,173.3245441436767],[1700535600000,171.5327165603638],[1700622000000,173.5836799621582],[1700794800000,174.588582611084],[1701054000000,175.7303312301636],[1701140400000,175.2879922866821],[1701226800000,174.8275369644165],[1701313200000,173.5227809906006],[1701399600000,173.7855535507202],[1701658800000,171.5029592514038],[1701745200000,174.5315216064453],[1701831600000,173.4685932159424],[1701918000000,175.203631401062],[1702004400000,176.1668975830078],[1702263600000,177.140934753418],[1702350000000,177.334100151062],[1702436400000,177.7908706665039],[1702522800000,175.4794384002685],[1702609200000,173.4273178100586],[1702868400000,172.5978328704834],[1702954800000,173.57747631073],[1703041200000,169.7658159255982],[1703127600000,170.0815784454346],[1703214000000,169.4993190765381],[1703559600000,170.1349006652832],[1703646000000,170.4742050170898],[1703732400000,169.8988681793213],[1703818800000,169.6200325012207]],"name":"Portfolio"}],"xAxis":{"labels":{"style":{"fontSize":"20px"}}}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"stock","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="your-vsco-bet-did-not-play-well-unfortunately" class="slide level2">
+<h2>Your VSCO bet did not play well, unfortunately</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-58e792e7a34ad95f75df" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-58e792e7a34ad95f75df">{"x":{"filter":"none","vertical":false,"data":[["RACE","Portfolio","AMZN","VSCO"],["58.27%","41.26%","77.04%","-19.55%"],["21.24%","26.38%","32.90%","58.61%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Asset<\/th>\n      <th>Annualized Return<\/th>\n      <th>Annualized Volatility<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Asset","targets":0},{"name":"Annualized Return","targets":1},{"name":"Annualized Volatility","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Adding <span class="blue">VSCO</span> to the portfolio severely hit the overall return, <span class="math inline">\(\small R_p\)</span></p></li>
+<li class="fragment"><p><span class="blue">VSCO</span> was also very volatile: its standard deviation was twice as high as <span class="blue">Amazon</span>. However, the portfolio volatility is substantially lower</p></li>
+<li class="fragment"><p>One way to understand this is to look at the correlation matrix between the assets</p></li>
+</ul>
+</section>
+<section id="vsco-is-not-strongly-correlated-with-the-other-assets" class="slide level2">
+<h2>VSCO is not strongly correlated with the other assets</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-facaf46ea08aa26bddfc" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-facaf46ea08aa26bddfc">{"x":{"filter":"none","vertical":false,"caption":"<caption>Correlation Matrix<\/caption>","data":[["AMZN","RACE","VSCO"],[1,0.39,0.16],[0.39,1,0.14],[0.16,0.14,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>AMZN<\/th>\n      <th>RACE<\/th>\n      <th>VSCO<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"AMZN","targets":1},{"name":"RACE","targets":2},{"name":"VSCO","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ul>
+<li class="fragment">Looking at the correlation matrix, we can see that:
+<ol type="1">
+<li class="fragment"><span class="math inline">\(\small Corr_{\text{AMZN,VSCO}}=0.16\)</span></li>
+<li class="fragment"><span class="math inline">\(\small Corr_{\text{RACE,VSCO}}=0.14\)</span></li>
+</ol></li>
+<li class="fragment">As we can see, because the correlation coefficient is very small, the contribution of <span class="blue">VSCO</span> to the overall portfolio volatility is limited</li>
+</ul>
+</section>
+<section id="the-variance-of-a-3-stock-portfolio" class="slide level2">
+<h2>The variance of a 3-stock portfolio</h2>
+<ul>
+<li class="fragment"><p>How can we extend your variance calculation for three assets?</p></li>
+<li class="fragment"><p>The general formulation of the variance formula shows us that:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small  Var(X)=Var(A+B+C) = E[((A+B+C)-E(A+B+C))]^2 =\\
+\small E[(\underbrace{[A-E(A)]}_{\text{First Term}}+[\underbrace{B-E(B)}_{\text{Second Term}}]+[\underbrace{C-E(C)}_{\text{Third Term}}])^2] \\
+\]</span></p>
+<ul>
+<li class="fragment">This is a quadratic form, and we can decompose it as:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small (A+B+C)^2= A^2+B^2+C^2 + 2AB + 2AC +2BC
+\]</span></p>
+</div>
+</section>
+<section id="the-variance-of-a-3-stock-portfolio-continued" class="slide level2">
+<h2>The variance of a 3-stock portfolio, continued</h2>
+<ul>
+<li class="fragment">In portfolio terms:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \sigma^2_p= \underbrace{w_1^2\times \sigma^2_1}_{I} + \underbrace{w_2^2 \times \sigma^2_1}_{II}
+\small + \underbrace{w_3^2 \times \sigma^3_1}_{III} \\
+\small + \underbrace{2\times w_1\times w_2\times \sigma_1\times\sigma_2\times Corr_{12}}_{IV}
+\small + \underbrace{2\times w_1\times w_3\times \sigma_1\times\sigma_3\times Corr_{13}}_{V}
+\small + \underbrace{2\times w_2\times w_3\times \sigma_2\times\sigma_3\times Corr_{23}}_{VI}
+\]</span></p>
+<ul>
+<li class="fragment"><span class="blue">I, II</span>, and <span class="blue">III</span> capture the individual stock variance contribution</li>
+<li class="fragment"><span class="blue">IV</span> captures the relationship between <span class="blue">Amazon</span> and <span class="blue">Ferrari</span> (as before)</li>
+<li class="fragment"><span class="blue">V</span> captures the relationship between <span class="blue">Amazon</span> and <span class="blue">VSCO</span> (new!)</li>
+<li class="fragment"><span class="blue">VI</span> captures the relationship between <span class="blue">Ferrari</span> and <span class="blue">VSCO</span> (new!)</li>
+</ul>
+</div>
+</section>
+<section id="the-variance-of-a-3-stock-portfolio-continued-1" class="slide level2">
+<h2>The variance of a 3-stock portfolio, continued</h2>
+<ul>
+<li class="fragment">Plugging in the numbers from our exercise:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \underbrace{\small (0.4^2\times 0.3290^2)}_{I} + \underbrace{(0.3^2\times 0.2124^2)}_{II} + \underbrace{(0.3^2\times 0.5861^2)}_{III} \\
+\small + \underbrace{(2\times0.4\times0.3\times0.3290\times0.2124\times0.39)}_{IV} + \underbrace{(2\times0.4\times0.3\times0.3290\times 0.5861\times0.16)}_{V} \\
++\small \underbrace{(2\times0.4\times0.3\times0.3290\times 0.5861\times0.14)}_{VI}=26.38\%
+\]</span></p>
+<ul>
+<li class="fragment">Although <span class="blue">VSCO</span> had incurred in significant losses, its returns were minimally correlated to the the stocks</li>
+</ul>
+</div>
+</section>
+<section id="the-variance-of-a-large-portfolio" class="slide level2">
+<h2>The variance of a large portfolio</h2>
+<ul>
+<li class="fragment">What if you had a significantly high number <span class="math inline">\(N\)</span> of assets in a portfolio? You can generalize the previous formulas using the definition below:</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<p><span class="big">The variance of a portfolio <span class="math inline">\(P\)</span> with <span class="math inline">\(N\)</span> stocks with weights <span class="math inline">\(w_{1,2,...,N}\)</span> is:</span></p>
+<p><span class="math display">\[
+\sigma^2_p=\sum_{i=1}^{N}w_i^2\sigma_i^2 + 2\times\sum_{i=1}^{N}\sum_{j\neq i} w_i w_j \sigma_{ij}
+\]</span></p>
+<ul>
+<li><span class="big">Where:</span>
+<ol type="1">
+<li><span class="big"><span class="math inline">\(\sum_{i=1}^{N}w_i\sigma_i^2\)</span> is the individual stock volatility contribution terms; and</span></li>
+<li><span class="big"><span class="math inline">\(2\times\sum_{i=1}^{N}\sum_{j\neq i} w_i w_j \sigma_{ij}\)</span> represents all the covariance terms from every pairwise combination of stocks in the portfolio</span></li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="volatility-of-a-large-portfolio---matrix-form" class="slide level2">
+<h2>Volatility of a large portfolio - matrix form</h2>
+<ul>
+<li class="fragment">From our previous slide, we saw that the variance of a portfolio was defined as: <span class="math display">\[
+\sigma^2_p=\sum_{i=1}^{N}w_i^2\sigma_i^2 + 2\times\sum_{i=1}^{N}\sum_{j\neq i} w_i w_j \sigma_{ij}
+\]</span></li>
+<li class="fragment">Define <span class="math inline">\(\mathbf{w}\)</span> as the vector of stock’s weights, <span class="math inline">\([w_1,w_2,w_3]\)</span> and <span class="math inline">\(\Sigma\)</span> as the covariance matrix of returns. Then, you can rewrite <span class="math inline">\(\sigma^2_p\)</span> as:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\sigma^2_p = \mathbf{w}'\Sigma\mathbf{w}
+\]</span></p>
+<ul>
+<li class="fragment">In practice, writing the variance of a portfolio in matrix terms simplifies a lot of the calculations if you want to perform calculations using <em>Excel</em> with <span class="math inline">\(n&gt;2\)</span></li>
+</ul>
+</div>
+</section>
+<section id="volatility-of-a-large-portfolio---a-graphical-representation" class="slide level2">
+<h2>Volatility of a large portfolio - a graphical representation</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="Images/F1.png"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Diagonal cells contain <span class="blue">variance</span> terms, and the off-diagonal cells contain the <span class="blue">covariance</span> terms</li>
+<li class="fragment">As <span class="math inline">\(N\)</span> assets increases, the number of terms <span class="blue">outside</span> the main diagonal increases more than the main diagonal.</li>
+<li class="fragment">Therefore, the variance of a well-diversified portfolio is mostly determined by the <span class="blue">covariances</span>, and not the individual stock variance terms!</li>
+</ul>
+</div></div>
+</section>
+<section id="limits-to-diversification" class="slide level2">
+<h2>Limits to diversification</h2>
+<ul>
+<li class="fragment"><p>How much of the variance of a portfolio we can eliminate through diversification?</p></li>
+<li class="fragment"><p>In practical terms:</p>
+<ol type="1">
+<li class="fragment">So, if you increase the size of your portfolio, the risk decreases (until to a certain amount)</li>
+<li class="fragment">Usually, about half of the initial variance can be eliminated through diversification!</li>
+</ol></li>
+<li class="fragment"><p><span class="blue">Which type of risk is eliminated</span>? Only the <span class="blue">idiosyncratic</span> risk! For example, firm-specific characteristics</p></li>
+<li class="fragment"><p><span class="blue">Which type of risk remains</span>? Only the <span class="blue">systematic</span> risk! For example, economic conditions</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>For details regarding the mathematics behind risk minimization through diversification, see example for an equally-weighted portfolio in the Appendix</em></p>
+</div>
+</section>
+<section id="limits-to-diversification-graphical-interpretation" class="slide level2">
+<h2>Limits to diversification, graphical interpretation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F2.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section></section>
+<section>
+<section id="choosing-an-efficient-portfolio" class="title-slide slide level1 center">
+<h1>Choosing an Efficient Portfolio</h1>
+
+</section>
+<section id="choosing-portfolios" class="slide level2">
+<h2>Choosing Portfolios</h2>
+<ul>
+<li class="fragment"><p>Now that we understand how to calculate the expected return and volatility of a portfolio, we can return to the main goal of the chapter: <span class="blue">determine how an investor can create an efficient portfolio</span></p></li>
+<li class="fragment"><p>Let’s start of with the simplest case: create a portfolio with two stocks, <span class="blue">Amazon</span> and <span class="blue">Ferrari</span>. Previously, we’ve shown that, for the analysis period, we had the following results in terms of risk and return:</p></li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-ec646be92303e40f3d4a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ec646be92303e40f3d4a">{"x":{"filter":"none","vertical":false,"data":[["RACE","AMZN"],["58.27%","77.04%"],["21.24%","32.90%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Asset<\/th>\n      <th>Annualized Return<\/th>\n      <th>Annualized Volatility<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Asset","targets":0},{"name":"Annualized Return","targets":1},{"name":"Annualized Volatility","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ul>
+<li class="fragment">Let’s create <span class="math inline">\(5\)</span> different portfolios using <span class="math inline">\(\pm20\%\)</span> of allocation weights in each asset</li>
+</ul>
+</div>
+</section>
+<section id="choosing-an-efficient-portfolio-continued" class="slide level2">
+<h2>Choosing an Efficient Portfolio, continued</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-11b5dbb5a008309fd3ea" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-11b5dbb5a008309fd3ea">{"x":{"filter":"none","vertical":false,"data":[["0.00%","20.00%","40.00%","60.00%","80.00%","100.00%"],["100.00%","80.00%","60.00%","40.00%","20.00%","0.00%"],["58.27%","63.13%","67.48%","71.27%","74.47%","77.04%"],["21.20%","20.43%","21.54%","24.29%","28.18%","32.83%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>AMZN (%)<\/th>\n      <th>RACE (%)<\/th>\n      <th>Return<\/th>\n      <th>Volatility<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"AMZN (%)","targets":0},{"name":"RACE (%)","targets":1},{"name":"Return","targets":2},{"name":"Volatility","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ul>
+<li class="fragment">We can plot this in a figure to show all possible risk <span class="math inline">\(\times\)</span> return combinations</li>
+</ul>
+</section>
+<section id="choosing-an-efficient-portfolio-6-portfolios" class="slide level2">
+<h2>Choosing an Efficient Portfolio, 6 portfolios</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="1440"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="choosing-an-efficient-portfolio-11-portfolios" class="slide level2">
+<h2>Choosing an Efficient Portfolio, 11 portfolios</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="1440"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="choosing-an-efficient-portfolio-100-portfolios" class="slide level2">
+<h2>Choosing an Efficient Portfolio, &gt;100 portfolios</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-7f7f2ce9b5a35a59f804" style="width:1440px;height:768px;"></div>
+<script type="application/json" data-for="htmlwidget-7f7f2ce9b5a35a59f804">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":"Relationship between Risk and Return for AMZN and RACE","style":{"fontSize":"25px"}},"yAxis":{"title":{"text":"Return","style":{"fontSize":"25px"}},"type":"linear","labels":{"style":{"fontSize":"20px"},"format":"{value}%"}},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle","radius":8}}},"series":[{"name":"Efficient","data":[{"AMZN (%)":0.19,"RACE (%)":0.8100000000000001,"Return":0.6289794434971143,"Volatility":0.2042233532897468,"Class":"Efficient","x":0.2042233532897468,"y":0.6289794434971143},{"AMZN (%)":0.2,"RACE (%)":0.8,"Return":0.6312916964520998,"Volatility":0.2042887191556575,"Class":"Efficient","x":0.2042887191556575,"y":0.6312916964520998},{"AMZN (%)":0.21,"RACE (%)":0.79,"Return":0.6335912264777765,"Volatility":0.2044023225939111,"Class":"Efficient","x":0.2044023225939111,"y":0.6335912264777765},{"AMZN (%)":0.22,"RACE (%)":0.78,"Return":0.6358779733859465,"Volatility":0.2045640832391829,"Class":"Efficient","x":0.2045640832391829,"y":0.6358779733859465},{"AMZN (%)":0.23,"RACE (%)":0.77,"Return":0.6381518772734218,"Volatility":0.2047738869664911,"Class":"Efficient","x":0.2047738869664911,"y":0.6381518772734218},{"AMZN (%)":0.24,"RACE (%)":0.76,"Return":0.6404128785246033,"Volatility":0.2050315862920127,"Class":"Efficient","x":0.2050315862920127,"y":0.6404128785246033},{"AMZN (%)":0.25,"RACE (%)":0.75,"Return":0.6426609178139817,"Volatility":0.2053370008879274,"Class":"Efficient","x":0.2053370008879274,"y":0.6426609178139817},{"AMZN (%)":0.26,"RACE (%)":0.74,"Return":0.6448959361086601,"Volatility":0.2056899182071261,"Class":"Efficient","x":0.2056899182071261,"y":0.6448959361086601},{"AMZN (%)":0.27,"RACE (%)":0.73,"Return":0.6471178746708561,"Volatility":0.2060900942127874,"Class":"Efficient","x":0.2060900942127874,"y":0.6471178746708561},{"AMZN (%)":0.28,"RACE (%)":0.72,"Return":0.6493266750604005,"Volatility":0.2065372542070626,"Class":"Efficient","x":0.2065372542070626,"y":0.6493266750604005},{"AMZN (%)":0.29,"RACE (%)":0.71,"Return":0.6515222791372339,"Volatility":0.2070310937524262,"Class":"Efficient","x":0.2070310937524262,"y":0.6515222791372339},{"AMZN (%)":0.3,"RACE (%)":0.7,"Return":0.6537046290638491,"Volatility":0.207571279678656,"Class":"Efficient","x":0.207571279678656,"y":0.6537046290638491},{"AMZN (%)":0.31,"RACE (%)":0.6899999999999999,"Return":0.6558736673077865,"Volatility":0.2081574511679071,"Class":"Efficient","x":0.2081574511679071,"y":0.6558736673077865},{"AMZN (%)":0.32,"RACE (%)":0.6799999999999999,"Return":0.658029336644063,"Volatility":0.2087892209099414,"Class":"Efficient","x":0.2087892209099414,"y":0.658029336644063},{"AMZN (%)":0.33,"RACE (%)":0.6699999999999999,"Return":0.6601715801576231,"Volatility":0.2094661763192732,"Class":"Efficient","x":0.2094661763192732,"y":0.6601715801576231},{"AMZN (%)":0.34,"RACE (%)":0.6599999999999999,"Return":0.6623003412457611,"Volatility":0.2101878808057905,"Class":"Efficient","x":0.2101878808057905,"y":0.6623003412457611},{"AMZN (%)":0.35,"RACE (%)":0.6499999999999999,"Return":0.6644155636205458,"Volatility":0.2109538750903085,"Class":"Efficient","x":0.2109538750903085,"y":0.6644155636205458},{"AMZN (%)":0.36,"RACE (%)":0.64,"Return":0.6665171913112162,"Volatility":0.2117636785565021,"Class":"Efficient","x":0.2117636785565021,"y":0.6665171913112162},{"AMZN (%)":0.37,"RACE (%)":0.63,"Return":0.6686051686665857,"Volatility":0.2126167906307532,"Class":"Efficient","x":0.2126167906307532,"y":0.6686051686665857},{"AMZN (%)":0.38,"RACE (%)":0.62,"Return":0.6706794403574117,"Volatility":0.2135126921816063,"Class":"Efficient","x":0.2135126921816063,"y":0.6706794403574117},{"AMZN (%)":0.39,"RACE (%)":0.61,"Return":0.6727399513787711,"Volatility":0.2144508469307805,"Class":"Efficient","x":0.2144508469307805,"y":0.6727399513787711},{"AMZN (%)":0.4,"RACE (%)":0.6,"Return":0.6747866470524237,"Volatility":0.2154307028679909,"Class":"Efficient","x":0.2154307028679909,"y":0.6747866470524237},{"AMZN (%)":0.41,"RACE (%)":0.59,"Return":0.6768194730291412,"Volatility":0.2164516936622119,"Class":"Efficient","x":0.2164516936622119,"y":0.6768194730291412},{"AMZN (%)":0.42,"RACE (%)":0.5800000000000001,"Return":0.6788383752910527,"Volatility":0.2175132400624368,"Class":"Efficient","x":0.2175132400624368,"y":0.6788383752910527},{"AMZN (%)":0.43,"RACE (%)":0.5700000000000001,"Return":0.6808433001539542,"Volatility":0.2186147512814595,"Class":"Efficient","x":0.2186147512814595,"y":0.6808433001539542},{"AMZN (%)":0.44,"RACE (%)":0.5600000000000001,"Return":0.6828341942696328,"Volatility":0.2197556263566997,"Class":"Efficient","x":0.2197556263566997,"y":0.6828341942696328},{"AMZN (%)":0.45,"RACE (%)":0.55,"Return":0.684811004628131,"Volatility":0.2209352554826238,"Class":"Efficient","x":0.2209352554826238,"y":0.684811004628131},{"AMZN (%)":0.46,"RACE (%)":0.54,"Return":0.6867736785600524,"Volatility":0.2221530213098507,"Class":"Efficient","x":0.2221530213098507,"y":0.6867736785600524},{"AMZN (%)":0.47,"RACE (%)":0.53,"Return":0.6887221637388228,"Volatility":0.2234083002065803,"Class":"Efficient","x":0.2234083002065803,"y":0.6887221637388228},{"AMZN (%)":0.48,"RACE (%)":0.52,"Return":0.6906564081829365,"Volatility":0.2247004634785339,"Class":"Efficient","x":0.2247004634785339,"y":0.6906564081829365},{"AMZN (%)":0.49,"RACE (%)":0.51,"Return":0.692576360258198,"Volatility":0.2260288785441326,"Class":"Efficient","x":0.2260288785441326,"y":0.692576360258198},{"AMZN (%)":0.5,"RACE (%)":0.5,"Return":0.6944819686799644,"Volatility":0.2273929100621749,"Class":"Efficient","x":0.2273929100621749,"y":0.6944819686799644},{"AMZN (%)":0.51,"RACE (%)":0.49,"Return":0.6963731825153368,"Volatility":0.2287919210097822,"Class":"Efficient","x":0.2287919210097822,"y":0.6963731825153368},{"AMZN (%)":0.52,"RACE (%)":0.48,"Return":0.698249951185367,"Volatility":0.2302252737088703,"Class":"Efficient","x":0.2302252737088703,"y":0.698249951185367},{"AMZN (%)":0.53,"RACE (%)":0.47,"Return":0.7001122244672608,"Volatility":0.2316923307998735,"Class":"Efficient","x":0.2316923307998735,"y":0.7001122244672608},{"AMZN (%)":0.54,"RACE (%)":0.46,"Return":0.7019599524965121,"Volatility":0.2331924561618741,"Class":"Efficient","x":0.2331924561618741,"y":0.7019599524965121},{"AMZN (%)":0.55,"RACE (%)":0.45,"Return":0.7037930857690948,"Volatility":0.2347250157787044,"Class":"Efficient","x":0.2347250157787044,"y":0.7037930857690948},{"AMZN (%)":0.5600000000000001,"RACE (%)":0.4399999999999999,"Return":0.7056115751435852,"Volatility":0.2362893785509504,"Class":"Efficient","x":0.2362893785509504,"y":0.7056115751435852},{"AMZN (%)":0.5700000000000001,"RACE (%)":0.4299999999999999,"Return":0.7074153718432983,"Volatility":0.2378849170541325,"Class":"Efficient","x":0.2378849170541325,"y":0.7074153718432983},{"AMZN (%)":0.58,"RACE (%)":0.42,"Return":0.7092044274583891,"Volatility":0.2395110082436391,"Class":"Efficient","x":0.2395110082436391,"y":0.7092044274583891},{"AMZN (%)":0.59,"RACE (%)":0.41,"Return":0.7109786939479807,"Volatility":0.2411670341072623,"Class":"Efficient","x":0.2411670341072623,"y":0.7109786939479807},{"AMZN (%)":0.6,"RACE (%)":0.4,"Return":0.7127381236422055,"Volatility":0.2428523822664258,"Class":"Efficient","x":0.2428523822664258,"y":0.7127381236422055},{"AMZN (%)":0.61,"RACE (%)":0.39,"Return":0.7144826692443098,"Volatility":0.2445664465273984,"Class":"Efficient","x":0.2445664465273984,"y":0.7144826692443098},{"AMZN (%)":0.62,"RACE (%)":0.38,"Return":0.7162122838326839,"Volatility":0.2463086273839698,"Class":"Efficient","x":0.2463086273839698,"y":0.7162122838326839},{"AMZN (%)":0.63,"RACE (%)":0.37,"Return":0.7179269208629155,"Volatility":0.2480783324732082,"Class":"Efficient","x":0.2480783324732082,"y":0.7179269208629155},{"AMZN (%)":0.64,"RACE (%)":0.36,"Return":0.7196265341698018,"Volatility":0.2498749769860436,"Class":"Efficient","x":0.2498749769860436,"y":0.7196265341698018},{"AMZN (%)":0.65,"RACE (%)":0.35,"Return":0.721311077969367,"Volatility":0.2516979840345168,"Class":"Efficient","x":0.2516979840345168,"y":0.721311077969367},{"AMZN (%)":0.66,"RACE (%)":0.34,"Return":0.7229805068608459,"Volatility":0.2535467849776049,"Class":"Efficient","x":0.2535467849776049,"y":0.7229805068608459},{"AMZN (%)":0.67,"RACE (%)":0.33,"Return":0.7246347758286573,"Volatility":0.2554208197075868,"Class":"Efficient","x":0.2554208197075868,"y":0.7246347758286573},{"AMZN (%)":0.68,"RACE (%)":0.32,"Return":0.7262738402443769,"Volatility":0.2573195368989443,"Class":"Efficient","x":0.2573195368989443,"y":0.7262738402443769},{"AMZN (%)":0.6900000000000001,"RACE (%)":0.3099999999999999,"Return":0.7278976558686694,"Volatility":0.2592423942218068,"Class":"Efficient","x":0.2592423942218068,"y":0.7278976558686694},{"AMZN (%)":0.7000000000000001,"RACE (%)":0.2999999999999999,"Return":0.7295061788532222,"Volatility":0.2611888585219477,"Class":"Efficient","x":0.2611888585219477,"y":0.7295061788532222},{"AMZN (%)":0.71,"RACE (%)":0.29,"Return":0.7310993657426534,"Volatility":0.2631584059693272,"Class":"Efficient","x":0.2631584059693272,"y":0.7310993657426534},{"AMZN (%)":0.72,"RACE (%)":0.28,"Return":0.7326771734764108,"Volatility":0.2651505221771444,"Class":"Efficient","x":0.2651505221771444,"y":0.7326771734764108},{"AMZN (%)":0.73,"RACE (%)":0.27,"Return":0.7342395593906546,"Volatility":0.2671647022933292,"Class":"Efficient","x":0.2671647022933292,"y":0.7342395593906546},{"AMZN (%)":0.74,"RACE (%)":0.26,"Return":0.7357864812201145,"Volatility":0.2692004510663569,"Class":"Efficient","x":0.2692004510663569,"y":0.7357864812201145},{"AMZN (%)":0.75,"RACE (%)":0.25,"Return":0.7373178970999288,"Volatility":0.2712572828872116,"Class":"Efficient","x":0.2712572828872116,"y":0.7373178970999288},{"AMZN (%)":0.76,"RACE (%)":0.24,"Return":0.7388337655674899,"Volatility":0.2733347218092704,"Class":"Efficient","x":0.2733347218092704,"y":0.7388337655674899},{"AMZN (%)":0.77,"RACE (%)":0.23,"Return":0.7403340455642442,"Volatility":0.2754323015478133,"Class":"Efficient","x":0.2754323015478133,"y":0.7403340455642442},{"AMZN (%)":0.78,"RACE (%)":0.22,"Return":0.7418186964374964,"Volatility":0.2775495654607945,"Class":"Efficient","x":0.2775495654607945,"y":0.7418186964374964},{"AMZN (%)":0.79,"RACE (%)":0.21,"Return":0.74328767794218,"Volatility":0.2796860665124416,"Class":"Efficient","x":0.2796860665124416,"y":0.74328767794218},{"AMZN (%)":0.8,"RACE (%)":0.2,"Return":0.7447409502426197,"Volatility":0.2818413672211798,"Class":"Efficient","x":0.2818413672211798,"y":0.7447409502426197},{"AMZN (%)":0.8100000000000001,"RACE (%)":0.1899999999999999,"Return":0.7461784739142816,"Volatility":0.2840150395932963,"Class":"Efficient","x":0.2840150395932963,"y":0.7461784739142816},{"AMZN (%)":0.8200000000000001,"RACE (%)":0.1799999999999999,"Return":0.7476002099454939,"Volatility":0.2862066650436977,"Class":"Efficient","x":0.2862066650436977,"y":0.7476002099454939},{"AMZN (%)":0.8300000000000001,"RACE (%)":0.1699999999999999,"Return":0.7490061197391589,"Volatility":0.2884158343050272,"Class":"Efficient","x":0.2884158343050272,"y":0.7490061197391589},{"AMZN (%)":0.84,"RACE (%)":0.16,"Return":0.7503961651144366,"Volatility":0.2906421473263475,"Class":"Efficient","x":0.2906421473263475,"y":0.7503961651144366},{"AMZN (%)":0.85,"RACE (%)":0.15,"Return":0.7517703083084315,"Volatility":0.2928852131625145,"Class":"Efficient","x":0.2928852131625145,"y":0.7517703083084315},{"AMZN (%)":0.86,"RACE (%)":0.14,"Return":0.7531285119778459,"Volatility":0.2951446498553018,"Class":"Efficient","x":0.2951446498553018,"y":0.7531285119778459},{"AMZN (%)":0.87,"RACE (%)":0.13,"Return":0.7544707392005996,"Volatility":0.2974200843072667,"Class":"Efficient","x":0.2974200843072667,"y":0.7544707392005996},{"AMZN (%)":0.88,"RACE (%)":0.12,"Return":0.7557969534774809,"Volatility":0.2997111521492827,"Class":"Efficient","x":0.2997111521492827,"y":0.7557969534774809},{"AMZN (%)":0.89,"RACE (%)":0.11,"Return":0.7571071187337179,"Volatility":0.3020174976025978,"Class":"Efficient","x":0.3020174976025978,"y":0.7571071187337179},{"AMZN (%)":0.9,"RACE (%)":0.09999999999999998,"Return":0.7584011993205901,"Volatility":0.3043387733362211,"Class":"Efficient","x":0.3043387733362211,"y":0.7584011993205901},{"AMZN (%)":0.91,"RACE (%)":0.08999999999999997,"Return":0.7596791600169679,"Volatility":0.3066746403203763,"Class":"Efficient","x":0.3066746403203763,"y":0.7596791600169679},{"AMZN (%)":0.92,"RACE (%)":0.07999999999999996,"Return":0.7609409660308835,"Volatility":0.3090247676767098,"Class":"Efficient","x":0.3090247676767098,"y":0.7609409660308835},{"AMZN (%)":0.93,"RACE (%)":0.06999999999999995,"Return":0.7621865830010413,"Volatility":0.3113888325258833,"Class":"Efficient","x":0.3113888325258833,"y":0.7621865830010413},{"AMZN (%)":0.9400000000000001,"RACE (%)":0.05999999999999994,"Return":0.7634159769983357,"Volatility":0.3137665198331342,"Class":"Efficient","x":0.3137665198331342,"y":0.7634159769983357},{"AMZN (%)":0.9500000000000001,"RACE (%)":0.04999999999999993,"Return":0.7646291145273516,"Volatility":0.3161575222523362,"Class":"Efficient","x":0.3161575222523362,"y":0.7646291145273516},{"AMZN (%)":0.96,"RACE (%)":0.04000000000000004,"Return":0.765825962527813,"Volatility":0.3185615399690492,"Class":"Efficient","x":0.3185615399690492,"y":0.765825962527813},{"AMZN (%)":0.97,"RACE (%)":0.03000000000000003,"Return":0.7670064883760663,"Volatility":0.3209782805430045,"Class":"Efficient","x":0.3209782805430045,"y":0.7670064883760663},{"AMZN (%)":0.98,"RACE (%)":0.02000000000000002,"Return":0.768170659886491,"Volatility":0.3234074587504301,"Class":"Efficient","x":0.3234074587504301,"y":0.768170659886491},{"AMZN (%)":0.99,"RACE (%)":0.01000000000000001,"Return":0.7693184453129334,"Volatility":0.3258487964265857,"Class":"Efficient","x":0.3258487964265857,"y":0.7693184453129334},{"AMZN (%)":1,"RACE (%)":0,"Return":0.7704498133500883,"Volatility":0.3283020223088393,"Class":"Efficient","x":0.3283020223088393,"y":0.7704498133500883}],"type":"scatter"},{"name":"Inneficient","data":[{"AMZN (%)":0,"RACE (%)":1,"Return":0.5827113294772708,"Volatility":0.2120088646275567,"Class":"Inneficient","x":0.2120088646275567,"y":0.5827113294772708},{"AMZN (%)":0.01,"RACE (%)":0.99,"Return":0.5852535221108408,"Volatility":0.2111863351277129,"Class":"Inneficient","x":0.2111863351277129,"y":0.5852535221108408},{"AMZN (%)":0.02,"RACE (%)":0.98,"Return":0.5877841861046322,"Volatility":0.2104074703304508,"Class":"Inneficient","x":0.2104074703304508,"y":0.5877841861046322},{"AMZN (%)":0.03,"RACE (%)":0.97,"Return":0.5903032563491588,"Volatility":0.2096727568360283,"Class":"Inneficient","x":0.2096727568360283,"y":0.5903032563491588},{"AMZN (%)":0.04,"RACE (%)":0.96,"Return":0.5928106679700278,"Volatility":0.2089826603088324,"Class":"Inneficient","x":0.2089826603088324,"y":0.5928106679700278},{"AMZN (%)":0.05,"RACE (%)":0.95,"Return":0.5953063563306624,"Volatility":0.208337624116407,"Class":"Inneficient","x":0.208337624116407,"y":0.5953063563306624},{"AMZN (%)":0.06,"RACE (%)":0.9399999999999999,"Return":0.5977902570349989,"Volatility":0.2077380680023707,"Class":"Inneficient","x":0.2077380680023707,"y":0.5977902570349989},{"AMZN (%)":0.07000000000000001,"RACE (%)":0.9299999999999999,"Return":0.6002623059301424,"Volatility":0.207184386801761,"Class":"Inneficient","x":0.207184386801761,"y":0.6002623059301424},{"AMZN (%)":0.08,"RACE (%)":0.92,"Return":0.6027224391090886,"Volatility":0.2066769492073602,"Class":"Inneficient","x":0.2066769492073602,"y":0.6027224391090886},{"AMZN (%)":0.09,"RACE (%)":0.91,"Return":0.60517059291336,"Volatility":0.2062160965954832,"Class":"Inneficient","x":0.2062160965954832,"y":0.60517059291336},{"AMZN (%)":0.1,"RACE (%)":0.9,"Return":0.6076067039356818,"Volatility":0.2058021419195373,"Class":"Inneficient","x":0.2058021419195373,"y":0.6076067039356818},{"AMZN (%)":0.11,"RACE (%)":0.89,"Return":0.6100307090226467,"Volatility":0.2054353686793902,"Class":"Inneficient","x":0.2054353686793902,"y":0.6100307090226467},{"AMZN (%)":0.12,"RACE (%)":0.88,"Return":0.6124425452773383,"Volatility":0.2051160299742086,"Class":"Inneficient","x":0.2051160299742086,"y":0.6124425452773383},{"AMZN (%)":0.13,"RACE (%)":0.87,"Return":0.6148421500619929,"Volatility":0.2048443476459621,"Class":"Inneficient","x":0.2048443476459621,"y":0.6148421500619929},{"AMZN (%)":0.14,"RACE (%)":0.86,"Return":0.6172294610006224,"Volatility":0.2046205115202162,"Class":"Inneficient","x":0.2046205115202162,"y":0.6172294610006224},{"AMZN (%)":0.15,"RACE (%)":0.85,"Return":0.6196044159816203,"Volatility":0.2044446787501841,"Class":"Inneficient","x":0.2044446787501841,"y":0.6196044159816203},{"AMZN (%)":0.16,"RACE (%)":0.84,"Return":0.6219669531603886,"Volatility":0.2043169732692634,"Class":"Inneficient","x":0.2043169732692634,"y":0.6219669531603886},{"AMZN (%)":0.17,"RACE (%)":0.83,"Return":0.6243170109619496,"Volatility":0.2042374853564733,"Class":"Inneficient","x":0.2042374853564733,"y":0.6243170109619496}],"type":"scatter"},{"name":"Minimum Variance","data":[{"AMZN (%)":0.18,"RACE (%)":0.8200000000000001,"Return":0.6266545280835243,"Volatility":0.2042062713183272,"Class":"Minimum Variance","x":0.2042062713183272,"y":0.6266545280835243}],"type":"scatter"}],"xAxis":{"type":"linear","title":{"text":"Volatility","style":{"fontSize":"25px"}},"labels":{"style":{"fontSize":"20px"},"format":"{value}%"}},"tooltip":{"pointFormat":"Volatility: {point.x: .4f}% <br/>\n                            Return: {point.y: .4f}%","labels":{"style":{"fontSize":"20px"}}}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="choosing-an-efficient-portfolio-1" class="slide level2">
+<h2>Choosing an Efficient Portfolio</h2>
+<ul>
+<li class="fragment">As a financial manager, one crucial job you have is to find portfolios that are not sub-optimal
+<ol type="1">
+<li class="fragment">For a given level of volatility, they deliver the highest possible return</li>
+<li class="fragment">Alternatively, for a given level of return, they deliver the lowest possible volatility</li>
+</ol></li>
+<li class="fragment">An easy what to look at this is to identify the <span class="blue">minimum variance portfolio (MVP)</span>
+<ol type="1">
+<li class="fragment">This portfolio is, among all combinations, the one with the <span class="blue">lowest</span> volatility</li>
+<li class="fragment">From there, if a given portfolio is riskier than the <span class="blue">MVP</span>, it <span class="blue">needs</span> to deliver higher returns!</li>
+<li class="fragment">On the other hand, if a portfolio is riskier than the <span class="blue">MVP</span> and deliver the same/lower returns, it can be considered <span class="red">inefficient</span></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> In other words: investors should look only for efficient portfolios and will choose based on his specific preferences for risk!</p>
+</div>
+</section>
+<section id="the-efficient-frontier" class="slide level2">
+<h2>The Efficient Frontier</h2>
+<ul>
+<li class="fragment"><p>In our example, we used only two assets. What happens when we increase the number of potential assets?</p></li>
+<li class="fragment"><p>Let’s replicate the same rationale by now investing our money in three possible stocks: <span class="blue">Amazon</span>,<span class="blue">Ferrari</span>, and <span class="blue">VSCO</span></p></li>
+</ul>
+</section>
+<section id="which-of-these-portfolios-are-efficient" class="slide level2">
+<h2>Which of these portfolios are efficient?</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="1440"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="which-of-these-portfolios-are-efficient-1" class="slide level2">
+<h2>Which of these portfolios are efficient?</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="1440"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="choosing-an-efficient-portfolio-2" class="slide level2">
+<h2>Choosing an Efficient Portfolio</h2>
+<ul>
+<li class="fragment"><p>What happens when you continuously increase the number of assets?</p>
+<ol type="1">
+<li class="fragment">If you add stocks, you improve the frontier - <em>i.e</em>, you are able to create portfolios that span better options in terms of risk and return</li>
+<li class="fragment">If you continue adding assets, you will have what is called <span class="blue">Efficient Frontier</span></li>
+</ol></li>
+<li class="fragment"><p>The <span class="blue">Efficient Frontier</span> is the set of portfolios where:</p>
+<ol type="1">
+<li class="fragment"><span class="blue">For a given level of volatility</span>, you have the <span class="green">highest</span> possible return among all portfolios with the same volalitity level</li>
+<li class="fragment"><span class="blue">For a given level of return</span>, you have the <span class="green">lowest</span> possible volatility among all portfolios with the same return level</li>
+</ol></li>
+<li class="fragment"><p>Based on this, is there a <span class="blue">single</span> portfolio in which all investors should hold? In practice, investors will choose among portfolios based on their specific preferences for risk and return</p></li>
+</ul>
+</section>
+<section id="the-efficient-frontier-1" class="slide level2">
+<h2>The Efficient Frontier</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F3.png" class="quarto-figure quarto-figure-center" style="width:60.0%;height:60.0%"></p>
+</figure>
+</div>
+</section></section>
+<section>
+<section id="risk-free-saving-and-borrowing" class="title-slide slide level1 center">
+<h1>Risk-Free Saving and Borrowing</h1>
+
+</section>
+<section id="risk-free-saving-and-borrowing-1" class="slide level2">
+<h2>Risk-Free Saving and Borrowing</h2>
+<ul>
+<li class="fragment"><p>Thus far, we have considered the risk and return possibilities that result from combining risky investments into portfolios</p></li>
+<li class="fragment"><p>By including all risky investments in the construction of the efficient frontier, we achieve the maximum diversification possible with risky assets</p></li>
+<li class="fragment"><p>In practice, however, we have the existence of <em>risk-free</em> assets, such as Treasury Bills, Treasury Bonds, <em>Tesouro Direto</em> etc</p></li>
+<li class="fragment"><p>Up to this point, we assumed that all the available assets had a minimum level of risk - for example, stocks</p></li>
+<li class="fragment"><p>In what follows, we will investigate what happens when <span class="blue">we add the possibility of investing in a risk-free asset</span></p></li>
+<li class="fragment"><p>As you’ll see, when you add the risk-free asset, the implication is that <span class="blue">there should only be only one efficient portfolio!</span></p></li>
+</ul>
+</section>
+<section id="risk-free-saving-and-borrowing-2" class="slide level2">
+<h2>Risk-Free Saving and Borrowing</h2>
+<ul>
+<li class="fragment">Assume that you have a risk-free asset, such as a Treasury Bill, where the return is <span class="math inline">\(R_f\)</span> and, by definition, has no risk</li>
+<li class="fragment">You decided to invest a portion <span class="math inline">\(x\)</span> of your holdings in the risky portfolio, and the remaining <span class="math inline">\(1-x\)</span> in the risk-free asset</li>
+<li class="fragment">The expected return from your new portfolio, which we’ll call <span class="math inline">\(R_{C}\)</span>, is:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[E[R_{C}] =  x \times E[R_p] + (1-x) \times R_f \]</span></p>
+<ul>
+<li class="fragment">Rearranging terms, we have that:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small E[R_{C}] =  x \times E[R_p] + R_f - x \times R_f\rightarrow R_f + x \times ( E[R_p] - R_f )
+\]</span></p>
+</div>
+</section>
+<section id="risk-free-saving-and-borrowing-continued" class="slide level2">
+<h2>Risk-Free Saving and Borrowing, continued</h2>
+<ul>
+<li class="fragment">Therefore, the expected return of a portfolio that contains risky assets and a risk-free asset is defined as:</li>
+</ul>
+<p><span class="math display">\[
+\small E[R_{C}] =  R_f + x \times ( E[R_p] - R_f )
+\]</span></p>
+<ul>
+<li class="fragment">This equation shows that the expected return of your portfolio is the sum of:
+<ol type="1">
+<li class="fragment">The risk-free rate; and</li>
+<li class="fragment">A fraction of the portfolio’s risk premium, <span class="math inline">\(E[R_p] - R_f\)</span>, based on the fraction <span class="math inline">\(x\)</span> that we invest in it</li>
+<li class="fragment">A risk-premium is nothing more than the reward for bearing additional risk</li>
+</ol></li>
+<li class="fragment">In other words, if you increase <span class="math inline">\(x\)</span>, your expected gains should increase because you’re more exposed to risk!</li>
+</ul>
+</section>
+<section id="risk-free-saving-and-borrowing-continued-1" class="slide level2">
+<h2>Risk-Free Saving and Borrowing, continued</h2>
+<ul>
+<li class="fragment"><p>What happens to the volatility of a portfolio when you add the possibility of a risk-free asset?</p></li>
+<li class="fragment"><p>Remember that the risk free rate is assumed to have no risk, and therefore its variance is zero. As a consequence, the standard deviation of your portfolio that contains risky and risk-free assets is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\small \sigma_{R_{C}} = \sqrt{(1-x)^2 \times \sigma^2(R_f) + x^2 \times \sigma^2(R_p)  + 2 \times(1-x) \times x \times Cov(R_f, R_p)}\]</span></p>
+<ul>
+<li class="fragment">Because <span class="math inline">\(\small \sigma^2{R_f}=0\)</span>, this simplifies to:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\sigma(R_{C}) = \sqrt{x^2 \times \sigma^2(R_p)}\rightarrow x \times \sigma(R_p)\]</span></p>
+<ul>
+<li class="fragment">That is,<span class="blue">the volatility is only a fraction of the volatility of the portfolio</span>, based on the amount we invest in it.</li>
+</ul>
+</div>
+</section>
+<section id="risk-free-saving-and-borrowing-3" class="slide level2">
+<h2>Risk-Free Saving and Borrowing</h2>
+<ul>
+<li class="fragment"><p>Remember that you can have short positions (<em>“buying stocks on margin”</em>)</p>
+<ol type="1">
+<li class="fragment">If you borrow at the <span class="math inline">\(R_f\)</span> to invest in a portfolio, you have a levered position.</li>
+<li class="fragment">You are investing more than 100% of your funds in the portolio. The weight is higher than 1.</li>
+</ol></li>
+<li class="fragment"><p>To identify the tangent portfolio, we compute the Sharpe ratio.</p></li>
+</ul>
+<p><span class="math display">\[Sharpe\;ratio = \frac{E[R_p]-R_f}{Sd(R_p)}\]</span></p>
+<ul>
+<li class="fragment"><p>To earn the highest possible expected return for any level of volatility we must find the portfolio that generates the steepest (highest inclination) possible line when combined with the risk-free investment.</p></li>
+<li class="fragment"><p>The optimal portfolio to combine with the risk-free asset will be the one with the highest Sharpe ratio, where the line with the risk-free investment just touches, and so is tangent to, the efficient frontier of risky investments</p></li>
+<li class="fragment"><p>The Sharpe ratio measures the ratio of reward-to-volatility provided by a portfolio.</p></li>
+</ul>
+</section>
+<section id="risk-free-saving-and-borrowing-4" class="slide level2">
+<h2>Risk-Free Saving and Borrowing</h2>
+<ol type="1">
+<li class="fragment"><p>Fact 1: The tangent portfolio is efficient.</p></li>
+<li class="fragment"><p>Fact 2: Once we include the risk-free investment, all efficient portfolios are combinations of the risk-free investment and the tangent portfolio.</p></li>
+</ol>
+<ul>
+<li class="fragment"><p>All investors should have the tangent portfolio. All investors should combine the tangent portfolio with the risk free asset to adjust the level of risk.</p></li>
+<li class="fragment"><p>If you ignore the risk free asset, you have several efficient portfolios (efficient frontier). But once you combine with the risk free rate, there is only one.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="efficient-port.-and-required-returns" class="title-slide slide level1 center">
+<h1>Efficient Port. and Required Returns</h1>
+
+</section>
+<section id="efficient-port.-and-required-returns-1" class="slide level2">
+<h2>Efficient Port. and Required Returns</h2>
+<ul>
+<li class="fragment"><p>Let’s now consider how much return we will demand from a risky asset in order to make its inclusion in our portfolio worthy</p></li>
+<li class="fragment"><p>Let’s say that you hold an arbitrary portfolio P (it does not matter what is inside P for the moment).</p></li>
+<li class="fragment"><p>You only include an additional asset if it excess return to the level of risk, right? That is, if it increases the Sharpe ratio of the resulting portfolio (Portfolio P + New asset)</p></li>
+<li class="fragment"><p>What is the excess return that this asset <em>i</em> brings to your portfolio P?</p></li>
+</ul>
+<p><span class="math inline">\(E[R_i] - R_f\)</span> (quite simple!)</p>
+<ul>
+<li class="fragment">Now, what is the risk that this asset <em>i</em> brings to your portfolio P?</li>
+</ul>
+<p><span class="math inline">\(Sd(R_i) \times corr(R_i,R_p)\)</span></p>
+</section>
+<section id="efficient-port.-and-required-returns-2" class="slide level2">
+<h2>Efficient Port. and Required Returns</h2>
+<ul>
+<li class="fragment"><p>So now our question is: is the gain in return from investing in <em>i</em> adequate to make up for the increase in risk?</p></li>
+<li class="fragment"><p>To see that, we have to test if (because the right-hand part is the level of return-to-risk we already have in P).</p></li>
+</ul>
+<p><span class="math display">\[\frac{E[R_i] - R_f}{Sd(R_i) \times corr(R_i,R_p)} &gt; \frac{E[R_p] - R_f}{Sd(R_p)}\]</span></p>
+<ul>
+<li class="fragment">Moving the denominator to the right-hand side:</li>
+</ul>
+<p><span class="math display">\[E[R_i] - R_f &gt; Sd(R_i) \times corr(R_i,R_p) \times \frac{E[R_p] - R_f}{Sd(R_p)}\]</span></p>
+</section>
+<section id="efficient-port.-and-required-returns-3" class="slide level2">
+<h2>Efficient Port. and Required Returns</h2>
+<p><span class="math display">\[E[R_i] - R_f &gt; \frac{Sd(R_i) \times corr(R_i,R_p)}{Sd(R_p)}  \times (E[R_p] - R_f)\]</span></p>
+<ul>
+<li class="fragment">Using a Beta notation:</li>
+</ul>
+<p><span class="math display">\[E[R_i] - R_f &gt; \beta_i^P  \times (E[R_p] - R_f)\]</span></p>
+<ul>
+<li class="fragment"><span class="math display">\[E[R_i]  &gt;  R_f + \beta_i^P  \times (E[R_p] - R_f)\]</span></li>
+</ul>
+</section>
+<section id="efficient-port.-and-required-returns-4" class="slide level2">
+<h2>Efficient Port. and Required Returns</h2>
+<ul>
+<li class="fragment">That is, increasing the amount invested in i will increase the Sharpe ratio of portfolio P if its expected return <span class="math inline">\(E[R_i]\)</span> exceeds its required return given portfolio P, defined as</li>
+</ul>
+<p><span class="math display">\[R_i =  R_f + \beta_i^P  \times (E[R_p] - R_f)\]</span></p>
+</section>
+<section id="efficient-port.-and-required-returns-5" class="slide level2">
+<h2>Efficient Port. and Required Returns</h2>
+<ul>
+<li class="fragment"><p>The required return is the expected return that is necessary to compensate for the risk investment i will contribute to the portfolio.</p></li>
+<li class="fragment"><p>The required return for an investment <em>i</em> is equal to the risk-free interest rate plus the risk premium of the current portfolio, P, scaled by <em>i</em>’s sensitivity to P, which is <span class="math inline">\(\beta_i^P\)</span>.</p></li>
+<li class="fragment"><p>If <em>i</em>’s expected return exceeds this required return, then adding more of it will improve the performance of the portfolio.</p></li>
+</ul>
+</section>
+<section id="efficient-port.-and-required-returns-6" class="slide level2">
+<h2>Efficient Port. and Required Returns</h2>
+<ul>
+<li class="fragment"><p>This equation establishes the relation between an investment’s risk and its expected return.</p></li>
+<li class="fragment"><p>It states that we can determine the appropriate risk premium for an investment from its beta with the efficient portfolio.</p></li>
+</ul>
+<p><span class="math display">\[R_i =  R_f + \beta_i^P  \times (E[R_p] - R_f)\]</span></p>
+</section></section>
+<section>
+<section id="the-capm" class="title-slide slide level1 center">
+<h1>The CAPM</h1>
+
+</section>
+<section id="the-capm-1" class="slide level2">
+<h2>The CAPM</h2>
+<ul>
+<li class="fragment"><p>This is perhaps the most important model in Finance. Three main assumptions:</p>
+<ol type="1">
+<li class="fragment"><p>Investors can buy and sell all securities at competitive market prices (without incurring taxes or transactions costs) and can borrow and lend at the risk-free interest rate.</p></li>
+<li class="fragment"><p>Investors hold only efficient portfolios of traded securities.</p></li>
+<li class="fragment"><p>Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities. There is no information asymmetry</p></li>
+</ol></li>
+<li class="fragment"><p>If investors have homogeneous expectations, they will identify the same efficient portfolio (the highest Sharpe).</p></li>
+<li class="fragment"><p>Under the CAPM assumptions, we can identify the efficient portfolio: It is equal to the market portfolio</p></li>
+<li class="fragment"><p>A Market portfolio contains all traded securities in a economy</p></li>
+</ul>
+</section>
+<section id="the-capm-2" class="slide level2">
+<h2>The CAPM</h2>
+<ul>
+<li class="fragment"><p>If investors identify the same market portfolio (the highest Sharpe), then we can identify the Capital Market Line (CML).</p></li>
+<li class="fragment"><p>All investors will have a combination of the Market Portfolio and the Rf rate.</p></li>
+</ul>
+<p><img src="figs/bm_11_11.png" width="90%"></p>
+</section></section>
+<section>
+<section id="determining-the-risk-premium" class="title-slide slide level1 center">
+<h1>Determining the Risk Premium</h1>
+
+</section>
+<section id="determining-the-risk-premium-1" class="slide level2">
+<h2>Determining the Risk Premium</h2>
+<ul>
+<li class="fragment"><p>Under the CAPM assumptions, we can identify the efficient portfolio: It is equal to the market portfolio.</p></li>
+<li class="fragment"><p>Thus, we can change <span class="math inline">\(R_p\)</span> to <span class="math inline">\(R_m\)</span></p></li>
+</ul>
+<p><span class="math display">\[E[R_i] =  R_f + \beta_i  \times (E[R_m] - R_f)\]</span></p>
+<ul>
+<li class="fragment">The beta of a security measures its volatility due to market risk relative to the market as a whole, and thus captures the security’s sensitivity to market risk.</li>
+</ul>
+</section>
+<section id="determining-the-risk-premium-2" class="slide level2">
+<h2>Determining the Risk Premium</h2>
+<ul>
+<li class="fragment"><p>The Security Market Line: the CAPM implies there is a linear relationship between a stock’s Beta and its expected return.</p></li>
+<li class="fragment"><p>This linear relationship has a name: Security Market Line (SML)</p></li>
+</ul>
+</section>
+<section id="determining-the-risk-premium-3" class="slide level2">
+<h2>Determining the Risk Premium</h2>
+<p><img data-src="figs/bm_11_12.png" style="width:90.0%"></p>
+</section></section>
+<section>
+<section id="questions-and-final-comments" class="title-slide slide level1 center">
+<h1>Questions and Final comments</h1>
+
+</section>
+<section id="question" class="slide level2">
+<h2>Question</h2>
+<p>Imagine that you find the SML in the economy, and you find that two assets lies below it. Would you buy these assets?</p>
+<p><img src="figs/bre13901_0807.jpg" width="100%"></p>
+</section>
+<section id="question-1" class="slide level2">
+<h2>Question</h2>
+<p>Both assets are expensive. They are offering less return than they are expected to offer according to the CAPM.</p>
+<p>Because they are expensive, investors are expected to sell them. So prices are expected to drop.</p>
+</section>
+<section id="final-comments-i" class="slide level2">
+<h2>Final comments I</h2>
+<p>The beta of a portfolio is the weighted average beta of the assets in the portfolio.</p>
+<p><span class="math display">\[\beta_p = \sum_i x_i \times \beta_i\]</span></p>
+</section></section>
+<section>
+<section id="appendix" class="title-slide slide level1 center">
+<h1>Appendix</h1>
+
+</section>
+<section id="proof---variance-of-a-sum-of-two-random-variables" class="slide level2">
+<h2>Proof - Variance of a sum of two random variables</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Theorem I</strong>: the variance of the sum of two random variables equals the sum of the variances of those random variables, plus two times their covariance:</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\small
+\sigma^2(A+B) = \sigma^2_A + \sigma^2_B + 2\times Cov(A,B)
+\]</span> <strong>Proof</strong>: variance is defined as:</p>
+<p><span class="math display">\[
+\small Var(X)=E[(X-E(X))]^2
+\]</span> Therefore, if <span class="math inline">\(X=A+B\)</span>, with <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> being two random variables:</p>
+<p><span class="math display">\[
+\small  Var(X)=Var(A+B) = E[((A+B)-E(A+B))]^2 = E[(\underbrace{[A-E(A)]}_{\text{First Term}}+[\underbrace{B-E(B)}_{\text{Second Term}}])^2] \\
+\]</span> Which is now in the form <span class="math inline">\(\small (A+B)^2=A^2+B^2+2AB\)</span>. Using the fact that <span class="math inline">\(E(\cdot)\)</span> is a linear operator, we can apply it to each of the terms:</p>
+<p><span class="math display">\[
+\small
+= \underbrace{E([A-E(A)]^2}_{\sigma^2_A}+\underbrace{E[B-E(B)]^2}_{\sigma^2_B}+2\times\underbrace{E[A-E(A)][B-E(B)]}_{Cov(A,B)} = \sigma^2_A + \sigma^2_B + 2\times Cov(A,B)\\
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="proof---variance-multiplied-by-a-scalar" class="slide level2">
+<h2>Proof - Variance multiplied by a scalar</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Theorem II</strong>: The variance scales upon multiplication with a constant:</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+  \sigma^2(\beta \times A ) = \beta^2\times \sigma^2_A
+  \]</span> <strong>Proof:</strong> define the variance in terms of <span class="math inline">\(\beta\)</span> and <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+\sigma^2(\beta\times A)=E[\beta\times A-E(\beta\times A)]^2 \\
+\]</span> Since <span class="math inline">\(\beta\)</span> is a constant, <span class="math inline">\(E[\beta]=\beta\)</span> and we can write:</p>
+<p><span class="math display">\[
+[\beta\times A - \beta\times E(A)]^2= E[\beta\times (A-E[A])]^2=\beta^2\times \underbrace{E(A-E[A])]^2}_{\sigma^2_A}
+\]</span> Therefore, whenever there is a scale constant multiplying a random variable, it scales the variance: <span class="math inline">\(\beta^2 \times\sigma^2_A\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="limits-to-diversification-1" class="slide level2">
+<h2>Limits to diversification</h2>
+<ul>
+<li class="fragment">How much of the variance of a portfolio we can eliminate through diversification? To see that, assume that we hold a portfolio with equal weights <span class="math inline">\(\frac{1}{N}\)</span> to all assets</li>
+</ul>
+<ol type="1">
+<li class="fragment"><strong>In the diagonal</strong>, we have <span class="math inline">\(N\)</span> boxes with <span class="math inline">\(\dfrac{1}{N^2}\times \overline{Var}\)</span>, where <span class="math inline">\(\overline{Var}\)</span> is the average variance</li>
+<li class="fragment"><strong>Off the diagonal</strong>, we have <span class="math inline">\(N^2-N\)</span> boxes with <span class="math inline">\(\dfrac{1}{N^2}\times \overline{Cov}\)</span>, where <span class="math inline">\(\overline{Cov}\)</span> is the average covariance</li>
+</ol>
+<ul>
+<li class="fragment">Therefere, you can rearrange terms to get:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small Var(R_p) = \bigg(N\times\dfrac{1}{N^2}\times \overline{Var}\bigg)+ \bigg[(N^2-N)\dfrac{1}{N^2}\times \overline{Cov}\bigg]\\
+\small = \bigg(\frac{1}{N} \times \overline{Var}\bigg) + \bigg[\bigg(1-\frac{1}{N}\bigg) \times \overline{Cov}\bigg]
+\]</span></p>
+</div>
+</section>
+<section id="limits-to-diversification-continued" class="slide level2">
+<h2>Limits to diversification, continued</h2>
+<ul>
+<li class="fragment">What happens if <span class="math inline">\(N\rightarrow\infty\)</span>? If you look at our equation, you’ll see that <span class="blue">only the covariance terms remain</span>:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \underset{N\rightarrow\infty}{\small Var(R_p)} = \bigg(\frac{1}{\infty} \times \overline{Var}\bigg) + \bigg[\bigg(1-\frac{1}{\infty}\bigg) \times \overline{Cov}\bigg]\rightarrow \overline{Cov}
+\]</span></p>
+</div>
+</section>
+<section id="volatility-of-a-large-portfolio-with-arbitrary-weights" class="slide level2">
+<h2>Volatility of a large portfolio with arbitrary weights</h2>
+<ul>
+<li class="fragment">What if we don’t have an equally-weighted portfolio? As <span class="math inline">\(N\)</span> increases, you can rewrite the variance of the portfolio<sup>1</sup> as:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\small \sigma^2_{R_p} = \sum_i w_i \times Cov(R_i,R_p)\]</span></p>
+<ul>
+<li class="fragment"><p>The variance of a portfolio approaches the <span class="blue">weighted average covariance of each stock with the portfolio</span>!</p></li>
+<li class="fragment"><p>Because <span class="math inline">\(\small Cov(R_i,R_P) = \sigma_i \times \sigma_p \times Corr_{i,p}\)</span>) you can also write it as:</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\sigma^2_{R_p} = \sum_i x_i \times \sigma_{i} \times \sigma_{p} \times Corr_{i,p}\]</span></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>See <span class="citation" data-cites="BDM">Berk and DeMarzo (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span>, pg. 409 for a detailed explanation.</p></li></ol></aside></section>
+<section id="volatility-of-a-large-portfolio-with-arbitrary-weights-1" class="slide level2">
+<h2>Volatility of a large portfolio with arbitrary weights</h2>
+<ul>
+<li class="fragment">If we divide both sides of this equation by <span class="math inline">\(\sigma_{p}\)</span>, we find:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\sigma_{p} = \sum_i x_i \times \sigma_{i}  \times Corr(R_i,R_p)\]</span></p>
+<ul>
+<li class="fragment"><p><strong>Why this equation is important?</strong></p>
+<ol type="1">
+<li class="fragment"><p>It shows the <span class="blue">amount of risk that each security brings to portfolio</span></p></li>
+<li class="fragment"><p>Each asset <span class="math inline">\(i\)</span> contributes to the portfolio’s volatility according to its standard deviation (<span class="math inline">\(\sigma_i\)</span>) scaled by its correlation with the portfolio</p></li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div class="quarto-auto-generated-content">
+<p><img src="logo.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-BDM" class="csl-entry" role="listitem">
+Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Global Edition / English Textbooks. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
+</div>
+<div id="ref-BMA" class="csl-entry" role="listitem">
+Brealey, R. A., S. C. Myers, and F. Allen. 2020. <em>Principles of Corporate Finance</em>. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. <a href="https://books.google.com.br/books?id=nsrHuwEACAAJ">https://books.google.com.br/books?id=nsrHuwEACAAJ</a>.
+</div>
+</div>
+</section></section>
+
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
