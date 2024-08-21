@@ -529,7 +529,7 @@ $$
 $$
 \sigma^2_p=\sum_{i=1}^{N}w_i^2\sigma_i^2 + 2\times\sum_{i=1}^{N}\sum_{j\neq i} w_i w_j \sigma_{ij}
 $$
-- Define $\mathbf{w}$ as the vector of stock's weights, $[w_1,w_2,w_3]$ and $\Sigma$ as the covariance matrix of returns. Then, you can rewrite $\sigma^2_p$ as:
+- Define $\mathbf{w}$ as the vector of stock's weights, $[w_1,w_2,w_3,...,w_n]$ and $\Sigma$ as the covariance matrix of returns. Then, you can rewrite $\sigma^2_p$ as:
 
 . . .
 
