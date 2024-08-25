@@ -119,6 +119,45 @@ library(scales)
 library(downloadthis)
 library(tibble)
 
+#Higharter Theme
+Theme <- hc_theme(
+  chart = list(
+    backgroundColor = "#FFFFFF"
+  ),
+  title = list(
+    style = list(
+      color = "#333333",
+      fontSize = '30px'
+    )
+  ),
+  subtitle = list(
+    style = list(
+      color = "#666666",
+      fontSize = "25px"
+    )
+  ),
+  legend = list(
+    itemStyle = list(
+      color = "#666666"
+      )
+    ),
+  yAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+
+  ),
+  xAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+  )
+)
+
 tickers = c('AMZN','RACE')
 
 Prices=map(tickers,getSymbols,from='2023-01-01',to='2024-01-01',auto.assign = FALSE)%>%
@@ -130,27 +169,23 @@ Prices=map(tickers,getSymbols,from='2023-01-01',to='2024-01-01',auto.assign = FA
 
 Returns=Prices%>%map(dailyReturn,leading=FALSE)%>%map(na.omit)
   
-F1=highchart(type = "stock")%>%
-        hc_yAxis(labels = list(format = "${value}"))%>%
-        hc_tooltip(valueDecimals=2,valuePrefix='$')
+F1=highchart(type = "stock")
 
-for (i in 1:length(Prices)){
-
-F1=F1%>%hc_add_series(name=tickers[i],Prices[[i]])
-
+  for (i in 1:length(Prices)){
+    F1=F1%>%hc_add_series(name=tickers[i],Prices[[i]])
 }
 
 #Plot
 F1%>%
-  hc_add_series(name='Portfolio',0.4*Prices[[1]]+0.6*Prices[[2]])%>%
-hc_title(text="Price trends for individual assets and portfolio (2023-2024)",
-         style=list(fontSize='30px'))%>%
-hc_yAxis(labels = list(format = "${value}",
-                       style=list(fontSize='20px')))%>%
-hc_xAxis(labels = list(style=list(fontSize='20px')))
+hc_title(text="Price trends for individual assets and portfolio (2023-2024)")%>%
+hc_subtitle(text='Considering closing adjusted prices from Yahoo! Finance')%>%
+hc_add_series(name='Portfolio',0.4*Prices[[1]]+0.6*Prices[[2]])%>%
+hc_yAxis(labels = list(format = "${value}"))%>%
+hc_tooltip(valueDecimals=2,valuePrefix='$')%>%
+hc_add_theme(Theme)
+
 
 ```
-
 
 ## Practice {visibility="hidden"}
 
@@ -254,7 +289,7 @@ $$
 . . .
 
 $$
-\small \sigma^2(R_p)=\sigma^2(w_1\times R_1+w_2\times R_2)=w_1^2\times \sigma^2_1 + w_2^2 \times \sigma^2_1 + 2\times w_1\times w_2\times \sigma_{1,2}
+\small \sigma^2(R_p)=\sigma^2(w_1\times R_1+w_2\times R_2)=w_1^2\times \sigma^2_1 + w_2^2 \times \sigma^2_2 + 2\times w_1\times w_2\times \sigma_{1,2}
 $$
 
 ## Variance in terms of correlation
@@ -318,11 +353,11 @@ $$
 \small \underbrace{\small 0.4^2\times 0.3290^2+0.6^2\times 0.2124^2}_{I} + \underbrace{2\times 0.4\times0.6\times 0.3290\times 0.2124\times 0.3886}_{II} = 0.04659402
 $$
 
-- Therefore, $\sigma_{p}$ is simply $\small \sqrt{0.04659402}=0.2159$ or 21.59\%. You could also calculate the daily portfolio variance and annualize it at the end multiplying it by $\sqrt{n}$
+-   Therefore, $\sigma_{p}$ is simply $\small \sqrt{0.04659402}=0.2159$ or 21.59%. You could also calculate the daily portfolio variance and annualize it at the end multiplying it by $\sqrt{n}$
 
 ## Variance of a 2-stock portfolio, continued
 
-- Looking at our formula, we have:
+-   Looking at our formula, we have:
 
 $$
 \small \sigma^2_p= w_1^2\times \sigma^2_1 + w_2^2 \times \sigma^2_1 + 2\times w_1\times w_2\times \sigma_1 \times \sigma_2 \times Corr_{12}\\
@@ -392,11 +427,10 @@ F1=F1%>%hc_add_series(name=tickers[i],Prices[[i]])
 
 #Plot
 F1%>%hc_add_series(name='Portfolio',0.4*Prices[[1]]+0.3*Prices[[2]]+0.3*Prices[[3]])%>%
-hc_title(text="Price trends for individual assets and portfolio (2023-2024)",
-         style=list(fontSize='30px'))%>%
-hc_yAxis(labels = list(format = "${value}",
-                       style=list(fontSize='20px')))%>%
-hc_xAxis(labels = list(style=list(fontSize='20px')))
+hc_title(text="Price trends for individual assets and portfolio (2023-2024)")%>%
+hc_subtitle(text='Considering closing adjusted prices from Yahoo! Finance')%>%
+hc_yAxis(labels = list(format = "${value}"))%>%
+hc_add_theme(Theme)
 
 
 ```
@@ -495,7 +529,7 @@ $$
 $$
 \small \underbrace{\small (0.4^2\times 0.3290^2)}_{I} + \underbrace{(0.3^2\times 0.2124^2)}_{II} + \underbrace{(0.3^2\times 0.5861^2)}_{III} \\
 \small + \underbrace{(2\times0.4\times0.3\times0.3290\times0.2124\times0.39)}_{IV} + \underbrace{(2\times0.4\times0.3\times0.3290\times 0.5861\times0.16)}_{V} \\ 
-+\small \underbrace{(2\times0.4\times0.3\times0.3290\times 0.5861\times0.14)}_{VI}=26.38\%
++\small \underbrace{(2\times0.4\times0.3\times0.2124\times 0.5861\times0.14)}_{VI}=26.38\%
 $$
 
 -   Although [VSCO]{.blue} had incurred in significant losses, its returns were minimally correlated to the the stocks
@@ -522,14 +556,12 @@ $$
 :::
 :::
 
-
 ## Volatility of a large portfolio - matrix form
 
-- From our previous slide, we saw that the variance of a portfolio was defined as:
-$$
-\sigma^2_p=\sum_{i=1}^{N}w_i^2\sigma_i^2 + 2\times\sum_{i=1}^{N}\sum_{j\neq i} w_i w_j \sigma_{ij}
-$$
-- Define $\mathbf{w}$ as the vector of stock's weights, $[w_1,w_2,w_3,...,w_n]$ and $\Sigma$ as the covariance matrix of returns. Then, you can rewrite $\sigma^2_p$ as:
+-   From our previous slide, we saw that the variance of a portfolio was defined as: $$
+    \sigma^2_p=\sum_{i=1}^{N}w_i^2\sigma_i^2 + 2\times\sum_{i=1}^{N}\sum_{j\neq i} w_i w_j \sigma_{ij}
+    $$
+-   Define $\mathbf{w}$ as the vector of stock's weights, $[w_1,w_2,w_3,...,w_n]$ and $\Sigma$ as the covariance matrix of returns. Then, you can rewrite $\sigma^2_p$ as:
 
 . . .
 
@@ -537,8 +569,7 @@ $$
 \sigma^2_p = \mathbf{w}'\Sigma\mathbf{w}
 $$
 
-- In practice, writing the variance of a portfolio in matrix terms simplifies a lot of the calculations if you want to perform calculations using *Excel* with $n>2$
-
+-   In practice, writing the variance of a portfolio in matrix terms simplifies a lot of the calculations if you want to perform calculations using *Excel* with $n>2$
 
 ## Volatility of a large portfolio - a graphical representation
 
@@ -559,9 +590,12 @@ $$
 -   How much of the variance of a portfolio we can eliminate through diversification?
 
 -   In practical terms:
+
     1.  So, if you increase the size of your portfolio, the risk decreases (until to a certain amount)
     2.  Usually, about half of the initial variance can be eliminated through diversification!
+
 -   [Which type of risk is eliminated]{.blue}? Only the [idiosyncratic]{.blue} risk! For example, firm-specific characteristics
+
 -   [Which type of risk remains]{.blue}? Only the [systematic]{.blue} risk! For example, economic conditions
 
 . . .
@@ -571,7 +605,6 @@ $\rightarrow$ *For details regarding the mathematics behind risk minimization th
 ## Limits to diversification, graphical interpretation
 
 ![](Images/F2.png){fig-align="center" width="80%"}
-
 
 # Choosing an Efficient Portfolio
 
@@ -653,21 +686,26 @@ metrics=do.call('rbind',map(weights_list,get_metrics,return=Returns))
 #| fig-width: 15
 #| fig-height: 8
 
-weights_list=cbind(seq(0,1,0.2),seq(1,0,-0.2))%>%split(1:6)
-metrics=do.call('rbind',map(weights_list,get_metrics,return=Returns))
+weights=cbind(seq(0,1,0.2),seq(1,0,-0.2))%>%split(1:6)
+metrics=do.call('rbind',map(weights,get_metrics,return=Returns))
+data=cbind(do.call('rbind',weights),metrics)%>%
+  setNames(c(paste0(tickers," (%)"),'Return','Volatility'))%>%
+  mutate(Portfolio= paste0(percent(`AMZN (%)`),' AMZN, ',percent(`RACE (%)`),' RACE'))
 
-cbind(do.call('rbind',weights_list),metrics)%>%setNames(c(paste0(tickers," (%)"),'Return','Volatility'))%>%
-ggplot(aes(x=Volatility,y=Return))+
-  geom_point(size=4,color='darkblue')+
-  scale_y_continuous(limits=c(0.5,0.8),labels = percent)+
-  scale_x_continuous(limits=c(0.1,0.5),labels = percent)+
-  theme_minimal()+
-  labs(title = 'Volatility Versus Expected Return for Portfolios of Amazon and Ferrari',
-       subtitle = 'Varying on +-20% of allocation weights across each asset')+
-  theme(axis.title = element_text(size=20,face='bold'),
-        plot.subtitle = element_text(size = 20,face = 'plain'),
-        title = element_text(size=25,face='bold'),
-        axis.text = element_text(size=15))
+
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return)) %>%
+  hc_plotOptions(scatter=list(marker=list(radius=8),name='Portfolio'))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .2f}% <br/>
+                            Return: {point.y: .2f}%',
+             labels = list(style=list(fontSize='20px')))%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)
+
 
 ```
 
@@ -678,21 +716,25 @@ ggplot(aes(x=Volatility,y=Return))+
 #| fig-width: 15
 #| fig-height: 8
 
-weights_list=cbind(seq(0,1,0.1),seq(1,0,-0.1))%>%split(1:11)
-metrics=do.call('rbind',map(weights_list,get_metrics,return=Returns))
+weights=cbind(seq(0,1,0.1),seq(1,0,-0.1))%>%split(1:11)
+metrics=do.call('rbind',map(weights,get_metrics,return=Returns))
+data=cbind(do.call('rbind',weights),metrics)%>%
+  setNames(c(paste0(tickers," (%)"),'Return','Volatility'))%>%
+  mutate(Portfolio= paste0(percent(`AMZN (%)`),' AMZN, ',percent(`RACE (%)`),' RACE'))
 
-cbind(do.call('rbind',weights_list),metrics)%>%setNames(c(paste0(tickers," (%)"),'Return','Volatility'))%>%
-ggplot(aes(x=Volatility,y=Return))+
-  geom_point(size=3,color='darkblue')+
-  scale_y_continuous(limits=c(0.5,0.8),labels = percent)+
-  scale_x_continuous(limits=c(0.1,0.5),labels = percent)+
-  theme_minimal()+
-  labs(title = 'Volatility Versus Expected Return for Portfolios of Amazon and Ferrari',
-       subtitle = 'Varying on +-10% of allocation weights across each asset')+
-  theme(axis.title = element_text(size=20,face='bold'),
-        plot.subtitle = element_text(size = 20,face = 'plain'),
-        title = element_text(size=25,face='bold'),
-        axis.text = element_text(size=15))
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return)) %>%
+  hc_plotOptions(scatter=list(marker=list(radius=8),name='Portfolio'))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .2f}% <br/>
+                            Return: {point.y: .2f}%',
+             labels = list(style=list(fontSize='20px')))%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)
+
 ```
 
 ## Choosing an Efficient Portfolio, \>100 portfolios
@@ -702,28 +744,25 @@ ggplot(aes(x=Volatility,y=Return))+
 #| fig-width: 15
 #| fig-height: 8
 
-weights_list=cbind(seq(0,1,0.01),seq(1,0,-0.01))%>%split(1:101)
-metrics=do.call('rbind',map(weights_list,get_metrics,return=Returns))
+weights=cbind(seq(0,1,0.01),seq(1,0,-0.01))%>%split(1:101)
+metrics=do.call('rbind',map(weights,get_metrics,return=Returns))
 color=which(metrics$sd==min(metrics$sd))
 color=c(rep('Inneficient',color-1),'Minimum Variance',rep('Efficient',nrow(metrics)-color))
-  
-cbind(do.call('rbind',weights_list),metrics,color)%>%
-  setNames(c(paste0(tickers," (%)"),'Return','Volatility','Class'))%>%
-hchart(
-         type = "scatter", 
-         hcaes(x = Volatility, 
-               y = Return, 
-               group = Class)) %>%
+data= cbind(do.call('rbind',weights),metrics,color)%>%
+  setNames(c(paste0(tickers," (%)"),'Return','Volatility','Class'))
+
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return, 
+             group = Class)) %>%
   hc_plotOptions(scatter=list(marker=list(radius=8)))%>%
   hc_tooltip(pointFormat = 'Volatility: {point.x: .4f}% <br/>
-                            Return: {point.y: .4f}%',
-             labels = list(style=list(fontSize='20px')))%>%
-  hc_title(text='Relationship between Risk and Return for AMZN and RACE',
-         style=list(fontSize='25px'))%>%
-  hc_xAxis(labels = list(style=list(fontSize='20px'),format='{value}%'),
-           title = list(style=list(fontSize='25px')))%>%
-  hc_yAxis(labels = list(style=list(fontSize='20px'),format='{value}%'),
-           title = list(style=list(fontSize='25px')))
+                            Return: {point.y: .4f}%')%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)
   
   
 ```
@@ -740,7 +779,7 @@ hchart(
 
 . . .
 
-$\rightarrow$ In other words: investors should look only for efficient portfolios and will choose based on his specific preferences for risk!
+$\rightarrow$ *In other words: investors should look only for efficient portfolios and will choose based on his specific preferences for risk!*
 
 ## The Efficient Frontier
 
@@ -776,23 +815,22 @@ weights_list=weights_list%>%split(1:nrow(weights_list))
 
 metrics=do.call('rbind',map(weights_list,get_metrics,return=Returns))
 
-Portfolios=cbind(do.call('rbind',weights_list),metrics)%>%setNames(c(paste0(tickers," (%)"),'Return','Volatility'))
+data=cbind(do.call('rbind',weights_list),metrics)%>%setNames(c(paste0(tickers," (%)"),'Return','Volatility'))
 
-MVP=Portfolios%>%arrange(Volatility)%>%slice(1)
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return)) %>%
+  hc_plotOptions(scatter=list(marker=list(radius=8),
+                              opacity=0.5,
+                              name='Portfolio'))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .4f}% <br/>
+                            Return: {point.y: .4f}%')%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)
 
-Portfolios%>%mutate(Class=ifelse(Return>MVP$Return,'Efficient','Inefficient'))%>%
-ggplot(aes(x=Volatility,y=Return))+
-  geom_point(size=2,col='blue',alpha=0.5)+
-  scale_y_continuous(labels = percent)+
-  scale_x_continuous(labels = percent)+
-  theme_minimal()+
-  labs(title = 'Volatility Versus Expected Return for 3-stock portfolios',
-       subtitle = 'Varying on +-1% of allocation weights across each asset')+
-  theme(axis.title = element_text(size=20,face='bold'),
-        plot.subtitle = element_text(size = 20,face = 'plain'),
-        title = element_text(size=25,face='bold'),
-        axis.text = element_text(size=15),
-        legend.position = 'bottom')
 ```
 
 ## Which of these portfolios are efficient?
@@ -802,44 +840,25 @@ ggplot(aes(x=Volatility,y=Return))+
 #| fig-width: 15
 #| fig-height: 8
 
-tickers = c('AMZN','RACE','VSCO')
+MVP=data%>%arrange(Volatility)%>%slice(1)
 
-Prices=map(tickers,getSymbols,from='2023-01-01',to='2024-01-01',auto.assign = FALSE)%>%
-  setNames(tickers)%>%
-  map(~xts::.subset.xts(.,j=6))%>%
-  map(as.data.frame)%>%
-  map(~setNames(.x,'Price'))%>%
-  map(as.xts)
+data=data%>%mutate(ID=row_number(),Class=ifelse(ID != rownames(MVP),'Other','Minimum Variance'))
 
-Returns=Prices%>%map(dailyReturn,trailing=FALSE)%>%na.omit()
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return,
+             group = Class))%>%
+  hc_plotOptions(scatter=list(marker=list(radius=8),
+                              opacity=0.5))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .4f}% <br/>
+                            Return: {point.y: .4f}%')%>%
+  hc_title(text='Relationship between Risk and Return for AMZN,RACE, and VSCO')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)%>%
+  hc_colors(c('green','lightblue'))
 
-df <- expand.grid(X = 0:100,
-                  Y = 0:100,
-                  Z = 0:100)
-
-weights_list=df[rowSums(df)==100,]
-weights_list=weights_list/100
-weights_list=weights_list%>%split(1:nrow(weights_list))
-
-metrics=do.call('rbind',map(weights_list,get_metrics,return=Returns))
-
-Portfolios=cbind(do.call('rbind',weights_list),metrics)%>%setNames(c(paste0(tickers," (%)"),'Return','Volatility'))
-
-MVP=Portfolios%>%mutate(id=row_number(),Pctile=ntile(Volatility,100))%>%arrange(Pctile,desc(Return))%>%group_by(Pctile)%>%slice(1)
-
-Portfolios%>%mutate(id=row_number(),Class=ifelse(id %in% unique(MVP$id),'Efficient','Inefficient'))%>%
-ggplot(aes(x=Volatility,y=Return,col=Class))+
-  geom_point(size=2,alpha=0.5)+
-  scale_y_continuous(labels = percent)+
-  scale_x_continuous(labels = percent)+
-  theme_minimal()+
-  labs(title = 'Volatility Versus Expected Return for 3-stock portfolios',
-       subtitle = 'Varying on +-1% of allocation weights across each asset')+
-  theme(axis.title = element_text(size=20,face='bold'),
-        plot.subtitle = element_text(size = 20,face = 'plain'),
-        title = element_text(size=25,face='bold'),
-        axis.text = element_text(size=15),
-        legend.position = 'bottom')
 ```
 
 ## Choosing an Efficient Portfolio
@@ -854,7 +873,7 @@ ggplot(aes(x=Volatility,y=Return,col=Class))+
     1.  [For a given level of volatility]{.blue}, you have the [highest]{.green} possible return among all portfolios with the same volalitity level
     2.  [For a given level of return]{.blue}, you have the [lowest]{.green} possible volatility among all portfolios with the same return level
 
--   Based on this, is there a [single]{.blue} portfolio in which all investors should hold? In practice, investors will choose among portfolios based on their specific preferences for risk and return
+-   Based on this, is there a [single]{.blue} portfolio in which all investors should hold? **No!** In practice, investors will choose among portfolios based on their specific preferences for risk and return
 
 ## The Efficient Frontier
 
@@ -891,20 +910,22 @@ $$E[R_{C}] =  x \times E[R_p] + (1-x) \times R_f $$
 . . .
 
 $$
-\small E[R_{C}] =  x \times E[R_p] + R_f - x \times R_f\rightarrow R_f + x \times ( E[R_p] - R_f )
+E[R_{C}] =  x \times E[R_p] + R_f - x \times R_f\rightarrow R_f + x \times ( E[R_p] - R_f )
 $$
 
 ## Risk-Free Saving and Borrowing, continued
 
 -   Therefore, the expected return of a portfolio that contains risky assets and a risk-free asset is defined as:
 
+. . .
+
 $$
-\small E[R_{C}] =  R_f + x \times ( E[R_p] - R_f )
+E[R_{C}] =  R_f + x \times ( E[R_p] - R_f )
 $$
 
 -   This equation shows that the expected return of your portfolio is the sum of:
     1.  The risk-free rate; and
-    2.  A fraction of the portfolio's risk premium, $E[R_p] - R_f$, based on the fraction $x$ that we invest in it
+    2.  A fraction of the portfolio's [risk premium]{.blue}, $E[R_p] - R_f$, based on the fraction $x$ that we invest in it
     3.  A risk-premium is nothing more than the reward for bearing additional risk
 -   In other words, if you increase $x$, your expected gains should increase because you're more exposed to risk!
 
@@ -916,175 +937,318 @@ $$
 
 . . .
 
-$$\small \sigma_{R_{C}} = \sqrt{(1-x)^2 \times \sigma^2(R_f) + x^2 \times \sigma^2(R_p)  + 2 \times(1-x) \times x \times Cov(R_f, R_p)}$$
+$$\small \sigma_{R_{C}} = \sqrt{(1-x)^2 \times \sigma^2_{R_f} + x^2 \times \sigma^2_{R_p}  + 2 \times(1-x) \times x \times Cov(R_f, R_p)}$$
 
--   Because $\small \sigma^2{R_f}=0$, this simplifies to:
+-   Because $\small \sigma^2_{R_f}=0$, this simplifies to:
 
 . . .
 
-$$\sigma(R_{C}) = \sqrt{x^2 \times \sigma^2(R_p)}\rightarrow x \times \sigma(R_p)$$
+$$\sigma_{R_{C}} = \sqrt{x^2 \times \sigma^2_{R_p}}\rightarrow x \times \sigma_{R_p}$$
 
--   That is,[the volatility is only a fraction of the volatility of the portfolio]{.blue}, based on the amount we invest in it.
+-   That is, [the volatility is only a fraction of the volatility of the portfolio]{.blue}, based on the amount we invest in it
+
+## Risk-free combinations in practice
+
+-   In order to make this point clear, let's go back to the efficient frontier built on top of the $>100$ portfolios created using [AMZN]{.blue} and [RACE]{.blue}
+
+-   To facilitate the comparison, we'll convert risk and return to annual terms
+
+-   If that is true, then the minimum-variance portfolio has:
+
+    1.  Annual Return $\approx 3.82\%$
+    2.  Annual Volatility $\approx 3.24\%$
+
+-   Suppose you have an risk-free investment opportunity, $R_f$, that generates a risk-free return of 2%
+
+-   If that is true, we can think about all linear combinations of $[R_f,R_p]$ in which the returns are a weighted average of $R_f$ and $R_p$ and the volatility is only a fraction of $R_p$'s volatility
+
+## Risk-free combinations, graphical interpretation
+
+```{r}
+#| fig-align: center
+#| fig-width: 15
+#| fig-height: 8
+
+tickers = c('AMZN','RACE')
+
+Prices=map(tickers,getSymbols,from='2023-01-01',to='2024-01-01',auto.assign = FALSE)%>%
+  setNames(tickers)%>%
+  map(~xts::.subset.xts(.,j=6))%>%
+  map(as.data.frame)%>%
+  map(~setNames(.x,'Price'))%>%
+  map(as.xts)
+
+Returns=Prices%>%map(dailyReturn,leading=FALSE)%>%map(na.omit)
+metrics=do.call('rbind',map(weights,get_metrics,return=Returns))
+metrics$return=(1+metrics$return/100)^252-1
+metrics$sd=metrics$sd*sqrt(252)
+
+color=which(metrics$sd==min(metrics$sd))
+color=c(rep('Inneficient',color-1),'Minimum Variance',rep('Efficient',nrow(metrics)-color))
+data= cbind(do.call('rbind',weights),metrics,color)%>%setNames(c(paste0(tickers," (%)"),'Return','Volatility','Class'))
+MVP=data%>%arrange(Volatility)%>%slice(1)
+
+#Create the vector of weights
+weights=cbind(seq(1,0,-0.01),seq(0,1,0.01))%>%split(1:101)
+
+#Create the vector of returns
+rf=2
+returns=lapply(1:101,function(j) c(rf,MVP$Return))
+
+#Create the vector of sd
+sd=MVP$Volatility
+
+margin_portfolio = function(weights,returns,sd){
+  
+  data=data.frame(
+             return=unlist(pmap(list(w=weights,r=returns),function(w,r) sum(w*r))),
+             sd=unlist(pmap(list(w=weights,sd=sd),function(w,sd) w[2]*sd))
+             )
+  
+  return(data)
+}
+
+rf_portfolio=margin_portfolio(weights,returns,sd)
+
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return, 
+             group = Class)) %>%
+  hc_plotOptions(scatter=list(marker=list(radius=4)))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .4f}% <br/>
+                            Return: {point.y: .4f}%')%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_series(data=rf_portfolio,
+                type='line',
+                name='Risk-free + Portfolio Mix',
+                hcaes(x=sd,y=return))%>%
+  hc_add_theme(Theme)
+
+```
 
 ## Risk-Free Saving and Borrowing
 
--   Remember that you can have short positions (*"buying stocks on margin"*)
+-   Remember that you can have short positions (*"buying stocks on margin"*) by:
 
-    1.  If you borrow at the $R_f$ to invest in a portfolio, you have a levered position.
-    2.  You are investing more than 100% of your funds in the portolio. The weight is higher than 1.
+    1.  Borrowing at $R_f$ to invest in a portfolio of risky assets
+    2.  Investing all your funds + the money you borrow in the portolio $P$
 
--   To identify the tangent portfolio, we compute the Sharpe ratio.
+-   If that is true, then you will have a [negative]{.red} weight in one asset (a *short* position) and a [positive and \>1]{.green} weight in the other asset
 
-$$Sharpe\;ratio = \frac{E[R_p]-R_f}{Sd(R_p)}$$
+-   If, as we'd imagine, $R_p>R_f$ (*i.e*, the return of the minimum-variance portfolio is higher than $R_f$, we could proceed by:
 
--   To earn the highest possible expected return for any level of volatility we must find the portfolio that generates the steepest (highest inclination) possible line when combined with the risk-free investment.
+    1.  Borrowing money at $R_f$
+    2.  Using this money to buy the minimum-variance portfolio, yielding a return of $R_p$
 
--   The optimal portfolio to combine with the risk-free asset will be the one with the highest Sharpe ratio, where the line with the risk-free investment just touches, and so is tangent to, the efficient frontier of risky investments
+-   In practice, because your return is a weighted average of $R_f$ and $R_p$ and $R_p>R_f$, the linear combination line "extends" to the right as you are placing a higher weight on the asset with higher return
 
--   The Sharpe ratio measures the ratio of reward-to-volatility provided by a portfolio.
+## Buying stocks on margin
 
-## Risk-Free Saving and Borrowing
+```{r}
+#| fig-align: center
+#| fig-width: 15
+#| fig-height: 8
 
-1.  Fact 1: The tangent portfolio is efficient.
 
-2.  Fact 2: Once we include the risk-free investment, all efficient portfolios are combinations of the risk-free investment and the tangent portfolio.
+#Create the vector of weights
+weights=cbind(seq(-0.5,1,0.01),seq(1.5,0,-0.01))%>%split(1:151)
 
--   All investors should have the tangent portfolio. All investors should combine the tangent portfolio with the risk free asset to adjust the level of risk.
+#Create the vector of returns
+rf=2
+returns=lapply(1:151,function(j) c(rf,MVP$Return))
 
--   If you ignore the risk free asset, you have several efficient portfolios (efficient frontier). But once you combine with the risk free rate, there is only one.
+#Create the vector of sd
+sd=MVP$Volatility
 
-# Efficient Port. and Required Returns
+rf_portfolio=margin_portfolio(weights,returns,sd)%>%mutate(Class=ifelse(return>=MVP$Return,'Long and Short','Long-Only'))
 
-## Efficient Port. and Required Returns
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return, 
+             group = Class)) %>%
+  hc_plotOptions(scatter=list(marker=list(radius=4)))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .4f}% <br/>
+                            Return: {point.y: .4f}%')%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_series(data=rf_portfolio,
+                type='line',
+                hcaes(x=sd,y=return,group=Class))%>%
+  hc_add_theme(Theme)
 
--   Let's now consider how much return we will demand from a risky asset in order to make its inclusion in our portfolio worthy
+```
 
--   Let's say that you hold an arbitrary portfolio P (it does not matter what is inside P for the moment).
+## Selecting the portfolio
 
--   You only include an additional asset if it excess return to the level of risk, right? That is, if it increases the Sharpe ratio of the resulting portfolio (Portfolio P + New asset)
+-   As before, is there a [single]{.blue} portfolio in which all investors should hold? **No!** In practice, investors will choose among portfolios based on their specific preferences for risk and return
 
--   What is the excess return that this asset *i* brings to your portfolio P?
+-   But you may have noticed something strange...the linear combination of $R_f$ and $R_p$ yields a sub-optimal portolio:
 
-$E[R_i] - R_f$ (quite simple!)
+    1.  There are many portfolios that yield higher returns than the [minimum-variance]{.blue} portfolio (and are also riskier)
+    2.  However, if we want to have a lower risk, we can simply combine them with the risk-free asset, $R_f$, and the volatility of the portfolio will be only a fraction of $\sigma_P$
 
--   Now, what is the risk that this asset *i* brings to your portfolio P?
+-   In other words, we could be better off if we had done a linear combination using a portfolio that yields a better risk $\times$ return relationship!
 
-$Sd(R_i) \times corr(R_i,R_p)$
+-   How can we find such a portfolio? We need to think about the point where $\small \partial R_c/\partial\sigma_p$ is the highest - in graphical terms, the portfolio with the highest [slope]{.blue}!
 
-## Efficient Port. and Required Returns
+## Buying stocks on margin
 
--   So now our question is: is the gain in return from investing in *i* adequate to make up for the increase in risk?
+```{r}
+#| fig-align: center
+#| fig-width: 15
+#| fig-height: 8
 
--   To see that, we have to test if (because the right-hand part is the level of return-to-risk we already have in P).
+#Sharpe
+Sharpe=data%>%mutate(SR=(Return-rf)/Volatility)%>%arrange(desc(SR))%>%slice(1)
+returns=lapply(1:151,function(j) c(rf,Sharpe$Return))
 
-$$\frac{E[R_i] - R_f}{Sd(R_i) \times corr(R_i,R_p)} > \frac{E[R_p] - R_f}{Sd(R_p)}$$
+#Create the vector of sd
+sd=Sharpe$Volatility
 
--   Moving the denominator to the right-hand side:
+sharpe_portfolio=margin_portfolio(weights,returns,sd)
 
-$$E[R_i] - R_f > Sd(R_i) \times corr(R_i,R_p) \times \frac{E[R_p] - R_f}{Sd(R_p)}$$
 
-## Efficient Port. and Required Returns
+highchart()%>%
+  hc_plotOptions(scatter=list(marker=list(radius=4)))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .4f}% <br/>
+                            Return: {point.y: .4f}%')%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_series(data=data,
+                "scatter", 
+                hcaes(x = Volatility, 
+                y = Return, 
+                group = Class))%>%
+  hc_add_series(data=rf_portfolio,
+                'line',
+                name='Risk-free and MVP combination',
+                hcaes(x=sd,y=return))%>%
+  hc_add_series(data=sharpe_portfolio,
+                'line',
+                name='Tangent Portfolio',
+                hcaes(x=sd,y=return))%>%
+  hc_add_theme(Theme)
 
-$$E[R_i] - R_f > \frac{Sd(R_i) \times corr(R_i,R_p)}{Sd(R_p)}  \times (E[R_p] - R_f)$$
+```
 
--   Using a Beta notation:
+## Sharpe-ratio and the tangent portfolio
 
-$$E[R_i] - R_f > \beta_i^P  \times (E[R_p] - R_f)$$
+-   The ideal portfolio that we want to combine with the risk-free asset is called the [tangent]{.blue} portfolio:
+    1.  It is *tangent* to the efficient frontier
+    2.  Because of that, it has the [highest]{.blue} risk $\times$ return combination
+-   To identify the tangent portfolio, we compute the [Sharpe Ratio]{.blue}:
 
--   $$E[R_i]  >  R_f + \beta_i^P  \times (E[R_p] - R_f)$$
+. . .
 
-## Efficient Port. and Required Returns
+$$\text{Sharpe Ratio} = \frac{E[R_p]-R_f}{\sigma_{R_p}}$$
 
--   That is, increasing the amount invested in i will increase the Sharpe ratio of portfolio P if its expected return $E[R_i]$ exceeds its required return given portfolio P, defined as
+-   In the Sharpe Ratio measures the ratio of *reward-to-volatility* provided by a portfolio:
+  1. It indicates the amount of excess returns a portfolio provides a "risk-adjusted" format
+  2. Higher Sharpe Ratio $\rightarrow$ better risk $\times$ return relationship 
+
+## The use of the Sharpe Ratio
+
+-   What is the  optimal portfolio to combine with the risk-free asset? The one with the highest Sharpe Ratio! This portfolio is the one where the line with the risk-free investment is [tangent]{.blue} to the efficient frontier of risky investments. There are two important facts about it:
+
+  1.  The tangent portfolio is [efficient]{.blue}.
+  
+  2.  Once we include the risk-free investment, all efficient portfolios are combinations of the risk-free investment and the tangent portfolio.
+
+-   Therefore, all investors should have the tangent portfolio. All investors should combine the tangent portfolio with the risk free asset to adjust the level of risk.
+
+-   If you ignore the risk free asset, you have several efficient portfolios (efficient frontier). But once you combine with the risk free rate, there is only one!
+
+# The Efficient Portfolio and Required Returns
+
+## The Efficient Portfolio and Required Returns
+
+- Suppose you hold a portfolio $P$. How do you decide whether to include a new asset? In sum, you should include a new asset $i$ in a portfolio if it increases the [Sharpe Ratio]{.blue} of the resulting portfolio! Note that the new asset has the following properties:
+
+  1.  The [excess return]{.green} that this asset $i$ brings is $E[R_i] - R_f$
+  2.  On the other hand, the [risk]{.red} that this asset $i$ brings to your portfolio is $\sigma_i \times corr(R_i,R_p)$ - see the *Appendix* for a detailed explanation
+  
+- Therefore, is the [gain]{.green} in excess return from investing in $i$ sufficient to make up for the increase in [risk]{.red}? Think about this as your average grade in the university:
+  1. If you take a test and obtains a score that is [higher]{.green} than your average grade $\rightarrow$ your average grade will go [up]{.green}
+  2. If, on the other hand, your score is [lower]{.red} than your average $\rightarrow$ your average will go [down]{.red}
+  3. Finally, if your score is *exactly* your average grade, your average grade remains unchanged
+
+## Efficient Portfolio and Required Returns, continued
+
+- Going back to our portfolio: if you compute the Sharpe Ratio of $i$ and $P$, including $i$ is beneficial if and only if:
+
+. . .
+
+$$\underbrace{\frac{E[R_i] - R_f}{\sigma_{R_i} \times corr(R_i,R_p)}}_{\text{Sharpe Ratio of } i} > \underbrace{\frac{E[R_p] - R_f}{\sigma_{R_p}}}_{\text{Sharpe Ratio of } P}$$
+
+-   Moving the denominator to the right-hand side, we have:
+
+. . .
+
+$$E[R_i] - R_f >\sigma_{R_i} \times corr(R_i,R_p) \times \frac{E[R_p] - R_f}{\sigma_{R_p}}$$
+
+## Efficient Portfolios and Required Returns, continued
+
+$$E[R_i] - R_f > \underbrace{\frac{\sigma_{R_i} \times corr(R_i,R_p)}{\sigma_{R_p}}}_{\beta^P_i}  \times (E[R_p] - R_f)$$
+
+-   Using a $\beta$ notation and moving $R_f$ to the right-hand-side:
+
+. . .
+
+$$
+E[R_i]  >  R_f + \beta_i^P  \times (E[R_p] - R_f)
+$$
+
+## Efficient Portfolio and Required Returns, continued
+
+- To conclude, increasing the amount invested in $i$ will increase the Sharpe Ratio of portfolio $P$ if its expected return $E[R_i]$ exceeds its required return given portfolio $P$, defined as:
+
+. . .
+
+$$
+E[R_i]  >  R_f + \beta_i^P  \times (E[R_p] - R_f)
+$$
+
+-   The required return is the expected return that is necessary to compensate for the risk investment $i$ will contribute to the portfolio.
+
+  1. It is is equal to the [risk-free]{.blue} interest rate...
+  2. ...plus the [risk premium]{.blue} of the current portfolio, P...
+  3. ... scaled by $i$'s sensitivity to $P$, denoted by [$\beta_i^P$]{.blue}
+
+- If $i$ expected return exceeds this required return, then adding more of it will improve the performance of the portfolio!
+
+## Efficient Port. and Required Returns, conclusion
+
+- We saw what an efficient portfolio is and how to find it in terms of the Sharpe Ratio
+- Based on this notion, this equation establishes the relation between an investment's risk and its expected return:
+
+. . .
 
 $$R_i =  R_f + \beta_i^P  \times (E[R_p] - R_f)$$
 
-## Efficient Port. and Required Returns
+- It states that we can determine the appropriate risk premium for an investment based on its $\beta$ with the efficient portfolio
 
--   The required return is the expected return that is necessary to compensate for the risk investment i will contribute to the portfolio.
+- In such a way, it enables us to "price" the required returns for investing in any asset based on the amount of required returns that are needed to improve the performance of an efficient portfolio
 
--   The required return for an investment *i* is equal to the risk-free interest rate plus the risk premium of the current portfolio, P, scaled by *i*'s sensitivity to P, which is $\beta_i^P$.
 
--   If *i*'s expected return exceeds this required return, then adding more of it will improve the performance of the portfolio.
+## Practice
 
-## Efficient Port. and Required Returns
+. . .
 
--   This equation establishes the relation between an investment's risk and its expected return.
+::: callout-important
+Practice using the following links:
 
--   It states that we can determine the appropriate risk premium for an investment from its beta with the efficient portfolio.
+1.  [Multiple-choice Questions](https://henriquemartins.net/teaching/financial_strategy/p3tf.html){preview-link="true"}
+2.  [Numeric Questions](https://henriquemartins.net/teaching/financial_strategy/p3num.html){preview-link="true"}
+:::
 
-$$R_i =  R_f + \beta_i^P  \times (E[R_p] - R_f)$$
-
-# The CAPM
-
-## The CAPM
-
--   This is perhaps the most important model in Finance. Three main assumptions:
-
-    1.  Investors can buy and sell all securities at competitive market prices (without incurring taxes or transactions costs) and can borrow and lend at the risk-free interest rate.
-
-    2.  Investors hold only efficient portfolios of traded securities.
-
-    3.  Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities. There is no information asymmetry
-
--   If investors have homogeneous expectations, they will identify the same efficient portfolio (the highest Sharpe).
-
--   Under the CAPM assumptions, we can identify the efficient portfolio: It is equal to the market portfolio
-
--   A Market portfolio contains all traded securities in a economy
-
-## The CAPM
-
--   If investors identify the same market portfolio (the highest Sharpe), then we can identify the Capital Market Line (CML).
-
--   All investors will have a combination of the Market Portfolio and the Rf rate.
-
-<img src="figs/bm_11_11.png" width="90%"/>
-
-# Determining the Risk Premium
-
-## Determining the Risk Premium
-
--   Under the CAPM assumptions, we can identify the efficient portfolio: It is equal to the market portfolio.
-
--   Thus, we can change $R_p$ to $R_m$
-
-$$E[R_i] =  R_f + \beta_i  \times (E[R_m] - R_f)$$
-
--   The beta of a security measures its volatility due to market risk relative to the market as a whole, and thus captures the security's sensitivity to market risk.
-
-## Determining the Risk Premium
-
--   The Security Market Line: the CAPM implies there is a linear relationship between a stock's Beta and its expected return.
-
--   This linear relationship has a name: Security Market Line (SML)
-
-## Determining the Risk Premium
-
-![](figs/bm_11_12.png){width="90%"}
-
-# Questions and Final comments
-
-## Question
-
-Imagine that you find the SML in the economy, and you find that two assets lies below it. Would you buy these assets?
-
-<img src="figs/bre13901_0807.jpg" width="100%"/>
-
-## Question
-
-Both assets are expensive. They are offering less return than they are expected to offer according to the CAPM.
-
-Because they are expensive, investors are expected to sell them. So prices are expected to drop.
-
-## Final comments I
-
-The beta of a portfolio is the weighted average beta of the assets in the portfolio.
-
-$$\beta_p = \sum_i x_i \times \beta_i$$
 
 # Appendix
-
 
 ## Proof - Variance of a sum of two random variables
 
@@ -1110,8 +1274,6 @@ $$
 $$
 :::
 
-
-
 ## Proof - Variance multiplied by a scalar
 
 ::: callout-tip
@@ -1126,7 +1288,7 @@ $$
 $$ Since $\beta$ is a constant, $E[\beta]=\beta$ and we can write:
 
 $$
-[\beta\times A - \beta\times E(A)]^2= E[\beta\times (A-E[A])]^2=\beta^2\times \underbrace{E(A-E[A])]^2}_{\sigma^2_A} 
+E[\beta\times A - \beta\times E(A)]^2= E[\beta\times (A-E[A])]^2=\beta^2\times \underbrace{E(A-E[A])]^2}_{\sigma^2_A} 
 $$ Therefore, whenever there is a scale constant multiplying a random variable, it scales the variance: $\beta^2 \times\sigma^2_A$
 :::
 
@@ -1168,7 +1330,7 @@ $$\small \sigma^2_{R_p} = \sum_i w_i \times Cov(R_i,R_p)$$
 
 -   The variance of a portfolio approaches the [weighted average covariance of each stock with the portfolio]{.blue}!
 
--   Because $\small Cov(R_i,R_P) = \sigma_i \times \sigma_p \times Corr_{i,p}$) you can also write it as:
+-   Because $\small Cov(R_i,R_P) = \sigma_i \times \sigma_p \times Corr_{i,p}$ you can also write it as:
 
 . . .
 

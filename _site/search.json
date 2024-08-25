@@ -158,7 +158,7 @@
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#volatility-of-a-large-portfolio---matrix-form",
     "title": "Optimal Portfolio and the CAPM",
     "section": "Volatility of a large portfolio - matrix form",
-    "text": "Volatility of a large portfolio - matrix form\n\nFrom our previous slide, we saw that the variance of a portfolio was defined as: \\[\n\\sigma^2_p=\\sum_{i=1}^{N}w_i^2\\sigma_i^2 + 2\\times\\sum_{i=1}^{N}\\sum_{j\\neq i} w_i w_j \\sigma_{ij}\n\\]\nDefine \\(\\mathbf{w}\\) as the vector of stock’s weights, \\([w_1,w_2,w_3]\\) and \\(\\Sigma\\) as the covariance matrix of returns. Then, you can rewrite \\(\\sigma^2_p\\) as:\n\n\n\\[\n\\sigma^2_p = \\mathbf{w}'\\Sigma\\mathbf{w}\n\\]\n\nIn practice, writing the variance of a portfolio in matrix terms simplifies a lot of the calculations if you want to perform calculations using Excel with \\(n&gt;2\\)"
+    "text": "Volatility of a large portfolio - matrix form\n\nFrom our previous slide, we saw that the variance of a portfolio was defined as: \\[\n\\sigma^2_p=\\sum_{i=1}^{N}w_i^2\\sigma_i^2 + 2\\times\\sum_{i=1}^{N}\\sum_{j\\neq i} w_i w_j \\sigma_{ij}\n\\]\nDefine \\(\\mathbf{w}\\) as the vector of stock’s weights, \\([w_1,w_2,w_3,...,w_n]\\) and \\(\\Sigma\\) as the covariance matrix of returns. Then, you can rewrite \\(\\sigma^2_p\\) as:\n\n\n\\[\n\\sigma^2_p = \\mathbf{w}'\\Sigma\\mathbf{w}\n\\]\n\nIn practice, writing the variance of a portfolio in matrix terms simplifies a lot of the calculations if you want to perform calculations using Excel with \\(n&gt;2\\)"
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#volatility-of-a-large-portfolio---a-graphical-representation",
