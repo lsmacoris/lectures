@@ -60,7 +60,7 @@
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#volatility-of-a-two-stock-portfolio-continued",
     "title": "Optimal Portfolio and the CAPM",
     "section": "Volatility of a two-stock portfolio, continued",
-    "text": "Volatility of a two-stock portfolio, continued\n\nLet’s now apply this to understand our portfolio’s volatility using daily data. Define:\n\n\\(\\sigma^2_1\\) = variance of Asset 1 (Amazon).\n\\(\\sigma^2_2\\) = variance of Asset 2 (Ferrari)\n\\(\\sigma_{1,2}\\) = covariance between both assets\n\\(w_1\\) and \\(w_2\\) are the weights for both assets\n\nUsing the definitions highlighted before, that the variance of our portfolio returns, \\(R_p\\), is:\n\n\n\\[\n\\small \\sigma^2(R_p)=\\sigma^2(w_1\\times R_1+w_2\\times R_2)=w_1^2\\times \\sigma^2_1 + w_2^2 \\times \\sigma^2_1 + 2\\times w_1\\times w_2\\times \\sigma_{1,2}\n\\]"
+    "text": "Volatility of a two-stock portfolio, continued\n\nLet’s now apply this to understand our portfolio’s volatility using daily data. Define:\n\n\\(\\sigma^2_1\\) = variance of Asset 1 (Amazon).\n\\(\\sigma^2_2\\) = variance of Asset 2 (Ferrari)\n\\(\\sigma_{1,2}\\) = covariance between both assets\n\\(w_1\\) and \\(w_2\\) are the weights for both assets\n\nUsing the definitions highlighted before, that the variance of our portfolio returns, \\(R_p\\), is:\n\n\n\\[\n\\small \\sigma^2(R_p)=\\sigma^2(w_1\\times R_1+w_2\\times R_2)=w_1^2\\times \\sigma^2_1 + w_2^2 \\times \\sigma^2_2 + 2\\times w_1\\times w_2\\times \\sigma_{1,2}\n\\]"
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#variance-in-terms-of-correlation",
@@ -144,7 +144,7 @@
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-variance-of-a-3-stock-portfolio-continued-1",
     "title": "Optimal Portfolio and the CAPM",
     "section": "The variance of a 3-stock portfolio, continued",
-    "text": "The variance of a 3-stock portfolio, continued\n\nPlugging in the numbers from our exercise:\n\n\n\\[\n\\small \\underbrace{\\small (0.4^2\\times 0.3290^2)}_{I} + \\underbrace{(0.3^2\\times 0.2124^2)}_{II} + \\underbrace{(0.3^2\\times 0.5861^2)}_{III} \\\\\n\\small + \\underbrace{(2\\times0.4\\times0.3\\times0.3290\\times0.2124\\times0.39)}_{IV} + \\underbrace{(2\\times0.4\\times0.3\\times0.3290\\times 0.5861\\times0.16)}_{V} \\\\\n+\\small \\underbrace{(2\\times0.4\\times0.3\\times0.3290\\times 0.5861\\times0.14)}_{VI}=26.38\\%\n\\]\n\nAlthough VSCO had incurred in significant losses, its returns were minimally correlated to the the stocks"
+    "text": "The variance of a 3-stock portfolio, continued\n\nPlugging in the numbers from our exercise:\n\n\n\\[\n\\small \\underbrace{\\small (0.4^2\\times 0.3290^2)}_{I} + \\underbrace{(0.3^2\\times 0.2124^2)}_{II} + \\underbrace{(0.3^2\\times 0.5861^2)}_{III} \\\\\n\\small + \\underbrace{(2\\times0.4\\times0.3\\times0.3290\\times0.2124\\times0.39)}_{IV} + \\underbrace{(2\\times0.4\\times0.3\\times0.3290\\times 0.5861\\times0.16)}_{V} \\\\\n+\\small \\underbrace{(2\\times0.4\\times0.3\\times0.2124\\times 0.5861\\times0.14)}_{VI}=26.38\\%\n\\]\n\nAlthough VSCO had incurred in significant losses, its returns were minimally correlated to the the stocks"
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-variance-of-a-large-portfolio",
@@ -249,7 +249,7 @@
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#choosing-an-efficient-portfolio-2",
     "title": "Optimal Portfolio and the CAPM",
     "section": "Choosing an Efficient Portfolio",
-    "text": "Choosing an Efficient Portfolio\n\nWhat happens when you continuously increase the number of assets?\n\nIf you add stocks, you improve the frontier - i.e, you are able to create portfolios that span better options in terms of risk and return\nIf you continue adding assets, you will have what is called Efficient Frontier\n\nThe Efficient Frontier is the set of portfolios where:\n\nFor a given level of volatility, you have the highest possible return among all portfolios with the same volalitity level\nFor a given level of return, you have the lowest possible volatility among all portfolios with the same return level\n\nBased on this, is there a single portfolio in which all investors should hold? In practice, investors will choose among portfolios based on their specific preferences for risk and return"
+    "text": "Choosing an Efficient Portfolio\n\nWhat happens when you continuously increase the number of assets?\n\nIf you add stocks, you improve the frontier - i.e, you are able to create portfolios that span better options in terms of risk and return\nIf you continue adding assets, you will have what is called Efficient Frontier\n\nThe Efficient Frontier is the set of portfolios where:\n\nFor a given level of volatility, you have the highest possible return among all portfolios with the same volalitity level\nFor a given level of return, you have the lowest possible volatility among all portfolios with the same return level\n\nBased on this, is there a single portfolio in which all investors should hold? No! In practice, investors will choose among portfolios based on their specific preferences for risk and return"
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-efficient-frontier-1",
@@ -270,133 +270,119 @@
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-saving-and-borrowing-2",
     "title": "Optimal Portfolio and the CAPM",
     "section": "Risk-Free Saving and Borrowing",
-    "text": "Risk-Free Saving and Borrowing\n\nAssume that you have a risk-free asset, such as a Treasury Bill, where the return is \\(R_f\\) and, by definition, has no risk\nYou decided to invest a portion \\(x\\) of your holdings in the risky portfolio, and the remaining \\(1-x\\) in the risk-free asset\nThe expected return from your new portfolio, which we’ll call \\(R_{C}\\), is:\n\n\n\\[E[R_{C}] =  x \\times E[R_p] + (1-x) \\times R_f \\]\n\nRearranging terms, we have that:\n\n\n\n\\[\n\\small E[R_{C}] =  x \\times E[R_p] + R_f - x \\times R_f\\rightarrow R_f + x \\times ( E[R_p] - R_f )\n\\]"
+    "text": "Risk-Free Saving and Borrowing\n\nAssume that you have a risk-free asset, such as a Treasury Bill, where the return is \\(R_f\\) and, by definition, has no risk\nYou decided to invest a portion \\(x\\) of your holdings in the risky portfolio, and the remaining \\(1-x\\) in the risk-free asset\nThe expected return from your new portfolio, which we’ll call \\(R_{C}\\), is:\n\n\n\\[E[R_{C}] =  x \\times E[R_p] + (1-x) \\times R_f \\]\n\nRearranging terms, we have that:\n\n\n\n\\[\nE[R_{C}] =  x \\times E[R_p] + R_f - x \\times R_f\\rightarrow R_f + x \\times ( E[R_p] - R_f )\n\\]"
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-saving-and-borrowing-continued",
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-saving-and-borrowing-continued",
     "title": "Optimal Portfolio and the CAPM",
     "section": "Risk-Free Saving and Borrowing, continued",
-    "text": "Risk-Free Saving and Borrowing, continued\n\nTherefore, the expected return of a portfolio that contains risky assets and a risk-free asset is defined as:\n\n\\[\n\\small E[R_{C}] =  R_f + x \\times ( E[R_p] - R_f )\n\\]\n\nThis equation shows that the expected return of your portfolio is the sum of:\n\nThe risk-free rate; and\nA fraction of the portfolio’s risk premium, \\(E[R_p] - R_f\\), based on the fraction \\(x\\) that we invest in it\nA risk-premium is nothing more than the reward for bearing additional risk\n\nIn other words, if you increase \\(x\\), your expected gains should increase because you’re more exposed to risk!"
+    "text": "Risk-Free Saving and Borrowing, continued\n\nTherefore, the expected return of a portfolio that contains risky assets and a risk-free asset is defined as:\n\n\n\\[\nE[R_{C}] =  R_f + x \\times ( E[R_p] - R_f )\n\\]\n\nThis equation shows that the expected return of your portfolio is the sum of:\n\nThe risk-free rate; and\nA fraction of the portfolio’s risk premium, \\(E[R_p] - R_f\\), based on the fraction \\(x\\) that we invest in it\nA risk-premium is nothing more than the reward for bearing additional risk\n\nIn other words, if you increase \\(x\\), your expected gains should increase because you’re more exposed to risk!"
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-saving-and-borrowing-continued-1",
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-saving-and-borrowing-continued-1",
     "title": "Optimal Portfolio and the CAPM",
     "section": "Risk-Free Saving and Borrowing, continued",
-    "text": "Risk-Free Saving and Borrowing, continued\n\nWhat happens to the volatility of a portfolio when you add the possibility of a risk-free asset?\nRemember that the risk free rate is assumed to have no risk, and therefore its variance is zero. As a consequence, the standard deviation of your portfolio that contains risky and risk-free assets is:\n\n\n\\[\\small \\sigma_{R_{C}} = \\sqrt{(1-x)^2 \\times \\sigma^2(R_f) + x^2 \\times \\sigma^2(R_p)  + 2 \\times(1-x) \\times x \\times Cov(R_f, R_p)}\\]\n\nBecause \\(\\small \\sigma^2{R_f}=0\\), this simplifies to:\n\n\n\n\\[\\sigma(R_{C}) = \\sqrt{x^2 \\times \\sigma^2(R_p)}\\rightarrow x \\times \\sigma(R_p)\\]\n\nThat is,the volatility is only a fraction of the volatility of the portfolio, based on the amount we invest in it."
+    "text": "Risk-Free Saving and Borrowing, continued\n\nWhat happens to the volatility of a portfolio when you add the possibility of a risk-free asset?\nRemember that the risk free rate is assumed to have no risk, and therefore its variance is zero. As a consequence, the standard deviation of your portfolio that contains risky and risk-free assets is:\n\n\n\\[\\small \\sigma_{R_{C}} = \\sqrt{(1-x)^2 \\times \\sigma^2_{R_f} + x^2 \\times \\sigma^2_{R_p}  + 2 \\times(1-x) \\times x \\times Cov(R_f, R_p)}\\]\n\nBecause \\(\\small \\sigma^2_{R_f}=0\\), this simplifies to:\n\n\n\n\\[\\sigma_{R_{C}} = \\sqrt{x^2 \\times \\sigma^2_{R_p}}\\rightarrow x \\times \\sigma_{R_p}\\]\n\nThat is, the volatility is only a fraction of the volatility of the portfolio, based on the amount we invest in it"
+  },
+  {
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-combinations-in-practice",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-combinations-in-practice",
+    "title": "Optimal Portfolio and the CAPM",
+    "section": "Risk-free combinations in practice",
+    "text": "Risk-free combinations in practice\n\nIn order to make this point clear, let’s go back to the efficient frontier built on top of the \\(&gt;100\\) portfolios created using AMZN and RACE\nTo facilitate the comparison, we’ll convert risk and return to annual terms\nIf that is true, then the minimum-variance portfolio has:\n\nAnnual Return \\(\\approx 3.82\\%\\)\nAnnual Volatility \\(\\approx 3.24\\%\\)\n\nSuppose you have an risk-free investment opportunity, \\(R_f\\), that generates a risk-free return of 2%\nIf that is true, we can think about all linear combinations of \\([R_f,R_p]\\) in which the returns are a weighted average of \\(R_f\\) and \\(R_p\\) and the volatility is only a fraction of \\(R_p\\)’s volatility"
+  },
+  {
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-combinations-graphical-interpretation",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-combinations-graphical-interpretation",
+    "title": "Optimal Portfolio and the CAPM",
+    "section": "Risk-free combinations, graphical interpretation",
+    "text": "Risk-free combinations, graphical interpretation"
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-saving-and-borrowing-3",
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-saving-and-borrowing-3",
     "title": "Optimal Portfolio and the CAPM",
     "section": "Risk-Free Saving and Borrowing",
-    "text": "Risk-Free Saving and Borrowing\n\nRemember that you can have short positions (“buying stocks on margin”)\n\nIf you borrow at the \\(R_f\\) to invest in a portfolio, you have a levered position.\nYou are investing more than 100% of your funds in the portolio. The weight is higher than 1.\n\nTo identify the tangent portfolio, we compute the Sharpe ratio.\n\n\\[Sharpe\\;ratio = \\frac{E[R_p]-R_f}{Sd(R_p)}\\]\n\nTo earn the highest possible expected return for any level of volatility we must find the portfolio that generates the steepest (highest inclination) possible line when combined with the risk-free investment.\nThe optimal portfolio to combine with the risk-free asset will be the one with the highest Sharpe ratio, where the line with the risk-free investment just touches, and so is tangent to, the efficient frontier of risky investments\nThe Sharpe ratio measures the ratio of reward-to-volatility provided by a portfolio."
+    "text": "Risk-Free Saving and Borrowing\n\nRemember that you can have short positions (“buying stocks on margin”) by:\n\nBorrowing at \\(R_f\\) to invest in a portfolio of risky assets\nInvesting all your funds + the money you borrow in the portolio \\(P\\)\n\nIf that is true, then you will have a negative weight in one asset (a short position) and a positive and &gt;1 weight in the other asset\nIf, as we’d imagine, \\(R_p&gt;R_f\\) (i.e, the return of the minimum-variance portfolio is higher than \\(R_f\\), we could proceed by:\n\nBorrowing money at \\(R_f\\)\nUsing this money to buy the minimum-variance portfolio, yielding a return of \\(R_p\\)\n\nIn practice, because your return is a weighted average of \\(R_f\\) and \\(R_p\\) and \\(R_p&gt;R_f\\), the linear combination line “extends” to the right as you are placing a higher weight on the asset with higher return"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-saving-and-borrowing-4",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#risk-free-saving-and-borrowing-4",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#buying-stocks-on-margin",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#buying-stocks-on-margin",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "Risk-Free Saving and Borrowing",
-    "text": "Risk-Free Saving and Borrowing\n\nFact 1: The tangent portfolio is efficient.\nFact 2: Once we include the risk-free investment, all efficient portfolios are combinations of the risk-free investment and the tangent portfolio.\n\n\nAll investors should have the tangent portfolio. All investors should combine the tangent portfolio with the risk free asset to adjust the level of risk.\nIf you ignore the risk free asset, you have several efficient portfolios (efficient frontier). But once you combine with the risk free rate, there is only one."
+    "section": "Buying stocks on margin",
+    "text": "Buying stocks on margin"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-1",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-1",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#selecting-the-portfolio",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#selecting-the-portfolio",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "Efficient Port. and Required Returns",
-    "text": "Efficient Port. and Required Returns\n\nLet’s now consider how much return we will demand from a risky asset in order to make its inclusion in our portfolio worthy\nLet’s say that you hold an arbitrary portfolio P (it does not matter what is inside P for the moment).\nYou only include an additional asset if it excess return to the level of risk, right? That is, if it increases the Sharpe ratio of the resulting portfolio (Portfolio P + New asset)\nWhat is the excess return that this asset i brings to your portfolio P?\n\n\\(E[R_i] - R_f\\) (quite simple!)\n\nNow, what is the risk that this asset i brings to your portfolio P?\n\n\\(Sd(R_i) \\times corr(R_i,R_p)\\)"
+    "section": "Selecting the portfolio",
+    "text": "Selecting the portfolio\n\nAs before, is there a single portfolio in which all investors should hold? No! In practice, investors will choose among portfolios based on their specific preferences for risk and return\nBut you may have noticed something strange…the linear combination of \\(R_f\\) and \\(R_p\\) yields a sub-optimal portolio:\n\nThere are many portfolios that yield higher returns than the minimum-variance portfolio (and are also riskier)\nHowever, if we want to have a lower risk, we can simply combine them with the risk-free asset, \\(R_f\\), and the volatility of the portfolio will be only a fraction of \\(\\sigma_P\\)\n\nIn other words, we could be better off if we had done a linear combination using a portfolio that yields a better risk \\(\\times\\) return relationship!\nHow can we find such a portfolio? We need to think about the point where \\(\\small \\partial R_c/\\partial\\sigma_p\\) is the highest - in graphical terms, the portfolio with the highest slope!"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-2",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-2",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#buying-stocks-on-margin-1",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#buying-stocks-on-margin-1",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "Efficient Port. and Required Returns",
-    "text": "Efficient Port. and Required Returns\n\nSo now our question is: is the gain in return from investing in i adequate to make up for the increase in risk?\nTo see that, we have to test if (because the right-hand part is the level of return-to-risk we already have in P).\n\n\\[\\frac{E[R_i] - R_f}{Sd(R_i) \\times corr(R_i,R_p)} &gt; \\frac{E[R_p] - R_f}{Sd(R_p)}\\]\n\nMoving the denominator to the right-hand side:\n\n\\[E[R_i] - R_f &gt; Sd(R_i) \\times corr(R_i,R_p) \\times \\frac{E[R_p] - R_f}{Sd(R_p)}\\]"
+    "section": "Buying stocks on margin",
+    "text": "Buying stocks on margin"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-3",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-3",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#sharpe-ratio-and-the-tangent-portfolio",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#sharpe-ratio-and-the-tangent-portfolio",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "Efficient Port. and Required Returns",
-    "text": "Efficient Port. and Required Returns\n\\[E[R_i] - R_f &gt; \\frac{Sd(R_i) \\times corr(R_i,R_p)}{Sd(R_p)}  \\times (E[R_p] - R_f)\\]\n\nUsing a Beta notation:\n\n\\[E[R_i] - R_f &gt; \\beta_i^P  \\times (E[R_p] - R_f)\\]\n\n\\[E[R_i]  &gt;  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\\]"
+    "section": "Sharpe-ratio and the tangent portfolio",
+    "text": "Sharpe-ratio and the tangent portfolio\n\nThe ideal portfolio that we want to combine with the risk-free asset is called the tangent portfolio:\n\nIt is tangent to the efficient frontier\nBecause of that, it has the highest risk \\(\\times\\) return combination\n\nTo identify the tangent portfolio, we compute the Sharpe Ratio:\n\n\n\\[\\text{Sharpe Ratio} = \\frac{E[R_p]-R_f}{\\sigma_{R_p}}\\]\n\nIn the Sharpe Ratio measures the ratio of reward-to-volatility provided by a portfolio:\n\n\nIt indicates the amount of excess returns a portfolio provides a “risk-adjusted” format\nHigher Sharpe Ratio \\(\\rightarrow\\) better risk \\(\\times\\) return relationship"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-4",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-4",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-use-of-the-sharpe-ratio",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-use-of-the-sharpe-ratio",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "Efficient Port. and Required Returns",
-    "text": "Efficient Port. and Required Returns\n\nThat is, increasing the amount invested in i will increase the Sharpe ratio of portfolio P if its expected return \\(E[R_i]\\) exceeds its required return given portfolio P, defined as\n\n\\[R_i =  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\\]"
+    "section": "The use of the Sharpe Ratio",
+    "text": "The use of the Sharpe Ratio\n\nWhat is the optimal portfolio to combine with the risk-free asset? The one with the highest Sharpe Ratio! This portfolio is the one where the line with the risk-free investment is tangent to the efficient frontier of risky investments. There are two important facts about it:\n\n\nThe tangent portfolio is efficient.\nOnce we include the risk-free investment, all efficient portfolios are combinations of the risk-free investment and the tangent portfolio.\n\n\nTherefore, all investors should have the tangent portfolio. All investors should combine the tangent portfolio with the risk free asset to adjust the level of risk.\nIf you ignore the risk free asset, you have several efficient portfolios (efficient frontier). But once you combine with the risk free rate, there is only one!"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-5",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-5",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-efficient-portfolio-and-required-returns-1",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-efficient-portfolio-and-required-returns-1",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "Efficient Port. and Required Returns",
-    "text": "Efficient Port. and Required Returns\n\nThe required return is the expected return that is necessary to compensate for the risk investment i will contribute to the portfolio.\nThe required return for an investment i is equal to the risk-free interest rate plus the risk premium of the current portfolio, P, scaled by i’s sensitivity to P, which is \\(\\beta_i^P\\).\nIf i’s expected return exceeds this required return, then adding more of it will improve the performance of the portfolio."
+    "section": "The Efficient Portfolio and Required Returns",
+    "text": "The Efficient Portfolio and Required Returns\n\nSuppose you hold a portfolio \\(P\\). How do you decide whether to include a new asset? In sum, you should include a new asset \\(i\\) in a portfolio if it increases the Sharpe Ratio of the resulting portfolio! Note that the new asset has the following properties:\n\nThe excess return that this asset \\(i\\) brings is \\(E[R_i] - R_f\\)\nOn the other hand, the risk that this asset \\(i\\) brings to your portfolio is \\(\\sigma_i \\times corr(R_i,R_p)\\) - see the Appendix for a detailed explanation\n\nTherefore, is the gain in excess return from investing in \\(i\\) sufficient to make up for the increase in risk? Think about this as your average grade in the university:\n\nIf you take a test and obtains a score that is higher than your average grade \\(\\rightarrow\\) your average grade will go up\nIf, on the other hand, your score is lower than your average \\(\\rightarrow\\) your average will go down\nFinally, if your score is exactly your average grade, your average grade remains unchanged"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-6",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-6",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-portfolio-and-required-returns-continued",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-portfolio-and-required-returns-continued",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "Efficient Port. and Required Returns",
-    "text": "Efficient Port. and Required Returns\n\nThis equation establishes the relation between an investment’s risk and its expected return.\nIt states that we can determine the appropriate risk premium for an investment from its beta with the efficient portfolio.\n\n\\[R_i =  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\\]"
+    "section": "Efficient Portfolio and Required Returns, continued",
+    "text": "Efficient Portfolio and Required Returns, continued\n\nGoing back to our portfolio: if you compute the Sharpe Ratio of \\(i\\) and \\(P\\), including \\(i\\) is beneficial if and only if:\n\n\n\\[\\underbrace{\\frac{E[R_i] - R_f}{\\sigma_{R_i} \\times corr(R_i,R_p)}}_{\\text{Sharpe Ratio of } i} &gt; \\underbrace{\\frac{E[R_p] - R_f}{\\sigma_{R_p}}}_{\\text{Sharpe Ratio of } P}\\]\n\nMoving the denominator to the right-hand side, we have:\n\n\n\n\\[E[R_i] - R_f &gt;\\sigma_{R_i} \\times corr(R_i,R_p) \\times \\frac{E[R_p] - R_f}{\\sigma_{R_p}}\\]"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-capm-1",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-capm-1",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-portfolios-and-required-returns-continued",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-portfolios-and-required-returns-continued",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "The CAPM",
-    "text": "The CAPM\n\nThis is perhaps the most important model in Finance. Three main assumptions:\n\nInvestors can buy and sell all securities at competitive market prices (without incurring taxes or transactions costs) and can borrow and lend at the risk-free interest rate.\nInvestors hold only efficient portfolios of traded securities.\nInvestors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities. There is no information asymmetry\n\nIf investors have homogeneous expectations, they will identify the same efficient portfolio (the highest Sharpe).\nUnder the CAPM assumptions, we can identify the efficient portfolio: It is equal to the market portfolio\nA Market portfolio contains all traded securities in a economy"
+    "section": "Efficient Portfolios and Required Returns, continued",
+    "text": "Efficient Portfolios and Required Returns, continued\n\\[E[R_i] - R_f &gt; \\underbrace{\\frac{\\sigma_{R_i} \\times corr(R_i,R_p)}{\\sigma_{R_p}}}_{\\beta^P_i}  \\times (E[R_p] - R_f)\\]\n\nUsing a \\(\\beta\\) notation and moving \\(R_f\\) to the right-hand-side:\n\n\n\\[\nE[R_i]  &gt;  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\n\\]"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-capm-2",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#the-capm-2",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-portfolio-and-required-returns-continued-1",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-portfolio-and-required-returns-continued-1",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "The CAPM",
-    "text": "The CAPM\n\nIf investors identify the same market portfolio (the highest Sharpe), then we can identify the Capital Market Line (CML).\nAll investors will have a combination of the Market Portfolio and the Rf rate."
+    "section": "Efficient Portfolio and Required Returns, continued",
+    "text": "Efficient Portfolio and Required Returns, continued\n\nTo conclude, increasing the amount invested in \\(i\\) will increase the Sharpe Ratio of portfolio \\(P\\) if its expected return \\(E[R_i]\\) exceeds its required return given portfolio \\(P\\), defined as:\n\n\n\\[\nE[R_i]  &gt;  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\n\\]\n\nThe required return is the expected return that is necessary to compensate for the risk investment \\(i\\) will contribute to the portfolio.\n\n\nIt is is equal to the risk-free interest rate…\n…plus the risk premium of the current portfolio, P…\n… scaled by \\(i\\)’s sensitivity to \\(P\\), denoted by \\(\\beta_i^P\\)\n\n\nIf \\(i\\) expected return exceeds this required return, then adding more of it will improve the performance of the portfolio!"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#determining-the-risk-premium-1",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#determining-the-risk-premium-1",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-conclusion",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#efficient-port.-and-required-returns-conclusion",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "Determining the Risk Premium",
-    "text": "Determining the Risk Premium\n\nUnder the CAPM assumptions, we can identify the efficient portfolio: It is equal to the market portfolio.\nThus, we can change \\(R_p\\) to \\(R_m\\)\n\n\\[E[R_i] =  R_f + \\beta_i  \\times (E[R_m] - R_f)\\]\n\nThe beta of a security measures its volatility due to market risk relative to the market as a whole, and thus captures the security’s sensitivity to market risk."
+    "section": "Efficient Port. and Required Returns, conclusion",
+    "text": "Efficient Port. and Required Returns, conclusion\n\nWe saw what an efficient portfolio is and how to find it in terms of the Sharpe Ratio\nBased on this notion, this equation establishes the relation between an investment’s risk and its expected return:\n\n\n\\[R_i =  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\\]\n\nIt states that we can determine the appropriate risk premium for an investment based on its \\(\\beta\\) with the efficient portfolio\nIn such a way, it enables us to “price” the required returns for investing in any asset based on the amount of required returns that are needed to improve the performance of an efficient portfolio"
   },
   {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#determining-the-risk-premium-2",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#determining-the-risk-premium-2",
+    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#practice-2",
+    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#practice-2",
     "title": "Optimal Portfolio and the CAPM",
-    "section": "Determining the Risk Premium",
-    "text": "Determining the Risk Premium\n\nThe Security Market Line: the CAPM implies there is a linear relationship between a stock’s Beta and its expected return.\nThis linear relationship has a name: Security Market Line (SML)"
-  },
-  {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#determining-the-risk-premium-3",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#determining-the-risk-premium-3",
-    "title": "Optimal Portfolio and the CAPM",
-    "section": "Determining the Risk Premium",
-    "text": "Determining the Risk Premium"
-  },
-  {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#question",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#question",
-    "title": "Optimal Portfolio and the CAPM",
-    "section": "Question",
-    "text": "Question\nImagine that you find the SML in the economy, and you find that two assets lies below it. Would you buy these assets?"
-  },
-  {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#question-1",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#question-1",
-    "title": "Optimal Portfolio and the CAPM",
-    "section": "Question",
-    "text": "Question\nBoth assets are expensive. They are offering less return than they are expected to offer according to the CAPM.\nBecause they are expensive, investors are expected to sell them. So prices are expected to drop."
-  },
-  {
-    "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#final-comments-i",
-    "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#final-comments-i",
-    "title": "Optimal Portfolio and the CAPM",
-    "section": "Final comments I",
-    "text": "Final comments I\nThe beta of a portfolio is the weighted average beta of the assets in the portfolio.\n\\[\\beta_p = \\sum_i x_i \\times \\beta_i\\]"
+    "section": "Practice",
+    "text": "Practice\n\n\n\n\n\n\n\nImportant\n\n\nPractice using the following links:\n\nMultiple-choice Questions\nNumeric Questions"
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#proof---variance-of-a-sum-of-two-random-variables",
@@ -410,7 +396,7 @@
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#proof---variance-multiplied-by-a-scalar",
     "title": "Optimal Portfolio and the CAPM",
     "section": "Proof - Variance multiplied by a scalar",
-    "text": "Proof - Variance multiplied by a scalar\n\n\n\n\n\n\nTheorem II: The variance scales upon multiplication with a constant:\n\n\n\\[\n  \\sigma^2(\\beta \\times A ) = \\beta^2\\times \\sigma^2_A\n  \\] Proof: define the variance in terms of \\(\\beta\\) and \\(A\\):\n\\[\n\\sigma^2(\\beta\\times A)=E[\\beta\\times A-E(\\beta\\times A)]^2 \\\\\n\\] Since \\(\\beta\\) is a constant, \\(E[\\beta]=\\beta\\) and we can write:\n\\[\n[\\beta\\times A - \\beta\\times E(A)]^2= E[\\beta\\times (A-E[A])]^2=\\beta^2\\times \\underbrace{E(A-E[A])]^2}_{\\sigma^2_A}\n\\] Therefore, whenever there is a scale constant multiplying a random variable, it scales the variance: \\(\\beta^2 \\times\\sigma^2_A\\)"
+    "text": "Proof - Variance multiplied by a scalar\n\n\n\n\n\n\nTheorem II: The variance scales upon multiplication with a constant:\n\n\n\\[\n  \\sigma^2(\\beta \\times A ) = \\beta^2\\times \\sigma^2_A\n  \\] Proof: define the variance in terms of \\(\\beta\\) and \\(A\\):\n\\[\n\\sigma^2(\\beta\\times A)=E[\\beta\\times A-E(\\beta\\times A)]^2 \\\\\n\\] Since \\(\\beta\\) is a constant, \\(E[\\beta]=\\beta\\) and we can write:\n\\[\nE[\\beta\\times A - \\beta\\times E(A)]^2= E[\\beta\\times (A-E[A])]^2=\\beta^2\\times \\underbrace{E(A-E[A])]^2}_{\\sigma^2_A}\n\\] Therefore, whenever there is a scale constant multiplying a random variable, it scales the variance: \\(\\beta^2 \\times\\sigma^2_A\\)"
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#limits-to-diversification-1",
@@ -431,7 +417,7 @@
     "href": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#volatility-of-a-large-portfolio-with-arbitrary-weights",
     "title": "Optimal Portfolio and the CAPM",
     "section": "Volatility of a large portfolio with arbitrary weights",
-    "text": "Volatility of a large portfolio with arbitrary weights\n\nWhat if we don’t have an equally-weighted portfolio? As \\(N\\) increases, you can rewrite the variance of the portfolio1 as:\n\n\n\\[\\small \\sigma^2_{R_p} = \\sum_i w_i \\times Cov(R_i,R_p)\\]\n\nThe variance of a portfolio approaches the weighted average covariance of each stock with the portfolio!\nBecause \\(\\small Cov(R_i,R_P) = \\sigma_i \\times \\sigma_p \\times Corr_{i,p}\\)) you can also write it as:\n\n\n\n\\[\\sigma^2_{R_p} = \\sum_i x_i \\times \\sigma_{i} \\times \\sigma_{p} \\times Corr_{i,p}\\]\n\nSee Berk and DeMarzo (2023), pg. 409 for a detailed explanation."
+    "text": "Volatility of a large portfolio with arbitrary weights\n\nWhat if we don’t have an equally-weighted portfolio? As \\(N\\) increases, you can rewrite the variance of the portfolio1 as:\n\n\n\\[\\small \\sigma^2_{R_p} = \\sum_i w_i \\times Cov(R_i,R_p)\\]\n\nThe variance of a portfolio approaches the weighted average covariance of each stock with the portfolio!\nBecause \\(\\small Cov(R_i,R_P) = \\sigma_i \\times \\sigma_p \\times Corr_{i,p}\\) you can also write it as:\n\n\n\n\\[\\sigma^2_{R_p} = \\sum_i x_i \\times \\sigma_{i} \\times \\sigma_{p} \\times Corr_{i,p}\\]\n\nSee Berk and DeMarzo (2023), pg. 409 for a detailed explanation."
   },
   {
     "objectID": "fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html#volatility-of-a-large-portfolio-with-arbitrary-weights-1",
@@ -3567,7 +3553,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise---standard-error",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Data Exercise - Standard Error",
-    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 56 months, and an sample standard deviation of returns of 12.13%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.23 \\pm 1.96\\times \\dfrac{12.13}{\\sqrt{56}}=[-1.95\\%,+4.41\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.95% to 4.41%"
+    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 56 months, and an sample standard deviation of returns of 12.15%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.15 \\pm 1.96\\times \\dfrac{12.15}{\\sqrt{56}}=[-2.03\\%,+4.33\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -2.03% to 4.33%"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#standard-error---another-example",
@@ -3588,7 +3574,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr-1",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Compound Annual Growth Rate (CAGR)",
-    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{56}(1+R_i)\\bigg]^{\\frac{1}{56}}-1\\approx 0.44\\%\\]\n\nRemember the (arithmetic) average was 1.23%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
+    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{56}(1+R_i)\\bigg]^{\\frac{1}{56}}-1\\approx 0.35\\%\\]\n\nRemember the (arithmetic) average was 1.15%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#trade-off-between-risk-and-return",
