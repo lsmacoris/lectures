@@ -545,7 +545,6 @@ $$\small CAGR = \bigg[\prod_{i=1}^{`r N`}(1+R_i)\bigg]^{\frac{1}{`r N`}}-1\appro
         1.  Their returns are equally likely to be [35%]{.green} or [−25%]{.red}, based on factors specific to each firm's local market
         2.  Because these risks are firm specific, if we hold a portfolio of many type I firms, risk is [diversified]{.blue}!
 
-
 ## Diversification - which risks are mitigated?
 
 -   Consider again [Type I]{.blue} firms, which are affected only by firm-specific risk. Because each individual [Type I]{.blue} firm is risky, should investors expect to earn a risk premium when investing in type I firms?
@@ -559,8 +558,6 @@ $$\small CAGR = \bigg[\prod_{i=1}^{`r N`}(1+R_i)\bigg]^{\frac{1}{`r N`}}-1\appro
 
 $\rightarrow$ *The key takeaway here is that the risk premium of a security is determined by [solely by its systematic risk]{.blue} and does not depend on its diversifiable risk*
 
-
-
 ## Measures of Risk and Return - Practice
 
 -   Let's use this rationale to understand how increasing the portfolio can reduce its volatility
@@ -573,7 +570,6 @@ $\rightarrow$ *The key takeaway here is that the risk premium of a security is d
 . . .
 
 ::: callout-tip
-
 ### Data Exercise
 
 [Download the data using the following button and proceed with the practical exercise.]{.big}
@@ -608,7 +604,6 @@ if(!file.exists('Contents/Portfolio_Data.csv')){
 ```
 :::
 
-
 ## Limits to diversification
 
 -   How much volatility can we shrink through diversification? The volatility will therefore decline until only the systematic risk remains - *e.g*, exposure to macroeconomic events.
@@ -616,7 +611,6 @@ if(!file.exists('Contents/Portfolio_Data.csv')){
 . . .
 
 ![](Images/F6.png){fig-align="center"}
-
 
 ## Diversification - wrapping-up
 
@@ -766,7 +760,7 @@ tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','BBDC4.SA','EGI
 
 Data = sapply(tickers,function(x) getSymbols(x,auto.assign = FALSE))%>%
       map(xts::.subset.xts,j=6)%>%
-      map(window,start='2022-01-01')%>%
+      map(window,start='2022-01-01',end='2024-01-01')%>%
       map(dailyReturn)%>%
       setNames(tickers)
 
