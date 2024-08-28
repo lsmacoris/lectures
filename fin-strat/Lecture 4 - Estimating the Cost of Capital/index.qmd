@@ -28,6 +28,23 @@ from: markdown+emoji
 
 ## Outline
 
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+
+library(quantmod)
+library(dplyr)
+library(highcharter)
+library(purrr)
+library(tidyr)
+library(xts)
+library(glue)
+library(DT)
+library(scales)
+library(tibble)
+```
+
 -   This lecture is mainly based the following textbooks:
 
     1.  [@BDM]
@@ -46,16 +63,15 @@ $\rightarrow$ *For coding replications, whenever applicable, please follow [this
 
 ## From our last lecture, you saw that...
 
-- Determining how much to expect an asset to reward investors is tied to portfolio choices
+-   Determining how much to expect an asset to reward investors is tied to portfolio choices
 
-- The required return is the expected return that is necessary to compensate for the risk investment $i$ will contribute to the portfolio:
+-   The required return is the expected return that is necessary to compensate for the risk investment $i$ will contribute to the portfolio:
 
 . . .
 
 $$
 \small E[R_i]  >  R_f + \beta_i^P  \times (E[R_p] - R_f)
 $$
-
 
 1.  It is is equal to the [risk-free]{.blue} interest rate...
 2.  ...plus the [risk premium]{.blue} of the current portfolio, P...
@@ -63,122 +79,108 @@ $$
 
 -   In such a way, this enables us to "price" the required returns for investing in any asset based on the amount of required returns that are needed to improve the performance of an efficient portfolio!
 
-
 ## Putting it into practice
 
-- Once we can identify the efficient portfolio, we can compute the expected return of any security based on its beta with the efficient portfolio according to the equation just shown
+-   Once we can identify the efficient portfolio, we can compute the expected return of any security based on its beta with the efficient portfolio according to the equation just shown
 
-- However, [we face a practical issue]{.blue}: in order to identify the efficient portfolio we must know the [expected returns]{.blue} ($E[\cdot]$), volatilities ($\sigma$), and correlations between all securities
+-   However, [we face a practical issue]{.blue}: in order to identify the efficient portfolio we must know the [expected returns]{.blue} ($E[\cdot]$), volatilities ($\sigma$), and correlations between all securities
 
-- To answer this question, we'll look at the *Capital Asset Pricing Model* - also known as [CAPM]{.blue}:
+-   To answer this question, we'll look at the *Capital Asset Pricing Model* - also known as [CAPM]{.blue}:
 
-  1. It allows us to [identify the efficient portfolio]{.blue} of risky assets *without* having any knowledge of the expected return of each security
-  2. Instead of that, the CAPM makes some identifying assumptions regarding the investor behavior 
-
-
-## The CAPM Assumptions
-
-- There are basically [three]{.blue} simplifying assumptions around investor behavior that the [CAPM]{.blue} establishes:
-
-  1. Investors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate
-  
-  2. Investors hold only efficient portfolios of traded securities.
-  
-  3. Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities. There is no information asymmetry.
-
-
-- With these assumptions, we are able to identify the efficient portfolio without having knowledge of the expected returns, volatilities, and correlations between all available investments
+    1.  It allows us to [identify the efficient portfolio]{.blue} of risky assets *without* having any knowledge of the expected return of each security
+    2.  Instead of that, the CAPM makes some identifying assumptions regarding the investor behavior
 
 ## The CAPM Assumptions
 
-:::{.callout-tip}
+-   There are basically [three]{.blue} simplifying assumptions around investor behavior that the [CAPM]{.blue} establishes:
+
+    1.  Investors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate
+
+    2.  Investors hold only efficient portfolios of traded securities.
+
+    3.  Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities. There is no information asymmetry.
+
+-   With these assumptions, we are able to identify the efficient portfolio without having knowledge of the expected returns, volatilities, and correlations between all available investments
+
+## The CAPM Assumptions
+
+::: callout-tip
 ### Assumption I
 
 *Investors can buy and sell all securities at competitive market prices (without incurring taxes or transactions costs) and can borrow and lend at the risk-free interest rate*
-
 :::
 
-- This assumption states that there are no market imperfections that would prevent investors adjust their portfolios according to their needs
+-   This assumption states that there are no market imperfections that would prevent investors adjust their portfolios according to their needs
 
-- All investors are able to buy and sell securities at the same conditions
+-   All investors are able to buy and sell securities at the same conditions
 
-- They are also all able to access a risk-free investment, $R_f$, both for investment as well as lending
-
+-   They are also all able to access a risk-free investment, $R_f$, both for investment as well as lending
 
 ## The CAPM Assumptions, continued
 
-:::{.callout-tip}
+::: callout-tip
 ### Assumption II
 
 *Investors hold only efficient portfolios of traded securities—portfolios that yield the maximum expected return for a given level of volatility*
-
 :::
 
-- This assumption states that *all* investors behave so as to choose the portfolio with the highest return for a given level of risk that they are willing to accept
+-   This assumption states that *all* investors behave so as to choose the portfolio with the highest return for a given level of risk that they are willing to accept
 
-- As we saw, investors will seek to choose a given portfolio $P$ such that has the highest Sharpe Ratio - which we called the [tangent]{.blue} portfolio
+-   As we saw, investors will seek to choose a given portfolio $P$ such that has the highest Sharpe Ratio - which we called the [tangent]{.blue} portfolio
 
-- Although risk preferences may change, investors will seek to combine a risky portfolio $P$ with the risk-free rate so as to adjust for their preferences
+-   Although risk preferences may change, investors will seek to combine a risky portfolio $P$ with the risk-free rate so as to adjust for their preferences
 
 ## The CAPM Assumptions, continued
 
-:::{.callout-tip}
+::: callout-tip
 ### Assumption III
 
-*Investors have homogeneous expectations regarding the volatilities, correlations, and expected
-returns of securities.*
-
+*Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities.*
 :::
 
-- Plausibly, there are many investors in the world, and each may have his or her own estimates of the volatilities, correlations, and expected returns of the available securities...
+-   Plausibly, there are many investors in the world, and each may have his or her own estimates of the volatilities, correlations, and expected returns of the available securities...
 
-- But investors don’t come up with these estimates arbitrarily:
-  1. They base them on historical patterns and other information (including market prices)
-  2. If all investors use publicly available information sources, then their estimates are likely to be similar
-  
+-   But investors don’t come up with these estimates arbitrarily:
+
+    1.  They base them on historical patterns and other information (including market prices)
+    2.  If all investors use publicly available information sources, then their estimates are likely to be similar
+
 . . .
 
 $\rightarrow$ *As a consequence, it is not unreasonable to consider a special case in which all investors have the same estimates concerning future investments and returns*
 
-
-
-
 ## Wrapping up the assumptions
 
-- Think about your simplifying assumptions now...
+-   Think about your simplifying assumptions now...
 
-  1. If investors have homogeneous expectations (*Assumption #3*), they will identify the same efficient portfolio (the one with the highest [Sharpe Ratio]{.blue})
-  2. We know that all investors will invest in the efficient portfolio of risky assets (*Assumption #2*)
-  2. Finally, as they can borrow and lend at the same rate $R_f$ (*Assumption #1*), they can adjust the risk according to their preferences
-  
-  
-- If these are valid, under the [CAPM]{.blue} assumptions, we can identify the efficient portfolio: [it is equal to the market portfolio]{.blue}!
+    1.  If investors have homogeneous expectations (*Assumption #3*), they will identify the same efficient portfolio (the one with the highest [Sharpe Ratio]{.blue})
+    2.  We know that all investors will invest in the efficient portfolio of risky assets (*Assumption #2*)
+    3.  Finally, as they can borrow and lend at the same rate $R_f$ (*Assumption #1*), they can adjust the risk according to their preferences
 
-- A Market portfolio contains all traded securities in a economy.
+-   If these are valid, under the [CAPM]{.blue} assumptions, we can identify the efficient portfolio: [it is equal to the market portfolio]{.blue}!
 
-## The Capital Market Line
-
-- When the [CAPM]{.blue} assumptions hold, the [market portfolio]{.blue} is the efficient portfolio, so the [tangent]{.blue} portfolio that we discussed before is actually the [market portfolio]{.blue}
-
-- The tangent line goes that through the market portfolio is called the [Capital Market Line (CML)]{.blue}:
-
-  1. It contains [all]{.blue} possible choices of portfolios that investors would pick
-  2. According to the [CAPM]{.blue}, these portfolios will always be a combination of the risk-free rate, $R_f$, and the market portfolio
-
-- Therefore, investors should always choose a portfolio on the [Capital Market Line]{.blue}, by holding some combination of the risk-free security and the market portfolio
-
-
+-   A Market portfolio contains all traded securities in a economy.
 
 ## The Capital Market Line
 
+-   When the [CAPM]{.blue} assumptions hold, the [market portfolio]{.blue} is the efficient portfolio, so the [tangent]{.blue} portfolio that we discussed before is actually the [market portfolio]{.blue}
 
-![](Images/F1.png){fig-align='center' width=70%}
+-   The tangent line goes that through the market portfolio is called the [Capital Market Line (CML)]{.blue}:
+
+    1.  It contains [all]{.blue} possible choices of portfolios that investors would pick
+    2.  According to the [CAPM]{.blue}, these portfolios will always be a combination of the risk-free rate, $R_f$, and the market portfolio
+
+-   Therefore, investors should always choose a portfolio on the [Capital Market Line]{.blue}, by holding some combination of the risk-free security and the market portfolio
+
+## The Capital Market Line
+
+![](Images/F1.png){fig-align="center" width="70%"}
 
 ## Pricing the Risk Premium under the CAPM
 
-1. We can now identify the efficient portfolio: [it is equal to the market portfolio]{.blue}
+1.  We can now identify the efficient portfolio: [it is equal to the market portfolio]{.blue}
 
-2. What does that mean for us in terms of determining expected returns? Recall that, from our previous class, the required return for a given stock $i$ should be:
+2.  What does that mean for us in terms of determining expected returns? Recall that, from our previous class, the required return for a given stock $i$ should be:
 
 . . .
 
@@ -186,7 +188,7 @@ $$
 \small E[R_i]  >  R_f + \beta_i^P  \times (E[R_p] - R_f)
 $$
 
-- Until now, we were agnostic on what $P$ was. Under the CAPM, we can change $R_p$ to $R_m$ (which is the return of the market portfolio):
+-   Until now, we were agnostic on what $P$ was. Under the CAPM, we can change $R_p$ to $R_m$ (which is the return of the market portfolio):
 
 . . .
 
@@ -194,47 +196,46 @@ $$
 \small E[R_i] =  R_f + \beta_i^M  \times (E[R_m] - R_f)
 $$
 
-- Consequently, the $\beta$ of a security measures its volatility due to *market risk* relative to the market as a whole, and thus captures the security’s sensitivity to market risk
+-   Consequently, the $\beta$ of a security measures its volatility due to *market risk* relative to the market as a whole, and thus captures the security’s sensitivity to market risk
 
 ## Pricing the Risk Premium under the CAPM, continued
 
-- The [CAPM]{.blue} implies there is a *linear* relationship between a stock's sensitivity to the market ($\beta$) and its expected return
+-   The [CAPM]{.blue} implies there is a *linear* relationship between a stock's sensitivity to the market ($\beta$) and its expected return
 
-- This linear relationship has a name: the [Security Market Line (SML)]{.blue}
+-   This linear relationship has a name: the [Security Market Line (SML)]{.blue}
 
-- The security market line (SML) is the line along which all individual securities should lie when plotted according to their expected return, $E[\cdot]$ and $\beta$
+-   The security market line (SML) is the line along which all individual securities should lie when plotted according to their expected return, $E[\cdot]$ and $\beta$
 
-  1. Contrast this result with the Capital Market Line shown before, where there is no clear relationship between an individual stock’s volatility and its expected return
-  2. Due to the linear nature between the expected return and $\beta$, a stock’s expected return is due only to the fraction of its volatility that is common with the market
-  
+    1.  Contrast this result with the Capital Market Line shown before, where there is no clear relationship between an individual stock’s volatility and its expected return
+    2.  Due to the linear nature between the expected return and $\beta$, a stock’s expected return is due only to the fraction of its volatility that is common with the market
+
 . . .
 
 $\rightarrow$ *Consequently the distance of each stock to the right of the capital market line is due to its diversifiable risk!*
 
 ## Capital Market Line shows no clear relationship between risk and return...
 
-![](Images/F2.png){fig-align='center' width=70%}
+![](Images/F2.png){fig-align="center" width="70%"}
 
 ## The Security Market Line makes the relationship clear when focusing only on the sensitivy to the market risk ($\beta$)!
 
-![](Images/F3.png){fig-align='center' width=60%}
+![](Images/F3.png){fig-align="center" width="60%"}
 
 ## Beta of a portfolio
 
-- Because the security market line applies to all tradable investment opportunities, we can apply it to portfolios as well
+-   Because the security market line applies to all tradable investment opportunities, we can apply it to portfolios as well
 
-- How can we find the $\beta$ of a full portfolio of assets? In order to see that, assume that you have several assets $i$ in  portfolio $P$
+-   How can we find the $\beta$ of a full portfolio of assets? In order to see that, assume that you have several assets $i$ in portfolio $P$
 
-- Thus, the return of the portfolio can be writen as $R_p=\sum_{i}x_i R_i$, where $x_i$ is the weight of each asset $i$ in the portfolio
+-   Thus, the return of the portfolio can be writen as $R_p=\sum_{i}x_i R_i$, where $x_i$ is the weight of each asset $i$ in the portfolio
 
-- The $\beta$ of this "asset" is then:
+-   The $\beta$ of this "asset" is then:
 
 . . .
 
 $$
 \small \beta_{p}=\dfrac{Cov(R_p,R_m)}{\sigma^2_m}=\dfrac{Cov(\sum_{i}x_i R_i,R_m)}{\sigma^2_m}=\sum_i x_i\dfrac{Cov(R_i,R_m)}{\sigma^2_m}=\sum_i x_i\times \beta_i
-$$
-$\rightarrow$ *Therefore, the $\beta$ of a portfolio is simply the weighted average of the indidivual betas!*
+$$ $\rightarrow$ *Therefore, the* $\beta$ of a portfolio is simply the weighted average of the indidivual betas!
 
 # Estimating the Cost of Capital
 
@@ -242,17 +243,17 @@ $\rightarrow$ *Therefore, the $\beta$ of a portfolio is simply the weighted aver
 
 -   Based on the CAPM model we've just seen, the cost of capital of any investment opportunity equals the expected return of the available investments with the same beta (those that are along the *Capital Market Line*):
 
-- You can know use this rationale to estimate how much an investor should need to earn in order to invest in a given stock $i$
+-   You can know use this rationale to estimate how much an investor should need to earn in order to invest in a given stock $i$
 
 . . .
 
 $$R_i = R_f + \beta \times (E[R_m] - R_f)$$
 
-- In what follows, we'll see how this can be used in practce
+-   In what follows, we'll see how this can be used in practce
 
 ## Estimating the Equity Cost of Capital
 
-- Suppose you estimate that *Disney* (ticker: *DIS*) has a volatility of 20% and a $\beta$ of 1.29. A similar process for *Chipotle* (ticker: *CMG*) yields a volatility of 30% and a $\beta$ of 0.55. If the risk-free interest rate is 3% and you estimate the market’s expected return to be 8%, calculate the equity cost of capital for *DIS* and *CMG.* 
+-   Suppose you estimate that *Disney* (ticker: *DIS*) has a volatility of 20% and a $\beta$ of 1.29. A similar process for *Chipotle* (ticker: *CMG*) yields a volatility of 30% and a $\beta$ of 0.55. If the risk-free interest rate is 3% and you estimate the market’s expected return to be 8%, calculate the equity cost of capital for *DIS* and *CMG.*
 
 . . .
 
@@ -266,83 +267,79 @@ $\rightarrow$ *Because market risk cannot be diversified, it is the [market risk
 
 ## Estimating the Equity Cost of Capital in practice
 
-- Ok, now you now the dynamics behind the pricing of securities under the [CAPM]{.blue}
+-   Ok, now you now the dynamics behind the pricing of securities under the [CAPM]{.blue}
 
-- However, no one really told you from where the numbers came from
+-   However, no one really told you from where the numbers came from
 
-- Recall that, under the [CAPM]{.blue}, we need to have estimates related to the market portfolio:
+-   Recall that, under the [CAPM]{.blue}, we need to have estimates related to the market portfolio:
 
-  1.  It is is equal to the [risk-free]{.blue} interest rate...
-  2.  The *expected* return on the market portfolio, $E[R_m]$...
-  3.  And a stock's s sensitivity to the market portfolio, denoted by [$\beta$]{.blue}
+    1.  It is is equal to the [risk-free]{.blue} interest rate...
+    2.  The *expected* return on the market portfolio, $E[R_m]$...
+    3.  And a stock's s sensitivity to the market portfolio, denoted by [$\beta$]{.blue}
 
-- We will proceed by understanding each of these components and how to get estimates for them
+-   We will proceed by understanding each of these components and how to get estimates for them
 
 ## The Market Portfolio
 
-- What is the definition of a [market portfolio]{.blue}? It is the total supply of securities, with the proportions of each security corresponding to the proportion of the total market that each security represents
+-   What is the definition of a [market portfolio]{.blue}? It is the total supply of securities, with the proportions of each security corresponding to the proportion of the total market that each security represents
 
-- Thus, the market portfolio contains more of the largest stocks and less of the smallest stocks. In order to see that, note that the market capitalization of one firm is simply the total market value of a firm’s outstanding shares
+-   Thus, the market portfolio contains more of the largest stocks and less of the smallest stocks. In order to see that, note that the market capitalization of one firm is simply the total market value of a firm’s outstanding shares
 
 . . .
 
 $$\small MV_i = \text{# of shares outstanding} \times \text{Price per share} = N_i \times P_i$$
 
-- We then calculate the portfolio weights of each security (a *"Value-Weighted"* Portfolio): a portfolio in which each security is held in proportion to its market capitalization
+-   We then calculate the portfolio weights of each security (a *"Value-Weighted"* Portfolio): a portfolio in which each security is held in proportion to its market capitalization
 
 . . .
 
 $$\small x_i = \frac{MV_i}{Total\; MV}= \frac{MV_i}{\sum{MV}}$$
 
-
 ## The Market Portfolio and its proxies
 
-- Examples of market portfolios indexes:
-  1.   [S&P500]{.blue}: A value-weighted portfolio of the 500 largest U.S. stocks
-  2.   [Dow Jones Industrial Average (DJIA)]{.blue}: a price-weighted portfolio of 30 large industrial stocks (holds an equal number of shares of each stock).
-  3.   [Ibovespa]{.blue}: around 90 BR stocks following an algorithm that focuses on liquidity
+-   Examples of market portfolios indexes:
+    1.  [S&P500]{.blue}: A value-weighted portfolio of the 500 largest U.S. stocks
+    2.  [Dow Jones Industrial Average (DJIA)]{.blue}: a price-weighted portfolio of 30 large industrial stocks (holds an equal number of shares of each stock).
+    3.  [Ibovespa]{.blue}: around 90 BR stocks following an algorithm that focuses on liquidity
 
 . . .
 
-
-**Caution**: indexes like the [S&P500]{.blue} and [Ibovespa]{.blue} are not considered the [market portfolio]{.blue}, but rather, they are *proxies* for the market portfolios  - in other words, they are reasonable approximations of the market portfolio for a given set universe of securities
+**Caution**: indexes like the [S&P500]{.blue} and [Ibovespa]{.blue} are not considered the [market portfolio]{.blue}, but rather, they are *proxies* for the market portfolios - in other words, they are reasonable approximations of the market portfolio for a given set universe of securities
 
 ## Cost of Equity Components: risk-free rate
 
-- A key ingredient of CAPM is [risk-free rate]{.blue}, which is the interest rate that investors can earn while having zero to limited volatility
+-   A key ingredient of CAPM is [risk-free rate]{.blue}, which is the interest rate that investors can earn while having zero to limited volatility
 
 -   Suggestions on how to pick the Risk-Free ($R_f$) rate to be used:
-    1.   The yield on U.S. Treasury securities
-    2.   Surveys suggest most practitioners use 10- to 30-year treasuries
-    3.   Highest quality assets
-    
-- Often, we use a short-term risk-free rate to evaluate a short-term investment, and a long-term rate when evaluating a long-term investment
 
+    1.  The yield on U.S. Treasury securities
+    2.  Surveys suggest most practitioners use 10- to 30-year treasuries
+    3.  Highest quality assets
+
+-   Often, we use a short-term risk-free rate to evaluate a short-term investment, and a long-term rate when evaluating a long-term investment
 
 ## Cost of Equity Components: the market risk premium
 
-- Another component of the Cost of Equity is the difference between $E[R_m]$ and $R_f$ (the market risk premium)
+-   Another component of the Cost of Equity is the difference between $E[R_m]$ and $R_f$ (the market risk premium)
 
-- Ways to estimate the market risk premium:
+-   Ways to estimate the market risk premium:
 
-  1. Estimate the risk premium ($E[R_m] − R_f$) using the historical average excess return of the market over the risk-free interest rate
-  2. Notice that, even with long periods, we often have large standard errors
-  3. Implicitly, you are assuming that the past is a good proxy for the future
+    1.  Estimate the risk premium ($E[R_m] − R_f$) using the historical average excess return of the market over the risk-free interest rate
+    2.  Notice that, even with long periods, we often have large standard errors
+    3.  Implicitly, you are assuming that the past is a good proxy for the future
 
 . . .
 
-
-![](Images/F4.png){fig-align='center' width=60%}
-
+![](Images/F4.png){fig-align="center" width="60%"}
 
 ## Criticism around using historical data
 
-- When estimating the Cost of Equity, using historical data has two problems:
+-   When estimating the Cost of Equity, using historical data has two problems:
 
-  1. Standard errors of the estimates are often large
-  2. They are *backward* looking, meaning that they reflect *past*, and not *future*, information. Therefore, we cannot be sure they are representative of current expectations
+    1.  Standard errors of the estimates are often large
+    2.  They are *backward* looking, meaning that they reflect *past*, and not *future*, information. Therefore, we cannot be sure they are representative of current expectations
 
-- An alternative is to use a "discount rate" that is consistent with the current level of the market index in consideration: assume that, for a given firm $i$, current prices can be modeled as future dividends (*Gordon* model). If that is true, then we have that:
+-   An alternative is to use a "discount rate" that is consistent with the current level of the market index in consideration: assume that, for a given firm $i$, current prices can be modeled as future dividends (*Gordon* model). If that is true, then we have that:
 
 . . .
 
@@ -352,8 +349,7 @@ $$
 
 ## Criticism around using historical data, example
 
-
-- Let's say that, after aggregating all firms, *Ibovespa*'s current dividend yield is 2%. Also, both earnings and dividends per share are expected to grow 6% per year. If that is true, then the discount rate that would make sense to justify the actual level of the *Ibovespa* index is the discount rate, $r$:
+-   Let's say that, after aggregating all firms, *Ibovespa*'s current dividend yield is 2%. Also, both earnings and dividends per share are expected to grow 6% per year. If that is true, then the discount rate that would make sense to justify the actual level of the *Ibovespa* index is the discount rate, $r$:
 
 . . .
 
@@ -361,15 +357,15 @@ $$
 R_m = \text{Dividend yield} + \text{Growth Rate on Dividends}= 2\% + 6\% = 8\%
 $$
 
-- While this model is highly inaccurate for an individual firm, the assumption of constant expected growth is more reasonable when considering the overall market
+-   While this model is highly inaccurate for an individual firm, the assumption of constant expected growth is more reasonable when considering the overall market
 
-- Following such methods, researchers generally report estimates in the 3%–5% range for the future equity risk premium
+-   Following such methods, researchers generally report estimates in the 3%–5% range for the future equity risk premium
 
 ## Beta ($\beta$) Estimation
 
-- As of now, you were able to get a sense on how to get reasonable estimates for $R_f$ and the Market Risk Premium, $E[R_m]-R_f$
+-   As of now, you were able to get a sense on how to get reasonable estimates for $R_f$ and the Market Risk Premium, $E[R_m]-R_f$
 
-- All that is left is to estimate the stocks's sensitivity to the returns of the market portfolio, $\beta$. Recall that, a new asset $i$ should be enhance the performance of a portfolio if:
+-   All that is left is to estimate the stocks's sensitivity to the returns of the market portfolio, $\beta$. Recall that, a new asset $i$ should be enhance the performance of a portfolio if:
 
 . . .
 
@@ -385,10 +381,9 @@ $$
 \small R_i - R_f = \underbrace{\frac{\sigma_{i} \times corr(R_i,R_m)}{\sigma_{m}}}_{\beta^M_i}  \times (E[R_m] - R_f)
 $$
 
-
 ## Beta ($\beta$) Estimation, continued
 
-- Because $\small Corr(R_i,R_m)=\frac{Cov(R_i,R_m)}{\sigma_i\sigma_m}$, we have that:
+-   Because $\small Corr(R_i,R_m)=\frac{Cov(R_i,R_m)}{\sigma_i\sigma_m}$, we have that:
 
 . . .
 
@@ -396,8 +391,7 @@ $$
 \small (R_i - R_f)=\frac{\sigma_{i} \times Cov(R_i,R_m)}{\sigma_i \sigma_m\sigma_{m}}  \times (E[R_p] - R_f)\rightarrow  (R_i - R_f)=  \underbrace{\frac{Cov(R_i,R_m)}{\sigma^2_m}}_{\text{OLS formula for slope}}\times (E[R_p] - R_f)
 $$
 
-
-- We can then estimate $\beta$ using an *Ordinary Least Squares* regression:
+-   We can then estimate $\beta$ using an *Ordinary Least Squares* regression:
 
 . . .
 
@@ -407,12 +401,89 @@ $$
 
 -   $\epsilon_i$ is the error term (or the *residual*). It represents the *deviations* from the best-fitting line and is, by definition, zero on average (or else we could improve the fit), and represent firm-specific risk that is diversifiable and that averages out in a large portfolio
 
+-  It corresponds to the diversifiable risk of the stock, which is the risk that is uncorrelated with the market!
 
-- This error term corresponds to the diversifiable risk of the stock, which is the risk that is uncorrelated with the market!
+## Example: looking at PETR3.SA ($\beta$ = 1.02)
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 15
+#| fig-height: 8
+
+
+#Higharter Theme
+Theme <- hc_theme(
+  chart = list(
+    backgroundColor = "#FFFFFF"
+  ),
+  title = list(
+    style = list(
+      color = "#333333",
+      fontSize = '30px'
+    )
+  ),
+  subtitle = list(
+    style = list(
+      color = "#666666",
+      fontSize = "25px"
+    )
+  ),
+  legend = list(
+    itemStyle = list(
+      color = "#666666"
+      )
+    ),
+  yAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+
+  ),
+  xAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+  )
+)
+
+
+tickers = c('PETR3.SA','^BVSP')
+
+Prices=map(tickers,getSymbols,from='2023-01-01',to='2024-01-01',auto.assign = FALSE)%>%
+  setNames(tickers)%>%
+  map(~xts::.subset.xts(.,j=6))%>%
+  map(as.data.frame)%>%
+  map(~setNames(.x,'Price'))%>%
+  map(as.xts)
+
+Returns=do.call('cbind',Prices%>%
+                  map(dailyReturn,leading=FALSE)%>%
+                  map(na.omit)%>%
+                  map(.,~.*100))%>%
+  setNames(c('PETR3','IBOV'))%>%as.data.frame()
+  
+Returns$fitted=lm(PETR3~IBOV,data=Returns)%>%predict()
+
+#Plot
+hchart(Returns,type='point',hcaes(x=IBOV,y=PETR3))%>%
+hc_add_series(name='Fitted Line',Returns,hcaes(x=IBOV,y=fitted),type = "line")%>%
+hc_title(text="PETR3 and IBOV returns (2023-2024)")%>%
+hc_subtitle(text='Considering closing adjusted prices from Yahoo! Finance')%>%
+hc_yAxis(labels = list(format = "{value}%"))%>%
+hc_xAxis(labels = list(format = "{value}%"))%>%
+hc_add_theme(Theme)
+
+
+```
 
 ## Understanding the $\alpha$ term inside the OLS estimation
 
-- Recall that our OLS specification was:
+-   Recall that our OLS specification was:
 
 . . .
 
@@ -420,23 +491,23 @@ $$
 \small (R_i - R_f) = \alpha_i + \beta_i \times (R_m - R_f) + \epsilon_i
 $$
 
-1.   $\alpha_i$ is the constant term. It measures the historical performance of the security relative to the expected return predicted by the security market line
+1.  $\alpha_i$ is the constant term. It measures the historical performance of the security relative to the expected return predicted by the security market line
 
-2.   It is the distance that the stock’s average return is above or below the SML. Thus, we can say $\alpha_i$ is a risk-adjusted measure of the stock’s historical performance.
+2.  It is the distance that the stock’s average return is above or below the SML. Thus, we can say $\alpha_i$ is a risk-adjusted measure of the stock’s historical performance.
 
-3.   According to the CAPM, $\alpha_i$ [should not be significantly different from zero]{.blue}
+3.  According to the CAPM, $\alpha_i$ [should not be significantly different from zero]{.blue}
 
 ## Beta Estimation, practice
 
-- Assuming tha the market volatility, $\sigma_m$, is 10%, estimate the $\beta$ for each of these three securities:
+-   Assuming that the market volatility, $\sigma_m$, is 10%, estimate the $\beta$ for each of these three securities:
 
 . . .
 
 | Portfolio      | Weight | Volatility ($\sigma$) | Correlation with M |
-|----------------|--------|-----------------|--------------------|
-| HEC Corp       | 0.21   | 13%             | 0.42               |
-| Green Midget   | 0.31   | 20%             | 0.68               |
-| Alive And Well | 0.48   | 12%             | 0.54               |
+|----------------|--------|-----------------------|--------------------|
+| HEC Corp       | 0.21   | 13%                   | 0.42               |
+| Green Midget   | 0.31   | 20%                   | 0.68               |
+| Alive And Well | 0.48   | 12%                   | 0.54               |
 
 . . .
 
@@ -446,7 +517,7 @@ $$
 
 ## Beta Estimation, practice
 
-- Suppose you have estimated [Tikyberd]{.blue}’s beta to be 0.8 with a 95% confidence interval of 0.65 to 0.95. Assuming the risk-free rate is 2% and the market is expected to return 12%, what range would you estimate for [Tikyberd]{.blue}’s equity cost of capital?
+-   Suppose you have estimated [Tikyberd]{.blue}’s beta to be 0.8 with a 95% confidence interval of 0.65 to 0.95. Assuming the risk-free rate is 2% and the market is expected to return 12%, what range would you estimate for [Tikyberd]{.blue}’s equity cost of capital?
 
 . . .
 
@@ -454,33 +525,34 @@ $$E[R_i]=r_f + β_i (E[R_M] −R_f) =2\% + 0.65 (12\% − 2\%) = 8.5\%$$
 
 $$E[R_i]=r_f + β_i (E[R_M] −R_f) = 2\% + 0.95 (12\% − 2\%) = 11.5\%$$
 
-$\rightarrow$ *Therefore, the range for the expected returns from [Tikyberd]{.blue} is $[8.5\%,11.5\%]$*
- 
+$\rightarrow$ *Therefore, the range for the expected returns from [Tikyberd]{.blue} is* $[8.5\%,11.5\%]$
+
 ## The Debt Cost of Capital
-- In the previous slides, we saw how to use the [CAPM]{.blue} to estimate the cost of capital of a firm’s equity
 
-- What about a firm’s [debt]{.blue} — in other words, [how to estimate the expected return required by a firm’s creditors]{.blue}?
+-   In the previous slides, we saw how to use the [CAPM]{.blue} to estimate the cost of capital of a firm’s equity
 
-- In what follows, we'll see some approaches for estimating the [Debt Cost of Capital]{.blue}. Recall that the Cost of Capital of a given firm will then be a weighted average of the Equity and Debt costs
+-   What about a firm’s [debt]{.blue} — in other words, [how to estimate the expected return required by a firm’s creditors]{.blue}?
 
-- We'll look at [two]{.blue} different methods:
+-   In what follows, we'll see some approaches for estimating the [Debt Cost of Capital]{.blue}. Recall that the Cost of Capital of a given firm will then be a weighted average of the Equity and Debt costs
 
-  1. Using Debt Yields
-  2. Using the CAPM to generate debt betas
+-   We'll look at [two]{.blue} different methods:
+
+    1.  Using Debt Yields
+    2.  Using the CAPM to generate debt betas
 
 ## Approach #1: Debt Yields
 
-- Recall that the *Yield to Maturity* ([YTM]{.blue}) is the IRR an investor will earn from holding the bond to maturity and receiving its promised payments
-  1. If there is little risk the firm will default, yield to maturity is a reasonable estimate of investors’ expected rate of return
-  2. On the other hand, if there is significant risk of default, yield to maturity will overstate investors’ expected return
+-   Recall that the *Yield to Maturity* ([YTM]{.blue}) is the IRR an investor will earn from holding the bond to maturity and receiving its promised payments
+    1.  If there is little risk the firm will default, yield to maturity is a reasonable estimate of investors’ expected rate of return
+    2.  On the other hand, if there is significant risk of default, yield to maturity will overstate investors’ expected return
 
 . . .
 
-![](Images/F5.png){fig-align='center' width=70%}
+![](Images/F5.png){fig-align="center" width="70%"}
 
 ## Approach #1: Debt Yields, continued
 
-- How can we adjust for potential losses due to defaults? We can estimate the expected returns from debt, $r_d$, as:
+-   How can we adjust for potential losses due to defaults? We can estimate the expected returns from debt, $r_d$, as:
 
 . . .
 
@@ -488,31 +560,26 @@ $$
 \small r_d=\text{YTM} - \text{Prob. of Default}\times \text{Expected Loss given Default}
 $$
 
-- In order to see that, assume that the average loss rate for unsecured debt is 60%
+-   In order to see that, assume that the average loss rate for unsecured debt is 60%
 
-- During average times, the annual default rate for B-rated bonds is 5.5%.
+-   During average times, the annual default rate for B-rated bonds is 5.5%.
 
-- In this case, the expected return to B-rated bondholders during average times is $\small 0.055 \times 0.60 = 3.3\%$ below the bond’s quoted yield:
-
+-   In this case, the expected return to B-rated bondholders during average times is $\small 0.055 \times 0.60 = 3.3\%$ below the bond’s quoted yield:
 
 ## Approach #2: Debt Betas
 
+-   We can also use the [CAPM]{.blue} to estimate debt cost through identifying the sensitivity of a given firm's [debt]{.blue} returns to the market returns
 
-- We can also use the [CAPM]{.blue} to estimate debt cost through identifying the sensitivity of a given firm's [debt]{.blue} returns to the market returns
-
-  1. Debt betas are difficult to estimate because corporate bonds are traded infrequently, so there's little variation in bond returns
-  2. One approximation is to use estimates of betas of bond indices by rating category
+    1.  Debt betas are difficult to estimate because corporate bonds are traded infrequently, so there's little variation in bond returns
+    2.  One approximation is to use estimates of betas of bond indices by rating category
 
 . . .
 
-
-![](Images/F6.png){fig-align='center' width=70%}
-
-
+![](Images/F6.png){fig-align="center" width="70%"}
 
 ## Debt Betas, practice
 
-- In early 2013, auto parts retailer [Autozone]{.blue} had outstanding 10-year bonds with a Yield-to-Maturity of 3%** and a [BBB]{.blue} rating. If corresponding risk-free rates were 1.5%** and the market risk premium is 8%, estimate the expected return of [Autozone]{.blue}’s debt.
+-   In early 2013, auto parts retailer [Autozone]{.blue} had outstanding 10-year bonds with a Yield-to-Maturity of 3%\*\* and a [BBB]{.blue} rating. If corresponding risk-free rates were 1.5%\*\* and the market risk premium is 8%, estimate the expected return of [Autozone]{.blue}’s debt.
 
 . . .
 
@@ -528,58 +595,56 @@ $$
 
 $$
 \small r_d = 1.5\% + 0.10(8\%) = 2.3\%
-$$
-$\rightarrow$ *Both estimates are rough approximations and they both suggest that the expected return of [Autozone]{.blue}’s debt is below its yield-to-maturity of 3%*
-
+$$ $\rightarrow$ *Both estimates are rough approximations and they both suggest that the expected return of [Autozone]{.blue}’s debt is below its yield-to-maturity of 3%*
 
 # Estimating a project’s Cost of Capital
 
 ## A Project’s Cost of Capital
 
-- When we started studying the [CAPM]{.blue}, the focus was to price the required returns of a company [as a whole]{.blue} by means of the sensitivity of its returns with the market
+-   When we started studying the [CAPM]{.blue}, the focus was to price the required returns of a company [as a whole]{.blue} by means of the sensitivity of its returns with the market
 
-- What about investment opportunities *within* a firm (or, alternatively, that are not publicly traded)? Because a new project is not itself a publicly traded security, we cannot use historical risks of equity and debt to estimate beta and the cost of capital
+-   What about investment opportunities *within* a firm (or, alternatively, that are not publicly traded)? Because a new project is not itself a publicly traded security, we cannot use historical risks of equity and debt to estimate beta and the cost of capital
 
-- Furthermore, the decision to invest in specific projects using the firm's cost of capital might ignore the project's risk:
-  1. If, for example, a company has an overall $\beta$ of 0.75, it is, on average, less sensitive to changes in market returns
-  2. However, this company can operate in multiple industries at the same time - *e.g*, *Ultrapar - Grupo Ultra*
-  2. Finally, there may be some specific projects, such as Research and Development  (R\&D), that are likely riskier than the average risk of a project within the company
+-   Furthermore, the decision to invest in specific projects using the firm's cost of capital might ignore the project's risk:
+
+    1.  If, for example, a company has an overall $\beta$ of 0.75, it is, on average, less sensitive to changes in market returns
+    2.  However, this company can operate in multiple industries at the same time - *e.g*, *Ultrapar - Grupo Ultra*
+    3.  Finally, there may be some specific projects, such as Research and Development (R&D), that are likely riskier than the average risk of a project within the company
 
 ## Estimating a project’s Cost of Capital
 
-- Whenever we are evaluating a new project, the ultimate decision is assert whether or not to undertake a project:
-  1. If the expected return is [higher]{.green} than the opportunity cost for investing in that project, we should [undertake]{.green} the project
-  2. If the expected return is [lower]{.red} than the opportunity cost for investing in that project, we should [reject]{.red} the project
+-   Whenever we are evaluating a new project, the ultimate decision is assert whether or not to undertake a project:
 
-- How can we do this as the cost of capital that is required to make this decision is specific to a project, which does not have historical returns?
+    1.  If the expected return is [higher]{.green} than the opportunity cost for investing in that project, we should [undertake]{.green} the project
+    2.  If the expected return is [lower]{.red} than the opportunity cost for investing in that project, we should [reject]{.red} the project
 
-- There are several ways in which we can use information to estimate such return
+-   How can we do this as the cost of capital that is required to make this decision is specific to a project, which does not have historical returns?
 
-- These methods range in the complexity in which we assume the project to have, as well as the source of funds that are used to fund the project
+-   There are several ways in which we can use information to estimate such return
 
+-   These methods range in the complexity in which we assume the project to have, as well as the source of funds that are used to fund the project
 
 ## Approach #1: All-Equity Comparables
 
-- The simplest setting of a theoretical comparable firm is to find an [all-equity financed firm]{.blue} (a firm with no debt) in a single line of business that is comparable to the project
+-   The simplest setting of a theoretical comparable firm is to find an [all-equity financed firm]{.blue} (a firm with no debt) in a single line of business that is comparable to the project
 
-- Remember that:
-  1. Assets = Equity + Debt
-  2. When debt is zero: Assets = Equity.
+-   Remember that:
 
+    1.  Assets = Equity + Debt
+    2.  When debt is zero: Assets = Equity.
 
-- Based on the information from this firm, use the comparable firm’s equity $\beta$ and cost of capital as estimates to estimate the project's cost of capital
+-   Based on the information from this firm, use the comparable firm’s equity $\beta$ and cost of capital as estimates to estimate the project's cost of capital
 
-  1. The rationale here is that your project is an asset by itself. If you find an all-equity firm, the equity $\beta$ will also be the beta of its assets
-  2. Consequently, you can use this estimate as the $\beta$ estimate of your project
-
+    1.  The rationale here is that your project is an asset by itself. If you find an all-equity firm, the equity $\beta$ will also be the beta of its assets
+    2.  Consequently, you can use this estimate as the $\beta$ estimate of your project
 
 ## A Project’s Cost of Capital, practice
 
-- You have just invented a new low-cost, long-lasting rechargeable battery for use in electric cars. You are working on your business plan, and believe your firm will face similar market risk to [Seguin Inc]{.blue}, which has a $\beta$ of 1.3. To develop your financial plan, estimate the cost of capital of financing your firm assuming a risk-free rate of 2.5% and a market risk premium of 6.5%.
+-   You have just invented a new low-cost, long-lasting rechargeable battery for use in electric cars. You are working on your business plan, and believe your firm will face similar market risk to [Seguin Inc]{.blue}, which has a $\beta$ of 1.3. To develop your financial plan, estimate the cost of capital of financing your firm assuming a risk-free rate of 2.5% and a market risk premium of 6.5%.
 
 . . .
 
-- Using [Seguin]{.blue}’s beta as the estimate of the project beta (*i.e.*, assuming the market risk of your project is the same as this company's):
+-   Using [Seguin]{.blue}’s beta as the estimate of the project beta (*i.e.*, assuming the market risk of your project is the same as this company's):
 
 . . .
 
@@ -587,36 +652,34 @@ $$
 R_{\text{Project}} = 2.5\% + 1.3 \times 6.5\% = 10.95\%
 $$
 
-
 ## Introducing Leverage
 
-- What if the firm that we have used as a comparable peer is *not* 100% Equity? As a result, the situation is a bit more complicated if the comparable firm has debt
+-   What if the firm that we have used as a comparable peer is *not* 100% Equity? As a result, the situation is a bit more complicated if the comparable firm has debt
 
-- In that case, the cash flows generated by the firm’s assets are used to pay *both* [debt]{.blue} and [equity]{.blue} holders
+-   In that case, the cash flows generated by the firm’s assets are used to pay *both* [debt]{.blue} and [equity]{.blue} holders
 
-- Consequently, the returns of the firm’s equity alone are not representative of the underlying assets risk!
+-   Consequently, the returns of the firm’s equity alone are not representative of the underlying assets risk!
 
-  1. In fact, because of the firm’s leverage, the equity will often be much [riskier]{.red}
-  2. Thus, the beta of a levered firm’s equity will not be a good estimate of the beta of its assets and of our project
+    1.  In fact, because of the firm’s leverage, the equity will often be much [riskier]{.red}
+    2.  Thus, the beta of a levered firm’s equity will not be a good estimate of the beta of its assets and of our project
 
 ## Approach #2: Leveraged Comparable Firms
 
-- How can we compute the cost of capital of a given  project whenever the comparable firm has debt? A method to solve this issue is to [unlever]{.blue} the $\beta$ of the comparable firm
+-   How can we compute the cost of capital of a given project whenever the comparable firm has debt? A method to solve this issue is to [unlever]{.blue} the $\beta$ of the comparable firm
 
-- To understand that, recall that a firm’s asset cost of capital or unlevered cost of capital is the expected return required by the firm’s investors to hold the firm’s underlying [assets]{.blue}, and is a weighted average of the firm’s equity and debt costs of capital:
+-   To understand that, recall that a firm’s asset cost of capital or unlevered cost of capital is the expected return required by the firm’s investors to hold the firm’s underlying [assets]{.blue}, and is a weighted average of the firm’s equity and debt costs of capital:
 
 . . .
 
 $$r_u = \frac{E}{E+D}\times r_e + \frac{D}{E+D} \times r_d$$
 
-
-- Analogously, because the beta of a portfolio is the weighted-average of the betas:
+-   Analogously, because the beta of a portfolio is the weighted-average of the betas:
 
 $$\beta_u = \frac{E}{E+D}\times \beta_e + \frac{D}{E+D} \times \beta_d$$
 
 ## A Project’s Cost of Capital, practice
 
-- Suppose that your firm is launching a new product and you identify [Company X]{.blue} as a firm with comparable investments. [X]{.blue}’s equity has a market capitalization of 77 billion and a beta of 0.75. [X]{.blue} also has 57 billion of AA-rated debt outstanding, with an average yield of 4.1%. Estimate the cost of capital of your firm’s investment given a risk-free rate of 2.5% and a market risk-premium of 6%.
+-   Suppose that your firm is launching a new product and you identify [Company X]{.blue} as a firm with comparable investments. [X]{.blue}’s equity has a market capitalization of 77 billion and a beta of 0.75. [X]{.blue} also has 57 billion of AA-rated debt outstanding, with an average yield of 4.1%. Estimate the cost of capital of your firm’s investment given a risk-free rate of 2.5% and a market risk-premium of 6%.
 
 . . .
 
