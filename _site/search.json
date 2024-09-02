@@ -39,14 +39,14 @@
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-capm-assumptions-1",
     "title": "Estimating the Cost of Capital",
     "section": "The CAPM Assumptions",
-    "text": "The CAPM Assumptions\n\n\n\n\n\n\nAssumption I\n\n\nInvestors can buy and sell all securities at competitive market prices (without incurring taxes or transactions costs) and can borrow and lend at the risk-free interest rate\n\n\n\n\nThis assumption states that there are no market imperfections that would prevent investors adjust their portfolios according to their needs\nAll investors are able to buy and sell securities at the same conditions\nThey are also all able to access a risk-free investment, \\(R_f\\), both for investment as well as lending"
+    "text": "The CAPM Assumptions\n\nThere are basically three simplifying assumptions around investor behavior that the CAPM establishes:\n\nInvestors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate\nInvestors hold only efficient portfolios of traded securities.\nInvestors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities. There is no information asymmetry.\n\nWith these assumptions, we are able to identify the efficient portfolio without having knowledge of the expected returns, volatilities, and correlations between all available investments"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-capm-assumptions-continued",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-capm-assumptions-continued",
     "title": "Estimating the Cost of Capital",
     "section": "The CAPM Assumptions, continued",
-    "text": "The CAPM Assumptions, continued\n\n\n\n\n\n\nAssumption II\n\n\nInvestors hold only efficient portfolios of traded securities—portfolios that yield the maximum expected return for a given level of volatility\n\n\n\n\nThis assumption states that all investors behave so as to choose the portfolio with the highest return for a given level of risk that they are willing to accept\nAs we saw, investors will seek to choose a given portfolio \\(P\\) such that has the highest Sharpe Ratio - which we called the tangent portfolio\nAlthough risk preferences may change, investors will seek to combine a risky portfolio \\(P\\) with the risk-free rate so as to adjust for their preferences"
+    "text": "The CAPM Assumptions, continued\n\n\n\n\n\n\nAssumption II\n\n\nInvestors hold only efficient portfolios of traded securities—portfolios that yield the maximum expected return for a given level of volatility. All in all, for a given level of volatility assumed, an investor will always select the portfolio with the highest risk \\(\\times\\) return relationship\n\n\n\n\nThis assumption states that all investors behave so as to choose the portfolio with the highest return for a given level of risk that they are willing to accept\nAs we saw, investors will seek to choose a given portfolio \\(P\\) such that has the highest Sharpe Ratio - which we called the tangent portfolio\nAlthough risk preferences may change, investors will seek to combine a risky portfolio \\(P\\) with the risk-free rate so as to adjust for their preferences:\n\n\nInvestors that have preferences towards risk will weight in more on the tangent portfolio and less on the risk-free asset\nOn the other hand, investors that are risk-adverse will weight in more on the risk-free asset"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-capm-assumptions-continued-1",
@@ -60,7 +60,7 @@
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#wrapping-up-the-assumptions",
     "title": "Estimating the Cost of Capital",
     "section": "Wrapping up the assumptions",
-    "text": "Wrapping up the assumptions\n\nThink about your simplifying assumptions now…\n\nIf investors have homogeneous expectations (Assumption #3), they will identify the same efficient portfolio (the one with the highest Sharpe Ratio)\nWe know that all investors will invest in the efficient portfolio of risky assets (Assumption #2)\nFinally, as they can borrow and lend at the same rate \\(R_f\\) (Assumption #1), they can adjust the risk according to their preferences\n\nIf these are valid, under the CAPM assumptions, we can identify the efficient portfolio: it is equal to the market portfolio!\nA Market portfolio contains all traded securities in a economy."
+    "text": "Wrapping up the assumptions\n\nThink about your simplifying assumptions now…\n\nIf investors have homogeneous expectations (Assumption #3), they will identify the same efficient portfolio (the one with the highest Sharpe Ratio)\nWe know that all investors will invest in the efficient portfolio of risky assets (Assumption #2)\nFinally, as they can borrow and lend at the same rate \\(R_f\\) (Assumption #1), they can adjust the risk according to their preferences\n\nIf these are valid, under the CAPM assumptions, we can identify the efficient portfolio: it is equal to the market portfolio!\nA Market Portfolio contains all traded securities in a economy according to their shares relative to the total!"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-capital-market-line",
@@ -81,14 +81,14 @@
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#pricing-the-risk-premium-under-the-capm",
     "title": "Estimating the Cost of Capital",
     "section": "Pricing the Risk Premium under the CAPM",
-    "text": "Pricing the Risk Premium under the CAPM\n\nWe can now identify the efficient portfolio: it is equal to the market portfolio\nWhat does that mean for us in terms of determining expected returns? Recall that, from our previous class, the required return for a given stock \\(i\\) should be:\n\n\n\\[\n\\small E[R_i]  &gt;  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\n\\]\n\nUntil now, we were agnostic on what \\(P\\) was. Under the CAPM, we can change \\(R_p\\) to \\(R_m\\) (which is the return of the market portfolio):\n\n\n\n\\[\n\\small E[R_i] =  R_f + \\beta_i^M  \\times (E[R_m] - R_f)\n\\]\n\nConsequently, the \\(\\beta\\) of a security measures its volatility due to market risk relative to the market as a whole, and thus captures the security’s sensitivity to market risk"
+    "text": "Pricing the Risk Premium under the CAPM\n\nWe can now identify the efficient portfolio: it is equal to the market portfolio\nWhat does that mean for us in terms of determining expected equity returns? Recall that, from our previous class, the required return for a given stock \\(i\\) should be:\n\n\n\\[\n\\small E[R_i]  &gt;  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\n\\]\n\nUntil now, we were agnostic on what \\(P\\) was. Under the CAPM, we can change \\(R_p\\) to \\(R_m\\) (which is the return of the market portfolio):\n\n\n\n\\[\n\\small E[R_i] =  R_f + \\beta_i^M  \\times (E[R_m] - R_f)\n\\]\n\nConsequently, the \\(\\beta\\) of a security measures its volatility due to market risk relative to the market as a whole, and thus captures the security’s sensitivity to market risk"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#pricing-the-risk-premium-under-the-capm-continued",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#pricing-the-risk-premium-under-the-capm-continued",
     "title": "Estimating the Cost of Capital",
     "section": "Pricing the Risk Premium under the CAPM, continued",
-    "text": "Pricing the Risk Premium under the CAPM, continued\n\nThe CAPM implies there is a linear relationship between a stock’s sensitivity to the market (\\(\\beta\\)) and its expected return\nThis linear relationship has a name: the Security Market Line (SML)\nThe security market line (SML) is the line along which all individual securities should lie when plotted according to their expected return, \\(E[\\cdot]\\) and \\(\\beta\\)\n\nContrast this result with the Capital Market Line shown before, where there is no clear relationship between an individual stock’s volatility and its expected return\nDue to the linear nature between the expected return and \\(\\beta\\), a stock’s expected return is due only to the fraction of its volatility that is common with the market\n\n\n\n\\(\\rightarrow\\) Consequently the distance of each stock to the right of the capital market line is due to its diversifiable risk!"
+    "text": "Pricing the Risk Premium under the CAPM, continued\n\nThe CAPM implies that there is a linear relationship between a stock’s sensitivity to the market (\\(\\beta\\)) and its expected return:\n\n\n\\[\n\\small E[R_i] =  \\underbrace{R_f + \\beta_i^M  \\times (E[R_m] - R_f)}_{\\text{This is a 1st order equation: }a+bx}\n\\]\n\nThis relationship has also a name: the Security Market Line (SML). It is the line along which all individual securities should lie when plotted according to their expected return and \\(\\beta\\)\n\nContrast this result with the Capital Market Line shown before, where there is no clear relationship between an individual stock’s volatility and its expected return\nDue to the linear nature between the expected return and \\(\\beta\\), a stock’s expected return is due only to the fraction of its volatility that is common with the market\n\n\n\n\n\\(\\rightarrow\\) Therefore, the distance of each stock to the right of the capital market line must be due to its diversifiable risk!"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#capital-market-line-shows-no-clear-relationship-between-risk-and-return",
@@ -116,35 +116,35 @@
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-equity-cost-of-capital",
     "title": "Estimating the Cost of Capital",
     "section": "Estimating the Equity Cost of Capital",
-    "text": "Estimating the Equity Cost of Capital\n\nBased on the CAPM model we’ve just seen, the cost of capital of any investment opportunity equals the expected return of the available investments with the same beta (those that are along the Capital Market Line):\nYou can know use this rationale to estimate how much an investor should need to earn in order to invest in a given stock \\(i\\)\n\n\n\\[R_i = R_f + \\beta \\times (E[R_m] - R_f)\\]\n\nIn what follows, we’ll see how this can be used in practce"
+    "text": "Estimating the Equity Cost of Capital\n\nSuppose you estimate that Disney (ticker: DIS) has a volatility of 20% and a \\(\\beta\\) of 1.29. A similar process for Chipotle (ticker: CMG) yields a volatility of 30% and a \\(\\beta\\) of 0.55. If the risk-free interest rate is 3% and you estimate the market’s expected return to be 8%, calculate the equity cost of capital for DIS and CMG.\n\n\n\\[R_{DIS}=3\\%+1.29 \\times (8\\%−3\\%) = 3\\% + 6.45\\% =9.45\\%\\]\n\\[R_{GMG}=3\\%+0.55 \\times(8\\%−3\\%)=3\\%+2.75\\%=5.75\\%\\]\n\n\n\\(\\rightarrow\\) Because market risk cannot be diversified, it is the market risk that determines the cost of capital. Therefore, DIS has a higher cost of equity capital than CMG, even though it is less volatile"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-equity-cost-of-capital-1",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-equity-cost-of-capital-1",
     "title": "Estimating the Cost of Capital",
     "section": "Estimating the Equity Cost of Capital",
-    "text": "Estimating the Equity Cost of Capital\n\nSuppose you estimate that Disney (ticker: DIS) has a volatility of 20% and a \\(\\beta\\) of 1.29. A similar process for Chipotle (ticker: CMG) yields a volatility of 30% and a \\(\\beta\\) of 0.55. If the risk-free interest rate is 3% and you estimate the market’s expected return to be 8%, calculate the equity cost of capital for DIS and CMG.\n\n\n\\[R_{DIS}=3\\%+1.29 \\times (8\\%−3\\%) = 3\\% + 6.45\\% =9.45\\%\\]\n\\[R_{GMG}=3\\%+0.55 \\times(8\\%−3\\%)=3\\%+2.75\\%=5.75\\%\\]\n\n\n\\(\\rightarrow\\) Because market risk cannot be diversified, it is the market risk that determines the cost of capital. Therefore, DIS has a higher cost of equity capital than CMG, even though it is less volatile"
+    "text": "Estimating the Equity Cost of Capital\n\nBased on the CAPM model we’ve just seen, the cost of capital of any investment opportunity equals the expected return of the available investments with the same beta (those that are along the Capital Market Line):\nYou can know use this rationale to estimate how much an investor should need to earn in order to invest in a given stock \\(i\\):\n\n\n\\[R_i = R_f + \\beta \\times (E[R_m] - R_f)\\]\n\nIn what follows, we’ll see how this can be used in practce"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-equity-cost-of-capital-in-practice",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-equity-cost-of-capital-in-practice",
     "title": "Estimating the Cost of Capital",
     "section": "Estimating the Equity Cost of Capital in practice",
-    "text": "Estimating the Equity Cost of Capital in practice\n\nOk, now you now the dynamics behind the pricing of securities under the CAPM\nHowever, no one really told you from where the numbers came from\nRecall that, under the CAPM, we need to have estimates related to the market portfolio:\n\nIt is is equal to the risk-free interest rate…\nThe expected return on the market portfolio, \\(E[R_m]\\)…\nAnd a stock’s s sensitivity to the market portfolio, denoted by \\(\\beta\\)\n\nWe will proceed by understanding each of these components and how to get estimates for them"
+    "text": "Estimating the Equity Cost of Capital in practice\n\nOk, now you now the dynamics behind the pricing of securities under the CAPM\nHowever, no one really told you from where the numbers came from\nRecall that, under the CAPM, we need to have estimates related to the market portfolio:\n\nIt is is equal to the risk-free interest rate, \\(R_f\\)…\nThe expected return on the market portfolio, \\(E[R_m]\\)…\nAnd a stock’s s sensitivity to the market portfolio, denoted by \\(\\beta\\)\n\nWe will proceed by understanding each of these components and how to get estimates for them"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-market-portfolio",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-market-portfolio",
     "title": "Estimating the Cost of Capital",
     "section": "The Market Portfolio",
-    "text": "The Market Portfolio\n\nWhat is the definition of a market portfolio? It is the total supply of securities, with the proportions of each security corresponding to the proportion of the total market that each security represents\nThus, the market portfolio contains more of the largest stocks and less of the smallest stocks. In order to see that, note that the market capitalization of one firm is simply the total market value of a firm’s outstanding shares\n\n\n\\[\\small MV_i = \\text{# of shares outstanding} \\times \\text{Price per share} = N_i \\times P_i\\]\n\nWe then calculate the portfolio weights of each security (a “Value-Weighted” Portfolio): a portfolio in which each security is held in proportion to its market capitalization\n\n\n\n\\[\\small x_i = \\frac{MV_i}{Total\\; MV}= \\frac{MV_i}{\\sum{MV}}\\]"
+    "text": "The Market Portfolio\n\nWhat is the definition of a market portfolio? It is the total supply of securities, with the proportions of each security corresponding to the proportion of the total market that each security represents\nThus, the market portfolio contains more of the largest stocks and less of the smallest stocks. In order to see that, note that the market capitalization of one firm is simply the total market value of a firm’s outstanding shares:\n\n\n\\[\\small MV_i = \\text{# of shares outstanding} \\times \\text{Price per share} = N_i \\times P_i\\]\n\nWe then calculate the portfolio weights of each security (a “Value-Weighted” Portfolio): a portfolio in which each security is held in proportion to its market capitalization:\n\n\n\n\\[\\small x_i = \\frac{MV_i}{Total\\; MV}= \\frac{MV_i}{\\sum{MV}}\\]"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-market-portfolio-and-its-proxies",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-market-portfolio-and-its-proxies",
     "title": "Estimating the Cost of Capital",
     "section": "The Market Portfolio and its proxies",
-    "text": "The Market Portfolio and its proxies\n\nExamples of market portfolios indexes:\n\nS&P500: A value-weighted portfolio of the 500 largest U.S. stocks\nDow Jones Industrial Average (DJIA): a price-weighted portfolio of 30 large industrial stocks (holds an equal number of shares of each stock).\nIbovespa: around 90 BR stocks following an algorithm that focuses on liquidity\n\n\n\nCaution: indexes like the S&P500 and Ibovespa are not considered the market portfolio, but rather, they are proxies for the market portfolios - in other words, they are reasonable approximations of the market portfolio for a given set universe of securities"
+    "text": "The Market Portfolio and its proxies\n\nIf we were to look at real capital markets, there are a couple of portfolios (which are generally called indexes that aim to mimick the dynamics of a market portfolio. Examples of market portfolios indexes include:\n\nS&P500: A value-weighted portfolio of the 500 largest U.S. stocks\nDow Jones Industrial Average (DJIA): a price-weighted portfolio of 30 large industrial stocks (holds an equal number of shares of each stock).\nIbovespa: around 90 BR stocks following an algorithm that focuses on liquidity\n\n\n\nCaution: indexes like the S&P500 and Ibovespa are not considered the market portfolio, but rather, they are proxies for the market portfolios - in other words, they are reasonable approximations of the market portfolio for a given set universe of securities"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-components-risk-free-rate",
@@ -157,8 +157,8 @@
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-components-the-market-risk-premium",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-components-the-market-risk-premium",
     "title": "Estimating the Cost of Capital",
-    "section": "Cost of Equity Components: the market risk premium",
-    "text": "Cost of Equity Components: the market risk premium\n\nAnother component of the Cost of Equity is the difference between \\(E[R_m]\\) and \\(R_f\\) (the market risk premium)\nWays to estimate the market risk premium:\n\nEstimate the risk premium (\\(E[R_m] − R_f\\)) using the historical average excess return of the market over the risk-free interest rate\nNotice that, even with long periods, we often have large standard errors\nImplicitly, you are assuming that the past is a good proxy for the future"
+    "section": "#2 Cost of Equity Components: the market risk premium",
+    "text": "#2 Cost of Equity Components: the market risk premium\n\nAnother component of the Cost of Equity is the difference between \\(E[R_m]\\) and \\(R_f\\) (the market risk premium)\nWays to estimate the market risk premium:\n\nEstimate the risk premium (\\(E[R_m] − R_f\\)) using the historical average excess return of the market over the risk-free interest rate\nNotice that, even with long periods, we often have large standard errors\nImplicitly, you are assuming that the past is a good proxy for the future"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#criticism-around-using-historical-data",
@@ -186,21 +186,28 @@
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#beta-beta-estimation-continued",
     "title": "Estimating the Cost of Capital",
     "section": "Beta (\\(\\beta\\)) Estimation, continued",
-    "text": "Beta (\\(\\beta\\)) Estimation, continued\n\nBecause \\(\\small Corr(R_i,R_m)=\\frac{Cov(R_i,R_m)}{\\sigma_i\\sigma_m}\\), we have that:\n\n\n\\[\n\\small (R_i - R_f)=\\frac{\\sigma_{i} \\times Cov(R_i,R_m)}{\\sigma_i \\sigma_m\\sigma_{m}}  \\times (E[R_p] - R_f)\\rightarrow  (R_i - R_f)=  \\underbrace{\\frac{Cov(R_i,R_m)}{\\sigma^2_m}}_{\\text{OLS formula for slope}}\\times (E[R_p] - R_f)\n\\]\n\nWe can then estimate \\(\\beta\\) using an Ordinary Least Squares regression:\n\n\n\n\\[\n\\small (R_i - R_f) = \\alpha_i + \\beta_i \\times (R_m - R_f) + \\epsilon_i\n\\]\n\n\\(\\epsilon_i\\) is the error term (or the residual). It represents the deviations from the best-fitting line and is, by definition, zero on average (or else we could improve the fit), and represent firm-specific risk that is diversifiable and that averages out in a large portfolio\nThis error term corresponds to the diversifiable risk of the stock, which is the risk that is uncorrelated with the market!"
+    "text": "Beta (\\(\\beta\\)) Estimation, continued\n\nBecause \\(\\small Corr(R_i,R_m)=\\frac{Cov(R_i,R_m)}{\\sigma_i\\sigma_m}\\), we have that:\n\n\n\\[\n\\small (R_i - R_f)=\\frac{\\sigma_{i} \\times Cov(R_i,R_m)}{\\sigma_i \\sigma_m\\sigma_{m}}  \\times (E[R_p] - R_f)\\rightarrow  (R_i - R_f)=  \\underbrace{\\frac{Cov(R_i,R_m)}{\\sigma^2_m}}_{\\text{OLS formula for slope}}\\times (E[R_p] - R_f)\n\\]\n\nWe can then estimate \\(\\beta\\) using an Ordinary Least Squares regression:\n\n\n\n\\[\n\\small (R_i - R_f) = \\alpha_i + \\beta_i \\times (R_m - R_f) + \\epsilon_i\n\\]\n\n\\(\\epsilon_i\\) is the error term (or the residual). It represents the deviations from the best-fitting line and is, by definition, zero on average (or else we could improve the fit), and represent firm-specific risk that is diversifiable and that averages out in a large portfolio\nIt corresponds to the diversifiable risk of the stock, which is the risk that is uncorrelated with the market!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#example-looking-at-petr3.sa-beta-1.02",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#example-looking-at-petr3.sa-beta-1.02",
+    "title": "Estimating the Cost of Capital",
+    "section": "Example: looking at PETR3.SA (\\(\\beta\\) = 1.02)",
+    "text": "Example: looking at PETR3.SA (\\(\\beta\\) = 1.02)"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#understanding-the-alpha-term-inside-the-ols-estimation",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#understanding-the-alpha-term-inside-the-ols-estimation",
     "title": "Estimating the Cost of Capital",
     "section": "Understanding the \\(\\alpha\\) term inside the OLS estimation",
-    "text": "Understanding the \\(\\alpha\\) term inside the OLS estimation\n\nRecall that our OLS specification was:\n\n\n\\[\n\\small (R_i - R_f) = \\alpha_i + \\beta_i \\times (R_m - R_f) + \\epsilon_i\n\\]\n\n\\(\\alpha_i\\) is the constant term. It measures the historical performance of the security relative to the expected return predicted by the security market line\nIt is the distance that the stock’s average return is above or below the SML. Thus, we can say \\(\\alpha_i\\) is a risk-adjusted measure of the stock’s historical performance.\nAccording to the CAPM, \\(\\alpha_i\\) should not be significantly different from zero"
+    "text": "Understanding the \\(\\alpha\\) term inside the OLS estimation\n\nRecall that our OLS specification was:\n\n\n\\[\n\\small (R_i - R_f) = \\alpha_i + \\beta_i \\times (R_m - R_f) + \\epsilon_i\n\\]\n\n\\(\\alpha_i\\) is the constant term. It measures the historical performance of the security relative to the expected return predicted by the security market line\nIt is the distance that the stock’s average return is above or below the SML. Thus, we can say \\(\\alpha_i\\) is a risk-adjusted measure of the stock’s historical performance.\nAccording to the CAPM, \\(\\alpha_i\\) should not be significantly different from zero\n\n\nIf \\(\\alpha&gt;0\\) constistently, it would mean that a security delivers a constant positive return and, by definition, independent from the market returns\nIf that is the case, investors would buy the security up to a point where price adjusts so that \\(\\alpha\\) goes to zero (recall Assumption #1)!"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#beta-estimation-practice",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#beta-estimation-practice",
     "title": "Estimating the Cost of Capital",
     "section": "Beta Estimation, practice",
-    "text": "Beta Estimation, practice\n\nAssuming tha the market volatility, \\(\\sigma_m\\), is 10%, estimate the \\(\\beta\\) for each of these three securities:\n\n\n\n\n\nPortfolio\nWeight\nVolatility (\\(\\sigma\\))\nCorrelation with M\n\n\n\n\nHEC Corp\n0.21\n13%\n0.42\n\n\nGreen Midget\n0.31\n20%\n0.68\n\n\nAlive And Well\n0.48\n12%\n0.54\n\n\n\n\n\n\n\\(\\beta_{H} = \\frac{Sd(R_i) \\times Corr(R_i,R_m)}{Sd(R_m)} = \\frac{0.13 \\times 0.42}{0.10} = \\small 0.546\\)\n\\(\\beta_{G} = \\frac{Sd(R_i) \\times Corr(R_i,R_m)}{Sd(R_m)} = \\frac{0.20 \\times 0.68}{0.10} = \\small 1.36\\)\n\\(\\beta_{A} = \\frac{Sd(R_i) \\times Corr(R_i,R_m)}{Sd(R_m)} = \\frac{0.12 \\times 0.54}{0.10} = \\small 0.648\\)"
+    "text": "Beta Estimation, practice\n\nAssuming that the market volatility, \\(\\sigma_m\\), is 10%, estimate the \\(\\beta\\) for each of these three securities:\n\n\n\n\n\nPortfolio\nWeight\nVolatility (\\(\\sigma\\))\nCorrelation with M\n\n\n\n\nHEC Corp\n0.21\n13%\n0.42\n\n\nGreen Midget\n0.31\n20%\n0.68\n\n\nAlive And Well\n0.48\n12%\n0.54\n\n\n\n\n\n\n\\(\\beta_{H} = \\frac{Sd(R_i) \\times Corr(R_i,R_m)}{Sd(R_m)} = \\frac{0.13 \\times 0.42}{0.10} = \\small 0.546\\)\n\\(\\beta_{G} = \\frac{Sd(R_i) \\times Corr(R_i,R_m)}{Sd(R_m)} = \\frac{0.20 \\times 0.68}{0.10} = \\small 1.36\\)\n\\(\\beta_{A} = \\frac{Sd(R_i) \\times Corr(R_i,R_m)}{Sd(R_m)} = \\frac{0.12 \\times 0.54}{0.10} = \\small 0.648\\)"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#beta-estimation-practice-1",
@@ -242,7 +249,7 @@
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#debt-betas-practice",
     "title": "Estimating the Cost of Capital",
     "section": "Debt Betas, practice",
-    "text": "Debt Betas, practice\n\nIn early 2013, auto parts retailer Autozone had outstanding 10-year bonds with a Yield-to-Maturity of 3%** and a BBB rating. If corresponding risk-free rates were 1.5%** and the market risk premium is 8%, estimate the expected return of Autozone’s debt.\n\n\nApproach #1: using the average estimates in Table and an expected loss rate of 60%, we have:\n\\[\n\\small r_d = 3\\% - 0.5\\% \\times 0.6 = 2.7\\%\n\\]\n\n\nApproach #2: alternatively, we can estimate the bond’s expected return using CAPM and an estimated beta of 0.10:\n\\[\n\\small r_d = 1.5\\% + 0.10(8\\%) = 2.3\\%\n\\] \\(\\rightarrow\\) Both estimates are rough approximations and they both suggest that the expected return of Autozone’s debt is below its yield-to-maturity of 3%"
+    "text": "Debt Betas, practice\n\nIn early 2013, auto parts retailer Autozone had outstanding 10-year bonds with a Yield-to-Maturity of 3% and a BBB rating. If corresponding risk-free rates were 1.5% and the market risk premium is 8%, estimate the expected return of Autozone’s debt.\n\n\nApproach #1: using the average estimates in Table and an expected loss rate of 60%, we have:\n\\[\n\\small r_d = 3\\% - 0.5\\% \\times 0.6 = 2.7\\%\n\\]\n\n\nApproach #2: alternatively, we can estimate the bond’s expected return using CAPM and an estimated beta of 0.10:\n\\[\n\\small r_d = 1.5\\% + 0.10(8\\%) = 2.3\\%\n\\]\n\\(\\rightarrow\\) Both estimates are rough approximations and they both suggest that the expected return of Autozone’s debt is below its yield-to-maturity of 3%"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital",
@@ -256,7 +263,7 @@
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-a-projects-cost-of-capital-1",
     "title": "Estimating the Cost of Capital",
     "section": "Estimating a project’s Cost of Capital",
-    "text": "Estimating a project’s Cost of Capital\n\nWhenever we are evaluating a new project, the ultimate decision is assert whether or not to undertake a project:\n\nIf the expected return is higher than the opportunity cost for investing in that project, we should undertake the project\nIf the expected return is lower than the opportunity cost for investing in that project, we should reject the project\n\nHow can we do this as the cost of capital that is required to make this decision is specific to a project, which does not have historical returns?\nThere are several ways in which we can use information to estimate such return\nThese methods range in the complexity in which we assume the project to have, as well as the source of funds that are used to fund the project"
+    "text": "Estimating a project’s Cost of Capital\n\nWhenever we are evaluating a new project, the ultimate decision is assert whether or not to undertake a project:\n\nIf the expected return is higher than the opportunity cost for investing in that project, we should undertake the project\nIf the expected return is lower than the opportunity cost for investing in that project, we should reject the project\n\nHow can we do this as the cost of capital that is required to make this decision is specific to a project, which does not have historical data available?\nThere are several ways in which we can use information to estimate such return\nThese methods range in the complexity in which we assume the project to have, as well as the source of funds that are used to fund the project"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#approach-1-all-equity-comparables",
@@ -270,35 +277,35 @@
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-practice",
     "title": "Estimating the Cost of Capital",
     "section": "A Project’s Cost of Capital, practice",
-    "text": "A Project’s Cost of Capital, practice\n\nYou have just invented a new low-cost, long-lasting rechargeable battery for use in electric cars. You are working on your business plan, and believe your firm will face similar market risk to Seguin Inc, which has a \\(\\beta\\) of 1.3. To develop your financial plan, estimate the cost of capital of financing your firm assuming a risk-free rate of 2.5% and a market risk premium of 6.5%.\n\n\n\nUsing Seguin’s beta as the estimate of the project beta (i.e., assuming the market risk of your project is the same as this company’s):\n\n\n\n\\[\nR_{\\text{Project}} = 2.5\\% + 1.3 \\times 6.5\\% = 10.95\\%\n\\]"
+    "text": "A Project’s Cost of Capital, practice\n\nYou have just invented a new low-cost, long-lasting rechargeable battery for use in electric cars. You are working on your business plan, and believe your firm will face similar market risk to Seguin Inc, which has a \\(\\beta\\) of 1.3. To develop your financial plan, estimate the cost of capital of financing your firm assuming a risk-free rate of 2.5% and a market risk premium of 6.5%.\n\n\n\nUsing Seguin’s beta as the estimate of the project beta (i.e., assuming the market risk of your project is the same as this company’s):\n\n\n\n\\[\nr_{\\text{Project}} = 2.5\\% + 1.3 \\times 6.5\\% = 10.95\\%\n\\]"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#introducing-leverage",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#introducing-leverage",
     "title": "Estimating the Cost of Capital",
     "section": "Introducing Leverage",
-    "text": "Introducing Leverage\n\nWhat if the firm that we have used as a comparable peer is not 100% Equity? As a result, the situation is a bit more complicated if the comparable firm has debt\nIn that case, the cash flows generated by the firm’s assets are used to pay both debt and equity holders\nConsequently, the returns of the firm’s equity alone are not representative of the underlying assets risk!\n\nIn fact, because of the firm’s leverage, the equity will often be much riskier\nThus, the beta of a levered firm’s equity will not be a good estimate of the beta of its assets and of our project"
+    "text": "Introducing Leverage\n\nWhat if the firm that we have used as a comparable peer is not 100% Equity? As a result, the situation is a bit more complicated if the comparable firm has debt\nIn that case, the cash flows generated by the firm’s assets are used to pay both debt and equity holders\nConsequently, the returns of the firm’s equity (which are being measured using the \\(\\beta\\) from its equity returns) alone are not representative of the underlying assets risk!\n\nIn fact, because of the firm’s leverage, the equity will often be much riskier\nThus, the beta of a levered firm’s equity will not be a good estimate of the beta of its assets and of our project"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#approach-2-leveraged-comparable-firms",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#approach-2-leveraged-comparable-firms",
     "title": "Estimating the Cost of Capital",
     "section": "Approach #2: Leveraged Comparable Firms",
-    "text": "Approach #2: Leveraged Comparable Firms\n\nHow can we compute the cost of capital of a given project whenever the comparable firm has debt? A method to solve this issue is to unlever the \\(\\beta\\) of the comparable firm\nTo understand that, recall that a firm’s asset cost of capital or unlevered cost of capital is the expected return required by the firm’s investors to hold the firm’s underlying assets, and is a weighted average of the firm’s equity and debt costs of capital:\n\n\n\\[r_u = \\frac{E}{E+D}\\times r_e + \\frac{D}{E+D} \\times r_d\\]\n\nAnalogously, because the beta of a portfolio is the weighted-average of the betas:\n\n\\[\\beta_u = \\frac{E}{E+D}\\times \\beta_e + \\frac{D}{E+D} \\times \\beta_d\\]"
+    "text": "Approach #2: Leveraged Comparable Firms\n\nHow can we compute the cost of capital of a given project whenever the comparable firm has debt? A method to solve this issue is to unlever the \\(\\beta\\) of the comparable firm\nTo understand that, recall that a firm’s asset cost of capital or unlevered cost of capital is the expected return required by the firm’s investors to hold the firm’s underlying assets, and is a weighted average of the firm’s equity and debt costs of capital:\n\n\n\\[r_U = \\frac{E}{E+D}\\times r_E + \\frac{D}{E+D} \\times r_D\\]\n\nAnalogously, because the beta of a portfolio is the weighted-average of the betas:\n\n\n\n\\[\\beta_U = \\frac{E}{E+D}\\times \\beta_E + \\frac{D}{E+D} \\times \\beta_D\\]"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-practice-1",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-practice-1",
     "title": "Estimating the Cost of Capital",
     "section": "A Project’s Cost of Capital, practice",
-    "text": "A Project’s Cost of Capital, practice\n\nSuppose that your firm is launching a new product and you identify Company X as a firm with comparable investments. X’s equity has a market capitalization of 77 billion and a beta of 0.75. X also has 57 billion of AA-rated debt outstanding, with an average yield of 4.1%. Estimate the cost of capital of your firm’s investment given a risk-free rate of 2.5% and a market risk-premium of 6%.\n\n\n\\(\\rightarrow\\) Solution: Company’s X equity cost of capital is:\n\\[\nr_e = 2.5\\% + 0.75 \\times 6\\% = 7\\%\n\\]\n\n\nAs a result, Company’s X unlevered cost of capital is (using the yield as debt cost):\n\\[r_u =\\frac{77}{77+57} \\times  7\\% + \\frac{57}{77+57} \\times 4.1\\% = 5.76\\%\\]"
+    "text": "A Project’s Cost of Capital, practice\n\nSuppose that your firm is launching a new product and you identify Company X as a firm with comparable investments. X’s equity has a market capitalization of 77 billion and a beta of 0.75. X also has 57 billion of AA-rated debt outstanding, with an average yield of 4.1%. Estimate the cost of capital of your firm’s investment given a risk-free rate of 2.5% and a market risk-premium of 6%.\n\n\n\\(\\rightarrow\\) Solution: Company’s X equity cost of capital is:\n\n\n\\[\nr_E = 2.5\\% + 0.75 \\times 6\\% = 7\\%\n\\]\n\n\nAs a result, Company’s X unlevered cost of capital is (using the yield as debt cost):\n\n\n\\[r_U =\\frac{77}{77+57} \\times  7\\% + \\frac{57}{77+57} \\times 4.1\\% = 5.76\\%\\]"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-1",
     "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-1",
     "title": "Estimating the Cost of Capital",
     "section": "A Project’s Cost of Capital",
-    "text": "A Project’s Cost of Capital\nProblem\nWe can also use X’s unlevered Beta and CAPM.\nAssuming debt beta = 0:\n\\[\\beta_u =\\frac{77}{77+57} \\times  0.75 + \\frac{57}{77+57} \\times 0 = 0.43\\]\n\\[ R_e = 2.5\\% + 0,43 \\times 6\\% = 5.08\\%\\]"
+    "text": "A Project’s Cost of Capital\n\nUsing a single comparable firm is often not a good idea, as there might be a lot of noise in the estimation of the results\nHowever, as we can adjust for the leverage of different firms to determine their asset betas, it is possible to combine estimates of asset betas for multiple firms in the same industry or line of business to reduce our estimation error and improve the accuracy of the estimated betas:\nFor example, instead of using only one comparable firm to find the unlevered \\(\\beta\\), we may use the average (or median) of several firms that are thought of as comparable peers\nAs you imagine, unlevered betas within an industry are much more stable than the pure equity betas: large differences in the firms’ equity betas are mainly due to differences in leverage, whereas the firms’ asset betas are much more similar, suggesting that the underlying businesses in this industry have similar market risk\n\n\n\\(\\rightarrow\\) See accompanying excel notebook with an exercise on Industry betas"
   },
   {
     "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-2",
@@ -536,7 +543,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise---standard-error",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Data Exercise - Standard Error",
-    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 56 months, and an sample standard deviation of returns of 12.15%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.3 \\pm 1.96\\times \\dfrac{12.15}{\\sqrt{56}}=[-1.88\\%,+4.48\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.88% to 4.48%"
+    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 56 months, and an sample standard deviation of returns of 12.14%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.28 \\pm 1.96\\times \\dfrac{12.14}{\\sqrt{56}}=[-1.9\\%,+4.46\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.9% to 4.46%"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#standard-error---another-example",
@@ -557,7 +564,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr-1",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Compound Annual Growth Rate (CAGR)",
-    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{56}(1+R_i)\\bigg]^{\\frac{1}{56}}-1\\approx 0.51\\%\\]\n\nRemember the (arithmetic) average was 1.3%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
+    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{56}(1+R_i)\\bigg]^{\\frac{1}{56}}-1\\approx 0.48\\%\\]\n\nRemember the (arithmetic) average was 1.28%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#trade-off-between-risk-and-return",
@@ -4107,5 +4114,222 @@
     "title": "Financial Strategy",
     "section": "About the course",
     "text": "About the course\nFamiliarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk \\(\\times\\) return.\nAt the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company’s value.\n\n\n\n\n\n\nFor students\n\n\n\nBelow you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.\nThese slides leverage Quarto, an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:\n\nHit F for full-screen mode\nIf you are interest in getting a .pdf version of the slides, hit E to switch to print mode and then Ctrl + P"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-equity-cost-of-capital-in-practice-1",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-equity-cost-of-capital-in-practice-1",
+    "title": "Estimating the Cost of Capital",
+    "section": "Estimating the Equity Cost of Capital in practice",
+    "text": "Estimating the Equity Cost of Capital in practice\n\nOk, now you now the dynamics behind the pricing of securities under the CAPM\nHowever, no one really told you from where the numbers came from\nRecall that, under the CAPM, we need to have estimates related to the market portfolio:\n\nIt is is equal to the risk-free interest rate, [\\(R_f\\)]{.blue…\nThe expected return on the market portfolio, \\(E[R_m]\\)…\nAnd a stock’s s sensitivity to the market portfolio, denoted by \\(\\beta\\)\n\nWe will proceed by understanding each of these components and how to get estimates for them"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-equity-cost-of-capital-example",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-equity-cost-of-capital-example",
+    "title": "Estimating the Cost of Capital",
+    "section": "Estimating the Equity Cost of Capital, example",
+    "text": "Estimating the Equity Cost of Capital, example\n\nSuppose you estimate that Disney (ticker: DIS) has a volatility of 20% and a \\(\\beta\\) of 1.29. A similar process for Chipotle (ticker: CMG) yields a volatility of 30% and a \\(\\beta\\) of 0.55. If the risk-free interest rate is 3% and you estimate the market’s expected return to be 8%, calculate the equity cost of capital for DIS and CMG.\n\n\n\\[R_{DIS}=3\\%+1.29 \\times (8\\%−3\\%) = 3\\% + 6.45\\% =9.45\\%\\]\n\\[R_{GMG}=3\\%+0.55 \\times(8\\%−3\\%)=3\\%+2.75\\%=5.75\\%\\]\n\n\n\\(\\rightarrow\\) Because market risk cannot be diversified, it is the market risk that determines the cost of capital. Therefore, DIS has a higher cost of equity capital than CMG, even though it is less volatile"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-components-the-risk-free-rate",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-components-the-risk-free-rate",
+    "title": "Estimating the Cost of Capital",
+    "section": "#1 Cost of Equity Components: the risk-free rate",
+    "text": "#1 Cost of Equity Components: the risk-free rate\n\nThe first ingredient of CAPM is risk-free rate, which is the interest rate that investors can earn while having zero to limited volatility\nSuggestions on how to pick the Risk-Free (\\(R_f\\)) rate to be used:\n\nThe yield on U.S. Treasury securities\nSurveys suggest most practitioners use 10- to 30-year treasuries\nHighest quality assets\n\nOften, we use a short-term risk-free rate to evaluate a short-term investment, and a long-term rate when evaluating a long-term investment"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#note-criticism-around-using-historical-data",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#note-criticism-around-using-historical-data",
+    "title": "Estimating the Cost of Capital",
+    "section": "Note: criticism around using historical data",
+    "text": "Note: criticism around using historical data\n\nWhen estimating the Cost of Equity, using historical data has two problems:\n\nStandard errors of the estimates are often large\nThey are backward looking, meaning that they reflect past, and not future, information. Therefore, we cannot be sure they are representative of current expectations\n\nAn alternative is to use a “discount rate” that is consistent with the current level of the market index in consideration: assume that, for a given firm \\(i\\), current prices can be modeled as future dividends (Gordon model). If that is true, then we have that:\n\n\n\\[\nP_i=\\dfrac{D_1}{r-g}\\rightarrow r = \\dfrac{D_1}{P_i}+g\\equiv \\text{Dividend Yield}+ \\text{Growth rate on Dividends}\n\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#note-criticism-around-using-historical-data-example",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#note-criticism-around-using-historical-data-example",
+    "title": "Estimating the Cost of Capital",
+    "section": "Note: Criticism around using historical data, example",
+    "text": "Note: Criticism around using historical data, example\n\nLet’s say that, after aggregating all firms, Ibovespa’s current dividend yield is 2%. Also, both earnings and dividends per share are expected to grow 6% per year. If that is true, then the discount rate that would make sense to justify the actual level of the Ibovespa index is the discount rate, \\(r\\):\n\n\n\\[\nR_m = \\text{Dividend yield} + \\text{Growth Rate on Dividends}= 2\\% + 6\\% = 8\\%\n\\]\n\nWhile this model is highly inaccurate for an individual firm, the assumption of constant expected growth is more reasonable when considering the overall market\nFollowing such methods, researchers generally report estimates in the 3%–5% range for the future equity risk premium"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#first-step-defining-the-market-portfolio",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#first-step-defining-the-market-portfolio",
+    "title": "Estimating the Cost of Capital",
+    "section": "First step: defining the Market Portfolio",
+    "text": "First step: defining the Market Portfolio\n\nFirst and foremost, what is the definition of a market portfolio? It is the total supply of securities, with the proportions of each security corresponding to the proportion of the total market that each security represents\nThus, the market portfolio contains more of the largest stocks and less of the smallest stocks. In order to see that, note that the market capitalization of one firm is simply the total market value of a firm’s outstanding shares:\n\n\n\\[\\small MV_i = \\text{# of shares outstanding} \\times \\text{Price per share} = N_i \\times P_i\\]\n\nWe then calculate the portfolio weights of each security (a “Value-Weighted” Portfolio): a portfolio in which each security is held in proportion to its market capitalization:\n\n\n\n\\[\\small x_i = \\frac{MV_i}{Total\\; MV}= \\frac{MV_i}{\\sum{MV}}\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-componentsbeta-estimation",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-componentsbeta-estimation",
+    "title": "Estimating the Cost of Capital",
+    "section": "#3 Cost of Equity Components:(\\(\\beta\\)) estimation",
+    "text": "#3 Cost of Equity Components:(\\(\\beta\\)) estimation\n\nAs of now, you were able to get a sense on how to get reasonable estimates for \\(R_f\\) and the Market Risk Premium, \\(E[R_m]-R_f\\)\nAll that is left is to estimate the stocks’s sensitivity to the returns of the market portfolio, \\(\\beta\\). Recall that, a new asset \\(i\\) should be enhance the performance of a portfolio if:\n\n\n\\[\n\\small \\underbrace{\\frac{E[R_i] - R_f}{\\sigma_{i} \\times Corr(R_i,R_m)}}_{\\text{Sharpe Ratio of } i} &gt; \\underbrace{\\frac{E[R_m] - R_f}{\\sigma_{m}}}_{\\text{Sharpe Ratio of Market}}\n\\]\n\nWith that, we saw that the expected return from an asset \\(i\\) should be:\n\n\n\n\\[\n\\small R_i - R_f = \\underbrace{\\frac{\\sigma_{i} \\times corr(R_i,R_m)}{\\sigma_{m}}}_{\\beta^M_i}  \\times (E[R_m] - R_f)\n\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-componentsbeta-estimation-continued",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-componentsbeta-estimation-continued",
+    "title": "Estimating the Cost of Capital",
+    "section": "#3 Cost of Equity Components:(\\(\\beta\\)) estimation, continued",
+    "text": "#3 Cost of Equity Components:(\\(\\beta\\)) estimation, continued\n\nBecause \\(\\small Corr(R_i,R_m)=\\frac{Cov(R_i,R_m)}{\\sigma_i\\sigma_m}\\), we have that:\n\n\n\\[\n\\small (R_i - R_f)=\\frac{\\sigma_{i} \\times Cov(R_i,R_m)}{\\sigma_i \\sigma_m\\sigma_{m}}  \\times (E[R_p] - R_f)\\rightarrow  (R_i - R_f)=  \\underbrace{\\frac{Cov(R_i,R_m)}{\\sigma^2_m}}_{\\text{OLS formula for slope}}\\times (E[R_p] - R_f)\n\\]\n\nWe can then estimate \\(\\beta\\) using an Ordinary Least Squares regression:\n\n\n\n\\[\n\\small (R_i - R_f) = \\alpha_i + \\beta_i \\times (R_m - R_f) + \\epsilon_i\n\\]\n\n\\(\\epsilon_i\\) is the error term (or the residual). It represents the deviations from the best-fitting line and is, by definition, zero on average (or else we could improve the fit), and represent firm-specific risk that is diversifiable and that averages out in a large portfolio\nIt corresponds to the diversifiable risk of the stock, which is the risk that is uncorrelated with the market!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-components-beta-estimation",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-components-beta-estimation",
+    "title": "Estimating the Cost of Capital",
+    "section": "#3 Cost of Equity Components: \\(\\beta\\) estimation",
+    "text": "#3 Cost of Equity Components: \\(\\beta\\) estimation\n\nAs of now, you were able to get a sense on how to get reasonable estimates for \\(R_f\\) and the Market Risk Premium, \\(E[R_m]-R_f\\)\nAll that is left is to estimate the stocks’s sensitivity to the returns of the market portfolio, \\(\\beta\\). Recall that, a new asset \\(i\\) should be enhance the performance of a portfolio if:\n\n\n\\[\n\\small \\underbrace{\\frac{E[R_i] - R_f}{\\sigma_{i} \\times Corr(R_i,R_m)}}_{\\text{Sharpe Ratio of } i} &gt; \\underbrace{\\frac{E[R_m] - R_f}{\\sigma_{m}}}_{\\text{Sharpe Ratio of Market}}\n\\]\n\nWith that, we saw that the expected return from an asset \\(i\\) should be:\n\n\n\n\\[\n\\small R_i - R_f = \\underbrace{\\frac{\\sigma_{i} \\times corr(R_i,R_m)}{\\sigma_{m}}}_{\\beta^M_i}  \\times (E[R_m] - R_f)\n\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-components-beta-estimation-continued",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#cost-of-equity-components-beta-estimation-continued",
+    "title": "Estimating the Cost of Capital",
+    "section": "#3 Cost of Equity Components: \\(\\beta\\) estimation, continued",
+    "text": "#3 Cost of Equity Components: \\(\\beta\\) estimation, continued\n\nBecause \\(\\small Corr(R_i,R_m)=\\frac{Cov(R_i,R_m)}{\\sigma_i\\sigma_m}\\), we have that:\n\n\n\\[\n\\small (R_i - R_f)=\\frac{\\sigma_{i} \\times Cov(R_i,R_m)}{\\sigma_i \\sigma_m\\sigma_{m}}  \\times (E[R_p] - R_f)\\rightarrow  (R_i - R_f)=  \\underbrace{\\frac{Cov(R_i,R_m)}{\\sigma^2_m}}_{\\text{OLS formula for slope}}\\times (E[R_p] - R_f)\n\\]\n\nWe can then estimate \\(\\beta\\) using an Ordinary Least Squares regression:\n\n\n\n\\[\n\\small (R_i - R_f) = \\alpha_i + \\beta_i \\times (R_m - R_f) + \\epsilon_i\n\\]\n\n\\(\\epsilon_i\\) is the error term (or the residual). It represents the deviations from the best-fitting line and is, by definition, zero on average (or else we could improve the fit), and represent firm-specific risk that is diversifiable and that averages out in a large portfolio"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-debt-cost-of-capital",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#estimating-the-debt-cost-of-capital",
+    "title": "Estimating the Cost of Capital",
+    "section": "Estimating the Debt Cost of Capital",
+    "text": "Estimating the Debt Cost of Capital"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#about-the-capm",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#about-the-capm",
+    "title": "Estimating the Cost of Capital",
+    "section": "About the CAPM",
+    "text": "About the CAPM\n\nAs we’ll see throughout the lecture, CAPM is very practical and straightforward to implement, and the the CAPM-based approach is very robust\n\nIt imposes a disciplined process on managers to identify the cost of capital\nIt makes the capital budgeting process less subject to managerial manipulation than if managers could set project costs of capital (i.e., the opportunity cost for the firm’s equity) without clear justification\nIt is often the model many investors use to evaluate risk\nAll in all, it gets managers to think about risk in the correct way: instead of thinking about total risk, the CAPM shows us that we only the market risk (non-diversifiable) should be the concern"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-capm-assumptions-2",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-capm-assumptions-2",
+    "title": "Estimating the Cost of Capital",
+    "section": "The CAPM Assumptions",
+    "text": "The CAPM Assumptions\n\n\n\n\n\n\nAssumption I\n\n\nInvestors can buy and sell all securities at competitive market prices (without incurring taxes or transactions costs) and can borrow and lend at the risk-free interest rate\n\n\n\n\nThis assumption states that there are no market imperfections that would prevent investors adjust their portfolios according to their needs\n\n\nAll investors have access to the same set of securities (i.e there is no such investment that is only for accredited investors)\nAll investors are able to buy and sell securities at the same conditions\nFinally, they’re all able to access a risk-free investment, \\(R_f\\), both for investment and lending\n\n\nThis guarantees that if a given investor is not holding an optimized portfolio anymore, he/she can adjust his/her holdings so as to hold the optimized portfolio again"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-practice-2",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-practice-2",
+    "title": "Estimating the Cost of Capital",
+    "section": "A Project’s Cost of Capital, practice",
+    "text": "A Project’s Cost of Capital, practice\n\nAssuming that the debt \\(\\beta\\) is zero, We can also use X’s unlevered Beta and CAPM:\n\n\n\\[\n\\small \\beta_u =\\frac{77}{77+57} \\times  0.75 + \\frac{57}{77+57} \\times 0 = 0.43\n\\]\n\nTherefore, the unlevered cost of capital is:\n\n\n\n\\[\n\\small r_u = 2.5\\% + 0,43 \\times 6\\% = 5.08\\%\n\\]\n\nIn the first case, we assumed that the expected return debt is equal to its promised yield of 3.2% (which overstates the return)\nIn the second, we assumed the debt has a beta of zero, which implies an expected return equal to the risk-free rate of 3% according (which underestimates the cost of debt\nThe truth is somewhere between the two results"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#introducing-cash-and-net-debt",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#introducing-cash-and-net-debt",
+    "title": "Estimating the Cost of Capital",
+    "section": "Introducing Cash and Net Debt",
+    "text": "Introducing Cash and Net Debt\n\nSometimes, firms maintain large cash balances in excess of their operating needs. Holding cash is a risk-free asset, and as so, reduces the average risk of the firm’s assets\nTherefore, we should exclude cash holdings when computing the asset’s risk, as we’re interested in the risk of the firm’s underlying business operations, separate from its cash position\nIn that case, we can measure the leverage of the firm in terms of its net debt:\n\n\n\\[\n\\small \\text{Net Debt} = Debt - \\text{Excess Cash and Short-Term Investments}\n\\]\n\nIntuition: if a firm holds $1 in cash and has $1 in risk-free debt, then the interest earned on the cash will equal the interest paid on the debt\nThe cash flows from each source cancel each other, just as if the firm held no cash and no debt!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-practice-3",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#a-projects-cost-of-capital-practice-3",
+    "title": "Estimating the Cost of Capital",
+    "section": "A Project’s Cost of Capital, practice",
+    "text": "A Project’s Cost of Capital, practice\n\nIn mid-2022, Garmin had a market capitalization of $18.8 billion, $100 million in debt, and $1.6 billion in cash. If its estimated equity beta was 0.93, estimate the beta of Garmin’s underlying business\n\n\n\nIn other words, we want to estimate the beta of Garmin’s assets, which comprise the whole business, not just the equity portion! Note that Garmin’s Net Debt is $ \\(\\small (0.1-1.6)=-1.5\\) billion, and the enterprise value is simply \\(\\small \\text{Equity + Net Debt = } 18.8-1.6=17.3\\). Assuming that cash and debt are both risk-free investments, we can estimate \\(\\beta_U\\) as:\n\n\n\n\\[\n\\small \\beta_U = \\frac{E}{E+D}\\times \\beta_E + \\frac{D}{E+D} \\times \\beta_D =  \\frac{18.8}{18.8-1.5}\\times 0.93 + \\frac{-1.5}{18.8-1.5} = 1.01\n\\]\n\nIf a firm has more cash than debt, its net debt will be negative. In this case, its unlevered beta and cost of capital will exceed its equity beta and cost of capital, as the risk of the firm’s equity is mitigated by its cash holdings!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#project-risk-and-financing-some-caveats",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#project-risk-and-financing-some-caveats",
+    "title": "Estimating the Cost of Capital",
+    "section": "Project Risk and Financing, some caveats",
+    "text": "Project Risk and Financing, some caveats\n\nWe saw that we should evaluate a project’s cost of capital by comparing it with the unlevered assets of firms in the same line of business\nHowever, even firm asset betas reflect the market risk of the average project in the firm. Individually, projects can differ in risk:\n\nFor instance, think about a multi-divisional firm, like 3M, where each division will likely have its own level of market risk.\nEven within a firm with a single line of business, some projects obviously have different market risk characteristics from the firm’s other activities, like R&D versus product line expansion projects\nFinally, Operating Leverage may also play a role - see (Berk and DeMarzo 2023) for a detailed discussion"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#financing-with-equity-and-debt",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#financing-with-equity-and-debt",
+    "title": "Estimating the Cost of Capital",
+    "section": "Financing with Equity and Debt",
+    "text": "Financing with Equity and Debt\n\nThus far, presumed the project we are evaluating is all-equity financed:\n\nWhenever we have another comparable firm that is 100% equity-financed and has similar risk, we can use it to estimate expected returns\nIf the comparable firm has equity and debt, we can unlever the cost of capital (or the \\(\\beta\\)) so as to compare the underlying business\n\nWhat if the firm in which we wish to estimate the cost of capital is not 100% equity anymore?\nFor cases like this, we will turn our attention to the Weighted Average Cost of Capital (also known as WACC), the weighted average of the cost of capital from all the firm’s claimants:\n\n\nIt takes into account the cost of equity, \\(r_E\\), which is generally estimated using the CAPM\nIt also takes into account the fact that debtholders should also expect a return, \\(r_D\\) (which is generally lower than \\(r_E\\)) for financing the firm"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-weighted-average-cost-of-capital-wacc",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#the-weighted-average-cost-of-capital-wacc",
+    "title": "Estimating the Cost of Capital",
+    "section": "The Weighted Average Cost of Capital (WACC)",
+    "text": "The Weighted Average Cost of Capital (WACC)\n\nIn perfect capital markets (which we’ll define later in the course), the WACC of the firm’s assets can be estimated as:\n\n\n\\[\nr_{\\text{WACC}} = \\frac{E}{D+E}\\times r_E + \\frac{D}{D+E} \\times r_D\n\\]\n\n\n\nBecause interest expense is often tax deductible (using, for example, a marginal tax-rate \\(\\tau\\)), the WACC is less than the expected return of the firm’s assets - this will make the “after-tax” WACC decrease in comparison to the “pre-tax” above:\n\n\n\n\\[\nr_{\\text{WACC}} = \\frac{E}{D+E}\\times r_E + \\frac{D}{D+E} \\times r_D\\times \\underbrace{(1-\\tau)}_{\\text{Tax-shield}}\n\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#pre-tax-wacc",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#pre-tax-wacc",
+    "title": "Estimating the Cost of Capital",
+    "section": "Pre-tax WACC",
+    "text": "Pre-tax WACC\n\nThe pre-tax WACC is simply the weighted average of the different costs of capital:\n\n\n\\[\nr_{\\text{WACC}} = \\frac{E}{D+E}\\times r_E + \\frac{D}{D+E} \\times r_D\n\\]\n\nNote that it is the cost calculated without any adjustments that could arise due to tax-shiedls\n\n\nExpected return investors will earn by holding the firm’s assets - i.e, the whole business\nIn a world with taxes, it can be used to evaluate an all-equity project with the same risk as the comparable firm"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#after-tax-wacc",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#after-tax-wacc",
+    "title": "Estimating the Cost of Capital",
+    "section": "After-tax WACC",
+    "text": "After-tax WACC\n\nThe after-tax WACC takes into account the fact that debt is generally tax-deductible, and therefore should have a lower effective cost than simply \\(r_D\\). If you assume that a company has a marginal tax-rate of \\(\\tau\\), the after-tax WACC is:\n\n\n\\[\nr_{\\text{WACC}} = \\frac{E}{D+E}\\times r_e + \\frac{D}{D+E} \\times r_d\\times (1-\\tau)\n\\]\n\nIn a world with taxes, it can be used to evaluate a project with the same risk and the same financing as the comparable firm\nWhy? Since the after-tax WACC takes into account the benefitial effects from tax-shields, it can only be applied to cases where both the risk and the financing structure of the company is equal to the comparable firm!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#project-risk-and-financing-practice",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#project-risk-and-financing-practice",
+    "title": "Estimating the Cost of Capital",
+    "section": "Project Risk and Financing, practice",
+    "text": "Project Risk and Financing, practice\n\nCavo Corp’s equity cost of capital is 15%, and its debt cost of capital is 7%. The corporate tax rate is 34%, and the firm has 100 million in debt outstanding and a market capitalization of 250 million. What is Cavo’s unlevered cost of capital (or pre-tax WACC) and its weighted average cost of capital (or after-tax WACC)?\n\n\nThe Unlevered Cost of Capital (\\(r_U\\)) or pre-tax WACC is:\n\n\n\\[\nr_U =  \\frac{250}{250+100}\\times 15\\% + \\frac{100}{250+100} \\times 7\\%  = 12.71\\%\n\\]\n\nThe after-taxWACC is:\n\n\n\n\\[r_{\\text{WACC}} =  \\frac{250}{250+100}\\times 15\\% + \\frac{100}{250+100} \\times 7\\% \\times (1-34\\%) = 12.03\\%\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#project-risk-and-financing-practice-1",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#project-risk-and-financing-practice-1",
+    "title": "Estimating the Cost of Capital",
+    "section": "Project Risk and Financing, practice",
+    "text": "Project Risk and Financing, practice\n\nThe Unlevered Cost of Capital (\\(r_U\\)) is:\n\n\n\\[\nr_U =  \\frac{250}{250+100}\\times 15\\% + \\frac{100}{250+100} \\times 7\\%  = 12.71\\%\n\\]\n\nThe WACC is:\n\n\\[r_{\\text{WACC}} =  \\frac{250}{250+100}\\times 15\\% + \\frac{100}{250+100} \\times 7\\% \\times (1-34\\%) = 12.03\\%\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#approach-2-leveraged-comparable-firms-continued",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#approach-2-leveraged-comparable-firms-continued",
+    "title": "Estimating the Cost of Capital",
+    "section": "Approach #2: Leveraged Comparable Firms, continued",
+    "text": "Approach #2: Leveraged Comparable Firms, continued\n\nWhy we should unlever the return on equity (or, alternatively, the equity \\(\\beta\\))? Note that whenever we measure the cost of equity, we are measuring the expected returns based on the equity risk, which has some implicaitons if a given firm has debt:\n\nBecause debt payments are given, equityholders are referred to as residual claimants - they’ll receive their compensation only after the debtholders receive their payments\nAs such, if a given firm has debt in its financing structure, this makes the equity to be riskier - all in all, an equityholder may not receive anything after paying out debtholders!\n\nBut if you are evaluating a project based on a comparable firm that has debt, you want to consider only the risk of the underlying business, but not the risk due to financial leverage!\nAs a consequence, unlevering the \\(\\beta\\) or the required return makes the comparison to be relative to the investments of a company, regardless of the financing structure!\n\n\n\\(\\rightarrow\\) See the Appendix for the calculations around how to lever (or unlever) \\(\\beta\\) and expected returns"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#approach-2-leveraged-comparable-firms-continued-1",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#approach-2-leveraged-comparable-firms-continued-1",
+    "title": "Estimating the Cost of Capital",
+    "section": "Approach #2: Leveraged Comparable Firms, continued",
+    "text": "Approach #2: Leveraged Comparable Firms, continued\n\nRecall that the unlevered beta, \\(\\beta_U\\), is simply:\n\n\n\\[\n\\small \\beta_U = \\frac{E}{E+D}\\times \\beta_E + \\frac{D}{E+D} \\times \\beta_D\n\\]\n\nPutting it into \\(\\beta_E\\) terms, we have:\n\n\n\n\\[\n\\small \\begin{align}\n&\\beta_U = \\frac{(E\\times \\beta_E +D\\times \\beta_D)}{E+D}\\\\\n&\\rightarrow E\\times \\beta_E =(E+D)\\times\\beta_U - D\\times \\beta_D\\\\\n&\\rightarrow\\beta_E =\\dfrac{(E+D)\\times\\beta_U - D\\times \\beta_D}{E}=\\beta_U+\\dfrac{D}{E}\\times \\beta_U-\\dfrac{D}{E}\\times \\beta_D\\\\\n&\\rightarrow \\beta_E= \\beta_U+\\dfrac{D}{E}\\times(\\beta_U-\\beta_D)\n\\end{align}\n\\]\n\nIn words, if leverage increases, the equity sensitivity should increase as well"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#industry-betas-for-estimating-a-projects-cost-of-capital",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#industry-betas-for-estimating-a-projects-cost-of-capital",
+    "title": "Estimating the Cost of Capital",
+    "section": "Industry betas for estimating a project’s cost of capital",
+    "text": "Industry betas for estimating a project’s cost of capital\n\nUsing a single comparable firm is often not a good idea, as there might be a lot of noise in the estimation of the results\nHowever, it is possible to combine estimates of asset betas for multiple firms in the same industry to reduce our estimation error and improve the estimation accuracy:\n\n\nFor example, instead of using only one comparable firm to find the unlevered \\(\\beta\\), we may use the average (or median) of several firms that are thought of as comparable peers\nAs you imagine, unlevered betas within an industry are much more stable than the pure equity betas: large differences in the firms’ equity betas are mainly due to differences in leverage, whereas the firms’ asset betas are much more similar, suggesting that the underlying businesses in this industry have similar market risk\n\n\n\\(\\rightarrow\\) See accompanying excel notebook with an exercise on Industry betas\n\\(\\rightarrow\\) See Damodaran (here) industry betas for the U.S."
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#levered-and-unlevered-beta",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#levered-and-unlevered-beta",
+    "title": "Estimating the Cost of Capital",
+    "section": "Levered and Unlevered \\(\\beta\\)",
+    "text": "Levered and Unlevered \\(\\beta\\)\n\nRecall that the unlevered beta, \\(\\beta_U\\), is simply:\n\n\n\\[\n\\small \\beta_U = \\frac{E}{E+D}\\times \\beta_E + \\frac{D}{E+D} \\times \\beta_D\n\\]\n\nPutting it into \\(\\beta_E\\) terms, we have:\n\n\n\n\\[\n\\small \\begin{align}\n&\\beta_U = \\frac{(E\\times \\beta_E +D\\times \\beta_D)}{E+D}\\\\\n&\\rightarrow E\\times \\beta_E =(E+D)\\times\\beta_U - D\\times \\beta_D\\\\\n&\\rightarrow\\beta_E =\\dfrac{(E+D)\\times\\beta_U - D\\times \\beta_D}{E}=\\beta_U+\\dfrac{D}{E}\\times \\beta_U-\\dfrac{D}{E}\\times \\beta_D\\\\\n&\\rightarrow \\beta_E= \\beta_U+\\dfrac{D}{E}\\times(\\beta_U-\\beta_D)\n\\end{align}\n\\]\n\nIn words, if leverage increases, the equity sensitivity should increase as well"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#levered-and-unlevered-cost-of-capital",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#levered-and-unlevered-cost-of-capital",
+    "title": "Estimating the Cost of Capital",
+    "section": "Levered and Unlevered Cost of Capital",
+    "text": "Levered and Unlevered Cost of Capital\n\nNote that, as we can lever (or unlever) \\(\\beta\\), we can do the same with the required returns from equity, \\(r_E\\):\n\n\n\\[\n\\small r_U = \\frac{E}{E+D}\\times r_E + \\frac{D}{E+D} \\times r_D\n\\]\n\nPutting it into \\(r_E\\) terms and using the same rationale, we have:\n\n\n\n\\[\nr_E= r_U+\\dfrac{D}{E}\\times(r_U-r_D)\n\\]\n\nIn words, if leverage increases (through higher debt-to-equity ratios), the equity sensitivity should increase as well, and the required returns for equity should increase!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#common-misconception-determining-the-incremental-leverage-of-a-project",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#common-misconception-determining-the-incremental-leverage-of-a-project",
+    "title": "Estimating the Cost of Capital",
+    "section": "Common misconception: determining the Incremental Leverage of a project",
+    "text": "Common misconception: determining the Incremental Leverage of a project\n\nTo determine the equity or weighted average cost of capital for a project, we need to know the amount of debt to associate with the project\nHow to determine the correct \\(\\small D/(D+E)\\) ratio to use in our estimations?\n\n\nSuppose a project involves buying a new warehouse, and the purchase of the warehouse is financed with a mortgage for 90% of its value.\nHowever, if the firm has an overall policy to maintain a 40% debt-to-value ratio, it will reduce debt elsewhere in the firm once the warehouse is purchased in an effort to maintain that ratio.\n\n\n\\(\\rightarrow\\) In that case, the appropriate debt-to-value ratio to use when evaluating the warehouse project is 40%, not 90%! For capital budgeting purposes, the project’s financing is the change in the firm’s total debt (net of cash) with the project versus without the project!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#common-misconception-relevering-the-wacc",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#common-misconception-relevering-the-wacc",
+    "title": "Estimating the Cost of Capital",
+    "section": "Common misconception: (re)levering the WACC",
+    "text": "Common misconception: (re)levering the WACC\n\nSuppose that a firm has a debt-to-value ratio of 25%, a debt cost of capital of 5.33%, an equity cost of capital of 12%, and a tax rate of 25%. The current WACC is\n\n\n\\[\n\\small r_{\\text{WACC}}=0.75 \\times 12\\% + 0.25\\times 5.33\\% \\times (1- 25\\%) = 10\\%\n\\]\n\nWhat happens to WACC if the firm increases its debt-to-value ratio to 50%? It is tempting to do:\n\n\n\n\\[\n\\small  r_{\\text{WACC}}=0.5 \\times 12\\% + 0.5\\times 5.33\\% \\times (1- 25\\%) = 8\\%\n\\]\n\nNote, however, that this is wrong, because we’re keeping \\(r_E\\) and \\(r_D\\) fixed! Since these are the cost of equity and debt, we should expect these to increase with leverage, as the risk of both shareholders and debt holders increase!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#common-misconception-relevering-the-wacc-1",
+    "href": "fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html#common-misconception-relevering-the-wacc-1",
+    "title": "Estimating the Cost of Capital",
+    "section": "Common misconception: (re)levering the WACC",
+    "text": "Common misconception: (re)levering the WACC\n\nWhen the firm increases leverage, the risk of its equity and debt will increase, increasing \\(\\small r_E\\) and \\(\\small r_D\\)! To compute the new WACC correctly, we must first determine the firm’s unlevered cost of capital:\n\n\n\\[\n\\small\nr_U = 0.75 \\times 12\\% + 0.25\\times 5.33\\% = 10.33\\%\n\\]\n\nIf \\(r_D\\) has risen to \\(6.67\\%\\) with the change in leverage, then:\n\n\n\n\\[\n\\small\nr_E = 10.33\\% + \\dfrac{0.5}{0.5}\\times(10.33\\%-6.67\\%)=14\\%\n\\]\n\nFinally, the correct new WACC is:\n\n\n\n\\[\n\\small\nr_{\\text{WACC}}=0.5 \\times 14\\% + 0.5\\times 6.67\\% \\times (1- 25\\%) = 9.5\\%\n\\]"
   }
 ]
