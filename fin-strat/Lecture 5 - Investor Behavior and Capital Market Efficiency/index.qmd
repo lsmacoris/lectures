@@ -69,9 +69,7 @@ $\rightarrow$ *For coding replications, whenever applicable, please follow [this
 
 ## Beating the market
 
--   Say that you are evaluating the performance of several stocks relative to their expected returns
-
--   To improve the performance of their portfolios, investors will compare the expected return of a security $i$ with its required return from the security market line:
+-   Say that you are evaluating the performance of several stocks relative to their expected returns. To improve the performance of their portfolios, investors will compare the expected return of a security $i$ with its required return from the security market line:
 
 . . .
 
@@ -81,22 +79,28 @@ $$R_i = R_f + \beta_S \times (E[R_m - R_f])$$
 
 . . .
 
-$$\alpha_i = E[R_i] - R_i$$
+$$\alpha_i = \underbrace{E[R_i]}_{\text{Observed by the analyst}} - \underbrace{R_i}_{\text{Implied by the CAPM}}$$
 
--   That is, $\alpha$ is the difference between a stock’s expected return and its required return according to the Security Market Line
+$\rightarrow$ $\alpha$ *is the difference between a stock’s expected return and its required return according to the Security Market Line*
 
 ## Interpreting $\alpha$
 
-1.  A [positive]{.green} alpha means that the stock is [above]{.green} the SML - in words, the expected return is [higher]{.green} than its required return
-2. A [negative]{.negative} alpha means that the stock is [below]{.red} the SML - in words, the expected return is [lower]{.green} than its required return
+$$\small \alpha_i = \underbrace{E[R_i]}_{\text{Observed by the analyst}} - \underbrace{R_i}_{\text{Implied by the CAPM}}$$
+
+1.  **A [positive]{.green} alpha means that the stock is [above]{.green} the SML**
+    -   In words, the expected return is [higher]{.green} than its required return
+    -   Before prices adjust, investors will anticipate that the price will [rise]{.green} and will likely put in buy orders at the current prices
+2.  **A [negative]{.negative} alpha means that the stock is [below]{.red} the SML**
+    -   In words, the expected return is [lower]{.green} than its required return
+    -   Before prices adjust, investors will anticipate that the price will [fall]{.red} and will likely put in sell orders at the current prices
 
 . . .
 
-$\rightarrow$  *If we buy stocks with positive alphas or, analogously, sell stocks with negative alphas, this will improve portfolio results. However, but as we do so, prices will change and their alphas will shrink toward zero*
+$\rightarrow$ *In either case, we'll be able to improve portfolio results. However, as we do so, prices will change and their alphas will shrink toward zero!*
 
 ## Interpreting $\alpha$, graphical intuition
 
-![](Images/F1.png){fig-align='center' width=60%}
+![](Images/F1.png){fig-align="center" width="60%"}
 
 ## Beating the Market and Market competition
 
@@ -110,9 +114,7 @@ $\rightarrow$  *If we buy stocks with positive alphas or, analogously, sell stoc
     1.  Investors trying to *"beat the market"* are always looking for stocks with positive alpha (Walmart and Nike) to buy
     2.  Once they buy them, the prices rise, making the stocks once again on the security market line
 
-. . .
-
-$\rightarrow$ *There is a competition in the market and that competition brings efficiency to the CAPM!*
+-   There is a competition in the market and that competition brings efficiency to the CAPM! Note that such competition may be so intense that prices move before any investor can actually trade at the old prices, so no investor can profit from the news
 
 # Information & Rational Expectations
 
@@ -143,18 +145,20 @@ $\rightarrow$ *There is a competition in the market and that competition brings 
 
 -   If there is something that may put the market portfolio away from the efficient portfolio, it has to do with how investors make decisions around their portfolios
 -   In this subsection, we discuss several biases that individual investors have when building their personal portfolio
-- Some of these individual biases included, but are not limited, to:
+-   Some of these individual biases included, but are not limited, to:
 
-1. Familiarity bias
-2. Relative Wealth Concerns
-3. Overconfidence
-4. Sensation Seeking
+1.  Familiarity bias
+2.  Relative Wealth Concerns
+3.  Overconfidence
+4.  Sensation Seeking
 
 ## Individual Bias #1: Underdiversification bias
 
+-   By appropriately diversifying their portfolios, investors can reduce risk without reducing their expected return. In that sense, diversification is a *“free lunch”* that all investors should take advantage of
+
 -   One bias that appears in many countries is the [underdiversification]{.blue} bias. In other words, there is much evidence that individual investors fail to diversify their portfolios adequately
 
--   Some potential explanations for the underdiversification bias
+-   Some potential explanations for the underdiversification bias are:
 
     1.  [Familiarity Bias]{.blue}: investors favor investments in companies with which they are familiar
 
@@ -162,12 +166,16 @@ $\rightarrow$ *There is a competition in the market and that competition brings 
 
 ## Individual Bias #2: Excessive Trading and Overconfidence
 
--   Individual investors often trade *beyond* what is predicted by the CAPM. Some reasons may include:
+-   According to the CAPM, investors should hold risk-free assets in combination with the market portfolio of all risky securities
 
-    1.  [Overconfidence Bias]{.blue}: investors believe they can pick winners and losers when, in fact, they cannot; this leads them to trade too much
+-   Because the market portfolio is a *value-weighted* portfolio, it is also a passive portfolio in the sense that an investor does not need to trade frequently to maintain it
+
+-   Empirical evidence shows that individual investors often trade *beyond* what is predicted by the CAPM. Some reasons may include:
+
+    1.  [Overconfidence Bias]{.blue}: like sports fans, investors believe they can pick winners and losers when, in fact, they cannot; this leads them to trade too much! Furthermore, men tend to be more overconfident than women, with more trading and lower returns
     2.  [Sensation Seeking]{.blue}: an individual’s desire for novel and intense risk-taking experiences
 
--   By the simple fact that naive investors trade too often, they should get lower returns due to trading costs
+-   By the simple fact that naive investors trade too often, they should get lower returns due to trading costs (brokerage costs, fees, etc)
 
 ## Biases and the CAPM
 
@@ -176,9 +184,12 @@ $\rightarrow$ *There is a competition in the market and that competition brings 
     1.  If individuals depart from the CAPM in [random]{.blue} ways, then these departures will tend to *cancel out*
     2.  These naive investors might only be trading erratically, thus not really affecting the market
 
--   Therefore, this should not put us far from what is predicted by the CAPM: the market porfolio should still be the efficient portfolio!
+-   This should not put us far from what is predicted by the CAPM: if investors are just departing from the the market porfolio in random ways, [it should still be the efficient portfolio]{.blue}...
 
--   On the other hand, where would the [CAPM]{.blue} [fail]{.red}? If investors depart from the market portfolio in a [consistent]{.blue} and [predictable]{.blue} manner!
+-   ...if that is true, under which circumstances the CAPM implication that the market portfolio is efficient [fail]{.red}?
+
+1.  If investors depart from the market portfolio in a [consistent]{.blue} and [predictable]{.blue} manner, imparting systematic uncertainty into prices
+2.  For investors’ trades to be correlated in this way, they must share a common motivation, which we'll refer to as a *"systematic bias"*
 
 ## Systematic Trading Biases
 
@@ -186,82 +197,138 @@ $\rightarrow$ *There is a competition in the market and that competition brings 
 
 -   Much of these biases are studied within a relatively new field of *behavioral economics* (and *behavioral finance*)
 
-- As we'll see in the upcoming slides, there are some predictable, systematic patterns in the types of errors individual investors make and that would create a profit opportunity for sophisticated investors
+-   As we'll see in the upcoming slides, there are some predictable, systematic patterns in the types of errors individual investors make and that would create a profit opportunity for sophisticated investors that include, but are not limited, to:
+
+1.  Disposition Effect
+2.  Investor attention, Mood, and Experience
+3.  Herd Behavior
 
 ## Systematic Bias #1: Disposition Effect
 
--   Definition: an investor holds on to stocks that have lost their value and sell stocks that have risen in value since the time of purchase
-    1.  Suggests a reluctance to “admit a mistake” by taking the loss. More common in non-sophisticated investors.
-    2.  This behavioral tendency to sell winners and hang on to losers is costly from a tax perspective.
-        -   Because capital gains are taxed only when the asset is sold, it is optimal for tax purposes to postpone taxable gains by continuing to hold profitable investments
-        -   In Brazil, we do not pay taxes if sell less than 20,000 BRL by month.
+-   An investor holds on to stocks that have lost their value and sell stocks that have risen in value since the time of purchase
+    1.  Suggests a reluctance to *“admit a mistake”* by taking the loss, which is more common in non-sophisticated investors
+    2.  This behavioral tendency to sell winners and hang on to losers is costly from a tax perspective: as capital gains are taxed only when the asset is sold, it is optimal for tax purposes to postpone taxable gains by continuing to hold profitable investments
+-   Hanging on to losers and selling winners might make sense if investors forecast that the losing stocks would ultimately *“bounce back”* and outperform the winners going forward.
+-   While investors may in fact have this belief, it does not appear to be justified in practice, as "losing stocks" continue to underperform the "winner stocks" that were sold
 
-## Systematic Bias #2: Attention-grabbing stories
+. . .
+
+$\rightarrow$ *See [Thinking, Fast and Slow](https://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555), by Daniel Kahneman*
+
+## Systematic Bias #2: Attention-grabbing stories and mood
+
+-   Individual investors generally are not full-time traders. As a result, they have limited time and attention to spend on their investment decisions, and so may be influenced by attention grabbing news stories or other events
 
 -   Studies show that individuals are more likely to buy stocks that have recently been in the news, engaged in advertising, experienced exceptionally high trading volume, or have had extreme returns
 
-## Systematic Bias #3: mood
+-   A recent study from Brazil shows that living in a small city close to a firm's local store more than doubles the likelihood of an individual picking its stock to day-trade - see [here](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4054018)
 
--   Sunshine generally has a positive effect on mood, and studies have found that stock returns tend to be higher when it is a sunny day at the location of the stock exchange.
--   People who grew up and lived during a time of high stock returns are more likely to invest in stocks than are people who experienced times when stocks performed poorly.
+-   Furthermore, there also seems to be the case that investors *mood* is a relevant driver:
 
-## Systematic Bias #4: Herd Behavior
+    1.  Sunshine generally has a positive effect on mood, and studies have found that stock returns tend to be higher when it is a sunny day at the location of the stock exchange
+    2.  People who grew up and lived during a time of high stock returns are more likely to invest in stocks than are people who experienced times when stocks performed poorly
 
--   When investors make similar trading errors because they are actively trying to follow each other’s behavior.
+## Systematic Bias #3: Herd Behavior
+
+-   Thus far, we have considered common factors that might lead to correlated trading behavior by investors, such as psychological biases that affected all investors
+
+-   But what if investors are actually trying to mimic each other's behavior (*"keeping up with the joneses"*)?
+
+-   We call *herd behavior* a situation When investors make similar trading errors because they are actively trying to follow each other’s behavior
+
+    1.  Non-sophisticated investors might believe others have superior information that they can take advantage of by copying their trades
+    2.  Due to relative wealth concerns, individuals choose to herd in order to avoid the risk of underperforming their peers
 
 ## Implications of Systematic Behavioral Biases
 
--   If non-sophisticated individual investors are engaging in strategies that earn [negative]{.red} alphas, it may be possible for more sophisticated investors to take advantage of this behavior and earn [positive]{.green} alphas
+-   If non-sophisticated individual investors are engaging in strategies that earn [negative]{.red} alphas, it may be possible for more sophisticated investors to take advantage of this behavior and earn [positive]{.green} alphas at their expense
 
-- What is surprising, however, is that these mistakes persist even though they may be economically costly and there is a relatively easy way to avoid them—buying and holding the market portfolio
+-   What is surprising, however, is that these mistakes persist even though they may be economically costly and there is a relatively easy way to avoid them: [buying and holding the market portfolio]{.blue}!
 
-- Regardless of why individual investors choose not to protect themselves by holding the market portfolio, the fact that they don’t has potential implications for the CAPM. If individual investors are engaging in strategies that earn negative alphas
-
-- **Question:** is there evidence that such savvy investors exist?
+-   Regardless of why individual investors choose not to protect themselves by holding the market portfolio, the fact that they don’t has an important implication for the CAPM: when individual investors make mistakes, sophisticated investors may earn a positive return at the expense of the non-sophisticated ones!
 
 # The Efficiency of the Market Portfolio
 
 ## The Efficiency of the Market Portfolio
 
--   When individual investors make mistakes, can sophisticated investors easily profit at their expense?
+-   When individual investors make mistakes, can sophisticated investors easily profit at their expense? In other words, are these biases systematic and pervasive enough so that sophisticated investors can profit from them?
 
--   That is, are these biases systematic and pervasive enough so that sophisticated investors can profit from them?
+-   In order for sophisticated investors to profit from investor mistakes, two conditions must hold:
 
-## Example 1: Mad Money Jim [Cramer effect](https://www.youtube.com/watch?v=b1HVnWin6O4)
+    1.  The mistakes must be sufficiently pervasive and persistent to affect stock prices - they need to push prices so that the non-zero $\alpha$ opportunities become apparent
+    2.  There must be limited competition to exploit these non-zero alpha opportunities - if competition is competition is too intense, these opportunities will be quickly eliminated before any trader can take advantage of them in a significant way
 
-## Example 2: Performance of fund managers
+-   In what follows, we'll see some potential evidence that individual or professional investors can outperform the market without taking on additional risk
 
--   You decide not to try activetly beating the market - the best you can do is to hire someone that is a more informed investor than you. Will this strategy pay out?
+## Trading on News: takeover announcements
 
--   Empirical evidence shows that:
+-   A natural place to look for profitable trading opportunities is in reaction to big news announcements or analysts’ recommendations: if enough other investors are not paying attention, perhaps one can profit from these public sources of information
+
+-   For example, investors can try to profit from [takeover offers (Mergers and Acquisitions)]{.blue}:
+
+    1.  Typically, the offer has for a significant premium to the target’s current stock price
+    2.  While the target’s stock price typically jumps on the announcement, *it often does not jump completely to the offer price*
+    3.  As a result, a reasonable trading strategy would be to [buy]{.green} at the announcement and [sell]{.red} after during the effective takeover
+
+-   However, there is uncertainty regarding i) if the deal will actually occur; and ii) conditional on occurring, if it will be at the previous offer price
+
+-   Predict whether the firm would ultimately be acquired, we could earn profits trading on that information
+
+## Trading on News: takeover announcements, illustration
+
+![](Images/F3.png){fig-align="center" width="65%"}
+
+## Trading on News: Stock Recommendations
+
+-   You may have heard about *Jim Cramer*, from *Mad Money*, or other *"stockpicker"* social influencers covering financial markets. Do investors profit from following recommendations from these influencers? Evidence shows that:
+
+    1.  [In the case where there is news about the stock that is being recommended]{.blue}, it appears that the stock price correctly reflects this information the next day, and stays flat (relative to the market) subsequently
+
+    2.  [On the other hand, for the stocks that have been recommended, but without relevant news]{.blue}, there appears to be a significant jump in the stock price the next day, but the stock price then tends to fall relative to the market over the next several weeks
+
+-   These "losing stocks" tended to be smaller, suggesting that individual investors who buy these stocks based on Cramer's recommendation pushed the price too high
+
+-   So why don't we bet against Jim Cramer? As a matter of fact, someone did - see [here](https://finance.yahoo.com/news/inverse-jim-cramer-etf-shuttered-140000106.html)
+
+## Mad Money Jim Cramer effect
+
+![](Images/F4.png){fig-align="center" width="70%"}
+
+## Mad Money Jim Cramer effect
+
+{{< video https://www.youtube.com/watch?v=b1HVnWin6O4 width="1250" height="750">}}
+
+## Performance of fund managers
+
+-   After these disappointing evidence, *you decide not to try actively beating the market* - the best you can do is to hire someone that is a more informed investor than you. Will this strategy pay out? Empirical evidence shows that:
 
     1.  The average mutual fund manager can generate value (before computing trading costs and fees, *i.e.*, *"gross alpha"*)
     2.  The median mutual fund manager, on the other hand, destroys value
     3.  Only a small portion of managers are skilled enough to add value, according to this reference, in terms of *net alpha*
 
-## Example 2: Performance of fund managers, continued
+-   Because individual investors pay fees to fund managers, the *net alpha* is [negative]{.red} - you should be better-off by putting your money on a passively-managed fund!
 
--   Because individual investors pay fees to fund managers, the net alpha is negative.
+-   That is, on average, fund managers (*"active"* strategies) do not provide value after fees, comparing to index funds (*"passive strategies"*)
 
--   That is, on average, fund managers do not provide value after fees, comparing to passive index funds.
+## Performance of fund managers, continued
 
--   There is a trap of liquidity:
+-   If fund managers are high-skilled investors, why they have a hard time adding value?
 
-    1.  If a manager is perceived as skilled, the deposits will grow, making harder to find above-average investment opportunities.
-    2.  Performance would converge to the mean, at best.
+-   One reason why it might be difficult to add value is because there is a trap of liquidity:
+
+    1.  If a manager is perceived as skilled, the deposits will grow, making harder to find above-average investment opportunities - that is why you see a lot of closed-end funds
+    2.  Performance would converge to the mean, at best
 
 -   At the end of the day, the market is competitive and people profit following the theoretical predictions
 
-    -   Skilled managers are recompensated for their skills. They capture the economic rents associated with their skills
-    -   Investors are not recompensated for the skills of the managers they select
+    1.  Skilled managers are recompensated for their skills. They capture the economic rents associated with their skills
+    2.  Investors are not recompensated for the skills of the managers they select - in the end, they derive little benefit, because this superior performance is captured by the manager in the form of fees
 
-## The Efficiency of the Market Portfolio after considering biases
+## The Efficiency of the Market Portfolio: between winners and losers
 
 -   We saw a series of potential biases that appear in real financial markets and how they can impact investor behavior
 
--   To what it concerns us, we should ask yourselves: is this changing the [CAPM]{.blue} prediction?
-
--   Final recommendation: the evidence seems to support the CAPM prediction that investors should hold the [market]{.blue} portfolio
+-   To what it concerns us, we should ask yourselves: **is this changing the [CAPM]{.blue} prediction?** As it stands, the evidence seems to support the CAPM prediction that investors should still hold the [market]{.blue} portfolio!
 
 -   All in all, beating the market should requires special skills or lower trading costs, which uninformed, individual investors don't have
 
@@ -270,63 +337,63 @@ $\rightarrow$ *There is a competition in the market and that competition brings 
 ## Style-Based Techniques & efficiency
 
 -   In the previous section, we discussed potential biases that individual investors might have
+
 -   All in all, they all point to the fact that sophistication plays a role:
+
     1.  More sophisticated investors should be less prone to individual and systematic biases (in theory, at least)
     2.  As a consequence, uninformed, low-skilled investors would be better-off if they simply hold the market portfolio
--   In this section, we will look at possible trading strategies, disregarding one's sophistication
+
+-   In particular, many fund managers distinguish their trading strategies based on the types of stocks they tend to hold; specifically, small versus large stocks, and value versus growth stocks
+
+-   In what follows, we will consider these alternative investment styles, and see whether some strategies have generated higher returns historically than the CAPM predicts
 
 ## Size Effect
 
--   Small market capitalization stocks have historically earned higher average returns than the market portfolio, even after accounting for their higher betas.
+-   **Idea**: [small]{.green} market capitalization stocks have historically earned higher average returns than the market portfolio, even after accounting for their higher betas. A way to analyze this is to split stocks each year into [10 portfolios]{.blue} by ranking them based on their [market capitalizations]{.blue}:
 
-## Book-to-Market Ratio
-
--   High book-to-market stocks have historically earned higher average returns than low book-to-market stocks.
-
--   Stocks with high book-to-market ratios are value stocks, and those with low book-to-market ratios are growth stocks
-
-## Style-Based Techniques & efficiency, practice
-
--   Suppose two firms, ABC and XYZ, are both expected to pay a dividend stream of \$2.2 million per year in perpetuity. ABC’s cost of capital is 12% per year, and XYZ’s cost of capital is 16%.
-
-    1.  Which firm has the higher market value?
-
-    2.  Which firm has the higher expected return? . . .
-
-$$MValue_{ABC} = \frac{2.200.000}{0.12} = 18.333.333$$
-
-$$MValue_{XYZ} = \frac{2.200.000}{0.16} = 50.000$$
-
-$$E[R_{ABC}] = 0.12$$ $$E[R_{XYZ}] = 0.16$$
-
-## Style-Based Techniques & efficiency, practice
-
--   Now assume both stocks have the same estimated beta, either because of estimation error or because the market portfolio is not efficient. Based on this beta, the CAPM would assign an expected return of 15% to both stocks.
-
-    1.  Which firm has the higher alpha?
-
-    2.  How do the market values of the firms relate to their alphas?
+    1.  The [first]{.blue} portfolio had the [10% smallest]{.blue} stocks in terms of market capitalization
+    2.  The [second]{.blue} portfolio had the [20% smallest]{.blue} stocks; and so on, until...
+    3.  The tenth portfolio had the [10% biggest]{.blue} stocks in terms of market capitalization
 
 . . .
 
-$$\alpha_{ABC} = E[R] - R_s =  0.12 - 0.15 = -0.03$$
+**Calculating the monthly excess returns and the beta of each decile portfolio, we see that:**
 
-$$\alpha_{XYZ} = E[R] - R_s = 0.16 - 0.15 = 0.01$$
+1. Portfolios with higher betas yield higher future returns (as expected)
+2. Most portfolios plot above the security market ($\alpha>0$) The smallest deciles exhibit the most extreme effect. Although there is discussion around *why* we see these positive alphas arise, see [@BDM] for an illustrative example (*Risk and the Market Value of Equity*)
 
--   The firm with the lower market value has the higher alpha.
+
+## Book-to-Market Ratio
+
+- As with *Size*, a similar rationale could be applied to stocks that have higher levels of *market-value of Equity* *vis-a-vis* their historical values (*book value of Equity*)
+
+- **Idea**: [small]{.green} market capitalization stocks have historically earned higher average returns than the market portfolio, even after accounting for their higher betas
+
+  1. High book-to-market stocks have historically earned higher average returns than low book-to-market stocks
+  2. Stocks with high book-to-market ratios are *value* stocks, and those with low book-to-market ratios are *growth* stocks
+
+- As before, *value* stocks tend to present positive $\alpha$
 
 ## Momentum
 
--   Idea: rank stocks each month by their realized returns over the prior 6–12 months. They found that the best-performing stocks had positive alphas over the next 3–12 months.
+- Do past returns explain future performance? Ideally, that shouldn't be the case, but...
 
-    1.  This evidence goes against the CAPM: When the market portfolio is efficient, past returns should not predict alphas.
-    2.  So the strategy is: Buying stocks that have had past high returns and (short) selling stocks that have had past low returns.
+- **Idea:** rank stocks each month by their *realized* returns over the prior 6–12 months. They found that the best-performing stocks had *positive* alphas over the next 3–12 months:
 
--   These three factors (Size, book-to-market, and Momentun) are widely famous as the three [Fama-French factors]{.blue}
+    1.  This evidence goes against the CAPM: When the market portfolio is efficient, past returns should not predict alphas
+    2.  As an investor, you could [buy]{.green} stocks that have had past high returns and ([short]{.red}) sell stocks that have had past low returns
+    
+. . .
+
+$\rightarrow$ *Click [here](https://brindexes.shinyapps.io/backtester-app/) for an application that simulates a momentum-based strategy for U.S. stocks*
+
+-   All in all, these three factors (*Size*, *Book-to-Market*, and *Momentun*) are widely famous as the three [Fama-French factors]{.blue}
 
 ## What if $\alpha$ is consistently different from zero?
 
 -   Let's go back to our $\alpha$ definition for a given stock $i$:
+
+. . .
 
 $$
 \alpha_i = E[R_i] - R_i
@@ -336,21 +403,44 @@ $$
     1.  Stocks [above]{.green} the SML are [cheap]{.green}, so the prices should [rise]{.green} ([positive]{.green} alpha).
     2.  Stocks [below]{.red} the SML are [expensive]{.red}, so the prices should [drop]{.red} ([negative]{.red} alpha).
 
-## What if $\alpha$ is consistently different from zero? Continued
+- However, over the years since the discovery of the CAPM, it has become increasingly clear that forming portfolios based on *market capitalization*, *book-to-market* ratios, and *past returns*, investors can construct trading strategies that have a positive alpha
 
--   What if [positive-alpha]{.green} strategies exist in a persistent way? That can be due to two factors:
+- **Why**? There can be [two]{.blue} reasons why  [positive-alpha]{.green} strategies exist in a persistent way
 
-    1.  If the [CAPM]{.blue} is correct, these strategies can persist in a market is if some barrier to entry restricts the competition dynamics that ultimately drive investors to the efficient portfolio. This is not likely, especially the recent years, when trading costs are very low and markets are integrated.
+## Why $\alpha$ is consistently different from zero?
 
-    2.  On the other hand, what if the CAPM is failing to capture the efficient portfolio and, therefore, a stock’s beta with the market is not an adequate measure of its systematic risk?
+. . .
 
--   So, if these positive-alpha trading strategies exist, they contain risk that investors are unwilling to bear but the CAPM does not capture.
+**Reason #1: Investors are systematically ignoring positive-NPV investment opportunities:**
 
--   That is, a stock’s beta with the market portfolio does not adequately measure a stock’s systematic risk, and so the CAPM does not correctly compute the risk premium!
+- The CAPM correctly computes required risk premiums, but investors are [ignoring]{.blue} opportunities to earn extra returns without bearing any extra risk
+- That could happen either because they are [unaware]{.blue} of them or because the [costs]{.blue} to implement the strategies are larger than the NPV of undertaking them
 
-## Potential explanations: CAPM assumptions
+. . .
 
--   Some reasons of why positive-alpha strategies can persist can be inherently tied to the assumptions tied out to the [CAPM]{.blue} defintion:
+$\rightarrow$ *This explanation goes straight to the hypotheses outlined by the CAPM!*
+
+- According to the CAPM, the only way a positive-NPV opportunity can persist in a market is if some barrier to entry restricts competition. Nowadays, this hypothesis seems [unlikely]{.red}:
+
+  1. Information required to form the portfolios is readily available;
+  2. Trading costs are decreasing
+
+
+## Why $\alpha$ is consistently different from zero? Continued
+
+**Reason #2: The positive-alpha trading strategies contain risk that investors are unwilling to bear but the CAPM does not capture:**
+
+1. A stock’s beta with the market portfolio does not adequately measure a stock’s systematic risk
+
+2. Because of that, the CAPM does not correctly compute the risk premium as it leaves out important risk factors that investors care about!
+
+- In other words way, the profits (positive alphas) from the trading strategy are really returns for bearing risk that investors are averse to but the CAPM does not capture
+
+- As a consequence, the market portfolio is not efficient. The next slide discuss some reasons why the market portfolio might not be the efficient one
+
+## Potential explanations
+
+-   Some reasons of why positive-alpha strategies can persist can be inherently tied to the assumptions tied out to the [CAPM]{.blue} definition:
 
     1.  [Proxy error]{.blue}: we might be not using a good proxy for the market portfolio
 
@@ -362,194 +452,130 @@ $$
 
 ## Multifactor Models of Risk
 
--   In previous lectures, we defined that the required return for any given security $i$ should follow:
+-   We previously defined that the required return for any given security $i$ should follow:
+
+. . .
 
 $$
 E[R_i] = R_f + \beta_i^P \times (E[R_P - R_f])
 $$
 
-1.  At first, we were *agnostic* on what $P$ should stand for.
-2.  When we introduced the [CAPM]{.blue}, we claimed that $P=M$ - *i.e*, the efficient portfolio is the market portfolio
-3.  However, we saw several real-world frictions that might yield us the umncomfortable outcome that market portfolio *is not efficient*!
+1.  At first, we were *agnostic* on what $P$ should stand for
+2.  When we introduced the [CAPM]{.blue}, we claimed that $\small P=M$ - *i.e*, the efficient portfolio is the market portfolio
+3.  However, we saw several real-world frictions that might yield us the uncomfortable outcome that market portfolio *is not efficient*!
+
+. . .
 
 $\rightarrow$ *When the market portfolio is not efficient, we have to find a method to identify an efficient portfolio before we can use the above equation!*
 
 ## Multifactor Models of Risk
 
--   Single-Factor Model: a model that uses one portfolio. Example: CAPM
-
+-   When we introduced the CAPM, we implicitly assumed that there was a single portfolio (or *"factor"*) that represented the efficient portfolio: the market (a *"single factor"* portfolio)
 -   However, it is not actually necessary to identify the efficient portfolio itself, as long as you identify a collection of portfolios from which the efficient portfolio can be constructed
 
--   Multi-Factor Model
-
--   A model that uses more than oneportfolio in the model
-
--   Example: Arbitrage Pricing Theory (APT)
-
--   Based on the idea of self-financing portfolios: weights sum to 0.
-
-    -   Short and long at the same time
-    -   Ex: long in market portfolio, short in $R_f$
-
-## Fama-French-Carhart (FFC):
-
-$$E[R_s] = R_f + \beta_s^m \times (E[R_m]− R_f)  + \beta_s^{SMB} \times E[R_{SMB}] + \beta_s^{HML} \times E[R_{HML}] + \beta_s^{Mon} \times E[R_{Mom}] $$
-
--   SMB: small-minus-big portfolio
-    -   A strategy that buys a portfolio of small stocks and sells a portfolio of big stocks.
--   HML: high-minus-low
-    -   A trading strategy that buys an equally weighted portfolio of stocks with a book-to-market ratio less than the 30th percentile of NYSE firms and finances this position by short selling an equally weighted portfolio of stocks with a book-to-market ratio greater than the 70th percentile of NYSE stocks.
--   Mom (PR1YR): Momentum
-    -   Each year, after ranking stocks by their return over the last one year, a trading strategy that buys the top 30% of stocks and finances this position by short selling bottom 30% of stocks.
-
-## Multifactor Models of Risk
-
-Problem
-
-You are considering making an investment in a project in the semiconductor industry. The project has the same level of non-diversifiable risk as investing in Intel stock. Assume you have calculated the following factor betas for Intel stock, determine the cost of capital by using the FFC factor specification if the monthly risk-free rate is 0.5%.
-
-$$\beta_i^M=0.171 ; E[R_m] - R_f = .61\%$$ $$\beta_i^{SMB}=0.432 ; E[R_{SMB}] = .25\%$$ $$\beta_i^{HML}=0.419 ; E[R_{HML}] = .38\%$$ $$\beta_i^{Mom}=0.121 ; E[R_{Mom}] = .70\%$$
+-   A [Multi-Factor Model]{.blue} is a pricing model that uses more than one portfolio (*"factors"*) to *approximate* the efficient portfolio:
 
 . . .
 
--   The annual cost of capital is 0.009562 × 12 = 11.47%
+$$
+\small E[R_i] = R_f + \beta_i^{\text{F1}} \times \underbrace{(E[R_{\text{F1}} - R_f])}_{\text{Excess return for Factor 1}}+ \beta_i^{\text{F2}} \times \underbrace{(E[R_{\text{F2}} - R_f])}_{\text{Excess return for Factor 2}}+...+\beta_i^{\text{Fn}} \times \underbrace{(E[R_{\text{Fn}} - R_f])}_{\text{Excess return for Factor n}}
+$$
 
-## Multifactor Models of Risk
+- Each $\beta_i^{n}$ here is called a [factor beta]{.blue}: like the CAPM, it is the expected % change in the excess return of a security for a 1% change in the excess return of that factor portfolio, holding everything else constant
 
-Multifactor models
+## Multifactor Models of Risk, continued
 
--   One advantage: we can build several portfolios to capture systematic risk
--   One disadvantage: we need to estimate expected returns to each risk factor (not easy, usually historical return).
+- The previous equation showed that that we can write the risk premium of any marketable security as the sum of the risk premium of each factor multiplied by the sensitivity of the stock with that factor:
 
-. . .
+  1. [Single-factor:]{.blue} We use an presumably efficient portfolio, it will *alone* capture all systematic risk (for example, the CAPM)
+  2. [Multifactor:]{.blue} If we use multiple portfolios as factors, then *together* these factors will capture all systematic risk - this is also known as the *Arbitrage Pricing Theory (APT)*
 
-Smart Beta
+- Multifactor models allow investors to break the risk premium down into different risk factors:
+  1. As they might not be equally averse to the different factors, multifactor models allows investors to *tailor* their risk exposure
+  2. This idea of tailoring risk exposures based on common risk factors has become increasingly known amongst practitioners as a [smart beta]{.blue} strategy - click [here](https://institutional.fidelity.com/app/item/RD_13569_45080/factor-etfs.html) for an extensive list of factor ETFs from *Fidelity*
 
-Each of the previous factors are called risk factors.
+## Which factors (portfolios) to use?
 
-A smart Beta strategy is the idea that investors can tailor their risk exposures based on specific risk factors.
+- If investors can tailor their risk exposure to specific risk factors, then the next question is: [which risk factors an investor should be exposed to]{.blue}? Some examples:
 
-# Efficient Markets
+  1. [Market Strategy]{.blue}: the most straightforward example is to expose to the market itself, like the CAPM did. Even if the market portfolio is not efficient, it still captures many components of systematic risk
+  
+  2. [Market Capitalization Strategy]{.blue}: a trading strategy that each year buys portfolio S (small stocks) and finances this position by short selling portfolio B (big stocks) has produced positive risk-adjusted returns historically. This is called a  *small-minus-big* *(SMB)* portfolio
+  
+  3. [Book-to-Market Strategy]{.blue}: a trading strategy that each year buys a portfolio of *growth* stocks and finances it by selling *value* stocks. This is called a *high-minus-low* *(HML)*) portfolio
+  
+  4. [Past Returns Strategy]{.blue}: a portfolio that goes long the top past-return stocks (1 year) and short the bottom ones. The resulting self-financing portfolio is known as the prior one-year momentum (PR1YR) portfolio 
+  
 
-## Efficient Markets and behavioral finance
+## Example: Fama-French-Carhart (FFC):
 
-There are three forms of efficiency.
-
-Weak efficiency:prices incorporate all information contained in the record of pastprices. Prices follow a random walk.
-
--   Imagine a toin coss.
-
--   Each outcome is independent of the previous outcome.
-
-. . .
-
-Semistrong efficiency:prices incorporate all public information, including information from the internet, the press, and other public sources.
-
--   It means that stock prices respond to relevant news quickly and completely.
-
-. . .
-
-Strong efficiency:prices reflect all the information, public and private.
-
--   An efficient market does not mean that nobody earns a return.
-
--   It means that investors will earn a return that is appropriate for the risk undertaken (CAPM!)
-
-## Random Walk (weak efficiency)
-
-Imagine a toin coss.
-
-Each outcome is independent of the previous outcome.
-
-So the likelihood of heads and tails are the same.
-
-If prices are random, the likelihood of going up and going down is the same at each moment.
+- A direct application of the previous slide is the [Fama-French-Carhart (FFC)]{.blue} portfolio, which aggregates all the risk factors discussed before:
 
 . . .
 
-Prices in competitive markets must follow a random walk.
+$$\small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Market Cap.}} + \beta_s^{Mon} \times \underbrace{E[R_{Mom}]}_{\text{Past Returns}} $$
 
-If past price changes could be used to predict future price changes, investors could make easy profits.
+1. Note that we can price the required returns for a given security $i$ according to its exposure (the $\beta$'s) to each of the factor portfolios
+2. Before, we claimed using the CAPM that only the first factor should drive required returns (*i.e.*, the market)
+3. Now, our measure for the efficient portfolio is to say that investors also care about *other* risk factors, and because of that, the exposure of a given security needs to take that into account when estimating the required returns!
 
-As investors try to take advantage of any information in past prices, prices adjust immediately until the superior profits from studying price movements disappear.
+## Fama-French-Carhart portfolio returns
 
-## Random Walk (weak efficiency)
+![](Images/F5.png){fig-align='center'}
 
-Prices adjust immediately.
+- These are the returns for investing in each portfolio
+- If the investment that you are trying to estimate the required returns is exposed to these portfolios, we then use these estimates with the estimates $\beta$'s to get to the expected return
 
-![](figs/bre13901_1302.jpg)
+## Multifactor Models of Risk, example
 
-## Semistrong efficiency
-
-It means that stock prices respond to relevant news quickly and completely.
-
-News --\> change in stock price.
+- You are considering making an investment in a project in the fast food industry. You determine that the project has the same level of non-diversifiable risk as investing in McDonald’s stock. Determine the cost of capital by using the FFC factor specification assuming a monthly risk-free rate of 0.20\% and the factor returns from the previous slide.
 
 . . .
 
-Examples of evidence that suggest semistrong efficiency:
+| **Factor** 	| **Beta** 	|
+|:----------:	|:--------:	|
+|  _Market_  	|   0.72   	|
+|    _SMB_   	|   -0.6   	|
+|    _HML_   	|   0.14   	|
+|   _PR1YR_  	|   0.09   	|
 
--   Alphas
--   Takeover adjustment (during some weeks, not all at once)
--   Professional managers "beating the market"
+## Multifactor Models of Risk, example
 
-## 
+- Using the FFC specification:
 
--   About which type of efficiency is he talking here? [Link](https://dilbert.com/strip/1997-10-14)
+. . .
 
-![](figs/dogbert.png)
+$$
+\small \underbrace{0.2}_{\text{Risk-free}}\%+\underbrace{(0.68\%-0.2\%)}_{\text{Market Excess Return}}\times{0.72}+\underbrace{(0.2\%)}_{SMB}\times{-0.6}+\underbrace{(0.35\%)}_{HML}\times{0.14}+\underbrace{(0.64\%)}_{PR1YR}\times{0.09}=0.68\%
+$$
 
-## Strong efficiency
+- In annual terms (no compoundind), this is approximately $\small 0.68\% \times 12=8.16\%$
 
-An efficient market does not mean that nobody earns a return.
+- As a comparison, a standard CAPM regression over the same time period leads to an estimated market beta of $\small 0.58$ for McDonald’s —the market $\beta$ differs from the estimate of 0.72 above because we are using only a single factor in the CAPM regression
 
-It means that investors will earn a return that is appropriate for the risk undertaken (CAPM!)
+- Using the CAPM would have given us an estimated annual required return of $\small (0.2\%+0.58\times0.68\%)\times12=7.1\%$
 
-## Are markets efficient? [Video](https://www.youtube.com/watch?v=bM9bYOBuKF4)
-
-![](figs/are_markets_efficient.png)
-
-## Bubbles
-
-How can we explain bubbles?[Link](https://historyofyesterday.com/the-1636-tulip-mania-defines-the-present-economic-bubble-641b70fb8980)
-
-![](figs/tulip.jpg)
-
-## Bubbles
-
-![](figs/buysell.jpg)
-
-# Methods Used in Practice
 
 ## Methods Used in Practice
 
-So, given the evidence against and for the CAPM, and market efficiency, is the cAPM used in real life?
+- Given the evidence [against]{.red} and [in favor of]{.green} the CAPM and market efficiency, is the CAPM used in real-world applications?
 
-. . .
+- According to Financial Managers:
 
-Financial Managers
+  1. A survey of CFOs found that 73.5% of the firms used the CAPM to calculate the cost of capital
+  2. 40% used historical average returns
+  3. 16% used the dividend discount model
+  4  Larger firms were more likely to use the CAPM than were smaller firms
 
--   A survey of CFOs found that 73.5% of the firms used the CAPM to calculate the cost of capital
--   40% used historical average returns
--   16% used the dividend discount model
--   Larger firms were more likely to use the CAPM than were smaller firms
+- According to investors: Investors
 
-Investors
+  1. In a recent study of the different risk models examined, investor behaviorwas found to be most consistent with the CAPM.
+  2. The idea of this study is that by observing which investments investors rush into, it is possible to infer the risk model they are using
 
--   In a recent study of the different risk models examined, investor behaviorwas found to be most consistent with the CAPM.
-    -   The idea of this study is that by observing which investments investors rush into, it is possible to infer the risk model they are using
-
-## 
-
-![](figs/bm_13_11.png)
-
-## 
-
-![](figs/bm_13_12.png)
 
 ## Practice
 
-. . .
+
 
 ::: callout-important
 Practice using the following links:

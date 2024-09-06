@@ -184,7 +184,7 @@ $$
 
 ## Estimating the Cash Conversion Cycle
 
--   Suppose that a firm has \$100,000 in account receivables, \$50,000 in inventory, and \$25,000 in accounts payable. It has reported sales of about \$1MM and its Cost of Goods Sold (COGS) represent 40% of total revenues. Calculate the Cash Conversion Cycle. Assume a 365-day year.
+-   Suppose that a firm has $\small \$100,000$ in account receivables, $\small\$50,000$ in inventory, and $\small\$25,000$ in accounts payable. It has reported sales of about $\small \$1,000,000$ and its Cost of Goods Sold (COGS) represent $\small 40\%$ of total revenues. Calculate the Cash Conversion Cycle. Assume a 365-day year.
 
 -   Now, we'll calculate the Cash Conversion Cycle of the firm by looking at its individual components
 
@@ -194,8 +194,8 @@ $\rightarrow$ *See [CCC Dynamics.xlsx]{.blue}, available on eClass®, for a deta
 
 ## Step 1: Inventory Days
 
--   The firm has \$50,000 in Inventory
--   It had reported COGS of $40\% \times 1,000,0000=400,000$
+-   The firm has $\small\$50,000$ in Inventory
+-   It had reported COGS of $\small 40\% \times 1,000,0000=\$400,000$
 -   The Inventory Conversion is then:
 
 . . .
@@ -205,12 +205,12 @@ $$
 IC=\dfrac{Inventory}{\dfrac{COGS}{365}}\rightarrow \dfrac{50,000}{\dfrac{400,000}{365}}\rightarrow \dfrac{50,000}{1,096}\approx \text{45.6 days}
 $$
 
--   **Interpretation**: if the firm had 400,000 in Inventory Costs yearly, this translates to a daily average of 1,096. If there's 50,000 in Inventories, it means that it takes, on average, $50,000/1,096=45.6$ days for Inventories to be finished.
+-   **Interpretation**: if the firm had $\small \$400,000$ in product costs yearly, this translates to a daily average of $\small \$1,096$. If there's $\small \$50,000$ in Inventories, it means that it takes, on average, $\small \$50,000/\$1,096=45.6$ days for Inventories to be finished.
 
 ## Step 2: Accounts Receivable Days
 
--   The firm has \$100,000 in Receivables
--   It had reported Sales of $1,000,0000$
+-   The firm has $\small\$100,000$ in Receivables
+-   It had reported Sales of $\small \$1,000,0000$
 -   The Accounts Receivable Conversion is then:
 
 . . .
@@ -220,12 +220,12 @@ $$
 ACC=\dfrac{Receivables}{\dfrac{Sales}{365}}\rightarrow \dfrac{100,000}{\dfrac{1,000,000}{365}}\rightarrow \dfrac{100,000}{2,739}\approx \text{36.5 days}
 $$
 
--   **Interpretation**: if the firm had 1,000,000 in Sales yearly, this translates to a daily average of 2,739. If there's 100,000 in Receivables, it means that it takes, on average, $100,000/2,739=36.5$ days for a given client to pay the firm, after it has bought the product.
+-   **Interpretation**: if the firm had $\small\$1,000,000$ in Sales yearly, this translates to a daily average of $\small\$2,739$. If there's $\small100,000$ in Receivables, it means that it takes, on average, $\small \$100,000/\$2,739=36.5$ days for a given client to pay the firm, after it has bought the product.
 
 ## Step 3: Accounts Payable Days
 
--   The firm has \$25,000 in Receivables
--   It had reported COGS of $40\% \times 1,000,0000=400,000$
+-   The firm has $\small\$25,000$ in Payables
+-   It had reported COGS of $\small 40\% \times \$1,000,0000=\$400,000$
 -   The Accounts Payable Conversion is then:
 
 . . .
@@ -235,11 +235,11 @@ $$
 APC=\dfrac{Payables}{\dfrac{COGS}{365}}\rightarrow \dfrac{25,000}{\dfrac{400,000}{365}}\rightarrow \dfrac{25,000}{1,096}\approx \text{22.8 days}
 $$
 
--   **Interpretation**: if the firm had 400,000 in COGS yearly, this translates to a daily average of 1,096 If there's 25,000 in Receivables, it means that it takes, on average, $25,000/1,096=22.8$ days for the firm to pay its suppliers, after it bought the Inventory.
+-   **Interpretation**: if the firm had $\small\$400,000$ in COGS yearly, this translates to a daily average of $\small\$1,096$ If there's $\small\$25,000$ in Payables, it means that it takes, on average, $\small \$25,000/\$1,096=22.8$ days for the firm to pay its suppliers, after it bought the Inventory.
 
 ## Step 3: putting all together
 
--   Recall tha the Cash Conversion Cycle is defined as:
+-   Recall that the Cash Conversion Cycle is defined as:
 
 . . .
 
