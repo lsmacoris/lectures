@@ -32,14 +32,14 @@
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#beating-the-market",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Beating the market",
-    "text": "Beating the market\n\nSay that you are evaluating the performance of several stocks relative to their expected returns\nTo improve the performance of their portfolios, investors will compare the expected return of a security \\(i\\) with its required return from the security market line:\n\n\n\\[R_i = R_f + \\beta_S \\times (E[R_m - R_f])\\]\n\nNow, after calculating expected returns for \\(i\\), you go ahead and compare it with the actual, realized return that \\(i\\) gave during a given period:\n\n\n\n\\[\\alpha_i = E[R_i] - R_i\\]\n\nThat is, \\(\\alpha\\) is the difference between a stock’s expected return and its required return according to the Security Market Line"
+    "text": "Beating the market\n\nSay that you are evaluating the performance of several stocks relative to their expected returns. To improve the performance of their portfolios, investors will compare the expected return of a security \\(i\\) with its required return from the security market line:\n\n\n\\[R_i = R_f + \\beta_S \\times (E[R_m - R_f])\\]\n\nNow, after calculating expected returns for \\(i\\), you go ahead and compare it with the actual, realized return that \\(i\\) gave during a given period:\n\n\n\n\\[\\alpha_i = \\underbrace{E[R_i]}_{\\text{Observed by the analyst}} - \\underbrace{R_i}_{\\text{Implied by the CAPM}}\\]\n\\(\\rightarrow\\) \\(\\alpha\\) is the difference between a stock’s expected return and its required return according to the Security Market Line"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#interpreting-alpha",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#interpreting-alpha",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Interpreting \\(\\alpha\\)",
-    "text": "Interpreting \\(\\alpha\\)\n\nA positive alpha means that the stock is above the SML - in words, the expected return is higher than its required return\nA negative alpha means that the stock is below the SML - in words, the expected return is lower than its required return\n\n\n\\(\\rightarrow\\) If we buy stocks with positive alphas or, analogously, sell stocks with negative alphas, this will improve portfolio results. However, but as we do so, prices will change and their alphas will shrink toward zero"
+    "text": "Interpreting \\(\\alpha\\)\n\\[\\small \\alpha_i = \\underbrace{E[R_i]}_{\\text{Observed by the analyst}} - \\underbrace{R_i}_{\\text{Implied by the CAPM}}\\]\n\nA positive alpha means that the stock is above the SML\n\nIn words, the expected return is higher than its required return\nBefore prices adjust, investors will anticipate that the price will rise and will likely put in buy orders at the current prices\n\nA negative alpha means that the stock is below the SML\n\nIn words, the expected return is lower than its required return\nBefore prices adjust, investors will anticipate that the price will fall and will likely put in sell orders at the current prices\n\n\n\n\\(\\rightarrow\\) In either case, we’ll be able to improve portfolio results. However, as we do so, prices will change and their alphas will shrink toward zero!"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#interpreting-alpha-graphical-intuition",
@@ -53,7 +53,7 @@
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#beating-the-market-and-market-competition",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Beating the Market and Market competition",
-    "text": "Beating the Market and Market competition\n\nLet’s analyze what happens in the previous figure:\n\nStocks above the SML are cheap, so the prices should rise (positive alpha)\nStocks below the SML are expensive, so the prices should drop (negative alpha)\n\nBecause of that, we say that the CAPM is also a competitive market in equilibrium:\n\nInvestors trying to “beat the market” are always looking for stocks with positive alpha (Walmart and Nike) to buy\nOnce they buy them, the prices rise, making the stocks once again on the security market line\n\n\n\n\\(\\rightarrow\\) There is a competition in the market and that competition brings efficiency to the CAPM!"
+    "text": "Beating the Market and Market competition\n\nLet’s analyze what happens in the previous figure:\n\nStocks above the SML are cheap, so the prices should rise (positive alpha)\nStocks below the SML are expensive, so the prices should drop (negative alpha)\n\nBecause of that, we say that the CAPM is also a competitive market in equilibrium:\n\nInvestors trying to “beat the market” are always looking for stocks with positive alpha (Walmart and Nike) to buy\nOnce they buy them, the prices rise, making the stocks once again on the security market line\n\nThere is a competition in the market and that competition brings efficiency to the CAPM! Note that such competition may be so intense that prices move before any investor can actually trade at the old prices, so no investor can profit from the news"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#information-rational-expectactions-theory",
@@ -81,273 +81,245 @@
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#individual-bias-1-underdiversification-bias",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Individual Bias #1: Underdiversification bias",
-    "text": "Individual Bias #1: Underdiversification bias\n\nOne bias that appears in many countries is the underdiversification bias. In other words, there is much evidence that individual investors fail to diversify their portfolios adequately\nSome potential explanations for the underdiversification bias\n\nFamiliarity Bias: investors favor investments in companies with which they are familiar\nRelative Wealth Concerns: investors care more about the performance of their portfolios relative to their peers"
+    "text": "Individual Bias #1: Underdiversification bias\n\nBy appropriately diversifying their portfolios, investors can reduce risk without reducing their expected return. In that sense, diversification is a “free lunch” that all investors should take advantage of\nOne bias that appears in many countries is the underdiversification bias. In other words, there is much evidence that individual investors fail to diversify their portfolios adequately\nSome potential explanations for the underdiversification bias are:\n\nFamiliarity Bias: investors favor investments in companies with which they are familiar\nRelative Wealth Concerns: investors care more about the performance of their portfolios relative to their peers"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#individual-bias-2-excessive-trading-and-overconfidence",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#individual-bias-2-excessive-trading-and-overconfidence",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Individual Bias #2: Excessive Trading and Overconfidence",
-    "text": "Individual Bias #2: Excessive Trading and Overconfidence\n\nIndividual investors often trade beyond what is predicted by the CAPM. Some reasons may include:\n\nOverconfidence Bias: investors believe they can pick winners and losers when, in fact, they cannot; this leads them to trade too much\nSensation Seeking: an individual’s desire for novel and intense risk-taking experiences\n\nBy the simple fact that naive investors trade too often, they should get lower returns due to trading costs"
+    "text": "Individual Bias #2: Excessive Trading and Overconfidence\n\nAccording to the CAPM, investors should hold risk-free assets in combination with the market portfolio of all risky securities\nBecause the market portfolio is a value-weighted portfolio, it is also a passive portfolio in the sense that an investor does not need to trade frequently to maintain it\nEmpirical evidence shows that individual investors often trade beyond what is predicted by the CAPM. Some reasons may include:\n\nOverconfidence Bias: like sports fans, investors believe they can pick winners and losers when, in fact, they cannot; this leads them to trade too much! Furthermore, men tend to be more overconfident than women, with more trading and lower returns\nSensation Seeking: an individual’s desire for novel and intense risk-taking experiences\n\nBy the simple fact that naive investors trade too often, they should get lower returns due to trading costs (brokerage costs, fees, etc)"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#biases-and-the-capm",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#biases-and-the-capm",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Biases and the CAPM",
-    "text": "Biases and the CAPM\n\nIf investors do not hold the market portfolio, does it mean that CAPM is not a good model?\n\nIf individuals depart from the CAPM in random ways, then these departures will tend to cancel out\nThese naive investors might only be trading erratically, thus not really affecting the market\n\nTherefore, this should not put us far from what is predicted by the CAPM: the market porfolio should still be the efficient portfolio!\nOn the other hand, where would the CAPM fail? If investors depart from the market portfolio in a consistent and predictable manner!"
+    "text": "Biases and the CAPM\n\nIf investors do not hold the market portfolio, does it mean that CAPM is not a good model?\n\nIf individuals depart from the CAPM in random ways, then these departures will tend to cancel out\nThese naive investors might only be trading erratically, thus not really affecting the market\n\nThis should not put us far from what is predicted by the CAPM: if investors are just departing from the the market porfolio in random ways, it should still be the efficient portfolio…\n…if that is true, under which circumstances the CAPM implication that the market portfolio is efficient fail?\n\n\nIf investors depart from the market portfolio in a consistent and predictable manner, imparting systematic uncertainty into prices\nFor investors’ trades to be correlated in this way, they must share a common motivation, which we’ll refer to as a “systematic bias”"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-trading-biases",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-trading-biases",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Systematic Trading Biases",
-    "text": "Systematic Trading Biases\n\nFor the behavior of individual investors to impact market prices, and thus create a profitable opportunity for more sophisticated investors, there must be predictable, systematic patterns in the types of errors individual investors make\nMuch of these biases are studied within a relatively new field of behavioral economics (and behavioral finance)\nAs we’ll see in the upcoming slides, there are some predictable, systematic patterns in the types of errors individual investors make and that would create a profit opportunity for sophisticated investors"
+    "text": "Systematic Trading Biases\n\nFor the behavior of individual investors to impact market prices, and thus create a profitable opportunity for more sophisticated investors, there must be predictable, systematic patterns in the types of errors individual investors make\nMuch of these biases are studied within a relatively new field of behavioral economics (and behavioral finance)\nAs we’ll see in the upcoming slides, there are some predictable, systematic patterns in the types of errors individual investors make and that would create a profit opportunity for sophisticated investors that include, but are not limited, to:\n\n\nDisposition Effect\nInvestor attention, Mood, and Experience\nHerd Behavior"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-1-disposition-effect",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-1-disposition-effect",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Systematic Bias #1: Disposition Effect",
-    "text": "Systematic Bias #1: Disposition Effect\n\nDefinition: an investor holds on to stocks that have lost their value and sell stocks that have risen in value since the time of purchase\n\nSuggests a reluctance to “admit a mistake” by taking the loss. More common in non-sophisticated investors.\nThis behavioral tendency to sell winners and hang on to losers is costly from a tax perspective.\n\nBecause capital gains are taxed only when the asset is sold, it is optimal for tax purposes to postpone taxable gains by continuing to hold profitable investments\nIn Brazil, we do not pay taxes if sell less than 20,000 BRL by month."
+    "text": "Systematic Bias #1: Disposition Effect\n\nAn investor holds on to stocks that have lost their value and sell stocks that have risen in value since the time of purchase\n\nSuggests a reluctance to “admit a mistake” by taking the loss, which is more common in non-sophisticated investors\nThis behavioral tendency to sell winners and hang on to losers is costly from a tax perspective: as capital gains are taxed only when the asset is sold, it is optimal for tax purposes to postpone taxable gains by continuing to hold profitable investments\n\nHanging on to losers and selling winners might make sense if investors forecast that the losing stocks would ultimately “bounce back” and outperform the winners going forward.\nWhile investors may in fact have this belief, it does not appear to be justified in practice, as “losing stocks” continue to underperform the “winner stocks” that were sold\n\n\n\\(\\rightarrow\\) See Thinking, Fast and Slow, by Daniel Kahneman"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-2-attention-grabbing-stories",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-2-attention-grabbing-stories",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-2-attention-grabbing-stories-and-mood",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-2-attention-grabbing-stories-and-mood",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Systematic Bias #2: Attention-grabbing stories",
-    "text": "Systematic Bias #2: Attention-grabbing stories\n\nStudies show that individuals are more likely to buy stocks that have recently been in the news, engaged in advertising, experienced exceptionally high trading volume, or have had extreme returns"
+    "section": "Systematic Bias #2: Attention-grabbing stories and mood",
+    "text": "Systematic Bias #2: Attention-grabbing stories and mood\n\nIndividual investors generally are not full-time traders. As a result, they have limited time and attention to spend on their investment decisions, and so may be influenced by attention grabbing news stories or other events\nStudies show that individuals are more likely to buy stocks that have recently been in the news, engaged in advertising, experienced exceptionally high trading volume, or have had extreme returns\nA recent study from Brazil shows that living in a small city close to a firm’s local store more than doubles the likelihood of an individual picking its stock to day-trade - see here\nFurthermore, there also seems to be the case that investors mood is a relevant driver:\n\nSunshine generally has a positive effect on mood, and studies have found that stock returns tend to be higher when it is a sunny day at the location of the stock exchange\nPeople who grew up and lived during a time of high stock returns are more likely to invest in stocks than are people who experienced times when stocks performed poorly"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-3-mood",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-3-mood",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-3-herd-behavior",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-3-herd-behavior",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Systematic Bias #3: mood",
-    "text": "Systematic Bias #3: mood\n\nSunshine generally has a positive effect on mood, and studies have found that stock returns tend to be higher when it is a sunny day at the location of the stock exchange.\nPeople who grew up and lived during a time of high stock returns are more likely to invest in stocks than are people who experienced times when stocks performed poorly."
-  },
-  {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-4-herd-behavior",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#systematic-bias-4-herd-behavior",
-    "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Systematic Bias #4: Herd Behavior",
-    "text": "Systematic Bias #4: Herd Behavior\n\nWhen investors make similar trading errors because they are actively trying to follow each other’s behavior."
+    "section": "Systematic Bias #3: Herd Behavior",
+    "text": "Systematic Bias #3: Herd Behavior\n\nThus far, we have considered common factors that might lead to correlated trading behavior by investors, such as psychological biases that affected all investors\nBut what if investors are actually trying to mimic each other’s behavior (“keeping up with the joneses”)?\nWe call herd behavior a situation When investors make similar trading errors because they are actively trying to follow each other’s behavior\n\nNon-sophisticated investors might believe others have superior information that they can take advantage of by copying their trades\nDue to relative wealth concerns, individuals choose to herd in order to avoid the risk of underperforming their peers"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#implications-of-systematic-behavioral-biases",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#implications-of-systematic-behavioral-biases",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Implications of Systematic Behavioral Biases",
-    "text": "Implications of Systematic Behavioral Biases\n\nIf non-sophisticated individual investors are engaging in strategies that earn negative alphas, it may be possible for more sophisticated investors to take advantage of this behavior and earn positive alphas\nWhat is surprising, however, is that these mistakes persist even though they may be economically costly and there is a relatively easy way to avoid them—buying and holding the market portfolio\nRegardless of why individual investors choose not to protect themselves by holding the market portfolio, the fact that they don’t has potential implications for the CAPM. If individual investors are engaging in strategies that earn negative alphas\nQuestion: is there evidence that such savvy investors exist?"
+    "text": "Implications of Systematic Behavioral Biases\n\nIf non-sophisticated individual investors are engaging in strategies that earn negative alphas, it may be possible for more sophisticated investors to take advantage of this behavior and earn positive alphas at their expense\nWhat is surprising, however, is that these mistakes persist even though they may be economically costly and there is a relatively easy way to avoid them: buying and holding the market portfolio!\nRegardless of why individual investors choose not to protect themselves by holding the market portfolio, the fact that they don’t has an important implication for the CAPM: when individual investors make mistakes, sophisticated investors may earn a positive return at the expense of the non-sophisticated ones!"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#the-efficiency-of-the-market-portfolio-1",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#the-efficiency-of-the-market-portfolio-1",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "The Efficiency of the Market Portfolio",
-    "text": "The Efficiency of the Market Portfolio\n\nWhen individual investors make mistakes, can sophisticated investors easily profit at their expense?\nThat is, are these biases systematic and pervasive enough so that sophisticated investors can profit from them?"
+    "text": "The Efficiency of the Market Portfolio\n\nWhen individual investors make mistakes, can sophisticated investors easily profit at their expense? In other words, are these biases systematic and pervasive enough so that sophisticated investors can profit from them?\nIn order for sophisticated investors to profit from investor mistakes, two conditions must hold:\n\nThe mistakes must be sufficiently pervasive and persistent to affect stock prices - they need to push prices so that the non-zero \\(\\alpha\\) opportunities become apparent\nThere must be limited competition to exploit these non-zero alpha opportunities - if competition is competition is too intense, these opportunities will be quickly eliminated before any trader can take advantage of them in a significant way\n\nIn what follows, we’ll see some potential evidence that individual or professional investors can outperform the market without taking on additional risk"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#example-1-mad-money-jim-cramer-effect",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#example-1-mad-money-jim-cramer-effect",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#trading-on-news-takeover-announcements",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#trading-on-news-takeover-announcements",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Example 1: Mad Money Jim Cramer effect",
-    "text": "Example 1: Mad Money Jim Cramer effect"
+    "section": "Trading on News: takeover announcements",
+    "text": "Trading on News: takeover announcements\n\nA natural place to look for profitable trading opportunities is in reaction to big news announcements or analysts’ recommendations: if enough other investors are not paying attention, perhaps one can profit from these public sources of information\nFor example, investors can try to profit from takeover offers (Mergers and Acquisitions):\n\nTypically, the offer has for a significant premium to the target’s current stock price\nWhile the target’s stock price typically jumps on the announcement, it often does not jump completely to the offer price\nAs a result, a reasonable trading strategy would be to buy at the announcement and sell after during the effective takeover\n\nHowever, there is uncertainty regarding i) if the deal will actually occur; and ii) conditional on occurring, if it will be at the previous offer price\nPredict whether the firm would ultimately be acquired, we could earn profits trading on that information"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#example-2-performance-of-fund-managers",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#example-2-performance-of-fund-managers",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#trading-on-news-takeover-announcements-illustration",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#trading-on-news-takeover-announcements-illustration",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Example 2: Performance of fund managers",
-    "text": "Example 2: Performance of fund managers\n\nYou decide not to try activetly beating the market - the best you can do is to hire someone that is a more informed investor than you. Will this strategy pay out?\nEmpirical evidence shows that:\n\nThe average mutual fund manager can generate value (before computing trading costs and fees, i.e., “gross alpha”)\nThe median mutual fund manager, on the other hand, destroys value\nOnly a small portion of managers are skilled enough to add value, according to this reference, in terms of net alpha"
+    "section": "Trading on News: takeover announcements, illustration",
+    "text": "Trading on News: takeover announcements, illustration"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#example-2-performance-of-fund-managers-continued",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#example-2-performance-of-fund-managers-continued",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#trading-on-news-stock-recommendations",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#trading-on-news-stock-recommendations",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Example 2: Performance of fund managers, continued",
-    "text": "Example 2: Performance of fund managers, continued\n\nBecause individual investors pay fees to fund managers, the net alpha is negative.\nThat is, on average, fund managers do not provide value after fees, comparing to passive index funds.\nThere is a trap of liquidity:\n\nIf a manager is perceived as skilled, the deposits will grow, making harder to find above-average investment opportunities.\nPerformance would converge to the mean, at best.\n\nAt the end of the day, the market is competitive and people profit following the theoretical predictions\n\nSkilled managers are recompensated for their skills. They capture the economic rents associated with their skills\nInvestors are not recompensated for the skills of the managers they select"
+    "section": "Trading on News: Stock Recommendations",
+    "text": "Trading on News: Stock Recommendations\n\nYou may have heard about Jim Cramer, from Mad Money, or other “stockpicker” social influencers covering financial markets. Do investors profit from following recommendations from these influencers? Evidence shows that:\n\nIn the case where there is news about the stock that is being recommended, it appears that the stock price correctly reflects this information the next day, and stays flat (relative to the market) subsequently\nOn the other hand, for the stocks that have been recommended, but without relevant news, there appears to be a significant jump in the stock price the next day, but the stock price then tends to fall relative to the market over the next several weeks\n\nThese “losing stocks” tended to be smaller, suggesting that individual investors who buy these stocks based on Cramer’s recommendation pushed the price too high\nSo why don’t we bet against Jim Cramer? As a matter of fact, someone did - see here"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#the-efficiency-of-the-market-portfolio-after-considering-biases",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#the-efficiency-of-the-market-portfolio-after-considering-biases",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#mad-money-jim-cramer-effect",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#mad-money-jim-cramer-effect",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "The Efficiency of the Market Portfolio after considering biases",
-    "text": "The Efficiency of the Market Portfolio after considering biases\n\nWe saw a series of potential biases that appear in real financial markets and how they can impact investor behavior\nTo what it concerns us, we should ask yourselves: is this changing the CAPM prediction?\nFinal recommendation: the evidence seems to support the CAPM prediction that investors should hold the market portfolio\nAll in all, beating the market should requires special skills or lower trading costs, which uninformed, individual investors don’t have"
+    "section": "Mad Money Jim Cramer effect",
+    "text": "Mad Money Jim Cramer effect"
+  },
+  {
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#mad-money-jim-cramer-effect-1",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#mad-money-jim-cramer-effect-1",
+    "title": "Investor Behavior and Capital Market Efficiency",
+    "section": "Mad Money Jim Cramer effect",
+    "text": "Mad Money Jim Cramer effect"
+  },
+  {
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#performance-of-fund-managers",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#performance-of-fund-managers",
+    "title": "Investor Behavior and Capital Market Efficiency",
+    "section": "Performance of fund managers",
+    "text": "Performance of fund managers\n\nAfter these disappointing evidence, you decide not to try actively beating the market - the best you can do is to hire someone that is a more informed investor than you. Will this strategy pay out? Empirical evidence shows that:\n\nThe average mutual fund manager can generate value (before computing trading costs and fees, i.e., “gross alpha”)\nThe median mutual fund manager, on the other hand, destroys value\nOnly a small portion of managers are skilled enough to add value, according to this reference, in terms of net alpha\n\nBecause individual investors pay fees to fund managers, the net alpha is negative - you should be better-off by putting your money on a passively-managed fund!\nThat is, on average, fund managers (“active” strategies) do not provide value after fees, comparing to index funds (“passive strategies”)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#performance-of-fund-managers-continued",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#performance-of-fund-managers-continued",
+    "title": "Investor Behavior and Capital Market Efficiency",
+    "section": "Performance of fund managers, continued",
+    "text": "Performance of fund managers, continued\n\nIf fund managers are high-skilled investors, why they have a hard time adding value?\nOne reason why it might be difficult to add value is because there is a trap of liquidity:\n\nIf a manager is perceived as skilled, the deposits will grow, making harder to find above-average investment opportunities - that is why you see a lot of closed-end funds\nPerformance would converge to the mean, at best\n\nAt the end of the day, the market is competitive and people profit following the theoretical predictions\n\nSkilled managers are recompensated for their skills. They capture the economic rents associated with their skills\nInvestors are not recompensated for the skills of the managers they select - in the end, they derive little benefit, because this superior performance is captured by the manager in the form of fees"
+  },
+  {
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#the-efficiency-of-the-market-portfolio-between-winners-and-losers",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#the-efficiency-of-the-market-portfolio-between-winners-and-losers",
+    "title": "Investor Behavior and Capital Market Efficiency",
+    "section": "The Efficiency of the Market Portfolio: between winners and losers",
+    "text": "The Efficiency of the Market Portfolio: between winners and losers\n\nWe saw a series of potential biases that appear in real financial markets and how they can impact investor behavior\nTo what it concerns us, we should ask yourselves: is this changing the CAPM prediction? As it stands, the evidence seems to support the CAPM prediction that investors should still hold the market portfolio!\nAll in all, beating the market should requires special skills or lower trading costs, which uninformed, individual investors don’t have"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#style-based-techniques-efficiency-1",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#style-based-techniques-efficiency-1",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Style-Based Techniques & efficiency",
-    "text": "Style-Based Techniques & efficiency\n\nIn the previous section, we discussed potential biases that individual investors might have\nAll in all, they all point to the fact that sophistication plays a role:\n\nMore sophisticated investors should be less prone to individual and systematic biases (in theory, at least)\nAs a consequence, uninformed, low-skilled investors would be better-off if they simply hold the market portfolio\n\nIn this section, we will look at possible trading strategies, disregarding one’s sophistication"
+    "text": "Style-Based Techniques & efficiency\n\nIn the previous section, we discussed potential biases that individual investors might have\nAll in all, they all point to the fact that sophistication plays a role:\n\nMore sophisticated investors should be less prone to individual and systematic biases (in theory, at least)\nAs a consequence, uninformed, low-skilled investors would be better-off if they simply hold the market portfolio\n\nIn particular, many fund managers distinguish their trading strategies based on the types of stocks they tend to hold; specifically, small versus large stocks, and value versus growth stocks\nIn what follows, we will consider these alternative investment styles, and see whether some strategies have generated higher returns historically than the CAPM predicts"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#size-effect",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#size-effect",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Size Effect",
-    "text": "Size Effect\n\nSmall market capitalization stocks have historically earned higher average returns than the market portfolio, even after accounting for their higher betas."
+    "text": "Size Effect\n\nIdea: small market capitalization stocks have historically earned higher average returns than the market portfolio, even after accounting for their higher betas. A way to analyze this is to split stocks each year into 10 portfolios by ranking them based on their market capitalizations:\n\nThe first portfolio had the 10% smallest stocks in terms of market capitalization\nThe second portfolio had the 20% smallest stocks; and so on, until…\nThe tenth portfolio had the 10% biggest stocks in terms of market capitalization\n\n\n\nCalculating the monthly excess returns and the beta of each decile portfolio, we see that:\n\nPortfolios with higher betas yield higher future returns (as expected)\nMost portfolios plot above the security market (\\(\\alpha&gt;0\\)) The smallest deciles exhibit the most extreme effect. Although there is discussion around why we see these positive alphas arise, see (Berk and DeMarzo 2023) for an illustrative example (Risk and the Market Value of Equity)"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#book-to-market-ratio",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#book-to-market-ratio",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Book-to-Market Ratio",
-    "text": "Book-to-Market Ratio\n\nHigh book-to-market stocks have historically earned higher average returns than low book-to-market stocks.\nStocks with high book-to-market ratios are value stocks, and those with low book-to-market ratios are growth stocks"
-  },
-  {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#style-based-techniques-efficiency-practice",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#style-based-techniques-efficiency-practice",
-    "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Style-Based Techniques & efficiency, practice",
-    "text": "Style-Based Techniques & efficiency, practice\n\nSuppose two firms, ABC and XYZ, are both expected to pay a dividend stream of $2.2 million per year in perpetuity. ABC’s cost of capital is 12% per year, and XYZ’s cost of capital is 16%.\n\nWhich firm has the higher market value?\nWhich firm has the higher expected return? . . .\n\n\n\\[MValue_{ABC} = \\frac{2.200.000}{0.12} = 18.333.333\\]\n\\[MValue_{XYZ} = \\frac{2.200.000}{0.16} = 50.000\\]\n\\[E[R_{ABC}] = 0.12\\] \\[E[R_{XYZ}] = 0.16\\]"
-  },
-  {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#style-based-techniques-efficiency-practice-1",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#style-based-techniques-efficiency-practice-1",
-    "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Style-Based Techniques & efficiency, practice",
-    "text": "Style-Based Techniques & efficiency, practice\n\nNow assume both stocks have the same estimated beta, either because of estimation error or because the market portfolio is not efficient. Based on this beta, the CAPM would assign an expected return of 15% to both stocks.\n\nWhich firm has the higher alpha?\nHow do the market values of the firms relate to their alphas?\n\n\n\n\\[\\alpha_{ABC} = E[R] - R_s =  0.12 - 0.15 = -0.03\\]\n\\[\\alpha_{XYZ} = E[R] - R_s = 0.16 - 0.15 = 0.01\\]\n\nThe firm with the lower market value has the higher alpha."
+    "text": "Book-to-Market Ratio\n\nAs with Size, a similar rationale could be applied to stocks that have higher levels of market-value of Equity vis-a-vis their historical values (book value of Equity)\nIdea: small market capitalization stocks have historically earned higher average returns than the market portfolio, even after accounting for their higher betas\n\nHigh book-to-market stocks have historically earned higher average returns than low book-to-market stocks\nStocks with high book-to-market ratios are value stocks, and those with low book-to-market ratios are growth stocks\n\nAs before, value stocks tend to present positive \\(\\alpha\\)"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#momentum",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#momentum",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Momentum",
-    "text": "Momentum\n\nIdea: rank stocks each month by their realized returns over the prior 6–12 months. They found that the best-performing stocks had positive alphas over the next 3–12 months.\n\nThis evidence goes against the CAPM: When the market portfolio is efficient, past returns should not predict alphas.\nSo the strategy is: Buying stocks that have had past high returns and (short) selling stocks that have had past low returns.\n\nThese three factors (Size, book-to-market, and Momentun) are widely famous as the three Fama-French factors"
+    "text": "Momentum\n\nDo past returns explain future performance? Ideally, that shouldn’t be the case, but…\nIdea: rank stocks each month by their realized returns over the prior 6–12 months. They found that the best-performing stocks had positive alphas over the next 3–12 months:\n\nThis evidence goes against the CAPM: When the market portfolio is efficient, past returns should not predict alphas\nAs an investor, you could buy stocks that have had past high returns and (short) sell stocks that have had past low returns\n\n\n\n\\(\\rightarrow\\) Click here for an application that simulates a momentum-based strategy for U.S. stocks\n\nAll in all, these three factors (Size, Book-to-Market, and Momentun) are widely famous as the three Fama-French factors"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#what-if-alpha-is-consistently-different-from-zero",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#what-if-alpha-is-consistently-different-from-zero",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "What if \\(\\alpha\\) is consistently different from zero?",
-    "text": "What if \\(\\alpha\\) is consistently different from zero?\n\nLet’s go back to our \\(\\alpha\\) definition for a given stock \\(i\\):\n\n\\[\n\\alpha_i = E[R_i] - R_i\n\\]\n\nAs we discussed, if you assume that CAPM is the correct model to explain expected returns, competition in financial markets should make \\(\\alpha \\rightarrow 0\\) in equilibrium:\n\nStocks above the SML are cheap, so the prices should rise (positive alpha).\nStocks below the SML are expensive, so the prices should drop (negative alpha)."
+    "text": "What if \\(\\alpha\\) is consistently different from zero?\n\nLet’s go back to our \\(\\alpha\\) definition for a given stock \\(i\\):\n\n\n\\[\n\\alpha_i = E[R_i] - R_i\n\\]\n\nAs we discussed, if you assume that CAPM is the correct model to explain expected returns, competition in financial markets should make \\(\\alpha \\rightarrow 0\\) in equilibrium:\n\nStocks above the SML are cheap, so the prices should rise (positive alpha).\nStocks below the SML are expensive, so the prices should drop (negative alpha).\n\nHowever, over the years since the discovery of the CAPM, it has become increasingly clear that forming portfolios based on market capitalization, book-to-market ratios, and past returns, investors can construct trading strategies that have a positive alpha\nWhy? There can be two reasons why positive-alpha strategies exist in a persistent way"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#what-if-alpha-is-consistently-different-from-zero-continued",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#what-if-alpha-is-consistently-different-from-zero-continued",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#why-alpha-is-consistently-different-from-zero",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#why-alpha-is-consistently-different-from-zero",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "What if \\(\\alpha\\) is consistently different from zero? Continued",
-    "text": "What if \\(\\alpha\\) is consistently different from zero? Continued\n\nWhat if positive-alpha strategies exist in a persistent way? That can be due to two factors:\n\nIf the CAPM is correct, these strategies can persist in a market is if some barrier to entry restricts the competition dynamics that ultimately drive investors to the efficient portfolio. This is not likely, especially the recent years, when trading costs are very low and markets are integrated.\nOn the other hand, what if the CAPM is failing to capture the efficient portfolio and, therefore, a stock’s beta with the market is not an adequate measure of its systematic risk?\n\nSo, if these positive-alpha trading strategies exist, they contain risk that investors are unwilling to bear but the CAPM does not capture.\nThat is, a stock’s beta with the market portfolio does not adequately measure a stock’s systematic risk, and so the CAPM does not correctly compute the risk premium!"
+    "section": "Why \\(\\alpha\\) is consistently different from zero?",
+    "text": "Why \\(\\alpha\\) is consistently different from zero?\n\nReason #1: Investors are systematically ignoring positive-NPV investment opportunities:\n\nThe CAPM correctly computes required risk premiums, but investors are ignoring opportunities to earn extra returns without bearing any extra risk\nThat could happen either because they are unaware of them or because the costs to implement the strategies are larger than the NPV of undertaking them\n\n\n\n\\(\\rightarrow\\) This explanation goes straight to the hypotheses outlined by the CAPM!\n\nAccording to the CAPM, the only way a positive-NPV opportunity can persist in a market is if some barrier to entry restricts competition. Nowadays, this hypothesis seems unlikely:\n\nInformation required to form the portfolios is readily available;\nTrading costs are decreasing"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#potential-explanations-capm-assumptions",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#potential-explanations-capm-assumptions",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#why-alpha-is-consistently-different-from-zero-continued",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#why-alpha-is-consistently-different-from-zero-continued",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Potential explanations: CAPM assumptions",
-    "text": "Potential explanations: CAPM assumptions\n\nSome reasons of why positive-alpha strategies can persist can be inherently tied to the assumptions tied out to the CAPM defintion:\n\nProxy error: we might be not using a good proxy for the market portfolio\nBehavioral biases: we have made assumptions on investor behavior, but it might be the case that non-sophisticated investors find hard do approximate their portfolio to the market portfolio\nAlternative Risk Preferences and Non-Tradable Wealth:: we assumed that investor would always seek for the best risk \\(\\times\\) return combination. However, investors may stick with inefficient portfolios because they care about risk characteristics other than the volatility of their traded portfolio. For instance, they prefer to not be exposed to the sector they work in or to specific industries (i.e., ESG-based decisions)"
+    "section": "Why \\(\\alpha\\) is consistently different from zero? Continued",
+    "text": "Why \\(\\alpha\\) is consistently different from zero? Continued\nReason #2: The positive-alpha trading strategies contain risk that investors are unwilling to bear but the CAPM does not capture:\n\nA stock’s beta with the market portfolio does not adequately measure a stock’s systematic risk\nBecause of that, the CAPM does not correctly compute the risk premium as it leaves out important risk factors that investors care about!\n\n\nIn other words way, the profits (positive alphas) from the trading strategy are really returns for bearing risk that investors are averse to but the CAPM does not capture\nAs a consequence, the market portfolio is not efficient. The next slide discuss some reasons why the market portfolio might not be the efficient one"
+  },
+  {
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#potential-explanations",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#potential-explanations",
+    "title": "Investor Behavior and Capital Market Efficiency",
+    "section": "Potential explanations",
+    "text": "Potential explanations\n\nSome reasons of why positive-alpha strategies can persist can be inherently tied to the assumptions tied out to the CAPM definition:\n\nProxy error: we might be not using a good proxy for the market portfolio\nBehavioral biases: we have made assumptions on investor behavior, but it might be the case that non-sophisticated investors find hard do approximate their portfolio to the market portfolio\nAlternative Risk Preferences and Non-Tradable Wealth:: we assumed that investor would always seek for the best risk \\(\\times\\) return combination. However, investors may stick with inefficient portfolios because they care about risk characteristics other than the volatility of their traded portfolio. For instance, they prefer to not be exposed to the sector they work in or to specific industries (i.e., ESG-based decisions)"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-1",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-1",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Multifactor Models of Risk",
-    "text": "Multifactor Models of Risk\n\nIn previous lectures, we defined that the required return for any given security \\(i\\) should follow:\n\n\\[\nE[R_i] = R_f + \\beta_i^P \\times (E[R_P - R_f])\n\\]\n\nAt first, we were agnostic on what \\(P\\) should stand for.\nWhen we introduced the CAPM, we claimed that \\(P=M\\) - i.e, the efficient portfolio is the market portfolio\nHowever, we saw several real-world frictions that might yield us the umncomfortable outcome that market portfolio is not efficient!\n\n\\(\\rightarrow\\) When the market portfolio is not efficient, we have to find a method to identify an efficient portfolio before we can use the above equation!"
+    "text": "Multifactor Models of Risk\n\nWe previously defined that the required return for any given security \\(i\\) should follow:\n\n\n\\[\nE[R_i] = R_f + \\beta_i^P \\times (E[R_P - R_f])\n\\]\n\nAt first, we were agnostic on what \\(P\\) should stand for\nWhen we introduced the CAPM, we claimed that \\(\\small P=M\\) - i.e, the efficient portfolio is the market portfolio\nHowever, we saw several real-world frictions that might yield us the uncomfortable outcome that market portfolio is not efficient!\n\n\n\n\\(\\rightarrow\\) When the market portfolio is not efficient, we have to find a method to identify an efficient portfolio before we can use the above equation!"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-2",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-2",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Multifactor Models of Risk",
-    "text": "Multifactor Models of Risk\n\nSingle-Factor Model: a model that uses one portfolio. Example: CAPM\nHowever, it is not actually necessary to identify the efficient portfolio itself, as long as you identify a collection of portfolios from which the efficient portfolio can be constructed\nMulti-Factor Model\nA model that uses more than oneportfolio in the model\nExample: Arbitrage Pricing Theory (APT)\nBased on the idea of self-financing portfolios: weights sum to 0.\n\nShort and long at the same time\nEx: long in market portfolio, short in \\(R_f\\)"
+    "text": "Multifactor Models of Risk\n\nWhen we introduced the CAPM, we implicitly assumed that there was a single portfolio (or “factor”) that represented the efficient portfolio: the market (a “single factor” portfolio)\nHowever, it is not actually necessary to identify the efficient portfolio itself, as long as you identify a collection of portfolios from which the efficient portfolio can be constructed\nA Multi-Factor Model is a pricing model that uses more than one portfolio (“factors”) to approximate the efficient portfolio:\n\n\n\\[\n\\small E[R_i] = R_f + \\beta_i^{\\text{F1}} \\times \\underbrace{(E[R_{\\text{F1}} - R_f])}_{\\text{Excess return for Factor 1}}+ \\beta_i^{\\text{F2}} \\times \\underbrace{(E[R_{\\text{F2}} - R_f])}_{\\text{Excess return for Factor 2}}+...+\\beta_i^{\\text{Fn}} \\times \\underbrace{(E[R_{\\text{Fn}} - R_f])}_{\\text{Excess return for Factor n}}\n\\]\n\nEach \\(\\beta_i^{n}\\) here is called a factor beta: like the CAPM, it is the expected % change in the excess return of a security for a 1% change in the excess return of that factor portfolio, holding everything else constant"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#fama-french-carhart-ffc",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#fama-french-carhart-ffc",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-continued",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-continued",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Fama-French-Carhart (FFC):",
-    "text": "Fama-French-Carhart (FFC):\n\\[E[R_s] = R_f + \\beta_s^m \\times (E[R_m]− R_f)  + \\beta_s^{SMB} \\times E[R_{SMB}] + \\beta_s^{HML} \\times E[R_{HML}] + \\beta_s^{Mon} \\times E[R_{Mom}] \\]\n\nSMB: small-minus-big portfolio\n\nA strategy that buys a portfolio of small stocks and sells a portfolio of big stocks.\n\nHML: high-minus-low\n\nA trading strategy that buys an equally weighted portfolio of stocks with a book-to-market ratio less than the 30th percentile of NYSE firms and finances this position by short selling an equally weighted portfolio of stocks with a book-to-market ratio greater than the 70th percentile of NYSE stocks.\n\nMom (PR1YR): Momentum\n\nEach year, after ranking stocks by their return over the last one year, a trading strategy that buys the top 30% of stocks and finances this position by short selling bottom 30% of stocks."
+    "section": "Multifactor Models of Risk, continued",
+    "text": "Multifactor Models of Risk, continued\n\nThe previous equation showed that that we can write the risk premium of any marketable security as the sum of the risk premium of each factor multiplied by the sensitivity of the stock with that factor:\n\nSingle-factor: We use an presumably efficient portfolio, it will alone capture all systematic risk (for example, the CAPM)\nMultifactor: If we use multiple portfolios as factors, then together these factors will capture all systematic risk - this is also known as the Arbitrage Pricing Theory (APT)\n\nMultifactor models allow investors to break the risk premium down into different risk factors:\n\nAs they might not be equally averse to the different factors, multifactor models allows investors to tailor their risk exposure\nThis idea of tailoring risk exposures based on common risk factors has become increasingly known amongst practitioners as a smart beta strategy - click here for an extensive list of factor ETFs from Fidelity"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-3",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-3",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#which-factors-portfolios-to-use",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#which-factors-portfolios-to-use",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Multifactor Models of Risk",
-    "text": "Multifactor Models of Risk\nProblem\nYou are considering making an investment in a project in the semiconductor industry. The project has the same level of non-diversifiable risk as investing in Intel stock. Assume you have calculated the following factor betas for Intel stock, determine the cost of capital by using the FFC factor specification if the monthly risk-free rate is 0.5%.\n\\[\\beta_i^M=0.171 ; E[R_m] - R_f = .61\\%\\] \\[\\beta_i^{SMB}=0.432 ; E[R_{SMB}] = .25\\%\\] \\[\\beta_i^{HML}=0.419 ; E[R_{HML}] = .38\\%\\] \\[\\beta_i^{Mom}=0.121 ; E[R_{Mom}] = .70\\%\\]\n\n\nThe annual cost of capital is 0.009562 × 12 = 11.47%"
+    "section": "Which factors (portfolios) to use?",
+    "text": "Which factors (portfolios) to use?\n\nIf investors can tailor their risk exposure to specific risk factors, then the next question is: which risk factors an investor should be exposed to? Some examples:\n\nMarket Strategy: the most straightforward example is to expose to the market itself, like the CAPM did. Even if the market portfolio is not efficient, it still captures many components of systematic risk\nMarket Capitalization Strategy: a trading strategy that each year buys portfolio S (small stocks) and finances this position by short selling portfolio B (big stocks) has produced positive risk-adjusted returns historically. This is called a small-minus-big (SMB) portfolio\nBook-to-Market Strategy: a trading strategy that each year buys a portfolio of growth stocks and finances it by selling value stocks. This is called a high-minus-low (HML)) portfolio\nPast Returns Strategy: a portfolio that goes long the top past-return stocks (1 year) and short the bottom ones. The resulting self-financing portfolio is known as the prior one-year momentum (PR1YR) portfolio"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-4",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-4",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#example-fama-french-carhart-ffc",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#example-fama-french-carhart-ffc",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Multifactor Models of Risk",
-    "text": "Multifactor Models of Risk\nMultifactor models\n\nOne advantage: we can build several portfolios to capture systematic risk\nOne disadvantage: we need to estimate expected returns to each risk factor (not easy, usually historical return).\n\n\nSmart Beta\nEach of the previous factors are called risk factors.\nA smart Beta strategy is the idea that investors can tailor their risk exposures based on specific risk factors."
+    "section": "Example: Fama-French-Carhart (FFC):",
+    "text": "Example: Fama-French-Carhart (FFC):\n\nA direct application of the previous slide is the Fama-French-Carhart (FFC) portfolio, which aggregates all the risk factors discussed before:\n\n\n\\[\\small E[R_i] = R_f + \\beta_s^m \\times \\underbrace{(E[R_m]− R_f)}_{\\text{Market}}  + \\beta_s^{SMB} \\times \\underbrace{E[R_{SMB}]}_{\\text{Size}} + \\beta_s^{HML} \\times \\underbrace{E[R_{HML}]}_{\\text{Market Cap.}} + \\beta_s^{Mon} \\times \\underbrace{E[R_{Mom}]}_{\\text{Past Returns}} \\]\n\nNote that we can price the required returns for a given security \\(i\\) according to its exposure (the \\(\\beta\\)’s) to each of the factor portfolios\nBefore, we claimed using the CAPM that only the first factor should drive required returns (i.e., the market)\nNow, our measure for the efficient portfolio is to say that investors also care about other risk factors, and because of that, the exposure of a given security needs to take that into account when estimating the required returns!"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#efficient-markets-and-behavioral-finance",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#efficient-markets-and-behavioral-finance",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#fama-french-carhart-portfolio-returns",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#fama-french-carhart-portfolio-returns",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Efficient Markets and behavioral finance",
-    "text": "Efficient Markets and behavioral finance\nThere are three forms of efficiency.\nWeak efficiency:prices incorporate all information contained in the record of pastprices. Prices follow a random walk.\n\nImagine a toin coss.\nEach outcome is independent of the previous outcome.\n\n\nSemistrong efficiency:prices incorporate all public information, including information from the internet, the press, and other public sources.\n\nIt means that stock prices respond to relevant news quickly and completely.\n\n\n\nStrong efficiency:prices reflect all the information, public and private.\n\nAn efficient market does not mean that nobody earns a return.\nIt means that investors will earn a return that is appropriate for the risk undertaken (CAPM!)"
+    "section": "Fama-French-Carhart portfolio returns",
+    "text": "Fama-French-Carhart portfolio returns\n\n\n\n\n\n\nThese are the returns for investing in each portfolio\nIf the investment that you are trying to estimate the required returns is exposed to these portfolios, we then use these estimates with the estimates \\(\\beta\\)’s to get to the expected return"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#random-walk-weak-efficiency",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#random-walk-weak-efficiency",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-example",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-example",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Random Walk (weak efficiency)",
-    "text": "Random Walk (weak efficiency)\nImagine a toin coss.\nEach outcome is independent of the previous outcome.\nSo the likelihood of heads and tails are the same.\nIf prices are random, the likelihood of going up and going down is the same at each moment.\n\nPrices in competitive markets must follow a random walk.\nIf past price changes could be used to predict future price changes, investors could make easy profits.\nAs investors try to take advantage of any information in past prices, prices adjust immediately until the superior profits from studying price movements disappear."
+    "section": "Multifactor Models of Risk, example",
+    "text": "Multifactor Models of Risk, example\n\nYou are considering making an investment in a project in the fast food industry. You determine that the project has the same level of non-diversifiable risk as investing in McDonald’s stock. Determine the cost of capital by using the FFC factor specification assuming a monthly risk-free rate of 0.20% and the factor returns from the previous slide.\n\n\n\n\n\nFactor\nBeta\n\n\n\n\nMarket\n0.72\n\n\nSMB\n-0.6\n\n\nHML\n0.14\n\n\nPR1YR\n0.09"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#random-walk-weak-efficiency-1",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#random-walk-weak-efficiency-1",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-example-1",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#multifactor-models-of-risk-example-1",
     "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Random Walk (weak efficiency)",
-    "text": "Random Walk (weak efficiency)\nPrices adjust immediately."
+    "section": "Multifactor Models of Risk, example",
+    "text": "Multifactor Models of Risk, example\n\nUsing the FFC specification:\n\n\n\\[\n\\small \\underbrace{0.2}_{\\text{Risk-free}}\\%+\\underbrace{(0.68\\%-0.2\\%)}_{\\text{Market Excess Return}}\\times{0.72}+\\underbrace{(0.2\\%)}_{SMB}\\times{-0.6}+\\underbrace{(0.35\\%)}_{HML}\\times{0.14}+\\underbrace{(0.64\\%)}_{PR1YR}\\times{0.09}=0.68\\%\n\\]\n\nIn annual terms (no compoundind), this is approximately \\(\\small 0.68\\% \\times 12=8.16\\%\\)\nAs a comparison, a standard CAPM regression over the same time period leads to an estimated market beta of \\(\\small 0.58\\) for McDonald’s —the market \\(\\beta\\) differs from the estimate of 0.72 above because we are using only a single factor in the CAPM regression\nUsing the CAPM would have given us an estimated annual required return of \\(\\small (0.2\\%+0.58\\times0.68\\%)\\times12=7.1\\%\\)"
   },
   {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#semistrong-efficiency",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#semistrong-efficiency",
-    "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Semistrong efficiency",
-    "text": "Semistrong efficiency\nIt means that stock prices respond to relevant news quickly and completely.\nNews –&gt; change in stock price.\n\nExamples of evidence that suggest semistrong efficiency:\n\nAlphas\nTakeover adjustment (during some weeks, not all at once)\nProfessional managers “beating the market”"
-  },
-  {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#section",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#section",
-    "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "",
-    "text": "About which type of efficiency is he talking here? Link"
-  },
-  {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#strong-efficiency",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#strong-efficiency",
-    "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Strong efficiency",
-    "text": "Strong efficiency\nAn efficient market does not mean that nobody earns a return.\nIt means that investors will earn a return that is appropriate for the risk undertaken (CAPM!)"
-  },
-  {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#are-markets-efficient-video",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#are-markets-efficient-video",
-    "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Are markets efficient? Video",
-    "text": "Are markets efficient? Video"
-  },
-  {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#bubbles",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#bubbles",
-    "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Bubbles",
-    "text": "Bubbles\nHow can we explain bubbles?Link"
-  },
-  {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#bubbles-1",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#bubbles-1",
-    "title": "Investor Behavior and Capital Market Efficiency",
-    "section": "Bubbles",
-    "text": "Bubbles"
-  },
-  {
-    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#methods-used-in-practice-1",
-    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#methods-used-in-practice-1",
+    "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#methods-used-in-practice",
+    "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#methods-used-in-practice",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Methods Used in Practice",
-    "text": "Methods Used in Practice\nSo, given the evidence against and for the CAPM, and market efficiency, is the cAPM used in real life?\n\nFinancial Managers\n\nA survey of CFOs found that 73.5% of the firms used the CAPM to calculate the cost of capital\n40% used historical average returns\n16% used the dividend discount model\nLarger firms were more likely to use the CAPM than were smaller firms\n\nInvestors\n\nIn a recent study of the different risk models examined, investor behaviorwas found to be most consistent with the CAPM.\n\nThe idea of this study is that by observing which investments investors rush into, it is possible to infer the risk model they are using"
+    "text": "Methods Used in Practice\n\nGiven the evidence against and in favor of the CAPM and market efficiency, is the CAPM used in real-world applications?\nAccording to Financial Managers:\n\nA survey of CFOs found that 73.5% of the firms used the CAPM to calculate the cost of capital\n40% used historical average returns\n16% used the dividend discount model 4 Larger firms were more likely to use the CAPM than were smaller firms\n\nAccording to investors: Investors\n\nIn a recent study of the different risk models examined, investor behaviorwas found to be most consistent with the CAPM.\nThe idea of this study is that by observing which investments investors rush into, it is possible to infer the risk model they are using"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#practice",
     "href": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#practice",
     "title": "Investor Behavior and Capital Market Efficiency",
     "section": "Practice",
-    "text": "Practice\n\n\n\n\n\n\n\nImportant\n\n\nPractice using the following links:\n\nMultiple-choice Questions\nNumeric Questions"
+    "text": "Practice\n\n\n\n\n\n\nImportant\n\n\nPractice using the following links:\n\nMultiple-choice Questions\nNumeric Questions"
   },
   {
     "objectID": "fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html#references",
@@ -1572,35 +1544,35 @@
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#estimating-the-cash-conversion-cycle",
     "title": "Working Capital Management",
     "section": "Estimating the Cash Conversion Cycle",
-    "text": "Estimating the Cash Conversion Cycle\n\nSuppose that a firm has $100,000 in account receivables, $50,000 in inventory, and $25,000 in accounts payable. It has reported sales of about $1MM and its Cost of Goods Sold (COGS) represent 40% of total revenues. Calculate the Cash Conversion Cycle. Assume a 365-day year.\nNow, we’ll calculate the Cash Conversion Cycle of the firm by looking at its individual components\n\n\n\\(\\rightarrow\\) See CCC Dynamics.xlsx, available on eClass®, for a detailed explanation on cash conversion cycle dynamics using this lecture’s example."
+    "text": "Estimating the Cash Conversion Cycle\n\nSuppose that a firm has \\(\\small \\$100,000\\) in account receivables, \\(\\small\\$50,000\\) in inventory, and \\(\\small\\$25,000\\) in accounts payable. It has reported sales of about \\(\\small \\$1,000,000\\) and its Cost of Goods Sold (COGS) represent \\(\\small 40\\%\\) of total revenues. Calculate the Cash Conversion Cycle. Assume a 365-day year.\nNow, we’ll calculate the Cash Conversion Cycle of the firm by looking at its individual components\n\n\n\\(\\rightarrow\\) See CCC Dynamics.xlsx, available on eClass®, for a detailed explanation on cash conversion cycle dynamics using this lecture’s example."
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#step-1-inventory-days",
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#step-1-inventory-days",
     "title": "Working Capital Management",
     "section": "Step 1: Inventory Days",
-    "text": "Step 1: Inventory Days\n\nThe firm has $50,000 in Inventory\nIt had reported COGS of \\(40\\% \\times 1,000,0000=400,000\\)\nThe Inventory Conversion is then:\n\n\n\\[\n\\small\nIC=\\dfrac{Inventory}{\\dfrac{COGS}{365}}\\rightarrow \\dfrac{50,000}{\\dfrac{400,000}{365}}\\rightarrow \\dfrac{50,000}{1,096}\\approx \\text{45.6 days}\n\\]\n\nInterpretation: if the firm had 400,000 in Inventory Costs yearly, this translates to a daily average of 1,096. If there’s 50,000 in Inventories, it means that it takes, on average, \\(50,000/1,096=45.6\\) days for Inventories to be finished."
+    "text": "Step 1: Inventory Days\n\nThe firm has \\(\\small\\$50,000\\) in Inventory\nIt had reported COGS of \\(\\small 40\\% \\times 1,000,0000=\\$400,000\\)\nThe Inventory Conversion is then:\n\n\n\\[\n\\small\nIC=\\dfrac{Inventory}{\\dfrac{COGS}{365}}\\rightarrow \\dfrac{50,000}{\\dfrac{400,000}{365}}\\rightarrow \\dfrac{50,000}{1,096}\\approx \\text{45.6 days}\n\\]\n\nInterpretation: if the firm had \\(\\small \\$400,000\\) in product costs yearly, this translates to a daily average of \\(\\small \\$1,096\\). If there’s \\(\\small \\$50,000\\) in Inventories, it means that it takes, on average, \\(\\small \\$50,000/\\$1,096=45.6\\) days for Inventories to be finished."
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#step-2-accounts-receivable-days",
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#step-2-accounts-receivable-days",
     "title": "Working Capital Management",
     "section": "Step 2: Accounts Receivable Days",
-    "text": "Step 2: Accounts Receivable Days\n\nThe firm has $100,000 in Receivables\nIt had reported Sales of \\(1,000,0000\\)\nThe Accounts Receivable Conversion is then:\n\n\n\\[\n\\small\nACC=\\dfrac{Receivables}{\\dfrac{Sales}{365}}\\rightarrow \\dfrac{100,000}{\\dfrac{1,000,000}{365}}\\rightarrow \\dfrac{100,000}{2,739}\\approx \\text{36.5 days}\n\\]\n\nInterpretation: if the firm had 1,000,000 in Sales yearly, this translates to a daily average of 2,739. If there’s 100,000 in Receivables, it means that it takes, on average, \\(100,000/2,739=36.5\\) days for a given client to pay the firm, after it has bought the product."
+    "text": "Step 2: Accounts Receivable Days\n\nThe firm has \\(\\small\\$100,000\\) in Receivables\nIt had reported Sales of \\(\\small \\$1,000,0000\\)\nThe Accounts Receivable Conversion is then:\n\n\n\\[\n\\small\nACC=\\dfrac{Receivables}{\\dfrac{Sales}{365}}\\rightarrow \\dfrac{100,000}{\\dfrac{1,000,000}{365}}\\rightarrow \\dfrac{100,000}{2,739}\\approx \\text{36.5 days}\n\\]\n\nInterpretation: if the firm had \\(\\small\\$1,000,000\\) in Sales yearly, this translates to a daily average of \\(\\small\\$2,739\\). If there’s \\(\\small100,000\\) in Receivables, it means that it takes, on average, \\(\\small \\$100,000/\\$2,739=36.5\\) days for a given client to pay the firm, after it has bought the product."
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#step-3-accounts-payable-days",
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#step-3-accounts-payable-days",
     "title": "Working Capital Management",
     "section": "Step 3: Accounts Payable Days",
-    "text": "Step 3: Accounts Payable Days\n\nThe firm has $25,000 in Receivables\nIt had reported COGS of \\(40\\% \\times 1,000,0000=400,000\\)\nThe Accounts Payable Conversion is then:\n\n\n\\[\n\\small\nAPC=\\dfrac{Payables}{\\dfrac{COGS}{365}}\\rightarrow \\dfrac{25,000}{\\dfrac{400,000}{365}}\\rightarrow \\dfrac{25,000}{1,096}\\approx \\text{22.8 days}\n\\]\n\nInterpretation: if the firm had 400,000 in COGS yearly, this translates to a daily average of 1,096 If there’s 25,000 in Receivables, it means that it takes, on average, \\(25,000/1,096=22.8\\) days for the firm to pay its suppliers, after it bought the Inventory."
+    "text": "Step 3: Accounts Payable Days\n\nThe firm has \\(\\small\\$25,000\\) in Payables\nIt had reported COGS of \\(\\small 40\\% \\times \\$1,000,0000=\\$400,000\\)\nThe Accounts Payable Conversion is then:\n\n\n\\[\n\\small\nAPC=\\dfrac{Payables}{\\dfrac{COGS}{365}}\\rightarrow \\dfrac{25,000}{\\dfrac{400,000}{365}}\\rightarrow \\dfrac{25,000}{1,096}\\approx \\text{22.8 days}\n\\]\n\nInterpretation: if the firm had \\(\\small\\$400,000\\) in COGS yearly, this translates to a daily average of \\(\\small\\$1,096\\) If there’s \\(\\small\\$25,000\\) in Payables, it means that it takes, on average, \\(\\small \\$25,000/\\$1,096=22.8\\) days for the firm to pay its suppliers, after it bought the Inventory."
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#step-3-putting-all-together",
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#step-3-putting-all-together",
     "title": "Working Capital Management",
     "section": "Step 3: putting all together",
-    "text": "Step 3: putting all together\n\nRecall tha the Cash Conversion Cycle is defined as:\n\n\n\\[\n\\small CCC= \\text{Accounts Receivable Days}+\\text{Inventory Days}- \\text{Accounts Payable Days}\n\\]\n\nUsing our formula, we have:\n\n\n\n\\[\n\\small CCC= \\text{36.5}+\\text{45.6}- \\text{22.8}\\approx \\text{59.3 days}\n\\]\n\nIt means that, on average, it takes roughly 60 days for the firm to receive from its clients after it paid for its inventories.\n\nIf CCC&gt;0 \\(\\rightarrow\\) the firm needs to invest in Working Capital to be able to pay its obligations before receiving from clients\nIf CCC&lt;0 \\(\\rightarrow\\) the firm receives from clients before it actually had to pay its suppliers"
+    "text": "Step 3: putting all together\n\nRecall that the Cash Conversion Cycle is defined as:\n\n\n\\[\n\\small CCC= \\text{Accounts Receivable Days}+\\text{Inventory Days}- \\text{Accounts Payable Days}\n\\]\n\nUsing our formula, we have:\n\n\n\n\\[\n\\small CCC= \\text{36.5}+\\text{45.6}- \\text{22.8}\\approx \\text{59.3 days}\n\\]\n\nIt means that, on average, it takes roughly 60 days for the firm to receive from its clients after it paid for its inventories.\n\nIf CCC&gt;0 \\(\\rightarrow\\) the firm needs to invest in Working Capital to be able to pay its obligations before receiving from clients\nIf CCC&lt;0 \\(\\rightarrow\\) the firm receives from clients before it actually had to pay its suppliers"
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#changing-the-accounts-payable",
@@ -3903,7 +3875,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise---standard-error",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Data Exercise - Standard Error",
-    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 57 months, and an sample standard deviation of returns of 12.04%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.27 \\pm 1.96\\times \\dfrac{12.04}{\\sqrt{57}}=[-1.86\\%,+4.4\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.86% to 4.4%"
+    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 57 months, and an sample standard deviation of returns of 12.05%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.24 \\pm 1.96\\times \\dfrac{12.05}{\\sqrt{57}}=[-1.89\\%,+4.37\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.89% to 4.37%"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#standard-error---another-example",
@@ -3924,7 +3896,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr-1",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Compound Annual Growth Rate (CAGR)",
-    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{57}(1+R_i)\\bigg]^{\\frac{1}{57}}-1\\approx 0.49\\%\\]\n\nRemember the (arithmetic) average was 1.27%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
+    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{57}(1+R_i)\\bigg]^{\\frac{1}{57}}-1\\approx 0.46\\%\\]\n\nRemember the (arithmetic) average was 1.24%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#trade-off-between-risk-and-return",
