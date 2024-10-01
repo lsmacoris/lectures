@@ -69,7 +69,7 @@ $$
 
 ## Applying *Net Present Value (NPV)* rule
 
--   Recall that our cash flows were:
+-   We'll work on a case from *Cia Amazonia* in the following lectures. For now, assume that its cash-flows were:
 
 . . .
 
@@ -105,41 +105,78 @@ $$ **Caution**: in *Microsoft Excel*'s NPV formula, the first period is, by defa
 ```{r,fig.width=16,fig.height=8}
 
 library(dplyr)
-library(ggplot2)
-library(plotly)
+library(highcharter)
 
-NPV_Profile=data.frame(FC=c(-219600,46592,69266,80218,101293,130684),
-              t=c(0:5))
+
+#Higharter Theme
+Theme <- hc_theme(
+  chart = list(
+    backgroundColor = "#FFFFFF"
+  ),
+  title = list(
+    style = list(
+      color = "#333333",
+      fontSize = '30px'
+    )
+  ),
+  subtitle = list(
+    style = list(
+      color = "#666666",
+      fontSize = "25px"
+    )
+  ),
+  legend = list(
+    itemStyle = list(
+      color = "#666666"
+      )
+    ),
+  yAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+
+  ),
+  xAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+  )
+)
+
+# set options
+hcoptslang <- getOption("highcharter.lang")
+hcoptslang$thousandsSep <- ","
+options(highcharter.lang = hcoptslang)
+
+NPV_Profile=data.frame(FC=c(-219600,46592,69266,80218,101293,130684),t=c(0:5))
 
 NPV=data.frame()
 
-for(r in seq(0.01,0.3,0.01)){
+for(r in seq(0.01,0.3,0.001)){
   
 NPV=NPV%>%rbind(data.frame(NPV=NPV_Profile%>%reframe(DCF=FC/((1+r)^t))%>%pull()%>%sum(),
                            Discount=r))
   
 }
 
-Chart=NPV%>%ggplot(aes(x=Discount,y=NPV))+
-  geom_line(size=2,col='darkgreen')+
-  theme_minimal()+
-  labs(x='Discount Rate (r)',y='Net Present Value (NPV)',
-       title='')+
-  scale_y_continuous(labels=scales::dollar)+
-  scale_x_continuous(labels=scales::percent,breaks=seq(0.01,0.3,0.05))+
-  geom_hline(yintercept = 0,linetype='dashed')+
-  geom_vline(xintercept = 0.226,linetype='dashed')+
-  theme(axis.title = element_text(size=20,face='bold'),
-        axis.text = element_text(size=15),
-        title = element_text(size=25,face='bold'))+
-  annotate("text",
-           x=0.226,
-           y=50000,
-           xmax=0.03,
-           label="For r = 22.6%, the NPV is exactly zero.",size=7)
+NPV=NPV%>%mutate(Type=ifelse(NPV>0,'Positive','Negative'),Discount=Discount*100)
 
-Chart%>%ggplotly()
-
+hchart(NPV,type='line',hcaes(x=Discount,y=NPV,group=Type))%>%
+  hc_colors(c('darkred','darkgreen'))%>%
+  hc_plotOptions(line=list(lineWidth=5))%>%
+  hc_tooltip(pointFormat = 'Discount Rate: {point.x: .2f}% <br/>NPV: {point.y: ,.0f}',
+             labels = list(style=list(fontSize='20px')))%>%
+  hc_add_series(data=rep(0,30),type='line',color='black',name='Breakeven',dashStyle = "shortdash",marker=list(radius=1),enableMouseTracking=FALSE)%>%
+  hc_title(text='NPV Profile for Cia Amazônia')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='${value:,.f}'))%>%
+  hc_annotations(
+    list(labels = list(point = list(x = 22.6, y = 0, xAxis = 0, yAxis = 0), text = "At r = 22.61%, NPV is zero!")))%>%
+  hc_add_theme(Theme)
 
 ```
 
@@ -242,44 +279,49 @@ $$
 
 ```{r,fig.width=16,fig.height=8}
 
-library(dplyr)
-library(ggplot2)
-library(plotly)
-
 NPV_Profile=data.frame(FC=c(1000000,-500000,-500000,-500000),
               t=c(0:3))
 
 NPV=data.frame()
 
-for(r in seq(0.01,0.4,0.01)){
+for(r in seq(0.01,0.4,0.001)){
   
 NPV=NPV%>%rbind(data.frame(NPV=NPV_Profile%>%reframe(DCF=FC/((1+r)^t))%>%pull()%>%sum(),
                            Discount=r))
   
 }
 
-Chart=NPV%>%ggplot(aes(x=Discount,y=NPV))+
-  geom_line(size=2,col='darkgreen')+
-  theme_minimal()+
-  labs(x='Discount Rate (r)',y='Net Present Value (NPV)',
-       title='')+
-  scale_y_continuous(labels=scales::dollar)+
-  scale_x_continuous(labels=scales::percent,breaks=seq(0.01,0.4,0.05))+
-  geom_hline(yintercept = 0,linetype='dashed')+
-  geom_vline(xintercept = 0.2338,linetype='dashed')+
-  theme(axis.title = element_text(size=20,face='bold'),
-        axis.text = element_text(size=15),
-        title = element_text(size=25,face='bold'))+
-  annotate("text",
-           x=0.2338,
-           y=-100000,
-           xmax=0.03,
-           label="For r = 23.38%, the NPV is exactly zero.",size=7)
+NPV=NPV%>%mutate(Type=ifelse(NPV>0,'Positive','Negative'),Discount=Discount*100)
 
-Chart%>%ggplotly()
+hchart(NPV,type='line',hcaes(x=Discount,y=NPV,group=Type))%>%
+  hc_colors(c('darkred','darkgreen'))%>%
+  hc_plotOptions(line=list(lineWidth=5))%>%
+  hc_tooltip(pointFormat = 'Discount Rate: {point.x: .2f}% <br/>NPV: {point.y: ,.0f}',
+             labels = list(style=list(fontSize='20px')))%>%
+  hc_add_series(data=rep(0,40),type='line',color='black',name='Breakeven',dashStyle = "shortdash",marker=list(radius=1),enableMouseTracking=FALSE)%>%
+  hc_title(text='NPV Profile - Delayed Investments')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='${value:,.f}'))%>%
+  hc_annotations(
+    list(labels = list(point = list(x = 23.38, y = 0, xAxis = 0, yAxis = 0), text = "For r = 23.38%, NPV is zero!")))%>%
+  hc_add_theme(Theme)
+
 
 
 ```
+
+## IRR Pitfall #1: delayed investments
+
+- At a $\small 10\%$ discount rate, the NPV is [negative]{.red}, so signing the deal would [destroy]{.red} value. Why?
+
+- For most investment projects, expenses occur initially and cash is received later. In this case, the project gets cash *upfront* and incurs the costs *later*
+
+  1. It is like we are receiving cash today in exchange for a future liability — and when you borrow money you prefer as *low* a rate as possible 
+  2. In this case, the *IRR* is best interpreted as the rate that we are *paying* rather than *earning*
+
+. . .
+
+$\rightarrow$ *The optimal rule is to borrow money so long as this rate is less than his cost of capital!*
 
 ## IRR Pitfall #2: multiple IRR solutions
 
@@ -304,47 +346,53 @@ $$
 
 -   In cases like this, **the NPV rule should be used**.
 
-## NPV profile when inflows precede outflows
+## NPV profile when there are multiple changes in the sign of cash-flows
 
 ```{r,fig.width=16,fig.height=8}
-
-library(dplyr)
-library(ggplot2)
-library(plotly)
 
 NPV_Profile=data.frame(FC=c(550000,-500000,-500000,-500000,1000000),
               t=c(0:4))
 
 NPV=data.frame()
 
-for(r in seq(0,0.5,0.01)){
+for(r in seq(0,0.5,0.001)){
   
 NPV=NPV%>%rbind(data.frame(NPV=NPV_Profile%>%reframe(DCF=FC/((1+r)^t))%>%pull()%>%sum(),
                            Discount=r))
   
 }
 
-Chart=NPV%>%ggplot(aes(x=Discount,y=NPV))+
-  geom_line(size=2,col='darkgreen')+
-  theme_minimal()+
-  labs(x='Discount Rate (r)',y='Net Present Value (NPV)',
-       title='')+
-  scale_y_continuous(labels=scales::dollar)+
-  scale_x_continuous(labels=scales::percent,breaks=seq(0.01,0.4,0.05))+
-  geom_hline(yintercept = 0,linetype='dashed')+
-  theme(axis.title = element_text(size=20,face='bold'),
-        axis.text = element_text(size=15),
-        title = element_text(size=25,face='bold'))+
-  annotate("text",
-           x=0.2338,
-           y=-25000,
-           xmax=0.03,
-           label="The are multiple values that satisfy the IRR rule",size=7)
+NPV=NPV%>%mutate(Type=ifelse(NPV>0,'Positive','Negative'),Discount=Discount*100)
 
-Chart%>%ggplotly()
+hchart(NPV,type='scatter',hcaes(x=Discount,y=NPV,group=Type))%>%
+  hc_colors(c('darkred','darkgreen'))%>%
+  hc_plotOptions(line=list(lineWidth=5))%>%
+  hc_add_series(data=rep(0,50),type='line',color='black',name='Breakeven',dashStyle = "shortdash",marker=list(radius=1),enableMouseTracking=FALSE)%>%
+  hc_tooltip(pointFormat = 'Discount Rate: {point.x: .2f}% <br/>NPV: {point.y: ,.0f}',
+             labels = list(style=list(fontSize='20px')))%>%
+  hc_title(text='NPV Profile - Multiple Solutions')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='${value:,.f}'))%>%
+  hc_annotations(
+    list(labels = list(list(point = list(x = 7.16, y = 0, xAxis = 0, yAxis = 0), text = "For r = 7.16%, NPV is zero!"),
+                       list(point = list(x = 33.67, y = 0, xAxis = 0, yAxis = 0), text = "For r = 33.67%, NPV is zero!"))))%>%
+  hc_add_theme(Theme)
+
 
 
 ```
+
+## IRR Pitfall #2: multiple IRR solutions
+
+- In this case, there are *two* *IRR*s — that is, there are two values of $\small r$ that set the NPV equal to zero: $\small7.16\%$ and $\small33.67\%$. Because there is more than one IRR, we *cannot* apply the IRR rule
+
+  1. If $r\leq \small7.16\%$ or $r\geq\small33.67\%$, we should undertake the opportunity
+  2. Otherwise, he should turn it down
+
+- Notice that even though the *IRR rule* fails in this case, the two IRRs are still useful as bounds on the cost of capital:
+  1. If the cost of capital estimate is wrong, and it is actually *smaller* than $\small7.16\%$ or *larger* than $\small33.67\%$, the decision not to pursue the project will change
+  2. Even if we are uncertain whether the actual cost of capital is $\small10\%$, as long as he believes it is within these bounds, he can have a high degree of confidence in the decision to reject the deal!
+  
 
 ## Pitfall #3: non-existent IRR
 
@@ -373,40 +421,32 @@ $$
 
 ```{r,fig.width=16,fig.height=8}
 
-library(dplyr)
-library(ggplot2)
-library(plotly)
-
 NPV_Profile=data.frame(FC=c(750000,-500000,-500000,-500000,1000000),
               t=c(0:4))
 
 NPV=data.frame()
 
-for(r in seq(0,0.5,0.01)){
+for(r in seq(0,0.5,0.001)){
   
 NPV=NPV%>%rbind(data.frame(NPV=NPV_Profile%>%reframe(DCF=FC/((1+r)^t))%>%pull()%>%sum(),
                            Discount=r))
   
 }
 
-Chart=NPV%>%ggplot(aes(x=Discount,y=NPV))+
-  geom_line(size=2,col='darkgreen')+
-  theme_minimal()+
-  labs(x='Discount Rate (r)',y='Net Present Value (NPV)',
-       title='')+
-  scale_y_continuous(labels=scales::dollar)+
-  scale_x_continuous(labels=scales::percent,breaks=seq(0.01,0.4,0.05))+
-  geom_hline(yintercept = 0,linetype='dashed')+
-  theme(axis.title = element_text(size=20,face='bold'),
-        axis.text = element_text(size=15),
-        title = element_text(size=25,face='bold'))+
-  annotate("text",
-           x=0.2338,
-           y=150000,
-           xmax=0.03,
-           label="There is no value that satisfies the IRR rule",size=7)
+NPV=NPV%>%mutate(Type=ifelse(NPV>0,'Positive','Negative'),Discount=Discount*100)
 
-Chart%>%ggplotly()
+hchart(NPV,type='line',hcaes(x=Discount,y=NPV,group=Type))%>%
+  hc_colors(c('darkgreen'))%>%
+  hc_plotOptions(line=list(lineWidth=5))%>%
+  hc_add_series(data=rep(0,50),type='line',color='black',name='Breakeven',dashStyle = "shortdash",marker=list(radius=1),enableMouseTracking=FALSE)%>%
+  hc_tooltip(pointFormat = 'Discount Rate: {point.x: .2f}% <br/>NPV: {point.y: ,.0f}',
+             labels = list(style=list(fontSize='20px')))%>%
+  hc_title(text='NPV Profile - Non-existent IRR')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='${value:,.f}'))%>%
+  hc_annotations(
+    list(labels = list(point = list(x = 20, y = 0, xAxis = 0, yAxis = 0), text = "There is no r that sets NPV to zero!")))%>%
+  hc_add_theme(Theme)
 
 
 ```

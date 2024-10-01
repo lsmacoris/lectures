@@ -39,7 +39,7 @@
     "href": "fin-strat/Lecture 6 - Debt Financing/index.html#unsecured-debt",
     "title": "Long-Term Financing through Debt",
     "section": "Unsecured Debt",
-    "text": "Unsecured Debt\n\nUnsecured Debt is type of corporate debt that, in the event of bankruptcy, gives bondholders a claim to only the assets of the firm that are not already pledged as collateral on other debt. Examples include:\n\nNotes: notes typically are coupon bonds with maturities shorter than 10 years.\nDebentures: typically have longer maturities than notes.\n\nIn general, Notes and/or Debentures are used to finance long-term investment opportunities\nOn the other hand, when it comes to the financing of short-term investment needs, such as working capital, a very common use of unsecured debt in the U.S. is through the issuance of Commercial Papers:\n\nA short-term, unsecured debt used by large corporations\nThese securities had a special place in explaining the contagion effect of the COVID-19 sell-out in 2020 - see details in the Appendix"
+    "text": "Unsecured Debt\n\nUnsecured Debt is type of corporate debt that, in the event of bankruptcy, gives bondholders a claim to only the assets of the firm that are not already pledged as collateral on other debt. Examples include:\n\nNotes: notes typically are coupon bonds with maturities shorter than 10 years.\nDebentures: typically have longer maturities than notes.\n\nIn general, Notes and/or Debentures are used to finance long-term investment opportunities"
   },
   {
     "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#secured-debt",
@@ -67,14 +67,14 @@
     "href": "fin-strat/Lecture 6 - Debt Financing/index.html#bond-covenants",
     "title": "Long-Term Financing through Debt",
     "section": "Bond Covenants",
-    "text": "Bond Covenants\n\nQuestion: how can debtholders constrain actions that might deviate from their interests?\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nCovenants are restrictive clauses in a bond contract that limit the issuers from undercutting their ability to repay the bonds. As a common feature in bonds, they may, for example:\n\n\nRestrict the ability of management to pay dividends\nRestrict the level of further indebtedness\nSpecify that the issuer must maintain a minimum amount of working capital\n\n\n\n\n\n\nPositive Covenants: the firm must do something (keep specific financial ratios, pay taxes and other obligations, among other\nNegative Covenants: the firm must not do something (sell specific assets, pay too much dividend, among other"
+    "text": "Bond Covenants\n\nQuestion: how can debtholders constrain actions that might deviate from their interests?\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nCovenants are restrictive clauses in a bond contract that limit the issuers from undercutting their ability to repay the bonds. As a common feature in bonds, they may, for example:\n\n\nRestrict the ability of management to pay dividends\nRestrict the level of further indebtedness\nSpecify that the issuer must maintain a minimum amount of working capital\n\n\n\n\n\n\nPositive Covenants: the firm must do something (keep specific financial ratios, pay taxes and other obligations, among others\nNegative Covenants: the firm must not do something (sell specific assets, pay too much dividend, among others"
   },
   {
     "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#repayment-provisions",
     "href": "fin-strat/Lecture 6 - Debt Financing/index.html#repayment-provisions",
     "title": "Long-Term Financing through Debt",
     "section": "Repayment Provisions",
-    "text": "Repayment Provisions\n\nA bond issuer typically repays its bonds by making coupon and principal payments as specified in the bond contract. However, the issuer of the bond has other options to repay:\n\nRepurchase a fraction of the outstanding bonds in the market\nMake a tender offer for the entire issue\nExercise a call provision"
+    "text": "Repayment Provisions\n\nA bond issuer typically repays its bonds by making coupon and principal payments as specified in the bond contract. However, the issuer of the bond has other options to repay:\n\nRepurchase a fraction of the outstanding bonds in the market\nMake a tender offer for the entire issue\nExercise a call provision\n\nIt may be optimal for bond issuers to repay bonds to optimize funding costs if, for example, interest rates have fallen (and the firm can refinance at a lower rate)\nIn what follows, we’ll see three different ways that a firm can repay its bond ahead of time"
   },
   {
     "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#repayment-option-1-callable-bonds",
@@ -88,21 +88,28 @@
     "href": "fin-strat/Lecture 6 - Debt Financing/index.html#repayment-option-1-callable-bonds-continued",
     "title": "Long-Term Financing through Debt",
     "section": "Repayment Option #1: Callable Bonds, continued",
-    "text": "Repayment Option #1: Callable Bonds, continued\n\nHolders of callable bonds understand that the issuer will exercise the call option only when the coupon rate of the bond exceeds the prevailing market rate\nIf a bond is called, investors must reinvest the proceeds when market rates are lower than the coupon rate they are currently receiving\nThis makes callable bonds relatively less attractive to bondholders than identical non-callable bonds\nA callable bond will trade at a lower price (and therefore a higher yield) than an otherwise equivalent non-callable bond"
+    "text": "Repayment Option #1: Callable Bonds, continued\n\nHolders of callable bonds understand that the issuer will exercise the call option only when the coupon rate of the bond exceeds the prevailing market rate\nIf a bond is called, investors must reinvest the proceeds when market rates are lower than the coupon rate they are currently receiving\nThis makes callable bonds relatively less attractive to bondholders than identical non-callable bonds\nA callable bond will trade at a lower price (and therefore a higher yield) than an otherwise equivalent non-callable bond\n\n\n\\(\\rightarrow\\) If the call provision offers a cheaper way to retire the bonds, however, the issuer will forgo the option of purchasing the bonds in the open market and call the bonds instead"
+  },
+  {
+    "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#callable-bonds-exercise",
+    "href": "fin-strat/Lecture 6 - Debt Financing/index.html#callable-bonds-exercise",
+    "title": "Long-Term Financing through Debt",
+    "section": "Callable Bonds, Exercise",
+    "text": "Callable Bonds, Exercise\nIBM has just issued a callable (at par) five-year, \\(\\small8\\%\\) coupon bond with annual coupon payments. The bond can be called at par in one year or anytime thereafter on a coupon payment date. It has a price of $\\(103\\) per $\\(100\\) face value. What is the bond’s yield to maturity and yield to call?\n\n\\(\\rightarrow\\) Solution: to calculate the YTM yield-to-maturity, we find \\(\\small i\\) such that the following equation is zero:\n\\[\n\\small -103+\\sum_{t=1}^{4}\\dfrac{8}{(1+i)^t}+\\dfrac{108}{(1+i)^5}=0\\rightarrow i=7.26\\%\n\\]\nOn the other hand, the yield-to-call is calculated by finding \\(\\small i\\) such that the bond is called at the first available opportunity:\n\\[\n\\small -103+\\dfrac{108}{(1+i)}=0\\rightarrow i=4.85\\%\n\\]"
   },
   {
     "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#repayment-option-2-sinking-fund",
     "href": "fin-strat/Lecture 6 - Debt Financing/index.html#repayment-option-2-sinking-fund",
     "title": "Long-Term Financing through Debt",
     "section": "Repayment Option #2: Sinking Fund",
-    "text": "Repayment Option #2: Sinking Fund\n\nA method of repaying a bond in which a company makes regular payments into a fund administered by a trustee over the life of the bond. These payments are then used to repurchase bonds\nThis allows the firm to retire some of the outstanding debt without affecting the cash flows of the remaining bonds.\nThe trust can either repurchase the bonds in the market (if the price is below the face value) or by lottery at the par (if the price is above face value)"
+    "text": "Repayment Option #2: Sinking Fund\n\nA method of repaying a bond in which a company makes regular payments into a fund administered by a trustee over the life of the bond. These payments are then used to repurchase bonds\nThis allows the firm to retire some of the outstanding debt without affecting the cash flows of the remaining bonds\nThe trust can either repurchase the bonds in the market (if the price is below the face value) or by lottery at the par (if the price is above face value)"
   },
   {
     "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#repayment-option-3-convertible-bond",
     "href": "fin-strat/Lecture 6 - Debt Financing/index.html#repayment-option-3-convertible-bond",
     "title": "Long-Term Financing through Debt",
     "section": "Repayment Option #3: Convertible Bond",
-    "text": "Repayment Option #3: Convertible Bond\n\nA corporate bond with a provision that gives the bondholder an option to convert each bond owned into a fixed number of shares of common stock.\n\n\nConversion Ratio: The number of shares received upon conversion of a convertible bond, usually stated per $1000 of face value\nConversion Price: The face value of a convertible bond divided by the number of shares received if the bond is converted\n\n\nExample: assume a convertible bond with a \\(\\small\\$1,000\\) face value and a conversion ratio of \\(\\small 15\\). You have the following options: 1. If you convert the bond into stock, you will receive \\(\\small15\\) shares 2. If you do not convert, you will receive \\(\\small\\$1,000\\)\n\nBy converting, you essentially “pay” \\(\\small \\$1,000\\) for \\(\\small15\\) shares, implying a price per share of \\(\\small \\$66.67\\)\nIf the price of the stock exceeds \\(\\small \\$66.67\\), you will choose to convert; otherwise, you will take the cash"
+    "text": "Repayment Option #3: Convertible Bond\n\nA corporate bond with a provision that gives the bondholder an option to convert each bond owned into a fixed number of shares of common stock.\n\n\nConversion Ratio: The number of shares received upon conversion of a convertible bond, usually stated per \\(\\small\\$1,000\\) of face value\nConversion Price: The face value of a convertible bond divided by the number of shares received if the bond is converted\n\n\nExample: assume a convertible bond with a \\(\\small\\$1,000\\) face value and a conversion ratio of \\(\\small 15\\). You have the following options: 1. If you convert the bond into stock, you will receive \\(\\small15\\) shares 2. If you do not convert, you will receive \\(\\small\\$1,000\\)\n\nBy converting, you essentially “pay” \\(\\small \\$1,000\\) for \\(\\small15\\) shares, implying a price per share of \\(\\small \\$66.67\\)\nIf the price of the stock exceeds \\(\\small \\$66.67\\), you will choose to convert; otherwise, you will take the cash"
   },
   {
     "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#practice",
@@ -110,20 +117,6 @@
     "title": "Long-Term Financing through Debt",
     "section": "Practice",
     "text": "Practice\n\nTake a look at an example of a Debenture Prospectus for Raízen S.A - access here\n\n\n\n\n\n\n\n\nImportant\n\n\n\nPractice using the following links:\n\nMultiple-choice Questions"
-  },
-  {
-    "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#commercial-papers",
-    "href": "fin-strat/Lecture 6 - Debt Financing/index.html#commercial-papers",
-    "title": "Long-Term Financing through Debt",
-    "section": "Commercial Papers",
-    "text": "Commercial Papers\n\nCommercial paper is a short-term, unsecured debt used by large corporations\nThe interest on commercial paper is typically paid by selling it at an initial discount, in the likes of what we have with Brazilian government bonds (Tesouro Direto)\nIn Brazil, also referred to as nota promisória comercial: the goal is to target short-term financing\n\n\nExample: suppose that a firm issues three-month commercial paper with a \\(\\small\\$100,000\\) face value and receives \\(\\small\\$98,000\\). What is the annual effective rate is the firm paying for its funds?\n\nUsing our present value formula to analyze the full 3-period interest rate, we have:\n\n\n\n\\[\n\\small FV=PV\\times(1+i)^n \\rightarrow i=\\dfrac{100,000}{98,000}-1 =2.04\\%\n\\]"
-  },
-  {
-    "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#commercial-papers-in-the-u.s.-at-the-onset-of-covid-19",
-    "href": "fin-strat/Lecture 6 - Debt Financing/index.html#commercial-papers-in-the-u.s.-at-the-onset-of-covid-19",
-    "title": "Long-Term Financing through Debt",
-    "section": "Commercial Papers in the U.S. at the onset of COVID-19",
-    "text": "Commercial Papers in the U.S. at the onset of COVID-19\n\nThe Covid-19 crisis severely disrupted the functioning of short-term US dollar funding markets, in particular the commercial paper and certificate of deposit segments1\n\nInvestors become reluctant or unable to provide new credit or roll over existing ones…\nIssuers faced challenges in obtaining short-term financing at reasonable rates…\nFligh to safety: investors withdrawn money from riskier assets to move it to safer affects…\nThis movement cascaded over to fund managers in which, pressured by withdraws, had to fire-sale assets at higher discounts to make liquidity\nContagion Effect: due to these accumulated effects, other markets such as the stock market experienced unusually high volatility during the period\n\n\nSee, for example, the BIS Report on the Commercial Paper Turnmoil."
   },
   {
     "objectID": "fin-strat/Lecture 6 - Debt Financing/index.html#other-types-of-debt",

@@ -101,6 +101,14 @@ $\rightarrow$ *Examples*: Bonds, Notes, Debentures
 
 $\rightarrow$ *Asset-backed securities (ABS) played a key role in the 2008 sub-prime financial crisis. Among other effects, the fact that any asset can be pledged as collateral can create issues if there are widespread distortions in the market value of these assets*
 
+## Asset-Backed Securities at the onset of the subprime Financial Crisis
+
+{{< video https://www.youtube.com/watch?v=dWS2kLa5tAo width="1200" height="600" align='center'>}}
+
+$\rightarrow$ *See "The Big Short" [(link)](https://www.imdb.com/title/tt1596363/)*
+
+
+
 ## Corporate Debt - Terms and Characteristics
 
 -   Public Debt can vary significantly in terms of offer characteristics - the most important are:
@@ -157,9 +165,9 @@ $\rightarrow$ *Asset-backed securities (ABS) played a key role in the 2008 sub-p
     2.  Make a tender offer for the entire issue
     3.  Exercise a call provision
 
-- It may be optimal for bond issuers to repay bonds to optimize funding costs if, for example, interest rates have fallen (and the firm can refinance at a lower rate)
+-   It may be optimal for bond issuers to repay bonds to optimize funding costs if, for example, interest rates have fallen (and the firm can refinance at a lower rate)
 
-- In what follows, we'll see three different ways that a firm can repay its bond ahead of time
+-   In what follows, we'll see three different ways that a firm can repay its bond ahead of time
 
 ## Repayment Option #1: *Callable Bonds*
 
@@ -185,7 +193,7 @@ $\rightarrow$ *If the call provision offers a cheaper way to retire the bonds, h
 
 ## *Callable Bonds*, Exercise
 
-*IBM has just issued a callable (at par) five-year, $\small8\%$ coupon bond with annual coupon payments. The bond can be called at par in one year or anytime thereafter on a coupon payment date. It has a price of $\small$103$ per $\small$100$ face value. What is the bond’s yield to maturity and yield to call?*
+*IBM has just issued a callable (at par) five-year,* $\small8\%$ coupon bond with annual coupon payments. The bond can be called at par in one year or anytime thereafter on a coupon payment date. It has a price of \$\small$103$ per \$\small$100$ face value. What is the bond’s yield to maturity and yield to call?
 
 . . .
 
@@ -209,7 +217,6 @@ $$
 
 -   The trust can either repurchase the bonds in the market (if the price is below the face value) or by lottery at the par (if the price is above face value)
 
-
 ## Repayment Option #3: Convertible Bond
 
 -   A corporate bond with a provision that gives the bondholder an option to convert each bond owned into a fixed number of shares of common stock.
@@ -228,6 +235,8 @@ $$
 ## Practice
 
 -   Take a look at an example of a Debenture Prospectus for *Raízen S.A* - access [here](https://api.mziq.com/mzfilemanager/v2/d/c016735f-1711-48ce-919f-a8c701b83c19/89c9ee68-cdbd-42ea-07cd-71fd0a5f5e49?origin=1)
+
+- Read more about the dispute between *BTG Pactual* and *Americanas S.A* on an accelerated repayment agreement close to when news about the firm's accounting inconsistencies became public - access [here](https://einvestidor.estadao.com.br/ultimas/americanas-amer3-rombo-40-bilhoes-justica-btg-dividas/?gad_source=1&gclid=Cj0KCQjwmOm3BhC8ARIsAOSbapWqVIUDj7qr3_xCMgDlyUcIPbc3A0XDYkDSExoaKOT9Jx93ib5dFcoaAnROEALw_wcB)
 
 . . .
 
