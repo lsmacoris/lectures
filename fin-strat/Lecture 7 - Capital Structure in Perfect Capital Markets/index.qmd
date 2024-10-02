@@ -1,0 +1,571 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Capital Structure in Perfect Markets'
+    theme: [default, custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: logo.jpg
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: abntex2.cls
+    incremental: true
+    bibliography: 'Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+
+    1.  [@BDM]
+    2.  [@BMA]
+
+-   Study review and practice: I strongly recommend using [Prof. Henrique Castro](https://henriquemartins.net/) (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:
+
+    1.  Multiple Choice Exercises - click [here](https://henriquemartins.net/teaching/financial_strategy/p7tf.html)
+
+. . .
+
+$\rightarrow$ *For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/fin-strat.html) page or hover on the specific slides with coding chunks.*
+
+## Equity Versus Debt Financing
+
+-   When corporations raise funds from outside investors, they must choose which type of security to issue. The most common choices are financing through equity alone and financing through a combination of [debt]{.blue} and [equity]{.blue}
+
+-   The [Capital Structure]{.blue} decision of a firm is the relative proportion of debt, equity, and other securities that a firm has outstanding constitute its capital
+
+-   A central question in this chapter: **do capital structure decisions affect firm value?**
+
+. . .
+
+$\rightarrow$ *To facilitate the discussion, throughout the chapter, we will assume the firm is a portfolio of debt and equity (and maybe other securities)*
+
+## Equity Versus Debt Financing
+
+-   Let's start our discussion by analyzing the value of a firm. Imagine an economy with *two* potential states: a *weak* and a *strong* economy. The firm will receive cash flows as follows:
+
+. . .
+
+| Date 0 (investment) | Date 1 (strong economy) | Date 1 (Weak economy) |
+|:-------------------:|:-----------------------:|:---------------------:|
+|   [-\$800]{.red}    |    [+\$1400]{.green}    |   [+\$900]{.green}    |
+
+-   Assume that the cost of capital for this project is $15\%$, and that each scenario has a $50\%$ probability of occurrence. The value of the firm is then:
+
+. . .
+
+$$
+\small V = \frac{\frac{1}{2} \times 1400 + \frac{1}{2} \times 900 }{(1+15\%)} = \dfrac{1,150}{(1+15\%)}=1000
+$$
+
+-   Therefore, the value of the firm is $\small \$1,000$. If you take the initial investment into consideration, the NPV for the investors is $\small PV(CF) = -800 + 1,000=200$. We'll now look at different scenarios that will vary on which specific [Capital Structure]{.blue} will be used to finance the project!
+
+## Case 1: all-Equity financing
+
+-   Say that you decide to fund this project using 100% equity in your Capital Structure
+
+-   The firm value today is $\small\$1,000$. If the firm wants to finance the project all-equity, it could raise this amount selling equity to outside investors. In this case, the firm is called *unlevered equity*
+
+-   From the perspective of an equity investor:
+
+. . .
+
+| Date 0 (investment) | Date 1 (strong economy) | Date 1 (Weak economy) |
+|:-------------------:|:-----------------------:|:---------------------:|
+|  [-\$1,000]{.red}   |        +\$1,400         |        +\$900         |
+|       Return        |     [+40%]{.green}      |     [-10%]{.red}      |
+
+-   The expected return on the unlevered equity is $\small 15\%$: $\small \frac{1}{2} \times 40\% + \frac{1}{2} \times -10\% = 15\%$
+
+. . .
+
+$\rightarrow$ *Because the risk of unlevered equity equals the risk of the project, shareholders are earning an appropriate return for the risk they are taking*
+
+## Equity Versus Debt Financing
+
+-   What happens to the value of a firm when we move towards a *mixed* Capital Structure that contains *both* [Equity]{.blue} and [Debt]{.blue}? In this situation, the firm is called *levered equity*
+
+-   To see that in action, assume that the firm issues $\small \$500$ of debt and $\small\$500$ of equity, with the cost of debt being $\small 5\%$. A central question in this discussion is: [do the NPV and the firm value change?]{.blue}
+
+-   The short answers is: **no, the firm value will not change!**
+
+    1.  As we'll see in the upcoming slides, although the cost of debt is *lower* than the cost of equity ($5\%$ \*versus $15\%$), the fact that we introduced debt in the firm's capital structure makes equity riskier
+    2.  As a result, when we take *all* sources of funds into consideration, the *unlevered* cost of capital - *i.e*, the cost of capital of the firm's assets or the underlying business - remains the same!
+
+## Case 2: Equity and Debt Financing
+
+-   Let's get back to our example where we added $50\%$ of debt in our Capital Structure. Because the firm needs to pay debt holders no matter the state of the economy, the Debt value (from the perspective of a debt investor) in Date 1 is:
+
+. . .
+
+$$
+\small D_1= D_0\times(1+5\%)=500\times 1.05=525
+$$
+
+-   From our previous slides, we know the value of the firm (all Assets) in each state of the economy. We can say that the difference between the firm value and the debt value is the equity value: $\small V - D = E$:
+
+. . .
+
+| **Source** | **Date 0 (investment)** | **Date 1 (strong economy)** | **Date 1 (Weak economy)** |
+|:---------------:|:---------------:|:------------------:|:-----------------:|
+|  Debt (D)  |           500           |             525             |            525            |
+| Equity (E) |       [?]{.blue}        |        [875]{.blue}         |       [375]{.blue}        |
+|  Firm (V)  |          1,000          |            1,400            |            900            |
+
+## Case 2: Equity and Debt Financing (continued)
+
+-   You may have noticed something strage: if the debt cost is only 5%, [why the firm value still is 1.000]{.blue}? Shouldn't the value of equity increase? The answer is that **the cost of equity increases for levered equity**:
+
+. . .
+
+| Source | $T_0$ | $T_1$ (strong) | $T_1$ (Weak) | $R_{\text{Strong}}$ | $R_{\text{Weak}}$ |
+|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+|  Debt  |  500  |      525       |     525      |         5%          |        5%         |
+| Equity |  500  |      875       |     375      |         75%         |       -25%        |
+| Value  | 1,000 |     1,400      |     900      |         40%         |       -10%        |
+
+1.  [Unlevered Equity]{.blue} has returns of $\small40\%$ or $\small-10\%$ $\rightarrow$ On average, $\small15\%$
+2.  [Debt]{.blue} has return of $\small5\%$, regardless of the state of the economy
+3.  [Levered Equity]{.blue} has returns of $\small75\%$ ($\small\frac{875}{500}-1$) or $\small-25\%$ ($\small\frac{375}{500}-1$). On average, $\small25\%$.
+
+## Case 2: Equity and Debt Financing (continued)
+
+-   The key takeaway is: [Levered equity is riskier, so the cost of capital is higher]{.blue}:
+
+. . .
+
+|      Source      | Return sensitivity  |  Risk premium  |
+|:----------------:|:-------------------:|:--------------:|
+|       Debt       |    5% - 5% = 0%     |  5% - 5% = 0%  |
+| Unlevered Equity | 40% - (-10%) = 50%  | 15% - 5% = 10% |
+|  Levered Equity  | 75% - (-25%) = 100% | 25% - 5% = 20% |
+
+1.  Because the debt's return bears no systematic risk, its risk premium is [zero]{.blue} - it pays $\small5\%$ regardless of the state of the economy!
+2.  In this particular case, the levered equity has [twice]{.blue} the systematic risk of the unlevered equity and, as a result, has twice the risk premium!
+
+-   Now, if you were to calculate the cost of capital of the firm, assuming $\small 50\%$ equity and $\small 50\%$ debt, the required return is $\small \frac{1}{2}\times25\%+\frac{1}{2}\times 5\%=15\%\rightarrow$ the firm value remains at $\small \$1,000$!
+
+## Equity *versus* Debt Financing, a summary
+
+-   In the case of [perfect capital markets]{.blue}, if the firm is $\small100\%$ equity financed, the equity holders will require a $\small15\%$ expected return
+-   When financingwith $\small50\%$/$\small50\%$ equity and debt, debtholders will receive a return of $\small5\%$, while the levered equity holders will require an expected return of $\small25\%$ (because of increased risk).
+-   Leverage increases the risk of equity even when there is no risk that the firm will default.
+-   Thus, while debt may be cheaper, its use raises the cost of capital for equity
+
+. . .
+
+$\rightarrow$ *Considering both sources of capital together, the firm's average cost of capital with leverage is the same as for the unlevered firm!*
+
+1.  [Modigliani and Miller]{.blue} argued that with perfect capital markets, [the total value of a firm should not depend on its capital structure]{.blue}
+
+2.  They reasoned that the firm's total cash flows still equal the cash flows of the project and, therefore, have the same present value!
+
+## Equity *versus* Debt Financing, exercise
+
+-   Using the same values as before, suppose the firm borrows [\$700]{.blue} when financing the project. According to Modigliani and Miller, what should the value of the equity be? What is the expected return?
+
+-   Because the value of the firm's total cash flows is still [\$1,000]{.blue}, if the firm borrows [\$700]{.blue}, its equity will be worth [\$300]{.blue}. The firm will owe $\small 700 \times 1.05 = 735$ in one year to debtholders:
+
+    1.  If the economy is [strong]{.green}, equity holders will receive $\small 1,400 − 735 = 665$, for a return of $\small \frac{665}{300}-1 = \small 121.67\%$.
+    2.  If the economy is [weak]{.red}, equity holders will receive $\small 900 − 735 = 165$, for a return of $\small \frac{165}{300}-1 = \small -45\%$.
+
+-   The expected return is then:
+
+. . .
+
+$$
+\small \frac{1}{2} \times 121.67\% + \frac{1}{2} \times -45\% = 38.33\%
+$$
+
+## Equity *versus* Debt Financing, exercise
+
+-   Note that the equity has a return sensitivity of $\small 121.67\% − (−45.0\%) = 166.67\%$, and its risk premium is $\small 38.33\% − 5\% = 33.33\%$:
+
+. . .
+
+| Source | $R_\text{Strong}$ | $R_\text{Weak}$ |      Syst. risk      |  Risk premium  |
+|:------------:|:------------:|:------------:|:--------------:|:------------:|
+|  Debt  |        5%         |       5%        |     5% - 5% = 0%     |  5% - 5% = 0%  |
+| Equity |       122%        |      -45%       | 122% - (-45%) = 167% | 38% - 5% = 33% |
+|  Firm  |        40%        |      -10%       | 75% - (-25%) = 100%  | 25% - 5% = 20% |
+
+. . .
+
+-   Again, debt increases equity risk, and the unlevered value (the value of the firm as whole) remains the same because the unlevered cost of capital is still 15%:
+
+. . .
+
+$$
+\small \underbrace{30\%\times5\%}_{\text{Debt}}+\underbrace{70\%\times38.33\%}_{\text{Equity}}=15\%
+$$
+
+## Modigliani and Miller: why it makes sense?
+
+-   Back in our previous slides, we achieved the conclusion that the value of the firm remained at $\small \$1,000$ regardless of the Capital Structure
+
+-   That was just a direct application of the *Law of One Price*: the choice of firm's leverage merely changes the allocation of value between debt and equity - *i.e*, you're just slicing the pizza in different ways, but the size of the pizza remains the same!
+
+-   [Modigliani and Miller]{.blue} showed that this result holds more generally under a set of conditions referred to as perfect capital markets:
+
+    1.  Investors and firms can trade the same set of securities at competitive market prices equal to the present value of their future cash flows
+
+    2.  There are no taxes, transaction costs, or issuance costs associated with security trading
+
+    3.  A firm’s financing decisions do not change the cash flows generated by its investments, nor do they reveal new information about them.
+
+## Modigliani and Miller - *Proposition I*
+
+::: callout-tip
+### Proposition I - Modigliani and Miller
+
+*In a perfect capital market, the total value of a firm’s securities is equal to the market value of the total cash flows generated by its assets and is not affected by its choice of capital structure.*
+:::
+
+-   **Why is this important?** It establishes that, under certain conditions, the irrelevance of the choice of leverage applies to more general cases
+
+-   As we'll see in the upcoming slides, this idea applies to a case where a given investor might desire a different capital structure choice than the one chosen by the firms
+
+-   Regardless of the case (either a *more* or *less* leverage preference), the value of the firm for this investor is the same!
+
+-   In other words, because different choices of capital structure offer no benefit to investors, they do not affect the value of the firm.
+
+## *Proposition I* - Levering up
+
+-   Let's say the firm selects a given capital structure, but the investor likes an alternative capital structure (either more or less leveraged)
+
+-   *Modigliani and Miller* demonstrated that if investors would prefer an alternative capital structure to the one the firm has chosen, investors can borrow or lend on their own and [achieve the same result]{.blue} in terms of firm value!
+
+-   To illustrate that, assume the firm is an [all−equity firm]{.blue} (zero leverage)...
+  1. An investor who would prefer to have a *levered equity* firm. In perfect capital markets, he can do so by levering his *own* personal portfolio
+  2. He chooses to borrow $\small\$500$ and add leverage to his or her own portfolio ($\small\$500$ personal + $\small\$500$ debt)
+  3. The investor borrows 500 and buys the firm's stock.
+
+## *Proposition I* - Levering Up
+
+. . .
+
+| Source                               | $T_0$ | $T_1$ (strong) | $T_0$ (weak) |
+|:------------------------------------:|:-----:|:--------------:|:------------:|
+| Unlevered Equity (*Firm*)            | 1,000 | 1,400          | 900          |
+| Margin loan (*Investor borrowing*)   | -500  | -525           | -525         |
+| Levered equity (*Investor's return*) | 500   | 875            | 375          |
+
+
+- If the cash flows of the unlevered equity serve as collateral for the margin loan (at the risk−free rate of 5%), then by using homemade leverage, the investor has replicated the payoffs to the levered equity!
+
+- As long as investors can borrow or lend at the same interest rate as the firm, homemade leverage is a perfect substitute for the use of leverage by the firm
+
+## *Proposition I* - Unlevering
+
+- Now, assume the firm uses debt, but the investor would prefer to hold unlevered equity
+
+  1. The investor can again *replicate* the payoffs of *Unlevered Equity* firm by buying *both* the debt and the equity of the firm!
+  2. Combining the cash flows of the two securities produces cash flows identical to Unlevered Equity, for a total cost of \$1000:
+
+. . .
+
+| Source                               | $T_0$  | $T_1$ (strong)| $T_0$ (weak)|
+|:------------------------------------:|:------:|:-------------:|:-----------:|
+| Debt (*Investor's lending*)          | 500    | 525           | 525         |
+| Levered equity (*Firm*)              | 500    | 875           | 375         |
+| Unlevered equity (Investor's return) | 1,000  | 1,400         | 900         |
+
+
+## Does *Proposition I* hold in reality?
+
+- Modigliani and Miller showed that a firm's financing choice does not affect its value. But how can we reconcile this conclusion with the fact that the cost of capital differs for different securities?
+
+  1. When the project is financed solely through equity, the equity holders require a $15\%$ expected return
+  2. As an alternative, the firm could borrow at the risk-free rate of $\small5\%$
+
+- All in all, [isn’t debt a cheaper and better source of capital than equity]{.blue}? Although debt does have a lower cost of capital than equity, we cannot consider this cost in isolation:
+  1. While debt itself may be cheap, it increases the risk and therefore the cost of capital of the firm’s equity
+  2. In the end, the savings a [lower]{.green}  debt cost of capital are *exactly offset* by a [higher]{.red} equity cost of capital, and there are no net savings for
+the firm!
+
+## Modigliani and Miller - *Proposition II*
+
+:::{.nonincremental}
+
+- The insights from the first proposition can be used to derive an explicit relationship between leverage and the equity cost of capital, which is *Modigliani Miller's Proposition II*:
+
+:::{.callout-tip}
+### Proposition II - Modigliani and Miller
+
+*The cost of capital of levered equity increases with the firm’s market value debt equity ratio:*
+
+
+$$
+\begin{align}
+&r_E=r_U+\dfrac{D}{E}(r_U-r_D), \text{where:} \\
+&\\
+&\text{ -   E = Market value of equity in a levered firm}\\
+&\text{ -   D = Market value of debt in a levered firm}\\
+&\text{ -   U = Market value of equity in an unlevered firm}\\
+&\text{ -   A = Market value of the firm's assets}\\
+\end{align}
+$$
+:::
+:::
+
+## *Proposition II - Modigliani and Miller* (continued)
+
+- *Proposition I* stated that: $\small E+D = U = A$. In words, the total market value of the firm's securities is equal to the [market value of its assets]{.blue}, whether the firm is *unlevered* or *levered*
+
+- Furthermore, remember that the return of a portfolio is the weighted average of the returns
+
+- So, we can write that the return on *unlevered* equity (**$r_U$) is related to the returns of levered equity ($r_E$) and debt ($r_D$):
+
+. . .
+
+$$
+\small r_U = \frac{E}{E+D} \times r_E + \frac{D}{E+D} \times r_D
+$$
+
+- Rearranging terms and solving for $r_E$:
+
+. . .
+
+$$
+\small r_E = r_U + \frac{D}{E} \times (r_U - r_D)
+$$
+
+## *Proposition II - Modigliani and Miller* (continued)
+
+- The *levered* equity return equals the *unlevered* return, plus a premium due to leverage. The amount of the premium depends on the amount of leverage, measured by the market value debt−to-equity ratio!
+
+. . .
+
+$$
+\small r_E = \underbrace{r_U}_{\text{Risk without leverage}} + \underbrace{\frac{D}{E} \times (r_U - r_D)}_{\text{Add. risk due to leverage}}
+$$
+
+-  Using the previous example's numbers ($\small r_U=15\%$, $\small r_D=5\%$ and a debt-to-equity ratio of 1 $\frac{500}{500}=1$, we have:
+
+. . .
+
+$$
+\small r_E = r_U + \frac{D}{E} \times (r_U - r_D)\rightarrow 15\%+1\times(15\%-5\%)=25\%
+$$
+
+## *Proposition II - Modigliani and Miller* (continued)
+
+- Suppose the entrepreneur borrows $\small\$700$ when financing the project. Recall that the expected return on unlevered equity is $\small15\%$ and the risk−free rate is $\small5\%$. According to *Proposition II*, what will be the firm's equity cost of capital?
+
+. . .
+
+$$
+\small r_E = r_U + \frac{D}{E} \times (r_U - r_D) = 15\% + \frac{700}{300} \times (15\%-5\%) = 38.33\%
+$$
+
+- If a firm is financed with *both* [equity]{.blue} and [debt]{.blue}, then the risk of its underlying assets will match the risk of a portfolio of its equity and debt (the *unlevered cost of capital* or the *pre-tax WACC*):
+
+. . .
+
+$$
+\small r_{WACC} = \frac{E}{E+D} \times r_E + \frac{D}{E+D} \times r_D
+$$
+
+$\rightarrow$ *With perfect capital markets, a firm's WACC is independent of its capital structure and is equal to its equity cost of capital if it is unlevered*
+
+## Add slide with different D/E
+
+Although debt has a lower cost of capital than equity, leverage does not lower a firm's WACC. As a result, the value of the firm's free cash flow evaluated using the WACC does not change, and so the enterprise value of the firm does not depend on its financing choices.**
+
+## *Proposition II - Modigliani and Miller* (example)
+
+- *[Honeywell]{.blue} (ticker: HON) has a market debt−equity ratio of $\small0.5$. Assume its current debt cost of capital is $\small6.5\%$, and its equity cost of capital is $\small 14\%$. If HON issues equity and uses the proceeds to repay its debt and reduce its debt−equity ratio to $0.4$, it will lower its debt cost of capital to $\small 5.75\%$.*
+
+- With perfect capital markets, what effect will this transaction have on *HON*'s equity cost of capital and *WACC*?
+
+. . .
+
+$$
+\small r_{WACC} = \frac{E}{E+D} \times r_E + \frac{D}{E+D} \times r_D \rightarrow \frac{2}{2+1} \times 14\% + \frac{1}{2+1} \times 6.5\% = 11.5\%
+$$
+
+- The new Cost of Equity ($\small r_E$) will decrease due to lower leverage and lower cost of debt:
+
+. . . 
+
+$$
+\small r_E = r_U + \frac{D}{E} (r_U - r_D) \rightarrow 11.5\% +0.4 \times (11.5\% - 5.75\%) = 13.8\%
+$$
+
+## *Proposition II - Modigliani and Miller* (example)
+
+- The *WACC*, on the other hand, remains unchanged: 
+
+. . .
+
+$$
+\small r_{WACC} = \frac{1}{1+0.4} \times 13.8\% + \frac{0.4}{1+0.4} \times 5.75\% = 11.5\%
+$$
+
+## Levered and Unlevered Betas
+
+- Remember that
+
+. . .
+
+$$
+\small \beta_U = \frac{E}{D+E} \times \beta_E + \frac{D}{D+E} \times \beta_D
+$$
+
+- When a firm changes its capital structure without changing its investments, its unlevered beta will remain unaltered. However, its equity beta will change to reflect the effect of the capital structure change on its risk:
+
+. . .
+
+$$
+\small \beta_E = \beta_U + \frac{D}{E} (\beta_U - \beta_D)
+$$
+
+. . .
+
+$\rightarrow$ *Therefore, the unlevered beta is a measure of the risk of a firm as if it did not have leverage, which is equivalent to the beta of the firm's assets!*
+
+## Levered and unlevered Betas (example)
+
+*In August 2018, Reenor had a market capitalization of 140 billion. It had debt of 25.4 billion as well as cash and short−term investments of 60.4 billion. Its equity beta was 1.09 and its debt beta was approximately zero. What was Reenor's enterprise value at time? Given a risk−free rate of 2\% and a market risk premium of 5%, estimate the unlevered cost of capital of Reenor's business*.
+
+. . .
+
+- Net Debt is $\small 25.4 − 60.4=-35$ billion. As a result, the *Enterprise Value* is $\small 140−35=105$ billion
+
+. . .
+
+$$
+\small \beta_U = \frac{E}{E+D} \times \beta_E + \frac{D}{E+D} \times \beta_D = \frac{140}{105} \times 1.09 + \frac{-35}{105} \times 0 = 1.45
+$$
+
+. . .
+
+$$
+\small r_U = 2\% + 1.45 \times 5\% = 9.25\%
+$$
+
+## Capital Structure Fallacies
+
+We will discuss now two fallacies concerning capital structure:
+
+-   *Leverage increases earnings per share (EPS), thus increase firm value*
+-   *Issuing new equity will dilute existing shareholders, so debt should be issued*
+
+
+## Capital Structure Fallacies
+
+**Problem**
+
+Assume that LVI's EBIT is not expected to grow in the future and that all earnings are paid as dividends. Use MM proposition I and II to show that the increase in expected EPS for LVI will not lead to an increase in the share price.
+
+**Solution**
+
+Without leverage, expected earnings per share and therefore dividends are 1 each year, and the share price 7.50. Let r be LVI's cost of capital without leverage. Then we can value LVI as a perpetuity:
+
+$$P = 7.50 = \frac{Div}{R_u} = \frac{EPS}{R_u} = \frac{1}{R_u}$$
+
+Therefore, current stock price implies that $R_u = \frac{1}{7.50} = 13.33\%$
+
+## Capital Structure Fallacies
+
+-   The market value of LVI without leverage is 7.50 × 10 million shares = 75 million.
+-   If LVI uses debt to repurchase 15 million worth of the firm's equity
+-   then the remaining equity will be worth 75 million − 15million = 60 million.
+
+After the transaction, $\frac{D}{E} = \frac{1}{4}$, thus, we can write:
+
+$$R_e= R_u +\frac{D}{E} \times (R_u - R_d) = 13.33 + 0.25 \times (13.33 - 8) = 14.66$$
+
+Given that expected EPS is now 1.10 per share, the new value of the shares equals
+
+$$P=\frac{1.10}{14.66} = 7.50$$
+
+Thus, even though EPS is higher, due to the additional risk, shareholders will demand a higher return. **These effects cancel out, so the price per share is unchanged.**
+
+## Capital Structure Fallacies
+
+Because the **firm's earnings per share and price-earnings ratio are affected by leverage, we cannot reliably compare these measures across firms with different capital structures**.
+
+The same is true for accounting-based performance measures such as return on equity (ROE).
+
+Therefore, most analysts prefer to use performance measures and valuation multiples that are based on the firm's earnings before interest has been deducted.
+
+-   For example, the ratio of enterprise value to EBIT (or EBITDA) is more useful when analyzing firms with very different capital structures than is comparing their P/E ratios.
+
+## Capital Structure Fallacies
+
+**Equity Issuances and Dilution**
+
+It is sometimes (incorrectly) argued that issuing equity will dilute existing shareholders' ownership, so debt financing should be used instead.
+
+-   Dilution: An increase in the total of shares that will divide a fixed amount of earnings
+
+Suppose Jet Sky Airlines (JSA) currently has no debt and 500 million shares of stock outstanding, which is currently trading at a price of \$16.
+
+Last month the firm announced that it would expand and the expansion will require the purchase of \$1 billion of new planes, which will be financed by issuing new equity.
+
+-   The current (prior to the issue) value of the equity and the assets of the firm is 8 billion.
+    -   500 million shares × 16 per share = 8 billion
+
+## Capital Structure Fallacies
+
+Suppose now JSA sells 62.5 million new shares at the current price of 16 per share to raise the additional 1 billion needed to purchase the planes.
+
+| Assets          | Before | After |
+|-----------------|--------|-------|
+| Cash            |        | 1000  |
+| Existing assets | 8000   | 8000  |
+| Total Value     | 8000   | 9000  |
+| \# shares (out) | 500    | 562.5 |
+| Value per share | 16     | 16    |
+
+**Result: share prices don't change. Any gain or loss associated with the transaction will result from the NPV of the investments the firm makes with the funds raised.**
+
+## Why should I bother about *Modigliani and Miller?*
+
+- *Modigliani and Miller* is truly about the conservation of the value principle in perfect financial markets: with *perfect capital markets*, financial transactions neither [add]{.green} nor [destroy]{.red} value, but instead represent just a repackaging of risk and therefore return
+
+- As a result, what *really* matters for the firm value is to find good investment opportunities that increase the future cash-flows!
+
+- Practitioners often question why *Modigliani and Miller*’s results are important if, after all, capital markets are not perfect in the real world
+
+  1. While it is true that capital markets are not perfect, all scientific theories begin with a set of idealized assumptions from which conclusions can be drawn
+  2. When we apply the theory, we must then evaluate how closely the assumptions hold, and consider the consequences of any important deviations
+  
+
+## Why should I bother about *Modigliani and Miller?*
+
+- You may well think...but we are not in a perfect capital market, [so why should I bother]{.blue}? That goes hand in hand with the *Modigliani and Miller* findings:
+  1. if capital markets were perfect (as in the *Modigliani and Miller* world), then the value of a firm should not be affected by any financial transaction...
+  2. ... this implies that if there is a financial transaction that appears to be a good, it must be that it is exploiting some type of market imperfection!
+
+- Knowing how these imperfections affect the firm value is important for business and policy considerations
+
+  1. For example, what happens if you remove the *tax-shield* from debt interest payments? What if the government decides to tax dividends differently?
+  2. These (and other) actions may create/remove market imperfections that will tweak the real-practice results away/closer to the *Modigliani-Miller* findings!
+
+## Practice
+
+. . .
+
+::: callout-important
+Practice using the following links:
+
+1.  [Multiple-choice Questions](https://henriquemartins.net/teaching/financial_strategy/p7tf.html){preview-link="true"}
+:::
+
+
+## References
