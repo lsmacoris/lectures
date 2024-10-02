@@ -7,13 +7,6 @@
     ]
   },
   {
-    "listing": "/about.html",
-    "items": [
-      "/fin-mgmt.html",
-      "/fin-strat.html"
-    ]
-  },
-  {
     "listing": "/fin-mgmt.html",
     "items": [
       "/fin-mgmt/Lecture 9 - Valuation with Leverage/index.html",
@@ -30,9 +23,17 @@
     ]
   },
   {
+    "listing": "/about.html",
+    "items": [
+      "/fin-mgmt.html",
+      "/fin-strat.html"
+    ]
+  },
+  {
     "listing": "/fin-strat.html",
     "items": [
       "/fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html",
+      "/fin-strat/Lecture 7 - Capital Structure in Perfect Capital Markets/index.html",
       "/fin-strat/Lecture 1 - Equity Financing/index.html",
       "/fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html",
       "/fin-strat/Introduction/index.html",

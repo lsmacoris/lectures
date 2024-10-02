@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/tabby.min.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
   <meta name="author" content="Lucas S. Macoris">
-  <title>Capital Structure in Perfect Markets</title>
+  <title>Lucas S. Macoris – Capital Structure in Perfect Markets</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -50,13 +50,22 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-87FLN5SXEJ"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -380,15 +389,11 @@ Lucas S. Macoris
 <h2>Equity Versus Debt Financing</h2>
 <ul>
 <li class="fragment"><p>When corporations raise funds from outside investors, they must choose which type of security to issue. The most common choices are financing through equity alone and financing through a combination of <span class="blue">debt</span> and <span class="blue">equity</span></p></li>
-<li class="fragment"><p>As a result, the <span class="blue">Capital Structure</span> decision of a firm is the relative proportion of <span class="blue">debt</span>, <span class="blue">equity</span>, and <span class="blue">other securities</span> that a firm has outstanding constitute its capital</p></li>
-<li class="fragment"><p>Financial Managers are often faced with the challenge of choosing the proportions of debt and equity of the firm</p>
-<ol type="1">
-<li class="fragment"><p>When it comes to <em>Capital Structue</em>, a central question is: <strong>do capital structure decisions affect firm value?</strong></p></li>
-<li class="fragment"><p>Put another way, is there an <em>optimal</em> Capital Structure that maximizes the value of a firm?</p></li>
-</ol></li>
+<li class="fragment"><p>The <span class="blue">Capital Structure</span> decision of a firm is the relative proportion of debt, equity, and other securities that a firm has outstanding constitute its capital</p></li>
+<li class="fragment"><p>A central question in this chapter: <strong>do capital structure decisions affect firm value?</strong></p></li>
 </ul>
 <div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> <em>As we’ll see throughout this lecture, under some conditions, the value of a firm is not affected by its capital structure decisions!</em></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>To facilitate the discussion, throughout the chapter, we will assume the firm is a portfolio of debt and equity (and maybe other securities)</em></p>
 </div>
 </section>
 <section id="equity-versus-debt-financing-1" class="slide level2">
@@ -413,7 +418,7 @@ Lucas S. Macoris
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="red">-$800</span></td>
-<td style="text-align: center;"><span class="green">+$1,400</span></td>
+<td style="text-align: center;"><span class="green">+$1400</span></td>
 <td style="text-align: center;"><span class="green">+$900</span></td>
 </tr>
 </tbody>
@@ -427,16 +432,16 @@ Lucas S. Macoris
 \small V = \frac{\frac{1}{2} \times 1400 + \frac{1}{2} \times 900 }{(1+15\%)} = \dfrac{1,150}{(1+15\%)}=1000
 \]</span></p>
 <ul>
-<li class="fragment">Therefore, the value of the firm is <span class="math inline">\(\small \$1,000\)</span>. If you take the initial investment into consideration, the NPV for the investors is <span class="math inline">\(\small PV(CF) = -800 + 1,000=200\)</span>. Which Capital Structure would you choose to finance this project?</li>
+<li class="fragment">Therefore, the value of the firm is <span class="math inline">\(\small \$1,000\)</span>. If you take the initial investment into consideration, the NPV for the investors is <span class="math inline">\(\small PV(CF) = -800 + 1,000=200\)</span>. We’ll now look at different scenarios that will vary on which specific <span class="blue">Capital Structure</span> will be used to finance the project!</li>
 </ul>
 </div>
 </section>
 <section id="case-1-all-equity-financing" class="slide level2">
 <h2>Case 1: all-Equity financing</h2>
 <ul>
-<li class="fragment"><p>Say that you decide to fund this project using <span class="math inline">\(\small100\%\)</span> <span class="blue">equity</span> in your Capital Structure</p></li>
-<li class="fragment"><p>The firm value today is <span class="math inline">\(\small\$1,000\)</span>. If the firm wants to finance the project 100% through equity, it could raise this amount selling equity to outside investors. In this case, the firm is called <em>unlevered equity</em></p></li>
-<li class="fragment"><p>From the perspective of an equity investor, we have:</p></li>
+<li class="fragment"><p>Say that you decide to fund this project using 100% equity in your Capital Structure</p></li>
+<li class="fragment"><p>The firm value today is <span class="math inline">\(\small\$1,000\)</span>. If the firm wants to finance the project all-equity, it could raise this amount selling equity to outside investors. In this case, the firm is called <em>unlevered equity</em></p></li>
+<li class="fragment"><p>From the perspective of an equity investor:</p></li>
 </ul>
 <div class="fragment">
 <table class="caption-top">
@@ -448,13 +453,13 @@ Lucas S. Macoris
 <thead>
 <tr class="header">
 <th style="text-align: center;">Date 0 (investment)</th>
-<th style="text-align: center;">Date 1 (Strong economy)</th>
+<th style="text-align: center;">Date 1 (strong economy)</th>
 <th style="text-align: center;">Date 1 (Weak economy)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">-$1,000</td>
+<td style="text-align: center;"><span class="red">-$1,000</span></td>
 <td style="text-align: center;">+$1,400</td>
 <td style="text-align: center;">+$900</td>
 </tr>
@@ -470,17 +475,17 @@ Lucas S. Macoris
 </ul>
 </div>
 <div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> <em>Because the risk of unlevered equity equals the risk of the project, shareholders are earning an equivalent return for the risk they are taking</em></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Because the risk of unlevered equity equals the risk of the project, shareholders are earning an appropriate return for the risk they are taking</em></p>
 </div>
 </section>
 <section id="equity-versus-debt-financing-2" class="slide level2">
 <h2>Equity Versus Debt Financing</h2>
 <ul>
 <li class="fragment"><p>What happens to the value of a firm when we move towards a <em>mixed</em> Capital Structure that contains <em>both</em> <span class="blue">Equity</span> and <span class="blue">Debt</span>? In this situation, the firm is called <em>levered equity</em></p></li>
-<li class="fragment"><p>To see that in action, assume that the firm issues <span class="math inline">\(\small \$500\)</span> of debt and <span class="math inline">\(\small\$500\)</span> of equity, with the cost of debt being <span class="math inline">\(\small 5\%\)</span>. Will the <span class="blue">value of the firm</span> and the project’s <span class="blue">NPV</span> change?</p></li>
+<li class="fragment"><p>To see that in action, assume that the firm issues <span class="math inline">\(\small \$500\)</span> of debt and <span class="math inline">\(\small\$500\)</span> of equity, with the cost of debt being <span class="math inline">\(\small 5\%\)</span>. A central question in this discussion is: <span class="blue">do the NPV and the firm value change?</span></p></li>
 <li class="fragment"><p>The short answers is: <strong>no, the firm value will not change!</strong></p>
 <ol type="1">
-<li class="fragment">As we’ll see in the upcoming slides, although the cost of debt is <em>lower</em> than the cost of equity (<span class="math inline">\(\small5\%\)</span> <em>versus</em> <span class="math inline">\(\small15\%\)</span>), the fact that we introduced debt in the firm’s capital structure makes equity riskier</li>
+<li class="fragment">As we’ll see in the upcoming slides, although the cost of debt is <em>lower</em> than the cost of equity (<span class="math inline">\(5\%\)</span> *versus <span class="math inline">\(15\%\)</span>), the fact that we introduced debt in the firm’s capital structure makes equity riskier</li>
 <li class="fragment">As a result, when we take <em>all</em> sources of funds into consideration, the <em>unlevered</em> cost of capital - <em>i.e</em>, the cost of capital of the firm’s assets or the underlying business - remains the same!</li>
 </ol></li>
 </ul>
@@ -488,23 +493,23 @@ Lucas S. Macoris
 <section id="case-2-equity-and-debt-financing" class="slide level2">
 <h2>Case 2: Equity and Debt Financing</h2>
 <ul>
-<li class="fragment">Let’s get back to our example where we added <span class="math inline">\(\small 50\%\)</span> of debt in our Capital Structure. Because the firm needs to pay debt holders no matter the state of the economy, the Debt value (from the perspective of a debt investor) in Date 1 is:</li>
+<li class="fragment">Let’s get back to our example where we added <span class="math inline">\(50\%\)</span> of debt in our Capital Structure. Because the firm needs to pay debt holders no matter the state of the economy, the Debt value (from the perspective of a debt investor) in Date 1 is:</li>
 </ul>
 <div class="fragment">
 <p><span class="math display">\[
-\small D_1= D_0\times(1+5\%)=500\times 1.05=\$525
+\small D_1= D_0\times(1+5\%)=500\times 1.05=525
 \]</span></p>
 <ul>
-<li class="fragment">We know the value of the firm (all Assets) in each state of the economy. The difference between the firm value and the debt value is the equity value: <span class="math inline">\(\small V - D = E\)</span>:</li>
+<li class="fragment">From our previous slides, we know the value of the firm (all Assets) in each state of the economy. We can say that the difference between the firm value and the debt value is the equity value: <span class="math inline">\(\small V - D = E\)</span>:</li>
 </ul>
 </div>
 <div class="fragment">
-<table class="caption-top" style="width:100%;">
+<table class="caption-top">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 24%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 27%">
 <col style="width: 26%">
-<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -540,7 +545,7 @@ Lucas S. Macoris
 <section id="case-2-equity-and-debt-financing-continued" class="slide level2">
 <h2>Case 2: Equity and Debt Financing (continued)</h2>
 <ul>
-<li class="fragment">You may have noticed something strage: if the debt cost is only <span class="math inline">\(\small5\%\)</span>, <span class="blue">why the firm value still is <span class="math inline">\(\small\$1.000\)</span></span>? Shouldn’t the value of equity increase? The answer is that <strong>the cost of equity increases for levered equity</strong>:</li>
+<li class="fragment">You may have noticed something strage: if the debt cost is only 5%, <span class="blue">why the firm value still is 1.000</span>? Shouldn’t the value of equity increase? The answer is that <strong>the cost of equity increases for levered equity</strong>:</li>
 </ul>
 <div class="fragment">
 <table class="caption-top" style="width:100%;">
@@ -590,7 +595,7 @@ Lucas S. Macoris
 </tbody>
 </table>
 <ol type="1">
-<li class="fragment"><span class="blue">Unlevered Equity</span> has returns of <span class="math inline">\(\small40\%\)</span> or <span class="math inline">\(\small-10\%\)</span> <span class="math inline">\(\rightarrow\)</span> on average, <span class="math inline">\(\small15\%\)</span>, as before</li>
+<li class="fragment"><span class="blue">Unlevered Equity</span> has returns of <span class="math inline">\(\small40\%\)</span> or <span class="math inline">\(\small-10\%\)</span> <span class="math inline">\(\rightarrow\)</span> On average, <span class="math inline">\(\small15\%\)</span></li>
 <li class="fragment"><span class="blue">Debt</span> has return of <span class="math inline">\(\small5\%\)</span>, regardless of the state of the economy</li>
 <li class="fragment"><span class="blue">Levered Equity</span> has returns of <span class="math inline">\(\small75\%\)</span> (<span class="math inline">\(\small\frac{875}{500}-1\)</span>) or <span class="math inline">\(\small-25\%\)</span> (<span class="math inline">\(\small\frac{375}{500}-1\)</span>). On average, <span class="math inline">\(\small25\%\)</span>.</li>
 </ol>
@@ -641,8 +646,8 @@ Lucas S. Macoris
 <h2>Equity <em>versus</em> Debt Financing, a summary</h2>
 <ul>
 <li class="fragment">In the case of <span class="blue">perfect capital markets</span>, if the firm is <span class="math inline">\(\small100\%\)</span> equity financed, the equity holders will require a <span class="math inline">\(\small15\%\)</span> expected return</li>
-<li class="fragment">When financingwith <span class="math inline">\(\small50\%\)</span>/<span class="math inline">\(\small50\%\)</span> equity and debt, debtholders will receive a return of <span class="math inline">\(\small5\%\)</span>, while the levered equity holders will require an expected return of <span class="math inline">\(\small25\%\)</span> (because of increased risk)</li>
-<li class="fragment">Leverage increases the risk of equity even when there is no risk that the firm will default</li>
+<li class="fragment">When financingwith <span class="math inline">\(\small50\%\)</span>/<span class="math inline">\(\small50\%\)</span> equity and debt, debtholders will receive a return of <span class="math inline">\(\small5\%\)</span>, while the levered equity holders will require an expected return of <span class="math inline">\(\small25\%\)</span> (because of increased risk).</li>
+<li class="fragment">Leverage increases the risk of equity even when there is no risk that the firm will default.</li>
 <li class="fragment">Thus, while debt may be cheaper, its use raises the cost of capital for equity</li>
 </ul>
 <div class="fragment">
@@ -656,11 +661,11 @@ Lucas S. Macoris
 <section id="equity-versus-debt-financing-exercise" class="slide level2">
 <h2>Equity <em>versus</em> Debt Financing, exercise</h2>
 <ul>
-<li class="fragment"><p>Using the same values as before, suppose the firm borrows <span class="blue"><span class="math inline">\(\small\$700\)</span></span> when financing the project. According to Modigliani and Miller, what should the value of the equity be? What is the expected return?</p></li>
-<li class="fragment"><p>Because the value of the firm’s total cash flows is still <span class="blue"><span class="math inline">\(\small\$1,000\)</span></span>, if the firm borrows <span class="blue"><span class="math inline">\(\small\$700\)</span></span>, its equity will be worth <span class="blue"><span class="math inline">\(\small\$300\)</span></span>. The firm will owe <span class="math inline">\(\small \$700 \times 1.05 = \$735\)</span> in one year to debtholders:</p>
+<li class="fragment"><p>Using the same values as before, suppose the firm borrows <span class="blue">$700</span> when financing the project. According to Modigliani and Miller, what should the value of the equity be? What is the expected return?</p></li>
+<li class="fragment"><p>Because the value of the firm’s total cash flows is still <span class="blue">$1,000</span>, if the firm borrows <span class="blue">$700</span>, its equity will be worth <span class="blue">$300</span>. The firm will owe <span class="math inline">\(\small 700 \times 1.05 = 735\)</span> in one year to debtholders:</p>
 <ol type="1">
-<li class="fragment">If the economy is <span class="green">strong</span>, equity holders will receive <span class="math inline">\(\small 1,400 − 735 = 665\)</span>, a return of <span class="math inline">\(\small \frac{665}{300}-1 = \small 121.67\%\)</span>.</li>
-<li class="fragment">If the economy is <span class="red">weak</span>, equity holders will receive <span class="math inline">\(\small 900 − 735 = 165\)</span>, a return of <span class="math inline">\(\small \frac{165}{300}-1 = \small -45\%\)</span>.</li>
+<li class="fragment">If the economy is <span class="green">strong</span>, equity holders will receive <span class="math inline">\(\small 1,400 − 735 = 665\)</span>, for a return of <span class="math inline">\(\small \frac{665}{300}-1 = \small 121.67\%\)</span>.</li>
+<li class="fragment">If the economy is <span class="red">weak</span>, equity holders will receive <span class="math inline">\(\small 900 − 735 = 165\)</span>, for a return of <span class="math inline">\(\small \frac{165}{300}-1 = \small -45\%\)</span>.</li>
 </ol></li>
 <li class="fragment"><p>The expected return is then:</p></li>
 </ul>
@@ -678,11 +683,11 @@ Lucas S. Macoris
 <div class="fragment">
 <table class="caption-top">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 28%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
 <col style="width: 22%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -734,11 +739,11 @@ Lucas S. Macoris
 <ul>
 <li class="fragment"><p>Back in our previous slides, we achieved the conclusion that the value of the firm remained at <span class="math inline">\(\small \$1,000\)</span> regardless of the Capital Structure</p></li>
 <li class="fragment"><p>That was just a direct application of the <em>Law of One Price</em>: the choice of firm’s leverage merely changes the allocation of value between debt and equity - <em>i.e</em>, you’re just slicing the pizza in different ways, but the size of the pizza remains the same!</p></li>
-<li class="fragment"><p><span class="blue">Modigliani and Miller</span> showed that this result holds more generally under a set of conditions referred to as <em>perfect capital markets</em>:</p>
+<li class="fragment"><p><span class="blue">Modigliani and Miller</span> showed that this result holds more generally under a set of conditions referred to as perfect capital markets:</p>
 <ol type="1">
 <li class="fragment"><p>Investors and firms can trade the same set of securities at competitive market prices equal to the present value of their future cash flows</p></li>
 <li class="fragment"><p>There are no taxes, transaction costs, or issuance costs associated with security trading</p></li>
-<li class="fragment"><p>A firm’s financing decisions do not change the cash flows generated by its investments, nor do they reveal new information about them</p></li>
+<li class="fragment"><p>A firm’s financing decisions do not change the cash flows generated by its investments, nor do they reveal new information about them.</p></li>
 </ol></li>
 </ul>
 </section>
@@ -761,20 +766,20 @@ Lucas S. Macoris
 <li class="fragment"><p><strong>Why is this important?</strong> It establishes that, under certain conditions, the irrelevance of the choice of leverage applies to more general cases</p></li>
 <li class="fragment"><p>As we’ll see in the upcoming slides, this idea applies to a case where a given investor might desire a different capital structure choice than the one chosen by the firms</p></li>
 <li class="fragment"><p>Regardless of the case (either a <em>more</em> or <em>less</em> leverage preference), the value of the firm for this investor is the same!</p></li>
-<li class="fragment"><p>In other words, because different choices of capital structure offer no benefit to investors, they do not affect the value of the firm</p></li>
+<li class="fragment"><p>In other words, because different choices of capital structure offer no benefit to investors, they do not affect the value of the firm.</p></li>
 </ul>
 </section>
 <section id="proposition-i---levering-up" class="slide level2">
 <h2><em>Proposition I</em> - Levering up</h2>
 <ul>
 <li class="fragment"><p>Let’s say the firm selects a given capital structure, but the investor likes an alternative capital structure (either more or less leveraged)</p></li>
-<li class="fragment"><p><em>Modigliani and Miller</em> demonstrated that if investors prefer an alternative capital structure to the one the firm has chosen, they can borrow or lend on their own personal account and <span class="blue">achieve the same result</span> in terms of firm value!</p></li>
+<li class="fragment"><p><em>Modigliani and Miller</em> demonstrated that if investors would prefer an alternative capital structure to the one the firm has chosen, investors can borrow or lend on their own and <span class="blue">achieve the same result</span> in terms of firm value!</p></li>
 <li class="fragment"><p>To illustrate that, assume the firm is an <span class="blue">all−equity firm</span> (zero leverage)…</p></li>
 </ul>
 <ol type="1">
 <li class="fragment">An investor who would prefer to have a <em>levered equity</em> firm. In perfect capital markets, he can do so by levering his <em>own</em> personal portfolio</li>
 <li class="fragment">He chooses to borrow <span class="math inline">\(\small\$500\)</span> and add leverage to his or her own portfolio (<span class="math inline">\(\small\$500\)</span> personal + <span class="math inline">\(\small\$500\)</span> debt)</li>
-<li class="fragment">The investor then borrows <span class="math inline">\(\small\$500\)</span> and buys the firm’s stock</li>
+<li class="fragment">The investor borrows 500 and buys the firm’s stock.</li>
 </ol>
 </section>
 <section id="proposition-i---levering-up-1" class="slide level2">
@@ -818,27 +823,26 @@ Lucas S. Macoris
 </table>
 <ul>
 <li class="fragment"><p>If the cash flows of the unlevered equity serve as collateral for the margin loan (at the risk−free rate of 5%), then by using homemade leverage, the investor has replicated the payoffs to the levered equity!</p></li>
-<li class="fragment"><p>As long as investors can borrow or lend at the same interest rate as the firm, homemade leverage is a <span class="blue">perfect substitute</span> for the use of leverage by the firm</p></li>
-<li class="fragment"><p>What if investors actually want a <em>less</em> leveraged firm? Is it possible for them to <em>unlever</em> on their own?</p></li>
+<li class="fragment"><p>As long as investors can borrow or lend at the same interest rate as the firm, homemade leverage is a perfect substitute for the use of leverage by the firm</p></li>
 </ul>
 </div>
 </section>
 <section id="proposition-i---unlevering" class="slide level2">
 <h2><em>Proposition I</em> - Unlevering</h2>
 <ul>
-<li class="fragment"><p>Now, assume the firm uses debt, but investors prefer to hold <em>unlevered equity</em> (<span class="math inline">\(\small100\%\)</span> equity):</p>
+<li class="fragment"><p>Now, assume the firm uses debt, but the investor would prefer to hold unlevered equity</p>
 <ol type="1">
 <li class="fragment">The investor can again <em>replicate</em> the payoffs of <em>Unlevered Equity</em> firm by buying <em>both</em> the debt and the equity of the firm!</li>
-<li class="fragment">Combining the cash flows of the two securities produces cash flows identical to Unlevered Equity, for a total cost of <span class="math inline">\(\small\$1,000\)</span>:</li>
+<li class="fragment">Combining the cash flows of the two securities produces cash flows identical to Unlevered Equity, for a total cost of $1000:</li>
 </ol></li>
 </ul>
 <div class="fragment">
-<table class="caption-top" style="width:100%;">
+<table class="caption-top">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 9%">
-<col style="width: 21%">
-<col style="width: 18%">
+<col style="width: 51%">
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 17%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -874,12 +878,12 @@ Lucas S. Macoris
 <section id="does-proposition-i-hold-in-reality" class="slide level2">
 <h2>Does <em>Proposition I</em> hold in reality?</h2>
 <ul>
-<li class="fragment"><p><em>Modigliani and Miller</em> showed that a firm’s financing choice does not affect its value. But how can we reconcile this conclusion with the fact that the cost of capital differs for different securities?</p>
+<li class="fragment"><p>Modigliani and Miller showed that a firm’s financing choice does not affect its value. But how can we reconcile this conclusion with the fact that the cost of capital differs for different securities?</p>
 <ol type="1">
 <li class="fragment">When the project is financed solely through equity, the equity holders require a <span class="math inline">\(15\%\)</span> expected return</li>
 <li class="fragment">As an alternative, the firm could borrow at the risk-free rate of <span class="math inline">\(\small5\%\)</span></li>
 </ol></li>
-<li class="fragment"><p>All in all, <span class="blue">isn’t debt a cheaper and better source of capital than equity</span>? Although debt does have a lower cost of capital than equity, <strong>we cannot consider this cost in isolation</strong>:</p>
+<li class="fragment"><p>All in all, <span class="blue">isn’t debt a cheaper and better source of capital than equity</span>? Although debt does have a lower cost of capital than equity, we cannot consider this cost in isolation:</p>
 <ol type="1">
 <li class="fragment">While debt itself may be cheap, it increases the risk and therefore the cost of capital of the firm’s equity</li>
 <li class="fragment">In the end, the savings a <span class="green">lower</span> debt cost of capital are <em>exactly offset</em> by a <span class="red">higher</span> equity cost of capital, and there are no net savings for the firm!</li>
@@ -922,14 +926,14 @@ Lucas S. Macoris
 <ul>
 <li class="fragment"><p><em>Proposition I</em> stated that: <span class="math inline">\(\small E+D = U = A\)</span>. In words, the total market value of the firm’s securities is equal to the <span class="blue">market value of its assets</span>, whether the firm is <em>unlevered</em> or <em>levered</em></p></li>
 <li class="fragment"><p>Furthermore, remember that the return of a portfolio is the weighted average of the returns</p></li>
-<li class="fragment"><p>So, we can write that the return on <em>unlevered</em> equity (<span class="math inline">\(r_U\)</span>) is related to the returns of levered equity (<span class="math inline">\(r_E\)</span>) and debt (<span class="math inline">\(r_D\)</span>):</p></li>
+<li class="fragment"><p>So, we can write that the return on <em>unlevered</em> equity (**<span class="math inline">\(r_U\)</span>) is related to the returns of levered equity (<span class="math inline">\(r_E\)</span>) and debt (<span class="math inline">\(r_D\)</span>):</p></li>
 </ul>
 <div class="fragment">
 <p><span class="math display">\[
 \small r_U = \frac{E}{E+D} \times r_E + \frac{D}{E+D} \times r_D
 \]</span></p>
 <ul>
-<li class="fragment">Rearranging terms and solving for <span class="math inline">\(r_E\)</span><sup>1</sup>:</li>
+<li class="fragment">Rearranging terms and solving for <span class="math inline">\(r_E\)</span>:</li>
 </ul>
 </div>
 <div class="fragment">
@@ -937,7 +941,7 @@ Lucas S. Macoris
 \small r_E = r_U + \frac{D}{E} \times (r_U - r_D)
 \]</span></p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>See details in the <em>Appendix</em></p></li></ol></aside></section>
+</section>
 <section id="proposition-ii---modigliani-and-miller-continued-1" class="slide level2">
 <h2><em>Proposition II - Modigliani and Miller</em> (continued)</h2>
 <ul>
@@ -972,15 +976,19 @@ Lucas S. Macoris
 </div>
 <div class="fragment">
 <p><span class="math display">\[
-\small r_{WACC} = \frac{E}{E+D} \times r_E + \frac{D}{E+D} \times r_D \rightarrow  30\% \times 38.33\% + 70\% \times 5\% = 15\%
+\small r_{WACC} = \frac{E}{E+D} \times r_E + \frac{D}{E+D} \times r_D
 \]</span></p>
 <p><span class="math inline">\(\rightarrow\)</span> <em>With perfect capital markets, a firm’s WACC is independent of its capital structure and is equal to its equity cost of capital if it is unlevered</em></p>
 </div>
 </section>
+<section id="add-slide-with-different-de" class="slide level2">
+<h2>Add slide with different D/E</h2>
+<p>Although debt has a lower cost of capital than equity, leverage does not lower a firm’s WACC. As a result, the value of the firm’s free cash flow evaluated using the WACC does not change, and so the enterprise value of the firm does not depend on its financing choices.**</p>
+</section>
 <section id="proposition-ii---modigliani-and-miller-example" class="slide level2">
 <h2><em>Proposition II - Modigliani and Miller</em> (example)</h2>
 <ul>
-<li class="fragment"><p><span class="blue"><em>Honeywell</em></span> <em>(ticker: HON) has a market debt−equity ratio of</em> <span class="math inline">\(\small0.5\)</span>. Assume its current debt cost of capital is <span class="math inline">\(\small6.5\%\)</span>, and its equity cost of capital is <span class="math inline">\(\small 14\%\)</span>. If HON issues equity and uses the proceeds to repay its debt and reduce its debt−equity ratio to <span class="math inline">\(0.4\)</span>, it will lower its debt cost of capital to <span class="math inline">\(\small 5.75\%\)</span>.</p></li>
+<li class="fragment"><p><em><span class="blue">Honeywell</span> (ticker: HON) has a market debt−equity ratio of <span class="math inline">\(\small0.5\)</span>. Assume its current debt cost of capital is <span class="math inline">\(\small6.5\%\)</span>, and its equity cost of capital is <span class="math inline">\(\small 14\%\)</span>. If HON issues equity and uses the proceeds to repay its debt and reduce its debt−equity ratio to <span class="math inline">\(0.4\)</span>, it will lower its debt cost of capital to <span class="math inline">\(\small 5.75\%\)</span>.</em></p></li>
 <li class="fragment"><p>With perfect capital markets, what effect will this transaction have on <em>HON</em>’s equity cost of capital and <em>WACC</em>?</p></li>
 </ul>
 <div class="fragment">
@@ -1056,114 +1064,94 @@ Lucas S. Macoris
 <li class="fragment"><em>Leverage increases earnings per share (EPS), thus increase firm value</em></li>
 <li class="fragment"><em>Issuing new equity will dilute existing shareholders, so debt should be issued</em></li>
 </ul>
-<div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> <em>As we’ll see, using Modigliani and Miller’s proposition under perfect capital markets, we can conclude that both claims are incorrect - in other words, these actions do not change the value of a firm</em></p>
-</div>
 </section>
-<section id="capital-structure-fallacies---eps" class="slide level2">
-<h2>Capital Structure Fallacies - EPS</h2>
-<ul>
-<li class="fragment"><p>Assume that <em>LVI</em>’s EBIT is not expected to grow in the future and that all earnings are paid as dividends. <strong>Is the increase in expected EPS lead to an increase in the share price?</strong></p></li>
-<li class="fragment"><p>Without leverage, expected earnings per share and therefore dividends are <span class="math inline">\(\small\$1\)</span> each year, and the share price is <span class="math inline">\(\small\$7.50\)</span></p></li>
-<li class="fragment"><p>Let <span class="math inline">\(r_U\)</span> be <em>LVI</em>’s cost of capital without leverage. The value <em>LVI</em> as a perpetuity is simply:</p></li>
-</ul>
-<div class="fragment">
-<p><span class="math display">\[
-\small P = 7.50 = \frac{Div}{r_U} = \frac{EPS}{r_U} = \frac{1}{r_U}
-\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> <em>Therefore, current stock price implies that <span class="math inline">\(\small r_U = \frac{1}{7.50} = 13.33\%\)</span></em></p>
-</div>
+<section id="capital-structure-fallacies-1" class="slide level2">
+<h2>Capital Structure Fallacies</h2>
+<p><strong>Problem</strong></p>
+<p>Assume that LVI’s EBIT is not expected to grow in the future and that all earnings are paid as dividends. Use MM proposition I and II to show that the increase in expected EPS for LVI will not lead to an increase in the share price.</p>
+<p><strong>Solution</strong></p>
+<p>Without leverage, expected earnings per share and therefore dividends are 1 each year, and the share price 7.50. Let r be LVI’s cost of capital without leverage. Then we can value LVI as a perpetuity:</p>
+<p><span class="math display">\[P = 7.50 = \frac{Div}{R_u} = \frac{EPS}{R_u} = \frac{1}{R_u}\]</span></p>
+<p>Therefore, current stock price implies that <span class="math inline">\(R_u = \frac{1}{7.50} = 13.33\%\)</span></p>
 </section>
-<section id="capital-structure-fallacies---eps-continued" class="slide level2">
-<h2>Capital Structure Fallacies - EPS (continued)</h2>
+<section id="capital-structure-fallacies-2" class="slide level2">
+<h2>Capital Structure Fallacies</h2>
 <ul>
-<li class="fragment">The market value of <em>LVI</em> without leverage is <span class="math inline">\(\small \$7.50 \times 10\)</span> million shares = <span class="math inline">\(\small \$75\)</span> million. Assume that <em>LVI</em> uses debt to repurchase <span class="math inline">\(\small 15\)</span> million worth of the firm’s equity. As a result, the remaining equity will be worth <span class="math inline">\(\small 75\)</span> million − <span class="math inline">\(\small \$15\)</span> million = <span class="math inline">\(\small \$60\)</span> million. After the transaction, <span class="math inline">\(\frac{D}{E} = \frac{1}{4}\)</span>, thus, we can write:</li>
+<li class="fragment">The market value of LVI without leverage is 7.50 × 10 million shares = 75 million.</li>
+<li class="fragment">If LVI uses debt to repurchase 15 million worth of the firm’s equity</li>
+<li class="fragment">then the remaining equity will be worth 75 million − 15million = 60 million.</li>
 </ul>
-<div class="fragment">
-<p><span class="math display">\[
-\small r_E= r_U +\frac{D}{E} \times (r_U - r_D) = 13.33\% + 0.25 \times (13.33\% - 8\%) = 14.66
-\]</span></p>
-<ul>
-<li class="fragment">Given that expected EPS is now <span class="math inline">\(\small \$1.10\)</span> per share, the new value of the shares equals:</li>
-</ul>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-\small P=\frac{1.10}{14.66\%} = 7.50
-\]</span></p>
-<p><span class="math inline">\(\rightarrow\)</span> <em>Thus, even though EPS is higher, due to the additional risk, shareholders will demand a higher return. These effects cancel out, so the price per share is unchanged</em></p>
-</div>
+<p>After the transaction, <span class="math inline">\(\frac{D}{E} = \frac{1}{4}\)</span>, thus, we can write:</p>
+<p><span class="math display">\[R_e= R_u +\frac{D}{E} \times (R_u - R_d) = 13.33 + 0.25 \times (13.33 - 8) = 14.66\]</span></p>
+<p>Given that expected EPS is now 1.10 per share, the new value of the shares equals</p>
+<p><span class="math display">\[P=\frac{1.10}{14.66} = 7.50\]</span></p>
+<p>Thus, even though EPS is higher, due to the additional risk, shareholders will demand a higher return. <strong>These effects cancel out, so the price per share is unchanged.</strong></p>
 </section>
-<section id="capital-structure-fallacies---eps-continued-1" class="slide level2">
-<h2>Capital Structure Fallacies - EPS (continued)</h2>
+<section id="capital-structure-fallacies-3" class="slide level2">
+<h2>Capital Structure Fallacies</h2>
+<p>Because the <strong>firm’s earnings per share and price-earnings ratio are affected by leverage, we cannot reliably compare these measures across firms with different capital structures</strong>.</p>
+<p>The same is true for accounting-based performance measures such as return on equity (ROE).</p>
+<p>Therefore, most analysts prefer to use performance measures and valuation multiples that are based on the firm’s earnings before interest has been deducted.</p>
 <ul>
-<li class="fragment"><p>Because the firm’s <em>Earnings-per-Share (EPS</em>) and <em>Price-Earnings (P/E)</em> ratio are affected by leverage, we <em>cannot</em> reliably compare these measures across firms with different capital structures:</p>
-<ol type="1">
-<li class="fragment"><p>The same is true for accounting-based performance measures such as the <em>Return on Equity (ROE)</em>.</p></li>
-<li class="fragment"><p>Therefore, most analysts prefer to use performance measures and valuation multiples that are based on the firm’s earnings before interest has been deducted</p></li>
-</ol></li>
-<li class="fragment"><p>For example, the ratio of enterprise value to <em>EBIT</em> (or <em>EBITDA</em>) is more useful when analyzing firms with very different capital structures than is comparing their <em>P/E</em> ratios</p></li>
+<li class="fragment">For example, the ratio of enterprise value to EBIT (or EBITDA) is more useful when analyzing firms with very different capital structures than is comparing their P/E ratios.</li>
 </ul>
 </section>
-<section id="capital-structure-fallacies---equity-issuances-and-dilution" class="slide level2">
-<h2>Capital Structure Fallacies - Equity Issuances and Dilution</h2>
+<section id="capital-structure-fallacies-4" class="slide level2">
+<h2>Capital Structure Fallacies</h2>
+<p><strong>Equity Issuances and Dilution</strong></p>
+<p>It is sometimes (incorrectly) argued that issuing equity will dilute existing shareholders’ ownership, so debt financing should be used instead.</p>
 <ul>
-<li class="fragment"><p>It is sometimes (incorrectly) argued that issuing equity will dilute existing shareholders’ ownership, so debt financing should be used instead</p></li>
-<li class="fragment"><p>To see that, suppose <em>Jet Sky Airlines (JSA)</em> currently has no debt and <span class="math inline">\(\small 500\)</span> million shares of stock outstanding, which is currently trading at a price of <span class="math inline">\(\small \$16\)</span>. Last month, the firm announced that it would expand and the expansion will require the purchase of <span class="math inline">\(\small \$1 billion\)</span> of new planes, which will be financed by issuing new <em>equity</em>:</p>
-<ol type="1">
-<li class="fragment">The <em>current</em> (prior to the issue) value of the equity and the assets of the firm is <span class="math inline">\(\small \$8\)</span> billion</li>
-<li class="fragment">Therefore, <span class="math inline">\(\small 500\)</span> million shares <span class="math inline">\(\times\)</span> <span class="math inline">\(\small \$16\)</span> per share leads to a firm value of <span class="math inline">\(\small \$8\)</span> billion</li>
-</ol></li>
+<li class="fragment">Dilution: An increase in the total of shares that will divide a fixed amount of earnings</li>
+</ul>
+<p>Suppose Jet Sky Airlines (JSA) currently has no debt and 500 million shares of stock outstanding, which is currently trading at a price of $16.</p>
+<p>Last month the firm announced that it would expand and the expansion will require the purchase of $1 billion of new planes, which will be financed by issuing new equity.</p>
+<ul>
+<li class="fragment">The current (prior to the issue) value of the equity and the assets of the firm is 8 billion.
+<ul>
+<li class="fragment">500 million shares × 16 per share = 8 billion</li>
+</ul></li>
 </ul>
 </section>
-<section id="capital-structure-fallacies---equity-issuances-and-dilution-continued" class="slide level2">
-<h2>Capital Structure Fallacies - Equity Issuances and Dilution (continued)</h2>
-<ul>
-<li class="fragment">Suppose now <em>JSA</em> sells <span class="math inline">\(\small 62.5\)</span> million new shares at the current price of <span class="math inline">\(\small 16\)</span> per share to raise the additional <span class="math inline">\(\small \$1\)</span> billion needed to purchase the planes:</li>
-</ul>
-<div class="fragment">
+<section id="capital-structure-fallacies-5" class="slide level2">
+<h2>Capital Structure Fallacies</h2>
+<p>Suppose now JSA sells 62.5 million new shares at the current price of 16 per share to raise the additional 1 billion needed to purchase the planes.</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: center;"><em>Assets</em></th>
-<th style="text-align: center;"><em>Before</em></th>
-<th style="text-align: center;"><em>After</em></th>
+<th>Assets</th>
+<th>Before</th>
+<th>After</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><em>Cash</em></td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">$1,000</td>
+<td>Cash</td>
+<td></td>
+<td>1000</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><em>Existing Assets</em></td>
-<td style="text-align: center;">$8,000</td>
-<td style="text-align: center;">$8,000</td>
+<td>Existing assets</td>
+<td>8000</td>
+<td>8000</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><strong>Total Value</strong></td>
-<td style="text-align: center;"><strong>$8,000</strong></td>
-<td style="text-align: center;"><strong>$9,000</strong></td>
+<td>Total Value</td>
+<td>8000</td>
+<td>9000</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"># Shares (out)</td>
-<td style="text-align: center;">$500</td>
-<td style="text-align: center;">$562.5</td>
+<td># shares (out)</td>
+<td>500</td>
+<td>562.5</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><strong>Value per share</strong></td>
-<td style="text-align: center;"><strong>$16</strong></td>
-<td style="text-align: center;"><strong>$16</strong></td>
+<td>Value per share</td>
+<td>16</td>
+<td>16</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> <em>As a consequence, share prices don’t change. Any gain or loss associated with the transaction will result from the NPV of the investments the firm makes with the funds raised</em></p>
-</div>
+<p><strong>Result: share prices don’t change. Any gain or loss associated with the transaction will result from the NPV of the investments the firm makes with the funds raised.</strong></p>
 </section>
 <section id="why-should-i-bother-about-modigliani-and-miller" class="slide level2">
 <h2>Why should I bother about <em>Modigliani and Miller?</em></h2>
@@ -1182,7 +1170,7 @@ Lucas S. Macoris
 <ul>
 <li class="fragment"><p>You may well think…but we are not in a perfect capital market, <span class="blue">so why should I bother</span>? That goes hand in hand with the <em>Modigliani and Miller</em> findings:</p>
 <ol type="1">
-<li class="fragment">If capital markets were perfect (as in the <em>Modigliani and Miller</em> world), then the value of a firm should not be affected by any financial transaction…</li>
+<li class="fragment">if capital markets were perfect (as in the <em>Modigliani and Miller</em> world), then the value of a firm should not be affected by any financial transaction…</li>
 <li class="fragment">… this implies that if there is a financial transaction that appears to be a good, it must be that it is exploiting some type of market imperfection!</li>
 </ol></li>
 <li class="fragment"><p>Knowing how these imperfections affect the firm value is important for business and policy considerations</p>
@@ -1213,59 +1201,9 @@ Lucas S. Macoris
 </div>
 </div>
 </section>
-<section>
-<section id="appendix" class="title-slide slide level1 center">
-<h1>Appendix</h1>
-
-</section>
-<section id="levered-and-unlevered-beta" class="slide level2">
-<h2>Levered and Unlevered <span class="math inline">\(\beta\)</span></h2>
-<ul>
-<li class="fragment">Recall that the unlevered beta, <span class="math inline">\(\beta_U\)</span>, is simply:</li>
-</ul>
-<div class="fragment">
-<p><span class="math display">\[
-\small \beta_U = \frac{E}{E+D}\times \beta_E + \frac{D}{E+D} \times \beta_D
-\]</span></p>
-<ul>
-<li class="fragment">Putting it into <span class="math inline">\(\beta_E\)</span> terms, we have:</li>
-</ul>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-\small \begin{align}
-&amp;\beta_U = \frac{(E\times \beta_E +D\times \beta_D)}{E+D}\\
-&amp;\rightarrow E\times \beta_E =(E+D)\times\beta_U - D\times \beta_D\\
-&amp;\rightarrow\beta_E =\dfrac{(E+D)\times\beta_U - D\times \beta_D}{E}=\beta_U+\dfrac{D}{E}\times \beta_U-\dfrac{D}{E}\times \beta_D\\
-&amp;\rightarrow \beta_E= \beta_U+\dfrac{D}{E}\times(\beta_U-\beta_D)
-\end{align}
-\]</span></p>
-</div>
-</section>
-<section id="levered-and-unlevered-cost-of-capital" class="slide level2">
-<h2>Levered and Unlevered Cost of Capital</h2>
-<ul>
-<li class="fragment">Note that, as we can lever (or unlever) <span class="math inline">\(\beta\)</span>, we can do the same with the required returns from equity, <span class="math inline">\(r_E\)</span>:</li>
-</ul>
-<div class="fragment">
-<p><span class="math display">\[
-\small r_U = \frac{E}{E+D}\times r_E + \frac{D}{E+D} \times r_D
-\]</span></p>
-<ul>
-<li class="fragment">Putting it into <span class="math inline">\(r_E\)</span> terms and using the same rationale, we have:</li>
-</ul>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-r_E= r_U+\dfrac{D}{E}\times(r_U-r_D)
-\]</span></p>
-<ul>
-<li class="fragment">In words, if leverage <span class="blue">increases</span> (through higher debt-to-equity ratios), the equity sensitivity should increase as well, and the required returns for equity should increase!</li>
-</ul>
-</div>
-</section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
+
 <div class="quarto-auto-generated-content">
 <p><img src="logo.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -1280,26 +1218,25 @@ Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Glob
 Brealey, R. A., S. C. Myers, and F. Allen. 2020. <em>Principles of Corporate Finance</em>. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. <a href="https://books.google.com.br/books?id=nsrHuwEACAAJ">https://books.google.com.br/books?id=nsrHuwEACAAJ</a>.
 </div>
 </div>
-</section></section>
-
+</section>
     </div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1583,7 +1520,7 @@ Brealey, R. A., S. C. Myers, and F. Allen. 2020. <em>Principles of Corporate Fin
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/lsmacoris\.github\.io\/lectures");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
