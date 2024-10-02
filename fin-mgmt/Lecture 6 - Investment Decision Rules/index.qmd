@@ -312,12 +312,12 @@ hchart(NPV,type='line',hcaes(x=Discount,y=NPV,group=Type))%>%
 
 ## IRR Pitfall #1: delayed investments
 
-- At a $\small 10\%$ discount rate, the NPV is [negative]{.red}, so signing the deal would [destroy]{.red} value. Why?
+-   At a $\small 10\%$ discount rate, the NPV is [negative]{.red}, so signing the deal would [destroy]{.red} value. Why?
 
-- For most investment projects, expenses occur initially and cash is received later. In this case, the project gets cash *upfront* and incurs the costs *later*
+-   For most investment projects, expenses occur initially and cash is received later. In this case, the project gets cash *upfront* and incurs the costs *later*
 
-  1. It is like we are receiving cash today in exchange for a future liability — and when you borrow money you prefer as *low* a rate as possible 
-  2. In this case, the *IRR* is best interpreted as the rate that we are *paying* rather than *earning*
+    1.  It is like we are receiving cash today in exchange for a future liability — and when you borrow money you prefer as *low* a rate as possible
+    2.  In this case, the *IRR* is best interpreted as the rate that we are *paying* rather than *earning*
 
 . . .
 
@@ -384,15 +384,15 @@ hchart(NPV,type='scatter',hcaes(x=Discount,y=NPV,group=Type))%>%
 
 ## IRR Pitfall #2: multiple IRR solutions
 
-- In this case, there are *two* *IRR*s — that is, there are two values of $\small r$ that set the NPV equal to zero: $\small7.16\%$ and $\small33.67\%$. Because there is more than one IRR, we *cannot* apply the IRR rule
+-   In this case, there are *two* *IRR*s — that is, there are two values of $\small r$ that set the NPV equal to zero: $\small7.16\%$ and $\small33.67\%$. Because there is more than one IRR, we *cannot* apply the IRR rule
 
-  1. If $r\leq \small7.16\%$ or $r\geq\small33.67\%$, we should undertake the opportunity
-  2. Otherwise, he should turn it down
+    1.  If $r\leq \small7.16\%$ or $r\geq\small33.67\%$, we should undertake the opportunity
+    2.  Otherwise, he should turn it down
 
-- Notice that even though the *IRR rule* fails in this case, the two IRRs are still useful as bounds on the cost of capital:
-  1. If the cost of capital estimate is wrong, and it is actually *smaller* than $\small7.16\%$ or *larger* than $\small33.67\%$, the decision not to pursue the project will change
-  2. Even if we are uncertain whether the actual cost of capital is $\small10\%$, as long as he believes it is within these bounds, he can have a high degree of confidence in the decision to reject the deal!
-  
+-   Notice that even though the *IRR rule* fails in this case, the two IRRs are still useful as bounds on the cost of capital:
+
+    1.  If the cost of capital estimate is wrong, and it is actually *smaller* than $\small7.16\%$ or *larger* than $\small33.67\%$, the decision not to pursue the project will change
+    2.  Even if we are uncertain whether the actual cost of capital is $\small10\%$, as long as he believes it is within these bounds, he can have a high degree of confidence in the decision to reject the deal!
 
 ## Pitfall #3: non-existent IRR
 
@@ -462,74 +462,13 @@ hchart(NPV,type='line',hcaes(x=Discount,y=NPV,group=Type))%>%
     3.  Depending on the magnitude of the cash-flows, there may be no $r$ that satisfies $\small NPV=0$
 
     4.  Even if these caveats are not applicable, the IRR rule will yield the same solution as of the NPV rule (i.e, accept/reject, or indicate the rank the best investment projects)
+    
+    5. Finally, the IRR has also an implicit *reinvestment assumption* - see the *Appendix* for a detailed discussion
 
 -   Because of these reasons, it is always recommended to use the NPV rule!
 
-## IRR and the reinvestment assumption
 
--   Let's go back to our *Cia Amazônia* example where the IRR rule coincided with the NPV rule:
-
-. . .
-
-|                  |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
-|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| *Free Cash Flow* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
-
--   And we know that when $\small r=22.61\%$, $\small NPV=0$:
-
-. . .
-
-$$
-\small
--219,000+\dfrac{46,592}{(1+22.61\%)^1}+\dfrac{69,266}{(1+22.61\%)^2}+\dfrac{80,218}{(1+22.61\%)^3}+\dfrac{101,293}{(1+22.61\%)^4}+\dfrac{130,684}{(1+22.61\%)^5}=0
-$$
-
--   Notably, $r$ is just adjusting each cash-flow stream to accomodate the time-value of money in each given period.
-
--   If that is true, then moving $\small FC_{1}$ to $\small FC_{4}$ to $\small t=5$ using the approriate $\small r$ should **not** change our $\small IRR$ calculation
-
-## IRR and the reinvestment assumption
-
--   Rearranging our cash-flows from periods $\small t=2$ to $\small t=4$ to the last period, we now have a new cash-flow stream:
-
-. . .
-
-|                  |     **Year 0**     |  **Year 1**   |   **Year2**   |   **Year3**   |  **Year 4**   |     **Year 5**      |
-|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| *Free Cash Flow* | [-\$219,600]{.red} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$608,405]{.green} |
-
--   Again, if we use $\small IRR(\cdot)$ in *Excel*, $\small r=22.61\%$ as expected, since we've just reorganized all intermediate cash-flows to the last period. But what this is telling us?
-
--   Recall that the IRR is an [average]{.blue} of the project's profitability. Behind the scenes, [we are assuming that the intermediate cash-flows could have been reinvested at the same $r=\small 22.61\%$ rate]{.blue}. This may not hold true if, for example:
-
-    1.  A project does not have enough room to expand and receive reinvestments
-    2.  The rate of return of new investments is not the same as of the actual project
-
-## The *Modified IRR* (M-TIR)
-
--   As outlined in the previous example, one of the main problems with the IRR is the assumption that the obtained positive cash flows are reinvested at the same rate at which they were generated
-
--   The *Modified IRR* (M-TIR) considers that the proceeds from the positive cash flows of a project will be reinvested using a *different* rate of return. Frequently, the external rate of return is set equal to the company's cost of capital.
-
--   Using $\small MIRR(\cdot)$ - or $\small MTIR(\cdot)$ - in *Excel*, one can specify different *financing* rates (i.e, the cost of capital) and *reinvestment* rates
-
-## The *Modified IRR* (M-TIR) in the *Cia Amazônia* case
-
--   Let's say that, in our example, we would be able to reinvest the proceeds of the intermediate cash-flows at a 15% rate. If that is the case, then we would have the following cash-flow stream:
-
-. . .
-
-|                  |     **Year 0**     |  **Year 1**   |   **Year2**   |   **Year3**   |  **Year 4**   |     **Year 5**      |
-|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| *Free Cash Flow* | [-\$219,600]{.red} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$540,094]{.green} |
-
--   If we now use the $IRR(\cdot)$ function in *Excel*, our new estimate for $\small r$ is $19.72\%$!
-
--   Alternatively, if we kept the original cash-flow stream, but applied the $MIRR(\cdot)$ function and set the reinvestment rate to be $15\%$, we would have gotten the exact same result!
-
--   In other words, one needs to be very cautious when interpreting *IRR* estimates
-
-## Comparing IRRs for multiple projects
+## Comparing IRRs for multiple projects: practice
 
 -   The complications around the use of *IRR* as a general rule for investment decisions are clearer when, instead of comparing a single project to an outside option of not investment at all, we have [multiple]{.blue} potential projects:
 
@@ -584,31 +523,6 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 
 ```
 
-## Evaluating Cash Flow Streams
-
--   Financial Managers are often faced with a decision regarding a stream of cash flows stemming from an investment opportunity
-
--   There are multiple ways to evaluate an investment opportunity:
-
-    1.  Compare the *discounted* value of the cash-flows among alternatives
-    2.  Analyze the rate of return of the alternatives
-    3.  Verify the amount of time that a project takes to repay its investment
-
--   As we'll see throughout this (and the next) lectures, we'll compare the *net present value* rule to other investment rules that firms sometimes use and explain why the net present value rule is [superior]{.blue}
-
-## IRR rule: overall thoughts
-
--   Given the mathematical caveats of the IRR rule expression, one needs to be cautious when using it to evaluate a project (or compare across projects):
-
-    1.  If a project has [positive]{.green} cash flows that precede [negative]{.red} ones, it is important to look at the project's NPV profile in order to interpret the IRR
-
-    2.  If there is more than a one-time-change in the sign of the cash-flow streams (say, for example, [-]{.red} [+]{.green} [+]{.green} [+]{.green} [-]{.red}), there will be a case of multiple IRRs that satisfy the $\small NPV=0$ condition!
-
-    3.  Depending on the magnitude of the cash-flows, there may be no $r$ that satisfies $\small NPV=0$
-
-    4.  Even if these caveats are not applicable, the IRR rule will yield the same solution as of the NPV rule (i.e, accept/reject, or indicate the rank the best investment projects)
-
--   Because of these reasons, it is always recommended to use the NPV rule!
 
 ## The *Payback* rule
 
@@ -653,9 +567,9 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 
 -   In what follows, we'll detail some of the most important ones that make the case for the use of *NPV* as our "ground truth":
 
-1.  it [ignores]{.red} the time value of money and the project's cost of capital
-2.  it [ignores]{.red} the cash-flow realizations after the payback period
-3.  it relies on an *ad-hoc* decision around the payback period threshold
+1.  The *Payback* [ignores]{.red} the time value of money and the project's cost of capital
+2.  It also [ignores]{.red} the cash-flow realizations after the payback period
+3.  Finally, it relies on an *ad-hoc* decision around the payback period threshold
 
 ## Payback pitfall #1
 
@@ -830,7 +744,7 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 -   Because the *IRR* is a [return]{.blue} metric, you really cannot tell how much [monetary value]{.blue} will actually be created without knowing the scale of the investment!
 
 1.  Book Store: $\small -300,000 + \dfrac{63,000}{IRR-3\%}\rightarrow IRR = 24\%$
-2.  Coffee Shop: $\small -400,000 + \dfrac{80,000}{IRR-3\%}\rightarrow IRR = 23\$$
+2.  Coffee Shop: $\small -400,000 + \dfrac{80,000}{IRR-3\%}\rightarrow IRR = 23\%$
 
 -   *Book Store* has a [higher]{.blue} *IRR*. However, *Coffee Shop* has a higher scale of investment level (400,000 *vs.* 300,000), generating a higher *NPV*!
 
@@ -979,7 +893,7 @@ $$
 
     -   In practice, there are more scarce resources that need to be considered altogether: budget limitations, production inputs, physical space, etc
 
-    -   For dealing with a *multiple* resource problem, we can use linear programming techniques
+    -   For dealing with a *multiple* resource problem, we can use linear programming techniques through *Solver* and/or other softwares
 
 ## Supplementary Reading
 
@@ -988,5 +902,72 @@ $$
 . . .
 
 $\rightarrow$ *All contents are available on eClass®.*
+
+# Appendix
+
+## IRR and the reinvestment assumption
+
+-   Let's go back to our *Cia Amazônia* example where the IRR rule coincided with the NPV rule:
+
+. . .
+
+|                  |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| *Free Cash Flow* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
+
+-   And we know that when $\small r=22.61\%$, $\small NPV=0$:
+
+. . .
+
+$$
+\small
+-219,000+\dfrac{46,592}{(1+22.61\%)^1}+\dfrac{69,266}{(1+22.61\%)^2}+\dfrac{80,218}{(1+22.61\%)^3}+\dfrac{101,293}{(1+22.61\%)^4}+\dfrac{130,684}{(1+22.61\%)^5}=0
+$$
+
+-   Notably, $r$ is just adjusting each cash-flow stream to accomodate the time-value of money in each given period.
+
+-   If that is true, then moving $\small FC_{1}$ to $\small FC_{4}$ to $\small t=5$ using the approriate $\small r$ should **not** change our $\small IRR$ calculation
+
+## IRR and the reinvestment assumption
+
+-   Rearranging our cash-flows from periods $\small t=2$ to $\small t=4$ to the last period, we now have a new cash-flow stream:
+
+. . .
+
+|                  |     **Year 0**     |  **Year 1**   |   **Year2**   |   **Year3**   |  **Year 4**   |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| *Free Cash Flow* | [-\$219,600]{.red} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$608,405]{.green} |
+
+-   Again, if we use $\small IRR(\cdot)$ in *Excel*, $\small r=22.61\%$ as expected, since we've just reorganized all intermediate cash-flows to the last period. But what this is telling us?
+
+-   Recall that the IRR is an [average]{.blue} of the project's profitability. Behind the scenes, [we are assuming that the intermediate cash-flows could have been reinvested at the same $r=\small 22.61\%$ rate]{.blue}. This may not hold true if, for example:
+
+    1.  A project does not have enough room to expand and receive reinvestments
+    2.  The rate of return of new investments is not the same as of the actual project
+
+## The *Modified IRR* (M-TIR)
+
+-   As outlined in the previous example, one of the main problems with the IRR is the assumption that the obtained positive cash flows are reinvested at the same rate at which they were generated
+
+-   The *Modified IRR* (M-TIR) considers that the proceeds from the positive cash flows of a project will be reinvested using a *different* rate of return. Frequently, the external rate of return is set equal to the company's cost of capital.
+
+-   Using $\small MIRR(\cdot)$ - or $\small MTIR(\cdot)$ - in *Excel*, one can specify different *financing* rates (i.e, the cost of capital) and *reinvestment* rates
+
+## The *Modified IRR* (M-TIR) in the *Cia Amazônia* case
+
+-   Let's say that, in our example, we would be able to reinvest the proceeds of the intermediate cash-flows at a 15% rate. If that is the case, then we would have the following cash-flow stream:
+
+. . .
+
+|                  |     **Year 0**     |  **Year 1**   |   **Year2**   |   **Year3**   |  **Year 4**   |     **Year 5**      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| *Free Cash Flow* | [-\$219,600]{.red} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$540,094]{.green} |
+
+-   If we now use the $IRR(\cdot)$ function in *Excel*, our new estimate for $\small r$ is $19.72\%$!
+
+-   Alternatively, if we kept the original cash-flow stream, but applied the $MIRR(\cdot)$ function and set the reinvestment rate to be $15\%$, we would have gotten the exact same result!
+
+-   In other words, one needs to be very cautious when interpreting *IRR* estimates
+
 
 ## References
