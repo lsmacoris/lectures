@@ -1516,63 +1516,21 @@
     "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-rule-overall-thoughts",
     "title": "Investment Decision Rules",
     "section": "IRR rule: overall thoughts",
-    "text": "IRR rule: overall thoughts\n\nGiven the mathematical caveats of the IRR rule expression, one needs to be cautious when using it to evaluate a project (or compare across projects):\n\nIf a project has positive cash flows that precede negative ones, it is important to look at the project’s NPV profile in order to interpret the IRR\nIf there is more than a one-time-change in the sign of the cash-flow streams (say, for example, - + + + -), there will be a case of multiple IRRs that satisfy the \\(\\small NPV=0\\) condition!\nDepending on the magnitude of the cash-flows, there may be no \\(r\\) that satisfies \\(\\small NPV=0\\)\nEven if these caveats are not applicable, the IRR rule will yield the same solution as of the NPV rule (i.e, accept/reject, or indicate the rank the best investment projects)\n\nBecause of these reasons, it is always recommended to use the NPV rule!"
+    "text": "IRR rule: overall thoughts\n\nGiven the mathematical caveats of the IRR rule expression, one needs to be cautious when using it to evaluate a project (or compare across projects):\n\nIf a project has positive cash flows that precede negative ones, it is important to look at the project’s NPV profile in order to interpret the IRR\nIf there is more than a one-time-change in the sign of the cash-flow streams (say, for example, - + + + -), there will be a case of multiple IRRs that satisfy the \\(\\small NPV=0\\) condition!\nDepending on the magnitude of the cash-flows, there may be no \\(r\\) that satisfies \\(\\small NPV=0\\)\nEven if these caveats are not applicable, the IRR rule will yield the same solution as of the NPV rule (i.e, accept/reject, or indicate the rank the best investment projects)\nFinally, the IRR has also an implicit reinvestment assumption - see the Appendix for a detailed discussion\n\nBecause of these reasons, it is always recommended to use the NPV rule!"
   },
   {
-    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-and-the-reinvestment-assumption",
-    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-and-the-reinvestment-assumption",
+    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#comparing-irrs-for-multiple-projects-practice",
+    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#comparing-irrs-for-multiple-projects-practice",
     "title": "Investment Decision Rules",
-    "section": "IRR and the reinvestment assumption",
-    "text": "IRR and the reinvestment assumption\n\nLet’s go back to our Cia Amazônia example where the IRR rule coincided with the NPV rule:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYear 0\nYear 1\nYear2\nYear3\nYear 4\nYear 5\n\n\n\n\nFree Cash Flow\n-$219,600\n$46,592\n$69,266\n$80,218\n$101,293\n$130,684\n\n\n\n\nAnd we know that when \\(\\small r=22.61\\%\\), \\(\\small NPV=0\\):\n\n\n\n\\[\n\\small\n-219,000+\\dfrac{46,592}{(1+22.61\\%)^1}+\\dfrac{69,266}{(1+22.61\\%)^2}+\\dfrac{80,218}{(1+22.61\\%)^3}+\\dfrac{101,293}{(1+22.61\\%)^4}+\\dfrac{130,684}{(1+22.61\\%)^5}=0\n\\]\n\nNotably, \\(r\\) is just adjusting each cash-flow stream to accomodate the time-value of money in each given period.\nIf that is true, then moving \\(\\small FC_{1}\\) to \\(\\small FC_{4}\\) to \\(\\small t=5\\) using the approriate \\(\\small r\\) should not change our \\(\\small IRR\\) calculation"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-and-the-reinvestment-assumption-1",
-    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-and-the-reinvestment-assumption-1",
-    "title": "Investment Decision Rules",
-    "section": "IRR and the reinvestment assumption",
-    "text": "IRR and the reinvestment assumption\n\nRearranging our cash-flows from periods \\(\\small t=2\\) to \\(\\small t=4\\) to the last period, we now have a new cash-flow stream:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYear 0\nYear 1\nYear2\nYear3\nYear 4\nYear 5\n\n\n\n\nFree Cash Flow\n-$219,600\n$0\n$0\n$0\n$0\n$608,405\n\n\n\n\nAgain, if we use \\(\\small IRR(\\cdot)\\) in Excel, \\(\\small r=22.61\\%\\) as expected, since we’ve just reorganized all intermediate cash-flows to the last period. But what this is telling us?\nRecall that the IRR is an average of the project’s profitability. Behind the scenes, we are assuming that the intermediate cash-flows could have been reinvested at the same \\(r=\\small 22.61\\%\\) rate. This may not hold true if, for example:\n\nA project does not have enough room to expand and receive reinvestments\nThe rate of return of new investments is not the same as of the actual project"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#the-modified-irr-m-tir",
-    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#the-modified-irr-m-tir",
-    "title": "Investment Decision Rules",
-    "section": "The Modified IRR (M-TIR)",
-    "text": "The Modified IRR (M-TIR)\n\nAs outlined in the previous example, one of the main problems with the IRR is the assumption that the obtained positive cash flows are reinvested at the same rate at which they were generated\nThe Modified IRR (M-TIR) considers that the proceeds from the positive cash flows of a project will be reinvested using a different rate of return. Frequently, the external rate of return is set equal to the company’s cost of capital.\nUsing \\(\\small MIRR(\\cdot)\\) - or \\(\\small MTIR(\\cdot)\\) - in Excel, one can specify different financing rates (i.e, the cost of capital) and reinvestment rates"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#the-modified-irr-m-tir-in-the-cia-amazônia-case",
-    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#the-modified-irr-m-tir-in-the-cia-amazônia-case",
-    "title": "Investment Decision Rules",
-    "section": "The Modified IRR (M-TIR) in the Cia Amazônia case",
-    "text": "The Modified IRR (M-TIR) in the Cia Amazônia case\n\nLet’s say that, in our example, we would be able to reinvest the proceeds of the intermediate cash-flows at a 15% rate. If that is the case, then we would have the following cash-flow stream:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYear 0\nYear 1\nYear2\nYear3\nYear 4\nYear 5\n\n\n\n\nFree Cash Flow\n-$219,600\n$0\n$0\n$0\n$0\n$540,094\n\n\n\n\nIf we now use the \\(IRR(\\cdot)\\) function in Excel, our new estimate for \\(\\small r\\) is \\(19.72\\%\\)!\nAlternatively, if we kept the original cash-flow stream, but applied the \\(MIRR(\\cdot)\\) function and set the reinvestment rate to be \\(15\\%\\), we would have gotten the exact same result!\nIn other words, one needs to be very cautious when interpreting IRR estimates"
+    "section": "Comparing IRRs for multiple projects: practice",
+    "text": "Comparing IRRs for multiple projects: practice\n\nThe complications around the use of IRR as a general rule for investment decisions are clearer when, instead of comparing a single project to an outside option of not investment at all, we have multiple potential projects:\n\n\n\n\n\nProject\nYear 0\nYear 1\nYear 2\n\n\n\n\nA\n-$375\n-$300\n$900\n\n\nB\n-$22,222\n$50,000\n-$28,000\n\n\nC\n$400\n$400\n-$1,056\n\n\nD\n-$4,300\n$10,000\n-$6,000\n\n\n\nQuestion: Which of these projects have an IRR close to 20%? For which of these projects does the IRR rule provide the correct decision? For this, we’ll analyze an NPV profile for each of these projects - see the example in (Berk and DeMarzo 2023)"
   },
   {
     "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#comparing-irrs-for-multiple-projects",
     "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#comparing-irrs-for-multiple-projects",
     "title": "Investment Decision Rules",
     "section": "Comparing IRRs for multiple projects",
-    "text": "Comparing IRRs for multiple projects\n\nThe complications around the use of IRR as a general rule for investment decisions are clearer when, instead of comparing a single project to an outside option of not investment at all, we have multiple potential projects:\n\n\n\n\n\nProject\nYear 0\nYear 1\nYear 2\n\n\n\n\nA\n-$375\n-$300\n$900\n\n\nB\n-$22,222\n$50,000\n-$28,000\n\n\nC\n$400\n$400\n-$1,056\n\n\nD\n-$4,300\n$10,000\n-$6,000\n\n\n\nQuestion: Which of these projects have an IRR close to 20%? For which of these projects does the IRR rule provide the correct decision? For this, we’ll analyze an NPV profile for each of these projects - see the example in (Berk and DeMarzo 2023)"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#comparing-irrs-for-multiple-projects-1",
-    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#comparing-irrs-for-multiple-projects-1",
-    "title": "Investment Decision Rules",
-    "section": "Comparing IRRs for multiple projects",
     "text": "Comparing IRRs for multiple projects"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#evaluating-cash-flow-streams-1",
-    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#evaluating-cash-flow-streams-1",
-    "title": "Investment Decision Rules",
-    "section": "Evaluating Cash Flow Streams",
-    "text": "Evaluating Cash Flow Streams\n\nFinancial Managers are often faced with a decision regarding a stream of cash flows stemming from an investment opportunity\nThere are multiple ways to evaluate an investment opportunity:\n\nCompare the discounted value of the cash-flows among alternatives\nAnalyze the rate of return of the alternatives\nVerify the amount of time that a project takes to repay its investment\n\nAs we’ll see throughout this (and the next) lectures, we’ll compare the net present value rule to other investment rules that firms sometimes use and explain why the net present value rule is superior"
-  },
-  {
-    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-rule-overall-thoughts-1",
-    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-rule-overall-thoughts-1",
-    "title": "Investment Decision Rules",
-    "section": "IRR rule: overall thoughts",
-    "text": "IRR rule: overall thoughts\n\nGiven the mathematical caveats of the IRR rule expression, one needs to be cautious when using it to evaluate a project (or compare across projects):\n\nIf a project has positive cash flows that precede negative ones, it is important to look at the project’s NPV profile in order to interpret the IRR\nIf there is more than a one-time-change in the sign of the cash-flow streams (say, for example, - + + + -), there will be a case of multiple IRRs that satisfy the \\(\\small NPV=0\\) condition!\nDepending on the magnitude of the cash-flows, there may be no \\(r\\) that satisfies \\(\\small NPV=0\\)\nEven if these caveats are not applicable, the IRR rule will yield the same solution as of the NPV rule (i.e, accept/reject, or indicate the rank the best investment projects)\n\nBecause of these reasons, it is always recommended to use the NPV rule!"
   },
   {
     "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#the-payback-rule",
@@ -1593,7 +1551,7 @@
     "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#payback-pitfalls",
     "title": "Investment Decision Rules",
     "section": "Payback pitfalls",
-    "text": "Payback pitfalls\n\nThe payback rule is arguably the easiest rule that one can have in order to decide on whether to accept or reject a project\nNaturally, it comes with a series of pitfalls that may hinder its straightforward application\nIn what follows, we’ll detail some of the most important ones that make the case for the use of NPV as our “ground truth”:\n\n\nit ignores the time value of money and the project’s cost of capital\nit ignores the cash-flow realizations after the payback period\nit relies on an ad-hoc decision around the payback period threshold"
+    "text": "Payback pitfalls\n\nThe payback rule is arguably the easiest rule that one can have in order to decide on whether to accept or reject a project\nNaturally, it comes with a series of pitfalls that may hinder its straightforward application\nIn what follows, we’ll detail some of the most important ones that make the case for the use of NPV as our “ground truth”:\n\n\nThe Payback ignores the time value of money and the project’s cost of capital\nIt also ignores the cash-flow realizations after the payback period\nFinally, it relies on an ad-hoc decision around the payback period threshold"
   },
   {
     "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#payback-pitfall-1",
@@ -1670,7 +1628,7 @@
     "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-caveat-1-scale-of-investment",
     "title": "Investment Decision Rules",
     "section": "IRR caveat #1: scale of investment",
-    "text": "IRR caveat #1: scale of investment\n\nProblem: whenever projects differ in terms of scale of investment, simply contrasting the IRRs may not provide the correct answers\nBecause the IRR is a return metric, you really cannot tell how much monetary value will actually be created without knowing the scale of the investment!\n\n\nBook Store: \\(\\small -300,000 + \\dfrac{63,000}{IRR-3\\%}\\rightarrow IRR = 24\\%\\)\nCoffee Shop: \\(\\small -400,000 + \\dfrac{80,000}{IRR-3\\%}\\rightarrow IRR = 23\\$\\)\n\n\nBook Store has a higher IRR. However, Coffee Shop has a higher scale of investment level (400,000 vs. 300,000), generating a higher NPV!\nWhat if we increase the size of the smaller project? One needs to think if this possibility is plausible from a business perspective and, if that is the case, if the IRR can be maintained (e.g, market saturation)"
+    "text": "IRR caveat #1: scale of investment\n\nProblem: whenever projects differ in terms of scale of investment, simply contrasting the IRRs may not provide the correct answers\nBecause the IRR is a return metric, you really cannot tell how much monetary value will actually be created without knowing the scale of the investment!\n\n\nBook Store: \\(\\small -300,000 + \\dfrac{63,000}{IRR-3\\%}\\rightarrow IRR = 24\\%\\)\nCoffee Shop: \\(\\small -400,000 + \\dfrac{80,000}{IRR-3\\%}\\rightarrow IRR = 23\\%\\)\n\n\nBook Store has a higher IRR. However, Coffee Shop has a higher scale of investment level (400,000 vs. 300,000), generating a higher NPV!\nWhat if we increase the size of the smaller project? One needs to think if this possibility is plausible from a business perspective and, if that is the case, if the IRR can be maintained (e.g, market saturation)"
   },
   {
     "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-caveat-2-timing-of-cashflows",
@@ -1733,7 +1691,7 @@
     "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#shortcomings-of-the-profitability-index",
     "title": "Investment Decision Rules",
     "section": "Shortcomings of the Profitability Index",
-    "text": "Shortcomings of the Profitability Index\n\nAlthough the profitability index is simple to compute and use, for it to be completely reliable, two conditions must be satisfied:\n\nThe set of projects taken following the profitability index ranking completely exhausts the available resource\n\n\nSay that we have a new project, with \\(\\small NPV=120,000\\) that uses 3 engineers\nIts index is \\(\\small 0.12/3=0.04\\), the lowest from all the projects\nHowever, because there are still 3 engineers available, we could pursue it!\n\n\nThere is only a single relevant resource constraint\n\n\nIn practice, there are more scarce resources that need to be considered altogether: budget limitations, production inputs, physical space, etc\nFor dealing with a multiple resource problem, we can use linear programming techniques"
+    "text": "Shortcomings of the Profitability Index\n\nAlthough the profitability index is simple to compute and use, for it to be completely reliable, two conditions must be satisfied:\n\nThe set of projects taken following the profitability index ranking completely exhausts the available resource\n\n\nSay that we have a new project, with \\(\\small NPV=120,000\\) that uses 3 engineers\nIts index is \\(\\small 0.12/3=0.04\\), the lowest from all the projects\nHowever, because there are still 3 engineers available, we could pursue it!\n\n\nThere is only a single relevant resource constraint\n\n\nIn practice, there are more scarce resources that need to be considered altogether: budget limitations, production inputs, physical space, etc\nFor dealing with a multiple resource problem, we can use linear programming techniques through Solver and/or other softwares"
   },
   {
     "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#supplementary-reading",
@@ -1741,6 +1699,34 @@
     "title": "Investment Decision Rules",
     "section": "Supplementary Reading",
     "text": "Supplementary Reading\n\nSee Present Value: A Note on Personal Applications (UV5136) for a detailed discussion on how the diffent applications of the Net Present Value rule\n\n\n\\(\\rightarrow\\) All contents are available on eClass®."
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-and-the-reinvestment-assumption",
+    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-and-the-reinvestment-assumption",
+    "title": "Investment Decision Rules",
+    "section": "IRR and the reinvestment assumption",
+    "text": "IRR and the reinvestment assumption\n\nLet’s go back to our Cia Amazônia example where the IRR rule coincided with the NPV rule:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYear 0\nYear 1\nYear2\nYear3\nYear 4\nYear 5\n\n\n\n\nFree Cash Flow\n-$219,600\n$46,592\n$69,266\n$80,218\n$101,293\n$130,684\n\n\n\n\nAnd we know that when \\(\\small r=22.61\\%\\), \\(\\small NPV=0\\):\n\n\n\n\\[\n\\small\n-219,000+\\dfrac{46,592}{(1+22.61\\%)^1}+\\dfrac{69,266}{(1+22.61\\%)^2}+\\dfrac{80,218}{(1+22.61\\%)^3}+\\dfrac{101,293}{(1+22.61\\%)^4}+\\dfrac{130,684}{(1+22.61\\%)^5}=0\n\\]\n\nNotably, \\(r\\) is just adjusting each cash-flow stream to accomodate the time-value of money in each given period.\nIf that is true, then moving \\(\\small FC_{1}\\) to \\(\\small FC_{4}\\) to \\(\\small t=5\\) using the approriate \\(\\small r\\) should not change our \\(\\small IRR\\) calculation"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-and-the-reinvestment-assumption-1",
+    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#irr-and-the-reinvestment-assumption-1",
+    "title": "Investment Decision Rules",
+    "section": "IRR and the reinvestment assumption",
+    "text": "IRR and the reinvestment assumption\n\nRearranging our cash-flows from periods \\(\\small t=2\\) to \\(\\small t=4\\) to the last period, we now have a new cash-flow stream:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYear 0\nYear 1\nYear2\nYear3\nYear 4\nYear 5\n\n\n\n\nFree Cash Flow\n-$219,600\n$0\n$0\n$0\n$0\n$608,405\n\n\n\n\nAgain, if we use \\(\\small IRR(\\cdot)\\) in Excel, \\(\\small r=22.61\\%\\) as expected, since we’ve just reorganized all intermediate cash-flows to the last period. But what this is telling us?\nRecall that the IRR is an average of the project’s profitability. Behind the scenes, we are assuming that the intermediate cash-flows could have been reinvested at the same \\(r=\\small 22.61\\%\\) rate. This may not hold true if, for example:\n\nA project does not have enough room to expand and receive reinvestments\nThe rate of return of new investments is not the same as of the actual project"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#the-modified-irr-m-tir",
+    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#the-modified-irr-m-tir",
+    "title": "Investment Decision Rules",
+    "section": "The Modified IRR (M-TIR)",
+    "text": "The Modified IRR (M-TIR)\n\nAs outlined in the previous example, one of the main problems with the IRR is the assumption that the obtained positive cash flows are reinvested at the same rate at which they were generated\nThe Modified IRR (M-TIR) considers that the proceeds from the positive cash flows of a project will be reinvested using a different rate of return. Frequently, the external rate of return is set equal to the company’s cost of capital.\nUsing \\(\\small MIRR(\\cdot)\\) - or \\(\\small MTIR(\\cdot)\\) - in Excel, one can specify different financing rates (i.e, the cost of capital) and reinvestment rates"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#the-modified-irr-m-tir-in-the-cia-amazônia-case",
+    "href": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#the-modified-irr-m-tir-in-the-cia-amazônia-case",
+    "title": "Investment Decision Rules",
+    "section": "The Modified IRR (M-TIR) in the Cia Amazônia case",
+    "text": "The Modified IRR (M-TIR) in the Cia Amazônia case\n\nLet’s say that, in our example, we would be able to reinvest the proceeds of the intermediate cash-flows at a 15% rate. If that is the case, then we would have the following cash-flow stream:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYear 0\nYear 1\nYear2\nYear3\nYear 4\nYear 5\n\n\n\n\nFree Cash Flow\n-$219,600\n$0\n$0\n$0\n$0\n$540,094\n\n\n\n\nIf we now use the \\(IRR(\\cdot)\\) function in Excel, our new estimate for \\(\\small r\\) is \\(19.72\\%\\)!\nAlternatively, if we kept the original cash-flow stream, but applied the \\(MIRR(\\cdot)\\) function and set the reinvestment rate to be \\(15\\%\\), we would have gotten the exact same result!\nIn other words, one needs to be very cautious when interpreting IRR estimates"
   },
   {
     "objectID": "fin-mgmt/Lecture 6 - Investment Decision Rules/index.html#references",
