@@ -579,7 +579,7 @@ $\rightarrow$ *The key takeaway here is that the risk premium of a security is d
 #| message: false
 
 #Generate the .csv file
-tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','BBDC4.SA','EGIE3.SA','B3SA3.SA','ARZZ3.SA','GRND3.SA')
+tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','BBDC4.SA','EGIE3.SA','B3SA3.SA','AZZA3.SA','GRND3.SA')
 
 if(!file.exists('Contents/Portfolio_Data.csv')){
   do.call('cbind',
@@ -756,11 +756,11 @@ $\rightarrow$ *Key Takeaway: because the stock riskier than the market portfolio
 #| warning: false
 #| message: false
 
-tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','BBDC4.SA','EGIE3.SA','B3SA3.SA','ARZZ3.SA','GRND3.SA','^BVSP')
+tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','BBDC4.SA','EGIE3.SA','B3SA3.SA','AZZA3.SA','GRND3.SA','^BVSP')
 
 Data = sapply(tickers,function(x) getSymbols(x,auto.assign = FALSE))%>%
       map(xts::.subset.xts,j=6)%>%
-      map(window,start='2022-01-01',end='2024-01-01')%>%
+      map(window,start='2022-01-01')%>%
       map(dailyReturn)%>%
       setNames(tickers)
 
