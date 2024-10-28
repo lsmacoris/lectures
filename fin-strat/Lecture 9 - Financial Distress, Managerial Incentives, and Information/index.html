@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.55">
+
+  <meta name="author" content="Lucas S. Macoris">
+  <title>Financial Distress, Managerial Incentives, and Information</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Financial Distress, Managerial Incentives, and Information</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Lucas S. Macoris 
+</div>
+</div>
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li class="fragment"><p>This lecture is mainly based the following textbooks:</p>
+<ol type="1">
+<li class="fragment"><span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span></li>
+<li class="fragment"><span class="citation" data-cites="BMA">(<a href="#/references" role="doc-biblioref" onclick="">Brealey, Myers, and Allen 2020</a>)</span></li>
+</ol></li>
+<li class="fragment"><p>Study review and practice: I strongly recommend using <a href="https://henriquemartins.net/">Prof.&nbsp;Henrique Castro</a> (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:</p>
+<ol type="1">
+<li class="fragment">Multiple Choice Exercises - click <a href="https://henriquemartins.net/teaching/financial_strategy/p9tf.html">here</a></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>For coding replications, whenever applicable, please follow <a href="https://lsmacoris.github.io/lectures/fin-strat.html">this</a> page or hover on the specific slides with coding chunks.</em></p>
+</div>
+</section>
+<section id="default-and-bankruptcy-in-perfect-markets" class="slide level2">
+<h2>Default and Bankruptcy in Perfect Markets</h2>
+<ul>
+<li class="fragment"><p>An important consequence of leverage is the <span class="blue">risk of bankruptcy</span>:</p>
+<ol type="1">
+<li class="fragment">Although equityholders hope to receive dividends, the firm is <em>not</em> legally obligated to pay</li>
+<li class="fragment">On the other hand, debtholders have an <em>enforceable</em> claim over the firms cash flow and may require the payment <em>regardless</em> of the state of the economy</li>
+</ol></li>
+<li class="fragment"><p>When a firm has difficulty meeting its debt obligations, we say that it is in <span class="blue">Financial Distress</span>:</p>
+<ol type="1">
+<li class="fragment">There can be delays in payments from principal and interest amounts</li>
+<li class="fragment">When a firm <span class="red">fails</span> to make the required interest or principal payments on its debt or violates conditions established on its debt contracts, we say that a firm is in <span class="blue">default</span></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <span class="blue"><em>After the firm defaults</em></span><em>, debtholders are given certain rights to the assets of the firm and may even take legal ownership of the firm’s assets through bankruptcy</em></p>
+</div>
+</section>
+<section id="default-and-bankruptcy-in-perfect-markets-1" class="slide level2">
+<h2>Default and Bankruptcy in Perfect Markets</h2>
+<ul>
+<li class="fragment">Why is bankruptcy and default so important? In order to see that, consider that <em>Armin</em>, a firm that is considering a new project. Although the new product represents a significant advance over the firms’ competitors’ products, the product’s success is uncertain:
+<ol type="1">
+<li class="fragment">If it <span class="green">succeeds</span>, <em>Armin</em> will be worth <span class="math inline">\(\small \$150\)</span> million at the end of the year</li>
+<li class="fragment">If it <span class="red">fails</span>, <em>Armin</em> will be worth only <span class="math inline">\(\small \$80\)</span> million</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment">As in previous lectures, <em>Armin</em> may employ one of two alternative capital structures to integrate this project:
+<ol type="1">
+<li class="fragment">It can use <em>all-equity</em> financing</li>
+<li class="fragment">It can use <em>debt</em> that matures at the end of the year with a total of <span class="math inline">\(\small \$100\)</span> million due</li>
+</ol></li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>The next slides will show how the funding structure affect the value of Armin in both states of the economy</em></p>
+</div>
+</section>
+<section id="default-and-bankruptcy-in-perfect-markets-2" class="slide level2">
+<h2>Default and Bankruptcy in Perfect Markets</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">All-Equity</th>
+<th style="text-align: center;">All-Equity</th>
+<th style="text-align: center;">Leverage</th>
+<th style="text-align: center;">Leverage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><span class="green">Success</span></td>
+<td style="text-align: center;"><span class="red">Failure</span></td>
+<td style="text-align: center;"><span class="green">Success</span></td>
+<td style="text-align: center;"><span class="red">Failure</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>Debt Value</em></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">$100</td>
+<td style="text-align: center;">$80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>Equity Value</em></td>
+<td style="text-align: center;">$150</td>
+<td style="text-align: center;">$80</td>
+<td style="text-align: center;">$50</td>
+<td style="text-align: center;">$0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>All Investors</strong></td>
+<td style="text-align: center;"><strong>$150</strong></td>
+<td style="text-align: center;"><strong>$80</strong></td>
+<td style="text-align: center;"><strong>$150</strong></td>
+<td style="text-align: center;"><strong>$80</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<ul>
+<li class="fragment"><p><em>Both</em> <span class="blue">debt</span> and <span class="blue">equity</span> holders are <span class="red">worse</span> off if the product <span class="red">fails</span> rather than <span class="green">succeeds</span>:</p>
+<ol type="1">
+<li class="fragment"><em>Without</em> leverage, equity holders lose <span class="math inline">\(\small (\$150-\$80)=\$70\)</span></li>
+<li class="fragment"><em>With</em> leverage, equity holders lose <span class="math inline">\(\small \$50\)</span> million, and debt holders lose <span class="math inline">\(\small \$20\)</span> million, but the total loss is the same, <span class="math inline">\(\small \$70\)</span> million</li>
+</ol></li>
+<li class="fragment"><p>Importantly, since the firms is worth <span class="math inline">\(\small \$80\)</span> and debt is <span class="math inline">\(\small \$100\)</span>, the firm is in <em>default</em> if the project <span class="red">fails</span> with leverage!</p></li>
+</ul>
+</div>
+</section>
+<section id="default-and-bankruptcy-in-perfect-markets-3" class="slide level2">
+<h2>Default and Bankruptcy in Perfect Markets</h2>
+<ul>
+<li class="fragment">Note that the decline in value is <em>not</em> caused by bankruptcy, as such decline is the <span class="blue">same</span> whether or not the firm has leverage. As a consequence, the value of the firm is essentially the same. Assuming that both states are equally likely and a <span class="math inline">\(\small5\%\)</span> discount rate:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small V^U= \dfrac{\dfrac{1}{2}\times 150 + \dfrac{1}{2}\times80}{(1+5\%)}=109.52\\
+\]</span></p>
+<p><span class="math display">\[
+\small V^L= \dfrac{\overbrace{\dfrac{1}{2}\times 100 + \dfrac{1}{2}\times80}^{\text{Debtholders}}+ \overbrace{\dfrac{1}{2}\times 50 + \dfrac{1}{2}\times0}^{\text{Equityholders}}}{(1+5\%)}=\dfrac{115}{(1+5\%)}=109.52
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>With perfect capital markets, <span class="blue">Modigliani and Miller (MM) Proposition I</span> applies: the total value to all investors does not depend on the firm’s capital structure</em></p>
+</div>
+</section>
+<section id="bankruptcy-and-financial-distress-costs" class="slide level2">
+<h2>Bankruptcy and Financial Distress Costs</h2>
+<ul>
+<li class="fragment"><p>With perfect capital markets, we saw that the risk of bankruptcy is <em>not</em> a disadvantage of debt:</p>
+<ol type="1">
+<li class="fragment">The value of the levered firm, <span class="math inline">\(\small V^L\)</span>, is exactly the same as of the unlevered one, <span class="math inline">\(\small V^U\)</span></li>
+<li class="fragment">Rather, bankruptcy <em>shifts</em> the ownership of the firm from equityholders to debtholders without changing the total value available to all investors</li>
+</ol></li>
+<li class="fragment"><p>In reality, however, a <span class="blue">bankruptcy process is a complex, time-consuming, and costly process</span>:</p>
+<ol type="1">
+<li class="fragment">Costly outside experts are often hired by the firm to assist with the bankruptcy.</li>
+<li class="fragment">Creditors also incur similar costs during the bankruptcy process: they may wait several years to receive payment, and may hire their own experts for legal and professional advice</li>
+</ol></li>
+<li class="fragment"><p>We refer to these costs as the <span class="blue">direct costs of bankruptcy</span>, as they reduce the value of the assets that the firm’s investors will ultimately receive: it is estimated that the average direct costs of bankruptcy are approximately <span class="math inline">\(\small 3\%-4\%\)</span> of the pre-bankruptcy market value of total assets</p></li>
+</ul>
+</section>
+<section id="bankruptcy-and-financial-distress-costs-1" class="slide level2">
+<h2>Bankruptcy and Financial Distress Costs</h2>
+<ul>
+<li class="fragment"><p>On top of the <span class="blue">direct</span> costs associated due bankruptcy and financial distress, a firm can also suffer from the <span class="blue">indirect costs of bankruptcy</span></p>
+<ol type="1">
+<li class="fragment">Loss of Customers</li>
+<li class="fragment">Loss of Suppliers</li>
+<li class="fragment">Loss of Employees</li>
+<li class="fragment">Loss of Receivables</li>
+<li class="fragment">Fire Sale of Assets</li>
+<li class="fragment">Delayed Liquidation</li>
+<li class="fragment">Costs to Creditors</li>
+</ol></li>
+<li class="fragment"><p>Due to its nature, although indirect costs are difficult to measure accurately, they are often <em>much</em> larger than the direct costs of bankruptcy</p></li>
+<li class="fragment"><p>The estimated potential loss due to financial distress is around <span class="math inline">\(\small 10\%-20\%\)</span> of firm value</p></li>
+</ul>
+</section>
+<section id="accounting-for-default-and-bankruptcy-costs" class="slide level2">
+<h2>Accounting for Default and Bankruptcy Costs</h2>
+<ul>
+<li class="fragment"><p>Let’s go back to our previous example on <em>Armin</em>. How do bankruptcy costs fit into that situation?</p>
+<ol type="1">
+<li class="fragment">With <em>all-equity</em> financing, the firms’ assets will be worth <span class="math inline">\(\small\$150\)</span> million if its new product <span class="green">succeeds</span>, and <span class="math inline">\(\small\$80\)</span> million if the new product <span class="red">fails</span></li>
+<li class="fragment">However, we have not assumed that there were any financial distress costs!</li>
+</ol></li>
+<li class="fragment"><p>Say that, after some calculations, <em>Armin</em> has estimated financial distress costs of <span class="math inline">\(\small \$20\)</span> million</p>
+<ol type="1">
+<li class="fragment">With debt outstanding worth <span class="math inline">\(\small\$100\)</span> million, <em>Armin</em> will be forced into bankruptcy if the new product <span class="red">fails</span>!</li>
+<li class="fragment">In this case, some of the value of the firms’ assets will be lost to bankruptcy and financial distress costs</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>As a result, debt holders will receive less than 80 million!</em></p>
+</div>
+</section>
+<section id="accounting-for-default-and-bankruptcy-costs-continued" class="slide level2">
+<h2>Accounting for Default and Bankruptcy Costs, continued</h2>
+<ul>
+<li class="fragment"><p>In this case, debtholders receive only <span class="math inline">\(\small \$80-\$20=\$60\)</span> million after accounting for the costs of financial distress</p></li>
+<li class="fragment"><p>These costs will <em>lower</em> the total value of the firm with leverage, <span class="math inline">\(\small V^L\)</span> and <span class="blue">Modigliani and Miller’s Proposition I</span> will <em>no longer hold</em>: the total value to all investors is <em>less</em> with leverage than it is without leverage when the new product <span class="red">fails</span>!</p></li>
+</ul>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>All-Equity</strong></th>
+<th style="text-align: center;"><strong>All-Equity</strong></th>
+<th style="text-align: center;"><strong>With Leverage</strong></th>
+<th style="text-align: center;"><strong>With Leverage</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="green">Success</span></td>
+<td style="text-align: center;"><span class="red">Fail</span></td>
+<td style="text-align: center;"><span class="green">Success</span></td>
+<td style="text-align: center;"><span class="red">Fail</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>Debt Value</em></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">$100</td>
+<td style="text-align: center;">$60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><em>Equity Value</em></td>
+<td style="text-align: center;">$150</td>
+<td style="text-align: center;">$80</td>
+<td style="text-align: center;">$50</td>
+<td style="text-align: center;">$0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>All Investors</strong></td>
+<td style="text-align: center;"><strong>$150</strong></td>
+<td style="text-align: center;"><strong>$80</strong></td>
+<td style="text-align: center;"><strong>$150</strong></td>
+<td style="text-align: center;"><strong>$60</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="firm-value-under-bankruptcy-costs" class="slide level2">
+<h2>Firm value under Bankruptcy Costs</h2>
+<ul>
+<li class="fragment">We can now recalculate the firm’s value under the assumption that there are direct and/or indirect costs of bankruptcy:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small
+V^U = \dfrac{\dfrac{1}{2} \times 150 + \dfrac{1}{2} \times 80}{(1+5\%)}= \dfrac{130}{(1+5\%)}= 109.52\\
+\]</span></p>
+<p><span class="math display">\[
+\small V^L= \dfrac{\overbrace{\dfrac{1}{2} \times 100+\dfrac{1}{2}\times60}^{\text{Debtholders}}+\overbrace{\dfrac{1}{2} \times 50+\dfrac{1}{2}\times 0 }^{\text{Equityholders}}}{(1+5\%)}= \dfrac{105}{(1+5\%)}=100
+\]</span></p>
+<ul>
+<li class="fragment">The difference between <span class="math inline">\(\small V^U\)</span> and <span class="math inline">\(\small V^L\)</span>, <span class="math inline">\(\small\$109.52 − \$100 = \$9.52\)</span> million is the loss in value due to financial distress. These costs will <em>lower</em> the total value of the firm with leverage, <span class="math inline">\(\small V^L\)</span>, and <span class="blue">Modigliani and Miller’s Proposition I</span> will <em>no longer hold</em>!</li>
+</ul>
+</div>
+</section>
+<section id="who-pays-for-financial-distress-costs" class="slide level2">
+<h2>Who pays for Financial Distress Costs?</h2>
+<ul>
+<li class="fragment"><p>We saw that the value of the levered firm, <span class="math inline">\(\small V^L\)</span>, was lower due to the financial distress costs. An important question regarding financial distress costs is who ultimately bears it:</p>
+<ol type="1">
+<li class="fragment">For <em>Armin</em>, if the new product <span class="red">fails</span>, equityholders <span class="red">lose</span> their investment in the firm and will not care about bankruptcy costs <em>ex-ante</em></li>
+<li class="fragment">However, debtholders recognize that if the new product fails and the firm defaults, they will not be able to get the full value of the assets</li>
+</ol></li>
+<li class="fragment"><p>As a result, debtholders will require to pay <em>less</em> for the debt:</p>
+<ol type="1">
+<li class="fragment">If the debt holders initially pay less for the debt, less money is available for the firm to pay dividends, repurchase shares, and make investments.</li>
+<li class="fragment">Ultimately, this difference comes out of the equity holders’ pockets!</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>When securities are fairly priced, the original shareholders of a firm pay the present value of the costs associated with bankruptcy and financial distress!</em></p>
+</div>
+</section>
+<section id="who-pays-for-financial-distress-costs-continued" class="slide level2">
+<h2>Who pays for Financial Distress Costs? Continued</h2>
+<ul>
+<li class="fragment"><p>If debtholders pay less for the debt initially, by how much precisely is this difference? To see that, that at the beginning of the year, <em>Armin</em> Industries has <span class="math inline">\(\small 10\)</span> million shares outstanding and no debt. <em>Armin</em> then announces plans to issue one-year debt with a face value of <span class="math inline">\(\small \$100\)</span> million and to use the proceeds to repurchase shares</p>
+<ol type="1">
+<li class="fragment">As shown before, the value of the unlevered firm, <span class="math inline">\(\small V^U\)</span>, is <span class="math inline">\(\small \$109.52\)</span> million</li>
+<li class="fragment">With <span class="math inline">\(\small 10\)</span> million shares outstanding, this corresponds to a share price of <span class="math inline">\(\small \$10.952\)</span> per share before any recapitalization</li>
+<li class="fragment">In anticipation of the recap, the total value of the firm drops to <span class="math inline">\(\small \$100\)</span> million, and the price per share is now only <span class="math inline">\(\small \$10\)</span> on the announcement</li>
+</ol></li>
+<li class="fragment"><p>Due to financial distress costs, the present value of debt is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+D=\small \dfrac{\small 1/2\times80+1/2\times 0}{(1+5\%)}=76.19 \text{ million}
+\]</span></p>
+</div>
+</section>
+<section id="who-pays-for-financial-distress-costs-continued-1" class="slide level2">
+<h2>Who pays for Financial Distress Costs? Continued</h2>
+<ul>
+<li class="fragment"><p>From the data in the previous slide, <em>Armin</em> will be able to issue <span class="math inline">\(\small\$76.19\)</span>, instead of <span class="math inline">\(\small \$80\)</span>, and this translates to buying <span class="math inline">\(\small 7,619\)</span> shares, leaving <span class="math inline">\(\small 2,381\)</span> outstanding</p></li>
+<li class="fragment"><p>As the value of the levered equity is <span class="math inline">\(\small \$23.81\)</span>, the share price is now only <span class="math inline">\(\$10\)</span> per share. All in all, all shareholders<sup>1</sup> are worse off by:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \underbrace{(10.952-10.00)}_{\text{Unlevered - Levered Equity}}\times \underbrace{10,000,000}_{\text{Shares outstanding}}=9.52 \text{ million}
+\]</span></p>
+<ul>
+<li class="fragment">This difference in value is <em>exactly</em> the decrease in firm value due to financial distress costs!</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Although debt holders bear these costs in the end, shareholders pay the present value of the costs of financial distress up front, and ultimately born the costs of financial distress!</em></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Both shareholders that have sold as well as the ones that did not lose this value.</p></li></ol></aside></section>
+<section id="reconciling-financial-distress-with-capital-structure" class="slide level2">
+<h2>Reconciling Financial Distress with Capital Structure</h2>
+<ul>
+<li class="fragment"><p>Let’s take a step back and recall what we have defined in earlier classes:</p>
+<ol type="1">
+<li class="fragment">Under perfect capital markets, the value of the levered firm, <span class="math inline">\(\small V^L\)</span>, was identical to the value of an all-equity firm, <span class="math inline">\(\small V^U\)</span></li>
+<li class="fragment">When we assume that there are tax imperfections, such as the fact that interest expenses are tax-deductible, we saw that the value levered firm could increase by the same amount as of the present value of the tax-shiedls:</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small  V^L= V^U+PV(ITS)
+\]</span></p>
+<ul>
+<li class="fragment">If that is true, then why firms do not <em>always</em> have high leverage? As it turns out, if we assume the existence of financial distress costs, increased leverage may get to a point where the <span class="green">benefits</span> of debt are fully offset by the <span class="red">costs</span> of financial distress!</li>
+</ul>
+</div>
+</section>
+<section id="the-trade-off-theory" class="slide level2">
+<h2>The Trade-off Theory</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>The <em>Trade-off Theory</em> states that the firm picks its capital structure by trading off the benefits of the tax shield from debt against the costs of financial distress and agency costs.</p>
+<p>According to the theory, the total value of a levered firm, <span class="math inline">\(\small V^L\)</span> equals the value of the firm without leverage plus the present value of the tax savings from debt, less the present value of financial distress costs:</p>
+<p><span class="math display">\[
+V^L = V^U + PV(ITS) - PV(\text{Financial Distress Costs})
+\]</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>There are basically <span class="blue">three</span> key factors determine the present value of financial distress costs:</p>
+<ol type="1">
+<li class="fragment">The probability of financial distress</li>
+<li class="fragment">The magnitude of the costs after a firm is in distress</li>
+<li class="fragment">The appropriate discount rate for the distress costs</li>
+</ol></li>
+</ul>
+</section>
+<section id="factors-that-determine-the-value-of-distress-costs" class="slide level2">
+<h2>Factors that determine the value of distress costs</h2>
+<ul>
+<li class="fragment"><p>There are basically <span class="blue">three</span> key factors determine the present value of financial distress costs:</p>
+<ol type="1">
+<li class="fragment"><strong>The probability of financial distress</strong>
+<ul>
+<li class="fragment">The probability of financial distress increases with the amount of a firm’s liabilities (relative to its assets)</li>
+<li class="fragment">It also increases with the volatility of a firm’s cash flows and asset values</li>
+</ul></li>
+<li class="fragment"><strong>The magnitude of the costs after a firm is in distress</strong>
+<ul>
+<li class="fragment">Financial distress costs will vary by industry, and depend on factors such as asset redeployability</li>
+</ul></li>
+<li class="fragment"><strong>The appropriate discount rate for the distress costs</strong>
+<ul>
+<li class="fragment">Depends on the firm’s market risk</li>
+<li class="fragment">The present value of distress costs will be higher for high beta firms</li>
+</ul></li>
+</ol></li>
+</ul>
+</section>
+<section id="implications-of-the-the-trade-off-theory" class="slide level2">
+<h2>Implications of the the Trade-off Theory</h2>
+<ul>
+<li class="fragment"><p>An implication of the <em>Trade-Off Theory</em> is that each firm will have an optimal leverage level:</p>
+<ol type="1">
+<li class="fragment">For low levels of debt, the risk of default remains low, and the main effect of an increase in leverage is an increase in the interest tax shield</li>
+<li class="fragment">As the level of debt increases, the probability of default increases. Then, the costs of financial distress increase, reducing the value of the levered firm</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment">The <em>Trade-off Theory</em> states that firms should increase their leverage until it reaches the level for which the firm value is maximized - in order words, the capital structure choice in terms of % of debt and equity is chosen so as solve:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \max V^L_{\{\%E,\%D\}} =  V^U + PV(ITS) - PV(\text{Financial Distress Costs})
+\]</span></p>
+<ul>
+<li class="fragment">At the <em>optimal</em>, the tax <span class="green">savings</span> that result from increasing leverage are perfectly offset by the increased probability of incurring the <span class="red">costs</span> of financial distress</li>
+</ul>
+</div>
+</section>
+<section id="the-trade-off-theory-and-optimal-leverage" class="slide level2">
+<h2>The Trade-off Theory and Optimal Leverage</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+</figure>
+</div>
+</section>
+<section id="the-trade-off-theory-practice" class="slide level2">
+<h2>The Trade-off Theory, practice</h2>
+<p><em>Holland</em> is considering adding leverage to its capital structure. <em>Holland</em>’s managers believe they can add as much as <span class="math inline">\(\small \$50\)</span> million in debt and exploit the benefits of the tax shield. They estimate that the corporate tax rate is <span class="math inline">\(\tau_c = 39\%\)</span>. However, they also recognize that higher debt increases the risk of financial distress. Based on simulations of the firm’s future cash flows, the CFO has made the following estimates (in millions of dollars):</p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><em>Debt-to-Value</em></th>
+<th style="text-align: center;">0%</th>
+<th style="text-align: center;">10%</th>
+<th style="text-align: center;">20%</th>
+<th style="text-align: right;">30%</th>
+<th style="text-align: center;">40%</th>
+<th style="text-align: center;">50%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PV(Int. Tax. Shield)</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">$3.9</td>
+<td style="text-align: center;">$7.8</td>
+<td style="text-align: right;">$11.7</td>
+<td style="text-align: center;">$15.6</td>
+<td style="text-align: center;">$19.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PV(Fin. Dis. Costs)</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">$0</td>
+<td style="text-align: center;">$0</td>
+<td style="text-align: right;">$3.38</td>
+<td style="text-align: center;">$19.23</td>
+<td style="text-align: center;">$23.47</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Question</strong>: what of debt should the firm choose?</p>
+</div>
+</section>
+<section id="the-trade-off-theory-practice-1" class="slide level2">
+<h2>The Trade-off Theory, practice</h2>
+<p><em>Holland</em> is considering adding leverage to its capital structure. <em>Holland</em>’s managers believe they can add as much as <span class="math inline">\(\small \$50\)</span> million in debt and exploit the benefits of the tax shield. They estimate that the corporate tax rate is <span class="math inline">\(\tau_c = 39\%\)</span>. However, they also recognize that higher debt increases the risk of financial distress. Based on simulations of the firm’s future cash flows, the CFO has made the following estimates (in millions of dollars):</p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 4%">
+<col style="width: 15%">
+<col style="width: 14%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><em>Debt-to-Value</em></th>
+<th style="text-align: center;">0%</th>
+<th style="text-align: center;">10%</th>
+<th style="text-align: center;">20%</th>
+<th style="text-align: right;">30%</th>
+<th style="text-align: center;">40%</th>
+<th style="text-align: center;">50%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PV(Int. Tax. Shield)</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">$3.9</td>
+<td style="text-align: center;">$7.8</td>
+<td style="text-align: right;">$11.7</td>
+<td style="text-align: center;">$15.6</td>
+<td style="text-align: center;">$19.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PV(Fin. Dis. Costs)</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">$0</td>
+<td style="text-align: center;">$0</td>
+<td style="text-align: right;">$3.38</td>
+<td style="text-align: center;">$19.23</td>
+<td style="text-align: center;">$23.47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Net Benefit</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"><span class="green">$3.9</span></td>
+<td style="text-align: center;"><span class="green">$7.8</span></td>
+<td style="text-align: right;"><span class="green">$8.32</span></td>
+<td style="text-align: center;"><span class="red">$-3.63</span></td>
+<td style="text-align: center;"><span class="red">$-3.97</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <strong>Solution</strong>: <em>the level of debt that leads to the highest net benefit is 30 million. Holland will gain</em> <span class="math inline">\(\small\$11.7\)</span> million due to tax shields and lose <span class="math inline">\(\small \$3.38\)</span> million due to the present value of financial distress costs, for a net gain of <span class="math inline">\(\small \$8.32\)</span> million.</p>
+</div>
+</section>
+<section id="the-agency-costs-of-leverage" class="slide level2">
+<h2>The Agency Costs of Leverage</h2>
+<ul>
+<li class="fragment"><p>Apart from any <em>direct</em> costs and benefits from increased leverage, debtholders may also be concerned around which managerial actions will be taken after debt is in place - and whether it will ultimately lead to increasing <em>indirect</em> costs to them</p></li>
+<li class="fragment"><p>The potential costs due to misalignment between different stakholders of the firm are called <em>Agency Costs</em></p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<p>Agency Costs are costs that arise when there are conflicts of interest between the firm’s stakeholders:</p>
+<ol type="1">
+<li>Management will generally make decisions that increase the value of the firm’s equity</li>
+<li>However, when a firm has leverage, managers may make decisions that benefit shareholders but harm the firm’s creditors and lower the total value of the firm</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-agency-costs-of-leverage-continued" class="slide level2">
+<h2>The Agency Costs of Leverage, continued</h2>
+<ul>
+<li class="fragment"><p>Although not directly measurable, <em>Agency Costs</em> can vary significantly and have a substantial impact on the value of the levered firm</p></li>
+<li class="fragment"><p>Under <em>Modigliani and Miller</em>’s hypotheses for <span class="blue">Perfect Capital Markets</span>, there are no <em>Agency Costs</em> - this is embedded in the assumption that there are no transaction costs and/or information asymmetry</p></li>
+<li class="fragment"><p>Examples of managerial actions that are supposedly costly for debtholders are:</p>
+<ol type="1">
+<li class="fragment">Risk-taking &amp; Asset Substitution</li>
+<li class="fragment">Debt overhang &amp; Under-investment</li>
+<li class="fragment">Cashing out</li>
+<li class="fragment">Leverage Ratchet effect</li>
+</ol></li>
+</ul>
+</section>
+<section id="risk-taking-asset-substitution" class="slide level2">
+<h2>Risk-taking &amp; Asset Substitution</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>When a firm faces financial distress, shareholders can gain at the expense of debt holders by taking a negative-NPV project if it is sufficiently risky - also called risk-shifting problem</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Consider that <em>Baxter</em> is facing a situation of Financial Distress:
+<ol type="1">
+<li class="fragment">It has a loan of <span class="math inline">\(\small \$1\)</span> million due at the end of the year</li>
+<li class="fragment">Without a change in its strategy, the market value of its assets will be only <span class="math inline">\(\small \$900,000\)</span> at that time, and the firm will default on its debt</li>
+</ol></li>
+<li class="fragment"><em>Baxter</em>’s manager are considering a new strategy that requires no upfront investment, but it has only a <span class="blue"><span class="math inline">\(\small50\%\)</span></span> chance of success:
+<ol start="2" type="1">
+<li class="fragment">If the new strategy <span class="green">succeeds</span>, it will increase the value of the firm’s asset to <span class="math inline">\(\small\$1.3\)</span> million.</li>
+<li class="fragment">If the new strategy <span class="red">fails</span>, the value of the firm’s assets will fall to <span class="math inline">\(\small\$300,000\)</span>.</li>
+</ol></li>
+</ul>
+</section>
+<section id="risk-taking" class="slide level2">
+<h2>Risk-taking</h2>
+<p><strong>Question</strong>: should Baxter execute this strategy?</p>
+<div class="fragment">
+<ul>
+<li class="fragment">To see that, note that the expected value of the firm’s assets under the new strategy is <span class="math inline">\(\small \$800,000\)</span>, a <span class="red">decline</span> of <span class="math inline">\(\small\$100,000\)</span> from the old strategy:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small V^L_{\text{New}}=\small 50\% \times 1.3 + 50\% \times 0.3 = 0.8 \text{ million}
+\]</span></p>
+<ul>
+<li class="fragment"><p><span class="blue">Why managers would even consider this strategy?</span> It is important to note that, <span class="blue">if Baxter does nothing</span>, it will ultimately <em>default</em> and equity holders will get nothing with certainty. In words:</p>
+<ol type="1">
+<li class="fragment">Equity holders have nothing to lose if Baxter tries the risky strategy</li>
+<li class="fragment">If the strategy succeeds, equity holders will receive <span class="math inline">\(\small\$300,000\)</span> after paying off the debt</li>
+<li class="fragment">Given a <span class="math inline">\(\small50\%\)</span> chance of success, the <span class="blue">equityholders</span>’ expected payoff is actually <span class="green">positive</span></li>
+</ol></li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small E^L_{\text{New}}=50\% \times 0 + 50\% \times 300,000 = 150,000
+\]</span></p>
+</div>
+</section>
+<section id="risk-taking-continued" class="slide level2">
+<h2>Risk-taking, continued</h2>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 16%">
+<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><strong>Old Strategy</strong></th>
+<th style="text-align: center;"><strong>New - <span class="green">Success</span></strong></th>
+<th style="text-align: center;"><strong>New - <span class="red">Failure</span></strong></th>
+<th style="text-align: center;"><strong>New - Exp.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(V^L\)</span></td>
+<td style="text-align: center;"><strong>$900</strong></td>
+<td style="text-align: center;"><strong>$1,300</strong></td>
+<td style="text-align: center;"><strong>$300</strong></td>
+<td style="text-align: center;"><strong>$800</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><em>Debt</em></td>
+<td style="text-align: center;">$900</td>
+<td style="text-align: center;">$1,000</td>
+<td style="text-align: center;">$300</td>
+<td style="text-align: center;">$650</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><em>Equity</em></td>
+<td style="text-align: center;">$0</td>
+<td style="text-align: center;">$300</td>
+<td style="text-align: center;">$0</td>
+<td style="text-align: center;">$150</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment">Note that, in such a way, equityholders are <em>gambling</em> with the debt holders’ money:
+<ol type="1">
+<li class="fragment">If project <span class="green">succeeds</span>, debt holders receive <span class="math inline">\(\small \$1\)</span> million</li>
+<li class="fragment">If fails, debt holders receive <span class="math inline">\(\small\$300,000\)</span></li>
+</ol></li>
+<li class="fragment">Debtholders’ expected payoff is <span class="math inline">\(\small\$650,000\)</span>, a <span class="red">loss</span> of <span class="math inline">\(\small\$250,000\)</span> compared to the old strategy:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small 50\% \times 1,000,000 + 50\% \times 300,000 = 650,000 \text{ million}
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>This loss corresponds to the 100,000 expected decline in firm value due to the risky strategy and the equityholder’s 150,000 gain</em></p>
+</div>
+</section>
+<section id="asset-substitution" class="slide level2">
+<h2>Asset Substitution</h2>
+<ul>
+<li class="fragment"><p>As we saw before, if managers are acting on behalf of shareholders, they may choose to gamble with debtholder’s money by choosing projects that with asymmetrical payoffs (in expectation, <span class="green">benefits</span> shareholders at the <span class="red">expense</span> of debtholders)</p></li>
+<li class="fragment"><p>A way to materialize this is to choose projects that are <em>risky</em> enough so that shareholders are better-off if the project is succesfull:</p></li>
+</ul>
+<ol type="1">
+<li class="fragment">Shareholders have an incentive to invest in negative-NPV projects that are risky, even though a negative-NPV project destroys value for the firm overall</li>
+<li class="fragment">Anticipating this bad behavior, security holders will pay less for the firm initially</li>
+</ol>
+</section>
+<section id="debt-overhang-and-under-investment" class="slide level2">
+<h2>Debt Overhang and Under-Investment</h2>
+<ul>
+<li class="fragment"><p>The previous example has shown how potential misalignments between debtholders and bondholders may result in a move towards more risky projects</p></li>
+<li class="fragment"><p>What if, on the other hand, there are actually less risky projects that would otherwise increase the firm’s NPV?</p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="blue">Debt Overhang</span> (or simply <span class="blue">Under-Investment</span>) is a situation in which equity holders choose not to invest in a positive NPV project because the firm is in financial distress and the value of undertaking the investment opportunity will accrue to bondholders rather than themselves</p>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(\rightarrow\)</span> <em>As a results, when a firm faces financial distress, it may choose not to finance new, positive-NPV projects!</em></p>
+</div>
+</section>
+<section id="debt-overhang-and-under-investment-continued" class="slide level2">
+<h2>Debt Overhang and Under-Investment, continued</h2>
+<ul>
+<li class="fragment"><p>Assume that <em>Baxter</em> <em>does not</em> pursue the risky strategy, but instead the firm is considering an investment opportunity that requires an initial investment of <span class="math inline">\(\small\$100,000\)</span> and will generate a <span class="blue">risk-free</span> return of <span class="math inline">\(\small50\%\)</span></p></li>
+<li class="fragment"><p>If the current risk-free rate is <span class="math inline">\(\small5\%\)</span>, this investment clearly has a <span class="green">positive</span> NPV</p>
+<ol type="1">
+<li class="fragment">What if <em>Baxter</em> does not have the cash on hand to make the investment?</li>
+<li class="fragment">Could <em>Baxter</em> raise <span class="math inline">\(\small\$100,000\)</span> in new equity to make the investment?</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><strong>Question</strong>: would managers, acting on behalf of the shareholders, be willing to raise funding and invest in this project?</p>
+</div>
+</section>
+<section id="debt-overhang-and-under-investment-continued-1" class="slide level2">
+<h2>Debt Overhang and Under-Investment, continued</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Without project</strong></th>
+<th style="text-align: center;"><strong>With new project</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><em>Existing assets</em></td>
+<td style="text-align: center;">$900</td>
+<td style="text-align: center;">$900</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>New project</em></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">$150</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Total firm value</strong></td>
+<td style="text-align: center;"><strong>$900</strong></td>
+<td style="text-align: center;"><strong>$1,050</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>Debt</em></td>
+<td style="text-align: center;">$900</td>
+<td style="text-align: center;">$1,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><em>Equity</em></td>
+<td style="text-align: center;">$0</td>
+<td style="text-align: center;">$50</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">If <em>equityholders</em> contribute <span class="math inline">\(\small 100,000\)</span> to fund the project, they get back only <span class="math inline">\(\small\$50,000\)</span></li>
+<li class="fragment">The other <span class="math inline">\(\small\$100,000\)</span> from the project accrues to <em>debtholders</em>, whose payoff increases from <span class="math inline">\(\small\$900,000\)</span> to <span class="math inline">\(\small\$1,000,000\)</span>. As a consequence, the payoff to <em>equityholders</em> is <span class="red">negative</span>: <span class="math inline">\(\small NPV = -100,000 + 50,000=-\$50,000\)</span></li>
+</ol>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>As debtholders receive most of the benefit, thus this project is a <span class="red">negative</span>-NPV investment opportunity for equityholders, even though it offers a positive NPV for the firm!</em></p>
+</div>
+</section>
+<section id="cashing-out" class="slide level2">
+<h2>Cashing Out</h2>
+<ul>
+<li class="fragment">If it is likely the company will default, the firm may sell assets below market value and use the funds to pay an immediate cash dividend to the shareholders</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="blue">Cashing out</span> is a situation where shareholders are more likely to liquidate assets and return back to shareholders, even if this is a negative-NPV transaction. When in financial distress, shareholders have an incentive to withdraw money from the firm, if possible.</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Ultimately, if the firm defaults, as debtholders seize the assets, they may have even more difficulties in liquidating them as they do not understand the business:</p>
+<ol type="1">
+<li class="fragment"><p>For example, <em>Tiffany</em> is worth more in the hands of <em>LVMH</em> rather than a bank due to the potential synergy benefits</p></li>
+<li class="fragment"><p>This helps explaining why, in some cases, a takeover from another firm within the same industry may preserve more value than an asset liquidation by banks!</p></li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="the-leverage-ratchet-effect" class="slide level2">
+<h2>The Leverage Ratchet Effect</h2>
+<ul>
+<li class="fragment"><p>As shown before, when an unlevered firm issues new debt, <em>equityholders</em> will bear any anticipated agency/bankruptcy costs that might affect the firm</p></li>
+<li class="fragment"><p>A different story arises when our starting point is a <em>levered</em> firm: once a firm <em>has debt already in place</em>, some of the agency or bankruptcy costs that result from taking on additional leverage will fall on <em>existing debtholders</em>:</p>
+<ol type="1">
+<li class="fragment">Shareholders may have an incentive to increase leverage even if it decreases the value of the firm, and</li>
+<li class="fragment">Shareholders will not have an incentive to decrease leverage by buying back debt, even if it will increase the value of the firm</li>
+</ol></li>
+<li class="fragment"><p>While it will induce firms to borrow less initially in order to avoid these costs, over time it may lead to excessive leverage as shareholders prefer to increase, but not decrease, the firm’s debt</p></li>
+<li class="fragment"><p>For instance, by reducing debt, equity holders lose their incentive to take on a risky negative NPV investment</p></li>
+</ul>
+</section>
+<section id="default-and-bankruptcy" class="slide level2">
+<h2>Default and Bankruptcy</h2>
+<ul>
+<li class="fragment"><p>How to prevent bankruptcy events from the perspective of a <em>debtholder</em>? One way of doing so is establishing <span class="blue">debt covenants</span>:</p>
+<ol type="1">
+<li class="fragment"><p>Debt covenants are conditions (both <span class="green">positive</span> or <span class="red">negative</span>) that lenders (creditors, debt holders, investors) put on lending agreements to limit the actions of the borrower (debtor)</p></li>
+<li class="fragment"><p>In other words, debt covenants are agreements between a company and its lenders that the company will operate within certain rules set by the lenders</p></li>
+</ol></li>
+<li class="fragment"><p>When a debt covenant is violated, depending on the severity, the lender can do several things:</p>
+<ol type="1">
+<li class="fragment">Demand penalty payment</li>
+<li class="fragment">Increase the predetermined interest rate</li>
+<li class="fragment">Increase the amount of collateral</li>
+<li class="fragment">Demand full immediate repayment of the loan</li>
+<li class="fragment">Terminate the debt agreement</li>
+</ol></li>
+</ul>
+</section>
+<section id="positive-and-negative-covenants" class="slide level2">
+<h2>Positive and Negative Covenants</h2>
+<ul>
+<li class="fragment"><p><span class="green">Positive</span> Debt Covenants are covenants that state what the borrower <em>must</em> do:</p>
+<ol type="1">
+<li class="fragment">Achieve a certain threshold in certain financial ratios</li>
+<li class="fragment">Ensure facilities and factories are in good working condition</li>
+<li class="fragment">Perform regular maintenance of capital assets</li>
+<li class="fragment">Provide yearly audited financial statements</li>
+<li class="fragment">Ensure accounting practices are in accordance accounting principles</li>
+</ol></li>
+<li class="fragment"><p><span class="red">Negative</span> Debt Covenants are covenants that state what the borrower <em>cannot</em> do:</p>
+<ol type="1">
+<li class="fragment">Pay cash dividends over a certain amount or predetermined threshold</li>
+<li class="fragment">Sell certain assets</li>
+<li class="fragment">Limitations on borrowing more debt</li>
+<li class="fragment">Issue debt more senior than the current debt</li>
+<li class="fragment">Enter into certain types of agreements or leases</li>
+</ol></li>
+</ul>
+</section>
+<section id="the-agency-benefits-of-leverage" class="slide level2">
+<h2>The Agency Benefits of Leverage</h2>
+<ul>
+<li class="fragment"><p>So far, we assumed that managers act in the interests of the firm’s <em>equityholders</em>, and we considered the potential conflicts of interest between <em>debtholders</em> and <em>equityholders</em> when a firm has leverage</p></li>
+<li class="fragment"><p>Notwithstanding, managers also have their <span class="blue">own personal interests</span>, which may <span class="blue">differ</span> from those of both <em>equity</em> and <em>debtholders</em> - also known as <span class="blue">management entrenchment</span>:</p>
+<ol type="1">
+<li class="fragment">Facing little threat of being fired and replaced, managers are free to run the firm in their own best interests</li>
+<li class="fragment">As a result, managers may make decisions that benefit <span class="green">themselves</span> at <span class="red">investors</span>’ expense</li>
+</ol></li>
+<li class="fragment"><p>How can a firm insulate from this issue? In what follows, we will see that <em>leverage</em> can provide incentives for managers to run the firm more efficiently and effectively</p></li>
+<li class="fragment"><p>Together with other benefits we will describe, in addition to the tax benefits of leverage, give the firm an <span class="blue">incentive</span> to use <span class="blue">debt</span> rather than <span class="blue">equity</span>!</p></li>
+</ul>
+</section>
+<section id="management-entrenchment" class="slide level2">
+<h2>Management Entrenchment</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="blue">Management Entrenchment</span> is a situation arising as the result of the separation of ownership and control in which managers may make decisions that benefit themselves at investors’ expenses</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Entrenchment may allow managers to run the firm in their own best interests, rather than in the best interests of the shareholders:
+<ol type="1">
+<li class="fragment">Nepotism and personal tastes</li>
+<li class="fragment">Spending on perks, like private jets</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><strong>How can leverage prevent this issue?</strong></p>
+<ol type="1">
+<li class="fragment"><p>Leverage can reduce the degree of managerial entrenchment because managers are more likely to be fired when a firm faces financial distress</p></li>
+<li class="fragment"><p>In addition, when the firm is highly levered, creditors themselves will closely monitor the actions of managers, providing an additional layer of management oversight</p></li>
+</ol>
+</div>
+</section>
+<section id="concentration-of-ownership" class="slide level2">
+<h2>Concentration of Ownership</h2>
+<ul>
+<li class="fragment"><p>Another advantage of using leverage is that it allows the original owners of the firm to <em>maintain</em> their equity stake in the company (<em>i.e</em>, avoids the dilution of their participation). With <em>“skin in the game”</em>, they are likely having more interest in doing what is best for the firm</p></li>
+<li class="fragment"><p>To see that, assume that you are the owner of a firm and plans to expand. You can either borrow the funds needed for expansion or raise the money by selling shares in the firm:</p>
+<ol type="1">
+<li class="fragment">If issuing equity, you will need to sell <span class="math inline">\(\small40\%\)</span> of the firm to raise the necessary funds</li>
+<li class="fragment">If issuing debt, you retain full ownership of the firm</li>
+</ol></li>
+<li class="fragment"><p>As we will see, having higher ownership will provide additional incentives to run the firm more efficiently</p></li>
+</ul>
+</section>
+<section id="concentration-of-ownership-continued" class="slide level2">
+<h2>Concentration of Ownership, continued</h2>
+<p><strong>Without leverage</strong></p>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>If you sell new shares, you will only retain 60% ownership and only receive 60% of the increase in firm value: if the value largely depends on your personal effort, you’d have more incentives if you kept <span class="math inline">\(\small100\%\)</span> of the firm</p></li>
+<li class="fragment"><p>Having <span class="math inline">\(\small60\%\)</span>, you would be more tempted to overspend in perks: by selling equity, you bear only <span class="math inline">\(\small60\%\)</span> of the perks costs, while the other <span class="math inline">\(\small40\%\)</span> will be paid for by the <em>new equityholders</em></p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>How can leverage prevent this issue?</strong></p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">With leverage, you retain full ownership and will bear the full cost of any “perks,” like country club memberships or private jets</li>
+</ul>
+<ol type="1">
+<li class="fragment">Is likely that you work harder as you will receive 100% of the increase in firm value</li>
+<li class="fragment">Furthermore, since you bear the totality of the perks’ cost, you would not less tempted to overspend</li>
+</ol>
+</div>
+</section>
+<section id="reduction-of-wasteful-investment" class="slide level2">
+<h2>Reduction of Wasteful Investment</h2>
+<ul>
+<li class="fragment">Another concern for is that managers may make large, <em>unprofitable</em> investments:</li>
+</ul>
+<ol type="1">
+<li class="fragment">For example, managers may engage in empire building by taking over companies - this may increase his/her individual utility but not the value of the firm!</li>
+<li class="fragment">They often prefer to run larger firms rather than smaller ones, so they will take on investments that increase the size, but not necessarily the profitability, of the firm</li>
+</ol>
+<ul>
+<li class="fragment"><p>As a consequence, managers may expand unprofitable divisions, pay too much for acquisitions, make unnecessary capital expenditures, or hire unnecessary employees</p></li>
+<li class="fragment"><p>Having leverage limits these actions as <em>debtholders</em> may prevent empire building through <em>covenants</em> - note that this can also benefit <em>equityholders</em></p></li>
+</ul>
+</section>
+<section id="managerial-overconfidence" class="slide level2">
+<h2>Managerial Overconfidence</h2>
+<ul>
+<li class="fragment"><p>Managers may over-invest because they are overconfident: they tend to be bullish on the firm’s prospects and may believe that new opportunities are better than they actually are</p></li>
+<li class="fragment"><p>Debt forces managers to be more realistic with the true prospects of the firm because they have the commitment to pay back debtholders</p></li>
+</ul>
+</section>
+<section id="free-cash-flow-hypothesis" class="slide level2">
+<h2>Free Cash Flow Hypothesis</h2>
+<ul>
+<li class="fragment"><p>The occurrence of wasteful investments and room for managerial overconfidence is fueled by the fact that a firm has resources (cash) to invest</p></li>
+<li class="fragment"><p>However, when cash is tight, managers may be motivated to run the firm more efficiently:</p>
+<ol type="1">
+<li class="fragment">Managers <em>cannot</em> over-invest or put money on risky bets as there’s not enough cash</li>
+<li class="fragment">As a consequence, they may totally avoid these negative-NPV transactions</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="blue">The Free Cash Flow Hypothesis</span> is the view that wasteful spending is more likely to occur when firms have high levels of cash flow in excess of what is needed after making all positive-NPV investments and payments to debt holders</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">In such a way, leverage may increase firm value because it commits the firm to making future interest payments, thereby reducing excess cash flows and wasteful investment by managers</li>
+</ul>
+</div>
+</section>
+<section id="netting-out-agency-costs-and-benefits" class="slide level2">
+<h2>Netting out Agency Costs and Benefits</h2>
+<ul>
+<li class="fragment">We saw that, when adding leverage, there are both expected <span class="green">positive</span> and <span class="red">negative</span> effects:</li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>On the one hand</strong>, leverage encourage managers to act in ways that <span class="red">reduce</span> value:
+<ol type="1">
+<li class="fragment">It appears that the equity holders benefit at the expense of the debt holders</li>
+<li class="fragment">However, ultimately, it is the shareholders of the firm who bear these agency costs.</li>
+</ol></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>On the other hand</strong>, leverage also has benefits that might <span class="green">increase</span> value:
+<ol type="1">
+<li class="fragment">Having leverage limits the extent to which managers may engage in negative-NPV transactions</li>
+<li class="fragment">It also disciplines managers to run the firm as efficiently as possible</li>
+</ol></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Question</strong>: how would you estimate <em>net</em> effect of leverage on the firm value?</p>
+</div>
+</section>
+<section id="agency-costs-and-the-trade-off-theory" class="slide level2">
+<h2>Agency Costs and the Trade-off Theory</h2>
+<ul>
+<li class="fragment">Estimating the <em>net</em> effect of Agency Costs and Benefits is an empirical matter, and despite that fact that we do not know with certainty what the value is, it is rational to assume that firms would pursue an <em>optimal</em> debt level by taking into account <em>both</em> agency <span class="blue">costs</span> and <span class="blue">benefits</span>:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small V^L = V^U + PV(ITS) - PV(\text{Financial Distress Costs})- PV(\text{Agency Costs}) + PV(\text{Agency Benefits})
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>R&amp;D-Intensive Firms</strong></p>
+<ul>
+<li class="fragment">Firms with high R&amp;D costs and future growth opportunities typically maintain low debt levels</li>
+<li class="fragment">These firms tend to have low current free cash flows and risky business strategies</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Low-Growth, Mature Firms</strong></p>
+<ul>
+<li class="fragment">Mature, low-growth firms with stable cash flows and tangible assets often carry more debt</li>
+<li class="fragment">These firms tend to have high free cash flows with few good investment opportunities</li>
+</ul>
+</div>
+</section>
+<section id="asymmetric-information" class="slide level2">
+<h2>Asymmetric Information</h2>
+<ul>
+<li class="fragment">Another assumption of <em>Perfect Capital Markets</em> is the fact that there is no information asymmetry - <em>i.e</em>, all market agents act upon the <em>same</em> set of information</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="blue">Asymmetric Information</span> is a situation in which parties have <span class="blue">different</span> information. For example, when managers have superior information to investors regarding the firm’s future cash flows.</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>If we depart from this assumption, can <span class="blue">asymmetric information</span> be related to <span class="blue">leverage</span>? The <em>Signaling Theory of Debt</em> implies a relationship between the degree of information asymmetry and the level of debt:</p>
+<ol type="1">
+<li class="fragment">Leverage is used as a way to signal information to investors</li>
+<li class="fragment">A firm can use leverage as a way to convince investors that it does have information that the firm will grow, even if it cannot provide verifiable details about the sources of growth</li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="adverse-selection-a-general-example" class="slide level2">
+<h2>Adverse Selection, a general example</h2>
+<ul>
+<li class="fragment"><p>Whenever we allow for <span class="blue">information asymmetry</span>, we no longer guarantee that all agents operate on the same level of information: for example, there might be more informed traders (such as insider traders) that have a different estimate for a firm’s value</p></li>
+<li class="fragment"><p>What happens if one party <em>anticipates</em> that the other party has different information?</p></li>
+</ul>
+<div class="fragment">
+<div class="callout-definition">
+<p><span class="blue">Adverse Selection</span> is the idea that when the buyers and sellers have different information, the average quality of assets in the market will differ from the average quality overall</p>
+</div>
+<ul>
+<li class="fragment">A manifestation of adverse selection in any market is known as the <em>“Lemons Principle”</em>: when a seller has private information about the value of a good, buyers will discount the price they are willing to pay due to adverse selection
+<ol type="1">
+<li class="fragment">If the seller has private information about the quality of the car, then her desire to sell reveals the car is probably of low quality</li>
+<li class="fragment">Buyers are therefore reluctant to buy except at heavily discounted prices</li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="adverse-selection-in-capital-markets" class="slide level2">
+<h2>Adverse Selection in Capital Markets</h2>
+<ul>
+<li class="fragment"><p>The <em>Lemons Principle</em> is widely used to depict a situation of adverse selection. There are implications for both <em>high</em> and <em>low</em> quality cars:</p>
+<ol type="1">
+<li class="fragment">Owners of high-quality cars are reluctant to sell because they know buyers will think they are selling a <em>“lemon”</em> and would only do it at a low price</li>
+<li class="fragment">Consequently, the only cars that remain the market are the ones where both quality and prices are low</li>
+</ol></li>
+<li class="fragment"><p>Notwithstanding, this same principle can be applied to the market for equity:</p>
+<ol type="1">
+<li class="fragment">Firms that are willing to issue new equity have private information about the quality of the firm’s future projects</li>
+<li class="fragment">However, due to adverse selection, buyers are reluctant to believe management’s assessment of the new projects and are only willing to buy the new equity at heavily discounted prices - if any, why would the firm sell equity at a given price?</li>
+</ol></li>
+</ul>
+</section>
+<section id="adverse-selection-in-capital-markets-1" class="slide level2">
+<h2>Adverse Selection in Capital Markets</h2>
+<ul>
+<li class="fragment">In other words:
+<ol type="1">
+<li class="fragment">If the firm is issuing equity at market prices, it must be that managers think the stock is <span class="blue">expensive</span></li>
+<li class="fragment">If the firm is buying back shares at market prices, it must be that managers think the stock is <span class="blue">cheap</span></li>
+</ol></li>
+</ul>
+</section>
+<section id="asymmetric-information-practice" class="slide level2">
+<h2>Asymmetric Information, practice</h2>
+<p><em>You are an analyst who follows Great Windows’ stock. Although the current stock price is <span class="math inline">\(\small \$37.50\)</span>, you believe the stock is worth either <span class="math inline">\(\small \$25\)</span> or <span class="math inline">\(\small \$50\)</span>, depending on the success of a new product launch. If Great Windows’ CEO announces that she plans to buy <span class="math inline">\(\small 10,000\)</span> additional shares in the company, how will the share price change?</em></p>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <strong>Solution</strong></p>
+</div>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">If the CEO knows the new product launch is a failure, she would sell the stock at <span class="math inline">\(\small \$37.50\)</span> given that the she knows true value is <span class="math inline">\(\small \$25\)</span></li>
+<li class="fragment">If the CEO announces that she is buying <span class="math inline">\(\small 10,000\)</span> additional shares, she must know that the new product launch is a success and the true value is <span class="math inline">\(\small \$50\)</span> per share</li>
+<li class="fragment">Thus, the stock price should rise to <span class="math inline">\(\small \$50\)</span>.</li>
+</ol>
+</div>
+</section>
+<section id="the-pecking-order-of-financing-choices" class="slide level2">
+<h2>The Pecking Order of Financing Choices</h2>
+<ul>
+<li class="fragment"><p>What does information asymmetry tells us when it comes to financing options? Considering, it is important to note that these options have different degrees of information asymmetry</p></li>
+<li class="fragment"><p>For example, managers who perceive the firm’s equity is underpriced will have a preference to fund investment using retained earnings, or debt, rather than equity.</p></li>
+<li class="fragment"><p>Therefore, the <span class="blue">Pecking-Order Theory</span> of financing choices states a rank-ordering in terms of the preferable funding options for a firm:</p>
+<ol type="1">
+<li class="fragment">First and foremost, firms prefer to finance investments with internally-generated funds, as these suffer less from information asymmetry</li>
+<li class="fragment">If external finance is required, firms issue the safest security first: they start with debt, then possibly hybrid securities, such as convertible bonds, then equity as a the last resort</li>
+</ol></li>
+</ul>
+</section>
+<section id="asymmetric-information-practice-1" class="slide level2">
+<h2>Asymmetric Information, practice</h2>
+<p><em>Nesbat Industries needs to raise <span class="math inline">\(\small \$25\)</span> million for a new investment project. If the firm issues one year debt, it may have to pay an interest rate of <span class="math inline">\(\small 10\%\)</span>, although Nesbat’s managers believe that <span class="math inline">\(\small 8\%\)</span> would be a fair rate given the level of risk. However, if the firm issues equity, they believe the equity may be underpriced by <span class="math inline">\(\small 7.5\%\)</span>. What is the cost to current shareholders of financing the project out of retained earnings, debt, and equity?</em></p>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <strong>Solution</strong></p>
+</div>
+<div class="fragment">
+<ol type="1">
+<li class="fragment"><p>If the firm spends <span class="math inline">\(\small \$25\)</span> million out of retained earnings, rather than paying that money out to shareholders as a dividend, the cost to shareholders is <span class="math inline">\(\small \$25\)</span> million</p></li>
+<li class="fragment"><p>Using debt costs the firm pays <span class="math inline">\(\small \$25 \times (1+10\%) = \$27.5\)</span> million in one year, which has a present value based on management’s view of the firm’s risk of <span class="math inline">\(\small \$27.5/(1+8\%)= \$25.46\)</span> million</p></li>
+<li class="fragment"><p>Finally, if equity is underpriced by <span class="math inline">\(\small 7.5\%\)</span>, then to raise <span class="math inline">\(\small \$25\)</span> million, the firm will need to issue <span class="math inline">\(\small 25/(1-7.5\%) = \small \$27.03\)</span> million of new equity. Thus, the cost to existing shareholders will be <span class="math inline">\(\small \$27.03\)</span> million</p></li>
+</ol>
+</div>
+</section>
+<section id="practice" class="slide level2">
+<h2>Practice</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<p><span class="big">Practice using the following links:</span></p>
+<ol type="1">
+<li><a href="https://henriquemartins.net/teaching/financial_strategy/p9tf.html" data-preview-link="true">Multiple-choice Questions</a></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div class="quarto-auto-generated-content">
+<p><img src="logo.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-BDM" class="csl-entry" role="listitem">
+Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Global Edition / English Textbooks. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
+</div>
+<div id="ref-BMA" class="csl-entry" role="listitem">
+Brealey, R. A., S. C. Myers, and F. Allen. 2020. <em>Principles of Corporate Finance</em>. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. <a href="https://books.google.com.br/books?id=nsrHuwEACAAJ">https://books.google.com.br/books?id=nsrHuwEACAAJ</a>.
+</div>
+</div>
+</section>
+
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

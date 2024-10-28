@@ -39,7 +39,7 @@
     "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#reconciling-modigliani-and-miller-with-debt",
     "title": "Debt and Taxes",
     "section": "Reconciling Modigliani and Miller with Debt",
-    "text": "Reconciling Modigliani and Miller with Debt\nQuestion: if capital structure does not matter, why is debt so abundant?\n\nThe statement that capital structure decisions are irrelevant for the value of a firm are difficult to reconcile with the observation that firms invest significant resources, both in terms of managerial time and effort and investment banking fees, in managing their capital structures\nIn many instances, the choice of leverage is of critical importance to a firm’s value and future success:\n\nFirms issue large amounts of debt to pay dividends\nLarge funds buy companies issuing substantial amounts of debt through leveraged buyouts\n\n\n\\(\\rightarrow\\) Therefore, if capital structure does matter, then it must stem from a market imperfection!\n\nIn this lecture, we focus on one such imperfection — taxes. As we’ll see, when imperfections from taxes are present, managers can increase the value of a firm through leverage!"
+    "text": "Reconciling Modigliani and Miller with Debt\nQuestion: if capital structure does not matter, why is debt so abundant?\n\nThe statement that capital structure decisions are irrelevant for the value of a firm are difficult to reconcile with the observation that firms invest significant resources, both in terms of managerial time and effort and investment banking fees, in managing their capital structures\nIn many instances, the choice of leverage is of critical importance to a firm’s value and future success:\n\nFirms issue large amounts of debt to pay dividends\nLarge funds buy companies issuing substantial amounts of debt through leveraged buyouts\n\n\n\n\\(\\rightarrow\\) Therefore, if capital structure does matter, then it must stem from a market imperfection!\n\nIn this lecture, we focus on one such imperfection — taxes. As we’ll see, when imperfections from taxes are present, managers can increase the value of a firm through leverage!"
   },
   {
     "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#the-interest-tax-deduction",
@@ -53,7 +53,7 @@
     "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#the-interest-tax-deduction-continued",
     "title": "Debt and Taxes",
     "section": "The Interest Tax Deduction, continued",
-    "text": "The Interest Tax Deduction, continued\n\nWe saw that firms can increase value in the presence of taxes through levering up. By how much the firm value increases? You can see that the value of the\n\n\n\\[\n\\small \\underbrace{980}_{\\text{Int. Expenses w/ leverage}} - \\underbrace{840}_{\\text{Int. Expenses w/o Leverage}} = \\underbrace{140}_{\\text{Interest Tax-Shield}}\n\\]\n\nThe Interest Tax-Shield is the reduction in taxes achieved due to the higher leverage. Assuming a tax-rate of \\(\\small 35\\%\\), we can calculate it as:\n\n\n\n\\[\n\\small \\text{Tax-Shield}= \\tau \\times \\text{Interest Payments} \\rightarrow 35\\% \\times 400 = 140\n\\]\n\nIn words, because interest expenses reduce the amount of taxable income, the firm pay less taxes!"
+    "text": "The Interest Tax Deduction, continued\n\nWe saw that firms can increase value in the presence of taxes through levering up. By how much the firm value increases? You can see that the value of the\n\n\n\\[\n\\small \\underbrace{980}_{\\text{Int. Expenses w/o Leverage}} - \\underbrace{840}_{\\text{Int. Expenses w/ Leverage}} = \\underbrace{140}_{\\text{Interest Tax-Shield}}\n\\]\n\nThe Interest Tax-Shield is the reduction in taxes achieved due to the higher leverage. Assuming a tax-rate of \\(\\small 35\\%\\), we can calculate it as:\n\n\n\n\\[\n\\small \\text{Tax-Shield}= \\tau \\times \\text{Interest Payments} \\rightarrow 35\\% \\times 400 = 140\n\\]\n\nIn words, because interest expenses reduce the amount of taxable income, the firm pay less taxes!"
   },
   {
     "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#valuing-the-interest-tax-shield",
@@ -74,7 +74,7 @@
     "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#valuing-the-interest-tax-shield-practice",
     "title": "Debt and Taxes",
     "section": "Valuing the Interest Tax Shield, practice",
-    "text": "Valuing the Interest Tax Shield, practice\nSuppose ALCO plans to pay 60 million in interest each year for the next eight years, and then repay the principal of 1 billion in year 8. These payments are risk free, and ALCO’s marginal tax rate will remain 39% throughout this period. If the risk-free interest rate is 6%, by how much does the interest tax shield increase the value of ALCO?\n\n\\(\\rightarrow\\) Solution: The annual interest tax shield that is accrued to the firm in years 1 to 8 is:\n\n\n\\[\n\\small 1\\text{ billion}\\times 6\\% \\times 39\\% = 23.4\\text{ million}\n\\]\n\nTherefore, we can calculate the present value of the tax-shields as:\n\n\n\n\\[\n\\small PV(ITS) = \\frac{23,4}{(1+6\\%)^1} + . . . + \\frac{23,4}{(1+6\\%)^8} = 145.31 \\text{ million}\n\\]"
+    "text": "Valuing the Interest Tax Shield, practice\nSuppose ALCO plans to pay 60 million in interest each year for the next eight years, and then repay the principal of 1 billion in year 8. These payments are risk free, and ALCO’s marginal tax rate will remain 39% throughout this period. If the risk-free interest rate is 6%, by how much does the interest tax shield increase the value of ALCO?\n\n\\(\\rightarrow\\) Solution: The annual interest tax shield that is accrued to the firm in from years 1 to 8 is:\n\n\n\\[\n\\small 1\\text{ billion}\\times 6\\% \\times 39\\% = 23.4\\text{ million}\n\\]\n\nTherefore, we can calculate the present value of the tax-shields as:\n\n\n\n\\[\n\\small PV(ITS) = \\frac{23,4}{(1+6\\%)^1} + \\frac{23,4}{(1+6\\%)^2}+. . . + \\frac{23,4}{(1+6\\%)^8} = 145.31 \\text{ million}\n\\]"
   },
   {
     "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#valuing-the-interest-tax-shield-in-practice",
@@ -95,7 +95,7 @@
     "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#valuing-the-interest-tax-shield---dynamics",
     "title": "Debt and Taxes",
     "section": "Valuing the Interest Tax Shield - Dynamics",
-    "text": "Valuing the Interest Tax Shield - Dynamics\n\nYou may wonder from where the increased value of the levered firm (\\(\\small V^L &gt; V^U\\)) came from\nIt is easy to see that when a firm uses debt financing, the cost of the interest it must pay is offset to some extent by the tax savings from the interest tax shield. Assuming a marginal tax-rate of \\(\\small \\tau_c = 21\\%\\) and a permanent level of debt \\(\\small D = 100,000\\), at \\(\\small10\\%\\) percent interest per year:\n\n\n\n\n\nInterest expense\n$10,000\n\n\nTax savings\n- $2,100\n\n\nAfter-tax cost of debt\n$7,900\n\n\n\n\nTherefore, the effective (or after-tax cost of debt) is:\n\n\n\n\\[\n\\small \\underbrace{r_d}_{\\text{Cost of Debt}} \\times \\underbrace{(1-\\tau_c)}_{\\text{Tax-Shield Factor}}\n\\]"
+    "text": "Valuing the Interest Tax Shield - Dynamics\n\nYou may wonder from where the increased value of the levered firm (\\(\\small V^L &gt; V^U\\)) came from\nIt is easy to see that when a firm uses debt financing, the cost of the interest it must pay is offset to some extent by the tax savings from the interest tax shield. Assuming a marginal tax-rate of \\(\\small \\tau_c = 21\\%\\) and a permanent level of debt \\(\\small D = 100,000\\), at \\(\\small10\\%\\) percent interest per year:\n\n\n\n\n\nInterest expense\n$10,000\n\n\nTax savings\n- $2,100\n\n\nAfter-tax cost of debt\n$7,900\n\n\n\n\nTherefore, the effective (or after-tax cost of debt) is:\n\n\n\n\\[\n\\small \\underbrace{r_d}_{\\text{Cost of Debt}} \\times \\underbrace{(1-\\tau_c)}_{\\text{Tax-Shield Factor}}\\rightarrow 10\\%\\times(1-21\\%)=7.9\\%\n\\]"
   },
   {
     "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#valuing-the-interest-tax-shield---dynamics-continued",
@@ -133,60 +133,200 @@
     "text": "Case II: assuming a Target Debt-Equity Ratio (practice)\n\nWe know the value of the unlevered firm. Lnowing that the firm maintains a constant debt-to-equity ratio, the effective cost of debt will be lower due to the tax-shield. We know that the value of the levered firm, \\(V^L\\), can be found using the after-tax WACC:\n\n\n\\[\n\\small \\text{WACC}_{\\text{After-Tax}}=\\frac{1}{1+2.5} \\times 12\\% + \\frac{2.5}{1+2.5} \\times 7\\% \\times (1-40\\%) = 6.43\\%\n\\]\n\n\n\\[\n\\small V^L = \\frac{1.75}{6.43\\% - 3.5\\%} = 59.73 \\text{ million}\n\\]\n\nAs a consequence, the value of the interest tax shield must be:\n\n\n\n\\[\n\\small V^L - V^U = 59.73 - 35.50 = 24.23 \\text{ million}\n\\]"
   },
   {
-    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies",
-    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies",
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies",
     "title": "Debt and Taxes",
-    "section": "Recapization strategies",
-    "text": "Recapization strategies\n\nWhen a firm makes a significant change to its capital structure, the transaction is called a recapitalization (or simply a “recap”)\nFor example, in a leveraged recapitalization, a firm issues a large amount of debt and uses the proceeds to pay a special dividend or to repurchase shares\n\nIn general, these transactions can reduce firm’s tax payments\nBut do these transactions ultimately benefit shareholders?\n\nAs we’ll see in the next example, the answer is yes: when we alter the amount of taxes due, the current shareholders of the firm benefit from this change!"
+    "section": "Recapitalization strategies",
+    "text": "Recapitalization strategies\n\nWhen a firm makes a significant change to its capital structure, the transaction is called a recapitalization (or simply a “recap”)\nFor example, in a leveraged recapitalization, a firm issues a large amount of debt and uses the proceeds to pay a special dividend or to repurchase shares\n\nIn general, these transactions can reduce firm’s tax payments\nBut do these transactions ultimately benefit shareholders?\n\nAs we’ll see in the next example, the answer is yes: when we alter the amount of taxes due, the current shareholders of the firm benefit from this change!"
   },
   {
-    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example",
-    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example",
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example",
     "title": "Debt and Taxes",
-    "section": "Recapization strategies - Example",
-    "text": "Recapization strategies - Example\nAssume that Midco Industries wants to boost its stock price. The company currently has \\(\\small 20\\) million shares outstanding with a market price of \\(\\small \\$15\\) per share and no debt. Midco has had consistently stable earnings and pays a \\(\\small 21\\%\\) tax rate. Management plans to borrow \\(\\small \\$100\\) million on a permanent basis, and they will use the borrowed funds to repurchase outstanding shares.\n\n\nTheir expectation is that the tax savings from this transaction will boost Midco’s stock price and benefit shareholders\nQuestion: is this this expectation realistic?"
+    "section": "Recapitalization strategies - Example",
+    "text": "Recapitalization strategies - Example\nAssume that Midco Industries wants to boost its stock price. The company currently has \\(\\small 20\\) million shares outstanding with a market price of \\(\\small \\$15\\) per share and no debt. Midco has had consistently stable earnings and pays a \\(\\small 21\\%\\) tax rate. Management plans to borrow \\(\\small \\$100\\) million on a permanent basis, and they will use the borrowed funds to repurchase outstanding shares.\n\n\nTheir expectation is that the tax savings from this transaction will boost Midco’s stock price and benefit shareholders\nQuestion: is this this expectation realistic?"
   },
   {
-    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued",
-    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued",
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued",
     "title": "Debt and Taxes",
-    "section": "Recapization strategies - Example (continued)",
-    "text": "Recapization strategies - Example (continued)\n\nFirst, we can calculate the value of Midco Industries without leverage:\n\n\n\\[\n\\small V^U = 20,000,000 \\times 15 = 300 \\text{ million}\n\\]\n\nWe know that the present value of the tax-shiedls (after recapitalization) is:\n\n\n\n\\[\n\\small \\tau_c \\times D = 21\\% \\times 100 \\text{ million} = 21 \\text{ million}\n\\]\n\nTherefore, the total value of the levered firm, \\(\\small V^L\\) is:\n\n\n\n\\[\n\\small V^L=V^U+PV(ITS)\\rightarrow 300+21= 321 \\text{ million}\n\\]"
+    "section": "Recapitalization strategies - Example (continued)",
+    "text": "Recapitalization strategies - Example (continued)\n\nFirst, we can calculate the value of Midco Industries without leverage:\n\n\n\\[\n\\small V^U = 20,000,000 \\times 15 = 300 \\text{ million}\n\\]\n\nWe know that the present value of the tax-shiedls (after recapitalization) is:\n\n\n\n\\[\n\\small \\tau_c \\times D = 21\\% \\times 100 \\text{ million} = 21 \\text{ million}\n\\]\n\nTherefore, the total value of the levered firm, \\(\\small V^L\\) is:\n\n\n\n\\[\n\\small V^L=V^U+PV(ITS)\\rightarrow 300+21= 321 \\text{ million}\n\\]"
   },
   {
-    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-1",
-    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-1",
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-1",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-1",
     "title": "Debt and Taxes",
-    "section": "Recapization strategies - Example (continued)",
-    "text": "Recapization strategies - Example (continued)\n\nBecause the value of the debt is \\(\\small \\$100\\) million, the value of the equity is:\n\n\n\\[\n\\small 321 - 100 = 221 \\text{ million}\n\\]\n\nAlthough the value of the shares outstanding drops from to \\(\\small \\$300\\) to \\(\\small\\$ 221\\) million, shareholders will also receive \\(\\small \\$100\\) million that Midco Industries will pay out through the share repurchases\n\nIn total, they will receive the full \\(\\small \\$321\\) million, a gain of \\(\\small \\$21\\) million over the value of their shares without leverage!\nThat is, the firm has the incentive to make such recapitalization"
+    "section": "Recapitalization strategies - Example (continued)",
+    "text": "Recapitalization strategies - Example (continued)\n\nBecause the value of the debt is \\(\\small \\$100\\) million, the value of the equity is:\n\n\n\\[\n\\small 321 - 100 = 221 \\text{ million}\n\\]\n\nAlthough the value of the shares outstanding drops from to \\(\\small \\$300\\) to \\(\\small\\$ 221\\) million, shareholders will also receive \\(\\small \\$100\\) million that Midco Industries will pay out through the share repurchases\n\nIn total, they will receive the full \\(\\small \\$321\\) million, a gain of \\(\\small \\$21\\) million over the value of their shares without leverage!\nThat is, the firm has the incentive to make such recapitalization"
   },
   {
-    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-2",
-    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-2",
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-2",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-2",
     "title": "Debt and Taxes",
-    "section": "Recapization strategies - Example (continued)",
-    "text": "Recapization strategies - Example (continued)\n\nAssume Midco Industries repurchases its shares at the current price of \\(\\small \\$15\\) per share. The firm will repurchase \\(\\small 100/15\\approx 6.67\\) million shares. Therefore, the remaining number of shares is:\n\n\n\\[\n\\small 20- 6.67= 13.33 \\text{ million shares outstanding}\n\\]\n\nThe total value of equity under leverage is \\(\\small \\$221\\) million. Therefore, the new share price is:\n\n\n\n\\[\n\\small \\frac{221}{13.33} = 16.575\n\\]\n\nAll in all, the total gain to shareholders 21 million, which is exactly the interest tax-shield:\n\n\n\n\\[\n\\small (\\underbrace{16.575}_{\\text{New Price}} - \\underbrace{15}_{\\text{Prev. Price}}) = \\underbrace{1.575}_{\\text{Capital Gain}} \\times \\underbrace{13.33}_{\\text{Million Shares}} = 21 \\text{ million}\n\\]"
+    "section": "Recapitalization strategies - Example (continued)",
+    "text": "Recapitalization strategies - Example (continued)\n\nAssume Midco Industries repurchases its shares at the current price of \\(\\small \\$15\\) per share. The firm will repurchase \\(\\small 100/15\\approx 6.67\\) million shares. Therefore, the remaining number of shares is:\n\n\n\\[\n\\small 20- 6.67= 13.33 \\text{ million shares outstanding}\n\\]\n\nThe total value of equity under leverage is \\(\\small \\$221\\) million. Therefore, the new share price is:\n\n\n\n\\[\n\\small \\frac{221}{13.33} = 16.575\n\\]\n\nAll in all, the total gain to shareholders 21 million, which is exactly the interest tax-shield:\n\n\n\n\\[\n\\small (\\underbrace{16.575}_{\\text{New Price}} - \\underbrace{15}_{\\text{Prev. Price}}) = \\underbrace{1.575}_{\\text{Capital Gain}} \\times \\underbrace{13.33}_{\\text{Million Shares}} = 21 \\text{ million}\n\\]"
   },
   {
-    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-3",
-    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-3",
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-3",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-3",
     "title": "Debt and Taxes",
-    "section": "Recapization strategies - Example (continued)",
-    "text": "Recapization strategies - Example (continued)\n\nIn the previous case, the shareholders who remain after the recap receive the benefit of the tax-shield\nHowever, you may have noticed something odd in the previous calculations…\n\nWe assumed that Midco Industries was able to repurchase the shares at the initial price of \\(\\small \\$15\\) per share, and then demonstrated that the shares would be worth $16.575 after the transaction\nBut if the shares are worth \\(\\small \\$16.575\\) after the repurchase, why would shareholders tender their shares to Midco at \\(\\small \\$15\\) per share?"
+    "section": "Recapitalization strategies - Example (continued)",
+    "text": "Recapitalization strategies - Example (continued)\n\nIn the previous case, the shareholders who remain after the recap receive the benefit of the tax-shield\nHowever, you may have noticed something odd in the previous calculations…\n\nWe assumed that Midco Industries was able to repurchase the shares at the initial price of \\(\\small \\$15\\) per share, and then demonstrated that the shares would be worth $16.575 after the transaction\nBut if the shares are worth \\(\\small \\$16.575\\) after the repurchase, why would shareholders tender their shares to Midco at \\(\\small \\$15\\) per share?"
   },
   {
-    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-4",
-    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-4",
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-4",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-4",
     "title": "Debt and Taxes",
-    "section": "Recapization strategies - Example (continued)",
-    "text": "Recapization strategies - Example (continued)\n\nIn theory, this represents an Arbitrage Opportunity: if investors could buy shares for \\(\\small \\$15\\) immediately before the repurchase and sell these shares immediately after at a higher price, this would represent a gain without any risks!\nIn practice, the value of the Midco Industries equity will rise immediately, from \\(\\small \\$300\\) million to \\(\\small \\$321\\) million, right after the repurchase announcement. In other words, the stock price will rise from \\(\\small \\$15 \\rightarrow \\$16.05\\) immediately!\n\n\nWith \\(\\small 20\\) million shares outstanding, the share price will rise to: \\(\\small \\$321/20=\\$16.05\\)\nIn other words, Midco Industries must offer at least this price to repurchase the shares, leading to a profit of \\(\\small \\$16.05-\\$15=\\$1.05\\) to shareholders who sell at this price\nNote that all shareholders benefit from this policy: both shareholders who tender their shares and the shareholders who hold their shares both are better-off!"
+    "section": "Recapitalization strategies - Example (continued)",
+    "text": "Recapitalization strategies - Example (continued)\n\nIn theory, this represents an Arbitrage Opportunity: if investors could buy shares for \\(\\small \\$15\\) immediately before the repurchase and sell these shares immediately after at a higher price, this would represent a gain without any risks!\nIn practice, the value of the Midco Industries equity will rise immediately, from \\(\\small \\$300\\) million to \\(\\small \\$321\\) million, right after the repurchase announcement. In other words, the stock price will rise from \\(\\small \\$15 \\rightarrow \\$16.05\\) immediately!\n\n\nWith \\(\\small 20\\) million shares outstanding, the share price will rise to: \\(\\small \\$321/20=\\$16.05\\)\nIn other words, Midco Industries must offer at least this price to repurchase the shares, leading to a profit of \\(\\small \\$16.05-\\$15=\\$1.05\\) to shareholders who sell at this price\nNote that all shareholders benefit from this policy: both shareholders who tender their shares and the shareholders who hold their shares both are better-off!"
   },
   {
-    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-5",
-    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapization-strategies---example-continued-5",
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-5",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#recapitalization-strategies---example-continued-5",
     "title": "Debt and Taxes",
-    "section": "Recapization strategies - Example (continued)",
-    "text": "Recapization strategies - Example (continued)\n\nWith a repurchase price of \\(\\small \\$16.05\\), both shareholders who tender their shares and the ones who hold their shares both gain \\(\\small \\$16.05 − \\$15 = \\$1.05\\) per share as a result of the transaction\nThe benefit of the interest tax shield goes to all \\(\\small 20\\) million shares outstanding for a total benefit of:\n\n\n\\[\n\\small \\underbrace{1.05}_{\\text{Gain per share}}\\times \\underbrace{20}_{\\text{Shares Outstanding}} = \\underbrace{21 \\text{ million}}_{\\text{Interest Tax-Shield}}\n\\]\n\n\n\\(\\rightarrow\\) When securities are fairly priced, the original shareholders of a firm capture the full benefit of the interest tax shield from an increase in leverage!\n\\(\\rightarrow\\) See (Berk and DeMarzo 2023), page 566, for a more comprehensible simulation for different values of tender prices"
+    "section": "Recapitalization strategies - Example (continued)",
+    "text": "Recapitalization strategies - Example (continued)\n\nWith a repurchase price of \\(\\small \\$16.05\\), both shareholders who tender their shares and the ones who hold their shares both gain \\(\\small \\$16.05 − \\$15 = \\$1.05\\) per share as a result of the transaction\nThe benefit of the interest tax shield goes to all \\(\\small 20\\) million shares outstanding for a total benefit of:\n\n\n\\[\n\\small \\underbrace{1.05}_{\\text{Gain per share}}\\times \\underbrace{20}_{\\text{Shares Outstanding}} = \\underbrace{21 \\text{ million}}_{\\text{Interest Tax-Shield}}\n\\]\n\n\n\\(\\rightarrow\\) When securities are fairly priced, the original shareholders of a firm capture the full benefit of the interest tax shield from an increase in leverage!\n\\(\\rightarrow\\) See (Berk and DeMarzo 2023), page 566, for a more comprehensible simulation for different values of tender prices"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#practical-exercise",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#practical-exercise",
+    "title": "Debt and Taxes",
+    "section": "Practical Exercise",
+    "text": "Practical Exercise\nAssume that a firm maintains a debt-equity ratio of \\(\\small0.85\\), and has an equity cost of capital of \\(\\small12\\%\\), and a debt cost of capital of \\(\\small7\\%\\). The applicable corporate tax rate is \\(\\small25\\%\\), and its market capitalization is \\(\\small\\$220\\) million. If the firms’ free cash flow is expected to be \\(\\small\\$10\\) million in one year, what constant expected future growth rate is consistent with the firm’s current market value?\n\n\\(\\rightarrow\\) Solution: first, we calculate the WACC as:\n\n\n\\[\n\\small \\text{WACC}= \\dfrac{1}{1+0.85}\\times 12\\% + \\dfrac{0.85}{1+0.85}\\times 7\\% \\times (1-25\\%)=8.90\\%\n\\]\nNote that \\(\\small V^L=E+D\\). If the market capitalization is \\(\\small 220\\), then \\(\\small D = E\\times 0.85=187\\). Therefore, the firm value can be estimated in terms of a growing perpetuity:\n\n\n\\[\n\\small V^L=\\dfrac{FC}{r-g}= (220+187)=\\dfrac{10}{8.90\\%-g}\\rightarrow g \\approx 6.44\\%\n\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#practical-exercise-1",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#practical-exercise-1",
+    "title": "Debt and Taxes",
+    "section": "Practical Exercise",
+    "text": "Practical Exercise\nBased on the previous exercise, estimate the value of firm’s interest tax shield.\n\n\\(\\rightarrow\\) Solution: first, we calculate the pre-tax WACC (or \\(\\small r_U\\)) as:\n\n\n\\[\n\\small \\text{pre-tax WACC}= \\dfrac{1}{1+0.85}\\times 12\\% + \\dfrac{0.85}{1+0.85}\\times 7\\%=9.70\\%\n\\]\nRemember that you can find the value of unlevered equity (\\(\\small V^U\\)) by discounting using the unlevered cost of capital (or pre-tax WACC):\n\n\n\\[\n\\small V^U=\\dfrac{10}{9,7\\%-6.44\\%}= 307\n\\] Therefore, the present value of the interest tax shield is simply the difference between the levered and unlevered equity:\n\n\n\\[\n\\small PV(ITS)=V^L-V^U\\rightarrow 407-307=100\n\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes",
+    "title": "Debt and Taxes",
+    "section": "Accounting for Personal Taxes",
+    "text": "Accounting for Personal Taxes\n\nSo far, we have looked to the benefits of leverage in the presence of corporate taxes. Although it is correct to say that the firm has a higher cash flow due to tax-shield savings, it is not straightforward to say that shareholders are fully benefiting from such increase\nWhat happens to our conclusions on debt benefits when we account for the effect of personal taxes?\n\nThe rate that corporations paid as tax is usually different than that investors pay\nAdditionally, the cash flows to investors are typically taxed twice. Once at the corporate level and then investors are taxed again when they receive their interest or divided payment\n\n\n\n\\(\\rightarrow\\) Since personal taxes have the potential to offset some of the corporate tax benefits of leverage, in order to determine the true tax benefit of leverage, we need to evaluate the combined effect of both corporate and personal taxes!"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes-continued",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes-continued",
+    "title": "Debt and Taxes",
+    "section": "Accounting for Personal Taxes, continued",
+    "text": "Accounting for Personal Taxes, continued\n\nIn the United States and many other countries, interest income has historically been taxed more heavily than capital gains from equity1\nTo determine the true tax benefit of leverage, we need to evaluate the combined effect of both corporate and personal taxes. In order to see that, consider a firm with \\(\\small\\$1\\) of earnings before interest and taxes (EBIT). The firm has two options:\n\nThe firm can either pay this \\(\\small\\$1\\) to debt holders as interest\nAlternatively, it can be used pay equity holders directly - either directly, with a dividend, or indirectly, by retaining earnings\n\nDepending on the type of investor, tax rates are different:\n\nFor a debtholder, the amount paid net of taxes is \\(\\small(1-\\tau_i)\\)\nFor an equityholder, not only the firm pays \\(\\small \\tau_c\\) on its taxable income, but individuals are taxed by \\(\\small \\tau_e\\) at a personal level: \\(\\small (1-\\tau_c)\\times(1-\\tau_e)\\)\n\n\nNote that, in Brazil, dividends are not taxed."
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#comparing-after-tax-cashflows",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#comparing-after-tax-cashflows",
+    "title": "Debt and Taxes",
+    "section": "Comparing after-tax cashflows",
+    "text": "Comparing after-tax cashflows\n\nWe can summarize the previous example using U.S. tax rates as of 2018:\n\n\n\n\n\n\n\n\n\n\nPayment Due\nAfter-Tax Cash Flows\nUsing Current Tax Rates\n\n\n\n\nTo debt holders\n\\(\\small(1 −\\tau_i)\\)\n( 1 − 0.37 ) = 0.63\n\n\nTo equity holders\n\\(\\small(1 − \\tau_c)\\times(1-\\tau_e)\\)\n(1 − 0.21)( 1 − 0.20 ) = 0.632\n\n\n\n\nBased on this, we can write:\n\n\n\n\\[\n\\small (1-\\tau^*) \\times (1-\\tau_i) = (1-\\tau_c)\\times(1-\\tau_e)\n\\]\n\nWe can interpret \\(\\small \\tau^*\\) as the effective tax advantage of debt: if the corporation paid \\(\\small (1-\\tau^*)\\) in interest, debt holders would receive the same amount after taxes as equity holders would receive if the firm paid \\(\\small \\$1\\) in profits to equity holders"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes-continued-1",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes-continued-1",
+    "title": "Debt and Taxes",
+    "section": "Accounting for Personal Taxes, continued",
+    "text": "Accounting for Personal Taxes, continued"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#tax-advantages-of-debt",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#tax-advantages-of-debt",
+    "title": "Debt and Taxes",
+    "section": "Tax advantages of debt",
+    "text": "Tax advantages of debt\n\nUsing this structure, we can calculate the Effective Advantage of Debt as follows:\n\n\n\\[\n\\small \\tau^* = 1-\\frac{(1-\\tau_c)\\times(1-\\tau_e)}{(1-\\tau_i)}\n\\]\n\nFinally, notice that if interest payments and equity payment tax burdens are equivalent, debt policy is irrelevant:\n\n\n\n\\[\n\\small(1-\\tau_e) \\times (1-\\tau_c) = (1-\\tau_i)\n\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes-practice",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes-practice",
+    "title": "Debt and Taxes",
+    "section": "Accounting for Personal Taxes, practice",
+    "text": "Accounting for Personal Taxes, practice\nAssume that the corporate tax rate (\\(\\small \\tau_c\\)) is \\(\\small 34\\%\\), the personal tax rate on equity (\\(\\small \\tau_e\\)) is \\(\\small 28\\%\\), and the personal tax rate on debt (\\(\\small \\tau_i\\)) is also \\(\\small 28\\%\\). What is the tax advantage of debt for a firm?\n\\(\\rightarrow\\) Solution: using the formula, we have that:\n\\[\n\\small \\tau^* = 1-\\frac{(1-\\tau_c)\\times(1-\\tau_e)}{(1-\\tau_i)}\\rightarrow 1-\\dfrac{(1-34\\%)\\times(1-28\\%)}{(1-28\\%)}=34\\%\n\\]\n\nIn other words, the tax advantage of debt is the corporate tax rate if there is no difference between the tax rate on interest payments or equity\nIf, for example, equity income is taxed less heavily than interest income, then \\(\\small \\tau^\\star\\), the tax advantage of debt, will be lower than the corporate tax rate"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes-practice-1",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#accounting-for-personal-taxes-practice-1",
+    "title": "Debt and Taxes",
+    "section": "Accounting for Personal Taxes, practice",
+    "text": "Accounting for Personal Taxes, practice\n\nConsider the stylized Brazilian case and compute the effective tax advantage of debt.\n\nPersonal tax rate: \\(\\small \\tau_i = 27.5%\\)\nEquity income tax rate: \\(\\small \\tau_e= 15\\%\\)\nCorporate tax rate: \\(\\small \\tau_c = 34\\%\\)\n\nThe tax advantage of debt in a Brazilian setting is:\n\n\n\\[\n\\small \\tau^* = 1-\\frac{(1-34\\%)\\times(1-15\\%)}{(1-27.5\\%)} = 22.6\\%\n\\]"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#practical-implications-personal-taxes",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#practical-implications-personal-taxes",
+    "title": "Debt and Taxes",
+    "section": "Practical implications Personal Taxes",
+    "text": "Practical implications Personal Taxes\n\nThere is a rationable to argue that that tax advantages of debt differ across investors:\n\nTax rates vary for individual investors, and many investors are in lower tax brackets\nHolding periods might also have an effect on personal taxes\n\nGiven the wide range of tax preferences and brackets across investors, it is difficult to know the true value of \\(\\tau^*\\) for a firm\n\nUsing the top personal tax rates likely understates \\(\\tau^*\\)\n\nIgnoring personal taxes likely overstates \\(\\tau^*\\)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#personal-taxes-and-firm-value",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#personal-taxes-and-firm-value",
+    "title": "Debt and Taxes",
+    "section": "Personal Taxes and Firm Value",
+    "text": "Personal Taxes and Firm Value\n\nWe now can write:\n\n\n\\[V^L = V^U + \\tau^*  \\times D\\]\n\nWe still compute the WACC using the corporate tax rate \\(\\tau_c\\).\n\nWith personal taxes the firm’s equity and debt costs of capital will adjust to compensate investors for their respective tax burdens\nThe net result is that a personal tax disadvantage for debt causes the WACC to decline more slowly with leverage than it otherwise would."
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#estimating-the-interest-tax-shield-with-personal-taxes",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#estimating-the-interest-tax-shield-with-personal-taxes",
+    "title": "Debt and Taxes",
+    "section": "Estimating the Interest Tax Shield with Personal Taxes",
+    "text": "Estimating the Interest Tax Shield with Personal Taxes\nMoreLev Inc. currently has a market cap of \\(\\small\\$500\\) million with \\(\\small40\\) million shares outstanding. It expects to pay a \\(\\small 21\\%\\) corporate tax rate. It estimates that its marginal corporate bondholder pays a \\(\\small20\\%\\) tax rate on interest payments, whereas its marginal equity holder pays on average a \\(\\small10\\%\\) tax rate on income from dividends and capital gains. MoreLev plans to add permanent debt. Based on this information, estimate the firm’s share price after a \\(\\small\\$220\\) million leveraged recap.\n\n\\(\\rightarrow\\) Solution: using the formula for the tax advantage of debt, we have that:\n\n\n\\[\n\\small \\tau^* = 1-\\frac{(1-21\\%)\\times(1-10\\%)}{(1-20\\%)} = 11.1\\%\n\\]\n\nTherefore, having debt in the firm’s capital structure increases the firm’s value to:\n\n\n\n\\[\n\\small \\tau^\\star\\times D \\rightarrow 11.1\\%\\times 220 = 24.4 \\text{ million}\n\\]\n\nShare prices rise by \\(\\small \\$24.4/40\\approx\\$0.61\\), and the new share price is \\(\\small \\$12.5+\\$0.61 = \\$13.11\\)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#do-firms-prefer-debt-equity-and-debt-issuances",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#do-firms-prefer-debt-equity-and-debt-issuances",
+    "title": "Debt and Taxes",
+    "section": "Do firms prefer Debt? Equity and Debt issuances",
+    "text": "Do firms prefer Debt? Equity and Debt issuances"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#do-firms-prefer-debt-debt-to-value-ratios",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#do-firms-prefer-debt-debt-to-value-ratios",
+    "title": "Debt and Taxes",
+    "section": "Do firms prefer Debt? Debt-to-Value ratios",
+    "text": "Do firms prefer Debt? Debt-to-Value ratios"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#do-firms-prefer-debt-the-cross-section-of-debt-ratios",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#do-firms-prefer-debt-the-cross-section-of-debt-ratios",
+    "title": "Debt and Taxes",
+    "section": "Do firms prefer Debt? The Cross-section of Debt Ratios",
+    "text": "Do firms prefer Debt? The Cross-section of Debt Ratios\n\n\n\n\n\nNote: full picture in (Berk and DeMarzo 2023)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#optimal-capital-structure-with-taxes",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#optimal-capital-structure-with-taxes",
+    "title": "Debt and Taxes",
+    "section": "Optimal Capital Structure with Taxes",
+    "text": "Optimal Capital Structure with Taxes\n\nThe evidence from the U.S. market outlined in the previous three slides shows us that:\n\nFor the average firm, the result is that debt as a fraction of firm value has varied in a range from 30% to 45%\nThe use of debt varies greatly by industry\nFirms in growth industries like biotechnology or high technology carry very little debt, while airlines, automakers, utilities, and financial firms have high leverage ratios\nFinally, many firms hold huge amounts of cash, actually making net debt negative\n\n\n\nQuestion: considering all the tax benefits of debt, why is that firms do not use more debt?\n\n\n\\(\\rightarrow\\) A potential explanation (among other hypotheses) is that there are limits to the tax benefit of debt that makes firm to optimally set a given debt-to-value ratio"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#limits-to-tax-benefits",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#limits-to-tax-benefits",
+    "title": "Debt and Taxes",
+    "section": "Limits to tax benefits",
+    "text": "Limits to tax benefits\n\nWhen it comes to taxable earnings, there may be limits to how much a firm can deduct interest expenses on its taxable income - in our case, EBIT\n\nTo receive the full tax benefits of leverage, a firm need not use 100% debt financing, but the firm does need to have taxable earnings\nThis constraint may limit the amount of debt needed as a tax shield\n\nFor example, in the United States, there is a limit of \\(\\small 30\\%\\) of the EBIT for how much can be deducted in taxable income due to interest payments1\nConsider a case where EBIT is \\(\\small \\$1,000\\) and the corporate tax rate is \\(\\small 21\\%\\). In a situation like this, a firm may limit its leverage to achieve the highest interest shield possible from a tax perspective - see Table in the next slide\n\nInterest deductions in excess of the 30% limit can be carried forward and used the next time the firm does not exceed the limit. This delay reduces the present value of the tax benefit (and it may ultimately be lost if the firm’s interest coverage remains too low)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#limits-to-tax-benefits---example",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#limits-to-tax-benefits---example",
+    "title": "Debt and Taxes",
+    "section": "Limits to tax benefits - example",
+    "text": "Limits to tax benefits - example\n\n\n\n\n\n\n\n\n\n\nNo Leverage\nModerate Leverage\nExcess Leverage\n\n\n\n\nEBIT\n$1,000\n$1,000\n$1,000\n\n\nInterest Expenses\n$0\n$300\n$500\n\n\n30% Limit\n$300\n$300\n$300\n\n\nInterest Deduction\n$0\n$300\n$300\n\n\nTaxable Income\n$1,000\n$700\n$700\n\n\nTaxes (21%)\n$210\n$147\n$147\n\n\nNet Income\n$790\n$553\n$353\n\n\nTax Shield\n$0\n$63\n$63\n\n\n\n\\(\\rightarrow\\) The optimal level of leverage from a tax saving perspective is the level such that interest just equals the income limit"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#growth-and-debt",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#growth-and-debt",
+    "title": "Debt and Taxes",
+    "section": "Growth and Debt",
+    "text": "Growth and Debt\n\nHow firms could optimally set their leverage from a tax savings perspective? A way to think about it is to relate to its future EBIT (taxable earnings):\n\nGrowing firms often have no taxable earnings and therefore do not use much debt\nAt the optimal level of leverage, the firm shields all of its taxable income, and it does not have any tax-disadvantaged excess interest\n\n\nHowever, it is unlikely that a firm can predict its future EBIT (and the optimal level of debt) precisely\nIf there is uncertainty regarding EBIT, then there is a risk that interest will exceed EBIT\nAs a result, the tax savings for high levels of interest falls, possibly reducing the optimal level of the interest payment\n\n\n\n\\(\\rightarrow\\) In general, as a firm’s interest expense approaches its expected taxable earnings, the marginal tax advantage of debt declines, limiting the amount of debt the firm should use"
+  },
+  {
+    "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#wrapping-up-the-low-leverage-puzzle",
+    "href": "fin-strat/Lecture 8 - Debt and Taxes/index.html#wrapping-up-the-low-leverage-puzzle",
+    "title": "Debt and Taxes",
+    "section": "Wrapping-up: the Low leverage puzzle",
+    "text": "Wrapping-up: the Low leverage puzzle\n\n\n\n\n\n\\(\\rightarrow\\) It seems that firms are under-leveraged consistently. Therefore, there must be more to this capital structure story"
   },
   {
     "objectID": "fin-strat/Lecture 8 - Debt and Taxes/index.html#references",
@@ -907,7 +1047,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise---standard-error",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Data Exercise - Standard Error",
-    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 58 months, and an sample standard deviation of returns of 12.01%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.2 \\pm 1.96\\times \\dfrac{12.01}{\\sqrt{58}}=[-1.89\\%,+4.29\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.89% to 4.29%"
+    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 58 months, and an sample standard deviation of returns of 12.01%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.19 \\pm 1.96\\times \\dfrac{12.01}{\\sqrt{58}}=[-1.9\\%,+4.28\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.9% to 4.28%"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#standard-error---another-example",
@@ -928,7 +1068,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr-1",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Compound Annual Growth Rate (CAGR)",
-    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{58}(1+R_i)\\bigg]^{\\frac{1}{58}}-1\\approx 0.43\\%\\]\n\nRemember the (arithmetic) average was 1.2%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
+    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{58}(1+R_i)\\bigg]^{\\frac{1}{58}}-1\\approx 0.42\\%\\]\n\nRemember the (arithmetic) average was 1.19%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#trade-off-between-risk-and-return",
