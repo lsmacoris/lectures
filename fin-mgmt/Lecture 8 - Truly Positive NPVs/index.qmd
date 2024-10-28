@@ -28,11 +28,13 @@ from: markdown+emoji
 
 ## Ensuring Truly Positive NPVs
 
--   In the last lecture, you saw how the choice of assumptions may severely change our NPV estimates
+-   In our lecture on *Capital Budgeting*, you saw how the choice of assumptions regarding cash-flows, discount rates, growth rates, among others may severely change NPV estimates
 
--   How to ensure that the NPV you're measuring is really [positive]{.green}?
+-   When dealing with investment projects, it is always important to take *uncertainty* into account in the best way possible
 
--   Some areas to consider
+-   To that matter, an important question that remains is: **how to ensure that the NPV you're measuring is really [positive]{.green}?**
+
+-   In this lecture, we will look at some ares in which an investment analyst must consider in order to make reasonable investment decisions:
 
     1.  Behavioral Biases
     2.  Avoiding Forecast Errors
@@ -48,31 +50,29 @@ $\rightarrow$ *For this lecture, refer to* [@BMA]
 
 -   Information providers may have incentives to exacerbate assumptions:
 
-    1.  Optimism bias
+    1.  **Optimism bias**
 
     <!-- -->
 
-    a.  Entrepreneurs tend to overestimate the likelihood of success, although the survival rate of start-up firms is generally low
+    a.  Entrepreneurs tend to *overestimate* the likelihood of success, although the survival rate of start-up firms is generally low
     b.  They also tend to keep their "pet-projects" - *i.e*, projects that they assign a much higher success probability than what it actually is
 
     <!-- -->
 
-    2.  Overconfidence bias
+    2.  **Overconfidence bias**
 
     <!-- -->
 
-    a.  Project managers tend to overestimate ["success"]{.green} scenarios and underestimate ["fail"]{.red} ones
+    a.  Project managers tend to *overestimate* ["success"]{.green} scenarios and *underestimate* ["fail"]{.red} ones
     b.  Not considering worst-case scenarios may hinder investors to understand the real NPV
 
 ## Avoiding Forecast Errors
 
--   Suppose you have your project sponsors to give you [honest]{.blue} forecasts
+-   Suppose you have your project sponsors to give you [honest]{.blue} forecasts. These forecasts are considered *unbiased*: in other words, on average, the error will be *zero*
 
--   They are unbiased: on average, the error will be zero
+-   What about the *deviations* from it? As a manager, you can't be expected to check every cash-flow forecast, but you can ask some questions to ensure that each project really does have a positive NPV
 
--   What about the deviations from it? As a manager, you can't be expected to check every cash-flow forecast, but you can ask some questions to ensure that each project really does have a positive NPV
-
--   How can you "gut-check" the estimates before diving into each single assumption? Whenever available, look at market values
+-   How can you *"gut-check"* the estimates before diving into each single assumption? Whenever available, look at market values:
 
     1.  Many capital assets are traded in a competitive market, so it makes sense to start with the market price and then ask why you can earn more than your rivals from these assets
 
@@ -89,7 +89,7 @@ $\rightarrow$ *For this lecture, refer to* [@BMA]
 
 -   That leaves us with another question: if a given project is actually a [positive]{.green} NPV one, which factors [sustain]{.blue} such economic rents so that other players do not erode it?
 
--   A [competitive advantage]{.blue} will protect a firm only if it is durable and can be sustained against competition from other businesses!
+-   A [competitive advantage]{.blue} will protect a firm only if it is [durable]{.blue} and can be [sustained]{.blue} against competition from other businesses!
 
 ## Example: the *AI* race
 
@@ -112,29 +112,76 @@ $\rightarrow$ Suggested Reading: [Why do Nvidia's chips dominate the AI market?]
 ```{r,fig.align='center',fig.height=8,fig.width=16}
 library(highcharter)
 library(quantmod)
+library(purrr)
+library(dplyr)
+library(xts)
 
-x <- getSymbols("GOOG", auto.assign = FALSE)
-y <- getSymbols("AMZN", auto.assign = FALSE)
-z <- getSymbols("NVDA", auto.assign = FALSE)
-k <- getSymbols("MSFT", auto.assign = FALSE)
+Assets=c('GOOG','AMZN','NVDA','MSFT')
+
+Data=do.call('merge.xts',lapply(Assets,getSymbols,auto.assign=FALSE)%>%map(xts::.subset.xts,j=6)%>%map(dailyReturn)%>%map(~cumprod(1+.x)))%>%
+  setNames(Assets)
+
+#Higharter Theme
+Theme <- hc_theme(
+  chart = list(
+    backgroundColor = "#FFFFFF"
+  ),
+  title = list(
+    style = list(
+      color = "#333333",
+      fontSize = '30px'
+    )
+  ),
+  subtitle = list(
+    style = list(
+      color = "#666666",
+      fontSize = "25px"
+    )
+  ),
+  legend = list(
+    itemStyle = list(
+      color = "#666666"
+      )
+    ),
+  yAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+
+  ),
+  xAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+  )
+)
 
 highchart(type = "stock") %>% 
-  hc_add_series(x,type='line') %>% 
-  hc_add_series(y,type='line') %>%
-  hc_add_series(k,type='line') %>%
-  hc_add_series(z,type='line') %>%
-  hc_xAxis(title = list(style=list(fontSize= '15px')),
-           labels = list(style=list(fontSize= '15px'))) %>%
-  hc_yAxis(title = list(style=list(fontSize= '15px')),
-           labels = list(style=list(fontSize= '15px')))
+  hc_title(text="Price trends for tech stocks")%>%
+  hc_subtitle(text='Considering closing adjusted prices from Yahoo! Finance.')%>%
+  hc_add_series(Data[,1],name=Assets[1],type='line')%>% 
+  hc_add_series(Data[,2],name=Assets[2],type='line')%>% 
+  hc_add_series(Data[,3],name=Assets[3],type='line')%>% 
+  hc_add_series(Data[,4],name=Assets[4],type='line')%>% 
+  hc_tooltip(valueDecimals=2,valuePrefix='$')%>%
+  hc_yAxis(labels = list(format = "${value}"))%>%
+  hc_add_theme(Theme)
+
 
 ```
 
 ## Wrapping-up
 
--   Positive NPV projects should be accompanied with clear competitive advantage rationales:
-    1.  If your project does not have a clear competitive advantage, how you can then justify that economic profits would not erode over time?
-    2.  What makes your investment/project so special in such a way that other firms cannot easily replicate the same investment project?
+-   [Positive]{.green} NPV projects should be accompanied with [clear competitive advantage rationales]{.blue}:
+    1.  If your project does not have a clear competitive advantage, how you can then justify that economic profits would not *erode* over time?
+    2.  What makes your investment/project so special in such a way that other firms *cannot easily replicate* the same investment project?
+
 -   These questions help us as investors to think beyond simply math and scenario simulation, and think more thoroughly about the factors that justify the assumptions used in our free cash-flow models
+
+- At the end of the day, it is much more about the *assumptions* about future cash flows
 
 ## References

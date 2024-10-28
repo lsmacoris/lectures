@@ -117,16 +117,16 @@ $\rightarrow$ **Important**: *because market values reflect the true economic cl
 
 ## Practical Application: *WACC* (continued)
 
--   Using our example, we can calculate the *WACC* as:
+-   Using our example, we can calculate the *WACC* as^[Note that we're using *Net Debt* $\small (320-20)$ to weight-in the debt potion in the capital structure]:
 
 . . .
 
 $$
 \small
-r_{\text{WACC}}=\underbrace{\dfrac{300}{300+300}}_{\text{% of Equity}}\times 10\%+ \underbrace{\dfrac{320}{300+300}}_{\text{% of Debt}}\times 6\%\times (1-25\%)=7.25\%
+r_{\text{WACC}}=\underbrace{\dfrac{300}{300+300}}_{\text{% of Equity}}\times 10\%+ \underbrace{\dfrac{300}{300+300}}_{\text{% of Debt}}\times 6\%\times (1-25\%)=7.25\%
 $$
 
--   Now, using $\small r_{\text{WACC}}=7.25\%$, we can calculate the value of the project, [including the tax shield from debt]{.blue}, by calculating the present value of its future free cash flows. Note that we're using *Net Debt* $\small (320-20)$ to weight-in the debt potion in the capital structure:
+-   Now, using $\small r_{\text{WACC}}=7.25\%$, we can calculate the value of the project, [including the tax shield from debt]{.blue}, by calculating the present value of its future free cash flows:
 
 . . .
 
@@ -135,7 +135,7 @@ $$
 V^{L}=\sum_{T=1}^{T=4}\dfrac{21}{(1+7.25\%)^t}=70.73
 $$
 
--   Because the investment in $\small t=0$ is $\small 29$, $\small NPV=70.73-29=41.73$ million.
+-   Because the investment in $\small t=0$ is $\small 29$, NPV is $\small 70.73-29=\$41.73$ million.
 
 ## General thoughts on the *WACC* method
 
@@ -221,7 +221,7 @@ $$
 
 ## The *APV* method in practice (continued)
 
--   To understand why the firm's unlevered cost of capital equals its pre-tax WACC, note that the pre-tax WACC represents investors' required return for holding the entire firm (equity and debt)
+-   To understand why the firm's unlevered cost of capital equals its pre-tax WACC, note that the pre-tax WACC represents investors' required return for holding the entire business (equity and debt)
 
 -   So long as the firm's leverage choice does not change the overall risk of the firm, the pre-tax WACC must be the same whether the firm is levered or unlevered!
 
@@ -251,7 +251,7 @@ $$
 . . .
 
 $$
-\text{Interest Expenses}_t= r_D\times D_{t-1}
+\small \text{Interest Expenses}_t= r_D\times D_{t-1}
 $$
 
 -   After that, assuming a corporate tax rate of $\tau$, the interest tax-shield is just:
@@ -259,7 +259,7 @@ $$
 . . .
 
 $$
-\text{Interest Tax-Shield}= \text{Interest Expenses}_t\times \tau
+\small \text{Interest Tax-Shield}= \text{Interest Expenses}_t\times \tau
 $$
 
 ## The *APV* method in practice (continued)
@@ -309,7 +309,7 @@ $$
 
 ## Exercise: APV
 
-*Consider again Avco's acquisition from Examples 18.1 and 18.2. The acquisition will contribute \$4.25 million in free cash flows the first year, which will grow by 3% per year thereafter. The acquisition cost of \$80 million will be financed with \$50 million in new debt initially. Compute the value of the acquisition using the APV method, assuming Avco will maintain a constant debt-equity ratio for the acquisition.*
+*Consider again Avco's acquisition from previous examples. The acquisition will contribute $\small \$4.25$ million in free cash flows the first year, which will grow by $\small 3\%$ per year thereafter. The acquisition cost of $\small \$80$ million will be financed with $\small \$50$ million in new debt initially. Compute the value of the acquisition using the APV method, assuming Avco will maintain a constant debt-equity ratio for the acquisition.*
 
 $\rightarrow$ Taken from [@BDM], p. 689
 
@@ -321,7 +321,7 @@ $\rightarrow$ Taken from [@BDM], p. 689
 2.  Calculate the present value of the tax-shields
 3.  Sum them up
 
--   Note that, because the project will grow at a 3% rate, debt capacity will also grow at the same rate. Therefore, the growth-rate of the interest tax-shield is also 3% - see details
+-   Note that, because the project will grow at a $\small3\%$ rate, debt capacity will also grow at the same rate. Therefore, the growth-rate of the interest tax-shield is also $\small3\%$
 
 ## Exercise: APV
 
@@ -333,7 +333,7 @@ $$
 \small V^U= \dfrac{FCFC}{r-g}=\dfrac{4.25}{8\%-3\%}= 85
 $$
 
-2.  Now, if the firm will start with \$50MM in debt, interest expenses are $50\times6\%=3$ millions. The present value of the interest tax-shield is:
+2.  Now, if the firm will start with $\small\$50$ million in debt, interest expenses are $\small 50\times6\%=3$ million. The present value of the interest tax-shield is:
 
 . . .
 
