@@ -438,7 +438,7 @@ $\rightarrow$ *See [@BDM], page 566, for a more comprehensible simulation for di
 
 ## Practical Exercise
 
-*Assume that a firm maintains a debt-equity ratio of $\small0.85$, and has an equity cost of capital of $\small12\%$, and a debt cost of capital of $\small7\%$. The applicable corporate tax rate is $\small25\%$, and its market capitalization is $\small\$220$ million. If the firms' free cash flow is expected to be $\small\$10$ million in one year, what constant expected future growth rate is consistent with the firm’s current market value?*
+*Assume that a firm maintains a debt-equity ratio of* $\small0.85$, and has an equity cost of capital of $\small12\%$, and a debt cost of capital of $\small7\%$. The applicable corporate tax rate is $\small25\%$, and its market capitalization is $\small\$220$ million. If the firms' free cash flow is expected to be $\small\$10$ million in one year, what constant expected future growth rate is consistent with the firm's current market value?
 
 . . .
 
@@ -475,11 +475,10 @@ $$
 Remember that you can find the value of unlevered equity ($\small V^U$) by discounting using the unlevered cost of capital (or pre-tax WACC):
 
 . . .
- 
+
 $$
 \small V^U=\dfrac{10}{9,7\%-6.44\%}= 307
-$$
-Therefore, the present value of the interest tax shield is simply the difference between the levered and unlevered equity:
+$$ Therefore, the present value of the interest tax shield is simply the difference between the levered and unlevered equity:
 
 . . .
 
@@ -489,12 +488,12 @@ $$
 
 ## Accounting for Personal Taxes
 
-- So far, we have looked to the benefits of leverage in the presence of [corporate]{.blue} taxes. Although it is correct to say that the firm has a higher cash flow due to tax-shield savings, it is not straightforward to say that shareholders are fully benefiting from such increase
-  
-- What happens to our conclusions on debt benefits when we account for the effect of [personal]{.blue} taxes?
+-   So far, we have looked to the benefits of leverage in the presence of [corporate]{.blue} taxes. Although it is correct to say that the firm has a higher cash flow due to tax-shield savings, it is not straightforward to say that shareholders are fully benefiting from such increase
 
-  1. The rate that corporations paid as tax is usually different than that investors pay
-  2. Additionally, the cash flows to investors are typically taxed twice. Once at the corporate level and then investors are taxed again when they receive their interest or divided payment
+-   What happens to our conclusions on debt benefits when we account for the effect of [personal]{.blue} taxes?
+
+    1.  The rate that corporations paid as tax is usually different than that investors pay
+    2.  Additionally, the cash flows to investors are typically taxed twice. Once at the corporate level and then investors are taxed again when they receive their interest or divided payment
 
 . . .
 
@@ -502,32 +501,34 @@ $\rightarrow$ *Since personal taxes have the potential to offset some of the cor
 
 ## Accounting for Personal Taxes, continued
 
-- In the United States and many other countries, interest income has historically been taxed more heavily than capital gains from equity^[Note that, in Brazil, dividends are *not* taxed.]
+-   In the United States and many other countries, interest income has historically been taxed more heavily than capital gains from equity[^1]
 
-- To determine the true tax benefit of leverage, we need to evaluate the *combined* effect of both [corporate]{.blue} and [personal]{.blue} taxes. In order to see that, consider a firm with $\small\$1$ of earnings before interest and taxes (*EBIT*). The firm has two options:
+-   To determine the true tax benefit of leverage, we need to evaluate the *combined* effect of both [corporate]{.blue} and [personal]{.blue} taxes. In order to see that, consider a firm with $\small\$1$ of earnings before interest and taxes (*EBIT*). The firm has two options:
 
-  1. The firm can either pay this $\small\$1$ to debt holders as interest
-  2. Alternatively, it can be used pay equity holders directly - either directly, with a dividend, or indirectly, by retaining earnings
+    1.  The firm can either pay this $\small\$1$ to debt holders as interest
+    2.  Alternatively, it can be used pay equity holders directly - either directly, with a dividend, or indirectly, by retaining earnings
 
-- Depending on the type of investor, tax rates are different:
+-   Depending on the type of investor, tax rates are different:
 
-  1.   For a [debtholder]{.blue}, the amount paid net of taxes is $\small(1-\tau_i)$
-  2.   For an [equityholder]{.blue}, not only the firm pays $\small \tau_c$ on its taxable income, but individuals are taxed by $\small \tau_e$ at a personal level: $\small (1-\tau_c)\times(1-\tau_e)$
+    1.  For a [debtholder]{.blue}, the amount paid net of taxes is $\small(1-\tau_i)$
+    2.  For an [equityholder]{.blue}, not only the firm pays $\small \tau_c$ on its taxable income, but individuals are taxed by $\small \tau_e$ at a personal level: $\small (1-\tau_c)\times(1-\tau_e)$
+
+[^1]: Note that, in Brazil, dividends are *not* taxed.
 
 . . .
 
 ## Comparing after-tax cashflows
 
-- We can summarize the previous example using U.S. tax rates as of 2018:
+-   We can summarize the previous example using U.S. tax rates as of 2018:
 
 . . .
 
-|       **Payment Due**|**After-Tax Cash Flows**               |   **Using Current Tax Rates**  |
-|:-----------------------------:|:-------------------------------------:|:------------------------------:|
-|To debt holders                |       $\small(1 −\tau_i)$             |       ( 1 − 0.37 ) = 0.63      |
-|To equity holders              |  $\small(1 − \tau_c)\times(1-\tau_e)$ | (1 − 0.21)( 1 − 0.20 ) = 0.632 |
+|  **Payment Due**  |       **After-Tax Cash Flows**       |  **Using Current Tax Rates**   |
+|:-----------------:|:------------------------------------:|:------------------------------:|
+|  To debt holders  |         $\small(1 −\tau_i)$          |      ( 1 − 0.37 ) = 0.63       |
+| To equity holders | $\small(1 − \tau_c)\times(1-\tau_e)$ | (1 − 0.21)( 1 − 0.20 ) = 0.632 |
 
-- Based on this, we can write:
+-   Based on this, we can write:
 
 . . .
 
@@ -535,15 +536,15 @@ $$
 \small (1-\tau^*) \times (1-\tau_i) = (1-\tau_c)\times(1-\tau_e)
 $$
 
-- We can interpret $\small \tau^*$ as the effective tax advantage of debt: if the corporation paid $\small (1-\tau^*)$ in interest, debt holders would receive the same amount after taxes as equity holders would receive if the firm paid $\small \$1$ in profits to equity holders
+-   We can interpret $\small \tau^*$ as the effective tax advantage of debt: if the corporation paid $\small (1-\tau^*)$ in interest, debt holders would receive the same amount after taxes as equity holders would receive if the firm paid $\small \$1$ in profits to equity holders
 
 ## Accounting for Personal Taxes, continued
 
-![](Images/F4.png){fig-align='center' width=70%}
+![](Images/F4.png){fig-align="center" width="70%"}
 
 ## Tax advantages of debt
 
- - Using this structure, we can calculate the *Effective Advantage of Debt* as follows:
+-   Using this structure, we can calculate the *Effective Advantage of Debt* as follows:
 
 . . .
 
@@ -551,7 +552,7 @@ $$
 \small \tau^* = 1-\frac{(1-\tau_c)\times(1-\tau_e)}{(1-\tau_i)}
 $$
 
-- Finally, notice that if interest payments and equity payment tax burdens are equivalent, debt policy is irrelevant:
+-   Finally, notice that if interest payments and equity payment tax burdens are equivalent, debt policy is irrelevant:
 
 . . .
 
@@ -561,7 +562,7 @@ $$
 
 ## Accounting for Personal Taxes, practice
 
-*Assume that the corporate tax rate ($\small \tau_c$) is $\small 34\%$, the personal tax rate on equity ($\small \tau_e$) is $\small 28\%$, and the personal tax rate on debt ($\small \tau_i$) is also $\small 28\%$. What is the tax advantage of debt for a firm?*
+*Assume that the corporate tax rate (*$\small \tau_c$) is $\small 34\%$, the personal tax rate on equity ($\small \tau_e$) is $\small 28\%$, and the personal tax rate on debt ($\small \tau_i$) is also $\small 28\%$. What is the tax advantage of debt for a firm?
 
 $\rightarrow$ **Solution**: using the formula, we have that:
 
@@ -569,20 +570,19 @@ $$
 \small \tau^* = 1-\frac{(1-\tau_c)\times(1-\tau_e)}{(1-\tau_i)}\rightarrow 1-\dfrac{(1-34\%)\times(1-28\%)}{(1-28\%)}=34\%
 $$
 
-- In other words, the tax advantage of debt is the corporate tax rate if there is no difference between the tax rate on interest payments or equity
+-   In other words, the tax advantage of debt is the corporate tax rate if there is no difference between the tax rate on interest payments or equity
 
-- If, for example, equity income is taxed less heavily than interest income, then $\small \tau^\star$, the tax advantage of debt, will be lower than the corporate tax rate
-
+-   If, for example, equity income is taxed less heavily than interest income, then $\small \tau^\star$, the tax advantage of debt, will be lower than the corporate tax rate
 
 ## Accounting for Personal Taxes, practice
 
-- Consider the stylized Brazilian case and compute the effective tax advantage of debt.
+-   Consider the stylized Brazilian case and compute the effective tax advantage of debt.
 
-  1. Personal tax rate: $\small \tau_i = 27.5%$
-  2. Equity income tax rate: $\small \tau_e= 15\%$
-  3. Corporate tax rate: $\small \tau_c = 34\%$
+    1.  Personal tax rate: $\small \tau_i = 27.5%$
+    2.  Equity income tax rate: $\small \tau_e= 15\%$
+    3.  Corporate tax rate: $\small \tau_c = 34\%$
 
-- The tax advantage of debt in a Brazilian setting is:
+-   The tax advantage of debt in a Brazilian setting is:
 
 . . .
 
@@ -590,13 +590,11 @@ $$
 \small \tau^* = 1-\frac{(1-34\%)\times(1-15\%)}{(1-27.5\%)} = 22.6\%
 $$
 
-
 ## Practical implications Personal Taxes
 
-- There is a rationable to argue that that tax advantages of debt differ across investors:
-  1.   Tax rates vary for individual investors, and many investors are in lower tax brackets
-  2.   Holding periods might also have an effect on personal taxes
-
+-   There is a rationable to argue that that tax advantages of debt differ across investors:
+    1.  Tax rates vary for individual investors, and many investors are in lower tax brackets
+    2.  Holding periods might also have an effect on personal taxes
 -   Given the wide range of tax preferences and brackets across investors, it is difficult to know the true value of $\tau^*$ for a firm
     -   Using the top personal tax rates likely understates $\tau^*$\
     -   Ignoring personal taxes likely overstates $\tau^*$
@@ -613,10 +611,9 @@ $$V^L = V^U + \tau^*  \times D$$
     -   With personal taxes the firm's equity and debt costs of capital will adjust to compensate investors for their respective tax burdens
     -   The net result is that a personal tax disadvantage for debt causes the WACC to decline more slowly with leverage than it otherwise would.
 
-
 ## Estimating the Interest Tax Shield with Personal Taxes
 
-*MoreLev Inc. currently has a market cap of $\small\$500$ million with $\small40$ million shares outstanding. It expects to pay a $\small 21\%$ corporate tax rate. It estimates that its marginal corporate bondholder pays a $\small20\%$ tax rate on interest payments, whereas its marginal equity holder pays on average a $\small10\%$ tax rate on income from dividends and capital gains. MoreLev plans to add permanent debt. Based on this information, estimate the firm's share price after a $\small\$220$ million leveraged recap.*
+*MoreLev Inc. currently has a market cap of* $\small\$500$ million with $\small40$ million shares outstanding. It expects to pay a $\small 21\%$ corporate tax rate. It estimates that its marginal corporate bondholder pays a $\small20\%$ tax rate on interest payments, whereas its marginal equity holder pays on average a $\small10\%$ tax rate on income from dividends and capital gains. MoreLev plans to add permanent debt. Based on this information, estimate the firm's share price after a $\small\$220$ million leveraged recap.
 
 . . .
 
@@ -628,7 +625,7 @@ $$
 \small \tau^* = 1-\frac{(1-21\%)\times(1-10\%)}{(1-20\%)} = 11.1\%
 $$
 
-- Therefore, having debt in the firm's capital structure increases the firm's value to:
+-   Therefore, having debt in the firm's capital structure increases the firm's value to:
 
 . . .
 
@@ -636,36 +633,33 @@ $$
 \small \tau^\star\times D \rightarrow 11.1\%\times 220 = 24.4 \text{ million}
 $$
 
-- Share prices rise by $\small \$24.4/40\approx\$0.61$, and the new share price is $\small \$12.5+\$0.61 = \$13.11$
-
-
+-   Share prices rise by $\small \$24.4/40\approx\$0.61$, and the new share price is $\small \$12.5+\$0.61 = \$13.11$
 
 ## Do firms prefer Debt? Equity and Debt issuances
 
-![](Images/F5.png){fig-align='center' width=70%}
+![](Images/F5.png){fig-align="center" width="70%"}
 
 ## Do firms prefer Debt? Debt-to-Value ratios
 
-![](Images/F5.png){fig-align='center' width=70%}
+![](Images/F6.png){fig-align="center" width="70%"}
 
 ## Do firms prefer Debt? The Cross-section of Debt Ratios
 
-![](Images/F7.png){fig-align='center' width=45%}
+![](Images/F7.png){fig-align="center" width="45%"}
 
 *Note*: full picture in [@BDM]
 
 ## Optimal Capital Structure with Taxes
 
-- The evidence from the U.S. market outlined in the previous three slides shows us that:
-  1.   For the average firm, the result is that debt as a fraction of firm value has varied in a range from 30% to 45%
-  2.   The use of debt varies greatly by industry
-  3.   Firms in growth industries like biotechnology or high technology carry very little debt, while airlines, automakers, utilities, and financial firms have high leverage ratios
-  4. Finally, many firms hold huge amounts of cash, actually making net debt negative
-
+-   The evidence from the U.S. market outlined in the previous three slides shows us that:
+    1.  For the average firm, the result is that debt as a fraction of firm value has varied in a range from 30% to 45%
+    2.  The use of debt varies greatly by industry
+    3.  Firms in growth industries like biotechnology or high technology carry very little debt, while airlines, automakers, utilities, and financial firms have high leverage ratios
+    4.  Finally, many firms hold huge amounts of cash, actually making net debt negative
 
 . . .
 
- **Question**: considering all the tax benefits of debt, why is that firms do not use more debt?
+**Question**: considering all the tax benefits of debt, why is that firms do not use more debt?
 
 . . .
 
@@ -673,36 +667,39 @@ $\rightarrow$ *A potential explanation (among other hypotheses) is that there ar
 
 ## Limits to tax benefits
 
-- When it comes to taxable earnings, there may be limits to *how much* a firm can deduct interest expenses on its taxable income - in our case, *EBIT*
-  1. To receive the full tax benefits of leverage, a firm need not use 100% debt financing, but the firm does need to have taxable earnings
-  2. This constraint may limit the amount of debt needed as a tax shield
+-   When it comes to taxable earnings, there may be limits to *how much* a firm can deduct interest expenses on its taxable income - in our case, *EBIT*
 
-- For example, in the United States, there is a limit of $\small 30\%$ of the *EBIT* for how much can be deducted in taxable income due to interest payments^[Interest deductions in excess of the 30% limit can be carried forward and used the next time the firm does not exceed the limit. This delay reduces the present value of the tax benefit (and it may ultimately be lost if the firm's interest coverage remains too low)]
+    1.  To receive the full tax benefits of leverage, a firm need not use 100% debt financing, but the firm does need to have taxable earnings
+    2.  This constraint may limit the amount of debt needed as a tax shield
 
+-   For example, in the United States, there is a limit of $\small 30\%$ of the *EBIT* for how much can be deducted in taxable income due to interest payments[^2]
 
-- Consider a case where *EBIT* is $\small \$1,000$ and the corporate tax rate is $\small 21\%$. In a situation like this, a firm may limit its leverage to achieve the highest interest shield possible from a tax perspective - see *Table* in the next slide
+-   Consider a case where *EBIT* is $\small \$1,000$ and the corporate tax rate is $\small 21\%$. In a situation like this, a firm may limit its leverage to achieve the highest interest shield possible from a tax perspective - see *Table* in the next slide
+
+[^2]: Interest deductions in excess of the 30% limit can be carried forward and used the next time the firm does not exceed the limit. This delay reduces the present value of the tax benefit (and it may ultimately be lost if the firm's interest coverage remains too low)
 
 ## Limits to tax benefits - example
 
 |                    | **No Leverage** | **Moderate Leverage** | **Excess Leverage** |
 |:------------------:|:---------------:|:---------------------:|:-------------------:|
-| **EBIT**           |    **$1,000**   |       **$1,000**      |      **$1,000**     |
-| Interest Expenses  |        $0       |          $300         |         $500        |
-| 30% Limit          |       $300      |          $300         |         $300        |
-| Interest Deduction |        $0       |          $300         |         $300        |
-| **Taxable Income** |      **$1,000** |      **$700**         |      **$700**        |
-| Taxes (21%)        |       $210      |          $147         |         $147        |
-| **Net Income**     |     **$790**    |        **$553**       |       **$353**      |
-| Tax Shield         |        $0       |          $63          |         $63         |
+|      **EBIT**      |   **\$1,000**   |      **\$1,000**      |     **\$1,000**     |
+| Interest Expenses  |       \$0       |         \$300         |        \$500        |
+|     30% Limit      |      \$300      |         \$300         |        \$300        |
+| Interest Deduction |       \$0       |         \$300         |        \$300        |
+| **Taxable Income** |   **\$1,000**   |       **\$700**       |      **\$700**      |
+|    Taxes (21%)     |      \$210      |         \$147         |        \$147        |
+|   **Net Income**   |    **\$790**    |       **\$553**       |      **\$353**      |
+|     Tax Shield     |       \$0       |         \$63          |        \$63         |
 
 $\rightarrow$ *The optimal level of leverage from a tax saving perspective is the level such that interest just equals the income limit*
 
 ## Growth and Debt
 
-- How firms could optimally set their leverage from a tax savings perspective? A way to think about it is to relate to its future *EBIT* (taxable earnings):
-  1. Growing firms often have no taxable earnings and therefore do not use much debt
-  2. At the optimal level of leverage, the firm shields all of its taxable income, and it does not have any tax-disadvantaged excess interest
-  
+-   How firms could optimally set their leverage from a tax savings perspective? A way to think about it is to relate to its future *EBIT* (taxable earnings):
+
+    1.  Growing firms often have no taxable earnings and therefore do not use much debt
+    2.  At the optimal level of leverage, the firm shields all of its taxable income, and it does not have any tax-disadvantaged excess interest
+
     -   However, it is unlikely that a firm can predict its future *EBIT* (and the optimal level of debt) precisely
     -   If there is uncertainty regarding *EBIT*, then there is a risk that interest will [exceed]{.red} *EBIT*
     -   As a result, the tax savings for high levels of interest falls, possibly reducing the optimal level of the interest payment
@@ -713,8 +710,24 @@ $\rightarrow$ *In general, as a firm's interest expense approaches its expected 
 
 ## Wrapping-up: the Low leverage puzzle
 
-![](Images/F8.png){fig-align='center' width=70%}
+![](Images/F8.png){fig-align="center" width="70%"}
 
 $\rightarrow$ *It seems that firms are under-leveraged consistently. Therefore, there must be more to this capital structure story*
+
+## Practice
+
+-   Take a look at an example of a Debenture Prospectus for *Raízen S.A* - access [here](https://api.mziq.com/mzfilemanager/v2/d/c016735f-1711-48ce-919f-a8c701b83c19/89c9ee68-cdbd-42ea-07cd-71fd0a5f5e49?origin=1)
+
+-   Read more about the dispute between *BTG Pactual* and *Americanas S.A* on an accelerated repayment agreement close to when news about the firm's accounting inconsistencies became public - access [here](https://einvestidor.estadao.com.br/ultimas/americanas-amer3-rombo-40-bilhoes-justica-btg-dividas/?gad_source=1&gclid=Cj0KCQjwmOm3BhC8ARIsAOSbapWqVIUDj7qr3_xCMgDlyUcIPbc3A0XDYkDSExoaKOT9Jx93ib5dFcoaAnROEALw_wcB)
+
+. . .
+
+::: callout-important
+::: nonincremental
+[Practice using the following links:]{.big}
+
+1.  [Multiple-choice Questions](https://henriquemartins.net/teaching/financial_strategy/p6tf.html){preview-link="true"}
+:::
+:::
 
 ## References

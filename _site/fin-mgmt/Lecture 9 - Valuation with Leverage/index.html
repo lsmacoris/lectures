@@ -467,15 +467,15 @@ V^{L}= \dfrac{FCF_1}{(1+r_{\text{WACC}})}+ \dfrac{FCF_2}{(1+r_{\text{WACC}})^2}+
 <section id="practical-application-wacc-continued-1" class="slide level2">
 <h2>Practical Application: <em>WACC</em> (continued)</h2>
 <ul>
-<li class="fragment">Using our example, we can calculate the <em>WACC</em> as:</li>
+<li class="fragment">Using our example, we can calculate the <em>WACC</em> as<sup>1</sup>:</li>
 </ul>
 <div class="fragment">
 <p><span class="math display">\[
 \small
-r_{\text{WACC}}=\underbrace{\dfrac{300}{300+300}}_{\text{% of Equity}}\times 10\%+ \underbrace{\dfrac{320}{300+300}}_{\text{% of Debt}}\times 6\%\times (1-25\%)=7.25\%
+r_{\text{WACC}}=\underbrace{\dfrac{300}{300+300}}_{\text{% of Equity}}\times 10\%+ \underbrace{\dfrac{300}{300+300}}_{\text{% of Debt}}\times 6\%\times (1-25\%)=7.25\%
 \]</span></p>
 <ul>
-<li class="fragment">Now, using <span class="math inline">\(\small r_{\text{WACC}}=7.25\%\)</span>, we can calculate the value of the project, <span class="blue">including the tax shield from debt</span>, by calculating the present value of its future free cash flows. Note that we’re using <em>Net Debt</em> <span class="math inline">\(\small (320-20)\)</span> to weight-in the debt potion in the capital structure:</li>
+<li class="fragment">Now, using <span class="math inline">\(\small r_{\text{WACC}}=7.25\%\)</span>, we can calculate the value of the project, <span class="blue">including the tax shield from debt</span>, by calculating the present value of its future free cash flows:</li>
 </ul>
 </div>
 <div class="fragment">
@@ -484,10 +484,10 @@ r_{\text{WACC}}=\underbrace{\dfrac{300}{300+300}}_{\text{% of Equity}}\times 10\
 V^{L}=\sum_{T=1}^{T=4}\dfrac{21}{(1+7.25\%)^t}=70.73
 \]</span></p>
 <ul>
-<li class="fragment">Because the investment in <span class="math inline">\(\small t=0\)</span> is <span class="math inline">\(\small 29\)</span>, <span class="math inline">\(\small NPV=70.73-29=41.73\)</span> million.</li>
+<li class="fragment">Because the investment in <span class="math inline">\(\small t=0\)</span> is <span class="math inline">\(\small 29\)</span>, NPV is <span class="math inline">\(\small 70.73-29=\$41.73\)</span> million.</li>
 </ul>
 </div>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Note that we’re using <em>Net Debt</em> <span class="math inline">\(\small (320-20)\)</span> to weight-in the debt potion in the capital structure</p></li></ol></aside></section>
 <section id="general-thoughts-on-the-wacc-method" class="slide level2">
 <h2>General thoughts on the <em>WACC</em> method</h2>
 <ul>
@@ -577,7 +577,7 @@ r_U = \dfrac{E}{E+D}\times r_e + \dfrac{D}{E+D}\times r_d=\text{Pre-Tax WACC}
 <section id="the-apv-method-in-practice-continued" class="slide level2">
 <h2>The <em>APV</em> method in practice (continued)</h2>
 <ul>
-<li class="fragment"><p>To understand why the firm’s unlevered cost of capital equals its pre-tax WACC, note that the pre-tax WACC represents investors’ required return for holding the entire firm (equity and debt)</p></li>
+<li class="fragment"><p>To understand why the firm’s unlevered cost of capital equals its pre-tax WACC, note that the pre-tax WACC represents investors’ required return for holding the entire business (equity and debt)</p></li>
 <li class="fragment"><p>So long as the firm’s leverage choice does not change the overall risk of the firm, the pre-tax WACC must be the same whether the firm is levered or unlevered!</p></li>
 <li class="fragment"><p>Applying it to our case, we have:</p></li>
 </ul>
@@ -604,7 +604,7 @@ V^{U}=\sum_{T=1}^{T=4}\dfrac{21}{(1+8\%)^t}=69.55
 </ul>
 <div class="fragment">
 <p><span class="math display">\[
-\text{Interest Expenses}_t= r_D\times D_{t-1}
+\small \text{Interest Expenses}_t= r_D\times D_{t-1}
 \]</span></p>
 <ul>
 <li class="fragment">After that, assuming a corporate tax rate of <span class="math inline">\(\tau\)</span>, the interest tax-shield is just:</li>
@@ -612,7 +612,7 @@ V^{U}=\sum_{T=1}^{T=4}\dfrac{21}{(1+8\%)^t}=69.55
 </div>
 <div class="fragment">
 <p><span class="math display">\[
-\text{Interest Tax-Shield}= \text{Interest Expenses}_t\times \tau
+\small \text{Interest Tax-Shield}= \text{Interest Expenses}_t\times \tau
 \]</span></p>
 </div>
 </section>
@@ -669,7 +669,7 @@ V^{U}=\sum_{T=1}^{T=4}\dfrac{21}{(1+8\%)^t}=69.55
 </section>
 <section id="exercise-apv" class="slide level2">
 <h2>Exercise: APV</h2>
-<p><em>Consider again Avco’s acquisition from Examples 18.1 and 18.2. The acquisition will contribute $4.25 million in free cash flows the first year, which will grow by 3% per year thereafter. The acquisition cost of $80 million will be financed with $50 million in new debt initially. Compute the value of the acquisition using the APV method, assuming Avco will maintain a constant debt-equity ratio for the acquisition.</em></p>
+<p><em>Consider again Avco’s acquisition from previous examples. The acquisition will contribute <span class="math inline">\(\small \$4.25\)</span> million in free cash flows the first year, which will grow by <span class="math inline">\(\small 3\%\)</span> per year thereafter. The acquisition cost of <span class="math inline">\(\small \$80\)</span> million will be financed with <span class="math inline">\(\small \$50\)</span> million in new debt initially. Compute the value of the acquisition using the APV method, assuming Avco will maintain a constant debt-equity ratio for the acquisition.</em></p>
 <p><span class="math inline">\(\rightarrow\)</span> Taken from <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span>, p.&nbsp;689</p>
 <div class="fragment">
 <p><strong>Solution Rationale</strong>: proceed in the following steps to compute the value using the <em>APV</em> method:</p>
@@ -679,7 +679,7 @@ V^{U}=\sum_{T=1}^{T=4}\dfrac{21}{(1+8\%)^t}=69.55
 <li class="fragment">Sum them up</li>
 </ol>
 <ul>
-<li class="fragment">Note that, because the project will grow at a 3% rate, debt capacity will also grow at the same rate. Therefore, the growth-rate of the interest tax-shield is also 3% - see details</li>
+<li class="fragment">Note that, because the project will grow at a <span class="math inline">\(\small3\%\)</span> rate, debt capacity will also grow at the same rate. Therefore, the growth-rate of the interest tax-shield is also <span class="math inline">\(\small3\%\)</span></li>
 </ul>
 </div>
 </section>
@@ -693,7 +693,7 @@ V^{U}=\sum_{T=1}^{T=4}\dfrac{21}{(1+8\%)^t}=69.55
 \small V^U= \dfrac{FCFC}{r-g}=\dfrac{4.25}{8\%-3\%}= 85
 \]</span></p>
 <ol start="2" type="1">
-<li class="fragment">Now, if the firm will start with $50MM in debt, interest expenses are <span class="math inline">\(50\times6\%=3\)</span> millions. The present value of the interest tax-shield is:</li>
+<li class="fragment">Now, if the firm will start with <span class="math inline">\(\small\$50\)</span> million in debt, interest expenses are <span class="math inline">\(\small 50\times6\%=3\)</span> million. The present value of the interest tax-shield is:</li>
 </ol>
 </div>
 <div class="fragment">
@@ -1159,6 +1159,7 @@ Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Glob
 </div>
 </div>
 </section>
+
     </div>
   </div>
 

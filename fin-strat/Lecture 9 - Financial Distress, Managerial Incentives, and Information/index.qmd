@@ -75,13 +75,13 @@ $\rightarrow$ *The next slides will show how the funding structure affect the va
 
 ## Default and Bankruptcy in Perfect Markets
 
-|                 |     All-Equity    |   All-Equity    |     Leverage  |   Leverage          |
-|:----------------|:-----------------:|:---------------:|:-------------:|:-------------------:|
-|                 | [Success]{.green} | [Failure]{.red} | [Success]{.green} | [Failure]{.red} |
-| *Debt Value*    |        \-         |       \-        |       \$100       |      \$80       |
-| *Equity Value*  |       \$150       |      \$80       |       \$50        |       \$0       |
-| **All Investors** |       **\$150**       |      **\$80**       |       **\$150**       |      **\$80**       |
-|                 |                   |                 |                   |                 |
+|                   |    All-Equity     |   All-Equity    |     Leverage      |    Leverage     |
+|:--------------|:-------------:|:-------------:|:-------------:|:-------------:|
+|                   | [Success]{.green} | [Failure]{.red} | [Success]{.green} | [Failure]{.red} |
+| *Debt Value*      |        \-         |       \-        |       \$100       |      \$80       |
+| *Equity Value*    |       \$150       |      \$80       |       \$50        |       \$0       |
+| **All Investors** |     **\$150**     |    **\$80**     |     **\$150**     |    **\$80**     |
+|                   |                   |                 |                   |                 |
 
 . . .
 
@@ -145,7 +145,7 @@ $\rightarrow$ *With perfect capital markets, [Modigliani and Miller (MM) Proposi
 -   Let's go back to our previous example on *Armin*. How do bankruptcy costs fit into that situation?
 
     1.  With *all-equity* financing, the firms' assets will be worth $\small\$150$ million if its new product [succeeds]{.green}, and $\small\$80$ million if the new product [fails]{.red}
-    2.  However, we have not assumed that there were any financial distress costs!
+    2.  However, we have assumed that there weren't any financial distress costs!
 
 -   Say that, after some calculations, *Armin* has estimated financial distress costs of $\small \$20$ million
 
@@ -154,7 +154,7 @@ $\rightarrow$ *With perfect capital markets, [Modigliani and Miller (MM) Proposi
 
 . . .
 
-$\rightarrow$ *As a result, debt holders will receive less than 80 million!*
+$\rightarrow$ *As a result, debtholders will receive less than 80 million!*
 
 ## Accounting for Default and Bankruptcy Costs, continued
 
@@ -164,12 +164,12 @@ $\rightarrow$ *As a result, debt holders will receive less than 80 million!*
 
 . . .
 
-|                   | **All-Equity**    | **All-Equity**   | **With Leverage**| **With Leverage**|
-|:-----------------:|:-----------------:|:----------------:|:----------------:|:----------------:|
-|                   |  [Success]{.green}|     [Fail]{.red} | [Success]{.green}|   [Fail]{.red}   |
-|  *Debt Value*     |          \-       |          \-      |       \$100      |       \$60       |
-| *Equity Value*    |        \$150      |         \$80     |       \$50       |        \$0       |
-| **All Investors** |        **\$150**  |         **\$80** |       **\$150**  |       **\$60**   |
+|                   |  **All-Equity**   | **All-Equity** | **With Leverage** | **With Leverage** |
+|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+|                   | [Success]{.green} |  [Fail]{.red}  | [Success]{.green} |   [Fail]{.red}    |
+|   *Debt Value*    |        \-         |       \-       |       \$100       |       \$60        |
+|  *Equity Value*   |       \$150       |      \$80      |       \$50        |        \$0        |
+| **All Investors** |     **\$150**     |    **\$80**    |     **\$150**     |     **\$60**      |
 
 ## Firm value under Bankruptcy Costs
 
@@ -179,7 +179,7 @@ $\rightarrow$ *As a result, debt holders will receive less than 80 million!*
 
 $$
 \small
-V^U = \dfrac{\dfrac{1}{2} \times 150 + \dfrac{1}{2} \times 80}{(1+5\%)}= \dfrac{130}{(1+5\%)}= 109.52\\
+V^U = \dfrac{\dfrac{1}{2} \times 150 + \dfrac{1}{2} \times 80}{(1+5\%)}= \dfrac{115}{(1+5\%)}= 109.52\\
 $$
 
 $$
@@ -217,14 +217,14 @@ $\rightarrow$ *When securities are fairly priced, the original shareholders of a
 . . .
 
 $$
-D=\small \dfrac{\small 1/2\times80+1/2\times 0}{(1+5\%)}=76.19 \text{ million}
+D=\small \dfrac{\small 1/2\times100+1/2\times 60}{(1+5\%)}=76.19 \text{ million}
 $$
 
 ## Who pays for Financial Distress Costs? Continued
 
--   From the data in the previous slide, *Armin* will be able to issue $\small\$76.19$, instead of $\small \$80$, and this translates to buying $\small 7,619$ shares, leaving $\small 2,381$ outstanding
+-   From the data in the previous slide, *Armin* will be able to issue $\small\$76.19$, instead of $\small \$80$, and this translates to buying $\small 7,619$ shares, leaving $\small 2,381$ outstanding shares
 
--   As the value of the levered equity is $\small \$23.81$, the share price is now only $\$10$ per share. All in all, all shareholders[^1] are worse off by:
+-   As the value of the levered equity is $\small \$23.81$ million, the share price is now only $\$10$ per share. All in all, all shareholders[^1] are worse off by:
 
 [^1]: Both shareholders that have sold as well as the ones that did not lose this value.
 
@@ -242,10 +242,10 @@ $\rightarrow$ *Although debt holders bear these costs in the end, shareholders p
 
 ## Reconciling Financial Distress with Capital Structure
 
-- Let's take a step back and recall what we have defined in earlier classes:
+-   Let's take a step back and recall what we have defined in earlier classes:
 
-  1. Under perfect capital markets, the value of the levered firm, $\small V^L$, was identical to the value of an all-equity firm, $\small V^U$
-  2. When we assume that there are tax imperfections, such as the fact that interest expenses are tax-deductible, we saw that the value levered firm could increase by the same amount as of the present value of the tax-shiedls:
+    1.  Under perfect capital markets, the value of the levered firm, $\small V^L$, was identical to the value of an all-equity firm, $\small V^U$
+    2.  When we assume that there are tax imperfections, such as the fact that interest expenses are tax-deductible, we saw that the value levered firm could increase by the same amount as of the present value of the tax-shiedls:
 
 . . .
 
@@ -253,7 +253,7 @@ $$
 \small  V^L= V^U+PV(ITS)
 $$
 
-- If that is true, then why firms do not *always* have high leverage? As it turns out, if  we assume the existence of financial distress costs, increased leverage may get to a point where the [benefits]{.green} of debt are fully offset by the [costs]{.red} of financial distress!
+-   If that is true, then why firms do not *always* have high leverage? As it turns out, if we assume the existence of financial distress costs, increased leverage may get to a point where the [benefits]{.green} of debt are fully offset by the [costs]{.red} of financial distress!
 
 ## The Trade-off Theory
 
@@ -307,11 +307,9 @@ $$
 
 -   At the *optimal*, the tax [savings]{.green} that result from increasing leverage are perfectly offset by the increased probability of incurring the [costs]{.red} of financial distress
 
-## The Trade-off Theory and Optimal Leverage 
+## The Trade-off Theory and Optimal Leverage
 
-![](Images/F1.png){fig-align='center' width=65%}
-
-
+![](Images/F1.png){fig-align="center" width="65%"}
 
 ## The Trade-off Theory, practice
 
@@ -332,11 +330,11 @@ $$
 
 . . .
 
-| *Debt-to-Value*      | 0%  |  10%            |  20%           | 30%              |   40%           |   50%            |
-|:---------------------|:---:|:---------------:|:--------------:|-----------------:|:---------------:|:----------------:|
-| PV(Int. Tax. Shield) | \-  | \$3.9           | \$7.8          | \$11.7           | \$15.6          | \$19.5           |
-| PV(Fin. Dis. Costs)  | \-  |  \$0            |  \$0           | \$3.38           | \$19.23         | \$23.47          |
-| **Net Benefit**      | \-  | [\$3.9]{.green} | [\$7.8]{.green}| [\$8.32]{.green} | [\$-3.63]{.red} | [\$-3.97]{.red}  |
+| *Debt-to-Value*            | 0%  |       10%       |       20%       |              30% |       40%       |       50%       |
+|:---------------------------|:---:|:---------------:|:---------------:|-----------------:|:---------------:|:---------------:|
+| PV(Int. Tax. Shield)       | \-  |      \$3.9      |      \$7.8      |           \$11.7 |     \$15.6      |     \$19.5      |
+| PV(Fin. Dis. Costs)        | \-  |       \$0       |       \$0       |           \$3.38 |     \$19.23     |     \$23.47     |
+| **Net Benefit**            | \-  | [\$3.9]{.green} | [\$7.8]{.green} | [\$8.32]{.green} | [\$-3.63]{.red} | [\$-3.97]{.red} |
 
 . . .
 
@@ -385,13 +383,13 @@ When a firm faces financial distress, shareholders can gain at the expense of de
 -   Consider that *Baxter* is facing a situation of Financial Distress:
     1.  It has a loan of $\small \$1$ million due at the end of the year
     2.  Without a change in its strategy, the market value of its assets will be only $\small \$900,000$ at that time, and the firm will default on its debt
--   *Baxter*'s manager are considering a new strategy that requires no upfront investment, but it has only a [$\small50\%$]{.blue} chance of success:
-    2.  If the new strategy [succeeds]{.green}, it will increase the value of the firm's asset to $\small\$1.3$ million.
-    3.  If the new strategy [fails]{.red}, the value of the firm's assets will fall to $\small\$300,000$.
+-   *Baxter*'s manager is considering a new strategy that requires no upfront investment, but it has only a [$\small50\%$]{.blue} chance of success:
+    2.  If the new strategy [succeeds]{.green}, it will increase the value of the firm's asset to $\small\$1.3$ million
+    3.  If the new strategy [fails]{.red}, the value of the firm's assets will fall to $\small\$300,000$
 
 ## Risk-taking
 
-**Question**: should Baxter execute this strategy?
+**Question**: should *Baxter* execute this strategy?
 
 . . .
 
@@ -403,11 +401,11 @@ $$
 \small V^L_{\text{New}}=\small 50\% \times 1.3 + 50\% \times 0.3 = 0.8 \text{ million}
 $$
 
--   [Why managers would even consider this strategy?]{.blue} It is important to note that, [if Baxter does nothing]{.blue}, it will ultimately *default* and equity holders will get nothing with certainty. In words:
+-   [Why managers would even consider this strategy?]{.blue} It is important to note that, [if Baxter does nothing]{.blue}, it will ultimately *default* and equity holders will get nothing with certainty:
 
-    1.  Equity holders have nothing to lose if Baxter tries the risky strategy
+    1.  Equity holders have nothing to lose if *Baxter* tries the risky strategy
     2.  If the strategy succeeds, equity holders will receive $\small\$300,000$ after paying off the debt
-    3.  Given a $\small50\%$ chance of success, the [equityholders]{.blue}' expected payoff is actually [positive]{.green}
+    3.  Given a $\small50\%$ chance of success, the [equityholders]{.blue}' expected payoff is [positive]{.green}:
 
 . . .
 
@@ -419,15 +417,15 @@ $$
 
 . . .
 
-|              | **Old Strategy** | **New - [Success]{.green}** | **New - [Failure]{.red}** | **New - Exp.** |
-|-------------:|:----------------:|:---------------------------:|:-------------------------:|:------------------:|
-|    $V^L$     |      **\$900**   |           **\$1,300**       |           **\$300**       |       **\$800**    |
-|   *Debt*     |      \$900       |           \$1,000           |           \$300           |       \$650        |
-| *Equity*     |       \$0        |            \$300            |            \$0            |       \$150        |
+|          | **Old Strategy** | **New - [Success]{.green}** | **New - [Failure]{.red}** | **New - Exp.** |
+|-------------:|:------------:|:--------------:|:------------:|:------------:|
+|    $V^L$ |    **\$900**     |         **\$1,300**         |         **\$300**         |   **\$800**    |
+|   *Debt* |      \$900       |           \$1,000           |           \$300           |     \$650      |
+| *Equity* |       \$0        |            \$300            |            \$0            |     \$150      |
 
 -   Note that, in such a way, equityholders are *gambling* with the debt holders' money:
-    1.  If project [succeeds]{.green}, debt holders receive $\small \$1$ million
-    2.  If fails, debt holders receive $\small\$300,000$
+    1.  If project [succeeds]{.green}, debtholders receive $\small \$1$ million
+    2.  If [fails]{.red}, deb holders receive $\small\$300,000$
 -   Debtholders' expected payoff is $\small\$650,000$, a [loss]{.red} of $\small\$250,000$ compared to the old strategy:
 
 . . .
@@ -446,14 +444,14 @@ $\rightarrow$ *This loss corresponds to the 100,000 expected decline in firm val
 
 -   A way to materialize this is to choose projects that are *risky* enough so that shareholders are better-off if the project is succesfull:
 
-1.  Shareholders have an incentive to invest in negative-NPV projects that are risky, even though a negative-NPV project destroys value for the firm overall
-2.  Anticipating this bad behavior, security holders will pay less for the firm initially
+1.  Shareholders have an incentive to invest in negative-NPV projects that are risky, even though a negative-NPV project destroys value for the firm overall, but can bail-out shareholders in case of success
+2.  Anticipating this bad behavior, security holders will pay less for the firm *ex-ante*
 
 ## Debt Overhang and Under-Investment
 
--   The previous example has shown how potential misalignments between debtholders and bondholders may result in a move towards more risky projects
+-   The previous example has shown how potential a misalignment between shareholders and debtholders may result in a move towards more risky projects
 
--   What if, on the other hand, there are actually less risky projects that would otherwise increase the firm's NPV?
+-   What if there are actually projects less risky projects that would otherwise [increase]{.green} the firm's NPV?
 
 . . .
 
@@ -463,7 +461,7 @@ $\rightarrow$ *This loss corresponds to the 100,000 expected decline in firm val
 [Debt Overhang]{.blue} (or simply [Under-Investment]{.blue}) is a situation in which equity holders choose not to invest in a positive NPV project because the firm is in financial distress and the value of undertaking the investment opportunity will accrue to bondholders rather than themselves
 :::
 
-$\rightarrow$ *As a results, when a firm faces financial distress, it may choose not to finance new, positive-NPV projects!*
+$\rightarrow$ *As a result, when a firm faces financial distress, it may choose not to finance new, positive-NPV projects!*
 
 ## Debt Overhang and Under-Investment, continued
 
@@ -482,11 +480,11 @@ $\rightarrow$ *As a results, when a firm faces financial distress, it may choose
 
 |                      | **Without project** | **With new project** |
 |:--------------------:|:-------------------:|:--------------------:|
-|  *Existing assets*   |        \$900        |        \$900         |
-|    *New project*     |         \-          |        \$150         |
-| **Total firm value** |      **\$900**      |     **\$1,050**      |
-|        *Debt*        |        \$900        |       \$1,000        |
-|       *Equity*       |         \$0         |         \$50         |
+|  *Existing assets*   |        \$900,000    |        \$900,000     |
+|    *New project*     |         \-          |        \$150,000     |
+| **Total firm value** |      **\$900,000**  |     **\$1,050,000**  |
+|        *Debt*        |        \$900,000    |       \$1,000,000    |
+|       *Equity*       |         \$0         |         \$50,000     |
 
 . . .
 
@@ -562,6 +560,13 @@ $\rightarrow$ *As debtholders receive most of the benefit, thus this project is 
     4.  Issue debt more senior than the current debt
     5.  Enter into certain types of agreements or leases
 
+## Scenes from *Succession*
+
+{{< video https://www.youtube.com/watch?v=sMt9s4XkY9Y width="1200" height="600" >}}
+
+
+$\rightarrow$ *See "Succession" on IMBd - access [here](https://www.imdb.com/title/tt7660850/)*
+
 ## The Agency Benefits of Leverage
 
 -   So far, we assumed that managers act in the interests of the firm's *equityholders*, and we considered the potential conflicts of interest between *debtholders* and *equityholders* when a firm has leverage
@@ -583,9 +588,9 @@ $\rightarrow$ *As debtholders receive most of the benefit, thus this project is 
 [Management Entrenchment]{.blue} is a situation arising as the result of the separation of ownership and control in which managers may make decisions that benefit themselves at investors' expenses
 :::
 
--   Entrenchment may allow managers to run the firm in their own best interests, rather than in the best interests of the shareholders:
+-   Entrenchment may allow managers to run the firm in their *own* best interests:
     1.  Nepotism and personal tastes
-    2.  Spending on perks, like private jets
+    2.  Spending on perks, like private jets, and sponsoring their *"pet-projects"*
 
 . . .
 
@@ -597,12 +602,14 @@ $\rightarrow$ *As debtholders receive most of the benefit, thus this project is 
 
 ## Concentration of Ownership
 
--   Another advantage of using leverage is that it allows the original owners of the firm to *maintain* their equity stake in the company (*i.e*, avoids the dilution of their participation). With *"skin in the game"*, they are likely having more interest in doing what is best for the firm
+-   Another advantage of using leverage is that it allows the original owners of the firm to *maintain* their equity stake in the company (*i.e*, avoids the dilution of their participation)
+
+- With more *"skin in the game"*, they are likely having more interest in doing what is best for the firm overall
 
 -   To see that, assume that you are the owner of a firm and plans to expand. You can either borrow the funds needed for expansion or raise the money by selling shares in the firm:
 
-    1.  If issuing equity, you will need to sell $\small40\%$ of the firm to raise the necessary funds
-    2.  If issuing debt, you retain full ownership of the firm
+    1.  If issuing [equity]{.blue}, you will need to sell $\small40\%$ of the firm to raise the necessary funds
+    2.  If issuing [debt]{.blue}, you retain full ownership of the firm
 
 -   As we will see, having higher ownership will provide additional incentives to run the firm more efficiently
 
@@ -612,7 +619,7 @@ $\rightarrow$ *As debtholders receive most of the benefit, thus this project is 
 
 . . .
 
--   If you sell new shares, you will only retain 60% ownership and only receive 60% of the increase in firm value: if the value largely depends on your personal effort, you'd have more incentives if you kept $\small100\%$ of the firm
+-   If you sell new shares, you will only retain $\small60\%$ ownership and thereby receive $\small60\%$ of the increase in firm value: if the value largely depends on your personal effort, you'd have more incentives if you kept $\small100\%$ of the firm
 
 -   Having $\small60\%$, you would be more tempted to overspend in perks: by selling equity, you bear only $\small60\%$ of the perks costs, while the other $\small40\%$ will be paid for by the *new equityholders*
 
@@ -622,10 +629,10 @@ $\rightarrow$ *As debtholders receive most of the benefit, thus this project is 
 
 . . .
 
--   With leverage, you retain full ownership and will bear the full cost of any "perks," like country club memberships or private jets
+-   With leverage, you *retain* full ownership and will bear the full cost of any perks, like country club memberships or private jets
 
-1.  Is likely that you work harder as you will receive 100% of the increase in firm value
-2.  Furthermore, since you bear the totality of the perks' cost, you would not less tempted to overspend
+1.  Is likely that you work harder as you will receive the totality of the increase in firm value
+2.  Since you bear the totality of the perks' costs, you would less tempted to overspend
 
 ## Reduction of Wasteful Investment
 
@@ -685,7 +692,7 @@ $\rightarrow$ *As debtholders receive most of the benefit, thus this project is 
 
 ## Agency Costs and the Trade-off Theory
 
--   Estimating the *net* effect of Agency Costs and Benefits is an empirical matter, and despite that fact that we do not know with certainty what the value is, it is rational to assume that firms would pursue an *optimal* debt level by taking into account *both* agency [costs]{.blue} and [benefits]{.blue}:
+-   Estimating the *net* effect of Agency Costs and Benefits is an empirical matter, and despite that fact that we do not know with certainty what the value is, it is rational to assume that firms would pursue an *optimal* debt level by taking into account *both* agency [costs]{.red} and [benefits]{.green}:
 
 . . .
 
@@ -728,7 +735,7 @@ $$
 
 -   Whenever we allow for [information asymmetry]{.blue}, we no longer guarantee that all agents operate on the same level of information: for example, there might be more informed traders (such as insider traders) that have a different estimate for a firm's value
 
--  What happens if one party *anticipates* that the other party has different information?
+-   What happens if one party *anticipates* that the other party has different information?
 
 . . .
 
@@ -743,10 +750,11 @@ $$
 ## Adverse Selection in Capital Markets
 
 -   The *Lemons Principle* is widely used to depict a situation of adverse selection. There are implications for both *high* and *low* quality cars:
+
     1.  Owners of high-quality cars are reluctant to sell because they know buyers will think they are selling a *"lemon"* and would only do it at a low price
     2.  Consequently, the only cars that remain the market are the ones where both quality and prices are low
 
-- Notwithstanding, this same principle can be applied to the market for equity:
+-   Notwithstanding, this same principle can be applied to the market for equity:
 
     1.  Firms that are willing to issue new equity have private information about the quality of the firm's future projects
     2.  However, due to adverse selection, buyers are reluctant to believe management's assessment of the new projects and are only willing to buy the new equity at heavily discounted prices - if any, why would the firm sell equity at a given price?
@@ -754,12 +762,18 @@ $$
 ## Adverse Selection in Capital Markets
 
 -   In other words:
-    1.  If the firm is issuing equity at market prices, it must be that managers think the stock is [expensive]{.blue}
-    2.  If the firm is buying back shares at market prices, it must be that managers think the stock is [cheap]{.blue}
+    1.  If the firm is issuing equity at market prices, it must be that managers think the stock is [expensive]{.red}
+    2.  If the firm is buying back shares at market prices, it must be that managers think the stock is [cheap]{.green}
+    
+- As a consequence, due to the fact that managers and potential investors have different levels of information regarding the firm's prospects, issuing/repurchasing equity can be seen as a signal from managers about their assessment
+
+- This helps explaining why *startups* tend to rely more on internal funding before going through an external funding process:
+  1. It is very difficult to assess the expected cash-flows from these firms
+  2. As a consequence, they would be heavily discounted when issuing securities to external investors that do not know the company's prospects
 
 ## Asymmetric Information, practice
 
-*You are an analyst who follows Great Windows' stock. Although the current stock price is $\small \$37.50$, you believe the stock is worth either $\small \$25$ or $\small \$50$, depending on the success of a new product launch. If Great Windows' CEO announces that she plans to buy $\small 10,000$ additional shares in the company, how will the share price change?*
+*You are an analyst who follows Great Windows' stock. Although the current stock price is* $\small \$37.50$, you believe the stock is worth either $\small \$25$ or $\small \$50$, depending on the success of a new product launch. If Great Windows' CEO announces that she plans to buy $\small 10,000$ additional shares in the company, how will the share price change?
 
 . . .
 
@@ -767,16 +781,15 @@ $\rightarrow$ **Solution**
 
 . . .
 
-
-1. If the CEO knows the new product launch is a failure, she would sell the stock at $\small \$37.50$ given that the she knows true value is $\small \$25$
-2. If the CEO announces that she is buying $\small 10,000$ additional shares, she must know that the new product launch is a success and the true value is $\small \$50$ per share
-3. Thus, the stock price should rise to $\small \$50$.
+1.  If the CEO knows the new product launch is a failure, she would sell the stock at $\small \$37.50$ given that the she knows true value is $\small \$25$
+2.  If the CEO announces that she is buying $\small 10,000$ additional shares, she must know that the new product launch is a success and the true value is $\small \$50$ per share
+3.  Thus, the stock price should rise to $\small \$50$.
 
 ## The Pecking Order of Financing Choices
 
--   What does information asymmetry tells us when it comes to financing options? Considering, it is important to note that these options have different degrees of information asymmetry
+-   What does information asymmetry tells us when it comes to all the financing options we've studied so far? It is important to note that these options have different degrees of information asymmetry
 
-- For example, managers who perceive the firm’s equity is underpriced will have a preference to fund investment using retained earnings, or debt, rather than equity.
+-   For example, managers who perceive the firm’s equity is underpriced will have a preference to fund investment using retained earnings, or debt, rather than equity.
 
 -   Therefore, the [Pecking-Order Theory]{.blue} of financing choices states a rank-ordering in terms of the preferable funding options for a firm:
 
@@ -793,11 +806,11 @@ $\rightarrow$ **Solution**
 
 . . .
 
-1. If the firm spends $\small \$25$ million out of retained earnings, rather than paying that money out to shareholders as a dividend, the cost to shareholders is $\small \$25$ million
+1.  If the firm spends $\small \$25$ million out of retained earnings, rather than paying that money out to shareholders as a dividend, the cost to shareholders is $\small \$25$ million
 
-2. Using debt costs the firm pays $\small \$25 \times (1+10\%) = \$27.5$ million in one year, which has a present value based on management's view of the firm's risk of $\small \$27.5/(1+8\%)= \$25.46$ million
+2.  Using debt costs the firm pays $\small \$25 \times (1+10\%) = \$27.5$ million in one year, which has a present value based on management's view of the firm's risk of $\small \$27.5/(1+8\%)= \$25.46$ million
 
-3. Finally, if equity is underpriced by $\small 7.5\%$, then to raise $\small \$25$ million, the firm will need to issue $\small 25/(1-7.5\%) = \small \$27.03$ million of new equity. Thus, the cost to existing shareholders will be $\small \$27.03$ million
+3.  Finally, if equity is underpriced by $\small 7.5\%$, then to raise $\small \$25$ million, the firm will need to issue $\small 25/(1-7.5\%) = \small \$27.03$ million of new equity. Thus, the cost to existing shareholders will be $\small \$27.03$ million
 
 ## Practice
 
