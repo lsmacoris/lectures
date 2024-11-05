@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.55">
+
+  <meta name="author" content="Lucas S. Macoris">
+  <title>Lucas S. Macoris – Payout Policy</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-87FLN5SXEJ"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Payout Policy</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Lucas S. Macoris 
+</div>
+</div>
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li class="fragment"><p>This lecture is mainly based the following textbooks:</p>
+<ol type="1">
+<li class="fragment"><span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span></li>
+<li class="fragment"><span class="citation" data-cites="BMA">(<a href="#/references" role="doc-biblioref" onclick="">Brealey, Myers, and Allen 2020</a>)</span></li>
+</ol></li>
+<li class="fragment"><p>Study review and practice: I strongly recommend using <a href="https://henriquemartins.net/">Prof.&nbsp;Henrique Castro</a> (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:</p>
+<ol type="1">
+<li class="fragment">Multiple Choice Exercises - click <a href="https://henriquemartins.net/teaching/financial_strategy/p10tf.html">here</a></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>For coding replications, whenever applicable, please follow <a href="https://lsmacoris.github.io/lectures/fin-strat.html">this</a> page or hover on the specific slides with coding chunks.</em></p>
+</div>
+</section>
+<section id="distributions-to-shareholders" class="slide level2">
+<h2>Distributions to Shareholders</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="blue">Payout Policy</span> is the the way a firm chooses between alternative ways to distribute free cash flow to its equityholders]</p>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F1.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+</figure>
+</div>
+</section>
+<section id="dividends-and-share-repurchases" class="slide level2">
+<h2>Dividends and Share Repurchases</h2>
+<ul>
+<li class="fragment"><p>There are basically two ways by which a firm can return free cash flow to its shareholders:</p>
+<ol type="1">
+<li class="fragment">By paying out as a <span class="blue">dividend</span>, where the firm literally provides an <em>influx</em> of cash to its existing shareholders</li>
+<li class="fragment">By <span class="blue">repurchasing existing shares</span>, a firm can return cash to its shareholders</li>
+</ol></li>
+<li class="fragment"><p>Importantly, in Brazil, there are two important aspects that need to be taken into consideration:</p>
+<ol type="1">
+<li class="fragment">Apart from dividends, we also have <span class="blue">interest on equity</span> (<em>“Juros sobre o Capital Próprio - JCP”</em>)</li>
+<li class="fragment">Furthermore, in most countries, investors pay taxes over dividends and over capital gains. In Brazil, <span class="blue">dividends are not taxed</span></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>In this lecture, we will study each of these options, understand their main aspects, usages, and discuss how they relate to a firm’s capital structure decision</em></p>
+</div>
+</section>
+<section id="dividends" class="slide level2">
+<h2>Dividends</h2>
+<ul>
+<li class="fragment">The most straightforward way to return cash to the shareholders of a firm is through the payment of <span class="blue">dividends</span></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="blue">Dividends</span> are the compensation (in cash) that firms provide to its shareholders. Apart from capital gains (<em>i.e</em>, the appreciation of the share price over time), shareholders can also benefit from receiving a <em>cash influx</em> related to the excess cash from the firm’s operations</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>But how do firms decide <em>how much</em> to pay in dividends?</p>
+<ol type="1">
+<li class="fragment">A public company’s board of directors determines the amount of the firm’s dividend</li>
+<li class="fragment">The board sets the amount per share that will be paid and decides when the payment will occur</li>
+</ol></li>
+<li class="fragment"><p>Note that dividends <em>need not be</em> limited to the net income generated by a firm - in fact, some firms issue additional equity or debt to pay out as dividends</p></li>
+</ul>
+</div>
+</section>
+<section id="dividends---a-practical-timeline" class="slide level2">
+<h2>Dividends - a practical timeline</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F2.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+</figure>
+</div>
+<ol type="1">
+<li class="fragment"><p><span class="blue">Declaration Date</span>: the date on which the board of directors authorizes the payment</p></li>
+<li class="fragment"><p><span class="blue">Ex-Dividend Date</span>: a date, two days prior to a dividend’s record date, on or after which anyone buying the stock will not be eligible for the dividend</p></li>
+<li class="fragment"><p><span class="blue">Record Date</span>: when a firm pays a dividend, only shareholders on record on this date receive</p></li>
+<li class="fragment"><p><span class="blue">Payable Date (Distribution Date)</span>: a date, generally within a month after the record date, on which a firm mails dividend checks to its registered stockholders</p></li>
+</ol>
+</section>
+<section id="types-of-divends" class="slide level2">
+<h2>Types of divends</h2>
+<ul>
+<li class="fragment">Apart from the important marks within the timeline of a dividend distribution, firm’s can distribute dividends in a variety of ways:</li>
+</ul>
+<ol type="1">
+<li class="fragment"><p><span class="blue">Regular Dividends</span>: <em>often</em> paid every quarter</p></li>
+<li class="fragment"><p><span class="blue">Special Dividend</span>: a one-time dividend payment a firm makes, which is usually much <em>larger</em> than a regular dividend</p></li>
+<li class="fragment"><p><span class="blue">Stock Split (Stock Dividend)</span>: when a company issues a dividend in <em>shares of stock</em> rather than cash to its shareholders</p></li>
+<li class="fragment"><p><span class="blue">Liquidation Dividend</span>: when the dividend is paid while liquidating the firm’s business. Contrary to the others, it is taxed as capital gain</p></li>
+</ol>
+</section>
+<section id="share-repurchases" class="slide level2">
+<h2>Share Repurchases</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><a href="#/share-repurchases">Share Repurchases</a> are an alternative way to pay cash to investors is through a share repurchase or buyback. In short, the firm uses cash to buy shares of its own outstanding stock.</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Like dividends, there are several ways in which a firm may operationalize share repurchases. The most common terms are:</p>
+<ol type="1">
+<li class="fragment"><p><span class="blue">Open Market Repurchases</span>: when a firm repurchases shares in the open market - these represent about <span class="math inline">\(\small95\%\)</span> of all repurchase transactions</p></li>
+<li class="fragment"><p><span class="blue">Tender Offer</span>: a <em>public announcement</em> to all existing security holders to buy back a specified amount of outstanding securities at a given price (typically set at a <span class="math inline">\(\small10\%\)</span> to <span class="math inline">\(\small20\%\)</span> premium to the current market price) over a prespecified period of time. If shareholders do not tender enough shares, the firm may cancel the offer, and no buyback occurs</p></li>
+<li class="fragment"><p><span class="blue">Targeted Repurchase</span>: when a firm purchases shares directly from a specific shareholder</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="interest-on-equity" class="slide level2">
+<h2>Interest on Equity</h2>
+<ul>
+<li class="fragment"><p>In Brazil, there is also a possibility of paying <span class="blue">interest on equity</span>: this used to be an important instrument when inflation rates were very high in Brazil. The goal was to create an incentive to hold equity when inflation was high:</p>
+<ol type="1">
+<li class="fragment">Interest on equity is <em>tax deductible</em> at the corporate level but subject to a withholding tax at the shareholder level</li>
+<li class="fragment">From an accounting perspective, interest on equity is treated similarly to interest (to creditors)</li>
+</ol></li>
+<li class="fragment"><p>The tax rate is different for different types of investors. Usually, the interest on equity tax rate is lower than the corporate tax rate</p></li>
+<li class="fragment"><p>Firms have a limit to pay as interest on equity. This limit increases every year by <em>TJLP</em>, an annual interest rate established by Brazilian Central Bank - <a href="https://www.in.gov.br/web/dou/-/comunicado-n-39.215-de-30-de-setembro-de-2022-433423675">access here</a></p></li>
+</ul>
+</section>
+<section id="dividends-versus-share-repurchases" class="slide level2">
+<h2>Dividends <em>versus</em> Share Repurchases</h2>
+<ul>
+<li class="fragment"><p>When it comes to payout policy, an important question relates to the <em>method</em> in which cash will be returned to shareholders - pay out as a <span class="blue">dividend</span> or through <span class="blue">share repurchases</span>?</p></li>
+<li class="fragment"><p>To see that, assume that the board of <em>Genron Corporation</em> is meeting to decide how to pay out <span class="math inline">\(\small \$20\)</span> million in excess cash to shareholders. The firms has no debt, and its equity cost of capital equals its unlevered cost of capital of <span class="math inline">\(\small 12\%\)</span></p></li>
+<li class="fragment"><p>There are <span class="math inline">\(\small 10\)</span> million shares outstanding, and the estimated free cash flows for the upcoming years are <span class="math inline">\(\small \$48\)</span> million per year</p></li>
+<li class="fragment"><p>Which option (if any) should be the preferred one?</p>
+<ol type="1">
+<li class="fragment">Paying out as dividends</li>
+<li class="fragment">Share repurchases</li>
+</ol></li>
+<li class="fragment"><p>As a starting point, assume that there are no market imperfections - <em>i.e</em>, <span class="blue">Perfect Capital Markets</span></p></li>
+</ul>
+</section>
+<section id="option-1-dividends" class="slide level2">
+<h2>Option 1: Dividends</h2>
+<ul>
+<li class="fragment"><p>With <span class="math inline">\(\small 10\)</span> million shares, <em>Genron</em> will be able to pay a dividend of <span class="math inline">\(\small \$20/10=\$2\)</span> per share</p></li>
+<li class="fragment"><p>The firm expects to generate future free cash flows of <span class="math inline">\(\small\$48\)</span> million per year. Therefore, it anticipates paying a dividend of <span class="math inline">\(\small \$4.80\)</span> per share each year thereafter</p></li>
+<li class="fragment"><p>As a result, the value to <em>equityholders</em> is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \underbrace{2}_{\text{Payment today}} + \underbrace{\sum_{t=1}^{\infty}\dfrac{4.80}{(1+12\%)}}_{\text{Perpetuity}} \rightarrow 2 + \frac{4.80}{12\%} = 2 + 40 = 42
+\]</span></p>
+<ul>
+<li class="fragment"><em>After</em> the <span class="math inline">\(\small \$2\)</span> dividend payment, the value of each share is simply <span class="math inline">\(\small \$42-\$2=\$40\)</span> per share. Notice that after the dividend payment, the share price drops by the dividend per share value</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>In a perfect capital market, when a dividend is paid, the share price drops by the amount of the dividend when the stock begins to trade ex-dividend</em></p>
+</div>
+</section>
+<section id="option-2-share-repurchase" class="slide level2">
+<h2>Option 2: Share Repurchase</h2>
+<ul>
+<li class="fragment"><p>Instead of paying a dividend this year, <em>Genron</em> can use the <span class="math inline">\(\small 20\)</span> million to repurchase its shares on the open market. In this case, the company can buy <span class="math inline">\(\small \$20/\$42 = 0.476\)</span> million shares</p></li>
+<li class="fragment"><p>Therefore, the new number of outstanding shares are: <span class="math inline">\(\small 10 - 0.476 = 9.524\)</span> million. Note that this has <em>not changed</em> the free cash flow available to shareholders, but now, there are less shareholders to be paid for! After the repurchase, the future dividend value is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \dfrac{\text{Free Cash Flow}}{\text{# of Shares}}=\dfrac{48,000,000}{9,524,000} = 5.04 \text{ per share}
+\]</span></p>
+<ul>
+<li class="fragment">Therefore, the stock price is <span class="math inline">\(\small \frac{\$5.04}{12\%}=\$42\)</span> per share</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>In perfect capital markets, an open market share repurchase has no effect on the stock price, and the stock price is the same as the cum-dividend</em><sup>1</sup> price if a dividend were paid instead.</p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><em>When a stock trades before the ex-dividend date, entitling anyone who buys the stock to the dividend ($42 in this example).</em></p></li></ol></aside></section>
+<section id="comparing-the-options" class="slide level2">
+<h2>Comparing the options</h2>
+<ul>
+<li class="fragment"><p>An important implication of <span class="blue">Perfect Capital Markets</span> is that investors should be <span class="blue">indifferent</span> between the firm distributing funds via <span class="blue">dividends</span> or <span class="blue">share repurchases</span>:</p>
+<ol type="1">
+<li class="fragment">When receiving via <span class="blue">dividends</span>, they receive a cash payment of <span class="math inline">\(\small \$2\)</span> and keep the value of their shares trading at <span class="math inline">\(\small \$40\)</span></li>
+<li class="fragment">Via share repurchases, regardless of tendering their shares, share prices are the same (<span class="math inline">\(\small \$ 42\)</span>)</li>
+</ol></li>
+<li class="fragment"><p>From a purely value perspective, both alternatives yield the same value. As in previous lectures, a similar argument can be made when assuming <span class="blue">perfect capital markets</span>: if investors have preferences over a given option, they can make a <span class="blue">homemade dividend</span><sup>1</sup></p>
+<ul>
+<li class="fragment">If the firm <span class="blue">repurchases</span> shares and the investor wants <span class="blue">cash</span>, the investor can raise cash by <span class="blue">selling</span> his/her shares</li>
+<li class="fragment">If the firm pays a <span class="blue">dividend</span> and the investor prefers <span class="blue">stock</span>, they can use the dividend to purchase additional fractional shares</li>
+</ul></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>See the <em>Appendix</em> for a detailed example on homemade dividends.</p></li></ol></aside></section>
+<section id="dividends-versus-share-repurchases-alternative-policy" class="slide level2">
+<h2>Dividends <em>versus</em> Share Repurchases, alternative policy</h2>
+<ul>
+<li class="fragment"><p>What if, as opposed to the first option, <em>Genror</em> decides to pay a <span class="blue">higher</span> dividend? To see that, suppose that the firm wants to pay dividends <span class="blue">larger</span> than <span class="math inline">\(\small\$2\)</span> per share right now, but it only has <span class="math inline">\(\small 20\)</span> million in cash today</p></li>
+<li class="fragment"><p>Thus, <em>Genron</em> needs an additional <span class="math inline">\(\small\$28\)</span> million to pay the larger dividend now. To do this, the firm decides to raise the cash by selling new shares. Given a current share price of <span class="math inline">\(\small\$42\)</span>, the firm could raise <span class="math inline">\(\small \$28\)</span> million by issuing <span class="math inline">\(\small \$28/\$42= \$0.67\)</span> million new shares</p></li>
+<li class="fragment"><p>The new dividend per share is: <span class="math inline">\(\small \$48/10.67=\$4.5\)</span>. The <em>cum-dividend</em> share price is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \underbrace{4.5}_{\text{Actual Dividend}} + \underbrace{\frac{4.5}{12\%}}_{\text{Perpetuity}}= 4.5 + 37.5 = 42
+\]</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>As issuing new equity does not change the free cash flows, stock price does not change as a result of the share repurchase!</em></p>
+</div>
+</section>
+<section id="modigliani-and-miller-and-the-dividend-policy-irrelevance" class="slide level2">
+<h2>Modigliani and Miller and the Dividend Policy Irrelevance</h2>
+<ul>
+<li class="fragment"><p>Note that there is a <em>tradeoff</em> between <span class="blue">current</span> and <span class="blue">future</span> dividends:</p>
+<ol type="1">
+<li class="fragment">If Genron pays a <span class="green">higher</span> current dividend, future dividends will be <span class="red">lower</span></li>
+<li class="fragment">If Genron pays a <span class="red">lower</span> current dividend, future dividends will be <span class="green">higher</span></li>
+</ol></li>
+<li class="fragment"><p>Regardless of the payout policy, shareholders can create a <em>homemade dividend</em> on their own, matching his/her specific payout preferences, by buying or selling shares themselves</p></li>
+<li class="fragment"><p>Therefore, the only factor that determines a firm’s payout policy is the <span class="blue">free cash flow</span>.</p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="blue">The Dividend Policy Irrelevance Condition</span>: in perfect capital markets, holding fixed the investment policy, the firm’s choice of dividend policy is irrelevant and does not affect the initial share price. While dividends do determine share prices, a firm’s choice of dividend policy does not.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="payout-policy-in-practice" class="slide level2">
+<h2>Payout Policy in Practice</h2>
+<ul>
+<li class="fragment"><p>Based on our discussion, <span class="blue">when we assume that capital markets are perfect</span>, the payout policy is only determined by the firm’s future cash flows, and the specific type of payment and timing are <em>irrelevant</em> to determine the firm’s value</p></li>
+<li class="fragment"><p>In reality, capital markets are <em>not</em> perfect:</p>
+<ol type="1">
+<li class="fragment">Some types of payout may have higher costs than others, such as taxes</li>
+<li class="fragment">There could be limits and/or regulations around a given payout type</li>
+<li class="fragment">Finally, different payout policies may be subject to a different degree of information asymmetry</li>
+</ol></li>
+<li class="fragment"><p>As a result, if the firm’s payout policy is relevant to determine the firm’s value, <span class="blue">it is only due to these imperfections</span>!</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>In what follows, we will look at the most important market imperfections that would make the firm’s payout policy relevant to the firm’s value</em></p>
+</div>
+</section>
+<section id="the-tax-disadvantage-of-dividends" class="slide level2">
+<h2>The Tax Disadvantage of Dividends</h2>
+<ul>
+<li class="fragment">First and foremost, there could be differences in the taxation of <em>Dividends</em> and <em>Capital Gains</em>
+<ol type="1">
+<li class="fragment">Shareholders must pay <span class="blue">taxes on the dividends</span> they receive, and they must also pay <span class="blue">capital gains taxes</span> when they sell their shares</li>
+<li class="fragment">Dividends are typically taxed at a higher rate than capital gains<sup>1</sup>. In fact, long-term investors can defer the capital gains tax forever by not selling shares</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">The <span class="blue">higher</span> the <span class="blue">tax rate on dividends</span>, the more undesirable is for a firm to raise funds to pay a dividend</li>
+<li class="fragment">When dividends are taxed at a higher rate than capital gains, if a firm raises money by issuing shares and then gives that money back to shareholders as a dividend, shareholders are hurt because they will receive less than their initial investment</li>
+</ol>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>In Brazil, dividends are <em>not</em> taxed.</p></li></ol></aside></section>
+<section id="the-tax-disadvantage-of-dividends-continued" class="slide level2">
+<h2>The Tax Disadvantage of Dividends, continued</h2>
+<ul>
+<li class="fragment"><p>To see that, assume that a firm raises <span class="math inline">\(\small\$25\)</span> million from shareholders and uses it to pay <span class="math inline">\(\small\$25\)</span> million in dividends. Dividends are taxed at a <span class="math inline">\(\small39\%\)</span> tax rate, and Capital Gains are taxed at a <span class="math inline">\(\small20\%\)</span> tax rate. We then have the following cases:</p>
+<ol type="1">
+<li class="fragment"><p>In terms of <span class="blue">dividend taxes</span>, shareholders will owe <span class="math inline">\(\small 39\% \times \$25 = 9.75\)</span> million in taxes</p></li>
+<li class="fragment"><p>Because the firm value falls after dividend, the capital gain (when selling shares) will be <span class="math inline">\(\small \$25\)</span> million less, lowering the <span class="blue">capital gains taxes</span> by <span class="math inline">\(\small 20\% \times \$25 = \$5\)</span> million</p></li>
+</ol></li>
+<li class="fragment"><p>Shareholders will pay a total of <span class="math inline">\(\small \$9.75 − \$5.00 = \$4.75\)</span> million in taxes</p></li>
+<li class="fragment"><p>Shareholders will receive back only <span class="math inline">\(\small \$25 − \$4.75 = 20.25\)</span> million</p></li>
+</ul>
+</section>
+<section id="the-dividend-puzzle" class="slide level2">
+<h2>The Dividend Puzzle</h2>
+<ul>
+<li class="fragment"><p>By the rationale shown before, when the <span class="blue">tax rate on dividends</span> is <span class="blue">greater</span> than the <span class="blue">tax rate on capital gains</span>, shareholders will pay <span class="green">lower</span> taxes if a firm uses share repurchases rather than dividends</p></li>
+<li class="fragment"><p>This tax savings will increase the value of a firm that uses share repurchases rather than dividends. As a consequence, the <span class="blue">optimal dividend policy</span> when the dividend tax rate exceeds the capital gain tax rate is to pay <span class="blue">no dividends at all</span></p></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>In reality, however, firms continue to issue dividends despite their tax disadvantage - also known as the <span class="blue">“Dividend Puzzle”</span>. <strong>Why?</strong> </em></p>
+</div>
+</section>
+<section id="dividend-capture-and-tax-clienteles" class="slide level2">
+<h2>Dividend Capture and Tax Clienteles</h2>
+<ul>
+<li class="fragment"><p>The preference for share repurchases rather than dividends depends on the difference between the dividend tax rate and the capital gains tax rate</p></li>
+<li class="fragment"><p><span class="blue">The Effective Dividend Tax Rate</span>: consider buying a stock just before it goes <em>ex</em>-dividend and selling the stock just after. The equilibrium condition is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small (P_{\text{Cum}}-P_{\text{Ex}})\times\underbrace{(1-\tau_g)}_{\text{Net of Capital Gain Taxes}} = D\times \underbrace{(1-\tau_d)}_{\text{Net of Dividend Taxes}}
+\]</span></p>
+<ul>
+<li class="fragment">Rearranging terms, we have;</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small P_{\text{Cum}}-P_{\text{Ex}} = \frac{D\times(1-\tau_d)}{1-\tau_g} \rightarrow D \times \bigg[ 1 - \frac{\tau_d - \tau_g}{1-\tau_g}  \bigg]
+\]</span></p>
+</div>
+</section>
+<section id="dividend-capture-and-tax-clienteles-1" class="slide level2">
+<h2>Dividend Capture and Tax Clienteles</h2>
+<p><span class="math display">\[
+\small P_{\text{Cum}}-P_{\text{Ex}} = D \times \bigg[ 1 - \frac{\tau_d - \tau_g}{1-\tau_g}  \bigg]
+\]</span></p>
+<ul>
+<li class="fragment">If we set <span class="math inline">\(\tau^*_d = \frac{\tau_d - \tau_g}{1-\tau_g}\)</span>, we have that:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small P_{\text{Cum}}-P_{\text{Ex}} = D \times (1-\tau^*_d)
+\]</span></p>
+<ul>
+<li class="fragment"><span class="math inline">\(\small \tau^\star_d\)</span> measures the additional tax paid by the investor per dollar of after-tax capital gains income that is received as a dividend. Assuming <span class="math inline">\(\small \tau_g=15\%\)</span> and <span class="math inline">\(\small \tau_d=30\%\)</span>:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \tau^*_d = \frac{0.30 - 0.15}{1-0.15} = 0.176
+\]</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>In words, there is a significant tax disadvantage of dividends: each</em> <span class="math inline">\(\small \$1\)</span> of dividends is worth only <span class="math inline">\(\small\$0.824\)</span> in capital gains.</p>
+</div>
+</section>
+<section id="dividend-capture-and-tax-clienteles-2" class="slide level2">
+<h2>Dividend Capture and Tax Clienteles</h2>
+<ul>
+<li class="fragment"><p>In practice, <span class="math inline">\(\tau_d^\star\)</span>, the effective dividend tax rate, <span class="blue">differs across investors for a variety of reasons</span>:</p>
+<ol type="1">
+<li class="fragment">Income Levels</li>
+<li class="fragment">Investment Horizons</li>
+<li class="fragment">Tax Jurisdictions</li>
+<li class="fragment">Types of Investor or Type of investment Account</li>
+</ol></li>
+<li class="fragment"><p>As a result of their different tax rates, investors will have varying preferences regarding dividends. This opens room for firms to try matching their payout policy to the preferences of investors:</p>
+<ol type="1">
+<li class="fragment">The <span class="blue">Clientele Effect</span> is when the dividend policy of a firm reflects the tax preference of its investor clientele</li>
+<li class="fragment">For example, individuals in the highest tax brackets have a preference for stocks that pay no or low dividends, whereas tax-free investors and corporations have a preference for stocks with high dividends</li>
+</ol></li>
+</ul>
+</section>
+<section id="dividend-and-tax-clienteles---u.s.-market" class="slide level2">
+<h2>Dividend and Tax Clienteles - U.S. Market</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F3.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+<p><span class="math inline">\(\rightarrow\)</span> <em>The increase in volume consistent with tax-exempt traders buying before the ex-date and selling it afterwards. Price hikes may have to do with signaling - see more in the upcoming slides</em></p>
+</section>
+<section id="payout-versus-retention-of-cash" class="slide level2">
+<h2>Payout Versus Retention of Cash</h2>
+<ul>
+<li class="fragment"><p>As of now, we discussed why firms may not be indifferent regarding different <em>payout options</em> (<em>i.e.</em>, dividends <em>versus</em> share repurchases)</p></li>
+<li class="fragment"><p>Another strand of the discussion relates to the decision to <span class="blue">payout</span> or <span class="blue">retain</span> free cash flow:</p>
+<ol type="1">
+<li class="fragment"><p>In <span class="blue">perfect capital markets</span>, once a firm has taken all positive-NPV projects, it is indifferent between saving excess cash and paying it out</p></li>
+<li class="fragment"><p>However, when such market imperfections do exist, there will be an important <em>trade-off</em>: while retaining cash can reduce the costs of raising capital in the future, but it can also increase taxes and agency costs</p></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>As a result, the extent to which a firm will prefer one or the other will depend on the trade-off between the benefits and costs of retaining cash!</em></p>
+</div>
+</section>
+<section id="payout-versus-retention-of-cash-in-perfect-capital-markets" class="slide level2">
+<h2>Payout <em>versus</em> Retention of Cash in Perfect Capital Markets</h2>
+<ul>
+<li class="fragment">If a firm has already taken all <span class="green">positive</span>-NPV projects, any additional projects it takes on are zero or negative-NPV projects
+<ol type="1">
+<li class="fragment"><p>Rather than wasting excess cash on <span class="red">negative</span>-NPV projects, a firm can use the cash to purchase financial assets</p></li>
+<li class="fragment"><p>In perfect capital markets, buying and selling securities is a zero-NPV transaction, so it should not affect firm value</p></li>
+</ol></li>
+<li class="fragment">This indifference is also known as the <em>Payout Irrelevance Condition</em></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>The <span class="blue">Modigliani-Miller Payout Irrelevance</span>: with perfect capital markets, the retention versus payout decision is irrelevant. In perfect capital markets, if a firm invests excess cash flows in financial securities, the firm’s choice of payout versus retention is irrelevant and does not affect the initial share price.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="payout-versus-retention-of-cash-practice" class="slide level2">
+<h2>Payout Versus Retention of Cash, practice</h2>
+<p><em>Payne Enterprises has</em> <span class="math inline">\(\small\$20,000\)</span> in excess cash. Payne is considering investing the cash in one-year Treasury bill paying <span class="math inline">\(\small5\%\)</span> interest and then using the cash to pay a dividend next year. Alternatively, the firm can pay a dividend immediately, and shareholders can invest the cash on their own. In a perfect capital market, which option will shareholders prefer?</p>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <strong>Solution</strong>:</p>
+</div>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">If Payne pays an <em>immediate dividend</em>, the shareholders receive <span class="math inline">\(\small\$20,000\)</span> today</li>
+<li class="fragment">If Payne <em>retains the cash</em>, at the end of one year the company will be able to pay a dividend of <span class="math inline">\(\small \$20,000 \times (1+5\%)=\$21,000\)</span></li>
+</ol>
+<ul>
+<li class="fragment"><p>Finally, note that if shareholders invest in Treasury bills themselves, they would also have <span class="math inline">\(\small\$21,000\)</span> at the end of one year</p></li>
+<li class="fragment"><p>In either case, investors have the <span class="blue">same</span> payoff!</p></li>
+</ul>
+</div>
+</section>
+<section id="corporate-taxes-and-cash-retention-practice" class="slide level2">
+<h2>Corporate Taxes and Cash Retention, practice</h2>
+<ul>
+<li class="fragment"><p>What happens to the <em>trade-off</em> between dividends and cash retention when we assume that there are market imperfections?</p>
+<ol type="1">
+<li class="fragment"><p>An important market imperfection relates to <span class="blue">Corporate Taxes</span>: these takes make it <em>costly</em> for a firm to retain excess cash</p></li>
+<li class="fragment"><p>From a valuation perspective, cash is equivalent to negative leverage, so the tax advantage of leverage implies a tax disadvantage to holding cash</p></li>
+</ol></li>
+<li class="fragment"><p>In this scenario, whenever market imperfections are present, firms may not be indifferent between receivind dividends and retaining cash anymore!</p></li>
+</ul>
+</section>
+<section id="corporate-taxes-and-cash-retention-practice-1" class="slide level2">
+<h2>Corporate Taxes and Cash Retention, practice</h2>
+<ul>
+<li class="fragment">To see that, assume that <em>Payne</em> has a marginal tax rate of <span class="math inline">\(\small39\%\)</span>. Would a <span class="blue">tax-exempt</span> endowment prefer that <em>Payne</em> use its excess cash to pay the dividend immediately or invest the cash in a Treasury bill paying <span class="math inline">\(\small5\%\)</span> interest and then pay out a dividend?</li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <strong>Solution</strong>:</p>
+<ol type="1">
+<li class="fragment"><p>If <em>Payne</em> pays a <span class="blue">dividend</span> today, shareholders receive <span class="math inline">\(\small\$20,000\)</span></p></li>
+<li class="fragment"><p>If <em>Payne</em> <span class="blue">retains</span> the cash for one year, it will earn an after-tax return on the Treasury bills of <span class="math inline">\(\small 5\% \times (1-0.39\%)=3.05\%\)</span></p></li>
+</ol>
+<ul>
+<li class="fragment">Therefore, <em>Payne</em> will pay a dividend of <span class="math inline">\(\small\$20,000 \times (1+3.05\%) = 20,610\)</span>, which is <em>less</em> than the <span class="math inline">\(\small\$21,000\)</span> the endowment would have earned if they had invested in the Treasury bills themselves!</li>
+</ul>
+</div>
+</section>
+<section id="investor-taxes-and-cash-retention" class="slide level2">
+<h2>Investor Taxes and Cash Retention</h2>
+<ul>
+<li class="fragment">The decision to pay out versus retain cash may also affect the <span class="blue">taxes paid by shareholders</span>:
+<ol type="1">
+<li class="fragment">When a firm <em>retains</em> cash, it must pay corporate tax on the interest it earns on that cash. In addition, the investor will owe capital gains tax on the increased firm value. The interest on retained cash is taxed twice</li>
+<li class="fragment">If the firm <em>paid the cash</em> to its shareholders instead, they could invest it and be taxed only once on the interest that they earn</li>
+</ol></li>
+<li class="fragment">The cost of retaining cash thus depends on the <em>combined effect</em> of the corporate and capital gains taxes, compared to the tax on interest income:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \tau^*_{\text{Retain}} = 1-\frac{(1-\tau_c)(1-\tau_g)}{(1-\tau_i)}
+\]</span></p>
+</div>
+</section>
+<section id="issuance-and-distress-costs" class="slide level2">
+<h2>Issuance and Distress Costs</h2>
+<ul>
+<li class="fragment"><p>Besides any tax considerations, firms retain cash balances to cover potential future cash shortfalls, despite the tax disadvantage to retaining cash:</p>
+<ol type="1">
+<li class="fragment">A firm might accumulate a large cash balance if there is a reasonable chance that future earnings will be insufficient to fund future positive-NPV investment opportunities</li>
+<li class="fragment">The cost of holding cash to cover potential shortfalls should be compared to the reduction in transaction, agency, and adverse selection costs of raising capital through new issuances</li>
+</ol></li>
+<li class="fragment"><p>However, there are also <span class="blue">Agency Costs of Retaining Cash</span>:</p>
+<ol type="1">
+<li class="fragment">When firms have excessive cash, managers may use the funds inefficiently by paying excessive executive perks, over-paying for acquisitions, etc</li>
+<li class="fragment">Paying out excess cash through dividends or share repurchases, rather than retaining cash, can boost the stock price by reducing managers’ ability and temptation to waste resources</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>The optimal payout policy trades-off these benefits against agency costs!</em></p>
+</div>
+</section>
+<section id="payout-versus-retention-of-cash-practice-1" class="slide level2">
+<h2>Payout Versus Retention of Cash, practice</h2>
+<p><em>Altgreen is an all-equity firm with</em> <span class="math inline">\(\small\$250\)</span> million shares outstanding. It has <span class="math inline">\(\small\$300\)</span> million in cash and expects future free cash flows of <span class="math inline">\(\small\$150\)</span> million per year. Management plans to use the cash to expand the firm’s operations, which will in turn increase future free cash flows by <span class="math inline">\(\small10\%\)</span>. If the cost of capital of Altgreen’s investments is <span class="math inline">\(\small7\%\)</span>, how would a decision to use the cash for a share repurchase rather than the expansion change the share price?</p>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <strong>Solution</strong>:</p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">If <em>Altgreen</em> uses the cash to <span class="blue">expand</span>, its future free cash flows will increase by <span class="math inline">\(\small10\%\)</span> to <span class="math inline">\(\small\$165\)</span> million per year. Using the perpetuity formula, its market value will be:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \dfrac{165}{7\%} = 2.357 \text{ billion, or } \dfrac{2.357}{250} = 9.43 \text{ per share}
+\]</span></p>
+</div>
+</section>
+<section id="payout-versus-retention-of-cash-practice-2" class="slide level2">
+<h2>Payout Versus Retention of Cash, practice</h2>
+<ul>
+<li class="fragment">If, on the other hand, <em>Altgreen</em> <span class="blue">does not expand</span>, the value of its future free cash flows will be <span class="math inline">\(\small 150/7\% = \$2.143\)</span> billion. Adding cash, we have <span class="math inline">\(\small \$2.443/250 = \$9.77\)</span> per share. When repurchasing shares, it will repurchase <span class="math inline">\(\small \$300/\$9.77=30.71\)</span> million shares:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \dfrac{2.143}{219.29}= 9.77 \text{ per share}
+\]</span></p>
+<ul>
+<li class="fragment">All in all, note that the firm could avoid a <span class="red">negative</span> NPV project by retaining cash/share repurchases:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \underbrace{-300}_{\text{Cash}}+\underbrace{\dfrac{15}{7\%}}_{\text{Growth Option}}=-300+214=-75
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>The decrease of <span class="math inline">\(\small \$75\)</span> million in value matches the <span class="math inline">\(\small 75/250\approx \$0.34\)</span> decrease in stock price!</em></p>
+</div>
+</section>
+<section id="signaling-with-payout-policy" class="slide level2">
+<h2>Signaling with Payout Policy</h2>
+<ul>
+<li class="fragment"><p>In theory, we would expect dividends to trend with earnings. In practice, however firms change dividends infrequently, and dividends are much less volatile than earnings. <strong>Why</strong>?</p></li>
+<li class="fragment"><p>As with <em>Debt</em>, <em>Dividends</em> can also be used as a way to <em>signal</em> information to the market. We call <span class="blue">Dividend Smoothing</span> the practice of maintaining relatively constant dividends</p></li>
+<li class="fragment"><p>The <span class="blue">Dividend Signaling Hypothesis</span> is the idea that dividend changes reflect managers’ views about future earnings:</p>
+<ol type="1">
+<li class="fragment">When a firm <span class="green">increases</span> dividend, it sends a positive signal to investors that they expect to be able to afford the higher dividend for the foreseeable future</li>
+<li class="fragment">When a firm <span class="red">decreases</span> dividend, it may signal that they have given up hope that earnings will rebound in the near term and so need to save cash</li>
+</ol></li>
+<li class="fragment"><p><strong>If that is true, what is the price reaction to dividends?</strong> Although an increase of a firm’s dividend may signal optimism regarding its future cash flows, it might also signal a <span class="red">lack of investment opportunities</span>, which might lead to a positive stock price reaction!</p></li>
+</ul>
+</section>
+<section id="dividend-smoothing-in-practice-u.s.-markets" class="slide level2">
+<h2>Dividend Smoothing in practice (U.S. markets)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F4.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+<p><span class="math inline">\(\rightarrow\)</span> <em>It is possible to see that, for GM, dividend dynamics were much more stable than earnings</em></p>
+</section>
+<section id="signaling-and-share-repurchases" class="slide level2">
+<h2>Signaling and Share Repurchases</h2>
+<ul>
+<li class="fragment"><p>Like <span class="blue">Dividends</span>, <span class="blue">Share Repurchases</span> can be also be seen as a credible signal the current shares are <em>underpriced</em>, as if they were <em>overpriced</em>, a share repurchase would be costly for current shareholders</p></li>
+<li class="fragment"><p>Notwithstanding, a firm may announce a share repurchase program but not repurchase any shares, while on the other hand, when a firm announces dividends payment, it has a commitment to pay:</p>
+<ol type="1">
+<li class="fragment"><p>If investors believe that managers have better information regarding the firm’s prospects and act on behalf of current shareholders, then investors will react <span class="green">positively</span> to share repurchase announcements</p></li>
+<li class="fragment"><p>Notwithstanding, announcing a share repurchase today does not necessarily represent a long-term commitment to repurchase shares in the future. Because of that, <span class="blue">Dividends</span> have a stronger, more credible signal than <span class="blue">Share Repurchases</span></p></li>
+</ol></li>
+</ul>
+</section>
+<section id="stock-dividends" class="slide level2">
+<h2>Stock Dividends</h2>
+<ul>
+<li class="fragment"><p>As discussed before, with a stock dividend, a firm <span class="blue">does not pay out any cash</span> to shareholders. As a result, the total market value of the firm’s equity is unchanged</p></li>
+<li class="fragment"><p>The only thing that is different is the <span class="blue">number of shares outstanding</span>. The <strong>stock price will therefore fall</strong> because the same total equity value is now divided over a larger number of shares</p></li>
+<li class="fragment"><p>To see that, suppose that <em>Genron</em> firm paid a <span class="math inline">\(\small50\%\)</span> stock dividend rather than a cash dividend</p>
+<ol type="1">
+<li class="fragment">A shareholder who owns <span class="math inline">\(\small\$100\)</span> shares as <span class="math inline">\(\small\$42\)</span> before the dividend has a portfolio worth <span class="math inline">\(\small \$4,200\)</span></li>
+<li class="fragment">After the dividend, the shareholder owns <span class="math inline">\(\small150\)</span> shares</li>
+</ol></li>
+<li class="fragment"><p>Because the portfolio is still worth <span class="math inline">\(\small4,200\)</span>, the stock price will fall to <span class="math inline">\(\small \$4,200/150=\$28\)</span>.</p></li>
+<li class="fragment"><p>Sometimes, firms finance new shares. So, it is like shareholders have received cash and immediately bought new shares. In this case, decline in price is not as large as above</p></li>
+</ul>
+</section>
+<section id="stock-splits" class="slide level2">
+<h2>Stock Splits</h2>
+<ul>
+<li class="fragment"><p>Splits are known as situations where a firm a smaller pool of highly valued shares share into a higher number of shares</p></li>
+<li class="fragment"><p>The typical motivation for a stock split is to keep the share price in a range thought to be attractive to small investors:</p>
+<ol type="1">
+<li class="fragment">If the share price rises <em>“too high”</em>, it might be difficult for small investors to invest</li>
+<li class="fragment">Keeping the price <em>“low”</em> may make the stock more attractive to small investors and increase the stock’s demand and liquidity, which may in turn boost the stock price</li>
+</ol></li>
+<li class="fragment"><p><strong>On average</strong>, announcements of stock splits are associated with a small <span class="green">increase</span> in prices</p></li>
+<li class="fragment"><p>On the other hand, when the price of a company’s stock falls too low and the company reduces the number of outstanding shares, <span class="math inline">\(\small 2\)</span> shares become <span class="math inline">\(\small 1\)</span> of twice the previous price - also known as <em>reverse split</em> or <em>insplit</em></p></li>
+</ul>
+</section>
+<section id="stock-splits-in-practice---u.s.-market" class="slide level2">
+<h2>Stock Splits in Practice - U.S. market</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F5.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Most stocks in the U.S. market trade between <span class="math inline">\(\small \$5-\$20\)</span>, which is consistent with firms keeping a reasonable range to boost liquidity and avoid excessive volatility in returns</em></p>
+</section>
+<section id="spin-offs" class="slide level2">
+<h2>Spin-Offs</h2>
+<ul>
+<li class="fragment"><p>When a firm sells a subsidiary by selling shares in the subsidiary alone. That is, the parent turns a subsidiary into a separate company</p></li>
+<li class="fragment"><p>For instance, <em>Itaú</em>-<em>XP</em> spin-off:</p>
+<ol type="1">
+<li class="fragment"><p><em>Itaú</em> could have sold <em>XP</em> and paid cash as dividends</p></li>
+<li class="fragment"><p>Instead, <em>Itaú</em>’s current shareholders received a given number of <em>XP</em>’s stocks per share they hold of <em>Itaú</em></p></li>
+</ol></li>
+<li class="fragment"><p>Spin-offs mainly offer <span class="blue">two</span> advantages:</p>
+<ul>
+<li class="fragment">It avoids the transaction costs associated with the actual sale</li>
+<li class="fragment">The special dividend is not taxed as a cash distribution. Investors will only pay capital gains taxes when they sell the received stocks</li>
+</ul></li>
+</ul>
+</section>
+<section id="practice" class="slide level2">
+<h2>Practice</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<p><span class="big">Practice using the following links:</span></p>
+<ol type="1">
+<li><a href="https://henriquemartins.net/teaching/financial_strategy/p10tf.html" data-preview-link="true">Multiple-choice Questions</a></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Click <a href="https://dados.cvm.gov.br/dataset/cia_aberta-doc-fre">here</a> to access public information regarding dividends, share repurchases, and other relevant announcements for Brazilian publicly-traded firms (<em>Comissão de Valores Mobiliários - CVM</em>)</li>
+</ul>
+</section>
+<section id="appendix" class="slide level2">
+<h2>Appendix</h2>
+</section>
+<section id="creating-a-homemade-dividend" class="slide level2">
+<h2>Creating a homemade dividend</h2>
+<p><em>Suppose Genron does not adopt the third alternative policy, and instead pays a 2 dividend per share today. Show how an investor holding</em> <span class="math inline">\(\small 2,000\)</span> shares could create a homemade dividend of <span class="math inline">\(\small \$4.5\times 2,000=\$9,000\)</span> per year on her own.</p>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <strong>Solution</strong></p>
+<ul>
+<li class="fragment"><p>If Genron pays a <span class="math inline">\(\small\$2\)</span> dividend, the investor receives <span class="math inline">\(\small \$4,000\)</span> in cash and holds the rest in stock. Therefore, To receive <span class="math inline">\(\small \$9,000\)</span> in total today, she can raise an additional <span class="math inline">\(\small \$5,000\)</span> by selling <span class="math inline">\(\small 125\)</span> shares at <span class="math inline">\(\small \$40\)</span> per share just after the dividend is paid</p></li>
+<li class="fragment"><p>In future years, <em>Genron</em> will pay a dividend of <span class="math inline">\(\small \$4.80\)</span> per share. Because she will own <span class="math inline">\(\small 2,000 − 125 = 1,875\)</span> shares, the investor will receive dividends of <span class="math inline">\(\small 1,875 \times 4.80 = 9,000\)</span> per year from then on</p></li>
+</ul>
+</div>
+</section>
+<section id="creating-a-homemade-dividend-continued" class="slide level2">
+<h2>Creating a homemade dividend, continued</h2>
+<p><em>Suppose you own</em> <span class="math inline">\(\small1,000\)</span> shares in a firm that has historically paid dividends at a rate of <span class="math inline">\(\small 50\%\)</span> of earnings per share. Although earnings per share this year are <span class="math inline">\(\small\$5\)</span>, the firm has decided to retain all of the earnings and not pay a dividend. The current market price is <span class="math inline">\(\$50\)</span> per share. How could you create a homemade dividend based on the firm’s dividend history?</p>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <strong>Solution</strong></p>
+<ul>
+<li class="fragment">Based on the firm’s history, its <em>“normal”</em> dividend would have been <span class="math inline">\(\$5 × 50\% = \$2.50\)</span> per share. To create a homemade dividend, you need to sell enough shares to generate the desired cash flow:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \underbrace{1,000}_{\text{Number of Shares}} \times \underbrace{2.50}_{\text{Dividend per Share}} = 2,500
+\]</span></p>
+<ul>
+<li class="fragment">Therefore, given a current market value of <span class="math inline">\(\small\$50\)</span> per share, you would need to sell <span class="math inline">\(\small \$2,500/\$50=50\)</span> shares to create the desired homemade dividend</li>
+</ul>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+<div class="quarto-auto-generated-content">
+<p><img src="logo.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-BDM" class="csl-entry" role="listitem">
+Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Global Edition / English Textbooks. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
+</div>
+<div id="ref-BMA" class="csl-entry" role="listitem">
+Brealey, R. A., S. C. Myers, and F. Allen. 2020. <em>Principles of Corporate Finance</em>. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. <a href="https://books.google.com.br/books?id=nsrHuwEACAAJ">https://books.google.com.br/books?id=nsrHuwEACAAJ</a>.
+</div>
+</div>
+</section>
+
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/lsmacoris\.github\.io\/lectures");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

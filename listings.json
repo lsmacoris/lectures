@@ -1,0 +1,48 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/fin-mgmt.html",
+      "/fin-strat.html"
+    ]
+  },
+  {
+    "listing": "/about.html",
+    "items": [
+      "/fin-mgmt.html",
+      "/fin-strat.html"
+    ]
+  },
+  {
+    "listing": "/fin-mgmt.html",
+    "items": [
+      "/fin-mgmt/Lecture 9 - Valuation with Leverage/index.html",
+      "/fin-mgmt/Lecture 3 - EVA/index.html",
+      "/fin-mgmt/Lecture 2 - Financial Analysis/index.html",
+      "/fin-mgmt/Lecture 10 - Firm Valuation/index.html",
+      "/fin-mgmt/Lecture 7 - Fundamentals of Capital Budgeting/index.html",
+      "/fin-mgmt/Lecture 8 - Truly Positive NPVs/index.html",
+      "/fin-mgmt/Lecture 1 - Course Overview and Introduction to Corporate Finance/index.html",
+      "/fin-mgmt/Lecture 6 - Investment Decision Rules/index.html",
+      "/fin-mgmt/Lecture 11 - Mergers and Acquisitions/index.html",
+      "/fin-mgmt/Lecture 5 - Short-term Financial Planning/index.html",
+      "/fin-mgmt/Lecture 4 - Working Capital Managament/index.html"
+    ]
+  },
+  {
+    "listing": "/fin-strat.html",
+    "items": [
+      "/fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html",
+      "/fin-strat/Lecture 7 - Capital Structure in Perfect Capital Markets/index.html",
+      "/fin-strat/Lecture 8 - Debt and Taxes/index.html",
+      "/fin-strat/Lecture 1 - Equity Financing/index.html",
+      "/fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html",
+      "/fin-strat/Lecture 9 - Financial Distress, Managerial Incentives, and Information/index.html",
+      "/fin-strat/Introduction/index.html",
+      "/fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html",
+      "/fin-strat/Lecture 6 - Debt Financing/index.html",
+      "/fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html",
+      "/fin-strat/Lecture 10 - Payout Policy/index.html"
+    ]
+  }
+]
