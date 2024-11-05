@@ -46,7 +46,7 @@ $\rightarrow$ *For coding replications, whenever applicable, please follow [this
 ::: callout-important
 ### Definition
 
-[Payout Policy]{.blue} is the the way a firm chooses between alternative ways to distribute free cash flow to its equityholders]
+[Payout Policy]{.blue} is the the way a firm chooses between alternative ways to distribute free cash flow to its equityholders\]
 :::
 
 ![](Images/F1.png){fig-align="center" width="75%"}
@@ -55,13 +55,13 @@ $\rightarrow$ *For coding replications, whenever applicable, please follow [this
 
 -   There are basically two ways by which a firm can return free cash flow to its shareholders:
 
-    1.  By paying out as a [dividend]{.blue}, where the firm literally provides an influx of cash to its existing shareholders
+    1.  By paying out as a [dividend]{.blue}, where the firm literally provides an *influx* of cash to its existing shareholders
     2.  By [repurchasing existing shares]{.blue}, a firm can return cash to its shareholders
 
 -   Importantly, in Brazil, there are two important aspects that need to be taken into consideration:
 
     1.  Apart from dividends, we also have [interest on equity]{.blue} (*"Juros sobre o Capital Próprio - JCP"*)
-    2.  Furthermore, in most countries, investors pay taxes over dividends and over capital gains.
+    2.  Furthermore, in most countries, investors pay taxes over dividends and over capital gains. In Brazil, [dividends are not taxed]{.blue}
 
 . . .
 
@@ -120,17 +120,17 @@ $\rightarrow$ *In this lecture, we will study each of these options, understand 
 
 -   Like dividends, there are several ways in which a firm may operationalize share repurchases. The most common terms are:
 
-    1.  [Open Market Repurchases]{.blue}: when a firm repurchases shares in the open market - these represent about 95% of all repurchase transactions
+    1.  [Open Market Repurchases]{.blue}: when a firm repurchases shares in the open market - these represent about $\small95\%$ of all repurchase transactions
 
-    2.  [Tender Offer]{.blue}: a *public announcement* to all existing security holders to buy back a specified amount of outstanding securities at a given price (typically set at a 10% to 20% premium to the current market price) over a prespecified period of time. If shareholders do not tender enough shares, the firm may cancel the offer, and no buyback occurs
+    2.  [Tender Offer]{.blue}: a *public announcement* to all existing security holders to buy back a specified amount of outstanding securities at a given price (typically set at a $\small10\%$ to $\small20\%$ premium to the current market price) over a prespecified period of time. If shareholders do not tender enough shares, the firm may cancel the offer, and no buyback occurs
 
     3.  [Targeted Repurchase]{.blue}: when a firm purchases shares directly from a specific shareholder
 
 ## Interest on Equity
 
--   In Brazil, there is also a possibility of paying [interest on equity]{.blue}: this used to be an important instrument when inflation rates were very high in Brazil. The goal was to create an incentive to hold equity when inflation was high
+-   In Brazil, there is also a possibility of paying [interest on equity]{.blue}: this used to be an important instrument when inflation rates were very high in Brazil. The goal was to create an incentive to hold equity when inflation was high:
 
-    1.  Interest on equity is tax deductible at the corporate level but subject to a withholding tax at the shareholder level
+    1.  Interest on equity is *tax deductible* at the corporate level but subject to a withholding tax at the shareholder level
     2.  From an accounting perspective, interest on equity is treated similarly to interest (to creditors)
 
 -   The tax rate is different for different types of investors. Usually, the interest on equity tax rate is lower than the corporate tax rate
@@ -139,7 +139,7 @@ $\rightarrow$ *In this lecture, we will study each of these options, understand 
 
 ## Dividends *versus* Share Repurchases
 
--   When it comes to payout policy, an important question relates to the *method* in which cash will be returned to shareholders - pay out as a [dividend]{.blue} or repurchase shares?
+-   When it comes to payout policy, an important question relates to the *method* in which cash will be returned to shareholders - pay out as a [dividend]{.blue} or through [share repurchases]{.blue}?
 
 -   To see that, assume that the board of *Genron Corporation* is meeting to decide how to pay out $\small \$20$ million in excess cash to shareholders. The firms has no debt, and its equity cost of capital equals its unlevered cost of capital of $\small 12\%$
 
@@ -158,7 +158,7 @@ $\rightarrow$ *In this lecture, we will study each of these options, understand 
 
 -   The firm expects to generate future free cash flows of $\small\$48$ million per year. Therefore, it anticipates paying a dividend of $\small \$4.80$ per share each year thereafter
 
--   As a result, we can calculate what *equityholders* will receive as:
+-   As a result, the value to *equityholders* is:
 
 . . .
 
@@ -174,16 +174,14 @@ $\rightarrow$ *In a perfect capital market, when a dividend is paid, the share p
 
 ## Option 2: Share Repurchase
 
--   Instead of paying a dividend this year, *Genron* uses the $\small 20$ million to repurchase its shares on the open market. In this case, the company can buy $\small \$20/\$42 = 0.476$ million shares
+-   Instead of paying a dividend this year, *Genron* can use the $\small 20$ million to repurchase its shares on the open market. In this case, the company can buy $\small \$20/\$42 = 0.476$ million shares
 
--   Therefore, the new number of outstanding shares are: $\small 10 - 0.476 = 9.524$ million
-
--   Note that this has not changed the free cash flow available to shareholders, but now, there are less shareholders to be paid for! After the repurchase, the future dividend value is:
+-   Therefore, the new number of outstanding shares are: $\small 10 - 0.476 = 9.524$ million. Note that this has *not changed* the free cash flow available to shareholders, but now, there are less shareholders to be paid for! After the repurchase, the future dividend value is:
 
 . . .
 
 $$
-\small \dfrac{48,000,000}{9,524,000} = 5.04 \text{ per share}
+\small \dfrac{\text{Free Cash Flow}}{\text{# of Shares}}=\dfrac{48,000,000}{9,524,000} = 5.04 \text{ per share}
 $$
 
 -   Therefore, the stock price is $\small \frac{\$5.04}{12\%}=\$42$ per share
@@ -196,15 +194,17 @@ $\rightarrow$ *In perfect capital markets, an open market share repurchase has n
 
 ## Comparing the options
 
--   An important implication of [Perfect Capital Markets]{.blue} is that investors should be [indifferent]{.blue} between the firm distributing funds via dividends or share repurchases:
+-   An important implication of [Perfect Capital Markets]{.blue} is that investors should be [indifferent]{.blue} between the firm distributing funds via [dividends]{.blue} or [share repurchases]{.blue}:
 
     1.  When receiving via [dividends]{.blue}, they receive a cash payment of $\small \$2$ and keep the value of their shares trading at $\small \$40$
-    2.  When receiving via share repurchases, regardless of tendering their shares, share prices are the same ($\small \$ 42$)
+    2.  Via share repurchases, regardless of tendering their shares, share prices are the same ($\small \$ 42$)
 
--   From a purely value perspective, both alternatives yield the same value. However, if investors have preferences over a given option, they can make a [homemade dividend]{.blue}:
+-   From a purely value perspective, both alternatives yield the same value. As in previous lectures, a similar argument can be made when assuming [perfect capital markets]{.blue}: if investors have preferences over a given option, they can make a [homemade dividend]{.blue}^[See the *Appendix* for a detailed example on homemade dividends.]
 
     -   If the firm [repurchases]{.blue} shares and the investor wants [cash]{.blue}, the investor can raise cash by [selling]{.blue} his/her shares
-    -   If the firm pays a [dividend]{.blue} and the investor would prefer [stock]{.blue}, they can use the dividend to purchase additional fractional shares
+    -   If the firm pays a [dividend]{.blue} and the investor prefers [stock]{.blue}, they can use the dividend to purchase additional fractional shares
+
+. . .
 
 ## Dividends *versus* Share Repurchases, alternative policy
 
@@ -222,42 +222,12 @@ $$
 
 $\rightarrow$ *As issuing new equity does not change the free cash flows, stock price does not change as a result of the share repurchase!*
 
-## Dividends vs. Share Repurchases, practice
-
-*Suppose Genron does not adopt the third alternative policy, and instead pays a 2 dividend per share today. Show how an investor holding* $\small 2,000$ shares could create a homemade dividend of $\small \$4.5\times 2,000=\$9,000$ per year on her own.
-
-. . .
-
-$\rightarrow$ **Solution**
-
--   If Genron pays a $\small\$2$ dividend, the investor receives $\small \$4,000$ in cash and holds the rest in stock. Therefore, To receive $\small \$9,000$ in total today, she can raise an additional $\small \$5,000$ by selling $\small 125$ shares at $\small \$40$ per share just after the dividend is paid
-
--   In future years, *Genron* will pay a dividend of $\small \$4.80$ per share. Because she will own $\small 2,000 − 125 = 1,875$ shares, the investor will receive dividends of $\small 1,875 \times 4.80 = 9,000$ per year from then on
-
-## Dividends vs. Share Repurchases, practice
-
-*Suppose you own* $\small1,000$ shares in a firm that has historically paid dividends at a rate of $\small 50\%$ of earnings per share. Although earnings per share this year are $\small\$5$, the firm has decided to retain all of the earnings and not pay a dividend. The current market price is $\$50$ per share. How could you create a homemade dividend based on the firm's dividend history?
-
-. . .
-
-$\rightarrow$ **Solution**
-
--   Based on the firm's history, its *"normal"* dividend would have been $\$5 × 50\% = \$2.50$ per share. To create a homemade dividend, you need to sell enough shares to generate the desired cash flow:
-
-. . .
-
-$$
-\small \underbrace{1,000}_{\text{Number of Shares}} \times \underbrace{2.50}_{\text{Dividend per Share}} = 2,500
-$$
-
--   Therefore, given a current market value of $\small\$50$ per share, you would need to sell $\small \$2,500/\$50=50$ shares to create the desired homemade dividend
-
 ## Modigliani and Miller and the Dividend Policy Irrelevance
 
 -   Note that there is a *tradeoff* between [current]{.blue} and [future]{.blue} dividends:
 
-    1.  If Genron pays a **higher** current dividend, future dividends will be **lower**
-    2.  If Genron pays a **lower** current dividend, future dividends will be **higher**
+    1.  If Genron pays a [higher]{.green} current dividend, future dividends will be [lower]{.red}
+    2.  If Genron pays a [lower]{.red} current dividend, future dividends will be [higher]{.green}
 
 -   Regardless of the payout policy, shareholders can create a *homemade dividend* on their own, matching his/her specific payout preferences, by buying or selling shares themselves
 
@@ -265,7 +235,13 @@ $$
 
 . . .
 
-$\rightarrow$ *In perfect capital markets, holding fixed the investment policy, the firm's choice of dividend policy is irrelevant and does not affect the initial share price. While dividends do determine share prices, a firm's choice of dividend policy does not.*
+:::{.callout-important}
+### Definition
+[The Dividend Policy Irrelevance Condition]{.blue}: in perfect capital markets, holding fixed the investment policy, the firm's choice of dividend policy is irrelevant and does not affect the initial share price. While dividends do determine share prices, a firm's choice of dividend policy does not.
+
+:::
+
+
 
 ## Payout Policy in Practice
 
@@ -287,7 +263,7 @@ $\rightarrow$ *In what follows, we will look at the most important market imperf
 
 -   First and foremost, there could be differences in the taxation of *Dividends* and *Capital Gains*
     1.  Shareholders must pay [taxes on the dividends]{.blue} they receive, and they must also pay [capital gains taxes]{.blue} when they sell their shares
-    2.  Dividends are typically taxed at a higher rate than capital gains[^2]. In fact, long-term investors can defer the capital gains tax forever by not selling
+    2.  Dividends are typically taxed at a higher rate than capital gains[^2]. In fact, long-term investors can defer the capital gains tax forever by not selling shares
 
 [^2]: In Brazil, dividends are *not* taxed.
 
@@ -302,31 +278,28 @@ $\rightarrow$ *In what follows, we will look at the most important market imperf
 
     1.  In terms of [dividend taxes]{.blue}, shareholders will owe $\small 39\% \times \$25 = 9.75$ million in taxes
 
-    2.  Because the firm value falls after dividend, the capital gain will be $\small \$25$ million less when investors sell, lowering the capital gains taxes by $\small 20\% \times \$25 = \$5$ million
+    2.  Because the firm value falls after dividend, the capital gain (when selling shares) will be $\small \$25$ million less, lowering the [capital gains taxes]{.blue} by $\small 20\% \times \$25 = \$5$ million
 
 -   Shareholders will pay a total of $\small \$9.75 − \$5.00 = \$4.75$ million in taxes
 
 -   Shareholders will receive back only $\small \$25 − \$4.75 = 20.25$ million
 
-## The Tax Disadvantage of Dividends, continued
+## The Dividend Puzzle
 
--   When the [tax rate on dividends]{.blue} is [greater]{.blue} than the [tax rate on capital gains]{.blue}, shareholders will pay [lower]{.green} taxes if a firm uses share repurchases rather than dividends
+-   By the rationale shown before, when the [tax rate on dividends]{.blue} is [greater]{.blue} than the [tax rate on capital gains]{.blue}, shareholders will pay [lower]{.green} taxes if a firm uses share repurchases rather than dividends
 
--   This tax savings will increase the value of a firm that uses share repurchases rather than dividends
-
-. . .
-
-$\rightarrow$ *As a consequence, the [optimal dividend policy]{.blue} when the dividend tax rate exceeds the capital gain tax rate is to pay [no dividends at all]{.blue}*
+-   This tax savings will increase the value of a firm that uses share repurchases rather than dividends. As a consequence, the [optimal dividend policy]{.blue} when the dividend tax rate exceeds the capital gain tax rate is to pay [no dividends at all]{.blue}
 
 . . .
 
-**Dividend Puzzle**: when firms continue to issue dividends despite their tax disadvantage, when it exists
+$\rightarrow$ *In reality, however, firms continue to issue dividends despite their tax disadvantage - also known as the ["Dividend Puzzle"]{.blue}. **Why?** *
+
 
 ## Dividend Capture and Tax Clienteles
 
 -   The preference for share repurchases rather than dividends depends on the difference between the dividend tax rate and the capital gains tax rate
 
--   [The Effective Dividend Tax Rate]{.blue}: consider buying a stock just before it goes ex-dividend and selling the stock just after. The equilibrium condition is:
+-   [The Effective Dividend Tax Rate]{.blue}: consider buying a stock just before it goes *ex*-dividend and selling the stock just after. The equilibrium condition is:
 
 . . .
 
@@ -339,7 +312,7 @@ $$
 . . .
 
 $$
-\small P_{\text{Cum}}-P_{\text{Ex}} = \frac{D\times1-\tau_d}{1-\tau_g} \rightarrow D \times \bigg[ 1 - \frac{\tau_d - \tau_g}{1-\tau_g}  \bigg]
+\small P_{\text{Cum}}-P_{\text{Ex}} = \frac{D\times(1-\tau_d)}{1-\tau_g} \rightarrow D \times \bigg[ 1 - \frac{\tau_d - \tau_g}{1-\tau_g}  \bigg]
 $$
 
 ## Dividend Capture and Tax Clienteles
@@ -380,6 +353,13 @@ $\rightarrow$ *In words, there is a significant tax disadvantage of dividends: e
     1.  The [Clientele Effect]{.blue} is when the dividend policy of a firm reflects the tax preference of its investor clientele
     2.  For example, individuals in the highest tax brackets have a preference for stocks that pay no or low dividends, whereas tax-free investors and corporations have a preference for stocks with high dividends
 
+
+## Dividend and Tax Clienteles - U.S. Market
+
+![](Images/F3.png){fig-align='center' width=50%}
+
+$\rightarrow$ *The increase in volume  consistent with tax-exempt traders buying before the ex-date and selling it afterwards. Price hikes may have to do with signaling - see more in the upcoming slides*
+
 ## Payout Versus Retention of Cash
 
 -   As of now, we discussed why firms may not be indifferent regarding different *payout options* (*i.e.*, dividends *versus* share repurchases)
@@ -388,23 +368,28 @@ $\rightarrow$ *In words, there is a significant tax disadvantage of dividends: e
 
     1.  In [perfect capital markets]{.blue}, once a firm has taken all positive-NPV projects, it is indifferent between saving excess cash and paying it out
 
-    2.  However, when such market imperfections do exist, there will be an important *trade-off*: while retaining cash can reduce the costs of raising capital in the future, but it can also increase taxes and agency costs.
+    2.  However, when such market imperfections do exist, there will be an important *trade-off*: while retaining cash can reduce the costs of raising capital in the future, but it can also increase taxes and agency costs
 
 . . .
 
-$\rightarrow$ *As a result The extent to which a firm will prefer one or the other will depend on the trade-off between the benefits and costs of retaining cash!*
+$\rightarrow$ *As a result, the extent to which a firm will prefer one or the other will depend on the trade-off between the benefits and costs of retaining cash!*
 
 ## Payout *versus* Retention of Cash in Perfect Capital Markets
 
 -   If a firm has already taken all [positive]{.green}-NPV projects, any additional projects it takes on are zero or negative-NPV projects
     1.  Rather than wasting excess cash on [negative]{.red}-NPV projects, a firm can use the cash to purchase financial assets
 
-    2.  In perfect capital markets, buying and selling securities is a zero-NPV transaction, so it should not affect firm value.
--   [Modigliani-Miller Payout Irrelevance]{.blue}: with perfect capital markets, the retention versus payout decision is irrelevant
+    2.  In perfect capital markets, buying and selling securities is a zero-NPV transaction, so it should not affect firm value
+    
+- This indifference is also known as the *Payout Irrelevance Condition*
 
 . . .
 
-$\rightarrow$ *In perfect capital markets, if a firm invests excess cash flows in financial securities, the firm's choice of payout versus retention is irrelevant and does not affect the initial share price.*
+:::{.callout-important}
+### Definition
+
+The [Modigliani-Miller Payout Irrelevance]{.blue}: with perfect capital markets, the retention versus payout decision is irrelevant. In perfect capital markets, if a firm invests excess cash flows in financial securities, the firm's choice of payout versus retention is irrelevant and does not affect the initial share price.
+:::
 
 ## Payout Versus Retention of Cash, practice
 
@@ -421,19 +406,17 @@ $\rightarrow$ **Solution**:
 
 -   Finally, note that if shareholders invest in Treasury bills themselves, they would also have $\small\$21,000$ at the end of one year
 
--   In either case, investors have the same payoff!
+-   In either case, investors have the [same]{.blue} payoff!
 
 ## Corporate Taxes and Cash Retention, practice
 
 -   What happens to the *trade-off* between dividends and cash retention when we assume that there are market imperfections?
 
-    1.  An important market imperfection relates to [Corporate Taxes]{.blue}: corporate Taxes make it *costly* for a firm to retain excess cash.
+    1.  An important market imperfection relates to [Corporate Taxes]{.blue}: these takes make it *costly* for a firm to retain excess cash
 
     2.  From a valuation perspective, cash is equivalent to negative leverage, so the tax advantage of leverage implies a tax disadvantage to holding cash
 
--   To see that, assume that *Payne* has a marginal tax rate of $\small39\%$. Would a [tax-exempt]{.blue} endowment prefer that *Payne* use its excess cash to pay the dividend immediately or invest the cash in a Treasury bill paying $\small5\%$ interest and then pay out a dividend?
-
-. . .
+-   In this scenario, whenever market imperfections are present, firms may not be indifferent between receivind dividends and retaining cash anymore!
 
 ## Corporate Taxes and Cash Retention, practice
 
@@ -467,7 +450,7 @@ $$
 -   Besides any tax considerations, firms retain cash balances to cover potential future cash shortfalls, despite the tax disadvantage to retaining cash:
 
     1.  A firm might accumulate a large cash balance if there is a reasonable chance that future earnings will be insufficient to fund future positive-NPV investment opportunities
-    2.  The [cost]{.red} of holding cash to cover future potential cash needs should be compared to the [reduction]{.green} in transaction, agency, and adverse selection costs of raising new capital\*\* through new debt or equity issuances
+    2.  The cost of holding cash to cover potential shortfalls should be compared to the reduction in transaction, agency, and adverse selection costs of raising capital through new issuances
 
 -   However, there are also [Agency Costs of Retaining Cash]{.blue}:
 
@@ -498,13 +481,8 @@ $$
 
 ## Payout Versus Retention of Cash, practice
 
-*Altgreen is an all-equity firm with* $\small\$250$ million shares outstanding. It has $\small\$300$ million in cash and expects future free cash flows of $\small\$150$ million per year. Management plans to use the cash to expand the firm's operations, which will in turn increase future free cash flows by $\small10\%$. If the cost of capital of Altgreen's investments is $\small7\%$, how would a decision to use the cash for a share repurchase rather than the expansion change the share price?
 
-. . .
-
--   If, on the other hand, *Altgreen* [does not expand]{.blue}, the value of its future free cash flows will be $\small 150/7\% = \$2.143$ billion. Adding cash, we have $\small \$2.443/250 = \$9.77$ per share
-
--   If *Altgreen* repurchases shares, it will repurchase $\small \$300/\$9.77=30.71$ million shares. Therefore, prices would be:
+-   If, on the other hand, *Altgreen* [does not expand]{.blue}, the value of its future free cash flows will be $\small 150/7\% = \$2.143$ billion. Adding cash, we have $\small \$2.443/250 = \$9.77$ per share. When repurchasing shares, it will repurchase $\small \$300/\$9.77=30.71$ million shares:
 
 . . .
 
@@ -512,35 +490,47 @@ $$
 \small \dfrac{2.143}{219.29}= 9.77 \text{ per share}
 $$
 
+
+- All in all, note that the firm could avoid a [negative]{.red} NPV project by retaining cash/share repurchases:
+
+. . .
+
+$$
+\small \underbrace{-300}_{\text{Cash}}+\underbrace{\dfrac{15}{7\%}}_{\text{Growth Option}}=-300+214=-75 
+$$
+
+. . .
+
+$\rightarrow$ *The decrease of $\small \$75$ million in value matches the $\small 75/250\approx \$0.34$ decrease in stock price!*
+
 ## Signaling with Payout Policy
 
 -   In theory, we would expect dividends to trend with earnings. In practice, however firms change dividends infrequently, and dividends are much less volatile than earnings. **Why**?
 
--   As with *Debt*, *Dividends* can also be used as a way to *signal* information to the market.
+-   As with *Debt*, *Dividends* can also be used as a way to *signal* information to the market. We call [Dividend Smoothing]{.blue} the practice of maintaining relatively constant dividends
 
--   We call [Dividend Smoothing]{.blue} the practice of maintaining relatively constant dividends
+-   The [Dividend Signaling Hypothesis]{.blue} is the idea that dividend changes reflect managers' views about future earnings:
+      1.  When a firm [increases]{.green} dividend, it sends a positive signal to investors that they expect to be able to afford the higher dividend for the foreseeable future
+      2.  When a firm [decreases]{.red} dividend, it may signal that they have given up hope that earnings will rebound in the near term and so need to save cash
 
--   The [Dividend Signaling Hypothesis]{.blue} is the idea that dividend changes reflect managers' views about a future earnings:
+- **If that is true, what is the price reaction to dividends?** Although an increase of a firm's dividend may signal optimism regarding its future cash flows, it might also signal a [lack of investment opportunities]{.red}, which might lead to a positive stock price reaction!
 
-    1.  If firms smooth dividends, the firm's dividend choice will contain information regarding management's expectations of future earnings
-    2.  When a firm increases dividend, it sends a positive signal to investors that they expect to be able to afford the higher dividend for the foreseeable future
-    3.  When a firm decreases dividend, it may signal that they have given up hope that earnings will rebound in the near term and so need to save cash
+## Dividend Smoothing in practice (U.S. markets)
 
-## Signaling with Payout Policy, continued
+![](Images/F4.png){fig-align='center' width=60%}
 
--   Although an increase of a firm's dividend may signal optimism regarding its future FCF, it might also signal a lack of investment opportunities
-
--   In this case, the dividend decrease might lead to a positive stock price reaction.
+$\rightarrow$ *It is possible to see that, for GM, dividend dynamics were much more stable than earnings*
 
 ## Signaling and Share Repurchases
 
--   Like [Dividends]{.blue}, [Share Repurchases]{.blue} can be also be seen as a credible signal the current shares are *underpriced*, as if they were *overpriced*, a share repurchase would be costly for current shareholders:
+-   Like [Dividends]{.blue}, [Share Repurchases]{.blue} can be also be seen as a credible signal the current shares are *underpriced*, as if they were *overpriced*, a share repurchase would be costly for current shareholders
 
-    1.  If investors believe that managers have better information regarding the firm's prospects and act on behalf of current shareholders, then investors will react [positively]{.blue} to share repurchase announcements
+-   Notwithstanding, a firm may announce a share repurchase program but not repurchase any shares, while on the other hand, when a firm announces dividends payment, it has a commitment to pay:
 
-    2.  Notwithstanding, announcing a share repurchase today does not necessarily represent a long-term commitment to repurchase shares in the future. Because of that, [Dividends]{.blue} have a stronger, credible signal than [Share Repurchases]{.blue}
+    1.  If investors believe that managers have better information regarding the firm's prospects and act on behalf of current shareholders, then investors will react [positively]{.green} to share repurchase announcements
 
--   Furthermore, a firm may announce a share repurchase program but not repurchase any shares, while on the other hand, when a firm announces dividends payment, it has a commitment to pay
+    2.  Notwithstanding, announcing a share repurchase today does not necessarily represent a long-term commitment to repurchase shares in the future. Because of that, [Dividends]{.blue} have a stronger, more credible signal than [Share Repurchases]{.blue}
+
 
 ## Stock Dividends
 
@@ -555,7 +545,7 @@ $$
 
 -   Because the portfolio is still worth $\small4,200$, the stock price will fall to $\small \$4,200/150=\$28$.
 
--   Sometimes, firms finance new shares. So, it is like shareholders have received cash and immediately bought new shares. In this case, decline in price is not as large as above.
+-   Sometimes, firms finance new shares. So, it is like shareholders have received cash and immediately bought new shares. In this case, decline in price is not as large as above
 
 ## Stock Splits
 
@@ -563,12 +553,18 @@ $$
 
 -   The typical motivation for a stock split is to keep the share price in a range thought to be attractive to small investors:
 
-    1.  If the share price rises *"too high"*, it might be difficult for small investors to invest in the stock
-    2.  Keeping the price *"low"* may make the stock more attractive to small investors and can increase the demand for and the liquidity of the stock, which may in turn boost the stock price
+    1.  If the share price rises *"too high"*, it might be difficult for small investors to invest
+    2.  Keeping the price *"low"* may make the stock more attractive to small investors and increase the stock's demand and liquidity, which may in turn boost the stock price
 
--   On average, announcements of stock splits are associated with a small positive [increase]{.green} in the stock price
+-   **On average**, announcements of stock splits are associated with a small [increase]{.green} in prices
 
--   On the other hand, when the price of a company's stock falls too low and the company reduces the number of outstanding shares, $\small 2$ shares become 1 of twice the previous price - also known as *reverse split* or *insplit*
+-   On the other hand, when the price of a company's stock falls too low and the company reduces the number of outstanding shares, $\small 2$ shares become $\small 1$ of twice the previous price - also known as *reverse split* or *insplit*
+
+## Stock Splits in Practice - U.S. market
+
+![](Images/F5.png){fig-align='center' width=50%}
+
+$\rightarrow$ *Most stocks in the U.S. market trade between $\small \$5-\$20$, which is consistent with firms keeping a reasonable range to boost liquidity and avoid excessive volatility in returns*
 
 ## Spin-Offs
 
@@ -594,5 +590,42 @@ $$
 1.  [Multiple-choice Questions](https://henriquemartins.net/teaching/financial_strategy/p10tf.html){preview-link="true"}
 :::
 :::
+
+
+- Click [here](https://dados.cvm.gov.br/dataset/cia_aberta-doc-fre) to access public information regarding dividends, share repurchases, and other relevant announcements for Brazilian publicly-traded firms (*Comissão de Valores Mobiliários - CVM*) 
+
+## Appendix
+
+## Creating a homemade dividend 
+
+*Suppose Genron does not adopt the third alternative policy, and instead pays a 2 dividend per share today. Show how an investor holding* $\small 2,000$ shares could create a homemade dividend of $\small \$4.5\times 2,000=\$9,000$ per year on her own.
+
+. . .
+ 
+$\rightarrow$ **Solution**
+
+-   If Genron pays a $\small\$2$ dividend, the investor receives $\small \$4,000$ in cash and holds the rest in stock. Therefore, To receive $\small \$9,000$ in total today, she can raise an additional $\small \$5,000$ by selling $\small 125$ shares at $\small \$40$ per share just after the dividend is paid
+
+-   In future years, *Genron* will pay a dividend of $\small \$4.80$ per share. Because she will own $\small 2,000 − 125 = 1,875$ shares, the investor will receive dividends of $\small 1,875 \times 4.80 = 9,000$ per year from then on
+
+## Creating a homemade dividend, continued 
+
+*Suppose you own* $\small1,000$ shares in a firm that has historically paid dividends at a rate of $\small 50\%$ of earnings per share. Although earnings per share this year are $\small\$5$, the firm has decided to retain all of the earnings and not pay a dividend. The current market price is $\$50$ per share. How could you create a homemade dividend based on the firm's dividend history?
+
+. . .
+
+$\rightarrow$ **Solution**
+
+-   Based on the firm's history, its *"normal"* dividend would have been $\$5 × 50\% = \$2.50$ per share. To create a homemade dividend, you need to sell enough shares to generate the desired cash flow:
+
+. . .
+
+$$
+\small \underbrace{1,000}_{\text{Number of Shares}} \times \underbrace{2.50}_{\text{Dividend per Share}} = 2,500
+$$
+
+-   Therefore, given a current market value of $\small\$50$ per share, you would need to sell $\small \$2,500/\$50=50$ shares to create the desired homemade dividend
+
+
 
 ## References
