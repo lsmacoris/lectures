@@ -1,10 +1,17 @@
 [
   {
+    "objectID": "quant-fin.html#about-the-course",
+    "href": "quant-fin.html#about-the-course",
+    "title": "Practical Applications in Quantitative Finance",
+    "section": "About the course",
+    "text": "About the course\nFamiliarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk \\(\\times\\) return.\nAt the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company’s value.\n\n\n\n\n\n\nFor students\n\n\n\nBelow you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.\nThese slides leverage Quarto, an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:\n\nHit F for full-screen mode\nIf you are interest in getting a .pdf version of the slides, hit E to switch to print mode and then Ctrl + P"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Lecture Notes and Handouts",
     "section": "",
-    "text": "Within this section, you’ll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. Most, if not all, of these resources extensively leverage Quarto, an open-source scientific and technical publishing system that supports R, Python, Julia, and Observable. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by Reveal JS.\nFor comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official reference material.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Management\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Strategy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Within this section, you’ll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. Most, if not all, of these resources extensively leverage Quarto, an open-source scientific and technical publishing system that supports R, Python, Julia, and Observable. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by Reveal JS.\nFor comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official reference material.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Management\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Strategy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPractical Applications in Quantitative Finance\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "fin-strat/Lecture 9 - Financial Distress, Managerial Incentives, and Information/index.html#outline",
@@ -4813,7 +4820,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#data-exercise---standard-error",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Data Exercise - Standard Error",
-    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 59 months, and an sample standard deviation of returns of 11.91%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.05 \\pm 1.96\\times \\dfrac{11.91}{\\sqrt{59}}=[-1.99\\%,+4.09\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.99% to 4.09%"
+    "text": "Data Exercise - Standard Error\n\nFrom 2020 to 2024 (year-to-date), we have 61 months, and an sample standard deviation of returns of 11.82%\nAssume that the returns from PETR3 follow a normal distribution. You know from our statistics course that, for a normally-distributed random variable, a 95% confidence interval is corevered by \\(\\pm 1.96\\) standard errors:\n\n\n\\[E[R] \\pm 1.96\\times SE = 1.18 \\pm 1.96\\times \\dfrac{11.82}{\\sqrt{61}}=[-1.79\\%,+4.15\\%]\\]\n\n\n\nThis means that, with 95% confidence interval, the expected return for PETR3 during this period ranges from -1.79% to 4.15%"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#standard-error---another-example",
@@ -4834,7 +4841,7 @@
     "href": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#compound-annual-growth-rate-cagr-1",
     "title": "Capital Markets and the Pricing of Risk",
     "section": "Compound Annual Growth Rate (CAGR)",
-    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{59}(1+R_i)\\bigg]^{\\frac{1}{59}}-1\\approx 0.29\\%\\]\n\nRemember the (arithmetic) average was 1.05%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
+    "text": "Compound Annual Growth Rate (CAGR)\n\nCAGR is nothing more than the geometric average (instead of arithmetic):\n\n\n\\[\\small CAGR = [(1+R_1)\\times(1+R_2)\\times ...\\times (1+R_T)]^{\\frac{1}{T}}-1\\]\n\nUsing our example, the geometric return of PETR3 is:\n\n\n\n\\[\\small CAGR = \\bigg[\\prod_{i=1}^{61}(1+R_i)\\bigg]^{\\frac{1}{61}}-1\\approx 0.43\\%\\]\n\nRemember the (arithmetic) average was 1.18%. Alternatively, we could have calculated the CAGR using Initial and Final Prices: \\(\\small CAGR = \\bigg[\\frac{\\text{Final Price}}{\\text{Initial Price}}\\bigg]^\\frac{1}{T}-1\\)"
   },
   {
     "objectID": "fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html#trade-off-between-risk-and-return",
@@ -5885,174 +5892,6 @@
     "title": "Financial Strategy",
     "section": "About the course",
     "text": "About the course\nFamiliarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk \\(\\times\\) return.\nAt the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company’s value.\n\n\n\n\n\n\nFor students\n\n\n\nBelow you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.\nThese slides leverage Quarto, an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:\n\nHit F for full-screen mode\nIf you are interest in getting a .pdf version of the slides, hit E to switch to print mode and then Ctrl + P"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#outline",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#outline",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Outline",
-    "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\nTidy Finance (Scheuch, Voigt, and Weiss 2023)\nR for Data Science (Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023)\n\n\n\n\n\n\n\n\n\n\nCoding Replications\n\n\nFor coding replications, whenever applicable, please follow this page or hover on the specific slides with containing coding chunks.\n\nEnsure that you have your  session properly set-up according to the instructions outlined here\nYou can find a detailed discussion of the examples covered in this lecture in the companion book of this course, Practical Applications in Quantitative Finance"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#finance-and-the-real-economy",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#finance-and-the-real-economy",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Finance and the Real Economy",
-    "text": "Finance and the Real Economy\n\nIn broader terms, Finance (or Financial Economics) is a vibrant area of research and practice, a central part of all business activities, and at least implicitly relevant to our everyday life:\n\nInterest rate cuts affect expected yields, which in turn set new expectations that form current asset prices in financial markets…\nFinancial market dynamics influence the decision of firms to issue new debt/equity or increase/decrease investment…\nWhich can, in turn, lead to periods of boom/burst in employment…\nAnd affect future interest rate expectations!\n\n\n\n\n\n\n\n\n\nWhy does it matter?\n\n\nAll in all, financial decisions need not lie exclusively within the financial industry; rather, its effects also spillover to the real economy (manufacturing, services, etc). Therefore, regardless of you working within the financial industry or not, it is likely that you are at least implicitly impacted by these decisions in your everyday life!"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tools-of-the-trade-part-i-the-data",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tools-of-the-trade-part-i-the-data",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The Tools of the Trade, part I: the data",
-    "text": "The Tools of the Trade, part I: the data\n\nFor most topics that constitute the study of finance, there is a well-grounded, established use of statistical, economic, and mathematical concepts and models that set the ground for\n\nMacroeconomic analysts use time-series models to predict future interest rates\nFinancial practitioners study the potential effects in stock prices of issuing equity\nEconomists use econometric models to predict inflation dynamics and help hedge fund managers adjust their positions\n\nBack in the pre-internet era, the use of technology to support those activities was limited to a smaller set of players (e.g, hedge funds, banks, investment trusts). Nowadays, financial information is accessible to the broader public almost in real time:\n\nYahoo! Finance provides data on stocks, ETFs, and market indices\nEDGAR provides information on all periodic fillings provided by US-listed companies\nA wide range of social media platforms, such as X (formerly Twitter) and Reddit, have been recently use as a way to spread and collect financial information"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tools-of-the-trade-part-ii-the-technology",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tools-of-the-trade-part-ii-the-technology",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The Tools of the Trade, part II: the technology",
-    "text": "The Tools of the Trade, part II: the technology\n\nNot only the availability of financial data, but also the necessary technology to process it, were among the bottlenecks for the adoption of such methods in financial practice\nNowadays, the widespread adoption of open-source technologies, such as  and , helped bridging the gap towards a more inclusive environment for these methods\nDespite such advances, one quickly learns that the actual implementation of models to solve problems in the area of financial economics is typically rather opaque:\n\nThere is lack of public, centralized code readily available for use\nAnalysts employ a substantial amount of wasteful efforts trying to replicate results"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-r",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-r",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Why R?",
-    "text": "Why R?\n\nWe will be using  throughout the course\nAlthough you should feel that this course is language-agnostic,  is among one of the best choices for the task:\n\nFree and open-source\nDiverse and active community working on a broad range of tools\nActively maintained packages for various purposes, e.g., data manipulation, visualization, modeling, etc)\nPowerful tools for communication, such as Quarto and Shiny\nSmooth integration with other programming languages, e.g., SQL, Python, C, C++, Fortran, etc\nRStudio is one of the best development environments for interactive data analysis"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-tidy",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-tidy",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Why Tidy?",
-    "text": "Why Tidy?\n\nIt is often said that more than 80 percent of data analysis is spent on preparing data rather than analyzing it\nAs you start working with data, you quickly realize that you indeed spend a lot of time reading, cleaning, and transforming your data just\n\n\n\n\n\n\n\n\nA note on Tidy Data\n\n\n“Tidy datasets are all alike, but every messy dataset is messy in its own way. Tidy datasets provide a standardized way to link the structure of a dataset (its physical layout) with its semantics (its meaning).”\n\n\n\n\nIn its essence, tidy data mainly follows three principles:\n\nEvery column is a variable\nEvery row is an observation\nEvery cell is a single value"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-tidy-continued",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-tidy-continued",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Why Tidy? Continued",
-    "text": "Why Tidy? Continued\n\nIn addition to the data layer, there are also tidy coding principles outlined in the tidy tools manifesto that we’ll try to follow:\n\nReuse existing data structures\nCompose simple functions with chaining methods\nEmbrace functional programming\nDesign for humans, improved readability\n\nLuckily, the  community has already took a stab at creating tools and organizing a unified approach towards tidy analysis\nAmongst a diverse set of option for tidy data manipulation, the tidyverse contains packages that follow a unified approach"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#introducing-the-tidyverse",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#introducing-the-tidyverse",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Introducing: the tidyverse",
-    "text": "Introducing: the tidyverse\n\n\n\n\nThe tidyverse is an opinionated collection of  packages designed for data science\nAll packages share an underlying design philosophy, grammar, and data structures\nIt is supported by Posit, the maintainer of RStudio and the R’s largest open-source contributor1\nYou can install the complete tidyverse using:\n\n\ninstall.packages(\"tidyverse\")\n\n\nTo load tidyverse in your session, simply run:\n\n\nlibrary(tidyverse)\n\n\n\n\n\n\n\n\n\nPosit recently hired Wes McKinney, the creator of pandas, highlighting its efforts to harmonize innovations among Python users."
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-dplyr",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-dplyr",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The tidyverse packages: dplyr",
-    "text": "The tidyverse packages: dplyr\n\n\ndplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges:\n\n\n\n\n\n\nmutate() adds new variables that are functions of existing variables\nselect() picks variables based on their names\nfilter() picks cases based on their values\nsummarise() reduces multiple values down to a single summary\narrange() changes the ordering of the rows\n\n\nKey Highlights\n\nThese all combine with group_by(), allowing users to perform operations groupwise\nLazy evaluation methods, as well as the pipe operator, %&gt;%, increases code readability and reproducibility"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-dplyr",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-dplyr",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Using dplyr",
-    "text": "Using dplyr"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-ggplot2",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-ggplot2",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The tidyverse packages: ggplot2",
-    "text": "The tidyverse packages: ggplot2\n\n\nThe core tidyverse includes the packages that you’re likely to use in everyday data analyses. As of its 1.3.0 version, the following packages are included in the core tidyverse:\n\n\n\n\n\n\nggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics\nYou provide the data, tell how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details\n\n\nKey Highlights\n\nIt is, by and large, the richest and most widely used plotting ecosystem in the  language\nggplot2 has a rich ecosystem of extensions - ranging from annotations and interactive visualizations to specialized genomics - click here a community maintained list"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-ggplot2",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-ggplot2",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Using ggplot2",
-    "text": "Using ggplot2"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-tidyr",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-tidyr",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The tidyverse packages: tidyr",
-    "text": "The tidyverse packages: tidyr\n\n\nThe goal of tidyr is to help you create tidy data. Tidy data is data where:\n\n\n\n\n\n\nEach variable is a column; each column is a variable\nEach observation is a row; each row is an observation\nEach value is a cell; each cell is a single value\n\n\nKey Highlights\n\nTidy data describes a standard way of storing data that is used wherever possible throughout the tidyverse\nIt makes it easier to put reshape data in a way that it can be used as an input to other tidyverse packages"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-tidyr",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-tidyr",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Using tidyr",
-    "text": "Using tidyr"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-purrr",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-purrr",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The tidyverse packages: purrr",
-    "text": "The tidyverse packages: purrr\n\n\nThe goal of purrr is to enhances R’s functional programming toolkit by providing a complete and consistent set of tools for working with functions and vectors\n\n\n\n\n\n\nFunctional programming allows you to replace many for loops with code that is both more succinct and easier to read\nYou provide a function and a list of elements to map to, and purrr takes care of the nitty-gritty details\n\n\nKey Highlights\n\nIt seamlessly integrates with all tidyverse packages and functions, allowing users to apply functional programming in the most straightforward way possible\nSimplifies the code pipeline to solve fairly realistic problems - e.g, estimating the CAPM for 100+ industries where we have a different number of observations per industry"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-purrr",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-purrr",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Using purrr",
-    "text": "Using purrr"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-readr",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-readr",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The tidyverse packages: readr",
-    "text": "The tidyverse packages: readr"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-readr",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-readr",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Using readr",
-    "text": "Using readr\n\n\n# A tibble: 5 × 4\n  chicken                 sex     eggs_laid motto                               \n  &lt;chr&gt;                   &lt;fct&gt;       &lt;int&gt; &lt;chr&gt;                               \n1 Foghorn Leghorn         rooster         0 That's a joke, ah say, that's a jok…\n2 Chicken Little          hen             3 The sky is falling!                 \n3 Ginger                  hen            12 Listen. We'll either die free chick…\n4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                \n5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold. \n\n\n\n\nThe goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (.csv) and tab-separated values (.tsv)\n\n\n\n\n\n\nIt is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results\nHandles column-type guessing, allowing users to specify how it should parse information, providing informative problem reports when parsing leads to unexpected results\n\n\nKey Highlights\n\nIs generally much faster than base R functions (up to 10x-100x), depending on the dataset\nAll functions work exactly the same way regardless of the current locale (e.g., thousands and decimal separators)"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-tibble",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-tibble",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The tidyverse packages: tibble",
-    "text": "The tidyverse packages: tibble\n\n\nThe tibble package provides a modern reimagining of a data.frame, keeping what time has proven to be effective, and throwing out what is not\n\n\n\n\n\n\nTibbles are a modern take on data frames. They keep the features that have stood the test of time, and drop the features that used to be convenient but are now frustrating\nIt is a nice way to create data frames. It encapsulates best practices for data frames and handles various data formats in an easier way\n\n\nKey Highlights\n\nTibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.\nIt can store various data formats in a data-frame-like format (e.g, store a whole list as a column)\n\n\n\n\nThe goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (.csv) and tab-separated values (.tsv)\n\n\n\n\n\n\nIt is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results\nHandles column-type guessing, allowing users to specify how it should parse information, providing informative problem reports when parsing leads to unexpected results\n\n\nKey Highlights\n\nIs generally much faster than base R functions (up to 10x-100x), depending on the dataset\nAll functions work exactly the same way regardless of the current locale (e.g., thousands and decimal separators)"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-stringr",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-stringr",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The tidyverse packages: stringr",
-    "text": "The tidyverse packages: stringr\n\n\nThe stringr package provides a cohesive set of functions designed to make working with strings (e.g, qualitative data, such as stock tickers, names, etc) as easy as possible:\n\n\n\n\n\n\nstr_detect() tells you if there’s any match to the pattern, whereas str_locate() gives the position of the match\nstr_count() counts the number of patterns, whereas str_subset() extracts the matching components\nstr_extract() extracts the text of the match, whereas str_match() extracts parts of the match defined by parentheses\nstr_replace() replaces the matches with new text, whereas str_split() splits up a string into multiple pieces\n\n\nKey Highlights\n\nMost string functions work with regular expressions, allowing for a variety of patterns"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-forcats",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-forcats",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "The tidyverse packages: forcats",
-    "text": "The tidyverse packages: forcats\n\n\nThe goal of the forcats package is to provide a suite of tools that solve common problems with factors, variables that have a fixed and known set of possible values (e.g, a vector that contains all possible days in a week)\n\n\n\n\n\n\nfct_reorder() reorders a factor by another variable\nfct_infreq() reorders a factor by the frequency of values\nfct_relevel() changes the order of a factor by hand\nfct_lump() collapses the least/most frequent values of a factor into a consolidated group\n\n\nKey Highlights\n\nWorking with factors makes it easier to display, visualize, and communicate data\nExplicitly defining a variable as a factor handles several issues regarding inserting new data"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#setting-up-your-environment",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#setting-up-your-environment",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Setting up your environment",
-    "text": "Setting up your environment"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#wrapping-up",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#wrapping-up",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "Wrapping-up",
-    "text": "Wrapping-up"
-  },
-  {
-    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#references",
-    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#references",
-    "title": "Bridging Finance with Data Science and Analytics",
-    "section": "References",
-    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScheuch, Christoph, Stefan Voigt, and Patrick Weiss. 2023. Tidy Finance with R. Chapman & Hall/CRC. https://www.tidy-finance.org/r/.\n\n\nWickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. O’Reilly Media. https://r4ds.had.co.nz/."
   },
   {
     "objectID": "quant-fin/Introduction/index.html#welcome-to-the-course",
