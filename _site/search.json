@@ -1404,7 +1404,7 @@
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#dividends-and-share-repurchases",
     "title": "Payout Policy",
     "section": "Dividends and Share Repurchases",
-    "text": "Dividends and Share Repurchases\n\nThere are basically two ways by which a firm can return free cash flow to its shareholders:\n\nBy paying out as a dividend, where the firm literally provides an influx of cash to its existing shareholders\nBy repurchasing existing shares, a firm can return cash to its shareholders\n\nImportantly, in Brazil, there are two important aspects that need to be taken into consideration:\n\nApart from dividends, we also have interest on equity (“Juros sobre o Capital Próprio - JCP”)\nFurthermore, in most countries, investors pay taxes over dividends and over capital gains.\n\n\n\n\\(\\rightarrow\\) In this lecture, we will study each of these options, understand their main aspects, usages, and discuss how they relate to a firm’s capital structure decision"
+    "text": "Dividends and Share Repurchases\n\nThere are basically two ways by which a firm can return free cash flow to its shareholders:\n\nBy paying out as a dividend, where the firm literally provides an influx of cash to its existing shareholders\nBy repurchasing existing shares, a firm can return cash to its shareholders\n\nImportantly, in Brazil, there are two important aspects that need to be taken into consideration:\n\nApart from dividends, we also have interest on equity (“Juros sobre o Capital Próprio - JCP”)\nFurthermore, in most countries, investors pay taxes over dividends and over capital gains. In Brazil, dividends are not taxed\n\n\n\n\\(\\rightarrow\\) In this lecture, we will study each of these options, understand their main aspects, usages, and discuss how they relate to a firm’s capital structure decision"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#dividends",
@@ -1432,42 +1432,42 @@
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#share-repurchases",
     "title": "Payout Policy",
     "section": "Share Repurchases",
-    "text": "Share Repurchases\n\n\n\n\n\n\nDefinition\n\n\nShare Repurchases are an alternative way to pay cash to investors is through a share repurchase or buyback. In short, the firm uses cash to buy shares of its own outstanding stock.\n\n\n\n\nLike dividends, there are several ways in which a firm may operationalize share repurchases. The most common terms are:\n\nOpen Market Repurchases: when a firm repurchases shares in the open market - these represent about 95% of all repurchase transactions\nTender Offer: a public announcement to all existing security holders to buy back a specified amount of outstanding securities at a given price (typically set at a 10% to 20% premium to the current market price) over a prespecified period of time. If shareholders do not tender enough shares, the firm may cancel the offer, and no buyback occurs\nTargeted Repurchase: when a firm purchases shares directly from a specific shareholder"
+    "text": "Share Repurchases\n\n\n\n\n\n\nDefinition\n\n\nShare Repurchases are an alternative way to pay cash to investors is through a share repurchase or buyback. In short, the firm uses cash to buy shares of its own outstanding stock.\n\n\n\n\nLike dividends, there are several ways in which a firm may operationalize share repurchases. The most common terms are:\n\nOpen Market Repurchases: when a firm repurchases shares in the open market - these represent about \\(\\small95\\%\\) of all repurchase transactions\nTender Offer: a public announcement to all existing security holders to buy back a specified amount of outstanding securities at a given price (typically set at a \\(\\small10\\%\\) to \\(\\small20\\%\\) premium to the current market price) over a prespecified period of time. If shareholders do not tender enough shares, the firm may cancel the offer, and no buyback occurs\nTargeted Repurchase: when a firm purchases shares directly from a specific shareholder"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#interest-on-equity",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#interest-on-equity",
     "title": "Payout Policy",
     "section": "Interest on Equity",
-    "text": "Interest on Equity\n\nIn Brazil, there is also a possibility of paying interest on equity: this used to be an important instrument when inflation rates were very high in Brazil. The goal was to create an incentive to hold equity when inflation was high\n\nInterest on equity is tax deductible at the corporate level but subject to a withholding tax at the shareholder level\nFrom an accounting perspective, interest on equity is treated similarly to interest (to creditors)\n\nThe tax rate is different for different types of investors. Usually, the interest on equity tax rate is lower than the corporate tax rate\nFirms have a limit to pay as interest on equity. This limit increases every year by TJLP, an annual interest rate established by Brazilian Central Bank - access here"
+    "text": "Interest on Equity\n\nIn Brazil, there is also a possibility of paying interest on equity: this used to be an important instrument when inflation rates were very high in Brazil. The goal was to create an incentive to hold equity when inflation was high:\n\nInterest on equity is tax deductible at the corporate level but subject to a withholding tax at the shareholder level\nFrom an accounting perspective, interest on equity is treated similarly to interest (to creditors)\n\nThe tax rate is different for different types of investors. Usually, the interest on equity tax rate is lower than the corporate tax rate\nFirms have a limit to pay as interest on equity. This limit increases every year by TJLP, an annual interest rate established by Brazilian Central Bank - access here"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#dividends-versus-share-repurchases",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#dividends-versus-share-repurchases",
     "title": "Payout Policy",
     "section": "Dividends versus Share Repurchases",
-    "text": "Dividends versus Share Repurchases\n\nWhen it comes to payout policy, an important question relates to the method in which cash will be returned to shareholders - pay out as a dividend or repurchase shares?\nTo see that, assume that the board of Genron Corporation is meeting to decide how to pay out \\(\\small \\$20\\) million in excess cash to shareholders. The firms has no debt, and its equity cost of capital equals its unlevered cost of capital of \\(\\small 12\\%\\)\nThere are \\(\\small 10\\) million shares outstanding, and the estimated free cash flows for the upcoming years are \\(\\small \\$48\\) million per year\nWhich option (if any) should be the preferred one?\n\nPaying out as dividends\nShare repurchases\n\nAs a starting point, assume that there are no market imperfections - i.e, Perfect Capital Markets"
+    "text": "Dividends versus Share Repurchases\n\nWhen it comes to payout policy, an important question relates to the method in which cash will be returned to shareholders - pay out as a dividend or through share repurchases?\nTo see that, assume that the board of Genron Corporation is meeting to decide how to pay out \\(\\small \\$20\\) million in excess cash to shareholders. The firms has no debt, and its equity cost of capital equals its unlevered cost of capital of \\(\\small 12\\%\\)\nThere are \\(\\small 10\\) million shares outstanding, and the estimated free cash flows for the upcoming years are \\(\\small \\$48\\) million per year\nWhich option (if any) should be the preferred one?\n\nPaying out as dividends\nShare repurchases\n\nAs a starting point, assume that there are no market imperfections - i.e, Perfect Capital Markets"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#option-1-dividends",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#option-1-dividends",
     "title": "Payout Policy",
     "section": "Option 1: Dividends",
-    "text": "Option 1: Dividends\n\nWith \\(\\small 10\\) million shares, Genron will be able to pay a dividend of \\(\\small \\$20/10=\\$2\\) per share\nThe firm expects to generate future free cash flows of \\(\\small\\$48\\) million per year. Therefore, it anticipates paying a dividend of \\(\\small \\$4.80\\) per share each year thereafter\nAs a result, we can calculate what equityholders will receive as:\n\n\n\\[\n\\small \\underbrace{2}_{\\text{Payment today}} + \\underbrace{\\sum_{t=1}^{\\infty}\\dfrac{4.80}{(1+12\\%)}}_{\\text{Perpetuity}} \\rightarrow 2 + \\frac{4.80}{12\\%} = 2 + 40 = 42\n\\]\n\nAfter the \\(\\small \\$2\\) dividend payment, the value of each share is simply \\(\\small \\$42-\\$2=\\$40\\) per share. Notice that after the dividend payment, the share price drops by the dividend per share value\n\n\n\n\\(\\rightarrow\\) In a perfect capital market, when a dividend is paid, the share price drops by the amount of the dividend when the stock begins to trade ex-dividend"
+    "text": "Option 1: Dividends\n\nWith \\(\\small 10\\) million shares, Genron will be able to pay a dividend of \\(\\small \\$20/10=\\$2\\) per share\nThe firm expects to generate future free cash flows of \\(\\small\\$48\\) million per year. Therefore, it anticipates paying a dividend of \\(\\small \\$4.80\\) per share each year thereafter\nAs a result, the value to equityholders is:\n\n\n\\[\n\\small \\underbrace{2}_{\\text{Payment today}} + \\underbrace{\\sum_{t=1}^{\\infty}\\dfrac{4.80}{(1+12\\%)}}_{\\text{Perpetuity}} \\rightarrow 2 + \\frac{4.80}{12\\%} = 2 + 40 = 42\n\\]\n\nAfter the \\(\\small \\$2\\) dividend payment, the value of each share is simply \\(\\small \\$42-\\$2=\\$40\\) per share. Notice that after the dividend payment, the share price drops by the dividend per share value\n\n\n\n\\(\\rightarrow\\) In a perfect capital market, when a dividend is paid, the share price drops by the amount of the dividend when the stock begins to trade ex-dividend"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#option-2-share-repurchase",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#option-2-share-repurchase",
     "title": "Payout Policy",
     "section": "Option 2: Share Repurchase",
-    "text": "Option 2: Share Repurchase\n\nInstead of paying a dividend this year, Genron uses the \\(\\small 20\\) million to repurchase its shares on the open market. In this case, the company can buy \\(\\small \\$20/\\$42 = 0.476\\) million shares\nTherefore, the new number of outstanding shares are: \\(\\small 10 - 0.476 = 9.524\\) million\nNote that this has not changed the free cash flow available to shareholders, but now, there are less shareholders to be paid for! After the repurchase, the future dividend value is:\n\n\n\\[\n\\small \\dfrac{48,000,000}{9,524,000} = 5.04 \\text{ per share}\n\\]\n\nTherefore, the stock price is \\(\\small \\frac{\\$5.04}{12\\%}=\\$42\\) per share\n\n\n\n\\(\\rightarrow\\) In perfect capital markets, an open market share repurchase has no effect on the stock price, and the stock price is the same as the cum-dividend1 price if a dividend were paid instead.\n\nWhen a stock trades before the ex-dividend date, entitling anyone who buys the stock to the dividend ($42 in this example)."
+    "text": "Option 2: Share Repurchase\n\nInstead of paying a dividend this year, Genron can use the \\(\\small 20\\) million to repurchase its shares on the open market. In this case, the company can buy \\(\\small \\$20/\\$42 = 0.476\\) million shares\nTherefore, the new number of outstanding shares are: \\(\\small 10 - 0.476 = 9.524\\) million. Note that this has not changed the free cash flow available to shareholders, but now, there are less shareholders to be paid for! After the repurchase, the future dividend value is:\n\n\n\\[\n\\small \\dfrac{\\text{Free Cash Flow}}{\\text{# of Shares}}=\\dfrac{48,000,000}{9,524,000} = 5.04 \\text{ per share}\n\\]\n\nTherefore, the stock price is \\(\\small \\frac{\\$5.04}{12\\%}=\\$42\\) per share\n\n\n\n\\(\\rightarrow\\) In perfect capital markets, an open market share repurchase has no effect on the stock price, and the stock price is the same as the cum-dividend1 price if a dividend were paid instead.\n\nWhen a stock trades before the ex-dividend date, entitling anyone who buys the stock to the dividend ($42 in this example)."
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#comparing-the-options",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#comparing-the-options",
     "title": "Payout Policy",
     "section": "Comparing the options",
-    "text": "Comparing the options\n\nAn important implication of Perfect Capital Markets is that investors should be indifferent between the firm distributing funds via dividends or share repurchases:\n\nWhen receiving via dividends, they receive a cash payment of \\(\\small \\$2\\) and keep the value of their shares trading at \\(\\small \\$40\\)\nWhen receiving via share repurchases, regardless of tendering their shares, share prices are the same (\\(\\small \\$ 42\\))\n\nFrom a purely value perspective, both alternatives yield the same value. However, if investors have preferences over a given option, they can make a homemade dividend:\n\nIf the firm repurchases shares and the investor wants cash, the investor can raise cash by selling his/her shares\nIf the firm pays a dividend and the investor would prefer stock, they can use the dividend to purchase additional fractional shares"
+    "text": "Comparing the options\n\nAn important implication of Perfect Capital Markets is that investors should be indifferent between the firm distributing funds via dividends or share repurchases:\n\nWhen receiving via dividends, they receive a cash payment of \\(\\small \\$2\\) and keep the value of their shares trading at \\(\\small \\$40\\)\nVia share repurchases, regardless of tendering their shares, share prices are the same (\\(\\small \\$ 42\\))\n\nFrom a purely value perspective, both alternatives yield the same value. As in previous lectures, a similar argument can be made when assuming perfect capital markets: if investors have preferences over a given option, they can make a homemade dividend1\n\nIf the firm repurchases shares and the investor wants cash, the investor can raise cash by selling his/her shares\nIf the firm pays a dividend and the investor prefers stock, they can use the dividend to purchase additional fractional shares\n\n\nSee the Appendix for a detailed example on homemade dividends."
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#dividends-versus-share-repurchases-alternative-policy",
@@ -1477,25 +1477,11 @@
     "text": "Dividends versus Share Repurchases, alternative policy\n\nWhat if, as opposed to the first option, Genror decides to pay a higher dividend? To see that, suppose that the firm wants to pay dividends larger than \\(\\small\\$2\\) per share right now, but it only has \\(\\small 20\\) million in cash today\nThus, Genron needs an additional \\(\\small\\$28\\) million to pay the larger dividend now. To do this, the firm decides to raise the cash by selling new shares. Given a current share price of \\(\\small\\$42\\), the firm could raise \\(\\small \\$28\\) million by issuing \\(\\small \\$28/\\$42= \\$0.67\\) million new shares\nThe new dividend per share is: \\(\\small \\$48/10.67=\\$4.5\\). The cum-dividend share price is:\n\n\n\\[\n\\small \\underbrace{4.5}_{\\text{Actual Dividend}} + \\underbrace{\\frac{4.5}{12\\%}}_{\\text{Perpetuity}}= 4.5 + 37.5 = 42\n\\]\n\\(\\rightarrow\\) As issuing new equity does not change the free cash flows, stock price does not change as a result of the share repurchase!"
   },
   {
-    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#dividends-vs.-share-repurchases-practice",
-    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#dividends-vs.-share-repurchases-practice",
-    "title": "Payout Policy",
-    "section": "Dividends vs. Share Repurchases, practice",
-    "text": "Dividends vs. Share Repurchases, practice\nSuppose Genron does not adopt the third alternative policy, and instead pays a 2 dividend per share today. Show how an investor holding \\(\\small 2,000\\) shares could create a homemade dividend of \\(\\small \\$4.5\\times 2,000=\\$9,000\\) per year on her own.\n\n\\(\\rightarrow\\) Solution\n\nIf Genron pays a \\(\\small\\$2\\) dividend, the investor receives \\(\\small \\$4,000\\) in cash and holds the rest in stock. Therefore, To receive \\(\\small \\$9,000\\) in total today, she can raise an additional \\(\\small \\$5,000\\) by selling \\(\\small 125\\) shares at \\(\\small \\$40\\) per share just after the dividend is paid\nIn future years, Genron will pay a dividend of \\(\\small \\$4.80\\) per share. Because she will own \\(\\small 2,000 − 125 = 1,875\\) shares, the investor will receive dividends of \\(\\small 1,875 \\times 4.80 = 9,000\\) per year from then on"
-  },
-  {
-    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#dividends-vs.-share-repurchases-practice-1",
-    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#dividends-vs.-share-repurchases-practice-1",
-    "title": "Payout Policy",
-    "section": "Dividends vs. Share Repurchases, practice",
-    "text": "Dividends vs. Share Repurchases, practice\nSuppose you own \\(\\small1,000\\) shares in a firm that has historically paid dividends at a rate of \\(\\small 50\\%\\) of earnings per share. Although earnings per share this year are \\(\\small\\$5\\), the firm has decided to retain all of the earnings and not pay a dividend. The current market price is \\(\\$50\\) per share. How could you create a homemade dividend based on the firm’s dividend history?\n\n\\(\\rightarrow\\) Solution\n\nBased on the firm’s history, its “normal” dividend would have been \\(\\$5 × 50\\% = \\$2.50\\) per share. To create a homemade dividend, you need to sell enough shares to generate the desired cash flow:\n\n\n\n\\[\n\\small \\underbrace{1,000}_{\\text{Number of Shares}} \\times \\underbrace{2.50}_{\\text{Dividend per Share}} = 2,500\n\\]\n\nTherefore, given a current market value of \\(\\small\\$50\\) per share, you would need to sell \\(\\small \\$2,500/\\$50=50\\) shares to create the desired homemade dividend"
-  },
-  {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#modigliani-and-miller-and-the-dividend-policy-irrelevance",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#modigliani-and-miller-and-the-dividend-policy-irrelevance",
     "title": "Payout Policy",
     "section": "Modigliani and Miller and the Dividend Policy Irrelevance",
-    "text": "Modigliani and Miller and the Dividend Policy Irrelevance\n\nNote that there is a tradeoff between current and future dividends:\n\nIf Genron pays a higher current dividend, future dividends will be lower\nIf Genron pays a lower current dividend, future dividends will be higher\n\nRegardless of the payout policy, shareholders can create a homemade dividend on their own, matching his/her specific payout preferences, by buying or selling shares themselves\nTherefore, the only factor that determines a firm’s payout policy is the free cash flow.\n\n\n\\(\\rightarrow\\) In perfect capital markets, holding fixed the investment policy, the firm’s choice of dividend policy is irrelevant and does not affect the initial share price. While dividends do determine share prices, a firm’s choice of dividend policy does not."
+    "text": "Modigliani and Miller and the Dividend Policy Irrelevance\n\nNote that there is a tradeoff between current and future dividends:\n\nIf Genron pays a higher current dividend, future dividends will be lower\nIf Genron pays a lower current dividend, future dividends will be higher\n\nRegardless of the payout policy, shareholders can create a homemade dividend on their own, matching his/her specific payout preferences, by buying or selling shares themselves\nTherefore, the only factor that determines a firm’s payout policy is the free cash flow.\n\n\n\n\n\n\n\n\nDefinition\n\n\nThe Dividend Policy Irrelevance Condition: in perfect capital markets, holding fixed the investment policy, the firm’s choice of dividend policy is irrelevant and does not affect the initial share price. While dividends do determine share prices, a firm’s choice of dividend policy does not."
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#payout-policy-in-practice",
@@ -1509,28 +1495,28 @@
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#the-tax-disadvantage-of-dividends",
     "title": "Payout Policy",
     "section": "The Tax Disadvantage of Dividends",
-    "text": "The Tax Disadvantage of Dividends\n\nFirst and foremost, there could be differences in the taxation of Dividends and Capital Gains\n\nShareholders must pay taxes on the dividends they receive, and they must also pay capital gains taxes when they sell their shares\nDividends are typically taxed at a higher rate than capital gains1. In fact, long-term investors can defer the capital gains tax forever by not selling\n\n\n\n\nThe higher the tax rate on dividends, the more undesirable is for a firm to raise funds to pay a dividend\nWhen dividends are taxed at a higher rate than capital gains, if a firm raises money by issuing shares and then gives that money back to shareholders as a dividend, shareholders are hurt because they will receive less than their initial investment\n\n\nIn Brazil, dividends are not taxed."
+    "text": "The Tax Disadvantage of Dividends\n\nFirst and foremost, there could be differences in the taxation of Dividends and Capital Gains\n\nShareholders must pay taxes on the dividends they receive, and they must also pay capital gains taxes when they sell their shares\nDividends are typically taxed at a higher rate than capital gains1. In fact, long-term investors can defer the capital gains tax forever by not selling shares\n\n\n\n\nThe higher the tax rate on dividends, the more undesirable is for a firm to raise funds to pay a dividend\nWhen dividends are taxed at a higher rate than capital gains, if a firm raises money by issuing shares and then gives that money back to shareholders as a dividend, shareholders are hurt because they will receive less than their initial investment\n\n\nIn Brazil, dividends are not taxed."
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#the-tax-disadvantage-of-dividends-continued",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#the-tax-disadvantage-of-dividends-continued",
     "title": "Payout Policy",
     "section": "The Tax Disadvantage of Dividends, continued",
-    "text": "The Tax Disadvantage of Dividends, continued\n\nTo see that, assume that a firm raises \\(\\small\\$25\\) million from shareholders and uses it to pay \\(\\small\\$25\\) million in dividends. Dividends are taxed at a \\(\\small39\\%\\) tax rate, and Capital Gains are taxed at a \\(\\small20\\%\\) tax rate. We then have the following cases:\n\nIn terms of dividend taxes, shareholders will owe \\(\\small 39\\% \\times \\$25 = 9.75\\) million in taxes\nBecause the firm value falls after dividend, the capital gain will be \\(\\small \\$25\\) million less when investors sell, lowering the capital gains taxes by \\(\\small 20\\% \\times \\$25 = \\$5\\) million\n\nShareholders will pay a total of \\(\\small \\$9.75 − \\$5.00 = \\$4.75\\) million in taxes\nShareholders will receive back only \\(\\small \\$25 − \\$4.75 = 20.25\\) million"
+    "text": "The Tax Disadvantage of Dividends, continued\n\nTo see that, assume that a firm raises \\(\\small\\$25\\) million from shareholders and uses it to pay \\(\\small\\$25\\) million in dividends. Dividends are taxed at a \\(\\small39\\%\\) tax rate, and Capital Gains are taxed at a \\(\\small20\\%\\) tax rate. We then have the following cases:\n\nIn terms of dividend taxes, shareholders will owe \\(\\small 39\\% \\times \\$25 = 9.75\\) million in taxes\nBecause the firm value falls after dividend, the capital gain (when selling shares) will be \\(\\small \\$25\\) million less, lowering the capital gains taxes by \\(\\small 20\\% \\times \\$25 = \\$5\\) million\n\nShareholders will pay a total of \\(\\small \\$9.75 − \\$5.00 = \\$4.75\\) million in taxes\nShareholders will receive back only \\(\\small \\$25 − \\$4.75 = 20.25\\) million"
   },
   {
-    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#the-tax-disadvantage-of-dividends-continued-1",
-    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#the-tax-disadvantage-of-dividends-continued-1",
+    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#the-dividend-puzzle",
+    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#the-dividend-puzzle",
     "title": "Payout Policy",
-    "section": "The Tax Disadvantage of Dividends, continued",
-    "text": "The Tax Disadvantage of Dividends, continued\n\nWhen the tax rate on dividends is greater than the tax rate on capital gains, shareholders will pay lower taxes if a firm uses share repurchases rather than dividends\nThis tax savings will increase the value of a firm that uses share repurchases rather than dividends\n\n\n\\(\\rightarrow\\) As a consequence, the optimal dividend policy when the dividend tax rate exceeds the capital gain tax rate is to pay no dividends at all\n\n\nDividend Puzzle: when firms continue to issue dividends despite their tax disadvantage, when it exists"
+    "section": "The Dividend Puzzle",
+    "text": "The Dividend Puzzle\n\nBy the rationale shown before, when the tax rate on dividends is greater than the tax rate on capital gains, shareholders will pay lower taxes if a firm uses share repurchases rather than dividends\nThis tax savings will increase the value of a firm that uses share repurchases rather than dividends. As a consequence, the optimal dividend policy when the dividend tax rate exceeds the capital gain tax rate is to pay no dividends at all\n\n\n\\(\\rightarrow\\) In reality, however, firms continue to issue dividends despite their tax disadvantage - also known as the “Dividend Puzzle”. Why?"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#dividend-capture-and-tax-clienteles",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#dividend-capture-and-tax-clienteles",
     "title": "Payout Policy",
     "section": "Dividend Capture and Tax Clienteles",
-    "text": "Dividend Capture and Tax Clienteles\n\nThe preference for share repurchases rather than dividends depends on the difference between the dividend tax rate and the capital gains tax rate\nThe Effective Dividend Tax Rate: consider buying a stock just before it goes ex-dividend and selling the stock just after. The equilibrium condition is:\n\n\n\\[\n\\small (P_{\\text{Cum}}-P_{\\text{Ex}})\\times\\underbrace{(1-\\tau_g)}_{\\text{Net of Capital Gain Taxes}} = D\\times \\underbrace{(1-\\tau_d)}_{\\text{Net of Dividend Taxes}}\n\\]\n\nRearranging terms, we have;\n\n\n\n\\[\n\\small P_{\\text{Cum}}-P_{\\text{Ex}} = \\frac{D\\times1-\\tau_d}{1-\\tau_g} \\rightarrow D \\times \\bigg[ 1 - \\frac{\\tau_d - \\tau_g}{1-\\tau_g}  \\bigg]\n\\]"
+    "text": "Dividend Capture and Tax Clienteles\n\nThe preference for share repurchases rather than dividends depends on the difference between the dividend tax rate and the capital gains tax rate\nThe Effective Dividend Tax Rate: consider buying a stock just before it goes ex-dividend and selling the stock just after. The equilibrium condition is:\n\n\n\\[\n\\small (P_{\\text{Cum}}-P_{\\text{Ex}})\\times\\underbrace{(1-\\tau_g)}_{\\text{Net of Capital Gain Taxes}} = D\\times \\underbrace{(1-\\tau_d)}_{\\text{Net of Dividend Taxes}}\n\\]\n\nRearranging terms, we have;\n\n\n\n\\[\n\\small P_{\\text{Cum}}-P_{\\text{Ex}} = \\frac{D\\times(1-\\tau_d)}{1-\\tau_g} \\rightarrow D \\times \\bigg[ 1 - \\frac{\\tau_d - \\tau_g}{1-\\tau_g}  \\bigg]\n\\]"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#dividend-capture-and-tax-clienteles-1",
@@ -1547,18 +1533,25 @@
     "text": "Dividend Capture and Tax Clienteles\n\nIn practice, \\(\\tau_d^\\star\\), the effective dividend tax rate, differs across investors for a variety of reasons:\n\nIncome Levels\nInvestment Horizons\nTax Jurisdictions\nTypes of Investor or Type of investment Account\n\nAs a result of their different tax rates, investors will have varying preferences regarding dividends. This opens room for firms to try matching their payout policy to the preferences of investors:\n\nThe Clientele Effect is when the dividend policy of a firm reflects the tax preference of its investor clientele\nFor example, individuals in the highest tax brackets have a preference for stocks that pay no or low dividends, whereas tax-free investors and corporations have a preference for stocks with high dividends"
   },
   {
+    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#dividend-and-tax-clienteles---u.s.-market",
+    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#dividend-and-tax-clienteles---u.s.-market",
+    "title": "Payout Policy",
+    "section": "Dividend and Tax Clienteles - U.S. Market",
+    "text": "Dividend and Tax Clienteles - U.S. Market\n\n\n\n\n\n\\(\\rightarrow\\) The increase in volume consistent with tax-exempt traders buying before the ex-date and selling it afterwards. Price hikes may have to do with signaling - see more in the upcoming slides"
+  },
+  {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#payout-versus-retention-of-cash",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#payout-versus-retention-of-cash",
     "title": "Payout Policy",
     "section": "Payout Versus Retention of Cash",
-    "text": "Payout Versus Retention of Cash\n\nAs of now, we discussed why firms may not be indifferent regarding different payout options (i.e., dividends versus share repurchases)\nAnother strand of the discussion relates to the decision to payout or retain free cash flow:\n\nIn perfect capital markets, once a firm has taken all positive-NPV projects, it is indifferent between saving excess cash and paying it out\nHowever, when such market imperfections do exist, there will be an important trade-off: while retaining cash can reduce the costs of raising capital in the future, but it can also increase taxes and agency costs.\n\n\n\n\\(\\rightarrow\\) As a result The extent to which a firm will prefer one or the other will depend on the trade-off between the benefits and costs of retaining cash!"
+    "text": "Payout Versus Retention of Cash\n\nAs of now, we discussed why firms may not be indifferent regarding different payout options (i.e., dividends versus share repurchases)\nAnother strand of the discussion relates to the decision to payout or retain free cash flow:\n\nIn perfect capital markets, once a firm has taken all positive-NPV projects, it is indifferent between saving excess cash and paying it out\nHowever, when such market imperfections do exist, there will be an important trade-off: while retaining cash can reduce the costs of raising capital in the future, but it can also increase taxes and agency costs\n\n\n\n\\(\\rightarrow\\) As a result, the extent to which a firm will prefer one or the other will depend on the trade-off between the benefits and costs of retaining cash!"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#payout-versus-retention-of-cash-in-perfect-capital-markets",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#payout-versus-retention-of-cash-in-perfect-capital-markets",
     "title": "Payout Policy",
     "section": "Payout versus Retention of Cash in Perfect Capital Markets",
-    "text": "Payout versus Retention of Cash in Perfect Capital Markets\n\nIf a firm has already taken all positive-NPV projects, any additional projects it takes on are zero or negative-NPV projects\n\nRather than wasting excess cash on negative-NPV projects, a firm can use the cash to purchase financial assets\nIn perfect capital markets, buying and selling securities is a zero-NPV transaction, so it should not affect firm value.\n\nModigliani-Miller Payout Irrelevance: with perfect capital markets, the retention versus payout decision is irrelevant\n\n\n\\(\\rightarrow\\) In perfect capital markets, if a firm invests excess cash flows in financial securities, the firm’s choice of payout versus retention is irrelevant and does not affect the initial share price."
+    "text": "Payout versus Retention of Cash in Perfect Capital Markets\n\nIf a firm has already taken all positive-NPV projects, any additional projects it takes on are zero or negative-NPV projects\n\nRather than wasting excess cash on negative-NPV projects, a firm can use the cash to purchase financial assets\nIn perfect capital markets, buying and selling securities is a zero-NPV transaction, so it should not affect firm value\n\nThis indifference is also known as the Payout Irrelevance Condition\n\n\n\n\n\n\n\n\nDefinition\n\n\nThe Modigliani-Miller Payout Irrelevance: with perfect capital markets, the retention versus payout decision is irrelevant. In perfect capital markets, if a firm invests excess cash flows in financial securities, the firm’s choice of payout versus retention is irrelevant and does not affect the initial share price."
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#payout-versus-retention-of-cash-practice",
@@ -1572,7 +1565,7 @@
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#corporate-taxes-and-cash-retention-practice",
     "title": "Payout Policy",
     "section": "Corporate Taxes and Cash Retention, practice",
-    "text": "Corporate Taxes and Cash Retention, practice\n\nWhat happens to the trade-off between dividends and cash retention when we assume that there are market imperfections?\n\nAn important market imperfection relates to Corporate Taxes: corporate Taxes make it costly for a firm to retain excess cash.\nFrom a valuation perspective, cash is equivalent to negative leverage, so the tax advantage of leverage implies a tax disadvantage to holding cash\n\nTo see that, assume that Payne has a marginal tax rate of \\(\\small39\\%\\). Would a tax-exempt endowment prefer that Payne use its excess cash to pay the dividend immediately or invest the cash in a Treasury bill paying \\(\\small5\\%\\) interest and then pay out a dividend?"
+    "text": "Corporate Taxes and Cash Retention, practice\n\nWhat happens to the trade-off between dividends and cash retention when we assume that there are market imperfections?\n\nAn important market imperfection relates to Corporate Taxes: these takes make it costly for a firm to retain excess cash\nFrom a valuation perspective, cash is equivalent to negative leverage, so the tax advantage of leverage implies a tax disadvantage to holding cash\n\nIn this scenario, whenever market imperfections are present, firms may not be indifferent between receivind dividends and retaining cash anymore!"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#corporate-taxes-and-cash-retention-practice-1",
@@ -1593,7 +1586,7 @@
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#issuance-and-distress-costs",
     "title": "Payout Policy",
     "section": "Issuance and Distress Costs",
-    "text": "Issuance and Distress Costs\n\nBesides any tax considerations, firms retain cash balances to cover potential future cash shortfalls, despite the tax disadvantage to retaining cash:\n\nA firm might accumulate a large cash balance if there is a reasonable chance that future earnings will be insufficient to fund future positive-NPV investment opportunities\nThe cost of holding cash to cover future potential cash needs should be compared to the reduction in transaction, agency, and adverse selection costs of raising new capital** through new debt or equity issuances\n\nHowever, there are also Agency Costs of Retaining Cash:\n\nWhen firms have excessive cash, managers may use the funds inefficiently by paying excessive executive perks, over-paying for acquisitions, etc\nPaying out excess cash through dividends or share repurchases, rather than retaining cash, can boost the stock price by reducing managers’ ability and temptation to waste resources\n\n\n\n\\(\\rightarrow\\) The optimal payout policy trades-off these benefits against agency costs!"
+    "text": "Issuance and Distress Costs\n\nBesides any tax considerations, firms retain cash balances to cover potential future cash shortfalls, despite the tax disadvantage to retaining cash:\n\nA firm might accumulate a large cash balance if there is a reasonable chance that future earnings will be insufficient to fund future positive-NPV investment opportunities\nThe cost of holding cash to cover potential shortfalls should be compared to the reduction in transaction, agency, and adverse selection costs of raising capital through new issuances\n\nHowever, there are also Agency Costs of Retaining Cash:\n\nWhen firms have excessive cash, managers may use the funds inefficiently by paying excessive executive perks, over-paying for acquisitions, etc\nPaying out excess cash through dividends or share repurchases, rather than retaining cash, can boost the stock price by reducing managers’ ability and temptation to waste resources\n\n\n\n\\(\\rightarrow\\) The optimal payout policy trades-off these benefits against agency costs!"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#payout-versus-retention-of-cash-practice-1",
@@ -1607,42 +1600,49 @@
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#payout-versus-retention-of-cash-practice-2",
     "title": "Payout Policy",
     "section": "Payout Versus Retention of Cash, practice",
-    "text": "Payout Versus Retention of Cash, practice\nAltgreen is an all-equity firm with \\(\\small\\$250\\) million shares outstanding. It has \\(\\small\\$300\\) million in cash and expects future free cash flows of \\(\\small\\$150\\) million per year. Management plans to use the cash to expand the firm’s operations, which will in turn increase future free cash flows by \\(\\small10\\%\\). If the cost of capital of Altgreen’s investments is \\(\\small7\\%\\), how would a decision to use the cash for a share repurchase rather than the expansion change the share price?\n\n\nIf, on the other hand, Altgreen does not expand, the value of its future free cash flows will be \\(\\small 150/7\\% = \\$2.143\\) billion. Adding cash, we have \\(\\small \\$2.443/250 = \\$9.77\\) per share\nIf Altgreen repurchases shares, it will repurchase \\(\\small \\$300/\\$9.77=30.71\\) million shares. Therefore, prices would be:\n\n\n\n\\[\n\\small \\dfrac{2.143}{219.29}= 9.77 \\text{ per share}\n\\]"
+    "text": "Payout Versus Retention of Cash, practice\n\nIf, on the other hand, Altgreen does not expand, the value of its future free cash flows will be \\(\\small 150/7\\% = \\$2.143\\) billion. Adding cash, we have \\(\\small \\$2.443/250 = \\$9.77\\) per share. When repurchasing shares, it will repurchase \\(\\small \\$300/\\$9.77=30.71\\) million shares:\n\n\n\\[\n\\small \\dfrac{2.143}{219.29}= 9.77 \\text{ per share}\n\\]\n\nAll in all, note that the firm could avoid a negative NPV project by retaining cash/share repurchases:\n\n\n\n\\[\n\\small \\underbrace{-300}_{\\text{Cash}}+\\underbrace{\\dfrac{15}{7\\%}}_{\\text{Growth Option}}=-300+214=-75\n\\]\n\n\n\\(\\rightarrow\\) The decrease of \\(\\small \\$75\\) million in value matches the \\(\\small 75/250\\approx \\$0.34\\) decrease in stock price!"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#signaling-with-payout-policy",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#signaling-with-payout-policy",
     "title": "Payout Policy",
     "section": "Signaling with Payout Policy",
-    "text": "Signaling with Payout Policy\n\nIn theory, we would expect dividends to trend with earnings. In practice, however firms change dividends infrequently, and dividends are much less volatile than earnings. Why?\nAs with Debt, Dividends can also be used as a way to signal information to the market.\nWe call Dividend Smoothing the practice of maintaining relatively constant dividends\nThe Dividend Signaling Hypothesis is the idea that dividend changes reflect managers’ views about a future earnings:\n\nIf firms smooth dividends, the firm’s dividend choice will contain information regarding management’s expectations of future earnings\nWhen a firm increases dividend, it sends a positive signal to investors that they expect to be able to afford the higher dividend for the foreseeable future\nWhen a firm decreases dividend, it may signal that they have given up hope that earnings will rebound in the near term and so need to save cash"
+    "text": "Signaling with Payout Policy\n\nIn theory, we would expect dividends to trend with earnings. In practice, however firms change dividends infrequently, and dividends are much less volatile than earnings. Why?\nAs with Debt, Dividends can also be used as a way to signal information to the market. We call Dividend Smoothing the practice of maintaining relatively constant dividends\nThe Dividend Signaling Hypothesis is the idea that dividend changes reflect managers’ views about future earnings:\n\nWhen a firm increases dividend, it sends a positive signal to investors that they expect to be able to afford the higher dividend for the foreseeable future\nWhen a firm decreases dividend, it may signal that they have given up hope that earnings will rebound in the near term and so need to save cash\n\nIf that is true, what is the price reaction to dividends? Although an increase of a firm’s dividend may signal optimism regarding its future cash flows, it might also signal a lack of investment opportunities, which might lead to a positive stock price reaction!"
   },
   {
-    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#signaling-with-payout-policy-continued",
-    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#signaling-with-payout-policy-continued",
+    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#dividend-smoothing-in-practice-u.s.-markets",
+    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#dividend-smoothing-in-practice-u.s.-markets",
     "title": "Payout Policy",
-    "section": "Signaling with Payout Policy, continued",
-    "text": "Signaling with Payout Policy, continued\n\nAlthough an increase of a firm’s dividend may signal optimism regarding its future FCF, it might also signal a lack of investment opportunities\nIn this case, the dividend decrease might lead to a positive stock price reaction."
+    "section": "Dividend Smoothing in practice (U.S. markets)",
+    "text": "Dividend Smoothing in practice (U.S. markets)\n\n\n\n\n\n\\(\\rightarrow\\) It is possible to see that, for GM, dividend dynamics were much more stable than earnings"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#signaling-and-share-repurchases",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#signaling-and-share-repurchases",
     "title": "Payout Policy",
     "section": "Signaling and Share Repurchases",
-    "text": "Signaling and Share Repurchases\n\nLike Dividends, Share Repurchases can be also be seen as a credible signal the current shares are underpriced, as if they were overpriced, a share repurchase would be costly for current shareholders:\n\nIf investors believe that managers have better information regarding the firm’s prospects and act on behalf of current shareholders, then investors will react positively to share repurchase announcements\nNotwithstanding, announcing a share repurchase today does not necessarily represent a long-term commitment to repurchase shares in the future. Because of that, Dividends have a stronger, credible signal than Share Repurchases\n\nFurthermore, a firm may announce a share repurchase program but not repurchase any shares, while on the other hand, when a firm announces dividends payment, it has a commitment to pay"
+    "text": "Signaling and Share Repurchases\n\nLike Dividends, Share Repurchases can be also be seen as a credible signal the current shares are underpriced, as if they were overpriced, a share repurchase would be costly for current shareholders\nNotwithstanding, a firm may announce a share repurchase program but not repurchase any shares, while on the other hand, when a firm announces dividends payment, it has a commitment to pay:\n\nIf investors believe that managers have better information regarding the firm’s prospects and act on behalf of current shareholders, then investors will react positively to share repurchase announcements\nNotwithstanding, announcing a share repurchase today does not necessarily represent a long-term commitment to repurchase shares in the future. Because of that, Dividends have a stronger, more credible signal than Share Repurchases"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#stock-dividends",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#stock-dividends",
     "title": "Payout Policy",
     "section": "Stock Dividends",
-    "text": "Stock Dividends\n\nAs discussed before, with a stock dividend, a firm does not pay out any cash to shareholders. As a result, the total market value of the firm’s equity is unchanged\nThe only thing that is different is the number of shares outstanding. The stock price will therefore fall because the same total equity value is now divided over a larger number of shares\nTo see that, suppose that Genron firm paid a \\(\\small50\\%\\) stock dividend rather than a cash dividend\n\nA shareholder who owns \\(\\small\\$100\\) shares as \\(\\small\\$42\\) before the dividend has a portfolio worth \\(\\small \\$4,200\\)\nAfter the dividend, the shareholder owns \\(\\small150\\) shares\n\nBecause the portfolio is still worth \\(\\small4,200\\), the stock price will fall to \\(\\small \\$4,200/150=\\$28\\).\nSometimes, firms finance new shares. So, it is like shareholders have received cash and immediately bought new shares. In this case, decline in price is not as large as above."
+    "text": "Stock Dividends\n\nAs discussed before, with a stock dividend, a firm does not pay out any cash to shareholders. As a result, the total market value of the firm’s equity is unchanged\nThe only thing that is different is the number of shares outstanding. The stock price will therefore fall because the same total equity value is now divided over a larger number of shares\nTo see that, suppose that Genron firm paid a \\(\\small50\\%\\) stock dividend rather than a cash dividend\n\nA shareholder who owns \\(\\small\\$100\\) shares as \\(\\small\\$42\\) before the dividend has a portfolio worth \\(\\small \\$4,200\\)\nAfter the dividend, the shareholder owns \\(\\small150\\) shares\n\nBecause the portfolio is still worth \\(\\small4,200\\), the stock price will fall to \\(\\small \\$4,200/150=\\$28\\).\nSometimes, firms finance new shares. So, it is like shareholders have received cash and immediately bought new shares. In this case, decline in price is not as large as above"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#stock-splits",
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#stock-splits",
     "title": "Payout Policy",
     "section": "Stock Splits",
-    "text": "Stock Splits\n\nSplits are known as situations where a firm a smaller pool of highly valued shares share into a higher number of shares\nThe typical motivation for a stock split is to keep the share price in a range thought to be attractive to small investors:\n\nIf the share price rises “too high”, it might be difficult for small investors to invest in the stock\nKeeping the price “low” may make the stock more attractive to small investors and can increase the demand for and the liquidity of the stock, which may in turn boost the stock price\n\nOn average, announcements of stock splits are associated with a small positive increase in the stock price\nOn the other hand, when the price of a company’s stock falls too low and the company reduces the number of outstanding shares, \\(\\small 2\\) shares become 1 of twice the previous price - also known as reverse split or insplit"
+    "text": "Stock Splits\n\nSplits are known as situations where a firm a smaller pool of highly valued shares share into a higher number of shares\nThe typical motivation for a stock split is to keep the share price in a range thought to be attractive to small investors:\n\nIf the share price rises “too high”, it might be difficult for small investors to invest\nKeeping the price “low” may make the stock more attractive to small investors and increase the stock’s demand and liquidity, which may in turn boost the stock price\n\nOn average, announcements of stock splits are associated with a small increase in prices\nOn the other hand, when the price of a company’s stock falls too low and the company reduces the number of outstanding shares, \\(\\small 2\\) shares become \\(\\small 1\\) of twice the previous price - also known as reverse split or insplit"
+  },
+  {
+    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#stock-splits-in-practice---u.s.-market",
+    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#stock-splits-in-practice---u.s.-market",
+    "title": "Payout Policy",
+    "section": "Stock Splits in Practice - U.S. market",
+    "text": "Stock Splits in Practice - U.S. market\n\n\n\n\n\n\\(\\rightarrow\\) Most stocks in the U.S. market trade between \\(\\small \\$5-\\$20\\), which is consistent with firms keeping a reasonable range to boost liquidity and avoid excessive volatility in returns"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#spin-offs",
@@ -1656,7 +1656,28 @@
     "href": "fin-strat/Lecture 10 - Payout Policy/index.html#practice",
     "title": "Payout Policy",
     "section": "Practice",
-    "text": "Practice\n\n\n\n\n\n\nImportant\n\n\n\nPractice using the following links:\n\nMultiple-choice Questions"
+    "text": "Practice\n\n\n\n\n\n\nImportant\n\n\n\nPractice using the following links:\n\nMultiple-choice Questions\n\n\n\n\n\n\nClick here to access public information regarding dividends, share repurchases, and other relevant announcements for Brazilian publicly-traded firms (Comissão de Valores Mobiliários - CVM)"
+  },
+  {
+    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#appendix",
+    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#appendix",
+    "title": "Payout Policy",
+    "section": "Appendix",
+    "text": "Appendix"
+  },
+  {
+    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#creating-a-homemade-dividend",
+    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#creating-a-homemade-dividend",
+    "title": "Payout Policy",
+    "section": "Creating a homemade dividend",
+    "text": "Creating a homemade dividend\nSuppose Genron does not adopt the third alternative policy, and instead pays a 2 dividend per share today. Show how an investor holding \\(\\small 2,000\\) shares could create a homemade dividend of \\(\\small \\$4.5\\times 2,000=\\$9,000\\) per year on her own.\n\n\\(\\rightarrow\\) Solution\n\nIf Genron pays a \\(\\small\\$2\\) dividend, the investor receives \\(\\small \\$4,000\\) in cash and holds the rest in stock. Therefore, To receive \\(\\small \\$9,000\\) in total today, she can raise an additional \\(\\small \\$5,000\\) by selling \\(\\small 125\\) shares at \\(\\small \\$40\\) per share just after the dividend is paid\nIn future years, Genron will pay a dividend of \\(\\small \\$4.80\\) per share. Because she will own \\(\\small 2,000 − 125 = 1,875\\) shares, the investor will receive dividends of \\(\\small 1,875 \\times 4.80 = 9,000\\) per year from then on"
+  },
+  {
+    "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#creating-a-homemade-dividend-continued",
+    "href": "fin-strat/Lecture 10 - Payout Policy/index.html#creating-a-homemade-dividend-continued",
+    "title": "Payout Policy",
+    "section": "Creating a homemade dividend, continued",
+    "text": "Creating a homemade dividend, continued\nSuppose you own \\(\\small1,000\\) shares in a firm that has historically paid dividends at a rate of \\(\\small 50\\%\\) of earnings per share. Although earnings per share this year are \\(\\small\\$5\\), the firm has decided to retain all of the earnings and not pay a dividend. The current market price is \\(\\$50\\) per share. How could you create a homemade dividend based on the firm’s dividend history?\n\n\\(\\rightarrow\\) Solution\n\nBased on the firm’s history, its “normal” dividend would have been \\(\\$5 × 50\\% = \\$2.50\\) per share. To create a homemade dividend, you need to sell enough shares to generate the desired cash flow:\n\n\n\n\\[\n\\small \\underbrace{1,000}_{\\text{Number of Shares}} \\times \\underbrace{2.50}_{\\text{Dividend per Share}} = 2,500\n\\]\n\nTherefore, given a current market value of \\(\\small\\$50\\) per share, you would need to sell \\(\\small \\$2,500/\\$50=50\\) shares to create the desired homemade dividend"
   },
   {
     "objectID": "fin-strat/Lecture 10 - Payout Policy/index.html#references",
@@ -1922,28 +1943,49 @@
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#projects-based-cost-of-capital",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Project’s Based Cost of Capital",
-    "text": "Project’s Based Cost of Capital\n\nWe began the last class with three simplifying assumptions:\n\nThe project has average risk: in essence, the market risk of the project is equivalent to the average market risk of the firm’s investments. In that case, the project’s cost of capital can be assessed based on the risk of the firm.\nThe firm’s debt-equity ratio is constant: we consider a firm that adjusts its leverage to maintain a constant debt-equity ratio in terms of market values.\nCorporate taxes are the only imperfection: we assume that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, are abstracted away\n\nQuestion: what if we now relax Assumptions 1 and 2?"
+    "text": "Project’s Based Cost of Capital\n\nWe began the last class with three simplifying assumptions:\n\nThe project has average risk: in essence, the market risk of the project is equivalent to the average market risk of the firm’s investments. In that case, the project’s cost of capital can be assessed based on the risk of the firm\nThe firm’s debt-equity ratio is constant: we consider a firm that adjusts its leverage to maintain a constant debt-equity ratio in terms of market values\nCorporate taxes are the only imperfection: we assume that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, are abstracted away\n\nQuestion: what if we now relax Assumptions 1 and 2?"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#projects-based-cost-of-capital-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#projects-based-cost-of-capital-1",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Project’s Based Cost of Capital",
-    "text": "Project’s Based Cost of Capital\n\nRelaxing hypothesis about the project’s risk and leverage does have a lot of practical relevance:\n\nSpecific projects often differ from the average investment made by the firm \\(\\rightarrow\\) different risks\nFurthermore, acquisitions of real estate or capital equipment are often highly levered, whereas investments in intellectual property are not. Thus, depending on the specific investment being made, the leverage policy used may differ substantially from the firm’s average leverage policy\n\nTo take differences in the project relative to the average firm’s risk and leverage, we proceed by:\n\nEstimating \\(r_U\\), the unlevered cost of capital, based on a sample of comparable projects;\n(Re)lever the result based on the specific leverage policy adopted"
+    "text": "Project’s Based Cost of Capital\n\nRelaxing hypothesis about the project’s risk and leverage does have a lot of practical relevance:\n\nSpecific projects often differ from the average investment made by the firm. Therefore, a given project may well be much riskier than the average firm\nFurthermore, acquisitions of real estate or capital equipment are often highly levered, whereas investments in intellectual property are not. Thus, depending on the specific investment being made, the leverage policy used may differ substantially from the firm’s average leverage policy\n\nTo take into account the differences in the project relative to the average firm’s risk and leverage, we will proceed by:\n\nEstimating \\(r_U\\), the unlevered cost of capital, based on a sample of comparable projects;\n(Re)lever the result based on the specific leverage policy adopted"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-unlevered-cost-of-capital",
+    "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-unlevered-cost-of-capital",
+    "title": "Capital Budgeting and Valuation with Leverage",
+    "section": "The (un)levered cost of capital",
+    "text": "The (un)levered cost of capital\n\nHow can we estimate the cost of capital for a project based on a sample of comparable firms? If the comparable firms are 100% equity, their cost of equity, (\\(\\small r_E\\)) can be used to assess our project’s \\(\\small r_E\\) - all in all, the firm’s underlying business risk is fully reflect in the cost of equity\nThe situation is a bit more complicated if the comparable firms have debt. In this case, the cash flows generated by the firm’s assets are used to pay both debt and equity holders\nConsequently, the returns of the firm’s equity (which are being measured using the \\(\\beta\\) from its equity returns) alone are not representative of the underlying assets risk!\n\nIn fact, because of the firm’s leverage, the equity will often be much riskier\nThus, the cost of equity of a sample of levered firm will not be a good estimate of the cost of equity our project!\n\n\n\n\\(\\rightarrow\\) Whenever we are evaluating a project’s cost of capital based on a sample of firm comparables that have debt, we cannot directly use the cost of equity!"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-unlevered-cost-of-capital-1",
+    "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-unlevered-cost-of-capital-1",
+    "title": "Capital Budgeting and Valuation with Leverage",
+    "section": "The (un)levered cost of capital",
+    "text": "The (un)levered cost of capital\n\n\n\n\n\n\nRecall that a firm’s asset cost of capital or unlevered cost of capital (\\(\\small r_U\\)) is the expected return required by the firm’s investors to hold the firm’s underlying assets, and is a weighted average of the firm’s equity and debt costs of capital:\n\n\n\\[\\small r_U = \\frac{E}{E+D}\\times r_E + \\frac{D}{E+D} \\times r_D\\]"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-unlevered-cost-of-capital-continued",
+    "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#the-unlevered-cost-of-capital-continued",
+    "title": "Capital Budgeting and Valuation with Leverage",
+    "section": "The (un)levered cost of capital, continued",
+    "text": "The (un)levered cost of capital, continued\n\nWhy we should unlever the return on equity1? Note that whenever we measure the cost of equity, we are measuring the expected returns based on the equity risk, which has some implications if a given firm has debt:\n\nBecause debt payments are given, equityholders are referred to as residual claimants - they’ll receive their compensation only after the debtholders receive their payments\nAs such, if a given firm has debt in its financing structure, this makes the equity to be riskier - all in all, an equityholder may not receive anything after paying out debtholders!\n\nBut if you are evaluating a project based on a comparable firm that has debt, you want to consider only the risk of the underlying business, but not the risk due to financial leverage!\nAs a consequence, unlevering the required return makes the comparison to be relative to the investments of a company, regardless of the financing structure!\n\nA similar rationale can be applied to the equity \\(\\small \\beta\\) - See (Berk and DeMarzo 2023) and the Appendix for a detailed discussion."
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-1-projects-based-cost-of-capital",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-1-projects-based-cost-of-capital",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Step 1: Project’s Based Cost of Capital",
-    "text": "Step 1: Project’s Based Cost of Capital\n\nThe first step involves estimating \\(r_U\\) not based on the firm’s unlevered cost of capital, but rather a set of comparable projects that share similar risks. Suppose that our project relates to a new plastics manufacturing division that faces different market risks than the firm’s main packaging business.\nWe can estimate \\(r_U\\) for the plastics division by looking at other single-division plastics firms that have similar business risks. For example, suppose two firms are comparable to the plastics division and have the following characteristics:\n\n\n\n\n\n\n\n\n\n\n\nFirm\nEquity Cost of Capital\nDebt Cost of Capital\nD/(D+E)\n\n\n\n\n1\n12%\n6%\n40%\n\n\n2\n10.7%\n5.5%\n25%"
+    "text": "Step 1: Project’s Based Cost of Capital\n\nThe first step involves estimating \\(r_U\\) not based on the firm’s unlevered cost of capital, but rather a set of comparable projects that share similar risks. Suppose that our project relates to a new plastics manufacturing division that faces different market risks than the firm’s main packaging business:\n\n\n\n\n\n\n\n\n\n\n\nFirm\nEquity Cost of Capital\nDebt Cost of Capital\nD/(D+E)\n\n\n\n\n1\n12%\n6%\n40%\n\n\n2\n10.7%\n5.5%\n25%\n\n\n\n\nWe can estimate \\(r_U\\) for the plastics division by looking at other single-division plastics firms that have similar business risks. For example, suppose two firms are comparable to the plastics division and have the following characteristics:"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-1-projects-based-cost-of-capital-1",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-1-projects-based-cost-of-capital-1",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Step 1: Project’s Based Cost of Capital",
-    "text": "Step 1: Project’s Based Cost of Capital\n\n\n\n\n\n\n\n\n\n\nFirm\nEquity Cost of Capital\nDebt Cost of Capital\nD/(D+E)\n\n\n\n\n1\n12%\n6%\n40%\n\n\n2\n10.7%\n5.5%\n25%\n\n\n\n\nBased on this, we calculate each firm’s \\(r_U\\) and get the average:\n\\(\\small r_U^1= 0.6 \\times 12\\% + 0.4 \\times 6\\% = 9.6\\%\\)\n\\(\\small r_U^2= 0.75 \\times 10.7\\% + 0.25 \\times 5.5\\% = 9.4\\%\\)\nIn this way, a reasonable estimate for \\(r_U\\) of our project is around \\(\\small 9.5\\%\\). If we wanted to use the APV approach to calculate the value of the project, we could use this estimate.\nIf we wanted to use the WACC or FTE methods, however, we need to estimate \\(r_E\\), which will depend on the incremental debt the firm will take on as a result of the project"
+    "text": "Step 1: Project’s Based Cost of Capital\n\n\n\n\n\n\n\n\n\n\nFirm\nEquity Cost of Capital\nDebt Cost of Capital\nD/(D+E)\n\n\n\n\n1\n12%\n6%\n40%\n\n\n2\n10.7%\n5.5%\n25%\n\n\n\n\nBased on this, we calculate each firm’s \\(r_U\\) and get the average:\n\\(\\small r_U^1= 0.6 \\times 12\\% + 0.4 \\times 6\\% = 9.6\\%\\)\n\\(\\small r_U^2= 0.75 \\times 10.7\\% + 0.25 \\times 5.5\\% = 9.4\\%\\)\nIn this way, a reasonable estimate for \\(r_U\\) of our project is around \\(\\small 9.5\\%\\). If we wanted to use the APV approach to calculate the value of the project, we could use this estimate\nIf we wanted to use the WACC or FTE methods, however, we still need to estimate \\(r_E\\), which will depend on the incremental debt the firm will take on as a result of the project"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital",
@@ -1957,49 +1999,56 @@
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital-1",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Step 2: Project’s Based Cost of Capital",
-    "text": "Step 2: Project’s Based Cost of Capital\n\nOur last equation shows us that:\n\n\n\\[\n\\small r_E = r_U+ \\dfrac{D}{E}( r_U -  r_D)\n\\]\n\nIn words, the project’s cost of capital depends on:\n\nThe unlevered cost of capital, \\(r_U\\)\nThe specific debt-to-equity ratio that the project will use\n\nSuppose that the firm will use a debt-to-equity ratio of 1, and the cost of debt remains at 6%. Then, we can calculate \\(r_E\\) as:\n\n\n\n\\[\n\\small r_E = 9.5\\% + \\dfrac{0.5}{0.5}(9.5\\% - 6\\%) = 13\\%\n\\]"
+    "text": "Step 2: Project’s Based Cost of Capital\n\nOur last equation shows us that:\n\n\n\\[\n\\small r_E = r_U+ \\dfrac{D}{E}( r_U -  r_D)\n\\]\n\nIn words, the project’s cost of capital depends on:\n\nThe unlevered cost of capital, \\(r_U\\)\nThe specific debt-to-equity ratio that the project will use\n\nSuppose that the firm will use a debt-to-equity ratio of 1, and the cost of debt remains at \\(\\small6\\%\\). Then, we can calculate \\(\\small r_E\\) as:\n\n\n\n\\[\n\\small r_E = 9.5\\% + \\dfrac{0.5}{0.5}(9.5\\% - 6\\%) = 13\\%\n\\]"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital-2",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#step-2-projects-based-cost-of-capital-2",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Step 2: Project’s Based Cost of Capital",
-    "text": "Step 2: Project’s Based Cost of Capital\n\nWe can use this estimate of \\(r_E\\) to estimate the project’s WACC, assuming that the tax-rate if 25%:\n\n\n\\[\n\\small r_{\\text{WACC}}=50\\% \\times 13\\% + 50\\% \\times 6\\% \\times(1-25\\%)= 8.75\\%\n\\]\n\nBased on these estimates, Avco should use a WACC of 8.75% for the plastics division, compared to the WACC of 7.25% that has been previously estimated based on the firm’s overall\nIntuition: because the project had a higher unlevered risk (9.5% vs. 8%), after applying the adopted leverage policy, will also have a higher cost of capital. Using the previous formulas, you could also reach the project’s WACC without estimating \\(r_E\\):\n\n\n\n\\[\n\\small r_\\text{WACC} = r_U-D\\times\\tau\\times r_D= 9.5\\% - 50\\%\\times 25\\% \\times 0.06= 8.75\\%\n\\]"
+    "text": "Step 2: Project’s Based Cost of Capital\n\nWe can finally plug the estimate of \\(\\small r_E\\) to estimate the project’s WACC, assuming that the tax-rate if 25%:\n\n\n\\[\n\\small r_{\\text{WACC}}=50\\% \\times 13\\% + 50\\% \\times 6\\% \\times(1-25\\%)= 8.75\\%\n\\]\n\nBased on these estimates, Avco should use a WACC of \\(\\small8.75\\%\\) for the plastics division, compared to the WACC of \\(\\small7.25\\%\\) that has been previously estimated based on the firm’s overall\nIntuition: because the project had a higher unlevered risk (\\(\\small9.5\\%\\) versus \\(\\small8\\%\\)), after applying the adopted leverage policy, will also have a higher cost of capital"
   },
   {
-    "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-determining-the-incremental-leverage-of-a-project",
-    "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-determining-the-incremental-leverage-of-a-project",
+    "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-i-determining-the-incremental-leverage-of-a-project",
+    "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-i-determining-the-incremental-leverage-of-a-project",
     "title": "Capital Budgeting and Valuation with Leverage",
-    "section": "Common misconception: determining the Incremental Leverage of a project",
-    "text": "Common misconception: determining the Incremental Leverage of a project\n\nTo determine the equity or weighted average cost of capital for a project, we need to know the amount of debt to associate with the project\nHow to determine the correct \\(\\small D/(D+E)\\) ratio to use in our estimations?\n\n\nSuppose a project involves buying a new warehouse, and the purchase of the warehouse is financed with a mortgage for 90% of its value.\nHowever, if the firm has an overall policy to maintain a 40% debt-to-value ratio, it will reduce debt elsewhere in the firm once the warehouse is purchased in an effort to maintain that ratio.\n\n\n\\(\\rightarrow\\) In that case, the appropriate debt-to-value ratio to use when evaluating the warehouse project is 40%, not 90%! For capital budgeting purposes, the project’s financing is the change in the firm’s total debt (net of cash) with the project versus without the project!"
+    "section": "Common Misconception I: determining the incremental leverage of a project",
+    "text": "Common Misconception I: determining the incremental leverage of a project\n\nTo determine the equity or weighted average cost of capital for a project, we need to know the amount of debt to associate with the project\nHow to determine the correct \\(\\small D/(D+E)\\) ratio to use in our estimations?\n\n\nSuppose a project involves buying a new warehouse, and the purchase of the warehouse is financed with a mortgage for \\(\\small90\\%\\) of its value\nHowever, if the firm has an overall policy to maintain a \\(\\small40\\%\\) debt-to-value ratio, it will reduce debt elsewhere in the firm once the warehouse is purchased in an effort to maintain that ratio\n\n\n\\(\\rightarrow\\) In that case, the appropriate debt-to-value ratio to use when evaluating the warehouse project is \\(\\small40\\%\\), not \\(\\small90\\%\\)! For capital budgeting purposes, the project’s financing is the change in the firm’s total debt (net of cash) with the project versus without the project!"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-ii-relevering-the-wacc",
+    "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-ii-relevering-the-wacc",
+    "title": "Capital Budgeting and Valuation with Leverage",
+    "section": "Common Misconception II: (re)levering the WACC",
+    "text": "Common Misconception II: (re)levering the WACC\n\nSuppose that a firm has a debt-to-value ratio of \\(\\small25\\%\\), a debt cost of capital of \\(\\small5.33\\%\\), an equity cost of capital of \\(\\small12\\%\\), and a tax rate of \\(\\small25\\%\\). The current WACC is:\n\n\n\\[\n\\small r_{\\text{WACC}}=0.75 \\times 12\\% + 0.25\\times 5.33\\% \\times (1- 25\\%) = 10\\%\n\\]\n\nWhat happens to WACC if the firm increases its debt-to-value ratio to \\(\\small50\\%\\)? It is tempting to do:\n\n\n\n\\[\n\\small  r_{\\text{WACC}}=0.5 \\times 12\\% + 0.5\\times 5.33\\% \\times (1- 25\\%) = 8\\%\n\\]\n\nNote, however, that this is wrong, because we’re keeping \\(\\small r_E\\) and \\(\\small r_D\\) fixed! Since these are the cost of equity and debt, we should expect these to increase with leverage, as the risk of both shareholders and debt holders increase!"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-relevering-the-wacc",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-relevering-the-wacc",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Common misconception: (re)levering the WACC",
-    "text": "Common misconception: (re)levering the WACC\n\nSuppose that a firm has a debt-to-value ratio of 25%, a debt cost of capital of 5.33%, an equity cost of capital of 12%, and a tax rate of 25%. The current WACC is\n\n\n\\[\n\\small r_{\\text{WACC}}=0.75 \\times 12\\% + 0.25\\times 5.33\\% \\times (1- 25\\%) = 10\\%\n\\]\n\nWhat happens to WACC if the firm increases its debt-to-value ratio to 50%? It is tempting to do:\n\n\n\n\\[\n\\small  r_{\\text{WACC}}=0.5 \\times 12\\% + 0.5\\times 5.33\\% \\times (1- 25\\%) = 8\\%\n\\]\n\nNote, however, that this is wrong, because we’re keeping \\(r_E\\) and \\(r_D\\) fixed! Since these are the cost of equity and debt, we should expect these to increase with leverage, as the risk of both shareholders and debt holders increase!"
+    "text": "Common misconception: (re)levering the WACC\n\nWhen the firm increases leverage, the risk of its equity and debt will increase, increasing \\(\\small r_E\\) and \\(\\small r_D\\)! To compute the new WACC correctly, we must first determine the firm’s unlevered cost of capital:\n\n\n\\[\n\\small\nr_U = 0.75 \\times 12\\% + 0.25\\times 5.33\\% = 10.33\\%\n\\]\n\nIf \\(\\small r_D\\) has risen to \\(\\small 6.67\\%\\) with the change in leverage, then:\n\n\n\n\\[\n\\small\nr_E = 10.33\\% + \\dfrac{0.5}{0.5}\\times(10.33\\%-6.67\\%)=14\\%\n\\]\n\nFinally, the correct new WACC is:\n\n\n\n\\[\n\\small\nr_{\\text{WACC}}=0.5 \\times 14\\% + 0.5\\times 6.67\\% \\times (1- 25\\%) = 9.5\\%\n\\]"
   },
   {
-    "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-relevering-the-wacc-1",
-    "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#common-misconception-relevering-the-wacc-1",
+    "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#industry-betas-for-estimating-a-projects-cost-of-capital",
+    "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#industry-betas-for-estimating-a-projects-cost-of-capital",
     "title": "Capital Budgeting and Valuation with Leverage",
-    "section": "Common misconception: (re)levering the WACC",
-    "text": "Common misconception: (re)levering the WACC\n\nWhen the firm increases leverage, the risk of its equity and debt will increase, increasing \\(\\small r_E\\) and \\(\\small r_D\\)! To compute the new WACC correctly, we must first determine the firm’s unlevered cost of capital:\n\n\n\\[\n\\small\nr_U = 0.75 \\times 12\\% + 0.25\\times 5.33\\% = 10.33\\%\n\\]\n\nIf \\(r_D\\) has risen to \\(6.67\\%\\) with the change in leverage, then:\n\n\n\n\\[\n\\small\nr_E = 10.33\\% + \\dfrac{0.5}{0.5}\\times(10.33\\%-6.67\\%)=14\\%\n\\]\n\nFinally, the correct new WACC is:\n\n\n\n\\[\n\\small\nr_{\\text{WACC}}=0.5 \\times 14\\% + 0.5\\times 6.67\\% \\times (1- 25\\%) = 9.5\\%\n\\]"
+    "section": "Industry betas for estimating a project’s cost of capital",
+    "text": "Industry betas for estimating a project’s cost of capital\n\nUsing a single comparable firm is often not a good idea, as there might be a lot of noise in the estimation of the results\nHowever, it is possible to combine estimates of asset betas for multiple firms in the same industry to reduce our estimation error and improve the estimation accuracy:\n\n\nFor example, instead of using only one comparable firm to find the unlevered cost of capital, we may use the average (or median) of several firms that are thought of as comparable peers\nAs you imagine, unlevered betas within an industry are much more stable than the pure equity betas: large differences in the firms’ equity betas are mainly due to differences in leverage, whereas the firms’ asset betas are much more similar, suggesting that the underlying businesses in this industry have similar market risk\n\n\n\\(\\rightarrow\\) See Damodaran (here) industry betas for the U.S."
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#comparing-the-three-methods",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#comparing-the-three-methods",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Comparing the three methods",
-    "text": "Comparing the three methods\n\nWe saw how we could value a project’s cash flows using three methods:\n\nThe Weigthed Average Cost of Capital (WACC) method\nThe Adjusted Present Value (APV) method\nThe Flow-to-Equity (FTE) method\n\nStarting from the same assumptions, all methods yield the same results. However:\n\n\nWACC is the method that is the easiest to use when the firm will maintain a fixed debt-to-value ratio over the life of the investment\nFor alternative leverage policies, the APV method is usually the most straightforward approach.\nThe FTE method is typically used only in complicated settings for which the values of other securities in the firm’s capital structure or the interest tax shield are themselves difficult to determine"
+    "text": "Comparing the three methods\n\nWe saw how we could value a project’s cash flows using three methods:\n\nThe Weigthed Average Cost of Capital (WACC) method\nThe Adjusted Present Value (APV) method\nThe Flow-to-Equity (FTE) method\n\nStarting from the same assumptions, all methods yield the same results. However:\n\n\nWACC is the method that is the easiest to use when the firm will maintain a fixed debt-to-value ratio over the life of the investment\nFor alternative leverage policies, the APV method is usually the most straightforward approach\nThe FTE method is typically used only in complicated settings for which the values of other securities in the firm’s capital structure or the interest tax shield are themselves difficult to determine"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Other Effects of Financing",
-    "text": "Other Effects of Financing\n\nPreviously, we assumed that:\n\n\nCorporate taxes are the only imperfection: we assume that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, are abstracted away\n\nThe three methods that we saw determine the value of an investment incorporating the tax shields associated with leverage. What if we have more than one market imperfection?\n\n\nIssuing Costs\nSecurity Mispricing\nFinancial Distress and Bankruptcy Costs\n\n\nIn what follows, we’ll investigate how to adjust for these three potential imperfections"
+    "text": "Other Effects of Financing\n\nPreviously, we assumed that: Corporate taxes were the only imperfection. In words, we assumed that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, were abstracted away\nThe three methods that we saw determine the value of an investment incorporating the tax shields associated with leverage. What if we have more than one market imperfection?:\n\n\nIssuing Costs\nSecurity Mispricing\nFinancial Distress and Bankruptcy Costs\n\n\nIn order to for these three potential imperfections, we generally use the APV method, since it is the most flexible way of adjusting the estimates that stem from the use of leverage, although we can also adjust the other methods with some underlying assumptions"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing-issuing-costs",
@@ -2020,14 +2069,14 @@
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#other-effects-of-financing-financial-distress",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Other Effects of Financing: Financial Distress",
-    "text": "Other Effects of Financing: Financial Distress\n\nOne consequence of debt financing is the possibility of financial distress and agency costs:\n\nWhen the debt level—and, therefore, the probability of financial distress—is high, the expected free cash flow will be reduced by the expected costs associated with financial distress and agency problems\nFinancial distress costs therefore tend to increase the sensitivity of the firm’s value to market risk, further raising the cost of capital for highly levered firms\n\nHow to adjust for potential financial distress and agency costs?\n\n\nOne approach is to adjust our free cash flow estimates to account for the costs, and increased risk, resulting from financial distress\nAn alternative method is to first value the project ignoring these costs, and then add the present value of the incremental cash flows associated with financial distress and agency problems separately"
+    "text": "Other Effects of Financing: Financial Distress\n\nOne consequence of debt financing is the possibility of financial distress and agency costs:\n\nWhen the debt level - and, therefore, the probability of financial distress - is high, the expected free cash flow will be reduced by the expected costs associated with financial distress and agency problems\nFinancial distress costs therefore tend to increase the sensitivity of the firm’s value to market risk, further raising the cost of capital for highly levered firms\n\nHow to adjust for potential financial distress and agency costs?\n\n\nOne approach is to adjust our free cash flow estimates to account for the costs, and increased risk, resulting from financial distress\nAn alternative method is to first value the project ignoring these costs, and then add the present value of the incremental cash flows associated with financial distress and agency problems separately"
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#supplementary-reading",
     "href": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#supplementary-reading",
     "title": "Capital Budgeting and Valuation with Leverage",
     "section": "Supplementary Reading",
-    "text": "Supplementary Reading\n\nSee Note on Cash Flow Valuation Methods: Comparison of WACC, FTE, CCF and APV Approaches (910N31) for a detailed discussion on the valuation methods\n\n\n\\(\\rightarrow\\) All contents are available on eClass®."
+    "text": "Supplementary Reading\n\nSee Note on Cash Flow Valuation Methods: Comparison of WACC, FTE, CCF and APV Approaches (910N31) for a detailed discussion on the valuation methods\nSee (Berk and DeMarzo 2023), Chapters 14 to 17, to understand how to account our valuation for the most common market imperfections, such as taxes, financial distress costs, and asymmetric information\n\n\n\\(\\rightarrow\\) All contents are available on eClass®."
   },
   {
     "objectID": "fin-mgmt/Lecture 9 - Valuation with Leverage/index.html#references",
@@ -5836,5 +5885,271 @@
     "title": "Financial Strategy",
     "section": "About the course",
     "text": "About the course\nFamiliarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk \\(\\times\\) return.\nAt the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company’s value.\n\n\n\n\n\n\nFor students\n\n\n\nBelow you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.\nThese slides leverage Quarto, an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:\n\nHit F for full-screen mode\nIf you are interest in getting a .pdf version of the slides, hit E to switch to print mode and then Ctrl + P"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#outline",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#outline",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Outline",
+    "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\nTidy Finance (Scheuch, Voigt, and Weiss 2023)\nR for Data Science (Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023)\n\n\n\n\n\n\n\n\n\n\nCoding Replications\n\n\nFor coding replications, whenever applicable, please follow this page or hover on the specific slides with containing coding chunks.\n\nEnsure that you have your  session properly set-up according to the instructions outlined here\nYou can find a detailed discussion of the examples covered in this lecture in the companion book of this course, Practical Applications in Quantitative Finance"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#finance-and-the-real-economy",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#finance-and-the-real-economy",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Finance and the Real Economy",
+    "text": "Finance and the Real Economy\n\nIn broader terms, Finance (or Financial Economics) is a vibrant area of research and practice, a central part of all business activities, and at least implicitly relevant to our everyday life:\n\nInterest rate cuts affect expected yields, which in turn set new expectations that form current asset prices in financial markets…\nFinancial market dynamics influence the decision of firms to issue new debt/equity or increase/decrease investment…\nWhich can, in turn, lead to periods of boom/burst in employment…\nAnd affect future interest rate expectations!\n\n\n\n\n\n\n\n\n\nWhy does it matter?\n\n\nAll in all, financial decisions need not lie exclusively within the financial industry; rather, its effects also spillover to the real economy (manufacturing, services, etc). Therefore, regardless of you working within the financial industry or not, it is likely that you are at least implicitly impacted by these decisions in your everyday life!"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tools-of-the-trade-part-i-the-data",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tools-of-the-trade-part-i-the-data",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The Tools of the Trade, part I: the data",
+    "text": "The Tools of the Trade, part I: the data\n\nFor most topics that constitute the study of finance, there is a well-grounded, established use of statistical, economic, and mathematical concepts and models that set the ground for\n\nMacroeconomic analysts use time-series models to predict future interest rates\nFinancial practitioners study the potential effects in stock prices of issuing equity\nEconomists use econometric models to predict inflation dynamics and help hedge fund managers adjust their positions\n\nBack in the pre-internet era, the use of technology to support those activities was limited to a smaller set of players (e.g, hedge funds, banks, investment trusts). Nowadays, financial information is accessible to the broader public almost in real time:\n\nYahoo! Finance provides data on stocks, ETFs, and market indices\nEDGAR provides information on all periodic fillings provided by US-listed companies\nA wide range of social media platforms, such as X (formerly Twitter) and Reddit, have been recently use as a way to spread and collect financial information"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tools-of-the-trade-part-ii-the-technology",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tools-of-the-trade-part-ii-the-technology",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The Tools of the Trade, part II: the technology",
+    "text": "The Tools of the Trade, part II: the technology\n\nNot only the availability of financial data, but also the necessary technology to process it, were among the bottlenecks for the adoption of such methods in financial practice\nNowadays, the widespread adoption of open-source technologies, such as  and , helped bridging the gap towards a more inclusive environment for these methods\nDespite such advances, one quickly learns that the actual implementation of models to solve problems in the area of financial economics is typically rather opaque:\n\nThere is lack of public, centralized code readily available for use\nAnalysts employ a substantial amount of wasteful efforts trying to replicate results"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-r",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-r",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Why R?",
+    "text": "Why R?\n\nWe will be using  throughout the course\nAlthough you should feel that this course is language-agnostic,  is among one of the best choices for the task:\n\nFree and open-source\nDiverse and active community working on a broad range of tools\nActively maintained packages for various purposes, e.g., data manipulation, visualization, modeling, etc)\nPowerful tools for communication, such as Quarto and Shiny\nSmooth integration with other programming languages, e.g., SQL, Python, C, C++, Fortran, etc\nRStudio is one of the best development environments for interactive data analysis"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-tidy",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-tidy",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Why Tidy?",
+    "text": "Why Tidy?\n\nIt is often said that more than 80 percent of data analysis is spent on preparing data rather than analyzing it\nAs you start working with data, you quickly realize that you indeed spend a lot of time reading, cleaning, and transforming your data just\n\n\n\n\n\n\n\n\nA note on Tidy Data\n\n\n“Tidy datasets are all alike, but every messy dataset is messy in its own way. Tidy datasets provide a standardized way to link the structure of a dataset (its physical layout) with its semantics (its meaning).”\n\n\n\n\nIn its essence, tidy data mainly follows three principles:\n\nEvery column is a variable\nEvery row is an observation\nEvery cell is a single value"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-tidy-continued",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#why-tidy-continued",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Why Tidy? Continued",
+    "text": "Why Tidy? Continued\n\nIn addition to the data layer, there are also tidy coding principles outlined in the tidy tools manifesto that we’ll try to follow:\n\nReuse existing data structures\nCompose simple functions with chaining methods\nEmbrace functional programming\nDesign for humans, improved readability\n\nLuckily, the  community has already took a stab at creating tools and organizing a unified approach towards tidy analysis\nAmongst a diverse set of option for tidy data manipulation, the tidyverse contains packages that follow a unified approach"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#introducing-the-tidyverse",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#introducing-the-tidyverse",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Introducing: the tidyverse",
+    "text": "Introducing: the tidyverse\n\n\n\n\nThe tidyverse is an opinionated collection of  packages designed for data science\nAll packages share an underlying design philosophy, grammar, and data structures\nIt is supported by Posit, the maintainer of RStudio and the R’s largest open-source contributor1\nYou can install the complete tidyverse using:\n\n\ninstall.packages(\"tidyverse\")\n\n\nTo load tidyverse in your session, simply run:\n\n\nlibrary(tidyverse)\n\n\n\n\n\n\n\n\n\nPosit recently hired Wes McKinney, the creator of pandas, highlighting its efforts to harmonize innovations among Python users."
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-dplyr",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-dplyr",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The tidyverse packages: dplyr",
+    "text": "The tidyverse packages: dplyr\n\n\ndplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges:\n\n\n\n\n\n\nmutate() adds new variables that are functions of existing variables\nselect() picks variables based on their names\nfilter() picks cases based on their values\nsummarise() reduces multiple values down to a single summary\narrange() changes the ordering of the rows\n\n\nKey Highlights\n\nThese all combine with group_by(), allowing users to perform operations groupwise\nLazy evaluation methods, as well as the pipe operator, %&gt;%, increases code readability and reproducibility"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-dplyr",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-dplyr",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Using dplyr",
+    "text": "Using dplyr"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-ggplot2",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-ggplot2",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The tidyverse packages: ggplot2",
+    "text": "The tidyverse packages: ggplot2\n\n\nThe core tidyverse includes the packages that you’re likely to use in everyday data analyses. As of its 1.3.0 version, the following packages are included in the core tidyverse:\n\n\n\n\n\n\nggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics\nYou provide the data, tell how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details\n\n\nKey Highlights\n\nIt is, by and large, the richest and most widely used plotting ecosystem in the  language\nggplot2 has a rich ecosystem of extensions - ranging from annotations and interactive visualizations to specialized genomics - click here a community maintained list"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-ggplot2",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-ggplot2",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Using ggplot2",
+    "text": "Using ggplot2"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-tidyr",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-tidyr",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The tidyverse packages: tidyr",
+    "text": "The tidyverse packages: tidyr\n\n\nThe goal of tidyr is to help you create tidy data. Tidy data is data where:\n\n\n\n\n\n\nEach variable is a column; each column is a variable\nEach observation is a row; each row is an observation\nEach value is a cell; each cell is a single value\n\n\nKey Highlights\n\nTidy data describes a standard way of storing data that is used wherever possible throughout the tidyverse\nIt makes it easier to put reshape data in a way that it can be used as an input to other tidyverse packages"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-tidyr",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-tidyr",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Using tidyr",
+    "text": "Using tidyr"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-purrr",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-purrr",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The tidyverse packages: purrr",
+    "text": "The tidyverse packages: purrr\n\n\nThe goal of purrr is to enhances R’s functional programming toolkit by providing a complete and consistent set of tools for working with functions and vectors\n\n\n\n\n\n\nFunctional programming allows you to replace many for loops with code that is both more succinct and easier to read\nYou provide a function and a list of elements to map to, and purrr takes care of the nitty-gritty details\n\n\nKey Highlights\n\nIt seamlessly integrates with all tidyverse packages and functions, allowing users to apply functional programming in the most straightforward way possible\nSimplifies the code pipeline to solve fairly realistic problems - e.g, estimating the CAPM for 100+ industries where we have a different number of observations per industry"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-purrr",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-purrr",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Using purrr",
+    "text": "Using purrr"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-readr",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-readr",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The tidyverse packages: readr",
+    "text": "The tidyverse packages: readr"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-readr",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#using-readr",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Using readr",
+    "text": "Using readr\n\n\n# A tibble: 5 × 4\n  chicken                 sex     eggs_laid motto                               \n  &lt;chr&gt;                   &lt;fct&gt;       &lt;int&gt; &lt;chr&gt;                               \n1 Foghorn Leghorn         rooster         0 That's a joke, ah say, that's a jok…\n2 Chicken Little          hen             3 The sky is falling!                 \n3 Ginger                  hen            12 Listen. We'll either die free chick…\n4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                \n5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold. \n\n\n\n\nThe goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (.csv) and tab-separated values (.tsv)\n\n\n\n\n\n\nIt is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results\nHandles column-type guessing, allowing users to specify how it should parse information, providing informative problem reports when parsing leads to unexpected results\n\n\nKey Highlights\n\nIs generally much faster than base R functions (up to 10x-100x), depending on the dataset\nAll functions work exactly the same way regardless of the current locale (e.g., thousands and decimal separators)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-tibble",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-tibble",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The tidyverse packages: tibble",
+    "text": "The tidyverse packages: tibble\n\n\nThe tibble package provides a modern reimagining of a data.frame, keeping what time has proven to be effective, and throwing out what is not\n\n\n\n\n\n\nTibbles are a modern take on data frames. They keep the features that have stood the test of time, and drop the features that used to be convenient but are now frustrating\nIt is a nice way to create data frames. It encapsulates best practices for data frames and handles various data formats in an easier way\n\n\nKey Highlights\n\nTibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.\nIt can store various data formats in a data-frame-like format (e.g, store a whole list as a column)\n\n\n\n\nThe goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (.csv) and tab-separated values (.tsv)\n\n\n\n\n\n\nIt is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results\nHandles column-type guessing, allowing users to specify how it should parse information, providing informative problem reports when parsing leads to unexpected results\n\n\nKey Highlights\n\nIs generally much faster than base R functions (up to 10x-100x), depending on the dataset\nAll functions work exactly the same way regardless of the current locale (e.g., thousands and decimal separators)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-stringr",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-stringr",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The tidyverse packages: stringr",
+    "text": "The tidyverse packages: stringr\n\n\nThe stringr package provides a cohesive set of functions designed to make working with strings (e.g, qualitative data, such as stock tickers, names, etc) as easy as possible:\n\n\n\n\n\n\nstr_detect() tells you if there’s any match to the pattern, whereas str_locate() gives the position of the match\nstr_count() counts the number of patterns, whereas str_subset() extracts the matching components\nstr_extract() extracts the text of the match, whereas str_match() extracts parts of the match defined by parentheses\nstr_replace() replaces the matches with new text, whereas str_split() splits up a string into multiple pieces\n\n\nKey Highlights\n\nMost string functions work with regular expressions, allowing for a variety of patterns"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-forcats",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#the-tidyverse-packages-forcats",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "The tidyverse packages: forcats",
+    "text": "The tidyverse packages: forcats\n\n\nThe goal of the forcats package is to provide a suite of tools that solve common problems with factors, variables that have a fixed and known set of possible values (e.g, a vector that contains all possible days in a week)\n\n\n\n\n\n\nfct_reorder() reorders a factor by another variable\nfct_infreq() reorders a factor by the frequency of values\nfct_relevel() changes the order of a factor by hand\nfct_lump() collapses the least/most frequent values of a factor into a consolidated group\n\n\nKey Highlights\n\nWorking with factors makes it easier to display, visualize, and communicate data\nExplicitly defining a variable as a factor handles several issues regarding inserting new data"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#setting-up-your-environment",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#setting-up-your-environment",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Setting up your environment",
+    "text": "Setting up your environment"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#wrapping-up",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#wrapping-up",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "Wrapping-up",
+    "text": "Wrapping-up"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#references",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Data Science and Analytics/index.html#references",
+    "title": "Bridging Finance with Data Science and Analytics",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScheuch, Christoph, Stefan Voigt, and Patrick Weiss. 2023. Tidy Finance with R. Chapman & Hall/CRC. https://www.tidy-finance.org/r/.\n\n\nWickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. O’Reilly Media. https://r4ds.had.co.nz/."
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#welcome-to-the-course",
+    "href": "quant-fin/Introduction/index.html#welcome-to-the-course",
+    "title": "Introduction and Course Overview",
+    "section": "Welcome to the Course",
+    "text": "Welcome to the Course\n\n\nOverview and Course Organization\nGrading and Evaluations\nNavigating through the syllabus\nHow you can get the best of this course\nOverall Q&A"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#overview",
+    "href": "quant-fin/Introduction/index.html#overview",
+    "title": "Introduction and Course Overview",
+    "section": "Overview",
+    "text": "Overview\n\nWith the recent advances in technical resources and the vast availability of financial information, finance practitioners are required to generate reproducible and scalable analysis in a timely fashion to guide decision-making:\n\nHow can I continuously optimize the risk-return trade-off of my portfolio over time?\nWhat is the sensitivity of my investment decisions to changes in growth rates, discount rates, and expected margins?\nHow can I assess the ability of a given trading strategy to outperform the market over time?\n\n\n\n\\(\\rightarrow\\) To that point, departing from the general tools, such as Excel, to more advanced tools, such as  and , is an imperative change!\n\nThe goal of this course: translate theoretical concepts learned on the core finance courses to practical applications that can guide decision making in real-world financial markets"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#course-structure",
+    "href": "quant-fin/Introduction/index.html#course-structure",
+    "title": "Introduction and Course Overview",
+    "section": "Course Structure",
+    "text": "Course Structure\n\nThis is a hands-on, practical course on Quantitative Finance with applications using  and , two of the most widely used open-source software for data analysis. It will be structured in topics that are of interest to Finance practitioners, aiming to include, but not limited to:\n\nCollecting and organizing financial data\nEquity valuation\nSensitivity analysis and simulation\nPortfolio optimization\nBacktesting\nEvent Analysis\n\nStudents are also expected to interact with leading industry practitioners focused on financial applications using open-source languages, aiming to discover more about the possibilities of applying the skills learned in this course in the financial industry"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#bibliography",
+    "href": "quant-fin/Introduction/index.html#bibliography",
+    "title": "Introduction and Course Overview",
+    "section": "Bibliography",
+    "text": "Bibliography\n\n\nMandatory reading: we will mostly follow Tidy Finance (Scheuch, Voigt, and Weiss 2023), as our text-book. Other relevant reading materials include:\n\nR for Data Science (Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023)\nQuantitative Trading with R (Georgakopoulos 2015)\nMastering Shiny (Wickham 2021)\n\nSupplementary Reading:\n\nCorporate Finance (Berk and DeMarzo 2023) - a companion for finance-related topics\nOther optional contents, such as Harvard Business School (HBS) Cases\n\n\n\n\n\n\n\n\n\nImportant\n\n\nMost of the references listed in this bibliography have an open-source version that is hosted online, where you can copy-paste code chunks directly into your  session. All contents will restricted access will be provided upfront."
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#grading-and-evaluations",
+    "href": "quant-fin/Introduction/index.html#grading-and-evaluations",
+    "title": "Introduction and Course Overview",
+    "section": "Grading and Evaluations",
+    "text": "Grading and Evaluations\n\nGrading will be composed of the following activities:\n\nHandout Data Cases (40%)\nCapstone Project (40%)\nProject Showcase (15%)\nIn-class Participation (5%)\n\n\n\n\nYou can find the details of any of these activities in the official syllabus (available on eClass®)\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br\n\n\n\n\n\n\n\n\n\nOffice-hours\n\n\nI also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I’ll be more than happy to help you with anything you need from this course. Use the Office-hour Appointments link at the bottom of this slide to schedule an appointment (or click here)."
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#getting-the-best-of-this-course",
+    "href": "quant-fin/Introduction/index.html#getting-the-best-of-this-course",
+    "title": "Introduction and Course Overview",
+    "section": "Getting the best of this course",
+    "text": "Getting the best of this course"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#getting-the-best-of-this-course-1",
+    "href": "quant-fin/Introduction/index.html#getting-the-best-of-this-course-1",
+    "title": "Introduction and Course Overview",
+    "section": "Getting the best of this course",
+    "text": "Getting the best of this course\n\nHow you can get the best of this course\n\nFollow FGV-EAESP code of conduct\nBe organized: pay attention to pre-readings and deliverables\nBe proactive: ask questions and participate in discussions\nTake the lead on your learning: you are the ultimate responsible for your success!\n\n\n\nHow the professor can facilitate you getting the best of this course\n\nAll mandatory content and classes will be conducted in English\nProvide a safe and open space for questions, both in-person and remote\nMotivate students, both from the academic and practitioner standpoints\nProvide opportunities to extend knowledge beyond the mandatory readings"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#getting-the-best-of-this-course-continued",
+    "href": "quant-fin/Introduction/index.html#getting-the-best-of-this-course-continued",
+    "title": "Introduction and Course Overview",
+    "section": "Getting the best of this course, continued",
+    "text": "Getting the best of this course, continued\n\nTech setup: in the official page of your course, you will find instructions on how to properly set up your computer in terms of downloading all necessary softwares, packages, and customizing your  session1\nCode Replication: right after we are done with a given topic, try to replicate the in-class handouts on your end and check if you are able to yield the same outputs\nShowcase: programming, data science, analytics, machine learning, and so on…these terms are on the hype of today’s job market - although few people really know how to make meaningful impact with it. Use this course as an opportunity to differentiate and showcase the skills you’ve learned and stand out to potential employers2\n\nWhile we will be using FGV-EAESP’s facilities, where you will have immediate access to all the necessary configurations, ensure to setup your personal computer so as to ensure that you can replicate the contents from the lectures.See Artificial Intelligence is losing hype (The Economist)"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#on-the-usage-of-gen-ai",
+    "href": "quant-fin/Introduction/index.html#on-the-usage-of-gen-ai",
+    "title": "Introduction and Course Overview",
+    "section": "On the usage of gen-AI",
+    "text": "On the usage of gen-AI\n\n\n\n\n\n\nOn the usage of ChatGPT and other gen-AI tools\n\n\nGenerative Artificial Intelligent (gen-AI) adoption is quickly spreading through corporate life and universities. At this point, it is worth the question…am I allowed to use gen-AI tools in this course?\n\n\n\n\nThe answer is yes! Not only you are allowed, but also encouraged to do so:\n\nUse gen-AI tools to proof-read your work, get insights, and troubleshoot errors\nLearn to be skeptical around the solutions you have been provided with\nEvaluations will be based on how you can interpret, understand, and showcase your solution to the broader audience!\n\n\n\n\\(\\rightarrow\\) See AI-powered coding pulls in almost $1bn of funding to claim ‘killer app’ status (Financial Times)"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#how-to-use-these-slides",
+    "href": "quant-fin/Introduction/index.html#how-to-use-these-slides",
+    "title": "Introduction and Course Overview",
+    "section": "How to use these slides",
+    "text": "How to use these slides\n\nThese slides leverage Quarto, an open-source scientific and technical publishing system from Posit (formerly RStudio):\n\nCreate dynamic content with , , , among other programming languages\nPublish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, Word, ePub, and more\nWrite beatufil, clean technical documents using markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more\n\nFor our course, we’ll use the following notation:\n\n\nLinks will be colored in blue\nInline equations and variables will be rendered in gray\nCode chunks will be provided along with outputs (R)"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#an-example-of-a-code-chunk",
+    "href": "quant-fin/Introduction/index.html#an-example-of-a-code-chunk",
+    "title": "Introduction and Course Overview",
+    "section": "An example of a code chunk",
+    "text": "An example of a code chunk\n\nResultR\n\n\n\n\n\n\n\n\nNote\n\n\nIn the R panel, hit Show the Code to display the code inside the tabset. Hit the  button at the top-right to copy it to your session.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nlibrary(ggplot2)\ndat &lt;- data.frame(cond = rep(c(\"A\", \"B\"), each=10),\n                  xvar = 1:20 + rnorm(20,sd=3),\n                  yvar = 1:20 + rnorm(20,sd=3))\n\nggplot(dat, aes(x=xvar, y=yvar)) +\n  geom_point(shape=1) + \n  geom_smooth()"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#interactive-learning",
+    "href": "quant-fin/Introduction/index.html#interactive-learning",
+    "title": "Introduction and Course Overview",
+    "section": "Interactive Learning",
+    "text": "Interactive Learning\n\n\n\nListing 1: We will extensively leverage interactive learning whenever possible. In selected sections, called Listings, you will be prompted with an interactive R console that you can use to run existing and new code to a “virtual” session. Try changing the ticker to NVDA and check if anything has changed."
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#interactive-learning-continued",
+    "href": "quant-fin/Introduction/index.html#interactive-learning-continued",
+    "title": "Introduction and Course Overview",
+    "section": "Interactive Learning, continued",
+    "text": "Interactive Learning, continued\n\nExerciseHintsSolution\n\n\n\n\n\nListing 2: You can use the Hints and Solution buttons to interact with the prompt. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution. For example, complete the code to read Microsoft price (MSFT.csv) data and select the latest 10 OHLC (Open, High, Low, Close) information. The dataset is arranged in descendant format (latest price information is at the bottom of the table).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou can access the names of the columns using names(Data) to find the column that refers to closing prices:\nnames(Data)\nYou can also select specific columns by using the select() function:\nselect(Data,c(column1,column2,...,column_n))`\n\n\n\n\nFirst, use the names() function to retrieve the names of the columns available in the dataset.\nAfter that, use the tail() function to retrieve only the latest 10 observations.\n\n\n\n#Set the ticker\nData=read.csv(glue('Assets/MSFT.csv'))\nData=select(Data,c(Timestamp,Open,High,Low,Close))\nData=tail(Data,10)\nData\n\n#Set the ticker\nData=read.csv(glue('Assets/MSFT.csv'))\nData=select(Data,c(Timestamp,Open,High,Low,Close))\nData=tail(Data,10)\nData"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#references",
+    "href": "quant-fin/Introduction/index.html#references",
+    "title": "Introduction and Course Overview",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBerk, J., and P. DeMarzo. 2023. Corporate Finance, Global Edition. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ.\n\n\nGeorgakopoulos, Harry. 2015. Quantitative Trading with R. Palgrave Macmillan. https://link.springer.com/book/10.1057/9781137437471.\n\n\nScheuch, Christoph, Stefan Voigt, and Patrick Weiss. 2023. Tidy Finance with R. Chapman & Hall/CRC. https://www.tidy-finance.org/r/.\n\n\nWickham, Hadley. 2021. Mastering Shiny. O’Reilly Media. https://mastering-shiny.org/.\n\n\nWickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. O’Reilly Media. https://r4ds.had.co.nz/."
   }
 ]

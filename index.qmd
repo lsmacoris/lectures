@@ -5,6 +5,7 @@
    contents:
     - "fin-mgmt.qmd"
     - "fin-strat.qmd"
+    - "quant-fin.qmd"
    fields: [title,description,image]
 ---
 
