@@ -28,10 +28,9 @@ format:
         - tidyverse
         - xts
         - glue
-        - yaml
-    resources:
-      - Assets
-    render-df: gt-interactive
+      resources:
+        - Assets
+      render-df: gt-interactive
 
 editor: visual
 from: markdown+emoji
@@ -108,7 +107,7 @@ $\rightarrow$ *To that point, departing from the general tools, such as Excel, t
 ::: callout-important
 ### Important
 
-Most of the references listed in this bibliography have an open-source version that is hosted online, where you can copy-paste code chunks directly into your [{{<fa brands r-project>}}]{.blue} session. All contents will restricted access will be provided upfront.
+Most of the references listed in this bibliography have an open-source version that is hosted online, where you can copy-paste code chunks directly into your [{{<fa brands r-project>}}]{.blue} session. All contents with restricted access will be provided upfront.
 :::
 
 ## Grading and Evaluations
@@ -341,5 +340,22 @@ Data
 gradethis::grade_this_code()
 ```
 ::::::
+
+## Working your way through the course
+
+-   To get started, you'll need to:
+
+    1.  Install *R* using [this](https://cloud.r-project.org/) link
+    2.  Install *RStudio* using [this](https://posit.co/download/rstudio-desktop/) link
+
+-   If you're new to *R* or need a refresher on the basics, please refer to [Projects I]{.blue} and [II]{.blue} of the [*Hands-On Programming with R*](https://rstudio-education.github.io/hopr/project-1-weighted-dice.html) [@HandsOn]
+
+. . .
+
+::: callout-tip
+### Getting started
+
+In the official webpage of this course, I have outlined all necessary steps to get started using *R*, as well as some useful tips for those that want to get up to speed on the course's requirements - pleass follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) link and carefully read the instructions.
+:::
 
 ## References
