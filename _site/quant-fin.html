@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -234,15 +268,61 @@ window.Quarto = {
 <hr>
 <section id="about-the-course" class="level2">
 <h2 class="anchored" data-anchor-id="about-the-course"><strong>About the course</strong></h2>
-<p>Familiarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk <span class="math inline">\(\times\)</span> return.</p>
-<p>At the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company’s value.</p>
+<p>This is a hands-on, practical course on Quantitative Finance with applications using <code>R</code> and <code>Python</code>, two of the most widely used open-source software for data analysis. This course aims to attract undergraduate students that are aiming to translate theoretical concepts learned on the core finance courses at <em>FGV-EAESP</em> to practical applications that can guide decision making.</p>
+<p>The course will be structured in topics that are of interest to Finance practitioners, aiming to include, but not limited to: collecting and organizing financial data, equity valuation, sensitivity analysis and simulation, portfolio optimization, and backtesting. As a final evaluation, students are expected to deliver a capstone data application project showcasing at least one of the topics covered in the course. All applications will be hosted online to enable students to use the capstone project as a showcase of their acquired skills. The course will also host guest presentations from leading industry practitioners and software developers focused on financial applications using open-source languages, where students can interact, ask questions, and get to know more about the possibilities of applying programming, data science, and data analysis skills in the financial industry.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-For students
+1. Getting started
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I’ll make sure to update this list whenever needed throughout the sessions:</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Package names</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>,<span class="st">"tidyquant"</span>,<span class="st">"tidymodels"</span>,<span class="st">"xts"</span>,<span class="st">"glue"</span>,<span class="st">"scales"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages not yet installed</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>installed_packages <span class="ot">&lt;-</span> packages <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(installed_packages <span class="sc">==</span> <span class="cn">FALSE</span>)) {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(packages[<span class="sc">!</span>installed_packages])</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load all packages</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2. Using Quarto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this course, you’ll be assigned with three data cases, where you’ll need to manipulate code and write your insights altogether. You may have heard of <a href="https://jupyter.org/">Jupyter Notebooks</a> before as a way to do it. I want to encourage you to give <a href="https://quarto.org/">Quarto</a> a try.</p>
+<p>To install <span class="blue">Quarto</span>, follow <a href="https://quarto.org/docs/get-started/">this</a> link and choose your Operating System. <em>RStudio</em> will automatically locate it and make it as an option whenever creating a new file with <code>Ctrl+N</code>. Why you should give Quarto a try:</p>
+<ol type="1">
+<li>It has multi-language support (<em>Python</em>, <em>R</em>, <em>Julia</em>, <em>JavaScript</em>), equations and mathematical notations via <em>pandoc</em>, and seamless integration with GitHub</li>
+<li>Advanced document formatting and output options: you can choose <em>pdf</em>, <em>html</em>, <em>docx</em>, or even a <em>reveal.js</em> presentation (like the ones from this course!)</li>
+<li>It is easy, intuitive, and lets you focus on the most important aspect of your work: the analysis</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3. Contents
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -288,7 +368,23 @@ Reading Time
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1737503616570" data-listing-reading-time-sort="8" data-listing-word-count-sort="1592" data-listing-title-sort="Introduction and Course Overview" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1738016642693" data-listing-reading-time-sort="15" data-listing-word-count-sort="2867" data-listing-title-sort="Bridging Finance with Programming" data-listing-filename-sort="index.qmd">
+<td>
+<a href="./quant-fin/Lecture 1 - Bridging Finance with Programming/index.html" class="title listing-title">Bridging Finance with Programming</a>
+</td>
+<td>
+<span class="listing-reading-time">15 min</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-file-modified-sort="1738016682124" data-listing-reading-time-sort="7" data-listing-word-count-sort="1383" data-listing-title-sort="Data Sources and Softwares for Financial Data Analysis" data-listing-filename-sort="index.qmd">
+<td>
+<a href="./quant-fin/Lecture 2 - Financial Data Sources and Softwares for Data Science/index.html" class="title listing-title">Data Sources and Softwares for Financial Data Analysis</a>
+</td>
+<td>
+<span class="listing-reading-time">7 min</span>
+</td>
+</tr>
+<tr data-index="2" data-listing-file-modified-sort="1738016595044" data-listing-reading-time-sort="8" data-listing-word-count-sort="1594" data-listing-title-sort="Introduction and Course Overview" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./quant-fin/Introduction/index.html" class="title listing-title">Introduction and Course Overview</a>
 </td>

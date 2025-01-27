@@ -13,13 +13,50 @@ listing:
 
 ## **About the course**
 
-Familiarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk $\times$ return.
+This is a hands-on, practical course on Quantitative Finance with applications using `R` and `Python`, two of the most widely used open-source software for data analysis. This course aims to attract undergraduate students that are aiming to translate theoretical concepts learned on the core finance courses at *FGV-EAESP* to practical applications that can guide decision making.
 
-At the end of the semester, the student should be able to master the concepts of risk analysis and measurement applications of cost and capital structure, earnings policy and determination of the company's value.
+The course will be structured in topics that are of interest to Finance practitioners, aiming to include, but not limited to: collecting and organizing financial data, equity valuation, sensitivity analysis and simulation, portfolio optimization, and backtesting. As a final evaluation, students are expected to deliver a capstone data application project showcasing at least one of the topics covered in the course. All applications will be hosted online to enable students to use the capstone project as a showcase of their acquired skills. The course will also host guest presentations from leading industry practitioners and software developers focused on financial applications using open-source languages, where students can interact, ask questions, and get to know more about the possibilities of applying programming, data science, and data analysis skills in the financial industry.
 
 
 ::: {.callout-note}
-### For students
+### 1. Getting started
+
+To make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I'll make sure to update this list whenever needed throughout the sessions:
+
+:::
+
+```{r, eval=FALSE,echo=TRUE}
+# Package names
+packages <- c("tidyverse","tidyquant","tidymodels","xts","glue","scales")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load all packages
+lapply(packages, library, character.only = TRUE)
+
+```
+
+
+::: {.callout-note}
+### 2. Using Quarto
+
+In this course, you'll be assigned with three data cases, where you'll need to manipulate code and write your insights altogether. You may have heard of [Jupyter Notebooks](https://jupyter.org/) before as a way to do it. I want to encourage you to give [Quarto](https://quarto.org/) a try.
+
+To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) link and choose your Operating System. *RStudio* will automatically locate it and make it as an option whenever creating a new file with `Ctrl+N`. Why you should give Quarto a try:
+
+  1. It has multi-language support (*Python*, *R*, *Julia*, *JavaScript*), equations and mathematical notations via *pandoc*, and seamless integration with GitHub
+  2. Advanced document formatting and output options: you can choose *pdf*, *html*, *docx*, or even a *reveal.js* presentation (like the ones from this course!)
+  3. It is easy, intuitive, and lets you focus on the most important aspect of your work: the analysis
+
+:::
+
+::: {.callout-note}
+### 3. Contents
 
 Below you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
 
@@ -29,3 +66,4 @@ These slides leverage [Quarto](https://quarto.org/), an open-source scientific a
 2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`
 
 :::
+

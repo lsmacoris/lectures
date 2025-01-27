@@ -1,0 +1,316 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Data Sources and Softwares for Financial Data Analysis'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: true
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+
+library(downloadthis)
+library(tidyverse)
+library(tidyquant)
+library(wbids)
+library(ecb)
+```
+
+## Outline
+
+-   This lecture is mainly based on the following textbook: *Tidy Finance* [@tidyfinance]
+
+. . .
+
+:::: nonincremental
+::: callout-note
+### Coding Replications
+
+For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
+
+1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
+2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+:::
+::::
+
+## Accessing and Managing Financial Data
+
+-   Everybody who has experience working with data is also familiar with storing and reading data in formats like `.csv`, `.xls`, `.xlsx` or other delimited value storage
+
+-   However, if your goal is to replicate a common task at a predefined time interval, like charting weekly stock prices for a selected bundle of stocks every end-of-week, it might be overwhelming to manually perform these tasks every week
+
+-   In this lecture, we will be looking at the various sources of financial data - both *global* as well as specific to the *Brazilian* financial markets that can be directly fed into your `R` session:
+
+    1.  We will cover the most widely used free data resources for Finance, like *Yahoo! Finance*
+    2.  We will also discuss linkages to private information sources, such as *Bloomberg* and *Refinitiv*
+    3.  Finally, we will take a look at some output data examples from some data providers
+
+## The basics: stock-level information
+
+-   So... you have been prompted with the task of collecting daily stock price information for a subset of the *U.S Big Techs*. How should you do it?
+
+-   In a nutshell, [*Yahoo! Finance*](https://finance.yahoo.com/) is your go-to guy:
+
+    1.  It provides financial news, data and commentary including stock quotes, press releases, financial reports, and original content
+    2.  It has an extensive list of *Application Programming Interfaces (API)* that enables users to retrieve financial information using several coding languages
+
+. . .
+
+-   [Highlights]{.green}: free, quick and easy to setup, with an impressive range of data containing stock prices, dividends, and splits. There is an extensive list of `R` packages can be used to retrieve *Yahoo! Finance* information - including, but not limited to, `tidyquant`, `quantmod` and `yfR`
+
+-   [Drawbacks]{.red}: its API is no longer a fully official API: as a consequence, solutions tipically used to retrieve information may not work in the future if Yahoo Finance change its structure. Importantly, data is not in real-time - often, it comes with a 15-minute delay (see [here](https://help.yahoo.com/kb/SLN2310.html))
+
+## Using *Yahoo! Finance*, continued
+
+:::: nonincremental
+-   Below, you can find an example of how to use `tq_get()`, from the `tidyquant` package, to download both *single* and *multiple* stock price information
+
+-   Data is stored in a convenient way that allows users to manipulate data seamlessly - hit *Download Data* and see how the output would look like in *Excel* format
+
+```{r,eval=FALSE,echo=TRUE}
+#Load tidyquant
+library(tidyquant)
+
+#Using tidyquant to download single stock prices
+tq_get('AAPL',from='2020-01-01',to='2024-12-31')
+
+#Using tidyquant to download multiple stock prices
+tq_get(c('AAPL','GOOGL','NVDA'),from='2020-01-01',to='2024-12-31')
+
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+tq_get(c('AAPL','GOOGL','NVDA'),from='2020-01-01',to='2024-12-31')%>%
+  download_this(
+    output_name = "big_tech_daily_prices",
+    output_extension = ".xlsx",
+    button_label = "Download Data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+::: callout-important
+### Important
+
+[Yahoo! Finance](https://br.financas.yahoo.com/) provides [*Open*]{.blue}, [*High*]{.blue}, [*Low*]{.blue}, [*Close*]{.blue}, and [*Adjusted Close*]{.blue} trading prices for each asset that is being tracked, where *Adjusted Close* is defined by the closing price adjusted for dividends and stock splits. If you are using `R`, `Python`, or any API to pull this data, ensure to use the information adjusted by dividends and splits.
+:::
+::::
+
+## Macroeconomic data providers
+
+Apart from price-level information, there are plenty of available resources to efficiently download the most commonly used macroeconomic variables directly within an `R` session:
+
+1.  The *Federal Reserve Bank of St. Louis* has as extense set of U.S and international time series from more than 100 sources via its *API*, `FRED`, for free
+
+. . .
+
+$\rightarrow$ *Related packages:* `tidyquant`, `FredR`, `quantmod`, and `quandl`
+
+2.  The *World Bank's International Debt Statistics (IDS)* provides creditor-debtor relationships between countries, regions, and institutions
+
+. . .
+
+$\rightarrow$ *Related packages:* `wbids`
+
+3.  The *European Central Bank*’s Statistical Data Warehouse provides data on Euro area monetary policy, financial stability, and other relevant topics
+
+. . .
+
+$\rightarrow$ *Related packages:* `ecb`
+
+## Macroeconomic data providers, examples
+
+::: panel-tabset
+### FRED
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Load the tidyquant library
+library(tidyquant)
+
+#Go to FRED's website, search for a time series, and copy-paste its code
+series='CUSR0000SETB01'
+
+#Use the tq_get() function to retrieve the information
+tq_get(series,get='economic.data')
+
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+#Go to FRED's website, search for a time series, and copy-paste its code
+series='CUSR0000SETB01'
+
+  tq_get(series,get='economic.data')%>%
+    download_this(
+    output_name = "fred_gas_prices",
+    output_extension = ".xlsx",
+    button_label = "Download Data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+$\rightarrow$ For full details and implementation of the `R` package `tidyquant`, click [here](https://business-science.github.io/tidyquant/)
+
+### IBS
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Load the wbids package
+library(wbids)
+
+#Get information for Brasil, Russia, 
+ids_get(
+  geographies = c("BRA", "ARG"),
+  series = c("DT.MAT.DPPG"), #Average maturity on new external debt commitments (years)
+  counterparts = c("302"), #United States
+  start_date = 2000,
+  end_date = 2023
+)
+
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+#Load the wbids package
+library(wbids)
+
+#Get information for Brasil, Russia, 
+  ids_get(
+  geographies = c("BRA", "ARG"),
+  series = c("DT.MAT.DPPG"), #Average maturity on new external debt commitments (years)
+  counterparts = c("302"), #United States
+  start_date = 2000,
+  end_date = 2023)%>%
+  download_this(
+    output_name = "average_maturity_br_arg_us",
+    output_extension = ".xlsx",
+    button_label = "Download Data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+$\rightarrow$ For full details and implementation of the `R` package `wbids`, click [here](https://github.com/Teal-Insights/r-wbids)
+
+### ECB
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Load the ecb package
+library(ecb)
+
+#Get information of headline and core inflation for Eurozone countries
+key <- "ICP.M.DE+FR+ES+IT+NL+U2.N.000000+XEF000.4.ANR"
+
+#Get the latest 12 observations
+filter <- list(lastNObservations = 12, detail = "full")
+
+#Retrieve the data
+hicp <- get_data(key, filter)
+
+#Parse time component to proper format
+hicp$obstime <- convert_dates(hicp$obstime)
+
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+#Load the ecb package
+library(ecb)
+
+#Get information of headline and core inflation for Eurozone countries
+key <- "ICP.M.DE+FR+ES+IT+NL+U2.N.000000+XEF000.4.ANR"
+
+#Get the latest 12 observations
+filter <- list(lastNObservations = 12, detail = "full")
+
+#Retrieve the data
+hicp <- get_data(key, filter)
+
+#Parse time component to proper format
+hicp$obstime <- convert_dates(hicp$obstime)
+hicp%>%
+  download_this(
+    output_name = "core_vs_headline_inflation_eurozone",
+    output_extension = ".xlsx",
+    button_label = "Download Data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+$\rightarrow$ For full details and implementation of the `R` package `ecb`, click [here](https://github.com/expersso/ecb)
+:::
+
+## Financial data providers
+
+-   For some widely known paid data providers, there are interfaces that enable analysts to retrieve information directly within an `R` session through the provider's official *API*[^1]:
+
+[^1]: For paid data providers, you must provide your API key in order to successfully download data.
+
+1.  [Bloomberg](https://www.bloomberg.com/): the [`Rblpapi`](https://github.com/Rblp/Rblpapi) provides access to data and calculations from Bloomberg
+
+2.  [Refinitiv Eikon](https://www.lseg.com/en/data-analytics/financial-data): the [`DatastreamDSWS2R`](https://github.com/CharlesCara/DatastreamDSWS2R) provides a set of functions and a class to connect, extract and upload information from the *LSEG Datastream* database
+
+3.  [Quandl](https://data.nasdaq.com/publishers/QDL): publishes free/paid data, scraped from many different sources from the web. The [`Quandl`](https://github.com/quandl/quandl-r) package can be used to retrieve data
+
+4.  [Simfin](https://www.simfin.com/en/): fundamental financial data freely available to private investors, researchers, and students. The [`simfinapi`](https://github.com/matthiasgomolka/simfinapi) package can be used to retrieve data
+
+5.  [FMP](https://site.financialmodelingprep.com/): accurate financial data (balance-sheet, income statements, etc), with historical information dating back 30 years in history. The [`fmpapi`](https://jpiburn.github.io/fmpapi/) package can be used to retrieve data
+
+## Other data providers (and `R` packages)
+
+1.  *Banco Central do Brasil (BACEN)*: interface to the *Brazilian Central Bank web services* - see package [`rbcb`](https://github.com/wilsonfreitas/rbcb)
+2.  *Tesouro Direto (Brazilian Government Bonds)*: prices and yields of bonds issued by the Brazilian government - see package [`GetTDData`](https://github.com/msperlin/GetTDData)
+3.  *CoinMarketCap*: provides cryptocurrency information and historical prices - see package [`crypto2`](https://github.com/sstoeckl/crypto2)
+4.  *Alpha Vantage*: free and paid subscriptions for financial data (including *intraday*) - see package [`alphavantager`](https://github.com/business-science/alphavantager)
+
+. . .
+
+::: callout-important
+### Wrapping up on data providers
+
+While some data providers provide their official *API* for developers, other solutions rely on scraping historical data from the web. As such, some solutions can deprecated after some time if, for example, access is blocked. It is always important to check whether an `R` package is not deprecated by looking into the *Comprehensive R Archive Network (CRAN)* or its GitHub repository.
+:::
+
+## References
