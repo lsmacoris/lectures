@@ -45,11 +45,12 @@ This page was intentionally left blank
 
 ```{r}
 #| echo: false
+#| message: false
+#| warning: false
 
 source('../~ Metadata/packages.R')
 
 ```
-
 
 ```{r echo=FALSE}
 # Load all packages

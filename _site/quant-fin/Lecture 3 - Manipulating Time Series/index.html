@@ -8,14 +8,12 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
   <meta name="author" content="Lucas S. Macoris">
-  <title>Lucas S. Macoris – Introduction and Course Overview</title>
+  <title>Lucas S. Macoris – Manipulating time series Data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -420,15 +418,13 @@
       margin-right: 0; 
     }
   </style>
-  <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-  <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introduction and Course Overview</h1>
+  <h1 class="title">Manipulating time series Data</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -439,334 +435,41 @@ Lucas S. Macoris
 </div>
 
 </section>
-<section class="slide level2">
-
-<p>This page was intentionally left blank</p>
-<div class="cell" data-edit="false">
-<div>
-<div id="webr-1" class="exercise-cell">
-
-</div>
-<script type="webr-1-contents">
-eyJjb2RlIjoid2Vicjo6aW5zdGFsbChcImdyYWRldGhpc1wiLCBxdWlldCA9IFRSVUUpXG5saWJyYXJ5KGdyYWRldGhpcylcbm9wdGlvbnMod2Vici5leGVyY2lzZS5jaGVja2VyID0gZnVuY3Rpb24oXG4gIGxhYmVsLCB1c2VyX2NvZGUsIHNvbHV0aW9uX2NvZGUsIGNoZWNrX2NvZGUsIGVudmlyX3Jlc3VsdCwgZXZhbHVhdGVfcmVzdWx0LFxuICBlbnZpcl9wcmVwLCBsYXN0X3ZhbHVlLCBlbmdpbmUsIHN0YWdlLCAuLi5cbikge1xuICBpZiAoaXMubnVsbChjaGVja19jb2RlKSkge1xuICAgICMgTm8gZ3JhZGluZyBjb2RlLCBzbyBqdXN0IHNraXAgZ3JhZGluZ1xuICAgIGludmlzaWJsZShOVUxMKVxuICB9IGVsc2UgaWYgKGlzLm51bGwobGFiZWwpKSB7XG4gICAgbGlzdChcbiAgICAgIGNvcnJlY3QgPSBGQUxTRSxcbiAgICAgIHR5cGUgPSBcIndhcm5pbmdcIixcbiAgICAgIG1lc3NhZ2UgPSBcIkFsbCBleGVyY2lzZXMgbXVzdCBoYXZlIGEgbGFiZWwuXCJcbiAgICApXG4gIH0gZWxzZSBpZiAoaXMubnVsbChzb2x1dGlvbl9jb2RlKSkge1xuICAgIGxpc3QoXG4gICAgICBjb3JyZWN0ID0gRkFMU0UsXG4gICAgICB0eXBlID0gXCJ3YXJuaW5nXCIsXG4gICAgICBtZXNzYWdlID0gaHRtbHRvb2xzOjp0YWdzJGRpdihcbiAgICAgICAgaHRtbHRvb2xzOjp0YWdzJHAoXCJBIHByb2JsZW0gb2NjdXJyZWQgZ3JhZGluZyB0aGlzIGV4ZXJjaXNlLlwiKSxcbiAgICAgICAgaHRtbHRvb2xzOjp0YWdzJHAoXG4gICAgICAgICAgXCJObyBzb2x1dGlvbiBjb2RlIHdhcyBmb3VuZC4gTm90ZSB0aGF0IGdyYWRpbmcgZXhlcmNpc2VzIHVzaW5nIHRoZSBcIixcbiAgICAgICAgICBodG1sdG9vbHM6OnRhZ3MkY29kZShcImdyYWRldGhpc1wiKSxcbiAgICAgICAgICBcInBhY2thZ2UgcmVxdWlyZXMgYSBtb2RlbCBzb2x1dGlvbiB0byBiZSBpbmNsdWRlZCBpbiB0aGUgZG9jdW1lbnQuXCJcbiAgICAgICAgKVxuICAgICAgKVxuICAgIClcbiAgfSBlbHNlIHtcbiAgICBncmFkZXRoaXM6OmdyYWRldGhpc19leGVyY2lzZV9jaGVja2VyKFxuICAgICAgbGFiZWwgPSBsYWJlbCwgc29sdXRpb25fY29kZSA9IHNvbHV0aW9uX2NvZGUsIHVzZXJfY29kZSA9IHVzZXJfY29kZSxcbiAgICAgIGNoZWNrX2NvZGUgPSBjaGVja19jb2RlLCBlbnZpcl9yZXN1bHQgPSBlbnZpcl9yZXN1bHQsXG4gICAgICBldmFsdWF0ZV9yZXN1bHQgPSBldmFsdWF0ZV9yZXN1bHQsIGVudmlyX3ByZXAgPSBlbnZpcl9wcmVwLFxuICAgICAgbGFzdF92YWx1ZSA9IGxhc3RfdmFsdWUsIHN0YWdlID0gc3RhZ2UsIGVuZ2luZSA9IGVuZ2luZSlcbiAgfVxufSkiLCJhdHRyIjp7ImV2YWwiOnRydWUsIm91dHB1dCI6ZmFsc2UsImVkaXQiOmZhbHNlfX0=
-</script>
-</div>
-</div>
-</section>
-<section id="welcome-to-the-course" class="slide level2">
-<h2>Welcome to the Course</h2>
-<div>
-<ol type="1">
-<li>Overview and Course Organization</li>
-<li>Grading and Evaluations</li>
-<li>Navigating through the syllabus</li>
-<li>How you can get the best of this course</li>
-<li>Overall Q&amp;A</li>
-</ol>
-</div>
-</section>
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
 <ul>
-<li><p>With the recent advances in technical resources and the vast availability of financial information, finance practitioners are required to generate reproducible and scalable analysis in a timely fashion to guide decision-making:</p>
+<li>This lecture is mainly based the following textbooks:
 <ol type="1">
-<li>How can I <em>continuously</em> optimize the risk-return trade-off of my portfolio over time?</li>
-<li>What is the sensitivity of my investment decisions to changes in growth rates, discount rates, and expected margins?</li>
-<li>How can I assess the ability of a given trading strategy to outperform the market over time?</li>
-</ol></li>
-</ul>
-<div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> <em>To that point, departing from the general tools, such as Excel, to more advanced tools, such as</em> <span class="blue"><i class="fa-brands fa-r-project" aria-label="r-project"></i></span> and <span class="blue"><i class="fa-brands fa-python" aria-label="python"></i></span>, <em>is an imperative change!</em></p>
-<ul>
-<li><strong>The goal of this course</strong>: translate <span class="blue">theoretical concepts</span> learned on the core finance courses to <span class="blue">practical applications</span> that can guide decision making in real-world financial markets</li>
-</ul>
-</div>
-</section>
-<section id="course-structure" class="slide level2">
-<h2>Course Structure</h2>
-<ul>
-<li><p>This is a <span class="blue">hands-on</span>, <span class="blue">practical</span> course on <em>Quantitative Finance</em> with applications using <span class="blue"><i class="fa-brands fa-r-project" aria-label="r-project"></i></span> and <span class="blue"><i class="fa-brands fa-python" aria-label="python"></i></span>, two of the most widely used open-source software for data analysis. It will be structured in topics that are of interest to Finance practitioners, aiming to include, but not limited to:</p>
-<ol type="1">
-<li>Collecting and organizing financial data</li>
-<li>CAPM, Fama-French, and multi-factor models of risk</li>
-<li>Equily Valuation, sensitivity analysis, and Simulation</li>
-<li>Portfolio optimization and strategy backtesting</li>
-<li>Event Analysis</li>
-<li>Sentiment Analysis</li>
-</ol></li>
-<li><p>Students are also expected to interact with leading industry practitioners focused on financial applications using open-source languages, aiming to discover more about the possibilities of applying the skills learned in this course in the financial industry</p></li>
-</ul>
-</section>
-<section id="bibliography" class="slide level2">
-<h2>Bibliography</h2>
-<div>
-<ul>
-<li><strong>Coursework</strong>: we will mostly follow <em>Tidy Finance</em> <span class="citation" data-cites="tidyfinance">(<a href="#/references" role="doc-biblioref" onclick="">Scheuch, Voigt, and Weiss 2023</a>)</span>, as our text-book. Other relevant reading materials include:
-<ol type="1">
+<li><em>Tidy Finance</em> <span class="citation" data-cites="tidyfinance">(<a href="#/references" role="doc-biblioref" onclick="">Scheuch, Voigt, and Weiss 2023</a>)</span></li>
 <li><em>R for Data Science</em> <span class="citation" data-cites="r4ds">(<a href="#/references" role="doc-biblioref" onclick="">Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023</a>)</span></li>
-<li><em>Mastering Shiny</em> <span class="citation" data-cites="shiny">(<a href="#/references" role="doc-biblioref" onclick="">Wickham 2021</a>)</span></li>
-</ol></li>
-<li><strong>Supplementary Reading</strong>:
-<ol type="1">
-<li><em>Corporate Finance</em> <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span> - a companion for finance-related topics</li>
-<li>Other optional contents, such as <em>Harvard Business School (HBS) Cases</em></li>
 </ol></li>
 </ul>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p>Most of the references listed in this bibliography have an open-source version that is hosted online, where you can copy-paste code chunks directly into your <span class="blue"><i class="fa-brands fa-r-project" aria-label="r-project"></i></span> session. All contents with restricted access will be provided upfront.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="grading-and-evaluations" class="slide level2">
-<h2>Grading and Evaluations</h2>
-<div class="fragment">
-<p><strong>Grading will be composed of the following activities:</strong></p>
-<ol type="1">
-<li>Handout Data Cases (<strong>40%</strong>)</li>
-<li>Capstone Project (<strong>40%</strong>)</li>
-<li>Project Showcase (<strong>15%</strong>)</li>
-<li>In-class Participation (<strong>5%</strong>)</li>
-</ol>
-</div>
-<div class="fragment">
-<ul>
-<li>You can find the details of any of these activities in the official syllabus (available on <em>eClass®</em>)</li>
-<li>In case of any questions, feel free to reach out to <a href="mailto:lucas.macoris@fgv.br">lucas.macoris@fgv.br</a></li>
-</ul>
-</div>
-<div class="fragment">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Office-hours</strong></p>
-</div>
-<div class="callout-content">
-<p>I also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I’ll be more than happy to help you with anything you need from this course. Use the <em>Office-hour Appointments</em> link at the bottom of this slide to schedule an appointment (or click <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">here</a>).</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="getting-the-best-of-this-course" class="slide level2">
-<h2>Getting the best of this course</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Images/what-a-week.jpeg" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</section>
-<section id="getting-the-best-of-this-course-continued" class="slide level2">
-<h2>Getting the best of this course, continued</h2>
-<ul>
-<li><p><strong>Tech setup</strong>: in the <a href="https://lsmacoris.github.io/lectures/quant-fin.html">official page</a> of your course, you will find instructions on how to properly set up your computer in terms of downloading all necessary softwares, packages, and customizing your <span class="blue"><i class="fa-brands fa-r-project" aria-label="r-project"></i></span> session<sup>1</sup></p></li>
-<li><p><strong>Code Replication</strong>: right after we are done with a given topic, try to replicate the in-class handouts on your end and check if you are able to yield the same outputs</p></li>
-<li><p><strong>Showcase</strong>: <em>programming</em>, <em>data science</em>, <em>analytics</em>, <em>machine learning</em>, and so on…these terms are on the hype of today’s job market - although few people <em>really</em> know how to make meaningful impact with it. Use this course as an opportunity to differentiate and showcase the skills you’ve learned and stand out to potential employers<sup>2</sup></p></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>While we will be using <em>FGV-EAESP</em>’s facilities, where you will have immediate access to all the necessary configurations, ensure to setup your personal computer so as to ensure that you can replicate the contents from the lectures.</p></li><li id="fn2"><p>See <a href="https://www.economist.com/finance-and-economics/2024/08/19/artificial-intelligence-is-losing-hype"><em>Artificial Intelligence is losing hype</em></a> (<em>The Economist</em>)</p></li></ol></aside></section>
-<section id="on-the-usage-of-gen-ai" class="slide level2">
-<h2>On the usage of <em>gen-AI</em></h2>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>On the usage of ChatGPT and other <em>gen-AI</em> tools</strong></p>
-</div>
-<div class="callout-content">
-<p>Generative Artificial Intelligent (<em>gen-AI</em>) adoption is quickly spreading through corporate life and universities. At this point, it is worth the question…<span class="blue">am I allowed to use <em>gen-AI</em> tools in this course</span>?</p>
-</div>
-</div>
-</div>
-<ul>
-<li>The answer is <span class="blue">yes</span>! Not only you are <em>allowed</em>, but also <em>encouraged</em> to do so:
-<ol type="1">
-<li>Use <em>gen-AI</em> tools to proof-read your work, get insights, and troubleshoot errors</li>
-<li>Learn to be <em>skeptical</em> around the solutions you have been provided with</li>
-<li>Evaluations will be based on <em>how</em> you can <span class="blue">interpret</span>, <span class="blue">understand</span>, and <span class="blue">showcase</span> your solution to the broader audience!</li>
-</ol></li>
-</ul>
-<div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> See <a href="https://www.ft.com/content/4868bd38-613c-4fa9-ba9d-1ed8fa8a40c8"><em>AI-powered coding pulls in almost $1bn of funding to claim ‘killer app’ status</em></a> (<em>Financial Times</em>)</p>
-</div>
-</section>
-<section id="how-to-use-these-slides" class="slide level2">
-<h2>How to use these slides</h2>
-<ul>
-<li><p>These slides leverage <a href="quarto.org">Quarto</a>, an open-source scientific and technical publishing system from <a href="https://posit.co">Posit</a> (formerly RStudio):</p>
-<ol type="1">
-<li>Create dynamic content with <span class="blue"><i class="fa-brands fa-r-project" aria-label="r-project"></i></span>, <span class="blue"><i class="fa-brands fa-python" aria-label="python"></i></span>, <span class="blue"><i class="fa-brands fa-react" aria-label="react"></i></span>, among other programming languages</li>
-<li>Publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in <em>HTML</em>, <em>PDF</em>, <em>Word</em>, <em>ePub</em>, and more</li>
-<li>Write beatufil, clean technical documents using markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more</li>
-</ol></li>
-<li><p>For our course, we’ll use the following notation:</p></li>
-</ul>
-<ol type="1">
-<li>Links will be colored in <a href="https://google.com">blue</a></li>
-<li>Inline equations and variables will be rendered in <code>gray</code></li>
-<li>Code chunks will be provided along with outputs (<code>R</code>)</li>
-</ol>
-</section>
-<section id="an-example-of-a-code-chunk" class="slide level2">
-<h2>An example of a code chunk</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Result</a></li><li><a href="#tabset-1-2">R</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
+<div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Note</strong></p>
+<p><strong>Coding Replications</strong></p>
 </div>
 <div class="callout-content">
-<p>In the <code>R</code> panel, hit <em>Show the Code</em> to display the code inside the tabset. Hit the <i class="fa-solid fa-clipboard" aria-label="clipboard"></i> button at the top-right to copy it to your session.</p>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-1-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">cond =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">each=</span><span class="dv">10</span>),</span>
-<span id="cb1-3"><a></a>                  <span class="at">xvar =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">20</span>,<span class="at">sd=</span><span class="dv">3</span>),</span>
-<span id="cb1-4"><a></a>                  <span class="at">yvar =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">20</span>,<span class="at">sd=</span><span class="dv">3</span>))</span>
-<span id="cb1-5"><a></a></span>
-<span id="cb1-6"><a></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x=</span>xvar, <span class="at">y=</span>yvar)) <span class="sc">+</span></span>
-<span id="cb1-7"><a></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb1-8"><a></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="interactive-learning" class="slide level2">
-<h2>Interactive Learning</h2>
-<div id="lst-example" class="listing quarto-float quarto-figure quarto-figure-left">
-<figure class="quarto-float quarto-float-lst">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Listing&nbsp;1: We will extensively leverage interactive learning whenever possible. In selected sections, called <code>Listings</code>, you will be prompted with an interactive <code>R</code> console that you can use to run existing and new code to a “virtual” session. Try changing the ticker to <code>NVDA</code> and check if anything has changed.
-</figcaption>
-<div aria-describedby="lst-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-completion="true" data-min-lines="7" data-max-lines="20">
-<div>
-<div id="webr-2" class="exercise-cell">
-
-</div>
-<script type="webr-2-contents">
-eyJjb2RlIjoiI1NldCB0aGUgdGlja2VyXG50aWNrZXI9J0FBUEwnXG4jUmVhZCB0aGUgZGF0YVxucmVhZC5jc3YoZ2x1ZSgnQXNzZXRzL3t0aWNrZXJ9LmNzdicpKSU+JVxuI1NlbGVjdCB0aGUgZmlyc3QgdHdvIGNvbHVtbnNcbnNlbGVjdChUaW1lc3RhbXAsQWRqdXN0ZWQpJT4lXG5tdXRhdGUoVGltZXN0YW1wPWFzLkRhdGUoVGltZXN0YW1wKSklPiVcbiNUcmFuc2Zvcm0gdG8gdGltZS1zZXJpZXMgYmFzZWQgb2JqZWN0IGFuZCBwbG90XG5hcy54dHMoKSU+JXBsb3QobWFpbj1nbHVlKCd7dGlja2VyfSBwcmljZXMgYXJlIHNreXJvY2tldGluZyEg8J+agCcpKSIsImF0dHIiOnsiZXZhbCI6dHJ1ZSwiZmlnLWhlaWdodCI6NCwiZWRpdCI6dHJ1ZSwiZmlnLXdpZHRoIjo4LCJtYXgtbGluZXMiOjIwLCJjb21wbGV0aW9uIjp0cnVlLCJtaW4tbGluZXMiOjd9fQ==
-</script>
-</div>
-</div>
-</div>
-</figure>
-</div>
-</section>
-<section id="interactive-learning-continued" class="slide level2">
-<h2>Interactive Learning, continued</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Exercise</a></li><li><a href="#tabset-2-2">Hints</a></li><li><a href="#tabset-2-3">Solution</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<div id="lst-ex1" class="listing quarto-float quarto-figure quarto-figure-left">
-<figure class="quarto-float quarto-float-lst">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-ex1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Listing&nbsp;2: You can use the <code>Hints</code> and <code>Solution</code> buttons to interact with the prompt. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution. For example, complete the code to read Microsoft price (<code>MSFT.csv</code>) data and select the latest 10 OHLC (Open, High, Low, Close) information. The dataset is arranged in descendant format (latest price information is at the bottom of the table).
-</figcaption>
-<div aria-describedby="lst-ex1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-caption="Sample Exercise" data-exercise="ex1" data-completion="true" data-min-lines="7" data-max-lines="20">
-<div>
-<div id="webr-3" class="exercise-cell">
-
-</div>
-<script type="webr-3-contents">
-eyJjb2RlIjoiXG4jU2V0IHRoZSB0aWNrZXJcbkRhdGE9cmVhZC5jc3YoZ2x1ZSgnQXNzZXRzL19fX19fLmNzdicpKVxuRGF0YT1zZWxlY3QoRGF0YSxjKFRpbWVzdGFtcCxfX19fXykpXG5EYXRhPXRhaWwoRGF0YSxfXylcbkRhdGEiLCJhdHRyIjp7ImV4ZXJjaXNlIjoiZXgxIiwiZmlnLWhlaWdodCI6NCwiZmlnLXdpZHRoIjo4LCJtYXgtbGluZXMiOjIwLCJjb21wbGV0aW9uIjp0cnVlLCJtaW4tbGluZXMiOjcsImV2YWwiOnRydWUsImVkaXQiOnRydWUsImNhcHRpb24iOiJTYW1wbGUgRXhlcmNpc2UifX0=
-</script>
-</div>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<div id="tabset-2-2">
-<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="ex1">
-<p>You can access the names of the columns using <code>names(Data)</code> to find the column that refers to closing prices:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">names</span>(Data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can also select specific columns by using the <code>select()</code> function:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">select</span>(Data,<span class="fu">c</span>(column1,column2,...,column_n))<span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-3">
-<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="ex1">
-<p>First, use the <code>names()</code> function to retrieve the names of the columns available in the dataset.</p>
-<p>After that, use the <code>tail()</code> function to retrieve only the latest 10 observations.</p>
-<div class="cell" data-exercise="ex1" data-solution="true">
-<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="ex1">
-<code id="interpolate-5" class="solution-code d-none">
-#Set the ticker
-Data=read.csv(glue('Assets/MSFT.csv'))
-Data=select(Data,c(Timestamp,Open,High,Low,Close))
-Data=tail(Data,10)
-Data</code>
-<div class="sourceCode cell-code" id="interpolate-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="interpolate-6-1"><a href="#interpolate-6-1"></a></span>
-<span id="interpolate-6-2"><a href="#interpolate-6-2"></a><span class="co">#Set the ticker</span></span>
-<span id="interpolate-6-3"><a href="#interpolate-6-3"></a>Data<span class="ot">=</span><span class="fu">read.csv</span>(<span class="fu">glue</span>(<span class="st">'Assets/MSFT.csv'</span>))</span>
-<span id="interpolate-6-4"><a href="#interpolate-6-4"></a>Data<span class="ot">=</span><span class="fu">select</span>(Data,<span class="fu">c</span>(Timestamp,Open,High,Low,Close))</span>
-<span id="interpolate-6-5"><a href="#interpolate-6-5"></a>Data<span class="ot">=</span><span class="fu">tail</span>(Data,<span class="dv">10</span>)</span>
-<span id="interpolate-6-6"><a href="#interpolate-6-6"></a>Data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="cell" data-exercise="ex1" data-check="true">
-<script type="exercise-check-ex1-contents">
-eyJjb2RlIjoiZ3JhZGV0aGlzOjpncmFkZV90aGlzX2NvZGUoKSIsImF0dHIiOnsiZXZhbCI6dHJ1ZSwiZWRpdCI6dHJ1ZSwiZXhlcmNpc2UiOiJleDEiLCJjaGVjayI6dHJ1ZX19
-</script>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="getting-started" class="slide level2">
-<h2>Getting started</h2>
-<ul>
-<li>To get started, you’ll need to:</li>
-</ul>
-<div>
+<p>For coding replications, whenever applicable, please follow <a href="https://lsmacoris.github.io/lectures/quant-fin.html">this</a> page or hover on the specific slides with containing coding chunks.</p>
 <ol type="1">
-<li class="fragment">Install <em>R</em> using <a href="https://cloud.r-project.org/">this</a> link</li>
-<li class="fragment">Install <em>RStudio</em> using <a href="https://posit.co/download/rstudio-desktop/">this</a> link</li>
-<li class="fragment">Install <em>Quarto</em> using <a href="https://quarto.org/docs/get-started/">this</a> link</li>
+<li>Ensure that you have your <span class="blue"><i class="fa-brands fa-r-project" aria-label="r-project"></i></span> session properly set-up according to the instructions outlined in the course webpage</li>
+<li>In the webpage, you can also find a detailed discussion of the examples covered in this lecture</li>
 </ol>
 </div>
-<div class="fragment">
-<ul>
-<li>If you’re new to <em>R</em> or need a refresher on the basics, please refer to <span class="blue">Projects I</span> and <span class="blue">II</span> of the <a href="https://rstudio-education.github.io/hopr/project-1-weighted-dice.html"><em>Hands-On Programming with R</em></a> <span class="citation" data-cites="HandsOn">(<a href="#/references" role="doc-biblioref" onclick="">Grolemund 2014</a>)</span></li>
-</ul>
 </div>
+</div>
+</div>
+</section>
+<section id="organizing-financial-data" class="slide level2">
+<h2>Organizing Financial Data</h2>
+<ul>
+<li><p>In the previous lecture, you worked your way through the exercises by using the amazing <code>dplyr</code> functionalities on <code>data.frames</code></p></li>
+<li><p>In this lecture, you will be introduced to a particular type of class in <code>R</code>: <code>xts</code></p></li>
+</ul>
 <div class="fragment">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -774,24 +477,405 @@ eyJjb2RlIjoiZ3JhZGV0aGlzOjpncmFkZV90aGlzX2NvZGUoKSIsImF0dHIiOnsiZXZhbCI6dHJ1ZSwi
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tech-setup</strong></p>
+<p><strong>Definition</strong></p>
 </div>
 <div class="callout-content">
-<p>In the official webpage of this course, I have outlined all necessary steps to get started using <em>R</em>, as well as some useful tips for those that want to get up to speed on the course’s requirements - please follow <a href="https://lsmacoris.github.io/lectures/quant-fin.html">this</a> link and carefully read the instructions.</p>
+<p><code>xts</code> is an <code>R</code> package that provides an extension of the <code>zoo</code> class, a class with methods for totally ordered indexed observations - in special, <span class="blue">time series</span></p>
+<ul>
+<li><p>With <code>xts</code>, you get a lot of flexibility in handling time series observations that are of interest of financial analysts, such as:</p>
+<ol type="1">
+<li>Subsetting data by years/months/days</li>
+<li>Calculating rolling functions (<em>e.g</em>, yearly averages)</li>
+<li>Aggregating data at different intervals (<em>e.g</em>, convert daily to weekly prices)</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Question:</strong> but wait, why are we departing from <code>dplyr</code>?</p>
+</div>
+</section>
+<section id="bridging-the-tidyverse-with-time-series" class="slide level2">
+<h2>Bridging the <code>tidyverse</code> with time series</h2>
+<ul>
+<li><p>Unfortunately, there is an issue: the <code>tidyverse</code> is not fully designed to work with time series classes, such as <code>xts</code> and <code>zoo</code></p></li>
+<li><p>As a consequence, you won’t be able to use a lot of interesting functionalities that would perfectly apply for time series</p>
+<ol type="1">
+<li><p>But don’t you worry, I got you covered: the <code>tidyquant</code> package<sup>1</sup> integrates the best resources for collecting and analyzing financial data</p></li>
+<li><p>It integrates several financial packages, like <code>zoo</code>, <code>xts</code>, <code>quantmod</code>, <code>TTR</code>, and <code>PerformanceAnalytics</code>, with the tidy data infrastructure of the tidyverse allowing for seamless interaction between each</p></li>
+</ol></li>
+<li><p>You can now perform complete financial analyses using the same functionalities you’ve learned so far!</p></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Click <a href="https://business-science.github.io/tidyquant/">here</a> for a thorough documentation on the <code>tidyquant</code> package.</p></li></ol></aside></section>
+<section id="the-tidyquant-package-a-short-video" class="slide level2">
+<h2>The <code>tidyquant</code> package, a short-video</h2>
+<iframe data-external="1" src="https://www.youtube.com/embed/woxJZTL2hok" width="800" height="600" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</section>
+<section id="the-tq_mutate-function" class="slide level2">
+<h2>The <code>tq_mutate()</code> function</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>The <code>tq_mutate()</code> function adds adds new variables to an existing <code>tibble</code>;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">tq_mutate</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
+<span id="cb1-2"><a></a>       selected_variables, <span class="co">#The columns to send to the mutation function</span></span>
+<span id="cb1-3"><a></a>       mutate_fun, <span class="co">#The mutation function from either the xts, quantmod, or TTR package.</span></span>
+<span id="cb1-4"><a></a>       col_rename <span class="co">#A string or character vector containing names that can be used to quickly rename columns</span></span>
+<span id="cb1-5"><a></a>       ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>The main advantage is the results are returned as a <code>tibble</code> and the function can be used with the <code>tidyverse</code></li>
+<li>It is used when you expected additional columns to be added to the resulting data frame</li>
+<li>You can use several time series related functions from other <code>R</code> packages - call <code>tq_mutate_fun_options()</code> to see the list of available options</li>
+<li>All in all, it is similar in spirit to <code>mutate()</code></li>
+</ol>
+</section>
+<section id="the-tq_transmute-function" class="slide level2">
+<h2>The <code>tq_transmute()</code> function</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>The <code>tq_transmute()</code> returns only newly created columns and is typically used when periodicity changes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">tq_mutate</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
+<span id="cb2-2"><a></a>       selected_variables, <span class="co">#The columns to send to the mutation function</span></span>
+<span id="cb2-3"><a></a>       mutate_fun, <span class="co">#The mutation function from either the xts, quantmod, or TTR package.</span></span>
+<span id="cb2-4"><a></a>       col_rename <span class="co">#A string or character vector containing names that can be used to quickly rename columns</span></span>
+<span id="cb2-5"><a></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><code>tq_transmute()</code> works exactly like <code>tq_mutate()</code> except it only returns the newly created columns</li>
+<li>This is helpful when changing periodicity where the new columns would not have the same number of rows as the original tibble</li>
+<li>All in all, it is similar in spirit to <code>summarize()</code></li>
+</ol>
+</section>
+<section id="working-with-time-series-objects-exercise-i" class="slide level2">
+<h2>Working with time series objects, Exercise I</h2>
+<ul>
+<li>An immediate useful example of using a time series specific functionality with a tidyverse logic relates to <span class="blue">filtering</span>:
+<ol type="1">
+<li>Sometimes, we may be interested in getting only a subset of the data (for example, only <em>GOOG</em> information)</li>
+<li>Furthermore, we may be interested in subsetting only a specific time frame for our analysis</li>
+</ol></li>
+<li>It is relatively straightforward to do it with <code>tidyquant</code>:
+<ol type="1">
+<li>Use <code>filter()</code> to select only rows where <code>symbol=='GOOG'</code></li>
+<li>In the same call, filter for <code>date</code>&gt;= <code>min_date</code> and <code>date</code>&lt;=<code>max_date</code></li>
+</ol></li>
+</ul>
+</section>
+<section id="working-with-time-series-objects-exercise-i-1" class="slide level2">
+<h2>Working with time series objects, Exercise I</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb3-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="co">#Set up the list of assets</span></span>
+<span id="cb3-5"><a></a>assets<span class="ot">=</span><span class="fu">c</span>(<span class="st">'AMZN'</span>,<span class="st">'GOOG'</span>,<span class="st">'META'</span>,<span class="st">'GME'</span>)</span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a><span class="co">#Filter out</span></span>
+<span id="cb3-8"><a></a>assets<span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a></a>  <span class="fu">tq_get</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a></a>  <span class="fu">filter</span>(symbol<span class="sc">==</span><span class="st">'GOOG'</span>,</span>
+<span id="cb3-11"><a></a>         date<span class="sc">&gt;=</span><span class="st">'2020-01-01'</span>,</span>
+<span id="cb3-12"><a></a>         date<span class="sc">&lt;=</span><span class="st">'2024-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,258 × 8
+   symbol date        open  high   low close   volume adjusted
+   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 GOOG   2020-01-02  67.1  68.4  67.1  68.4 28132000     68.1
+ 2 GOOG   2020-01-03  67.4  68.6  67.3  68.0 23728000     67.8
+ 3 GOOG   2020-01-06  67.5  69.8  67.5  69.7 34646000     69.5
+ 4 GOOG   2020-01-07  69.9  70.1  69.5  69.7 30054000     69.4
+ 5 GOOG   2020-01-08  69.6  70.6  69.5  70.2 30560000     70.0
+ 6 GOOG   2020-01-09  71.0  71.4  70.5  71.0 30018000     70.7
+ 7 GOOG   2020-01-10  71.4  71.7  70.9  71.5 36414000     71.2
+ 8 GOOG   2020-01-13  71.8  72.0  71.3  72.0 33046000     71.7
+ 9 GOOG   2020-01-14  72.0  72.1  71.4  71.5 31178000     71.3
+10 GOOG   2020-01-15  71.5  72.1  71.5  72.0 25654000     71.7
+# ℹ 1,248 more rows</code></pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="course-pre-assessment" class="slide level2">
-<h2>Course pre-assessment</h2>
+<section id="working-with-time-series-objects-exercise-ii" class="slide level2">
+<h2>Working with time series objects, Exercise II</h2>
 <ul>
-<li>Fill out the form below, share your thoughts, and help me tailor the course to meet your needs and track your progress <span class="emoji" data-emoji="slightly_smiling_face">🙂</span></li>
+<li>Another example of using a time series specific functionality is working with leads and lags:
+<ol type="1">
+<li>Sometimes, we need to shift our variables by a specific interval, like getting the previous day’s price</li>
+<li>Say, for example, that you want to understand how <em>S&amp;P</em> returns levels relate to <em>NFLX</em> returns one-week ahead</li>
+</ol></li>
+<li>It is relatively straightforward to do it with <code>tidyquant</code>:
+<ol type="1">
+<li>Download <em>S&amp;P500</em> and <em>NFLX</em> data using the <code>tq_get()</code> function</li>
+<li>Use <code>tq_transmute()</code> to compute the weekly returns for each security based on daily data</li>
+<li>Use <code>tq_mutate()</code> to generate a lagged series of <em>S&amp;P500</em> returns</li>
+</ol></li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Images/QR-Code.png" class="quarto-figure quarto-figure-center" style="width:25.0%"></p>
-</figure>
+</section>
+<section id="working-with-time-series-objects-exercise-ii-1" class="slide level2">
+<h2>Working with time series objects, Exercise II</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb5-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-3"><a></a></span>
+<span id="cb5-4"><a></a><span class="co">#Netflix Data</span></span>
+<span id="cb5-5"><a></a>NFLX<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'NFLX'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a></a>  <span class="co">#Select only the necessary columns</span></span>
+<span id="cb5-7"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a></a>  <span class="co">#Apply the weeklyReturn function and call the new column 'NFLX'</span></span>
+<span id="cb5-9"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> weeklyReturn,</span>
+<span id="cb5-10"><a></a>               <span class="at">col_rename =</span> <span class="st">'NFLX'</span>)</span>
+<span id="cb5-11"><a></a></span>
+<span id="cb5-12"><a></a><span class="co">#S&amp;P Data</span></span>
+<span id="cb5-13"><a></a>SP500<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'^GSPC'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a></a>  <span class="co">#Select only the necessary columns</span></span>
+<span id="cb5-15"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb5-16"><a></a>  <span class="co">#Apply the weeklyReturn function and call the new column 'SP500'</span></span>
+<span id="cb5-17"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> weeklyReturn,</span>
+<span id="cb5-18"><a></a>               <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb5-19"><a></a>  <span class="co">#Apply the lag function for n=1 week and call the new column 'SP500'</span></span>
+<span id="cb5-20"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> lag.xts,</span>
+<span id="cb5-21"><a></a>            <span class="at">n=</span><span class="dv">1</span>,</span>
+<span id="cb5-22"><a></a>            <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb5-23"><a></a>  <span class="co">#Drop all rows with NA information (row 1, in this case)</span></span>
+<span id="cb5-24"><a></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb5-25"><a></a></span>
+<span id="cb5-26"><a></a><span class="co">#Merge Data </span></span>
+<span id="cb5-27"><a></a><span class="fu">inner_join</span>(NFLX,SP500)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 526 × 3
+   date           NFLX    SP500
+   &lt;date&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+ 1 2015-01-09 -0.0563   0      
+ 2 2015-01-16  0.0244  -0.00651
+ 3 2015-01-23  0.297   -0.0124 
+ 4 2015-01-30  0.00992  0.0160 
+ 5 2015-02-06  0.00579 -0.0277 
+ 6 2015-02-13  0.0489   0.0303 
+ 7 2015-02-20  0.0260   0.0202 
+ 8 2015-02-27 -0.00688  0.00635
+ 9 2015-03-06 -0.0438  -0.00275
+10 2015-03-13 -0.0346  -0.0158 
+# ℹ 516 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-time-series-objects-exercise-iii" class="slide level2">
+<h2>Working with time series objects, Exercise III</h2>
+<ul>
+<li>Lastly, finance practitioners are often asked to perform analysis on a rolling basis:
+<ol type="1">
+<li>We may want to calculate a given signal on day <span class="math inline">\(t\)</span> based on past <span class="math inline">\(x\)</span> periods of information</li>
+<li>Say, for example, that you want to calculate a simple and exponential moving average of adjusted prices from 5 days back for a given set of stocks</li>
+</ol></li>
+<li>It is relatively straightforward to do it with <code>tidyquant</code>:
+<ol type="1">
+<li>Download stock data using the <code>tq_get()</code> function</li>
+<li>Use <code>tq_mutate()</code> twice along with the <code>SMA()</code> and <code>EMA()</code> functions setting <code>n=5</code></li>
+</ol></li>
+</ul>
+</section>
+<section id="working-with-time-series-objects-exercise-iii-1" class="slide level2">
+<h2>Working with time series objects, Exercise III</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Code</a></li><li><a href="#tabset-3-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb7-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a><span class="co">#Set up the list of assets</span></span>
+<span id="cb7-5"><a></a>assets<span class="ot">=</span><span class="fu">c</span>(<span class="st">'AMZN'</span>,<span class="st">'GOOG'</span>,<span class="st">'META'</span>,<span class="st">'GME'</span>)</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a>assets<span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a></a>  <span class="fu">tq_get</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb7-9"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> SMA, <span class="at">n =</span> <span class="dv">5</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb7-12"><a></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> EMA, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10,144 × 5
+# Groups:   symbol [4]
+   symbol date       adjusted   SMA   EMA
+   &lt;chr&gt;  &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 AMZN   2015-01-02     15.4  NA    NA  
+ 2 AMZN   2015-01-05     15.1  NA    NA  
+ 3 AMZN   2015-01-06     14.8  NA    NA  
+ 4 AMZN   2015-01-07     14.9  NA    NA  
+ 5 AMZN   2015-01-08     15.0  15.0  15.0
+ 6 AMZN   2015-01-09     14.8  14.9  15.0
+ 7 AMZN   2015-01-12     14.6  14.8  14.8
+ 8 AMZN   2015-01-13     14.7  14.8  14.8
+ 9 AMZN   2015-01-14     14.7  14.8  14.8
+10 AMZN   2015-01-15     14.3  14.6  14.6
+# ℹ 10,134 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="wrapping-up-on-tidyquant" class="slide level2">
+<h2>Wrapping-up on <code>tidyquant</code></h2>
+<ul>
+<li><p>There is so much you can use from <code>tidyquant</code> in your journey as a quantitative financial analyst:</p>
+<ol type="1">
+<li><p>I’d recommend looking at all the predefined functions supported by <code>tidyquant</code> - click <a href="https://business-science.github.io/tidyquant/articles/TQ02-quant-integrations-in-tidyquant.html">here</a> for a detailed discussion around all supported functions</p></li>
+<li><p>You can also customize your <em>own</em> functions that work with time series (for example, your secret trading indicator) and pass it over through <code>tq_mutate()</code> or <code>tq_transmute()</code></p></li>
+</ol></li>
+<li><p>In the <a href="https://business-science.github.io/tidyquant/articles/TQ00-introduction-to-tidyquant.html">official website</a> website, you can find a variety of examples to nurture your creativity around what you can do using this package</p></li>
+<li><p>All in all, that’s the motto: time series analysis made easy with <code>tidyquant</code> and the <code>tidyverse</code></p></li>
+</ul>
+</section>
+<section id="does-getting-ripped-increase-returns" class="slide level2">
+<h2>Does getting ripped increase returns?</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="Images/F1.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="Images/F2.png"></p>
+</div></div>
+<p><span class="math inline">\(\rightarrow\)</span> See <span class="blue"><a href="https://finance.yahoo.com/news/deadlift-etf-world-latest-headscratcher-140000992.html"><em>Deadlift: The ETF World’s Latest Headscratcher</em></a></span></p>
+</section>
+<section id="hands-on-exercise" class="slide level2">
+<h2>Hands-On Exercise</h2>
+<ul>
+<li>Your manager (who did not lift any weights past the last 5 years) wanted to replicate the returns of the so called <em>Deadlift ETF</em>. You job is to create a simple table of yearly returns comparing the <em>Deadlift ETF</em> <em>vis-a-vis</em> the <em>S&amp;P500</em> Index. For that, proceed with the following instructions:</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exercise</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Use <code>tq_get()</code> to load information from the <em>S&amp;P Index</em> and the <em>Deadlift ETF</em> constituents in two separate <code>data.frames</code></li>
+<li>Filter for observations starting in 2020</li>
+<li>Create, for each different <code>symbol</code>, a <code>yearly_ret</code> variable that calculates the yearly return of a given stock</li>
+<li>Calculate the <em>Deadlift</em> returns (<em>Hint: it is an equally weighted portfolio</em>)</li>
+<li>Merge both datasets using <code>inner_join()</code></li>
+</ol>
+</div>
+</div>
+</div>
+<ul>
+<li>When looking at the yearly results from both the <em>Deadlift ETF</em> and <em>S&amp;P500</em>, which one did perform better? What are the potential explanations for that?</li>
+</ul>
+</section>
+<section id="solution" class="slide level2">
+<h2>Solution</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Set up the list of assets</span></span>
+<span id="cb9-2"><a></a>deadlift<span class="ot">=</span><span class="fu">c</span>(<span class="st">'META'</span>,<span class="st">'AMZN'</span>,<span class="st">'GS'</span>,<span class="st">'UBER'</span>,<span class="st">'MSFT'</span>,<span class="st">'AAPL'</span>,<span class="st">'BLK'</span>,<span class="st">'NVDA'</span>)</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a><span class="co">#Set up the starting date</span></span>
+<span id="cb9-5"><a></a>start<span class="ot">=</span><span class="st">'2020-01-01'</span></span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="co">#Step 1: Read the Deadlift data using tidyquant</span></span>
+<span id="cb9-8"><a></a>Deadlift_Performance<span class="ot">=</span>deadlift<span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a></a>  <span class="fu">tq_get</span>(<span class="at">from=</span>start)<span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a></a>  <span class="co">#Select only the columns of interest</span></span>
+<span id="cb9-11"><a></a>  <span class="fu">select</span>(symbol,date,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a></a>  <span class="co">#Group by symbol and date</span></span>
+<span id="cb9-13"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb9-14"><a></a>  <span class="co">#Use tq_transmute to aggregate and calculate weekly returns</span></span>
+<span id="cb9-15"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">selected=</span>adjusted,</span>
+<span id="cb9-16"><a></a>               <span class="at">mutate_fun=</span>yearlyReturn,</span>
+<span id="cb9-17"><a></a>               <span class="at">col_rename =</span> <span class="st">'Deadlift'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb9-18"><a></a>  <span class="co">#Group by date</span></span>
+<span id="cb9-19"><a></a>  <span class="fu">group_by</span>(date)<span class="sc">%&gt;%</span></span>
+<span id="cb9-20"><a></a>  <span class="co">#Summarize average return (since it is an equally-weighted portfolio)</span></span>
+<span id="cb9-21"><a></a>  <span class="fu">summarize</span>(<span class="at">Deadlift=</span><span class="fu">mean</span>(Deadlift,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb9-22"><a></a></span>
+<span id="cb9-23"><a></a><span class="co">#Step 2: Read the S&amp;P500 data using tidyquant</span></span>
+<span id="cb9-24"><a></a>SP500_Performance<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'^GSPC'</span>,<span class="at">from=</span>start)<span class="sc">%&gt;%</span></span>
+<span id="cb9-25"><a></a>  <span class="co">#Select only the columns of interest</span></span>
+<span id="cb9-26"><a></a>  <span class="fu">select</span>(symbol,date,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb9-27"><a></a>  <span class="co">#Group by symbol and date</span></span>
+<span id="cb9-28"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb9-29"><a></a>  <span class="co">#Use tq_transmute to aggregate and calculate weekly returns</span></span>
+<span id="cb9-30"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">selected=</span>adjusted,</span>
+<span id="cb9-31"><a></a>               <span class="at">mutate_fun=</span>yearlyReturn,</span>
+<span id="cb9-32"><a></a>               <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb9-33"><a></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb9-34"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>symbol)</span>
+<span id="cb9-35"><a></a>    </span>
+<span id="cb9-36"><a></a><span class="co">#Merge</span></span>
+<span id="cb9-37"><a></a>SP500_Performance<span class="sc">%&gt;%</span><span class="fu">inner_join</span>(Deadlift_Performance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  date         SP500 Deadlift
+  &lt;date&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+1 2020-12-31  0.153    0.579 
+2 2021-12-31  0.269    0.372 
+3 2022-12-30 -0.194   -0.360 
+4 2023-12-29  0.242    1.00  
+5 2024-12-31  0.233    0.506 
+6 2025-01-31  0.0270   0.0447</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
@@ -803,35 +887,9 @@ eyJjb2RlIjoiZ3JhZGV0aGlzOjpncmFkZV90aGlzX2NvZGUoKSIsImF0dHIiOnsiZXZhbCI6dHJ1ZSwi
 <p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures/quant-fin">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
 </div>
 </div>
-<script type="webr-data">
-eyJyZW5kZXJfZGYiOiJndC1pbnRlcmFjdGl2ZSIsInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsInRpZHl2ZXJzZSIsInh0cyIsImdsdWUiLCJndCJdLCJyZXBvcyI6W119LCJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC40LjIvIn19
-</script>
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0IiwiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8zO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJ3ZWJyLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0zLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItMy1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzMgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzMsIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzMgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzMuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzI7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6IndlYnItMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMiA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzIgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzIsIHt9KTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0IiwiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJ3ZWJyLTEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJfd2Vicl92YWx1ZV8xID0ge1xuICBjb25zdCB7IGhpZ2hsaWdodFIsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV2YWx1YXRpb24gY29uZmlndXJhdGlvblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7XG4gICAgaWQ6IFwid2Vici0xLWNvbnRlbnRzXCIsXG4gICAgZWNobzogdHJ1ZSxcbiAgICBvdXRwdXQ6IHRydWVcbiAgfSwgYmxvY2suYXR0cik7XG5cbiAgLy8gRXZhbHVhdGUgdGhlIHByb3ZpZGVkIFIgY29kZVxuICBjb25zdCByZXN1bHQgPSB3ZWJST2pzLnByb2Nlc3Moe2NvZGU6IGJsb2NrLmNvZGUsIG9wdGlvbnN9LCB7fSk7XG5cbiAgLy8gRWFybHkgeWllbGQgd2hpbGUgd2Ugd2FpdCBmb3IgdGhlIGZpcnN0IGV2YWx1YXRpb24gYW5kIHJlbmRlclxuICBpZiAob3B0aW9ucy5vdXRwdXQgJiYgIShcIjFcIiBpbiB3ZWJST2pzLnJlbmRlcmVkT2pzKSkge1xuICAgIGNvbnN0IGNvbnRhaW5lciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG4gICAgY29uc3Qgc3Bpbm5lciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG5cbiAgICBpZiAob3B0aW9ucy5lY2hvKSB7XG4gICAgICAvLyBTaG93IG91dHB1dCBhcyBoaWdobGlnaHRlZCBzb3VyY2VcbiAgICAgIGNvbnN0IHByZUVsZW0gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwicHJlXCIpO1xuICAgICAgY29udGFpbmVyLmNsYXNzTmFtZSA9IFwic291cmNlQ29kZVwiO1xuICAgICAgcHJlRWxlbS5jbGFzc05hbWUgPSBcInNvdXJjZUNvZGUgclwiO1xuICAgICAgcHJlRWxlbS5hcHBlbmRDaGlsZChoaWdobGlnaHRSKGJsb2NrLmNvZGUpKTtcbiAgICAgIHNwaW5uZXIuY2xhc3NOYW1lID0gXCJzcGlubmVyLWdyb3cgc3Bpbm5lci1ncm93LXNtIG0tMiBwb3NpdGlvbi1hYnNvbHV0ZSB0b3AtMCBlbmQtMFwiO1xuICAgICAgcHJlRWxlbS5hcHBlbmRDaGlsZChzcGlubmVyKTtcbiAgICAgIGNvbnRhaW5lci5hcHBlbmRDaGlsZChwcmVFbGVtKTtcbiAgICB9IGVsc2Uge1xuICAgICAgc3Bpbm5lci5jbGFzc05hbWUgPSBcInNwaW5uZXItYm9yZGVyIHNwaW5uZXItYm9yZGVyLXNtXCI7XG4gICAgICBjb250YWluZXIuYXBwZW5kQ2hpbGQoc3Bpbm5lcik7XG4gICAgfVxuXG4gICAgeWllbGQgY29udGFpbmVyO1xuICB9XG5cbiAgd2ViUk9qcy5yZW5kZXJlZE9qc1tcIjFcIl0gPSB0cnVlO1xuICB5aWVsZCBhd2FpdCByZXN1bHQ7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsImNlbGxOYW1lIjoiaW50ZXJwb2xhdGUtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IntcbiAgY29uc3QgeyBpbnRlcnBvbGF0ZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgYmxvY2tfaWQgPSBcIjVcIjtcbiAgY29uc3QgbGFuZ3VhZ2UgPSBcIm5vbmVcIjtcbiAgY29uc3QgZGVmX21hcCA9IHtcbn07XG4gIGNvbnN0IGVsZW0gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChgaW50ZXJwb2xhdGUtJHtibG9ja19pZH1gKTtcblxuICAvLyBTdG9yZSBvcmlnaW5hbCB0ZW1wbGF0ZWQgSFRNTCBmb3IgcmVmZXJlbmNlIGluIGZ1dHVyZSByZWFjdGl2ZSB1cGRhdGVzXG4gIGlmICghZWxlbS5vcmlnSFRNTCkgZWxlbS5vcmlnSFRNTCA9IGVsZW0uaW5uZXJIVE1MO1xuXG4gIC8vIEludGVycG9sYXRlIHJlYWN0aXZlIE9KUyB2YXJpYWJsZXMgaW50byBlc3RhYmxpc2hlZCBIVE1MIGVsZW1lbnRcbiAgZWxlbS5pbm5lckhUTUwgPSBlbGVtLm9yaWdIVE1MO1xuICBPYmplY3Qua2V5cyhkZWZfbWFwKS5mb3JFYWNoKChkZWYpID0+XG4gICAgaW50ZXJwb2xhdGUoZWxlbSwgXCIke1wiICsgZGVmICsgXCJ9XCIsIGRlZl9tYXBbZGVmXSwgbGFuZ3VhZ2UpXG4gICk7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsImNlbGxOYW1lIjoiaW50ZXJwb2xhdGUtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IntcbiAgY29uc3QgeyBpbnRlcnBvbGF0ZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgYmxvY2tfaWQgPSBcIjZcIjtcbiAgY29uc3QgbGFuZ3VhZ2UgPSBcInJcIjtcbiAgY29uc3QgZGVmX21hcCA9IHtcbn07XG4gIGNvbnN0IGVsZW0gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChgaW50ZXJwb2xhdGUtJHtibG9ja19pZH1gKTtcblxuICAvLyBTdG9yZSBvcmlnaW5hbCB0ZW1wbGF0ZWQgSFRNTCBmb3IgcmVmZXJlbmNlIGluIGZ1dHVyZSByZWFjdGl2ZSB1cGRhdGVzXG4gIGlmICghZWxlbS5vcmlnSFRNTCkgZWxlbS5vcmlnSFRNTCA9IGVsZW0uaW5uZXJIVE1MO1xuXG4gIC8vIEludGVycG9sYXRlIHJlYWN0aXZlIE9KUyB2YXJpYWJsZXMgaW50byBlc3RhYmxpc2hlZCBIVE1MIGVsZW1lbnRcbiAgZWxlbS5pbm5lckhUTUwgPSBlbGVtLm9yaWdIVE1MO1xuICBPYmplY3Qua2V5cyhkZWZfbWFwKS5mb3JFYWNoKChkZWYpID0+XG4gICAgaW50ZXJwb2xhdGUoZWxlbSwgXCIke1wiICsgZGVmICsgXCJ9XCIsIGRlZl9tYXBbZGVmXSwgbGFuZ3VhZ2UpXG4gICk7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsImNlbGxOYW1lIjoid2Vici1wcmVsdWRlIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoid2ViUk9qcyA9IHtcbiAgY29uc3QgeyBXZWJSLCBDaGFubmVsVHlwZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZS5XZWJSO1xuICBjb25zdCB7XG4gICAgV2ViUkV2YWx1YXRvcixcbiAgICBXZWJSRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyB3ZWJSIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIC8vIFVzZSBQb3N0TWVzc2FnZSBjaGFubmVsIGZvciBhc3luYyBjb21tdW5pY2F0aW9uXG4gIC8vIFdlIGRvIG5vdCBleHBlY3QgdG8gdGFrZSBuZXN0ZWQgcHJvbXB0IGlucHV0IGluIFF1YXJ0byBMaXZlIGNlbGxzXG4gIGRhdGEub3B0aW9ucy5jaGFubmVsVHlwZSA9IENoYW5uZWxUeXBlLlBvc3RNZXNzYWdlO1xuXG4gIC8vIEluaXRpYWxpc2Ugd2ViUiBhbmQgc2V0dXAgZm9yIFIgY29kZSBldmFsdWF0aW9uXG4gIGxldCB3ZWJSUHJvbWlzZSA9IChhc3luYyAod2ViUikgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgd2ViUmA7XG4gICAgYXdhaXQgd2ViUi5pbml0KCk7XG5cbiAgICAvLyBJbnN0YWxsIHByb3ZpZGVkIGxpc3Qgb2YgcGFja2FnZXNcbiAgICAvLyBFbnN1cmUgd2ViUiBkZWZhdWx0IHJlcG8gaXMgaW5jbHVkZWRcbiAgICBkYXRhLnBhY2thZ2VzLnJlcG9zLnB1c2goXCJodHRwczovL3JlcG8uci13YXNtLm9yZ1wiKVxuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIHdlYlIuZXZhbFJWb2lkKGBcbiAgICAgICAgd2Vicjo6aW5zdGFsbChwa2csIHJlcG9zID0gcmVwb3MpXG4gICAgICAgIGxpYnJhcnkocGtnLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG4gICAgICBgLCB7IGVudjoge1xuICAgICAgICBwa2c6IHBrZyxcbiAgICAgICAgcmVwb3M6IGRhdGEucGFja2FnZXMucmVwb3MsXG4gICAgICB9fSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCB3ZWJSLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKCFlLm1lc3NhZ2UuaW5jbHVkZXMoXCJGUyBlcnJvclwiKSkge1xuICAgICAgICAgICAgdGhyb3cgZTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHJldHVybiBhd2FpdCB3ZWJSLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluc3RhbGxpbmcgd2ViUiBzaGltc2A7XG4gICAgYXdhaXQgd2ViUi5ldmFsUlZvaWQoYHdlYnI6OnNoaW1faW5zdGFsbCgpYCk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFdlYlIgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUih3ZWJSLCBkYXRhKTtcblxuICAgIHN0YXR1c1RleHQucmVtb3ZlKCk7XG4gICAgaWYgKHN0YXR1c0NvbnRhaW5lci5jaGlsZHJlbi5sZW5ndGggPT0gMCkge1xuICAgICAgc3RhdHVzQ29udGFpbmVyLnBhcmVudE5vZGUucmVtb3ZlKCk7XG4gICAgfVxuICAgIHJldHVybiB3ZWJSO1xuICB9KShuZXcgV2ViUihkYXRhLm9wdGlvbnMpKTtcblxuICAvLyBLZWVwIHRyYWNrIG9mIGluaXRpYWwgT0pTIGJsb2NrIHJlbmRlclxuICBjb25zdCByZW5kZXJlZE9qcyA9IHt9O1xuXG4gIGNvbnN0IHByb2Nlc3MgPSBhc3luYyAoY29udGV4dCwgaW5wdXRzKSA9PiB7XG4gICAgY29uc3Qgd2ViUiA9IGF3YWl0IHdlYlJQcm9taXNlO1xuICAgIGNvbnN0IGV2YWx1YXRvciA9IG5ldyBXZWJSRXZhbHVhdG9yKHdlYlIsIGNvbnRleHQpXG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHJvY2VzcyxcbiAgICB3ZWJSUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgfTtcbn1cbiJ9XX0=
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-WyJBc3NldHMvTlZEQS5jc3YiLCJBc3NldHMvTVNGVC5jc3YiLCJBc3NldHMvQUFQTC5jc3YiXQ==
-</script>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-BDM" class="csl-entry" role="listitem">
-Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
-</div>
-<div id="ref-HandsOn" class="csl-entry" role="listitem">
-Grolemund, Garrett. 2014. <em>Hands-on Programming with <span>R</span></em>. Sebastopol, CA: O’Reilly Media.
-</div>
 <div id="ref-tidyfinance" class="csl-entry" role="listitem">
 Scheuch, Christoph, Stefan Voigt, and Patrick Weiss. 2023. <em>Tidy Finance with <span>R</span></em>. Chapman &amp; Hall/CRC. <a href="https://www.tidy-finance.org/r/">https://www.tidy-finance.org/r/</a>.
-</div>
-<div id="ref-shiny" class="csl-entry" role="listitem">
-Wickham, Hadley. 2021. <em>Mastering Shiny</em>. O’Reilly Media. <a href="https://mastering-shiny.org/">https://mastering-shiny.org/</a>.
 </div>
 <div id="ref-r4ds" class="csl-entry" role="listitem">
 Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R</span> for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
@@ -1050,17 +1108,6 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R
           RevealZoom
         ]
       });
-    </script>
-    <script type="ojs-module-contents">
-    eyJjb250ZW50cyI6W119
-    </script>
-    <script type="module">
-    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-    window._ojs.paths.runtimeToDoc = "../../quant-fin/Introduction";
-    window._ojs.paths.runtimeToRoot = "../..";
-    window._ojs.paths.docToRoot = "../..";
-    window._ojs.selfContained = false;
-    window._ojs.runtime.interpretFromScriptTags();
     </script>
     
 

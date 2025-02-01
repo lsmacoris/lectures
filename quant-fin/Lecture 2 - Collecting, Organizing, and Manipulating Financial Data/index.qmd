@@ -46,26 +46,18 @@ This page was intentionally left blank
 
 ```{r}
 #| echo: false
+#| message: false
+#| warning: false
 
-# Package names
-packages <- c("tidyverse","tidyquant","tidymodels","xts","glue","scales","downloadthis")
+source('../~ Metadata/packages.R')
 
-# Install packages not yet installed
-installed_packages <- packages %in% rownames(installed.packages())
-
-if (any(installed_packages == FALSE)) {
-  install.packages(packages[!installed_packages])
-}
-
-# Load all packages
-invisible(lapply(packages, library, character.only = TRUE))
 ```
 
 ```{r}
 #| echo: false
 
 #List of assets
-assets= c('AAPL','MSFT','NVDA','GOOG','AMZN','META','TSLA','F','MMM','GME')
+assets= c('AAPL','MSFT','NVDA','GOOG','AMZN','META','TSLA')
 start='2020-01-01'
 
 #Write to memory

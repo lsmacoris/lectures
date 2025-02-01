@@ -7,7 +7,7 @@ format:
     theme: [default, ../~ Metadata/custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
-    logo: '/Images/logo.jpg'
+    logo: 'Images/logo.jpg'
     footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: ../~ Metadata/abntex2.cls
@@ -42,14 +42,14 @@ This page was intentionally left blank
 
 {{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
 
-
 ```{r}
 #| echo: false
+#| message: false
+#| warning: false
 
 source('../~ Metadata/packages.R')
 
 ```
-
 
 ```{r echo=FALSE}
 #Assets
