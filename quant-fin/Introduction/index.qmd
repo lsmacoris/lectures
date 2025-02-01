@@ -7,11 +7,11 @@ format:
     theme: [default, ../~ Metadata/custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
-    logo: 'Images/logo.jpg'
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/strat-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    logo: '/Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: ../~ Metadata/abntex2.cls
-    incremental: true
+    incremental: false
     bibliography: '../~ Metadata/Bibliography.bib'
     slide-number: true
     show-slide-number: all
@@ -36,15 +36,23 @@ editor: visual
 from: markdown+emoji
 ---
 
-{{< include ./_extensions/r-wasm/live/_knitr.qmd >}} This slide was intentionally left blank {{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+This page was intentionally left blank
+
+{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
+
+
+```{r}
+#| echo: false
+
+source('../~ Metadata/packages.R')
+
+```
+
 
 ```{r echo=FALSE}
-#Initialize
-
-library(tidyverse)
-library(quantmod)
-library(glue)
-
+#Assets
 assets= c('AAPL','MSFT','NVDA')
 asset_list=lapply(assets,function(x) getSymbols(x,auto.assign = FALSE))%>%
   setNames(assets)%>%
@@ -52,7 +60,6 @@ asset_list=lapply(assets,function(x) getSymbols(x,auto.assign = FALSE))%>%
   map(rownames_to_column)%>%
   map(~setNames(.,c('Timestamp','Open','High','Low','Close','Volume','Adjusted')))
 walk2(assets,asset_list,\(name,df) write_csv(df,glue('Assets/{name}.csv')))
-
 ```
 
 ## Welcome to the Course
@@ -84,27 +91,26 @@ $\rightarrow$ *To that point, departing from the general tools, such as Excel, t
 -   This is a [hands-on]{.blue}, [practical]{.blue} course on *Quantitative Finance* with applications using [{{<fa brands r-project>}}]{.blue} and [{{<fa brands python>}}]{.blue}, two of the most widely used open-source software for data analysis. It will be structured in topics that are of interest to Finance practitioners, aiming to include, but not limited to:
 
     1.  Collecting and organizing financial data
-    2.  Equity valuation
-    3.  Sensitivity analysis and simulation
-    4.  Portfolio optimization
-    5.  Backtesting
-    6.  Event Analysis
+    2.  CAPM, Fama-French, and multi-factor models of risk
+    3.  Equily Valuation, sensitivity analysis, and Simulation
+    4.  Portfolio optimization and strategy backtesting
+    5.  Event Analysis
+    6.  Sentiment Analysis
 
 -   Students are also expected to interact with leading industry practitioners focused on financial applications using open-source languages, aiming to discover more about the possibilities of applying the skills learned in this course in the financial industry
 
 ## Bibliography
 
 ::: nonincremental
--   **Mandatory reading**: we will mostly follow *Tidy Finance* [@tidyfinance], as our text-book. Other relevant reading materials include:
+-   **Coursework**: we will mostly follow *Tidy Finance* [@tidyfinance], as our text-book. Other relevant reading materials include:
     1.  *R for Data Science* [@r4ds]
-    2.  *Quantitative Trading with R* [@r-trading]
-    3.  *Mastering Shiny* [@shiny]
+    2.  *Mastering Shiny* [@shiny]
 -   **Supplementary Reading**:
     1.  *Corporate Finance* [@BDM] - a companion for finance-related topics
     2.  Other optional contents, such as *Harvard Business School (HBS) Cases*
 :::
 
-::: callout-important
+::: callout-tip
 ### Important
 
 Most of the references listed in this bibliography have an open-source version that is hosted online, where you can copy-paste code chunks directly into your [{{<fa brands r-project>}}]{.blue} session. All contents with restricted access will be provided upfront.
@@ -138,29 +144,9 @@ I also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessio
 
 ![](Images/what-a-week.jpeg){width="50%," fig-align="center"}
 
-## Getting the best of this course
-
-. . .
-
-**How you can get the best of this course**
-
-1.  Follow *FGV-EAESP* code of conduct
-2.  Be [organized]{.blue}: pay attention to pre-readings and deliverables
-3.  Be [proactive]{.blue}: ask questions and participate in discussions
-4.  [Take the lead]{.blue} on your learning: you are the ultimate responsible for your success!
-
-. . .
-
-**How the professor can facilitate you getting the best of this course**
-
-1.  All mandatory content and classes will be conducted in *English*
-2.  Provide a safe and open space for questions, both in-person and remote
-3.  Motivate students, both from the academic and practitioner standpoints
-4.  Provide opportunities to extend knowledge beyond the mandatory readings
-
 ## Getting the best of this course, continued
 
--   **Tech setup**: in the [official page](www.google.com) of your course, you will find instructions on how to properly set up your computer in terms of downloading all necessary softwares, packages, and customizing your [{{<fa brands r-project>}}]{.blue} session[^1]
+-   **Tech setup**: in the [official page](https://lsmacoris.github.io/lectures/quant-fin.html) of your course, you will find instructions on how to properly set up your computer in terms of downloading all necessary softwares, packages, and customizing your [{{<fa brands r-project>}}]{.blue} session[^1]
 
 -   **Code Replication**: right after we are done with a given topic, try to replicate the in-class handouts on your end and check if you are able to yield the same outputs
 
@@ -234,8 +220,6 @@ ggplot(dat, aes(x=xvar, y=yvar)) +
 ### R
 
 ```{r}
-#| code-fold: true
-#| code-summary: "Show the code"
 #| echo: true
 #| eval: false
 
@@ -341,21 +325,32 @@ gradethis::grade_this_code()
 ```
 ::::::
 
-## Working your way through the course
+## Getting started
 
 -   To get started, you'll need to:
 
-    1.  Install *R* using [this](https://cloud.r-project.org/) link
-    2.  Install *RStudio* using [this](https://posit.co/download/rstudio-desktop/) link
+::: incremental
+1.  Install *R* using [this](https://cloud.r-project.org/) link
+2.  Install *RStudio* using [this](https://posit.co/download/rstudio-desktop/) link
+3.  Install *Quarto* using [this](https://quarto.org/docs/get-started/) link
+:::
+
+. . .
 
 -   If you're new to *R* or need a refresher on the basics, please refer to [Projects I]{.blue} and [II]{.blue} of the [*Hands-On Programming with R*](https://rstudio-education.github.io/hopr/project-1-weighted-dice.html) [@HandsOn]
 
 . . .
 
 ::: callout-tip
-### Getting started
+### Tech-setup
 
-In the official webpage of this course, I have outlined all necessary steps to get started using *R*, as well as some useful tips for those that want to get up to speed on the course's requirements - pleass follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) link and carefully read the instructions.
+In the official webpage of this course, I have outlined all necessary steps to get started using *R*, as well as some useful tips for those that want to get up to speed on the course's requirements - please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) link and carefully read the instructions.
 :::
+
+## Course pre-assessment
+
+-   Fill out the form below, share your thoughts, and help me tailor the course to meet your needs and track your progress :slightly_smiling_face:
+
+![](Images/QR-Code.png){fig-align="center" width="25%"}
 
 ## References

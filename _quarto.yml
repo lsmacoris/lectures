@@ -18,6 +18,9 @@ website:
         text: Financial Management
       - href: fin-strat.qmd
         text: Financial Strategy
+      - href: quant-fin.qmd
+        text: Quantitative Finance
+
     right:
       - icon: github
         href: https://github.com/lsmacoris
@@ -34,7 +37,7 @@ website:
 
   page-footer: 
    background: dark
-   left: Copyright 2024, Lucas Macoris. Photography by [Juliana Rizieri](https://www.jurizieri.com.br/).
+   left: Copyright 2025, Lucas Macoris. Photography by [Juliana Rizieri](https://www.jurizieri.com.br/).
    right: Built with [Quarto](https://quarto.org/)
 
 

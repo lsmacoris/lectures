@@ -27,7 +27,7 @@ To make things easier, ensure to install these packages in your computer and loa
 
 ```{r, eval=FALSE,echo=TRUE}
 # Package names
-packages <- c("tidyverse","tidyquant","tidymodels","xts","glue","scales")
+packages <- c("tidyverse","tidyquant","tidymodels","xts", "glue","scales","downloadthis", "ggthemes")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -45,11 +45,11 @@ lapply(packages, library, character.only = TRUE)
 ::: {.callout-note}
 ### 2. Using Quarto
 
-In this course, you'll be assigned with three data cases, where you'll need to manipulate code and write your insights altogether. You may have heard of [Jupyter Notebooks](https://jupyter.org/) before as a way to do it. I want to encourage you to give [Quarto](https://quarto.org/) a try.
+In this course, you'll be assigned with three data cases, where you'll need to manipulate code and write your insights altogether. I want to encourage you to give [Quarto](https://quarto.org/) a try.
 
 To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) link and choose your Operating System. *RStudio* will automatically locate it and make it as an option whenever creating a new file with `Ctrl+N`. Why you should give Quarto a try:
 
-  1. It has multi-language support (*Python*, *R*, *Julia*, *JavaScript*), equations and mathematical notations via *pandoc*, and seamless integration with GitHub
+  1. It has multi-language support (*Python*, *R*, *Julia*, *JavaScript*), parses equations and mathematical notations via *pandoc*, and integrates seamlessly with GitHub
   2. Advanced document formatting and output options: you can choose *pdf*, *html*, *docx*, or even a *reveal.js* presentation (like the ones from this course!)
   3. It is easy, intuitive, and lets you focus on the most important aspect of your work: the analysis
 
@@ -59,8 +59,6 @@ To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) 
 ### 3. Contents
 
 Below you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
-
-These slides leverage [Quarto](https://quarto.org/), an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:
 
 1. Hit `F` for full-screen mode
 2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`

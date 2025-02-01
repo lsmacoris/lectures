@@ -1,0 +1,667 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'The Capital Asset Pricing Model (CAPM) in practice'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: '/Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: false
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+    1.  *Tidy Finance* [@tidyfinance]
+    2.  *R for Data Science* [@r4ds]
+
+::: callout-note
+### Coding Replications
+
+For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
+
+1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
+2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+:::
+
+```{r}
+#| echo: false
+
+source('../~ Metadata/packages.R')
+
+```
+
+## Disclaimer
+
+::: callout-important
+### Disclaimer
+
+The information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.
+
+All code used in this lecture is publicly available and is also shared on my [GitHub](https://github.com/lsmacoris) page. Participants are encouraged to review, modify, and use the code for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.
+
+For any questions or concerns, please feel free to reach out via email at [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+:::
+
+## Background
+
+-   The [*Capital Asset Pricing Model (CAPM)*]{.blue} is a very practical, robust and straightforward implementation for modeling expected returns
+
+-   It gets managers to think about risk in the correct way: instead of thinking about total risk, the [CAPM]{.blue} shows us that we only the market risk (non-diversifiable) should be the concern
+
+. . .
+
+-   There are [three]{.blue} simplifying assumptions around investor behavior that the [CAPM]{.blue} establishes:
+
+:::: callout-tip
+### The Capital Asset Pricing Model (CAPM) Assumptions
+
+::: incremental
+1.  Investors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate
+
+2.  Investors hold only efficient portfolios of traded securities
+
+3.  Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities
+:::
+::::
+
+. . .
+
+**Question**: why these assumptions are important?
+
+## Pricing the Risk Premium under the CAPM
+
+-   Recall that the expected return of any given asset $i$ is given by:
+
+$$
+\small E[R_i]  =  R_f + \beta_i^P  \times (E[R_p] - R_f)
+$$
+
+-   How can we find $\beta_i^P$, the sensitivity of asset $i$ returns to the efficient portfolio, $P$?
+    1.  To identify the efficient portfolio [@Markowitz], we need to know the expected returns, volatilities, and correlations between all available investments!
+    2.  However, if the [CAPM]{.blue} assumptions are valid, we can now identify the efficient portfolio: **it is equal to the market portfolio!**
+-   What does that mean for us in terms of determining expected equity returns? Until now, we were agnostic on what $P$ was. Under the [CAPM]{.blue}, we can change the subscript $P$ to $M$:
+
+$$
+\small E[R_i] =  R_f + \beta_i^M  \times (E[R_m] - R_f)
+$$
+
+## CAPM Implication 1: the Capital Market Line (CML)
+
+![](Images/F1.png){fig-align="center" width="70%"}
+
+## The CML shows no clear relationship between risk and return...
+
+![](Images/F2.png){fig-align="center" width="70%"}
+
+## CAPM Implication 2: the Security Market Line (SML) makes the relationship clear when focusing only ($\beta^M_i$)!
+
+![](Images/F3.png){fig-align="center" width="60%"}
+
+## Hands-On Exercise
+
+-   You work as a buy-side analyst at *Pierpoint Capital*, focusing on the chemicals industry. You job is replicate the [CAPM]{.blue} for a handful of securities from the Chemical (basic) industry and provide insights for the fund manager:
+
+1.  Which stocks, according to the [CAPM]{.blue}, are [undervalued]{.green} and why?
+2.  Which stocks, according to the [CAPM]{.blue}, are [overvalued]{.red} and why?
+3.  If the fund were to implement your strategy, what are the risks associated with?
+
+::: callout-important
+### Specific Instructions
+
+1.  The securities to be included in the analysis are: Dow (ticker: *DOW*), LyondellBasell (*LYB*), Perimeter (*PRM*), Flotek (*FTK*), Rayonier (*RYAM*), Albemarle (*ALB*), Celanese (*CE*),The Chemours (*CC*), Ginkgo Bioworks (*DNA*), and American Vanguard (*AVD*).
+
+2.  CAPM estimation should be done at a *weekly* level using data from 2024
+:::
+
+## Estimating the Equity Cost of Capital in practice
+
+-   The dynamics behind the pricing of securities under the [CAPM]{.blue} are:
+
+$$R_i = R_f + \beta \times (E[R_m] - R_f)$$
+
+-   However, no one really told you from where the numbers came from
+
+-   Recall that, under the [CAPM]{.blue}, we need to have estimates related to the market portfolio:
+
+    1.  It is is equal to the risk-free interest rate, [$R_f$]{.blue}...
+    2.  The expected return on the market portfolio, [$E[R_m]$]{.blue}...
+    3.  And a stock's s sensitivity to the market portfolio, denoted by [$\beta$]{.blue}
+
+## Cost of Equity Components: the risk-free rate
+
+-   The first ingredient of CAPM is [risk-free rate]{.blue}, which is the interest rate that investors can earn while having zero to limited volatility
+
+-   Suggestions on how to pick the Risk-Free ($R_f$) rate to be used:
+
+    1.  The yield on U.S. Treasury securities
+    2.  Surveys suggest most practitioners use 10- to 30-year treasuries
+    3.  Highest quality assets
+
+-   Often, we use a short-term risk-free rate to evaluate a short-term investment, and a long-term rate when evaluating a long-term investment
+
+::: callout-important
+### Country-specific risk-free rates
+
+Whenever modeling assets *outside* of the U.S, we can either use the yields for local treasuries (*i.e*, relatively safer assets) or use U.S treasuries by adjusting the calculations for country-specific risk premium - see, for example, Brazilian's *EMBI*.
+:::
+
+## Cost of Equity Components: the market risk premium
+
+-   Another component of the Cost of Equity is the difference between $E[R_m]$ and $R_f$ (the market risk premium)
+
+-   Ways to estimate the market risk premium:
+
+    1.  Estimate the risk premium ($E[R_m] − R_f$) using the historical average excess return of the market over the risk-free interest rate
+    2.  Notice that, even with long periods, we often have large standard errors
+    3.  Implicitly, you are assuming that the past is a good proxy for the future
+
+::: callout-important
+### Watch-out!
+
+Indexes like the [S&P500]{.blue} and [Ibovespa]{.blue} are not considered the [market portfolio]{.blue}, but rather, they are *proxies* for the market portfolios - in other words, they are reasonable approximations of the market portfolio for a given set universe of securities
+:::
+
+## Step 1: Collecting Data
+
+-   As a suggestion, we will be collecting data on U.S. Treasury yields and Market Risk Premium using [Kenneth French]{.blue}'s [website](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html), which hosts a data library with updated on U.S. returns from a wide varieaty of risk factors and asset classes
+
+    1.  Treasury yields ($R_F$) are defined as the daily returns on the *1-month Treasury Bill*
+    2.  Market Returns ($R_M$) are defined as the value-weighted returns on a bundle of U.S. stocks [^1]
+
+-   I have already worked on the data for you, and you can download it using the *Download* button - details on the code used to manipulate the data and put it into tidy format are presented in the next slide
+
+-   To load the data in your session, call:
+
+[^1]: Click [here](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html) for details around the stock selection criteria.
+
+```{r}
+#| warning: false
+#| message: false
+#| eval: false
+#| echo: true
+#Read the data, assign it, and make sure it reads the Data column as a Date object
+FF_Data=read.csv('MRP_and_RF.csv')%>%mutate(Date=as.Date(Date))
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+read.csv('Assets/MRP_and_RF.csv')%>%
+  download_this(
+    output_name = "FF_Data",
+    output_extension = ".csv",
+    button_label = "Download Raw data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+## Step 1: $R_M$, $R_F$, and the Market Risk Premium
+
+::: panel-tabset
+## Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Use Fama-French Data to retrieve Rf and MRP
+FF_url <- "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_daily_CSV.zip"
+temp_file <- tempfile()
+download.file(FF_url, temp_file)
+
+#Download and manipulate the data
+unzip(temp_file)%>%
+read.csv(skip=3)%>%
+#Select only the data, Excess Returns, and Risk-Free Columns
+select(1,2,7)%>%
+#Change the names of the variables
+setNames(c('Date','MRP','Rf'))%>%
+#Make sure the date columns is read as a Date object
+mutate(Date=as.Date(strptime(Date,format='%Y%m%d')))%>%
+#Filter for 2024
+filter(year(Date)==2024)%>%
+#Manipulate data to aggregate
+mutate(across(where(is.numeric),\(x) (1+x/100)))%>%
+#Pivot to get only one column
+pivot_longer(names_to = "Key",values_to = "Value",-Date)%>%
+#Group by the newly created Key column
+group_by(Key)%>%
+#Apply nest() for functional programming and perform aggregation
+nest()%>%
+mutate(data = map(data,as.xts))%>%
+mutate(data = map(data,apply.weekly,\(x) prod(x)-1))%>%
+mutate(data = map(data,as.data.frame))%>%
+mutate(data = map(data,~rownames_to_column(.,'Date')))%>%
+unnest(data)%>%
+#Pivot back to wide format
+pivot_wider(names_from = Key,values_from = Value)%>%
+#Wite csv
+write.csv('MRP_and_RF.csv',row.names = FALSE)
+
+```
+
+## Output
+
+```{r}
+#| echo: false
+#| eval: true
+
+#Read the data, assign it, and make sure it reads the Data column as a Date object
+FF_Data=read.csv('Assets/MRP_and_RF.csv')%>%mutate(Date=as.Date(Date))
+
+#Print
+FF_Data
+```
+:::
+
+## Step 2: collecting stock price information
+
+-   Now that we have the right-hand side components of your [CAPM]{.blue} equation, it is time to collect information on stock prices for the selected stocks. By now, you can pretty much apply the rationale you've done in previous lectures:
+
+    1.  Create a vector `assets` containing the tickers that you wish to request information from
+    2.  Create a `start` and `end` objects containing the analysis period
+    3.  Use `tq_get()` and pipe `assets` onto the function along with `from=start` and `to=end` arguments
+    4.  Manipulate the data to calculate weekly returns, assigning it to an object called `Stock_Data`
+
+-   Finally, you can use `left_join()` to merge `Stock_Data` with `FF_Data`:
+
+```{r}
+#| echo: true
+#| eval: false
+Final_Data=Stock_Data%>%left_join(FF_Data)
+```
+
+## Step 2: collecting stock price information
+
+::: panel-tabset
+## Code
+
+```{r}
+#| echo: true
+#| eval: false
+#Create the start and end dates
+start=as.Date('2024-01-01')
+end=as.Date('2024-12-31')
+
+#Create the list of assets
+assets=c('DOW','LYB','PRM','FTK','RYAM',
+         'ALB','CE','CC','DNA','AVD')
+
+#Collect data, select necessary columns, and calculate weekly returns
+Stock_Data=assets%>%
+  tq_get(from=start,to=end)%>%
+  select(symbol,date,adjusted)%>%
+  group_by(symbol)%>%
+  tq_transmute(select = adjusted,
+               mutate_fun = weeklyReturn,
+               col_rename = 'weekly_return')
+
+#Left join when column names are different
+Full_Data=Stock_Data%>%left_join(FF_Data,by=c('date'='Date'))
+```
+
+## Output
+
+```{r}
+#| echo: false
+#| eval: true
+
+start=as.Date('2024-01-01')
+end=as.Date('2024-12-31')
+
+#Create the list of assets
+assets=c('DOW','LYB','PRM','FTK','RYAM',
+         'ALB','CE','CC','DNA','AVD')
+
+#Collect data, select necessary columns, and calculate weekly returns
+Stock_Data=assets%>%
+  tq_get(from=start,to=end)%>%
+  select(symbol,date,adjusted)%>%
+  group_by(symbol)%>%
+  tq_transmute(select = adjusted,
+               mutate_fun = weeklyReturn,
+               col_rename = 'weekly_return')
+
+#Left join when column names are different
+Full_Data=Stock_Data%>%left_join(FF_Data,by=c('date'='Date'))
+
+#Print
+Full_Data
+
+```
+
+$\rightarrow$ *You now have the weekly returns for all selected stocks, the weekly risk-free returns, and the weekly market returns!*
+:::
+
+## Cost of Equity Components: $\beta$ estimation
+
+-   All that's left is to estimate the stocks's sensitivity to the returns of the market portfolio, $\beta$
+
+-   From what we know on the theory on portfolio returns, a new asset $i$ should be enhance the performance of a portfolio if:
+
+$$
+\small \underbrace{\frac{E[R_i] - R_f}{\sigma_{i} \times Corr(R_i,R_m)}}_{\text{Sharpe Ratio of } i} > \underbrace{\frac{E[R_m] - R_f}{\sigma_{m}}}_{\text{Sharpe Ratio of Market}}
+$$
+
+-   With that, we saw that the expected return from an asset $i$ should be:
+
+$$
+\small R_i - R_f = \underbrace{\frac{\sigma_{i} \times Corr(R_i,R_m)}{\sigma_{m}}}_{\beta^M_i}  \times (E[R_m] - R_f)
+$$
+
+## Cost of Equity Components: $\beta$ estimation, continued
+
+-   Because $\small Corr(R_i,R_m)=\frac{Cov(R_i,R_m)}{\sigma_i\sigma_m}$, we have that:
+
+$$
+\small (R_i - R_f)=\frac{\sigma_{i} \times Cov(R_i,R_m)}{\sigma_i \sigma_m\sigma_{m}}  \times (E[R_p] - R_f)\rightarrow  (R_i - R_f)=  \underbrace{\frac{Cov(R_i,R_m)}{\sigma^2_m}}_{\text{OLS formula for slope}}\times (E[R_p] - R_f)
+$$
+
+-   We can then estimate $\beta$ using an *Ordinary Least Squares* regression:
+
+$$
+\small \underbrace{(R_i - R_f)}_{\text{Excess Return}} = \underbrace{\alpha_i}_{\text{Uncorrelated Return}} + \underbrace{\beta_i}_{\text{Stock's Market Sensitivity}} \times \underbrace{(R_m - R_f)}_{\text{Risk Premium}} + \epsilon_i
+$$
+
+-   $\epsilon_i$ is the error term (or the *residual*). It represents the *deviations* from the best-fitting line and is, by definition, zero on average (or else we could improve the fit), and represent firm-specific risk that is diversifiable and that averages out in a large portfolio
+
+## Step 3: estimating $\alpha$ and $\beta$
+
+-   We know need estimate the following equation for each stock in our analysis:
+
+$$
+\small Excess_t = \alpha + \beta \times (R_m - R_f) + \epsilon_t
+$$
+
+-   The naivest way to do it is to repeat the process $10$ times, filtering each stock at a time, and running an *OLS* model with the `lm()` function:
+
+    1.  Start with the `Full_Data` object and pipe onto `mutate` to creat the `excess_return` variable
+    2.  `select` only the `symbol`, the `excess_return`, and the `MRP` columns
+    3.  Use `filter` to work with a single ticker, say, `symbol=='DOW'`
+    4.  Call the `lm()` function to run an *OLS* regression of excess returns on market returns
+
+-   The next slide shows the result of estimating the [CAPM]{.blue} model for *DOW*
+
+## Step 3: estimating $\alpha$ and $\beta$ (*DOW* only)
+
+::: panel-tabset
+## Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Manipulate data
+DOW=Full_Data%>%
+  mutate(excess_return=weekly_return-Rf)%>%
+  select(symbol,excess_return,MRP)
+
+#Run the OLS regression
+OLS=lm(excess_return~MRP,data=DOW)
+
+#Inspect the results using summary()
+summary(OLS)
+```
+
+## Output
+
+```{r}
+#| echo: false
+#| eval: true
+
+#Manipulate data
+DOW=Full_Data%>%
+  mutate(excess_return=weekly_return-Rf)%>%
+  select(symbol,excess_return,MRP)
+
+#Run the OLS regression
+OLS=lm(excess_return~MRP,data=DOW)
+
+#Inspect the results using summary()
+summary(OLS)
+```
+:::
+
+## Understanding the $\beta$ term inside the OLS estimation
+
+$$
+\small \underbrace{(R_i - R_f)}_{\text{Excess Return}} = \underbrace{\alpha}_{\text{Uncorrelated Return}} + \underbrace{\beta}_{\text{Stock's Market Sensitivity}} \times \underbrace{(R_m - R_f)}_{\text{Risk Premium}} + \epsilon
+$$
+
+1.  $\beta$ is the sensitivity to market risk. It measures the historical variation of the security relative to the market
+
+2.  According to the CAPM, all assets should line on the *Security Market Line (SML)*
+
+-   If $\beta>1$, it means that a 1% variation in market returns implies a variation that is [greater]{.blue} than 1% in stock returns (either [up]{.green} or [down]{.red}!)
+-   If $\beta<1$ it means that a 1% variation in market returns implies a variation that is [less]{.blue} than 1% in stock returns (either [up]{.green} or [down]{.red}!)
+
+## Assessing Required Returns
+
+-   Suppose you need to price the long-run required returns for investing in an opportunity that has the same equity risk and as *DOW*. It is now a straightforward application of the [CAPM]{.blue}:
+
+$$
+\small \text{Required Return} = R_f +  \beta \times (R_m - R_f)
+$$
+
+-   Say, for example that you have the following information:
+
+    1.  The historical long-run risk-free rate return, $\small R_f$, is $\small 4.50\%$
+    2.  The historical long-run market return, $\small R_m$, is $\small 9.94\%$
+    3.  The $\beta$ you've just found is $\small 1.12$
+
+-   Then, the long-run required return is simply:
+
+$$
+\small \text{Required Return} = 4.5\%+ 1.12\times(9.94\%-4.5\%)=10.59\%
+$$
+
+## Understanding the $\alpha$ term inside the OLS estimation
+
+$$
+\small \underbrace{(R_i - R_f)}_{\text{Excess Return}} = \underbrace{\alpha}_{\text{Uncorrelated Return}} + \underbrace{\beta}_{\text{Stock's Market Sensitivity}} \times \underbrace{(R_m - R_f)}_{\text{Risk Premium}} + \epsilon
+$$
+
+1.  $\alpha_i$ is the constant term. It measures the historical performance of the security relative to the expected return predicted by the security market line
+
+2.  It is the distance that the stock’s average return is above or below the SML. Thus, we can say $\alpha_i$ is a risk-adjusted measure of the stock’s historical performance.
+
+3.  According to the CAPM, $\alpha_i$ [should not be significantly different from zero]{.blue}
+
+-   If $\alpha>0$ consistently, it would mean that a security delivers a *constant* positive return and, by definition, independent from the market returns
+-   If that is the case, investors would buy the security up to a point where price adjusts so that $\alpha$ goes to zero (recall *Assumption #1*)!
+
+## Interpreting $\alpha$
+
+$$\small \alpha_i = \underbrace{E[R_i]}_{\text{Observed by the analyst}} - \underbrace{R_i}_{\text{Implied by the CAPM}}$$
+
+1.  **A [positive]{.green} alpha means that the stock is [above]{.green} the SML**
+    -   In words, the expected return is [higher]{.green} than its required return. Before prices adjust, investors will anticipate that the price will [rise]{.green} and will likely put in buy orders at the current prices
+2.  **A [negative]{.red} alpha means that the stock is [below]{.red} the SML**
+    -   The expected return is [lower]{.red} than its required return. Before prices adjust, investors will anticipate that the price will [fall]{.red} and will likely put in sell orders at the current prices
+
+$\rightarrow$ *In either case, we'll be able to improve portfolio results. However, as we do so, prices will change and their alphas will shrink towards zero!*
+
+## Step 4: putting all together
+
+-   Our final step is to use the [CAPM]{.blue} to assess which stocks are [overvalued]{.red}, and which ones are [undervalued]{.green}
+
+-   You could proceed by doing the same procedure as before, but now focusing on the $\alpha$ term that has been estimated for you
+
+    1.  To do that for all 10 stocks, you could do a `for` loop, store the results, and analyze
+
+    2.  In general, `for` loops are *inefficient*: they run sequentially, have slower performance, and are difficult to read
+
+-   An alternative is to use the `tidyverse` excellent capabilities for functional programming using the `map` function from the `purrr` package, which breaks the problem into sub-pieces and estimate the models in parallel
+
+-   For detailed information on functional programming, see `purrr` documentation [here](https://purrr.tidyverse.org/)
+
+## Step 4: putting all together continued
+
+::: panel-tabset
+## For Loop
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Start an empty data.frame
+Stored_Data=data.frame()
+
+for (i in assets){
+  
+  #Manipulate data
+  Filtered_Data=Full_Data%>%
+    #Filter for the specific ticker
+    filter(symbol== i)%>%
+    mutate(excess_return=weekly_return-Rf)%>%
+    select(symbol,excess_return,MRP)
+  
+  #Run the OLS regression
+  OLS=lm(excess_return~MRP,data=Filtered_Data)
+
+  #Get the coefficients using the coefficients() function and add it to a temp data
+  
+  Temp_Data = data.frame(ticker=i,
+                         alpha=coefficients(OLS)[1],
+                         beta=coefficients(OLS)[2])
+  
+  #Bind it to the dataframe
+  Stored_Data=Stored_Data%>%rbind(Temp_Data)
+  
+  }
+
+```
+
+## Functional Programming
+
+```{r}
+#| echo: true
+#| eval: false
+
+CAPM_Estimation=Full_Data%>%
+  mutate(excess_return=weekly_return-Rf)%>%
+  select(symbol,excess_return,MRP)%>%
+  group_by(symbol)%>%
+  nest()%>%
+  mutate(CAPM = map(data,~ lm(excess_return~MRP,data=.)))%>%
+  mutate(coefficients = map(CAPM,tidy))
+
+```
+:::
+
+## Charting the result
+
+::: panel-tabset
+## Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+Full_Data%>%
+  mutate(excess_return=weekly_return-Rf)%>%
+  select(symbol,excess_return,MRP)%>%
+  group_by(symbol)%>%
+  nest()%>%
+  mutate(CAPM = map(data,~ lm(excess_return~MRP,data=.)))%>%
+  mutate(coefficients = map(CAPM,broom::tidy))%>%
+  select(coefficients)%>%
+  unnest()%>%
+  filter(term=='(Intercept)')%>%
+  select(symbol,estimate)%>%
+  setNames(c('Ticker','Alpha'))%>%
+  ggplot(aes(x=Ticker,y=Alpha))+
+  geom_point()+
+  geom_segment(aes(yend = 0), linetype = "dashed", color = "gray50")+
+  geom_hline(yintercept=0,linetype='dashed')+
+  #Annotations
+  labs(title='Using CAPM to analyze over/undervalued investment opportunities',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Ticker',
+       y = 'Adjusted Prices')+
+  #Scales
+  scale_y_continuous(labels = percent)+
+  #Custom 'The Economist' theme
+  theme_tq()+
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(vjust=+4,face='bold'),
+        axis.title.x = element_text(vjust=-3,face='bold'),
+        axis.text = element_text(size=8))
+```
+
+## Output
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-width: 15
+#| fig-height: 6
+
+Full_Data%>%
+  mutate(excess_return=weekly_return-Rf)%>%
+  select(symbol,excess_return,MRP)%>%
+  group_by(symbol)%>%
+  nest()%>%
+  mutate(CAPM = map(data,~ lm(excess_return~MRP,data=.)))%>%
+  mutate(coefficients = map(CAPM,broom::tidy))%>%
+  select(coefficients)%>%
+  unnest()%>%
+  filter(term=='(Intercept)')%>%
+  select(symbol,estimate)%>%
+  setNames(c('Ticker','Alpha'))%>%
+  ggplot(aes(x=Ticker,y=Alpha))+
+  geom_point()+
+  geom_segment(aes(yend = 0), linetype = "dashed", color = "gray50")+
+  geom_hline(yintercept=0,linetype='dashed')+
+  #Annotations
+  labs(title='Using CAPM to analyze over/undervalued investment opportunities',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Ticker',
+       y = 'Adjusted Prices')+
+  #Scales
+  scale_y_continuous(labels = percent)+
+  #Custom 'Tidyquant' theme
+  theme_tq()+
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(vjust=+4,face='bold'),
+        axis.title.x = element_text(vjust=-3,face='bold'),
+        axis.text = element_text(size=10))
+```
+:::
+
+## CAPM shortcomings
+
+-   In our estimation, none of the $\small \alpha$ results were statistically significant, meaning that we cannot reject the hypothesis that $\alpha$ is different from zero, which is in line with the CAPM
+
+-   However, when trying to use the CAPM to [predict]{.blue} future performance, results are not consitent with the CAPM predictions. **What could be going on?**
+
+-   It is important to recall some of the model's shortcomings:
+
+    1.  Market Returns are really context-dependent, and the use of *NYSE/DOW/Ibovespa* etc is problem-specific
+    2.  The sensitivity to market returns, $\small \beta$, might not be stable over time
+    3.  Systematic Risk might not be the [only]{.blue} factor that matters!
+    4.  Assumptions of the CAPM might not be that realistic
+
+## References

@@ -4,14 +4,14 @@
     "href": "quant-fin.html#about-the-course",
     "title": "Practical Applications in Quantitative Finance",
     "section": "About the course",
-    "text": "About the course\nThis is a hands-on, practical course on Quantitative Finance with applications using R and Python, two of the most widely used open-source software for data analysis. This course aims to attract undergraduate students that are aiming to translate theoretical concepts learned on the core finance courses at FGV-EAESP to practical applications that can guide decision making.\nThe course will be structured in topics that are of interest to Finance practitioners, aiming to include, but not limited to: collecting and organizing financial data, equity valuation, sensitivity analysis and simulation, portfolio optimization, and backtesting. As a final evaluation, students are expected to deliver a capstone data application project showcasing at least one of the topics covered in the course. All applications will be hosted online to enable students to use the capstone project as a showcase of their acquired skills. The course will also host guest presentations from leading industry practitioners and software developers focused on financial applications using open-source languages, where students can interact, ask questions, and get to know more about the possibilities of applying programming, data science, and data analysis skills in the financial industry.\n\n\n\n\n\n\n1. Getting started\n\n\n\nTo make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I’ll make sure to update this list whenever needed throughout the sessions:\n\n\n\n# Package names\npackages &lt;- c(\"tidyverse\",\"tidyquant\",\"tidymodels\",\"xts\",\"glue\",\"scales\")\n\n# Install packages not yet installed\ninstalled_packages &lt;- packages %in% rownames(installed.packages())\n\nif (any(installed_packages == FALSE)) {\n  install.packages(packages[!installed_packages])\n}\n\n# Load all packages\nlapply(packages, library, character.only = TRUE)\n\n\n\n\n\n\n\n2. Using Quarto\n\n\n\nIn this course, you’ll be assigned with three data cases, where you’ll need to manipulate code and write your insights altogether. You may have heard of Jupyter Notebooks before as a way to do it. I want to encourage you to give Quarto a try.\nTo install Quarto, follow this link and choose your Operating System. RStudio will automatically locate it and make it as an option whenever creating a new file with Ctrl+N. Why you should give Quarto a try:\n\nIt has multi-language support (Python, R, Julia, JavaScript), equations and mathematical notations via pandoc, and seamless integration with GitHub\nAdvanced document formatting and output options: you can choose pdf, html, docx, or even a reveal.js presentation (like the ones from this course!)\nIt is easy, intuitive, and lets you focus on the most important aspect of your work: the analysis\n\n\n\n\n\n\n\n\n\n3. Contents\n\n\n\nBelow you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.\nThese slides leverage Quarto, an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:\n\nHit F for full-screen mode\nIf you are interest in getting a .pdf version of the slides, hit E to switch to print mode and then Ctrl + P"
+    "text": "About the course\nThis is a hands-on, practical course on Quantitative Finance with applications using R and Python, two of the most widely used open-source software for data analysis. This course aims to attract undergraduate students that are aiming to translate theoretical concepts learned on the core finance courses at FGV-EAESP to practical applications that can guide decision making.\nThe course will be structured in topics that are of interest to Finance practitioners, aiming to include, but not limited to: collecting and organizing financial data, equity valuation, sensitivity analysis and simulation, portfolio optimization, and backtesting. As a final evaluation, students are expected to deliver a capstone data application project showcasing at least one of the topics covered in the course. All applications will be hosted online to enable students to use the capstone project as a showcase of their acquired skills. The course will also host guest presentations from leading industry practitioners and software developers focused on financial applications using open-source languages, where students can interact, ask questions, and get to know more about the possibilities of applying programming, data science, and data analysis skills in the financial industry.\n\n\n\n\n\n\n1. Getting started\n\n\n\nTo make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I’ll make sure to update this list whenever needed throughout the sessions:\n\n\n\n# Package names\npackages &lt;- c(\"tidyverse\",\"tidyquant\",\"tidymodels\",\"xts\", \"glue\",\"scales\",\"downloadthis\", \"ggthemes\")\n\n# Install packages not yet installed\ninstalled_packages &lt;- packages %in% rownames(installed.packages())\n\nif (any(installed_packages == FALSE)) {\n  install.packages(packages[!installed_packages])\n}\n\n# Load all packages\nlapply(packages, library, character.only = TRUE)\n\n\n\n\n\n\n\n2. Using Quarto\n\n\n\nIn this course, you’ll be assigned with three data cases, where you’ll need to manipulate code and write your insights altogether. I want to encourage you to give Quarto a try.\nTo install Quarto, follow this link and choose your Operating System. RStudio will automatically locate it and make it as an option whenever creating a new file with Ctrl+N. Why you should give Quarto a try:\n\nIt has multi-language support (Python, R, Julia, JavaScript), parses equations and mathematical notations via pandoc, and integrates seamlessly with GitHub\nAdvanced document formatting and output options: you can choose pdf, html, docx, or even a reveal.js presentation (like the ones from this course!)\nIt is easy, intuitive, and lets you focus on the most important aspect of your work: the analysis\n\n\n\n\n\n\n\n\n\n3. Contents\n\n\n\nBelow you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.\n\nHit F for full-screen mode\nIf you are interest in getting a .pdf version of the slides, hit E to switch to print mode and then Ctrl + P"
   },
   {
     "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#outline",
     "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#outline",
     "title": "Bridging Finance with Programming",
     "section": "Outline",
-    "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\nTidy Finance (Scheuch, Voigt, and Weiss 2023)\nR for Data Science (Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023)\n\n\n\n\n\n\n\n\n\n\nCoding Replications\n\n\nFor coding replications, whenever applicable, please follow this page or hover on the specific slides with containing coding chunks.\n\nEnsure that you have your  session properly set-up according to the instructions outlined here\nYou can find a detailed discussion of the examples covered in this lecture in the webpage of this course, Practical Applications in Quantitative Finance"
+    "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\nTidy Finance (Scheuch, Voigt, and Weiss 2023)\nR for Data Science (Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023)\n\n\n\n\n\n\n\n\n\nCoding Replications\n\n\nFor coding replications, whenever applicable, please follow this page or hover on the specific slides with containing coding chunks.\n\nEnsure that you have your  session properly set-up according to the instructions outlined in the course webpage\nIn the webpage, you can also find a detailed discussion of the examples covered in this lecture"
   },
   {
     "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#finance-and-the-real-economy",
@@ -25,7 +25,7 @@
     "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#the-tools-of-the-trade-part-i-the-data",
     "title": "Bridging Finance with Programming",
     "section": "The Tools of the Trade, part I: the data",
-    "text": "The Tools of the Trade, part I: the data\n\nFor most topics that constitute the study of finance, there is a well-grounded, established use of statistical, economic, and mathematical concepts and models that set the ground for\n\nMacroeconomic analysts use time-series models to predict future interest rates\nFinancial practitioners study the potential effects in stock prices of issuing equity\nEconomists use econometric models to predict inflation dynamics and help hedge fund managers adjust their positions\n\nBack in the pre-internet era, the use of technology to support those activities was limited to a smaller set of players (e.g, hedge funds, banks, investment trusts). Nowadays, financial information is accessible to the broader public almost in real time:\n\nYahoo! Finance provides data on stocks, ETFs, and market indices\nEDGAR provides information on all periodic fillings provided by US-listed companies\nA wide range of social media platforms, such as X (formerly Twitter) and Reddit, have been recently use as a way to spread and collect financial information"
+    "text": "The Tools of the Trade, part I: the data\n\nFor most of the topics within the study of finance, there is a well-grounded, established use of statistical, economic, and mathematical concepts that set the stage for data analysis:\n\nMacroeconomic analysts use time-series models to predict future interest rates\nFinancial analysts study the potential effects in stock prices of issuing equity\nHedge Fund Managers use models to predict inflation and adjust their positions\n\n\n\n\nBack in the pre-internet era, the use of technology to support those activities was limited to a smaller set of players (e.g, hedge funds, banks, investment trusts). Nowadays, financial information is accessible to the broader public almost in real time:\n\nYahoo! Finance provides data on stocks, ETFs, and market indices\nEDGAR provides information on all periodic fillings provided by US-listed companies\nA wide range of social media platforms, such as X (formerly Twitter) and Reddit, have been recently use as a way to spread and collect financial information"
   },
   {
     "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#the-tools-of-the-trade-part-ii-the-technology",
@@ -39,14 +39,14 @@
     "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#why-r",
     "title": "Bridging Finance with Programming",
     "section": "Why R?",
-    "text": "Why R?\n\nWe will be using  throughout the course. Although you should feel that this course is language-agnostic, R is among one of the best choices for the task:\n\nFree and open-source\nDiverse and active community working on a broad range of tools\nActively maintained packages for various purposes - e.g., data manipulation, visualization, modeling, etc)\nPowerful tools for communication, such as Quarto and Shiny\nSmooth integration with other programming languages, e.g., SQL, Python, C, C++, Fortran\nRStudio is one of the best development environments for interactive data analysis\nTop-notch tools and packages for handling financial data and analysis1\n\n\nFor a comprehensive list of R packages designed for finance, please refer to the R Task View: Empirical Finance index - access here."
+    "text": "Why R?\n\nWe will be using  throughout the course. Although you should feel that this course is language-agnostic, R is among one of the best choices for the task:\n\n\n\nFree and open-source\nDiverse and active community working on a broad range of tools\nActively maintained packages for various purposes - e.g., data manipulation, visualization, modeling, etc)\nPowerful tools for communication, such as Quarto and Shiny\nSmooth integration with other programming languages, e.g., SQL, Python, C, C++, Fortran\nRStudio is one of the best development environments for interactive data analysis\nTop-notch tools and packages for handling financial data and analysis1\n\n\nFor a comprehensive list of R packages designed for finance, please refer to the R Task View: Empirical Finance index - access here."
   },
   {
     "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#why-tidy",
     "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#why-tidy",
     "title": "Bridging Finance with Programming",
     "section": "Why Tidy?",
-    "text": "Why Tidy?\n\nIt is often said that more than 80 percent of data analysis is spent on preparing data rather than analyzing it\nAs you start working with data, you quickly realize that you indeed spend a lot of time reading, cleaning, and transforming your data just\n\n\n\n\n\n\n\n\nA note on Tidy Data\n\n\n“Tidy datasets are all alike, but every messy dataset is messy in its own way. Tidy datasets provide a standardized way to link the structure of a dataset (its physical layout) with its semantics (its meaning).”\n\n\n\n\nIn its essence, tidy data mainly follows three principles:\n\nEvery column is a variable\nEvery row is an observation\nEvery cell is a single value"
+    "text": "Why Tidy?\n\nIt is often said that more than 80 percent of data analysis is spent on preparing data rather than analyzing it\nAs you start working with data, you quickly realize that you indeed spend a lot of time reading, cleaning, and transforming your data just\n\n\n\n\n\n\n\nA note on Tidy Data\n\n\n“Tidy datasets are all alike, but every messy dataset is messy in its own way. Tidy datasets provide a standardized way to link the structure of a dataset (its physical layout) with its semantics (its meaning).”\n\n\n\n\nIn its essence, tidy data mainly follows three principles:\n\nEvery column is a variable\nEvery row is an observation\nEvery cell is a single value"
   },
   {
     "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#why-tidy-continued",
@@ -102,7 +102,7 @@
     "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#using-tidyr",
     "title": "Bridging Finance with Programming",
     "section": "Using tidyr",
-    "text": "Using tidyr"
+    "text": "Using tidyr\n\n\n\n\n\n\n\n\n\n\n Download raw data"
   },
   {
     "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#the-tidyverse-packages-purrr",
@@ -151,14 +151,14 @@
     "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#setting-up-your-environment",
     "title": "Bridging Finance with Programming",
     "section": "Setting up your environment",
-    "text": "Setting up your environment\n\nAs we get started, there are a couple of things you should remember:\n\n works with libraries, which consists of a bundle of functions, methods, data and other components that can be loaded in your session (i.e, as you open RStudio or any other IDE of your preference)\nTo load a library, you call library(x), where x refers to the package name\n\n\nIf x is already installed in your computer, y\nIf, on the other hand, x is not installed, you need to call install.packages('x') before you attempt to load it\n\n\ninstall.packages() needs to be called once; library() needs to be called at the beginning of each session!"
+    "text": "Setting up your environment\n\nAs we get started, there are a couple of things you should remember:\n\n works with libraries, which consists of a bundle of functions, methods, data and other components that can be loaded in your session (i.e, as you open RStudio or any other IDE of your preference)\nTo load a library, you call library(x), where x refers to the package name\n\n\nIf x is already installed in your computer, you are good to go\nIf, on the other hand, x is not installed, you need to call install.packages('x') before you attempt to load it\n\n\ninstall.packages() needs to be called once; library() needs to be called at the beginning of each session!"
   },
   {
     "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#setting-up-your-environment-continued",
     "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#setting-up-your-environment-continued",
     "title": "Bridging Finance with Programming",
     "section": "Setting up your environment, continued",
-    "text": "Setting up your environment, continued\n\nTo make things easier, ensure to install these in your computer and load it at the beginning of every session - I’ll make sure to update this list whenever needed throughout the sessions\n\n\n\n# Package names\npackages &lt;- c(\"tidyverse\",\"tidyquant\",\"tidymodels\",\"xts\",\"glue\",\"scales\")\n\n# Install packages not yet installed\ninstalled_packages &lt;- packages %in% rownames(installed.packages())\n\nif (any(installed_packages == FALSE)) {\n  install.packages(packages[!installed_packages])\n}\n\n# Load all packages\nlapply(packages, library, character.only = TRUE)\n\n#Note that you could simply do it iteratively:\n\n#Install if not already available\n  #install.packages('tidyverse')\n  #install.packages('tidyquant')\n  #install.packages('tidymodels')\n  #install.packages('xts')\n  #install.packages('glue')\n  #install.packages('scales')\n\n#Load\n  #library(tidyverse)\n  #library(tidyquant)\n  #library(tidymodels)\n  #library(xts)\n  #library(glue)\n  #library(scales)"
+    "text": "Setting up your environment, continued\n\nTo make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I’ll make sure to update this list whenever needed throughout the sessions in the course’s official webpage\n\n\n# Package names\npackages &lt;- c(\"tidyverse\",\"tidyquant\",\"tidymodels\",\"xts\",\"glue\",\"scales\")\n\n# Install packages not yet installed\ninstalled_packages &lt;- packages %in% rownames(installed.packages())\n\nif (any(installed_packages == FALSE)) {\n  install.packages(packages[!installed_packages])\n}\n\n# Load all packages\nlapply(packages, library, character.only = TRUE)\n\n#Note that you could simply do it iteratively:\n\n#Install if not already available\n  #install.packages('tidyverse')\n  #install.packages('tidyquant')\n  #install.packages('tidymodels')\n  #install.packages('xts')\n  #install.packages('glue')\n  #install.packages('scales')\n\n#Load\n  #library(tidyverse)\n  #library(tidyquant)\n  #library(tidymodels)\n  #library(xts)\n  #library(glue)\n  #library(scales)"
   },
   {
     "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#other-things-you-should-consider-quarto",
@@ -172,7 +172,7 @@
     "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#other-things-you-should-consider-quarto-continued",
     "title": "Bridging Finance with Programming",
     "section": "Other things you should consider: Quarto, continued",
-    "text": "Other things you should consider: Quarto, continued\n\nTo install Quarto, follow this link and choose your Operating System. RStudio will automatically locate it and make it as an option:\n\n\n\n\n\n\n\n\n\nKey Highlights:\n\n\n\nMulti-language support (Python, R, Julia, JavaScript) and seamless integration with GitHub\nAdvanced document formatting and output options: you can choose pdf, html, docx, or even a reveal.js presentation (like the one you’re reading right now)"
+    "text": "Other things you should consider: Quarto, continued\n\nTo install Quarto, follow this link and choose your Operating System. RStudio will automatically locate it and make it as an option:\n\n\n\n\n\n\nKey Highlights:\n\nMulti-language support (Python, R, Julia, JavaScript) and seamless integration with GitHub\nAdvanced document formatting and output options: you can choose pdf, html, docx, or even a reveal.js presentation (like the one you’re reading right now)"
   },
   {
     "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#references",
@@ -6080,7 +6080,7 @@
     "href": "quant-fin/Introduction/index.html#overview",
     "title": "Introduction and Course Overview",
     "section": "Overview",
-    "text": "Overview\n\nWith the recent advances in technical resources and the vast availability of financial information, finance practitioners are required to generate reproducible and scalable analysis in a timely fashion to guide decision-making:\n\nHow can I continuously optimize the risk-return trade-off of my portfolio over time?\nWhat is the sensitivity of my investment decisions to changes in growth rates, discount rates, and expected margins?\nHow can I assess the ability of a given trading strategy to outperform the market over time?\n\n\n\n\\(\\rightarrow\\) To that point, departing from the general tools, such as Excel, to more advanced tools, such as  and , is an imperative change!\n\nThe goal of this course: translate theoretical concepts learned on the core finance courses to practical applications that can guide decision making in real-world financial markets"
+    "text": "Overview\n\nWith the recent advances in technical resources and the vast availability of financial information, finance practitioners are required to generate reproducible and scalable analysis in a timely fashion to guide decision-making:\n\nHow can I continuously optimize the risk-return trade-off of my portfolio over time?\nWhat is the sensitivity of my investment decisions to changes in growth rates, discount rates, and expected margins?\nHow can I assess the ability of a given trading strategy to outperform the market over time?\n\n\n\\(\\rightarrow\\) To that point, departing from the general tools, such as Excel, to more advanced tools, such as  and , is an imperative change!\n\nThe goal of this course: translate theoretical concepts learned on the core finance courses to practical applications that can guide decision making in real-world financial markets"
   },
   {
     "objectID": "quant-fin/Introduction/index.html#course-structure",
@@ -6101,7 +6101,7 @@
     "href": "quant-fin/Introduction/index.html#grading-and-evaluations",
     "title": "Introduction and Course Overview",
     "section": "Grading and Evaluations",
-    "text": "Grading and Evaluations\n\nGrading will be composed of the following activities:\n\nHandout Data Cases (40%)\nCapstone Project (40%)\nProject Showcase (15%)\nIn-class Participation (5%)\n\n\n\n\nYou can find the details of any of these activities in the official syllabus (available on eClass®)\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br\n\n\n\n\n\n\n\n\n\nOffice-hours\n\n\nI also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I’ll be more than happy to help you with anything you need from this course. Use the Office-hour Appointments link at the bottom of this slide to schedule an appointment (or click here)."
+    "text": "Grading and Evaluations\nGrading will be composed of the following activities:\n\nHandout Data Cases (40%)\nCapstone Project (40%)\nProject Showcase (15%)\nIn-class Participation (5%)\n\n\nYou can find the details of any of these activities in the official syllabus (available on eClass®)\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br\n\n\n\n\n\n\n\nOffice-hours\n\n\nI also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I’ll be more than happy to help you with anything you need from this course. Use the Office-hour Appointments link at the bottom of this slide to schedule an appointment (or click here)."
   },
   {
     "objectID": "quant-fin/Introduction/index.html#getting-the-best-of-this-course",
@@ -6115,7 +6115,7 @@
     "href": "quant-fin/Introduction/index.html#getting-the-best-of-this-course-1",
     "title": "Introduction and Course Overview",
     "section": "Getting the best of this course",
-    "text": "Getting the best of this course\n\nHow you can get the best of this course\n\nFollow FGV-EAESP code of conduct\nBe organized: pay attention to pre-readings and deliverables\nBe proactive: ask questions and participate in discussions\nTake the lead on your learning: you are the ultimate responsible for your success!\n\n\n\nHow the professor can facilitate you getting the best of this course\n\nAll mandatory content and classes will be conducted in English\nProvide a safe and open space for questions, both in-person and remote\nMotivate students, both from the academic and practitioner standpoints\nProvide opportunities to extend knowledge beyond the mandatory readings"
+    "text": "Getting the best of this course\nHow you can get the best of this course\n\nFollow FGV-EAESP code of conduct\nBe organized: pay attention to pre-readings and deliverables\nBe proactive: ask questions and participate in discussions\nTake the lead on your learning: you are the ultimate responsible for your success!\n\nHow the professor can facilitate you getting the best of this course\n\nAll mandatory content and classes will be conducted in English\nProvide a safe and open space for questions, both in-person and remote\nMotivate students, both from the academic and practitioner standpoints\nProvide opportunities to extend knowledge beyond the mandatory readings"
   },
   {
     "objectID": "quant-fin/Introduction/index.html#getting-the-best-of-this-course-continued",
@@ -6129,7 +6129,7 @@
     "href": "quant-fin/Introduction/index.html#on-the-usage-of-gen-ai",
     "title": "Introduction and Course Overview",
     "section": "On the usage of gen-AI",
-    "text": "On the usage of gen-AI\n\n\n\n\n\n\nOn the usage of ChatGPT and other gen-AI tools\n\n\nGenerative Artificial Intelligent (gen-AI) adoption is quickly spreading through corporate life and universities. At this point, it is worth the question…am I allowed to use gen-AI tools in this course?\n\n\n\n\nThe answer is yes! Not only you are allowed, but also encouraged to do so:\n\nUse gen-AI tools to proof-read your work, get insights, and troubleshoot errors\nLearn to be skeptical around the solutions you have been provided with\nEvaluations will be based on how you can interpret, understand, and showcase your solution to the broader audience!\n\n\n\n\\(\\rightarrow\\) See AI-powered coding pulls in almost $1bn of funding to claim ‘killer app’ status (Financial Times)"
+    "text": "On the usage of gen-AI\n\n\n\n\n\n\nOn the usage of ChatGPT and other gen-AI tools\n\n\nGenerative Artificial Intelligent (gen-AI) adoption is quickly spreading through corporate life and universities. At this point, it is worth the question…am I allowed to use gen-AI tools in this course?\n\n\n\n\nThe answer is yes! Not only you are allowed, but also encouraged to do so:\n\nUse gen-AI tools to proof-read your work, get insights, and troubleshoot errors\nLearn to be skeptical around the solutions you have been provided with\nEvaluations will be based on how you can interpret, understand, and showcase your solution to the broader audience!\n\n\n\\(\\rightarrow\\) See AI-powered coding pulls in almost $1bn of funding to claim ‘killer app’ status (Financial Times)"
   },
   {
     "objectID": "quant-fin/Introduction/index.html#how-to-use-these-slides",
@@ -6158,6 +6158,13 @@
     "title": "Introduction and Course Overview",
     "section": "Interactive Learning, continued",
     "text": "Interactive Learning, continued\n\nExerciseHintsSolution\n\n\n\n\n\nListing 2: You can use the Hints and Solution buttons to interact with the prompt. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution. For example, complete the code to read Microsoft price (MSFT.csv) data and select the latest 10 OHLC (Open, High, Low, Close) information. The dataset is arranged in descendant format (latest price information is at the bottom of the table).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou can access the names of the columns using names(Data) to find the column that refers to closing prices:\nnames(Data)\nYou can also select specific columns by using the select() function:\nselect(Data,c(column1,column2,...,column_n))`\n\n\n\n\nFirst, use the names() function to retrieve the names of the columns available in the dataset.\nAfter that, use the tail() function to retrieve only the latest 10 observations.\n\n\n\n#Set the ticker\nData=read.csv(glue('Assets/MSFT.csv'))\nData=select(Data,c(Timestamp,Open,High,Low,Close))\nData=tail(Data,10)\nData\n\n#Set the ticker\nData=read.csv(glue('Assets/MSFT.csv'))\nData=select(Data,c(Timestamp,Open,High,Low,Close))\nData=tail(Data,10)\nData"
+  },
+  {
+    "objectID": "quant-fin/Introduction/index.html#working-your-way-through-the-course",
+    "href": "quant-fin/Introduction/index.html#working-your-way-through-the-course",
+    "title": "Introduction and Course Overview",
+    "section": "Working your way through the course",
+    "text": "Working your way through the course\n\nTo get started, you’ll need to:\n\nInstall R using this link\nInstall RStudio using this link\n\nIf you’re new to R or need a refresher on the basics, please refer to Projects I and II of the Hands-On Programming with R (Grolemund 2014)\n\n\n\n\n\n\n\nGetting started\n\n\nIn the official webpage of this course, I have outlined all necessary steps to get started using R, as well as some useful tips for those that want to get up to speed on the course’s requirements - pleass follow this link and carefully read the instructions."
   },
   {
     "objectID": "quant-fin/Introduction/index.html#references",
@@ -6230,10 +6237,241 @@
     "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nScheuch, Christoph, Stefan Voigt, and Patrick Weiss. 2023. Tidy Finance with R. Chapman & Hall/CRC. https://www.tidy-finance.org/r/."
   },
   {
-    "objectID": "quant-fin/Introduction/index.html#working-your-way-through-the-course",
-    "href": "quant-fin/Introduction/index.html#working-your-way-through-the-course",
-    "title": "Introduction and Course Overview",
-    "section": "Working your way through the course",
-    "text": "Working your way through the course\n\nTo get started, you’ll need to:\n\nInstall R using this link\nInstall RStudio using this\n\nIf you’re new to R or need a refresher on the basics, please refer to Projects I and II of the Hands-On Programming with R (Grolemund 2014)\n\n\n\n\n\n\n\n\nGetting started\n\n\nIn the official webpage of this course, I have outlined all necessary steps to get started using R, as well as some useful tips for those that want to get up to speed on the course’s requirements - pleass follow this link and carefully read the instructions."
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#accessing-and-managing-financial-data-1",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#accessing-and-managing-financial-data-1",
+    "title": "Bridging Finance with Programming",
+    "section": "Accessing and Managing Financial Data",
+    "text": "Accessing and Managing Financial Data\n\nEverybody who has experience working with data is also familiar with storing and reading data in formats like .csv, .xls, .xlsx or other delimited value storage\nHowever, if your goal is to replicate a common task at a predefined time interval, like charting weekly stock prices for a selected bundle of stocks every end-of-week, it might be overwhelming to manually perform these tasks every week\nIn what follows, we’ll dive in the various sources of financial data - both global as well as specific to the Brazilian financial markets that can be directly fed into your R session:\n\nWe will cover the most widely used free data resources for Finance, like Yahoo! Finance\nWe will also discuss linkages to private information sources, such as Bloomberg\nFinally, we will take a look at some output data examples from some data providers"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#the-basics-stock-level-information",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#the-basics-stock-level-information",
+    "title": "Bridging Finance with Programming",
+    "section": "The basics: stock-level information",
+    "text": "The basics: stock-level information\n\nSo… you have been prompted with the task of collecting daily stock price information for a subset of the U.S Big Techs. How should you do it?\nIn a nutshell, Yahoo! Finance is your go-to guy:\n\nIt provides financial news, data and commentary including stock quotes, press releases, financial reports, and original content\nIt has an extensive list of open-source solutions that enables users to retrieve financial information using several coding languages\n\nHighlights: free, quick and easy to setup, with an impressive range of data containing stock prices, dividends, and splits. There is an extensive list of R packages can be used to retrieve Yahoo! Finance information - including, but not limited to, tidyquant, quantmod and yfR\nDrawbacks: its API is no longer a fully official API: as a consequence, solutions tipically used to retrieve information may not work in the future if Yahoo Finance change its structure. Importantly, data is not in real-time - often, it comes with a 15-minute delay (see here)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#using-yahoo-finance-continued",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#using-yahoo-finance-continued",
+    "title": "Bridging Finance with Programming",
+    "section": "Using Yahoo! Finance, continued",
+    "text": "Using Yahoo! Finance, continued\n\n\nBelow, you can find an example of how to use tq_get(), from the tidyquant package, to download both single and multiple stock price information\nData is stored in a convenient way that allows users to manipulate data seamlessly - hit Download Data and see how the output would look like in Excel format\n\n\n#Load tidyquant\nlibrary(tidyquant)\n\n#Using tidyquant to download single stock prices\ntq_get('AAPL',from='2020-01-01',to='2024-12-31')\n\n#Using tidyquant to download multiple stock prices\ntq_get(c('AAPL','GOOGL','NVDA'),from='2020-01-01',to='2024-12-31')\n\n\n\n Download Data\n\n\n\n\n\n\n\n\nImportant\n\n\nYahoo! Finance provides Open, High, Low, Close, and Adjusted Close trading prices for each asset that is being tracked, where Adjusted Close is defined by the closing price adjusted for dividends and stock splits. If you are using R, Python, or any API to pull this data, ensure to use the information adjusted by dividends and splits."
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#macroeconomic-data-providers",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#macroeconomic-data-providers",
+    "title": "Bridging Finance with Programming",
+    "section": "Macroeconomic data providers",
+    "text": "Macroeconomic data providers\nApart from price-level information, there are plenty of available resources to efficiently download the most commonly used macroeconomic variables directly within an R session:\n\nThe Federal Reserve Bank of St. Louis has as extense set of U.S and international time series from more than 100 sources via its API, FRED, for free\n\n\\(\\rightarrow\\) Related packages: tidyquant, FredR, quantmod, and quandl\n\nThe World Bank’s International Debt Statistics (IDS) provides creditor-debtor relationships between countries, regions, and institutions\n\n\\(\\rightarrow\\) Related packages: wbids\n\nThe European Central Bank’s Statistical Data Warehouse provides data on Euro area monetary policy, financial stability, and other relevant topics\n\n\\(\\rightarrow\\) Related packages: ecb"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#macroeconomic-data-providers-examples",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#macroeconomic-data-providers-examples",
+    "title": "Bridging Finance with Programming",
+    "section": "Macroeconomic data providers, examples",
+    "text": "Macroeconomic data providers, examples\n\nFREDIBSECB\n\n\n\n#Load the tidyquant library\nlibrary(tidyquant)\n\n#Go to FRED's website, search for a time series, and copy-paste its code\nseries='CUSR0000SETB01'\n\n#Use the tq_get() function to retrieve the information\ntq_get(series,get='economic.data')\n\n\n\n Download Data\n\n\n\\(\\rightarrow\\) For full details and implementation of the R package tidyquant, click here\n\n\n\n#Load the wbids package\nlibrary(wbids)\n\n#Get information for Brasil, Russia, \nids_get(\n  geographies = c(\"BRA\", \"ARG\"),\n  series = c(\"DT.MAT.DPPG\"), #Average maturity on new external debt commitments (years)\n  counterparts = c(\"302\"), #United States\n  start_date = 2000,\n  end_date = 2023\n)\n\n\n\n Download Data\n\n\n\\(\\rightarrow\\) For full details and implementation of the R package wbids, click here\n\n\n\n#Load the ecb package\nlibrary(ecb)\n\n#Get information of headline and core inflation for Eurozone countries\nkey &lt;- \"ICP.M.DE+FR+ES+IT+NL+U2.N.000000+XEF000.4.ANR\"\n\n#Get the latest 12 observations\nfilter &lt;- list(lastNObservations = 12, detail = \"full\")\n\n#Retrieve the data\nhicp &lt;- get_data(key, filter)\n\n#Parse time component to proper format\nhicp$obstime &lt;- convert_dates(hicp$obstime)\n\n\n\n Download Data\n\n\n\\(\\rightarrow\\) For full details and implementation of the R package ecb, click here"
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#financial-data-providers",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#financial-data-providers",
+    "title": "Bridging Finance with Programming",
+    "section": "Financial data providers",
+    "text": "Financial data providers\n\nFor some widely known paid data providers, there are interfaces that enable analysts to retrieve information directly within an R session through the provider’s official API1\n\n\nBloomberg: the Rblpapi provides access to data and calculations from Bloomberg\nRefinitiv Eikon: the DatastreamDSWS2R provides a set of functions and a class to connect, extract and upload information from the LSEG Datastream database\nQuandl: publishes free/paid data, scraped from many different sources from the web. The Quandl package can be used to retrieve data\nSimfin: fundamental financial data freely available to private investors, researchers, and students. The simfinapi package can be used to retrieve data\nFMP: accurate financial data (balance-sheet, income statements, etc), with historical information dating back 30 years in history. The fmpapi package can be used to retrieve data\n\nFor paid data providers, you must provide your API key in order to successfully download data."
+  },
+  {
+    "objectID": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#other-data-providers-and-r-packages",
+    "href": "quant-fin/Lecture 1 - Bridging Finance with Programming/index.html#other-data-providers-and-r-packages",
+    "title": "Bridging Finance with Programming",
+    "section": "Other data providers (and R packages)",
+    "text": "Other data providers (and R packages)\n\nBanco Central do Brasil (BACEN): interface to the Brazilian Central Bank web services - see package rbcb\nTesouro Direto (Brazilian Government Bonds): prices and yields of bonds issued by the Brazilian government - see package GetTDData\nCoinMarketCap: provides cryptocurrency information and historical prices - see package crypto2\nAlpha Vantage: free and paid subscriptions for financial data (including intraday) - see package alphavantager\n\n\n\n\n\n\n\nWrapping up on data providers\n\n\nWhile some data providers provide their official API for developers, other solutions rely on scraping historical data from the web. As such, some solutions can deprecated after some time if, for example, access is blocked. It is always important to check whether an R package is not deprecated by looking into the Comprehensive R Archive Network (CRAN) or its GitHub repository."
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#outline",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#outline",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Outline",
+    "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\nTidy Finance (Scheuch, Voigt, and Weiss 2023)\nR for Data Science (Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023)\n\n\n\n\n\n\n\n\n\nCoding Replications\n\n\nFor coding replications, whenever applicable, please follow this page or hover on the specific slides with containing coding chunks.\n\nEnsure that you have your  session properly set-up according to the instructions outlined in the course webpage\nIn the webpage, you can also find a detailed discussion of the examples covered in this lecture"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#organizing-financial-data",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#organizing-financial-data",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Organizing Financial Data",
+    "text": "Organizing Financial Data\n\n\n\n\n\n\nA note on Tidy Data\n\n\n“Tidy datasets are all alike, but every messy dataset is messy in its own way. Tidy datasets provide a standardized way to link the structure of a dataset (its physical layout) with its semantics (its meaning).”\n\n\n\n\nStock price information is an example of raw data that can be easily pulled from providers such as Yahoo! Finance. However, it is not often structured in a tidy and convenient way\n\nIn this lecture, we will be working with daily stock price data from the Magnificent Seven (AMZN, GOOG, MSFT, NVDA, TSLA, AMZN, and META)\nI have already downloaded the data for you using the tidyquant package, which allows us to pull stock price data from multiple securities in a convenient format. You can hit the Download button to get a grasp on how the data looks like\n\n\n\n\n Download Raw data"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-basic-dplyr-verbs-recap",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-basic-dplyr-verbs-recap",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The basic dplyr verbs: recap",
+    "text": "The basic dplyr verbs: recap\n\n\ndplyr is a grammar of data manipulation, contained in the tidyverse, providing a consistent set of verbs that help you solve the most common data manipulation challenges:\n\n\n\n\n\n\nmutate() adds new variables that are functions of existing variables\nselect() picks variables based on their names\nfilter() picks cases based on their values\nsummarise() reduces multiple values down to a single summary\narrange() changes the ordering of the rows"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-mutate-function",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-mutate-function",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The mutate() function",
+    "text": "The mutate() function\n\n\n\n\n\n\nDefinition\n\n\nThe mutate() function adds new variables that are functions of existing variables:\n\nmutate(.data, #The object you are performing the calculations \n       new_variable_1 = var1 * 2, #Can use basic operations...\n       new_variable_2 = median(var2), #Or predefined functions)\n       variable_3 = as.character(var3) #And can be used to modify existing variables)\n       ) \n\n\n\n\n\nThis function takes the .data argument you provided (in your example, the Data object)…\nIt sequentially creates the columns you asked for and place them to the right of your data.frame (or tibble)\nYou can use any function, predefined or custom, and apply it to mutate()\nIt can also modify any columns you want (if the name is the same as an existing column)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-mutate-function-practice",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-mutate-function-practice",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The mutate() function, practice",
+    "text": "The mutate() function, practice\n\nExerciseSolution\n\n\n\n\n\nListing 1: Use columns high and low and create a new column, mid, defined as the average between daily high and low prices. The M7 dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst, use the mutate() function to create the mid column.\nAfter that, define mid as (high+low)/2 to calculate the average between the two values.\n\n\n\n#Apply function to the data\nM7=mutate(M7, mid= (high+low)/2)\n\n#Show the first 10 observations\nhead(M7)\n\n#Apply function to the data\nM7=mutate(M7, mid= (high+low)/2)\n\n#Show the first 10 observations\nhead(M7)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-select-function",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-select-function",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The select() function",
+    "text": "The select() function\n\n\n\n\n\n\nDefinition\n\n\nThe select() function select (and optionally rename) variables in a data frame, using a concise mini-language that makes it easy to refer to variables based on their name (e.g. a:f selects all columns from a on the left to f on the right) or type (e.g. where(is.numeric) selects all numeric columns)\n\nselect(.data, #The object which you are performing the operations \n       variable_3, #Can reorder columns\n       variable_1, \n       variable_2:variable_4, #Matches position patterns \n       where(is.numeric) #Can select all columns that match a given pattern\n       ) \n\n\n\n\n\nThis function takes the .data argument you provided (in your example, the Data object)…\nAnd select only the columns you’ve asked for\nYou can also use select(.data,-variable) to remove a variable\nIt keeps the structure of the data.frame intact - no rows are affected"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-select-function-continued",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-select-function-continued",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The select() function, continued",
+    "text": "The select() function, continued\n\nThe select() function also comes with a handy companion of selectors, which are functions that help you cherry pick columns in a concise way, rather than hardcoding them altogether:\n\n: for selecting a range of consecutive variables.\nstarts_with() starts with a string\nends_with() ends with a string\ncontains() contains a string\nmatches()matches a regular expression.\nwhere()a function to all variables and selects those for which the function returns TRUE"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-select-function-practice",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-select-function-practice",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The select() function, practice",
+    "text": "The select() function, practice\n\nExerciseSolution\n\n\n\n\n\nListing 2: Select only the symbol, date, volume, and adjusted, in that order. The M7 dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse the select() function to select only a subset of the available columns:\n\n\n\n#Apply function to the data\nM7=select(M7,symbol,date,volume,adjusted)\n\n#Show the first 10 observations\nhead(M7)\n\n#Apply function to the data\nM7=select(M7,symbol,date,volume,adjusted)\n\n#Show the first 10 observations\nhead(M7)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-filter-function",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-filter-function",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The filter() function",
+    "text": "The filter() function\n\n\n\n\n\n\nDefinition\n\n\nThe filter() function is used to subset a data frame, retaining all rows that satisfy your conditions. To be retained, the row must produce a value of TRUE for all conditions.\n\nfilter(.data, #The object which you are performing the operations\n       variable_1 &gt;10, #Simple arithmetic operators\n       variable_2 %in% c('AAPL','MSFT','FORD'), #Pattern search\n       !(variable_3 %in% c('Boston','Mass','Silicon Valley')), #Negate pattern search\n       variable_4 &gt;=10 & variable_3&lt;= 4 | is.na(variable_4) #IF and OR conditions\n       ) \n\n\n\n\n\nThis function takes the .data argument you provided (in your example, the Data object)…\nAnd filter the rows based on the conditions outlined\nYou can use any function, predefined or custom, and apply it to filter()\nIt returns a subset of the whole object, keeping the columns and the data structure intact"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-filter-function-practice",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-filter-function-practice",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The filter() function, practice",
+    "text": "The filter() function, practice\n\nExerciseSolution\n\n\n\n\n\nListing 3: Filter for observations that occurred in 2025, only. You can use the year() function with the date variable to retrieve the year. The M7 dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse the filter() together with year(date):\n\n\n\n#Apply function to the data\nM7=filter(M7,year(date)==2025)\n\n#Show the first 10 observations\nhead(M7)\n\n#Apply function to the data\nM7=filter(M7,year(date)==2025)\n\n#Show the first 10 observations\nhead(M7)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-arrange-function",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-arrange-function",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The arrange() function",
+    "text": "The arrange() function\n\n\n\n\n\n\nDefinition\n\n\nThe arrange() function reorders the rows of a data frame by the values of selected columns:\n\n#Some Options, always in the following format: the object you are rearranging + the reordering scheme\narrange(.data, variable1) #Ascending by variable_1\narrange(.data, variable1, variable_2) #Ascending by variable_1 and then variable_2\narrange(.data, variable2, variable_1) #Ascending by variable_2 and then variable 1\narrange(.data, variable1, desc(variable_2)) #Ascending by variable_1, and then descending by variable_2\n\n\n\n\n\nThis function takes the .data argument you provided (in your example, the Data object)…\nAnd reorders the rows of your data.frame (or tibble)\nThis can be useful for visualization, but also for applying position-dependent functions, like lag(), lead(), head(), and tail()"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-arrange-function-practice",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-arrange-function-practice",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The arrange() function, practice",
+    "text": "The arrange() function, practice\n\nExerciseSolution\n\n\n\n\n\nListing 4: Arrange the dataset by descending date (newest to oldest) and symbol. The M7 dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse the arrange() together with desc(date) and symbol:\n\n\n\n#Apply function to the data\nM7=arrange(M7,desc(date),symbol)\n\n#Show the first 10 observations\nhead(M7)\n\n#Apply function to the data\nM7=arrange(M7,desc(date),symbol)\n\n#Show the first 10 observations\nhead(M7)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-summarize-function",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-summarize-function",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The summarize() function",
+    "text": "The summarize() function\n\n\n\n\n\n\nDefinition\n\n\nThe summarise() - or summarize() - function creates a new data frame. It returns one row for each combination of grouping variables; if there are no grouping variables, the output will have a single row summarising all observations in the input. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified.\n\nsummarize(.data, #The object which you are performing the operations \n       new_variable_1 = mean(var1,na.rm=TRUE), #Average of var1, removing NA values\n       new_variable_2 = median(var2,na.rm=TRUE), #Median of var1, removing, NA values\n       new_variable_3 = n_distinct(var2) #Number of unique values of var2\n       ) \n\n\n\n\n\nThis function takes the .data argument you provided (in your example, the Data object)…\nAnd reshapes the data.frame (or tibble) by the aggregation functions\nAs the name suggests, it is used to summarize a table"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-summarize-function-practice",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#the-summarize-function-practice",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "The summarize() function, practice",
+    "text": "The summarize() function, practice\n\nExerciseSolution\n\n\n\n\n\nListing 5: Summarize the dataset by creating an average column, defined as the average adjusted prices. You can use the mean() function to get the average. The M7 dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse the summarize() together with mean():\n\n\n\n#Apply function to the data\nSummary=summarize(M7,average=mean(adjusted,na.rm=TRUE))\n\n#Show the first observations\nhead(Summary)\n\n#Apply function to the data\nSummary=summarize(M7,average=mean(adjusted,na.rm=TRUE))\n\n#Show the first observations\nhead(Summary)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#slice-and-dice-through-group_by",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#slice-and-dice-through-group_by",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Slice and dice through group_by()",
+    "text": "Slice and dice through group_by()\n\nYou saw how the tidyverse verbs helps us getting ahead of the game when it comes to data operations. In most cases, however, you may need to add an extra layer of complexity: perform operations groupwise:\n\nGet the average returns by each stock\nFilter for the 10 highest prices for each year\nCalculate the median return for each industry\n\nFor cases like this, we need to find a convenient way of repeating the same operation across subsets of our data\nIt goes without saying that there should be a function in the tidyverse that makes this operation straightforward: fortunately, you can use group_by() together with all previous dplyr verbs!"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#slice-and-dice-through-group_by-continued",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#slice-and-dice-through-group_by-continued",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Slice and dice through group_by(), continued",
+    "text": "Slice and dice through group_by(), continued\n\n\n\n\n\n\nDefinition\n\n\nThe group_by() function takes an existing table and converts it into a grouped table where operations are performed “by group”. Using ungroup() removes grouping.\n\nData=group_by(Data,v1,v2,v3)\nData=summarize(avg=mean(x,na.rm=TRUE))\n\n\n\n\n\nThis function takes the .data argument you provided (in your example, the Data object)…\nAnd creates the avg variable taking the average of x within each tuple defined by the grouping variables (in this case, v1,v2, and v3 )\nIt returns a grouped dataframe, with the results of avg displayed for each unique combination of v1,v2, and v3"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#revisting-average-prices",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#revisting-average-prices",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Revisting average prices",
+    "text": "Revisting average prices\n\nLet’s try the latest summarize() call again, but now grouping the data by symbol first"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#combining-multiple-operations",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#combining-multiple-operations",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Combining multiple operations",
+    "text": "Combining multiple operations\n\nIn the previous exercises, you have used the main dplyr verbs to create, select, arrange, filter, and summarize data, one by one. In practical applications, however it is likely that you need more than one of these functionalities at the same time\nIt is tempting to do it piecewise:\n\n\n#Start with the data\nData = read.csv('Data.csv')\n#Mutate\nData = mutate(Data, new_var_1=var_1*10)\n#Select\nData = select(Data, var_1,var_2,new_var_1,where(is.numeric))\n#Filter\nData = filter(Data, new_var_1&gt;5)\n#Arrange\nData = arrange(Data, new_var_1,desc(var2))\n#Summarize\nData = summarize(Data, new_var=mean(new_var_1,na.rm=TRUE))\n\n\nAlthough organized, it is wildly inefficient: you are sequentially (re)creating the same object all over again - not to mention that you called Data \\(10\\) times!"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#pipe-your-way-through-the-code",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#pipe-your-way-through-the-code",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Pipe your way through the code %>%",
+    "text": "Pipe your way through the code %&gt;%\n\nThe dplyr verbs, in isolation, are a great tool for data analysts, but what really makes them to shine is what glues them together: I introduce you the pipe (%&gt;% or |&gt;)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#pipe-your-way-through-the-code-continued",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#pipe-your-way-through-the-code-continued",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Pipe your way through the code %>%, continued",
+    "text": "Pipe your way through the code %&gt;%, continued\n\nRené Magritte was right when he claimed that, in The Treachery of Images (La Trahison des images), there was not a pipe\nIn fact, the pipe that is relevant for us, R users, was only introduced recently, in the magrittr package, which makes clear allusion to the artist\nThe pipe operator (%&gt;% or |&gt;) helps you chain operations sequentially, in such a way that the output of one operation serves as the input of the subsequent one!\n\nInstead of repeating the .data input multiple times, you chain the operations using the pipe operator\nIt tremendously improve code readability and minimizes spelling errors (now you only need to type in the .data argument once!)\nFinally, it makes your code much more efficient: you don’t need to allocate memory to (re)create the same object in each step"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#pipe-your-way-through-the-code-continued-1",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#pipe-your-way-through-the-code-continued-1",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Pipe your way through the code %>%, continued",
+    "text": "Pipe your way through the code %&gt;%, continued\n\n#Instead of \nData = read.csv('Data.csv') #Start with the data\nData = mutate(Data, new_var_1=var_1*10)#Mutate\nData = select(Data, var_1,var_2,new_var_1,where(is.numeric))#Select\nData = filter(Data, new_var_1&gt;5)#Filter\nData = arrange(Data, new_var_1,desc(var2))#Arrange\nData = summarize(Data, new_var=mean(new_var_1,na.rm=TRUE))#Summarize\n\n#Do\nData = read.csv('Data.csv')%&gt;% #Start with the data\n        mutate(new_var_1=var_1*10)%&gt;% #Mutate\n        select(var_1,var_2,new_var_1,where(is.numeric))%&gt;% #Select\n        filter(new_var_1&gt;5)%&gt;% #Filter\n        arrange(new_var_1,desc(var2))%&gt;% #Arrange\n        summarize(new_var=mean(new_var_1,na.rm=TRUE))#Summarize\n\n\nThe pipe operator lets you pass the object on its left-hand side to the first argument of the function on the right-hand side\nAnother nice feature in R is lazy evaluation: function arguments are only evaluated if (and when) they are accessed. This allows us to refer to variables that will only be created within the pipe without breaking the code!"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#practical-exercise",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#practical-exercise",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Practical Exercise",
+    "text": "Practical Exercise\n\nOn January \\(25^{th}\\), chinese startup DeepSeek disrupted the tech stock market as investors reassessed the likely future investment in Artificial Intelligence hardware\n\n\n\n\n\n\n\\(\\rightarrow\\) Read: Tech stocks slump as China’s DeepSeek stokes fears over AI spending (Financial Times)"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#practical-exercise-1",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#practical-exercise-1",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Practical Exercise",
+    "text": "Practical Exercise\n\nAs part of your work as a buy-side analyst, you were asked to analyze how the Magnificent 7 performed after the DeepSeek episode. Follow the instructions below and answer to the following question: Which stock suffered the most up to yesterday?\n\n\n\n\n\n\n\nExercise\n\n\n\nSelect only the tickers that refer to the Magnificent 7 group\nFilter only on observations happening in 2025\nArrange the dataset (from oldest to newest)\nCreate, for each different symbol, a Return variable that is defined as \\(P_{t+1}/P_{t}\\), where \\(t\\) refers to a date\nCreate, for each different symbol, a Cum_Return return variable that is defined as the cumulative return\nPick the latest observation from each symbol and arrange the table from lowest-to-highest return\n\n\nThe data, stored in M7.csv, can be loaded using read.csv('M7.csv)\nYou can use the year() function to retrieve the year of a given Date column. Also, tail(x) retrieves the bottom x observations, whereas head(y) retrieves the top y"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#helpful-tips-while-using-r-and-quarto",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#helpful-tips-while-using-r-and-quarto",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Helpful tips while using R and Quarto",
+    "text": "Helpful tips while using R and Quarto\n\nAs you pave your way through the coding exercises, there are a couple of best practices that will make your life easier when dealing with data in an R session:\n\nWhenever you are loading data, make sure to refer to the correct path where the file is located. You can use the function getwd() without any arguments to retrieve the current path, and setwd('C:/Users/you/newpath/') to set up a new working directory\nThe easiest way to make this logic redundant is to place the .R (or .qmd) script in the same folder as the data file (in our case, M7.csv). When you open the script, it will point to its own directory as the working directory - which will coincide with the data directory\n\n\n\ngetwd() #Gets the current directory. For Windows users, this is generally defaulted to C:/Users/USER/Documents\nsetwd('C:/Users/Lucas/Desktop') #changing this to desktop\nlist.files() #You can confirm if your data is listed in this directory\nread.csv('M7.csv') #It works without entering the full path since M7 is in the current path"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#helpful-tips-while-using-r-and-quarto-continued",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#helpful-tips-while-using-r-and-quarto-continued",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Helpful tips while using R and Quarto, continued",
+    "text": "Helpful tips while using R and Quarto, continued\n\nRStudio allows you to interact with your session piece wise - this means that you don’t need to run your code chunks all at once\n\nTo run only a specific portion of your code, select the specific code lines you want to run and hit Ctrl + Enter\nAs an effect, R will run only the selected lines directly into your session, and the output from these lines will be prompted into your session\n\nIf you are working on a Quarto notebook, you can use the same strategy to run specific lines directly into your session, or you can hit Ctrl+Shift+K to render the output altogether\n\n\nTry this copy-pasting the code from the next slide in your R Session - we’ll dive into the details later on, but note how the output printed in your session changes as you increase the selected lines"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#interactive-running-example",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#interactive-running-example",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "Interactive Running, example",
+    "text": "Interactive Running, example\n\n#Load Libraries\nlibrary(tidyverse)\nlibrary(tidyquant)\n\n#List of assets\nassets= c('AAPL','MSFT')\nstart='2020-01-01'\n\n#Download the data\nData=tq_get(assets,from=start,to=Sys.Date())\n\n#Get the average price\n  Data%&gt;%\n    mutate(Date=as.Date(date),\n           Year=year(Date))%&gt;%\n  select(Year,symbol,adjusted)%&gt;%\n  group_by(symbol,Year)%&gt;%\n  arrange(symbol,desc(Year))%&gt;%\n  summarize(Price=mean(adjusted,na.rm=TRUE))%&gt;%\n  pivot_wider(names_from=symbol,values_from = Price)%&gt;%\n  mutate(across(c('AAPL','MSFT'),dollar,accuracy=0.1))"
+  },
+  {
+    "objectID": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#references",
+    "href": "quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html#references",
+    "title": "Collecting, Organizing, and Manipulating Financial Data",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScheuch, Christoph, Stefan Voigt, and Patrick Weiss. 2023. Tidy Finance with R. Chapman & Hall/CRC. https://www.tidy-finance.org/r/.\n\n\nWickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. O’Reilly Media. https://r4ds.had.co.nz/."
   }
 ]

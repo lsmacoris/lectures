@@ -1,0 +1,931 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  live-revealjs:
+    title: 'Data Visualization'
+    incremental: false
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/strat-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: '../~ Metadata/abntex2.cls'
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    show-hints: true
+    show-solutions: true
+    webr:
+      packages:
+        - tidyverse
+        - xts
+        - glue
+        - scales
+        - ggplot2
+        - ggthemes
+      resources:
+        - Assets
+      render-df:
+        - gt-interactive
+
+editor: visual
+from: markdown+emoji
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+This page was intentionally left blank
+
+{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
+
+```{r}
+#| echo: false
+
+source('../~ Metadata/packages.R')
+
+```
+
+```{r}
+#| echo: false
+
+#List of assets
+
+assets=c('META','AMZN','NFLX','GOOG')
+
+FANG=assets%>%tq_get(from='2015-01-01')
+FANG%>%write.csv('Assets/FANG.csv',row.names = FALSE)
+
+```
+
+```{webr}
+#| echo: false
+
+#Making data available for webR
+FANG=read.csv('Assets/FANG.csv')
+
+```
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+    1.  *Tidy Finance* [@tidyfinance]
+    2.  *R for Data Science* [@r4ds]
+
+:::: nonincremental
+::: callout-note
+### Coding Replications
+
+For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
+
+1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
+2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+:::
+::::
+
+## Visualizing Financial Data
+
+-   Part of your work as a Financial Analyst is to *convey* the information to a broader public:
+    1.  Fund managers do not use *R*, *Python*, and won't be proof-reading your *.xlsx* spreadsheet
+    2.  Investors, Journalists, or the general audience all alike may not have the set of skills to ingest and analyze data like you do
+-   It is imperative to think about *how* you should structure your message to effectively communicate it to your audience's needs. I introduce you the *Grammar of Graphics*:
+
+::: callout-tip
+### Introducing: the Grammar of Graphics
+
+The [Grammar of Graphics](https://www.amazon.com.br/Grammar-Graphics-Leland-Wilkinson/dp/0387245448) sets up the foundations that underlie the production of all types of charts, ranging from pie charts, bar charts, scatterplots, and many more. To that matter, the *Grammar of Graphics* presents a unique foundation for producing charts from quantitative information that are widely used in scientific journals, newspapers, statistical packages, and data visualization systems.
+:::
+
+-   How can you implement these foundations to showcase your data analysis? Luckily, there is a way to do that in `R`
+
+## Introducing `ggplot2`
+
+-   `ggplot2` is a system for declaratively creating graphics, based on [The Grammar of Graphics](https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl)
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/ggplot2.png)
+:::
+
+::: {.column width="75%" text-align="center"}
+1.  You start with a call to `ggplot()`, supplying the `data` and a aesthetic mapping (`aes`), like `x` and `y` axis, groupings, etc
+2.  After that, you choose the geometry (`geom`), the shape of the visual elements contained in the visualization
+3.  Finally, you add `layers` on top on the geometry (titles, annotations, etc) and customize your theme (font size, background color, etc)
+:::
+:::::
+
+. . .
+
+**Key Highlights**
+
+1.  It is, by and large, the richest and most widely used plotting ecosystem in the [{{<fa brands r-project>}}]{.blue} language
+2.  `ggplot2` has a rich ecosystem of extensions - ranging from annotations and interactive visualizations to specialized genomics - click [here](https://exts.ggplot2.tidyverse.org/gallery/) a community maintained list
+
+## `ggplot2` foundations
+
+-   We will illustrate the use of `ggplot2` to replicate the *Grammar of Graphics* foundations using the `FANG` dataset, which is loaded together with your slides - if you prefer to do it direclty in `R`, hit the download button and load it using `read.csv('FANG.csv')`
+
+-   To get `ggplot2` in your session, either load `tidyverse` altogether of directly load the library:
+
+```{r}
+#| eval: false
+#| echo: true
+
+#Load the tidyquant package
+library(tidyquant)
+
+#Option 1: load the tidyverse, which includes ggplot2
+library(tidyverse)
+
+#Option 2: load ggplot2 directly
+library(ggplot2)
+
+```
+
+-   In what follows, we will be working with a step-by-step example of how to use `ggplot2` for data visualizations. It is important that you interactively
+
+```{r}
+#| warning: false
+#| message: false
+
+FANG%>%
+  download_this(
+    output_name = "FANG",
+    output_extension = ".csv",
+    button_label = "Download Raw data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+## Step 1: the data
+
+-   We will be using the `FANG` dataset, which contains basic stock information from popular U.S. techonology firms: *Facebook (Meta), Amazon, Netflix*, and *Google (Alphabet)*
+
+-   The first step in using `ggplot2` is to call your `data` dataframe and supply the aesthetic mapping, which we'll refer to as `aes`
+
+```{r}
+#| eval: false
+#| echo: true
+
+ggplot(data=your_data, aes(x= variable_1, y=variable_2, ...))
+
+```
+
+1.  The `data` argument refers to the dataset used
+2.  The `aes` argument contains all the aesthetic mappings that will be used
+
+-   Together, these constitute the backbone of your visualization: they tell `ggplot2` *what* the raw information to be used and *where* it should be mapped!
+
+## Step 1: the data, practice
+
+::::: panel-tabset
+## Exercise
+
+::: {#lst-step1}
+```{webr}
+#| exercise: step1
+#| completion: true
+#| min-lines: 7
+#| max-lines: 10
+#| fig-width: 8
+#| fig-height: 4
+#Let's use Meta (META) adjusted prices
+META=FANG%>%filter(symbol=='META')
+
+#Use ggplot2 to map the aesthetics to the plot
+ggplot(______, aes(x=____,y=____,group=____))
+```
+
+Use the newly created `META` dataset and call `ggplot`, mapping the `date` variable in the `x` axis, `adjusted` variable in the `y` axis, and `symbol` in the `group` aesthetic. The `FANG` dataset and `ggplot2` have been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.
+:::
+
+## Solution
+
+::: {.solution exercise="step1"}
+Use the `ggplot()` function together with `aes(x, y, group)`:
+
+```{webr}
+#| exercise: step1
+#| solution: true
+#Let's use Apple (META) adjusted prices
+AAPL=FANG%>%filter(symbol=='META')
+
+#Use ggplot2 to map the aesthetics to the plot
+ggplot(AAPL, aes(x=date,y=adjusted,group=symbol))
+```
+:::
+
+```{webr}
+#| exercise: step1
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
+
+## Step 2: adding your `geom`
+
+-   You probably thought you did something wrong when you saw an empty chart with the named axis, right? However, I can assure: [you did great]{.blue}!
+
+    1.  It is all about the philosophy embedded in the *Grammar of Graphics*: you first provide the `data` and the `aes`(thetic) mapping to your data
+
+    2.  Now, `ggplot` knows exactly which information to select and where to place it. However, it is still agnostic about *how* to display it
+
+-   We will now add a geometry layer - in short, a `geom`:
+
+    1.  You can add layers on top of `ggplot` object addition symbol (`+`)
+    2.  There are many types of potential geometries, to name a few: `geom_point()`, `geom_col()`, `geom_line()` - access [here](https://ggplot2.tidyverse.org/reference/) for a complete list
+
+```{r}
+#| eval: false
+#| echo: true
+#Use ggplot2 to map the aesthetics to the plot
+ggplot(META, aes(x=date,y=adjusted)) +
+#Map a given geometry
+geom_{yourgeomhere}()
+
+```
+
+## Step 2: adding your `geom`, practice
+
+::::: panel-tabset
+## Exercise
+
+::: {#lst-step2}
+```{webr}
+#| exercise: step2
+#| completion: true
+#| min-lines: 7
+#| max-lines: 10
+#| fig-width: 8
+#| fig-height: 4
+#Let's use Meta (META) adjusted prices
+META=FANG%>%filter(symbol=='META')
+
+#Use ggplot2 to map the aesthetics to the plot
+ggplot(META, aes(x=date,y=adjusted,group=symbol)) +
+_______()
+```
+
+In your `ggplot` object, try out the following geoms: `geom_point()`, `geom_col()`, and `geom_line()`. Which one do you think is the best for the task? The `FANG` dataset and `ggplot2` have been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.
+:::
+
+## Solution
+
+::: {.solution exercise="step2"}
+In general, using `geom_line()` suits the best for time series
+
+```{webr}
+#| exercise: step2
+#| solution: true
+#Let's use Meta (META) adjusted prices
+META=FANG%>%filter(symbol=='META')
+
+#Use ggplot2 to map the aesthetics to the plot
+ggplot(META, aes(x=date,y=adjusted,group=symbol)) +
+geom_line()
+```
+:::
+
+```{webr}
+#| exercise: step2
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
+
+## Step 3: be creative with additional layers
+
+-   Your main chart is now all set:
+
+    1.  It contains the `data` and the necessary `aes`(thetic) mappings to the chart;
+    2.  It also contains a shape, or `geom`(metry), that was selected to display the data
+
+-   The philosophy behind the *Grammar of Graphics* is now to add layers of information on top of the base chart using the `+` operator, like before
+
+-   We will proceed by including several layers of information that will either [add]{.blue} or [modify]{.blue} the behavior of the chart, making it more appealing to our audience:
+
+    1.  Adding trend-lines using `geom_smooth()`
+    2.  Adding annotations and labels using `annotation` and `labs`
+    3.  Modifying the behavior of the scales using `scale_y` and `scale_x`
+
+-   Try to *sequentially* add these layers and re-run the code to see how it reflects on the output!
+
+## Step 3: be creative with additional layers
+
+```{webr}
+
+#Let's use Meta (META) adjusted prices and make sure that date is read as a Date object
+META=FANG%>%filter(symbol=='META')%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot
+ggplot(META, aes(x=date,y=adjusted,group=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Adding Annotations
+  labs(title='META adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar, breaks = seq(0,1000,50))
+```
+
+## Adding multiple data points
+
+**Question:** what if we wanted to add [more]{.blue} data?
+
+. . .
+
+1.  In our first example, we set `filter(symbol)=='META'` to select only information from *Meta* to your chart
+2.  However, one might be interested in understanding how did *Meta* perform *relative* to its FANG peers
+
+. . .
+
+-   It is easy to do it with `ggplot`:
+    1.  Because you have set `group=symbol`, `ggplot` already knows that it needs to group by each different string contained in the ticker column
+    2.  In such a way, all you need to do is to add a new `aes` mapping, `colour=symbol`, so that `ggplot` knows that each `symbol` needs to have a different color!
+-   In what follows, we will be charting all four *FANG* stocks in the same chart, adjusting the layers to try keeping aesthetics as good as possible
+
+## Adding multiple data points, practice
+
+```{webr}
+#| warning: false
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar, breaks = seq(0,1000,50))
+
+```
+
+## Facet it until you make it
+
+-   We have included all *FANG* stocks into the same chart. *Easy peasy, lemon squeezy!*
+
+-   As far as we could go on adjusting the layers, it seems that the chart conveys *too much* information:
+
+    1.  Because of the different scales, you can hardly tell the different between *AMZN* AND *GOOG* during 2015-2018
+    2.  Furthermore, trend lines are, in some cases, effectively hiding the data undernearth
+
+-   Although you could easily remove the trend lines, `ggplot2` also comes with a variety of alternatives when it comes to charting multiple data that may come in handy:
+
+    1.  You can [facet]{.blue} your chart using `facet_wrap`, controlling the axis as well as the number of rows and columns
+    2.  You can [grid]{.blue} your chart, making the comparison easier with fixed axes
+
+## Option 1: using `facet_wrap()`
+
+```{webr}
+#| warning: false
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Facet the data: try experimenting scales: free_y or fixed
+  facet_wrap(facets=symbol~.,ncol=2,nrow=2,scales='free_y')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar)
+
+```
+
+## Option 2: using `facet_grid()`
+
+```{webr}
+#| warning: false
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Facet the data: try experimenting vertical orientation (.~symbol) and horizontal orientation (symbol~.)
+  facet_grid(rows=.~symbol,scales='fixed')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar, breaks = seq(0,1000,250))
+```
+
+## Adding themes: you're in full control of your message!
+
+-   By now, you are already looking like a data manipulation wizard in your firm:
+    1.  You have created a fully automated data ingestion process using `tq_get()` to get live *FANG* prices.
+    2.  Set up `ggplot` to automatically update the chart;
+    3.  Finally, you have adjusted all aesthetics to make it more much more professional
+-   Plus: you haven't even opened *Excel*! **Well, what's next?**
+
+. . .
+
+-   A lot of the `ggplot` adoption throughout the `R` usiverse relates to `themes`: complete configurations which control all non-data display
+    1.  There are a lot of available themes that you can pass to your ggplot, like `theme_minimal()`, `theme_bw()`
+    2.  Alternatively, you can pass `theme()` if you just need to tweak the display of an existing theme
+
+## Adding `themes()` to your chart
+
+```{webr}
+#| warning: false
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Facet the data: try experimenting scales: free_y or fixed
+  facet_wrap(facets=symbol~.,ncol=2,nrow=2,scales='free_y')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar)+
+  #Try out all available themes_ (theme_bw(),theme_classic(),theme_dark(), and many more)
+  theme_bw()
+```
+
+## The `R` community is on your side!
+
+-   There are endless customizations that you could think of that could be applied to a `theme`
+
+-   In special, the package `ggthemes` provides extra `themes`, `geoms`, and `scales` for `ggplot2` that replicate the look of famous aesthetics that you have often looked and said: *"how could I replicate that?"*
+
+-   To get access to these additional graphical resources in your `R` session, install and load the package using:
+
+```{r}
+#| eval: false
+#| echo: true
+
+install.packages('ggthemes') #Install if not available
+library(ggthemes) #Load
+
+your_previous_ggplot_object + theme_{insertyourtheme}
+
+```
+
+-   To check all available `themes`, check the [`ggthemes`](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) website
+
+## Endless possibilities for `theme` customization
+
+::: panel-tabset
+### WSJ
+
+```{r}
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Facet the data: try experimenting scales: free_y or fixed
+  facet_wrap(facets=symbol~.,ncol=2,nrow=2,scales='free_y')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar)+
+  #Try out all available themes
+  theme_wsj()
+
+```
+
+### The Economist
+
+```{r}
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Facet the data: try experimenting scales: free_y or fixed
+  facet_wrap(facets=symbol~.,ncol=2,nrow=2,scales='free_y')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar)+
+  #Try out all available themes
+  theme_economist()
+
+```
+
+### Excel
+
+```{r}
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Facet the data: try experimenting scales: free_y or fixed
+  facet_wrap(facets=symbol~.,ncol=2,nrow=2,scales='free_y')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar)+
+  #Try out all available themes
+  theme_excel()
+
+```
+
+### FiveThirdyEight
+
+```{r}
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Facet the data: try experimenting scales: free_y or fixed
+  facet_wrap(facets=symbol~.,ncol=2,nrow=2,scales='free_y')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar)+
+  #Try out all available themes
+  theme_fivethirtyeight()
+
+```
+
+### Google Docs
+
+```{r}
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Facet the data: try experimenting scales: free_y or fixed
+  facet_wrap(facets=symbol~.,ncol=2,nrow=2,scales='free_y')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar)+
+  #Try out all available themes
+  theme_gdocs()
+
+```
+:::
+
+## Further theme customization
+
+-   Even with customized themes, you might still want to do your *own* customizations
+
+-   It is easy to access each and every component of the chart by adding `theme` (using the `+` operator):
+
+```{r}
+#| eval: false
+#| echo: true
+
+install.packages('ggthemes') #Install if not available
+library(ggthemes) #Load
+
+your_previous_ggplot_object +
+  theme_{insertyourtheme}+
+  theme(component_1 = configuration_1,
+        component_2 = configuration_2,
+        ...
+        component_n = configuration_n)
+
+```
+
+-   In what follows, we will be using the `theme()` function to adjust some aspects of our chart, such as font size, angle, and text width, to make it look more professional
+
+## Doing custom `theme()` adjustments to the chart
+
+```{webr}
+#| warning: false
+#| max-lines: 20
+
+#Make sure that date is read as a Date object
+FANG=FANG%>%mutate(date=as.Date(date))
+
+#Use ggplot2 to map the aesthetics to the plot using the full FANG data
+ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
+  #Basic layer - aesthetic mapping
+  geom_line()+
+  #Adding a trend
+  geom_smooth(method='loess')+
+  #Facet the data: try experimenting scales: free_y or fixed
+  facet_wrap(facets=symbol~.,ncol=2,nrow=2,scales='free_y')+
+  #Adding Annotations
+  labs(title='FANG adjusted prices',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Year',
+       y = 'Adjusted Prices')+
+  #Changing the behavior of scales
+  scale_x_date(date_breaks = '1 year',labels = year) +
+  scale_y_continuous(labels = dollar)+
+  #Custom 'The Economist' theme
+  theme_economist()+
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(vjust=+4,face='bold'),
+        axis.title.x = element_text(vjust=-3,face='bold'),
+        plot.subtitle = element_text(size=8,vjust=-2,hjust=0,margin = margin(b=15)),
+        axis.text.y = element_text(size=8),
+        axis.text.x = element_text(angle=90,size=8))
+```
+
+## Integrating `tidyquant`
+
+-   Like in our previous lecture, `tidyquant` added very important funcionatilities for those who work in finance to easily manage financial time series using the well-established foundations of the `tidyverse`
+
+-   When it comes to data visualization, `tidyquant` also provides a handful of integrations that can be inserted into your `ggplot` call:
+
+    1.  Possibility of using `geom_barchart` and `geom_candlestick`
+    2.  Moving average visualizations and Bollinger Bands available using `geom_ma` and `geom_bbands`
+    3.  A new theme, `theme_tq`, available
+
+$\rightarrow$ *For a thorough discussion, see a detailed discussion on `tidyquant`'s charting capabilities [here](https://business-science.github.io/tidyquant/articles/TQ04-charting-with-tidyquant.html)*
+
+## Integrating `tidyquant`, continued
+
+::: panel-tabset
+### Code
+
+```{r}
+#| warning: false
+#| echo: true
+#| eval: false
+
+#Set up start and end dates
+end=Sys.Date()
+start=end-weeks(5)
+
+FANG%>%
+  #Make sure that date is read as a Date object
+  mutate(date=as.Date(date))%>%
+  #Filter
+  filter(date >= start, date<=end)%>%
+  #Basic layer - aesthetic mapping including fill
+  ggplot(aes(x=date,y=close,group=symbol))+
+  #Charting data - you could use geom_line(), geom_col(), geom_point(), and others
+  geom_candlestick(aes(open = open, high = high, low = low, close = close))+
+  geom_ma(ma_fun = SMA, n = 5, color = "black", size = 0.25)+
+  #Facetting
+  facet_wrap(symbol~.,scales='free_y')+
+  #DeepSeek date
+  geom_vline(xintercept=as.Date('2025-01-24'),linetype='dashed')+
+  #Annotations
+  labs(title='FANG adjusted prices before/after DeepSeek announcement',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Date',
+       y = 'Adjusted Prices')+
+  #Scales
+  scale_x_date(date_breaks = '3 days') +
+  scale_y_continuous(labels = dollar) +
+  #Custom 'The Economist' theme
+  theme_economist()+
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(vjust=+4,face='bold'),
+        axis.title.x = element_text(vjust=-3,face='bold'),
+        plot.subtitle = element_text(size=8,vjust=-2,hjust=0,margin = margin(b=15)),
+        axis.text.y = element_text(size=8),
+        axis.text.x = element_text(angle=90,size=8))
+```
+
+### Output
+
+```{r}
+#| warning: false
+#| echo: false
+#| eval: true
+
+#Set up start and end dates
+end=Sys.Date()
+start=end-weeks(5)
+
+FANG%>%
+  #Make sure that date is read as a Date object
+  mutate(date=as.Date(date))%>%
+  #Filter
+  filter(date >= start, date<=end)%>%
+  #Basic layer - aesthetic mapping including fill
+  ggplot(aes(x=date,y=close,group=symbol))+
+  #Charting data - you could use geom_line(), geom_col(), geom_point(), and others
+  geom_candlestick(aes(open = open, high = high, low = low, close = close))+
+  geom_ma(ma_fun = SMA, n = 5, color = "black", size = 0.25)+
+  #Facetting
+  facet_wrap(symbol~.,scales='free_y')+
+  #DeepSeek date
+  geom_vline(xintercept=as.Date('2025-01-24'),linetype='dashed')+
+  #Annotations
+  labs(title='FANG adjusted prices before/after DeepSeek announcement',
+       subtitle = 'Source: Yahoo! Finance',
+       x = 'Date',
+       y = 'Adjusted Prices')+
+  #Scales
+  scale_x_date(date_breaks = '3 days') +
+  scale_y_continuous(labels = dollar) +
+  #Custom 'The Economist' theme
+  theme_economist()+
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(vjust=+4,face='bold'),
+        axis.title.x = element_text(vjust=-3,face='bold'),
+        plot.subtitle = element_text(size=8,vjust=-2,hjust=0,margin = margin(b=15)),
+        axis.text.y = element_text(size=8),
+        axis.text.x = element_text(angle=90,size=8))
+```
+:::
+
+## Wrapping-up
+
+-   All in all, `ggplot2` is a powerful companion on data visualization for `R` users
+
+-   `tidyquant` helps you bridge the gap between the lack of powerful libraries for financial data visualization and `ggplot2`'s capabilities
+
+-   Topics not covered in this lecture, but definitely worth the time:
+
+    1.  Add interactivity to your `ggplot` objects with `ggplotly` package - access [here](https://plotly.com/r/)
+    2.  Other interactive charting libraries: take a look at `highcharter`, a wrapper for a famous JavaScript library - access [here](https://jkunst.com/highcharter/)
+    3.  If you wish to know more about the usage of `ggplot2`, nurture your creativity by looking at some community maintained list of examples [here](https://exts.ggplot2.tidyverse.org/gallery/)
+
+## I hope you are excited to what's next!
+
+![](Images/F1.png){fig-align="center" width="70%"}
+
+## Hands-On Exercise
+
+-   In late January 2021, Reddit traders took on the short-sellers by forcing them to liquidate their short positions using *GameStop* stocks. This coordinated behavior had significant repercussions for various investment funds, such as *Melvin Capital* - see [here](https://www.ft.com/content/47e3eaad-e087-4250-97fd-e428bac4b5e9) and [here](https://edition.cnn.com/2021/01/27/investing/gamestop-reddit-stock/index.html)
+
+::: callout-tip
+### Exercise
+
+1.  Use `tq_get()` to load information for *GameStop* (ticker: *GME*) and store it in a `data.frame`
+2.  Filter for observations between occurring in between December 2020 (beginning of) and March 2021 (end of)
+3.  Use `ggplot()`, along with `geom_candlestick()`, to chart the historical adjusted prices
+4.  Create an vertical line annotation using `geom_vline`, setting the `xintercept` argument to the date of the Reddit frenzy (`as.Date('2021-01-25')`)
+5.  Use the theme from *The Economist* and call `theme()` and `labs()` to adjust the aesthetics and labels
+:::
+
+-   Share your results with the broader group!
+
+## Hands-On Exercise, solutions
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Libraries
+library(tidyquant)
+library(tidyverse)
+library(ggthemes)
+
+#Setting start/end dates + reddit date
+start='2020-12-01'
+end='2021-03-31'
+reddit_date=as.Date('2021-01-25')
+
+#Get the data
+tq_get('GME',from=start,to=end)%>%
+  #Mapping
+  ggplot(aes(x=date,y=adjusted,group=symbol))+
+  #Geom
+  geom_candlestick(aes(open = open, high = high, low = low, close = close))+
+  #Labels
+  labs(x='',
+       y='Adjusted Prices',
+       title='GameStop (ticker: GME) prices during the reddit (Wall St. Bets) frenzy',
+       subtitle='Source: Yahoo! Finance')+
+  #Annotation
+  geom_vline(xintercept=reddit_date,linetype='dashed')+
+  annotate(geom='text',x=reddit_date-5,y=75,label='Reddit Frenzy Starts',angle=90)+
+  #Scales
+  scale_x_date(date_breaks = '2 weeks') +
+  scale_y_continuous(labels = dollar) +
+  #Custom 'The Economist' theme
+  theme_economist()+
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(vjust=+4,face='bold'),
+        axis.title.x = element_text(vjust=-3,face='bold'),
+        plot.title = element_text(size=10),
+        plot.subtitle = element_text(size=8,vjust=-2,hjust=0,margin = margin(b=15)),
+        axis.text.y = element_text(size=8),
+        axis.text.x = element_text(angle=45,size=8,vjust=0.75))
+
+```
+
+### Output
+
+```{r}
+#| echo: false
+#| eval: true
+
+start='2020-12-01'
+end='2021-03-31'
+reddit_date=as.Date('2021-01-25')
+
+tq_get('GME',from=start,to=end)%>%
+  ggplot(aes(x=date,y=adjusted,group=symbol))+
+  labs(x='',
+       y='Adjusted Prices',
+       title='GameStop (ticker: GME) prices during the Reddit (Wall St. Bets) frenzy',
+       subtitle='Source: Yahoo! Finance')+
+  geom_candlestick(aes(open = open, high = high, low = low, close = close))+
+  geom_vline(xintercept=reddit_date,linetype='dashed')+
+  annotate(geom='text',x=reddit_date-2,y=75,label='Reddit Frenzy Starts',angle=90)+
+  #Scales
+  scale_x_date(date_breaks = '1 week') +
+  scale_y_continuous(labels = dollar) +
+  #Custom 'The Economist' theme
+  theme_economist()+
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(vjust=+4,face='bold'),
+        axis.title.x = element_text(vjust=-3,face='bold'),
+        plot.title = element_text(size=15),
+        plot.subtitle = element_text(size=12,vjust=-2,hjust=0,margin = margin(b=15)),
+        axis.text.y = element_text(size=8),
+        axis.text.x = element_text(angle=45,size=8,vjust=0.75))
+
+```
+:::
+
+## References

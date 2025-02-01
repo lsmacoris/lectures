@@ -1,0 +1,771 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  live-revealjs:
+    title: 'Collecting, Organizing, and Manipulating Financial Data'
+    incremental: false
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: '../~ Metadata/abntex2.cls'
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    show-hints: true
+    show-solutions: true
+    webr:
+      packages:
+        - tidyverse
+        - xts
+        - glue
+        - scales
+      resources:
+        - Assets
+      render-df:
+        - gt-interactive
+
+editor: visual
+from: markdown+emoji
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+This page was intentionally left blank
+
+{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
+
+```{r}
+#| echo: false
+
+# Package names
+packages <- c("tidyverse","tidyquant","tidymodels","xts","glue","scales","downloadthis")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load all packages
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+```{r}
+#| echo: false
+
+#List of assets
+assets= c('AAPL','MSFT','NVDA','GOOG','AMZN','META','TSLA','F','MMM','GME')
+start='2020-01-01'
+
+#Write to memory
+Data=tq_get(assets,from=start,to=Sys.Date())
+Data%>%write.csv('Assets/M7.csv',row.names = FALSE)
+
+```
+
+```{webr}
+#| echo: false
+
+#Making data available for webR
+M7=read.csv('Assets/M7.csv')%>%mutate(date=as.Date(date))
+
+```
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+    1.  *Tidy Finance* [@tidyfinance]
+    2.  *R for Data Science* [@r4ds]
+
+:::: nonincremental
+::: callout-note
+### Coding Replications
+
+For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
+
+1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
+2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+:::
+::::
+
+## Organizing Financial Data
+
+::: callout-tip
+### A note on Tidy Data
+
+*"Tidy datasets are all alike, but every messy dataset is messy in its own way. Tidy datasets provide a standardized way to link the structure of a dataset (its physical layout) with its semantics (its meaning)."*
+:::
+
+-   Stock price information is an example of raw data that can be easily pulled from providers such as *Yahoo! Finance*. However, it is not often structured in a tidy and convenient way
+
+    1.  In this lecture, we will be working with daily stock price data from the *Magnificent Seven* (*AMZN*, *GOOG*, *MSFT*, *NVDA*, *TSLA*, *AMZN*, and *META*)
+    2.  I have already downloaded the data for you using the `tidyquant` package, which allows us to pull stock price data from multiple securities in a convenient format. You can hit the *Download* button to get a grasp on how the data looks like
+
+```{r}
+#| warning: false
+#| message: false
+
+Data%>%
+  download_this(
+    output_name = "M7",
+    output_extension = ".csv",
+    button_label = "Download",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+## The basic `dplyr` verbs: recap
+
+:::::: nonincremental
+-   [`dplyr`](https://dplyr.tidyverse.org/) is a grammar of data manipulation, contained in the `tidyverse`, providing a consistent set of verbs that help you solve the most common data manipulation challenges:
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/dplyr.png)
+:::
+
+::: {.column width="75%" text-align="center"}
+1.  `mutate()` adds new variables that are functions of existing variables
+2.  `select()` picks variables based on their names
+3.  `filter()` picks cases based on their values
+4.  `summarise()` reduces multiple values down to a single summary
+5.  `arrange()` changes the ordering of the rows
+:::
+:::::
+::::::
+
+## The `mutate()` function
+
+::: callout-tip
+### Definition
+
+The `mutate()` function adds new variables that are functions of existing variables:
+
+```{r}
+#| eval: false
+#| echo: true
+
+mutate(.data, #The object you are performing the calculations 
+       new_variable_1 = var1 * 2, #Can use basic operations...
+       new_variable_2 = median(var2), #Or predefined functions)
+       variable_3 = as.character(var3) #And can be used to modify existing variables)
+       ) 
+```
+:::
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  It sequentially creates the columns you asked for and place them to the right of your `data.frame` (or `tibble`)
+3.  You can use any function, predefined or custom, and apply it to `mutate()`
+4.  It can also modify any columns you want (if the name is the same as an existing column)
+
+## The `mutate()` function, practice
+
+::::: panel-tabset
+## Exercise
+
+::: {#lst-mutate}
+```{webr}
+#| exercise: mutate
+#| completion: true
+#| min-lines: 7
+#| max-lines: 10
+#| fig-width: 8
+#| fig-height: 4
+
+#Apply function to the data
+M7=_____(M7, mid= _____)
+
+#Show the first 10 observations
+head(M7)
+
+```
+
+Use columns `high` and `low` and create a new column, `mid`, defined as the average between daily high and low prices. The `M7` dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.
+:::
+
+## Solution
+
+::: {.solution exercise="mutate"}
+First, use the `mutate()` function to create the `mid` column.
+
+After that, define `mid` as `(high+low)/2` to calculate the average between the two values.
+
+```{webr}
+#| exercise: mutate
+#| solution: true
+
+#Apply function to the data
+M7=mutate(M7, mid= (high+low)/2)
+
+#Show the first 10 observations
+head(M7)
+
+```
+:::
+
+```{webr}
+#| exercise: mutate
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
+
+## The `select()` function
+
+::: callout-tip
+### Definition
+
+The `select()` function select (and optionally rename) variables in a data frame, using a concise mini-language that makes it easy to refer to variables based on their name (*e.g*. `a:f` selects all columns from `a` on the left to `f` on the right) or type (e.g. `where(is.numeric)` selects all numeric columns)
+
+```{r}
+#| eval: false
+#| echo: true
+
+select(.data, #The object which you are performing the operations 
+       variable_3, #Can reorder columns
+       variable_1, 
+       variable_2:variable_4, #Matches position patterns 
+       where(is.numeric) #Can select all columns that match a given pattern
+       ) 
+```
+:::
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And select only the columns you've asked for
+3.  You can also use `select(.data,-variable)` to remove a variable
+4.  It keeps the structure of the `data.frame` intact - no rows are affected
+
+## The `select()` function, continued
+
+-   The `select()` function also comes with a handy companion of `selectors`, which are functions that help you cherry pick columns in a concise way, rather than hardcoding them altogether:
+
+    1.  `:` for selecting a range of consecutive variables.
+    2.  `starts_with()` starts with a string
+    3.  `ends_with()` ends with a string
+    4.  `contains()` contains a string
+    5.  `matches()`matches a regular expression.
+    6.  `where()`a function to all variables and selects those for which the function returns `TRUE`
+
+## The `select()` function, practice
+
+::::: panel-tabset
+## Exercise
+
+::: {#lst-select}
+```{webr}
+#| exercise: select
+#| completion: true
+#| min-lines: 7
+#| max-lines: 10
+#| fig-width: 8
+#| fig-height: 4
+
+#Apply function to the data
+M7=_____(M7,_____)
+
+#Show the first 10 observations
+head(M7)
+
+```
+
+Select only the `symbol`, `date`, `volume`, and `adjusted`, in that order. The `M7` dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.
+:::
+
+## Solution
+
+::: {.solution exercise="mutate"}
+Use the `select()` function to select only a subset of the available columns:
+
+```{webr}
+#| exercise: select
+#| solution: true
+
+#Apply function to the data
+M7=select(M7,symbol,date,volume,adjusted)
+
+#Show the first 10 observations
+head(M7)
+
+```
+:::
+
+```{webr}
+#| exercise: select
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
+
+## The `filter()` function
+
+::: callout-tip
+### Definition
+
+The `filter()` function is used to subset a data frame, retaining all rows that satisfy your conditions. To be retained, the row must produce a value of `TRUE` for all conditions.
+
+```{r}
+#| eval: false
+#| echo: true
+
+filter(.data, #The object which you are performing the operations
+       variable_1 >10, #Simple arithmetic operators
+       variable_2 %in% c('AAPL','MSFT','FORD'), #Pattern search
+       !(variable_3 %in% c('Boston','Mass','Silicon Valley')), #Negate pattern search
+       variable_4 >=10 & variable_3<= 4 | is.na(variable_4) #IF and OR conditions
+       ) 
+```
+:::
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And filter the rows based on the conditions outlined
+3.  You can use any function, predefined or custom, and apply it to `filter()`
+4.  It returns a subset of the whole object, keeping the columns and the data structure intact
+
+## The `filter()` function, practice
+
+::::: panel-tabset
+## Exercise
+
+::: {#lst-filter}
+```{webr}
+#| exercise: filter
+#| completion: true
+#| min-lines: 7
+#| max-lines: 10
+#| fig-width: 8
+#| fig-height: 4
+
+#Apply function to the data
+M7=_____(M7,_____)
+
+#Show the first 10 observations
+head(M7)
+
+```
+
+Filter for observations that occurred in 2025, only. You can use the `year()` function with the `date` variable to retrieve the year. The `M7` dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.
+:::
+
+## Solution
+
+::: {.solution exercise="filter"}
+Use the `filter()` together with `year(date)`:
+
+```{webr}
+#| exercise: filter
+#| solution: true
+
+#Apply function to the data
+M7=filter(M7,year(date)==2025)
+
+#Show the first 10 observations
+head(M7)
+
+```
+:::
+
+```{webr}
+#| exercise: filter
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
+
+## The `arrange()` function
+
+::: callout-tip
+### Definition
+
+The `arrange()` function reorders the rows of a data frame by the values of selected columns:
+
+```{r}
+#| eval: false
+#| echo: true
+
+#Some Options, always in the following format: the object you are rearranging + the reordering scheme
+arrange(.data, variable1) #Ascending by variable_1
+arrange(.data, variable1, variable_2) #Ascending by variable_1 and then variable_2
+arrange(.data, variable2, variable_1) #Ascending by variable_2 and then variable 1
+arrange(.data, variable1, desc(variable_2)) #Ascending by variable_1, and then descending by variable_2
+```
+:::
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And reorders the rows of your `data.frame` (or `tibble`)
+3.  This can be useful for visualization, but also for applying position-dependent functions, like `lag()`, `lead()`, `head()`, and `tail()`
+
+## The `arrange()` function, practice
+
+::::: panel-tabset
+## Exercise
+
+::: {#lst-arrange}
+```{webr}
+#| exercise: arrange
+#| completion: true
+#| min-lines: 7
+#| max-lines: 10
+#| fig-width: 8
+#| fig-height: 4
+
+#Apply function to the data
+M7=arrange(M7,_____)
+
+#Show the first 10 observations
+head(M7)
+
+```
+
+Arrange the dataset by descending `date` (newest to oldest) and `symbol`. The `M7` dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.
+:::
+
+## Solution
+
+::: {.solution exercise="arrange"}
+Use the `arrange()` together with `desc(date)` and `symbol`:
+
+```{webr}
+#| exercise: arrange
+#| solution: true
+
+#Apply function to the data
+M7=arrange(M7,desc(date),symbol)
+
+#Show the first 10 observations
+head(M7)
+
+```
+:::
+
+```{webr}
+#| exercise: arrange
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
+
+## The `summarize()` function
+
+::: callout-tip
+### Definition
+
+The `summarise()` - or `summarize()` - function creates a new data frame. It returns one row for each combination of grouping variables; if there are no grouping variables, the output will have a single row summarising all observations in the input. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified.
+
+```{r}
+#| eval: false
+#| echo: true
+
+summarize(.data, #The object which you are performing the operations 
+       new_variable_1 = mean(var1,na.rm=TRUE), #Average of var1, removing NA values
+       new_variable_2 = median(var2,na.rm=TRUE), #Median of var1, removing, NA values
+       new_variable_3 = n_distinct(var2) #Number of unique values of var2
+       ) 
+```
+:::
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And reshapes the `data.frame` (or `tibble`) by the aggregation functions
+3.  As the name suggests, it is used to summarize a table
+
+## The `summarize()` function, practice
+
+::::: panel-tabset
+## Exercise
+
+::: {#lst-summarize}
+```{webr}
+#| exercise: summarize
+#| completion: true
+#| min-lines: 7
+#| max-lines: 10
+#| fig-width: 8
+#| fig-height: 4
+
+#Apply function to the data
+Summary=summarize(M7,_____)
+
+#Show the first 10 observations
+head(M7)
+
+```
+
+Summarize the dataset by creating an `average` column, defined as the average `adjusted` prices. You can use the `mean()` function to get the average. Use the option `na.rm=TRUE` inside the `mean` function to make sure that `NA` values are disregarded. The `M7` dataset has been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.
+:::
+
+## Solution
+
+::: {.solution exercise="summarize"}
+Use the `summarize()` together with `mean()`:
+
+```{webr}
+#| exercise: summarize
+#| solution: true
+
+#Apply function to the data
+Summary=summarize(M7,average=mean(adjusted,na.rm=TRUE))
+
+#Show the first observations
+head(Summary)
+
+```
+:::
+
+```{webr}
+#| exercise: summarize
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
+
+## Slice and dice through `group_by()`
+
+-   You saw how the `tidyverse` verbs helps us getting ahead of the game when it comes to data operations. In most cases, however, you may need to add an extra layer of complexity: perform operations *groupwise*:
+
+    1.  Get the average returns by each stock
+    2.  Filter for the 10 highest prices for each year
+    3.  Calculate the median return for each industry
+
+-   For cases like this, we need to find a convenient way of repeating the same operation across subsets of our data
+
+-   It goes without saying that there should be a function in the `tidyverse` that makes this operation straightforward: fortunately, you can use `group_by()` together with all previous `dplyr` verbs!
+
+## Slice and dice through `group_by()`, continued
+
+::: callout-tip
+### Definition
+
+The `group_by()` function takes an existing table and converts it into a *grouped* table where operations are performed "by group". Using `ungroup()` removes grouping.
+
+```{r}
+#| eval: false
+#| echo: true
+
+Data=group_by(Data,v1,v2,v3)
+Data=summarize(avg=mean(x,na.rm=TRUE))
+
+```
+:::
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And creates the `avg` variable taking the average of `x` within each tuple defined by the grouping variables (in this case, `v1`,`v2`, and `v3` )
+3.  It returns a `grouped dataframe`, with the results of `avg` displayed for each unique combination of `v1`,`v2`, and `v3`
+
+## Revisiting average prices
+
+-   Let's try the latest `summarize()` call again, but now grouping the data by `symbol` first
+
+```{webr}
+
+#Apply function to the data
+M7=group_by(M7,symbol)
+Summary=summarize(M7,average=mean(adjusted,na.rm=TRUE))
+
+#Show the first 10 observations
+head(Summary,10)
+
+```
+
+## Combining multiple operations
+
+-   In the previous exercises, you have used the main `dplyr` verbs to create, select, arrange, filter, and summarize data, one by one. In practical applications, however it is likely that you need more than one of these functionalities at the same time
+
+-   It is tempting to do it piecewise:
+
+```{r}
+#| eval: false
+#| echo: true
+
+#Start with the data
+Data = read.csv('Data.csv')
+#Mutate
+Data = mutate(Data, new_var_1=var_1*10)
+#Select
+Data = select(Data, var_1,var_2,new_var_1,where(is.numeric))
+#Filter
+Data = filter(Data, new_var_1>5)
+#Arrange
+Data = arrange(Data, new_var_1,desc(var2))
+#Summarize
+Data = summarize(Data, new_var=mean(new_var_1,na.rm=TRUE))
+```
+
+-   Although organized, it is wildly *inefficient*: you are sequentially (re)creating the same object all over again - not to mention that you called `Data` $10$ times!
+
+## Pipe your way through the code `%>%`
+
+-   The `dplyr` verbs, in isolation, are a great tool for data analysts, but what really makes them to shine is what glues them together: I introduce you the pipe (`%>%` or `|>`)
+
+![](Images/F1.png){fig-align="center"}
+
+## Pipe your way through the code `%>%`, continued
+
+-   [René Magritte](https://pt.wikipedia.org/wiki/Ren%C3%A9_Magritte) was right when he claimed that, in *The Treachery of Images* *(La Trahison des images)*, there was not a pipe
+
+-   In fact, the pipe that is relevant for us, `R` users, was only introduced recently, in the `magrittr` package, which makes clear allusion to the artist
+
+-   The `pipe` operator (`%>%` or `|>`) helps you chain operations sequentially, in such a way that the [output]{.blue} of one operation serves as the [input]{.blue} of the subsequent one!
+
+    1.  Instead of repeating the `.data` input multiple times, you [chain]{.blue} the operations using the pipe operator
+    2.  It tremendously improve code readability and minimizes spelling errors (now you only need to type in the `.data` argument once!)
+    3.  Finally, it makes your code much more efficient: you don't need to allocate memory to (re)create the same object in each step
+
+## Pipe your way through the code `%>%`, continued
+
+```{r}
+#| eval: false
+#| echo: true
+
+#Instead of 
+Data = read.csv('Data.csv') #Start with the data
+Data = mutate(Data, new_var_1=var_1*10)#Mutate
+Data = select(Data, var_1,var_2,new_var_1,where(is.numeric))#Select
+Data = filter(Data, new_var_1>5)#Filter
+Data = arrange(Data, new_var_1,desc(var2))#Arrange
+Data = summarize(Data, new_var=mean(new_var_1,na.rm=TRUE))#Summarize
+
+#Do
+Data = read.csv('Data.csv')%>% #Start with the data
+        mutate(new_var_1=var_1*10)%>% #Mutate
+        select(var_1,var_2,new_var_1,where(is.numeric))%>% #Select
+        filter(new_var_1>5)%>% #Filter
+        arrange(new_var_1,desc(var2))%>% #Arrange
+        summarize(new_var=mean(new_var_1,na.rm=TRUE))#Summarize
+
+```
+
+-   The `pipe` operator lets you pass the object on its *left-hand* side to the first argument of the function on the *right-hand* side
+
+-   Another nice feature in `R` is [lazy evaluation](https://adv-r.hadley.nz/functions.html#lazy-evaluation): function arguments are only evaluated [if (and when)]{.blue} they are accessed. This allows us to refer to variables that will only be created *within* the `pipe` without breaking the code!
+
+## Practical Exercise
+
+-   On January $25^{th}$, chinese startup *DeepSeek* disrupted the tech stock market as investors reassessed the likely future investment in Artificial Intelligence hardware
+
+![](Images/F2.png){fig-align="center" width="25%"}
+
+$\rightarrow$ [Read: *Tech stocks slump as China’s DeepSeek stokes fears over AI spending (Financial Times)*](https://www.ft.com/content/e670a4ea-05ad-4419-b72a-7727e8a6d471)
+
+## Hands-On Exercise
+
+-   As part of your work as a buy-side analyst, you were asked to analyze how the *Magnificent 7* performed after the *DeepSeek* episode. Follow the instructions below and answer to the following question: **Which stock suffered the most up to yesterday?**
+
+::: callout-tip
+### Exercise
+
+1.  Select only the tickers that refer to the *Magnificent 7* group
+2.  Filter only on observations happening in 2025
+3.  Arrange the dataset (from oldest to newest)
+4.  Create, for each different `symbol`, a `Return` variable that is defined as $P_{t+1}/P_{t}$, where $t$ refers to a date
+5.  Create, for each different `symbol`, a `Cum_Return` return variable that is defined as the cumulative return
+6.  Pick the latest observation from each `symbol` and arrange the table from lowest-to-highest return
+
+-   The data, stored in `M7.csv`, can be loaded using `read.csv('M7.csv')`
+-   You can use the `year()` function to retrieve the year of a given `Date` column. Also, `slice_tail(n=x)` retrieves the bottom `x` observations, whereas `slice_head(n=y)` retrieves the top `y`
+:::
+
+## Solution
+
+::: panel-tabset
+## Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Read the Data
+M7%>%
+#Make sure date is read as a Date object
+mutate(date=as.Date(date))%>%
+#Filter for observations happening in 2025
+filter(year(date)==2025)%>%
+#Select only the columns of interest
+select(symbol,date,adjusted)%>%
+#Arrange from chronological order
+arrange(date)%>%
+#Group by Symbol to perform the calculations
+group_by(symbol)%>%
+mutate(Return = adjusted/lag(adjusted,default = NA))%>%
+#Remove NAs before doing the cumulative product
+drop_na()%>%
+mutate(Cum_Return = cumprod(Return)-1)%>%
+#Select the latest observation from each symbol
+slice_tail(n=1)%>%
+#Select symbol, date, and cumulative return
+select(symbol,date,Cum_Return)%>%
+#Arrange from lowest-to-highest
+arrange(Cum_Return)
+```
+
+## Output
+
+```{r}
+#| echo: false
+#| eval: true
+
+#Read the Data
+read.csv('Assets/M7.csv')%>%
+#Make sure date is read as a Date object
+mutate(date=as.Date(date))%>%
+#Filter for observations happening in 2025
+filter(year(date)==2025)%>%
+#Select only the columns of interest
+select(symbol,date,adjusted)%>%
+#Arrange from chronological order
+arrange(date)%>%
+#Group by Symbol to perform the calculations
+group_by(symbol)%>%
+mutate(Return = adjusted/lag(adjusted,default = NA))%>%
+#Remove NAs before doing the cumulative product
+drop_na()%>%
+mutate(Cum_Return = cumprod(Return)-1)%>%
+#Select the latest observation from each symbol
+slice_tail(n=1)%>%
+#Select symbol, date, and cumulative return
+select(symbol,date,Cum_Return)%>%
+#Arrange from lowest-to-highest
+arrange(Cum_Return)
+```
+:::
+
+## Helpful tips while using R and Quarto
+
+-   As you pave your way through the coding exercises, there are a couple of best practices that will make your life easier when dealing with data in an `R` session:
+
+    1.  Whenever you are loading data, make sure to refer to the correct path where the file is located. You can use the function `getwd()` without any arguments to retrieve the current path, and `setwd('C:/Users/you/newpath/')` to set up a new working directory
+
+    2.  The easiest way to make this logic redundant is to place the `.R` (or `.qmd`) script in the same folder as the data file (in our case, `M7.csv`). When you open the script, it will point to its own directory as the working directory - which will coincide with the data directory
+
+```{r}
+#| eval: false
+#| echo: true
+
+
+getwd() #Gets the current directory. For Windows users, this is generally defaulted to C:/Users/USER/Documents
+setwd('C:/Users/Lucas/Desktop') #changing this to desktop
+list.files() #You can confirm if your data is listed in this directory
+read.csv('M7.csv') #It works without entering the full path since M7 is in the current path
+
+```
+
+## Helpful tips while using R and Quarto, continued
+
+1.  *RStudio* allows you to interact with your session piece wise - this means that you don't need to run your code chunks all at once
+    -   To run only a specific portion of your code, select the specific code lines you want to run and hit `Ctrl + Enter`
+    -   As an effect, `R` will run only the selected lines directly into your session, and the output from these lines will be prompted into your session
+2.  If you are working on a *Quarto* notebook, you can use the same strategy to run specific lines directly into your session, or you can hit `Ctrl+Shift+K` to render the output altogether
+
+-   Try this copy-pasting the code from the next slide in your R Session - we'll dive into the details later on, but note how the output printed in your session changes as you increase the selected lines
+
+## References
