@@ -1,18 +1,16 @@
 ---
-#title: "Risk and Return"
 author: "Lucas S. Macoris"
 format:
   revealjs:
     title: 'Economic Value Added (EVA)'
-    theme: [default, custom.scss]
+    theme: [default, '../~ Metadata/custom.scss']
     auto-stretch: false
     author: 'Lucas S. Macoris'
-    logo: logo.jpg
+    logo: 'Images/logo.jpg'
     footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
-    cls: abntex2.cls
     incremental: true
-    bibliography: 'Bibliography.bib'
+    bibliography: '../~ Metadata/Bibliography.bib'
     slide-number: true
     show-slide-number: all
     transition: slide
@@ -21,7 +19,7 @@ format:
     width: 1600
     height: 900
     smaller: false
-
+    
 editor: visual
 from: markdown+emoji
 ---
@@ -30,10 +28,10 @@ from: markdown+emoji
 
 -   The contents herein are not directly discussed in any of the three main textbooks presented in the syllabus
 
--   In this sense, this lecture will extensively use the following materials:
+-   In this sense, this lecture will extensively use the following material:
 
-1.  [206016 - Understanding Economic Value Added]{.blue}
-2.  [XLS504 - Understanding Economic Value Added]{.blue} - supplementary *.xlsx* spreadsheet
+1.  [Understanding Economic Value Added]{.blue} (HBS Case)
+2.  [Understanding Economic Value Added]{.blue} - supplementary *.xlsx* spreadsheet
 
 . . .
 
@@ -43,7 +41,7 @@ $\rightarrow$ *Both contents are available on eClass®.*
 
 Let's get back to the example that we've worked on in the [Financial Analysis]{.blue} lecture:
 
-![](Figures/F1.jpg)
+![](Images/F1.jpg)
 
 -   Are the managers doing a good or a bad job?
 
@@ -96,8 +94,8 @@ We saw that we can calculate a series of performance indicators that decompose *
 
 . . .
 
-:::{.callout-tip}
-### Defintion
+::: callout-tip
+### Definition
 
 EVA® measures the wealth a company [creates]{.green} (or [destroys]{.red}) each year. It is a company's after-tax profit from operations minus a charge for the cost of all capital employed to produce those profits -- not just the cost of debt, but the cost of equity as well
 :::
@@ -187,7 +185,7 @@ $$
 
 . . .
 
-![](Figures/F2.jpg)
+![](Images/F2.jpg)
 
 -   In general, we distinguish both side of the balance-sheet in terms of [liquidity]{.blue}:
     1.  Current Assets (Liabilities) are earned (due) at a short-period of time
@@ -197,7 +195,7 @@ $$
 
 . . .
 
-![](Figures/F3.jpg)
+![](Images/F3.jpg)
 
 -   In general, we distinguish both side of the balance-sheet in terms of [liquidity]{.blue}:
     1.  Current Assets (Liabilities) are earned (due) at a short-period of tiume
@@ -207,7 +205,7 @@ $$
 
 . . .
 
-![](Figures/F4.jpg)
+![](Images/F4.jpg)
 
 -   We can also distinguish accounts in terms of their [destination]{.blue}:
     1.  Operating Assets (Liabilities) are highlighted in darker colors
@@ -280,9 +278,9 @@ $$
 
 -   We can use the Income Statement to calculate the [Net Operating Profit After Taxes]{.blue}
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
-![](Figures/F5.jpg)
+![](Images/F5.jpg)
 :::
 
 ::: {.column width="60%"}
@@ -299,7 +297,7 @@ $$
     -   Tax Rate: 34%
     -   NOPAT= \$5,069 + \$4,320 $\times$ (1-34%) = \$7,920
 :::
-:::
+:::::
 
 ## Step 3: Calculating EVA®
 
@@ -395,9 +393,9 @@ $$
 
 . . .
 
-::: columns
+::::: columns
 ::: {.column width="70%"}
-![](Figures/F6.jpg){fig-align="center"}
+![](Images/F6.jpg){fig-align="center"}
 :::
 
 ::: {.column width="30%"}
@@ -405,6 +403,6 @@ $$
 
 -   **Case 2**: $\dfrac{\sum_{t=1}^{\infty}\text{EVA}_{t}}{(1+r)^t}$\<0
 :::
-:::
+:::::
 
 ## References

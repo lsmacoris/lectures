@@ -1,18 +1,16 @@
 ---
-#title: "Risk and Return"
 author: "Lucas S. Macoris"
 format:
   revealjs:
     title: 'Short-term Financial Planning'
-    theme: [default, custom.scss]
+    theme: [default, '../~ Metadata/custom.scss']
     auto-stretch: false
     author: 'Lucas S. Macoris'
-    logo: logo.jpg
+    logo: 'Images/logo.jpg'
     footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
-    cls: abntex2.cls
     incremental: true
-    bibliography: 'Bibliography.bib'
+    bibliography: '../~ Metadata/Bibliography.bib'
     slide-number: true
     show-slide-number: all
     transition: slide
@@ -21,7 +19,7 @@ format:
     width: 1600
     height: 900
     smaller: false
-
+    
 editor: visual
 from: markdown+emoji
 ---
@@ -57,14 +55,14 @@ library(highcharter)
 
 ```{r,fig.height=8,fig.width=16}
 
-WC=read_excel('Exercises/Financials.xlsx',sheet=9)[4:8,]%>%
+WC=read_excel('Assets/Arezzo Financials.xlsx',sheet=9)[4:8,]%>%
   gather('Key','Working Capital',-Account)%>%
   filter(Account=='Working Capital')%>%
   mutate(Key=as.factor(Key),row=row_number())%>%
   select(-Account)
 
 
-Sales=read_excel('Exercises/Financials.xlsx',sheet=3)[1,]%>%
+Sales=read_excel('Assets/Arezzo Financials.xlsx',sheet=3)[1,]%>%
   gather('Key','Sales',-Account)%>%
   mutate(Key=as.factor(Key),Sales=as.numeric(Sales))%>%
   select(-Account)
@@ -98,7 +96,7 @@ hchart(Data, "line",hcaes(x = Date, y = Value, group = Key))%>%
 
 ```{r,fig.height=8,fig.width=16}
 
-Data=read_excel('Exercises/Financials.xlsx',sheet=9)[4:8,]%>%
+Data=read_excel('Assets/Arezzo Financials.xlsx',sheet=9)[4:8,]%>%
   gather('Key','Value',-Account)%>%
   filter(!Account %in% c('Others','Working Capital'))%>%
   mutate(Key=as.factor(Key),row=row_number())
@@ -128,7 +126,7 @@ Data%>%
 
 ```{r,fig.height=8,fig.width=16}
 
-Data=read_excel('Exercises/Financials.xlsx',sheet=5)%>%
+Data=read_excel('Assets/Arezzo Financials.xlsx',sheet=5)%>%
   gather('Key','Value',-Account)%>%
   filter(str_detect(Account,'Loans'))%>%
   mutate(Key=as.factor(Key),Value=as.numeric(Value),row=row_number())
@@ -162,7 +160,7 @@ Data%>%
 
 -   Looking at the specifics of *Arezzo's* working capital accounts, it seems it is being fueled mainly by [Inventories]{.blue}, although [Receivables]{.blue} have also increased significantly
 
--   [Payables]{.blue} have substantially increased to sustain the firm's growth. However, overall net capital needs have increased.
+-   [Payables]{.blue} have substantially increased to sustain the firm's growth. However, overall net capital needs have increased
 
 -   How to finance the remaining part?
 
@@ -177,7 +175,7 @@ Data%>%
 
 -   Within short-term financing planning, we are interested in analyzing the types of cash surpluses or deficits that are [temporary]{.blue} and, therefore, [short-term]{.blue} in nature
 
--   Typically, firms require short-term financing for three reasons:
+-   Typically, firms require short-term financing for [three reasons]{.blue}:
 
 1.  Seasonalities
 2.  Negative Cash-Flow shocks
@@ -188,7 +186,7 @@ Data%>%
 -   When sales are concentrated during a few months, sources and uses of cash are also likely to be [seasonal]{.blue}:
 
     1.  Firms in this position may find themselves with a surplus of cash during some months that is sufficient to compensate for a shortfall during other months
-    2.  However, because of timing differences, such firms often have short-term financing needs.
+    2.  However, because of timing differences, such firms often have short-term financing needs
 
 -   The introduction of seasonal sales creates some dramatic swings in short-term cash flows:
 
@@ -200,11 +198,11 @@ Data%>%
 
 ## Negative and Positive Cash-Flows
 
-**Negative Cash-Flow Shocks**
+[**Negative**]{.red} **Cash-Flow Shocks**
 
 . . .
 
--   Occasionally, a company will encounter circumstances in which cash flows are temporarily negative for an *unexpected* reason (e.g, higher costs, legal actions, supply shortages, etc)
+-   Occasionally, a company will encounter circumstances in which cash flows are temporarily negative for an *unexpected* reason (*e.g*, higher costs, legal actions, supply shortages, etc)
 
 -   Such unexpected hits in the firm's cash flow expectations might induce to an increase in financing needs
 
@@ -212,34 +210,33 @@ Data%>%
 
 . . .
 
-**Positive Cash-Flow Shocks**
+[**Positive**]{.green} **Cash-Flow Shocks**
 
 -   Increases in firm's expected sales can leader to increases in short-term financing needs. Going back to the example that we saw, *ARZZ's* growth in sales was accompanied by a surge in working capital needs!
 
--   A firm may have a temporary deficit before it actually reaps out the benefits of positive cash-flow shocks (e.g, Marketing investments)
+-   A firm may have a temporary deficit before it actually reaps out the benefits of positive cash-flow shocks (*e.g*, Marketing investments)
 
 ## Step 2: Short-term Financing Needs
 
 -   After forecasting the need for short-term financing, it is time to decide [how]{.blue} it will be financed:
 
-  1.  On the one hand, there is an opportunity cost of holding cash in accounts that pay little or no interest - you could have been better-off by investing this money in the operation and/or in financial instruments!
-  
-  2.  On the other hand, firms also face high transaction costs if they need to negotiate a loan on short notice to cover a cash shortfall
+1.  On the one hand, there is an opportunity cost of holding cash in accounts that pay little or no interest - you could have been better-off by investing this money in the operation and/or in financial instruments!
+
+2.  On the other hand, firms also face high transaction costs if they need to negotiate a loan on short notice to cover a cash shortfall
 
 -   The [Matching Principle]{.blue} states firms can increase their value by adopting a policy that *minimizes* the costs associated with the aforementioned trade-off:
 
-  1.  [Long-term needs]{.blue} - or *permanent* needs should be financed with [Long-term sources of funds]{.blue}
+1.  [Long-term needs]{.blue} - or *permanent* needs should be financed with [Long-term sources of funds]{.blue}
 
-  2.  [Short-term needs]{.blue} - or *temporary* needs - should be financed with [Short-term debt]{.blue}
-  
+2.  [Short-term needs]{.blue} - or *temporary* needs - should be financed with [Short-term debt]{.blue}
 
 ## Matching Principle - Permanent Working Capital
 
 -   The [permanent portion of working capital]{.blue} is the amount that a firm must *keep* invested in its short-term assets to support its continuing operations. This investment in working capital is required so long as the firm remains in business:
 
-  1. For example, as *ARZZ3* grows in sales and market-share, its working capital levels continue grow year-over-year because of the [long-run trend]{.blue}!
-  
-  2. The matching principle indicates that the firm should finance this [permanent]{.blue} portion of working capital with [long-term]{.blue} sources of funds
+1.  For example, as *ARZZ3* grows in sales and market-share, its working capital levels continue grow year-over-year because of the [long-run trend]{.blue}!
+
+2.  The matching principle indicates that the firm should finance this [permanent]{.blue} portion of working capital with [long-term]{.blue} sources of funds
 
 -   **Why?** In general, such sources have lower transaction costs than short-term sources of funds, which would have to be replaced more often
 
@@ -247,17 +244,16 @@ Data%>%
 
 **Example:** after forecasting permanent working capital needs, if funding occurs through short-term sources (say, 1 year), firms are exposed to [interest rate risk]{.blue} -- since you'll need this money for the next years, you may have to refinance at a higher rate in the future!
 
-
 ## Matching Principle - Temporary Working Capital
 
 -   Another portion of a firm's investment in its accounts receivable and inventory is temporary and results from seasonal fluctuations in the firm's business or unanticipated shocks:
 
-  1. This [temporary working capital]{.blue} need is the difference between the actual level of investment in short-term assets and the *permanent working capital investment* outlined before
-  2. It is considered to be temporary because it relates to [short-term fluctuations]{.blue} in the need for working capital in a given period and that will likely not be needed in subsequent periods - for example, *monthly seasonality* due to *Black Friday* or *Amazon Prime Day*
+1.  This [temporary working capital]{.blue} need is the difference between the actual level of investment in short-term assets and the *permanent working capital investment* outlined before
+2.  It is considered to be temporary because it relates to [short-term fluctuations]{.blue} in the need for working capital in a given period and that will likely not be needed in subsequent periods - for example, *monthly seasonality* due to *Black Friday* or *Amazon Prime Day*
 
-- Following the Matching Principle, [temporary]{.blue} working capital needs it should be financed with [short-term]{.blue} sources!
+-   Following the Matching Principle, [temporary]{.blue} working capital needs it should be financed with [short-term]{.blue} sources!
 
-- **Why?** As the firm won't need to keep a high level of working capital after some time, it is optimal from a cost perspective to shut down on any funding expenses - for example, don't keep costly but unused credit lines active
+-   **Why?** As the firm won't need to keep a high level of working capital after some time, it is optimal from a cost perspective to shut down on any funding expenses - for example, don't keep costly but unused credit lines active
 
 ## Financing Policies - Aggresive Policy
 
@@ -285,7 +281,7 @@ Data%>%
 
 ## Hands-on Exercise: analyzing Arezzo's Financing Policy
 
--   Download *Arezzos*'s Annual Financial Statements through its *Investors Relations* website (access [here](https://ri.arezzoco.com.br/en/), also available on eClass®)
+-   Download *Arezzo*'s Annual Financial Statements through its *Investors Relations* website (access [here](https://ri.arezzoco.com.br/en/), also available on *eClass*®)
 
 -   Go straight to the supplementary notes (*"Notes to the financial statements"*) section and identify its loans breakdown (*"Loans and Borrowings"*), p. 62. Which sources are being employed and for what types of investments?
 
@@ -430,8 +426,7 @@ $$
     2.  Using Inventories as collateral
     3.  *Properly, Plant, and Equipment (PPE)* as collateral
 
-- [How does collateral help in funding?]{.blue} The better the collateral assets, the better the funding conditions! As funding partners assess the liquidity of the collateralized assets, they'll assess the specific funding conditions (amount, interest rate, etc) available
-
+-   [How does collateral help in funding?]{.blue} The better the collateral assets, the better the funding conditions! As funding partners assess the liquidity of the collateralized assets, they'll assess the specific funding conditions (amount, interest rate, etc) available
 
 ## Secured Financing in Brazil - *Desconto de Duplicatas*
 
@@ -445,7 +440,7 @@ $$
 
 -   It is important to note that the bank *does not bear the risk* of not being paid - the obligation from the firm to repay the bank persists!
 
-- Other examples of secured financing: *Compor*, *Vendor* operations
+-   Other examples of secured financing: *Compor*, *Vendor* operations
 
 ## Factorings
 

@@ -1,18 +1,16 @@
 ---
-#title: "Risk and Return"
 author: "Lucas S. Macoris"
 format:
   revealjs:
     title: 'Financial Analysis'
-    theme: [default, custom.scss]
+    theme: [default, '../~ Metadata/custom.scss']
     auto-stretch: false
     author: 'Lucas S. Macoris'
-    logo: logo.jpg
+    logo: 'Images/logo.jpg'
     footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
-    cls: abntex2.cls
     incremental: true
-    bibliography: 'Bibliography.bib'
+    bibliography: '../~ Metadata/Bibliography.bib'
     slide-number: true
     show-slide-number: all
     transition: slide
@@ -21,7 +19,7 @@ format:
     width: 1600
     height: 900
     smaller: false
-
+    
 editor: visual
 from: markdown+emoji
 ---
@@ -119,7 +117,7 @@ Liquidity refers to the ease with which an asset, or security, **can be converte
 
 ## Solvency Measures
 
-::: columns
+:::::: columns
 ::: {.column width="40%"}
 ![](Images/F2.jpg)
 :::
@@ -135,7 +133,7 @@ Liquidity refers to the ease with which an asset, or security, **can be converte
 
 -   What happens if we change the % of Equity and Debt?
 :::
-:::
+::::::
 
 ## Solvency Measures
 
@@ -183,7 +181,7 @@ $$
 
 ## Liquidity Measures
 
-::: columns
+:::::: columns
 ::: {.column width="40%"}
 ![](Images/F4.jpg)
 :::
@@ -199,7 +197,7 @@ $$
 
 -   In general, ratios attempt to measure the firm's ability to repay its **current** liabilities using its the **current** assets
 :::
-:::
+::::::
 
 ## Liquidity Measures
 
@@ -381,7 +379,7 @@ $$
 
 . . .
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ![](Images/F8.jpg)
 :::
@@ -389,7 +387,7 @@ $$
 ::: {.column width="40%"}
 ![](Images/F9.jpg)
 :::
-:::
+:::::
 
 ## One indicator to rule them all
 
@@ -762,26 +760,26 @@ $$
 
 -   On the other hand, SG&A expenses are also influenced by the *efficiency* with which it manages its overhead activities
 
-- **A word of caution**: as we saw, although NOPAT is a comprehensible indicator for the operating performance of a firm, it can mask some important differences when it comes to account treatments!
+-   **A word of caution**: as we saw, although NOPAT is a comprehensible indicator for the operating performance of a firm, it can mask some important differences when it comes to account treatments!
 
 ## EBIT, NOPAT, and the Tax Rate
 
-- **Question:** in the *NOPAT* calculation, why do we use a Tax Rate (that is generally given) instead of just collecting the Tax Expenses from the Income Statement?
+-   **Question:** in the *NOPAT* calculation, why do we use a Tax Rate (that is generally given) instead of just collecting the Tax Expenses from the Income Statement?
 
-- Note that the tax expense in the Income Statement comes from the taxable income, which is, in turn, composed of [Operating]{.blue} as well as [Financing]{.blue} components
+-   Note that the tax expense in the Income Statement comes from the taxable income, which is, in turn, composed of [Operating]{.blue} as well as [Financing]{.blue} components
 
-- If you simply deduct Tax Expenses, you are potentially considering the tax-shield that comes from Net Interest Expenses into the calculation:
-  1. Firms with more debt in its capital structure, all else equal, will pay lower taxes
-  2. Firms that had previous losses can compensate future profits paying less taxes 
+-   If you simply deduct Tax Expenses, you are potentially considering the tax-shield that comes from Net Interest Expenses into the calculation:
 
-- Therefore, he *Tax Rate* used can be a source of distortions due to different accounting treatments. Calculating the *EBIT* is a way to insulate the analysis from tax-effects:
+    1.  Firms with more debt in its capital structure, all else equal, will pay lower taxes
+    2.  Firms that had previous losses can compensate future profits paying less taxes
+
+-   Therefore, he *Tax Rate* used can be a source of distortions due to different accounting treatments. Calculating the *EBIT* is a way to insulate the analysis from tax-effects:
 
 . . .
 
 $$
 \small \text{EBIT Margin}=\dfrac{(\text{Sales}-\text{COGS}-\text{SG&A}-\text{Depr./Am.}\pm\text{Other Non. Fin.})}{\text{Total Sales}}=\dfrac{275,000}{1,000,000}=27.5\%
 $$
-
 
 ## EBITDA
 
@@ -797,14 +795,13 @@ $$
 \small\text{EBITDA Margin}=\dfrac{\text{Net Income} + \text{Interest Expenses} + \text{Taxes}+ \text{Depreciation/Amortization}}{\text{Total Sales}}
 $$
 
-- You can also calculate the EBITDA by summing up only the relevant accounts:
+-   You can also calculate the EBITDA by summing up only the relevant accounts:
 
 . . .
 
 $$
 \small\text{EBITDA Margin}=\dfrac{\text{Sales} -\text{COGS}- \text{SG&A} \pm\text{ Other Op.}}{\text{Total Sales}}
 $$
-
 
 ## Understanding EBITDA
 
@@ -816,10 +813,9 @@ $$
 \small\text{EBITDA Margin}=\dfrac{\text{Net Income} +\text{Int. Expenses} +\text{Taxes}+ \text{Depr./Am.}}{\text{Total Sales}}=\dfrac{325,000}{1,000,000}=32.5\%
 $$
 
-- Alternatively:
-$$
-\small\text{EBITDA Margin}=\dfrac{\text{Sales} -\text{COGS}- \text{SG&A} \pm\text{ Other Op.}}{\text{Total Sales}}= \dfrac{325,000}{1,000,000}=32.5\%
-$$
+-   Alternatively: $$
+    \small\text{EBITDA Margin}=\dfrac{\text{Sales} -\text{COGS}- \text{SG&A} \pm\text{ Other Op.}}{\text{Total Sales}}= \dfrac{325,000}{1,000,000}=32.5\%
+    $$
 
 -   EBITDA can be useful to contrast operations by disregarding differences stemming from:
 
@@ -897,7 +893,7 @@ $$
     2.  Because the P/E ratio considers the value of the firm's equity, it is sensitive to the firm's choice of leverage.
     3.  We can avoid this limitation by instead assessing the market value of the underlying business using valuation ratios based on the firm's enterprise value[^1].
 
-[^1]: See BDM Comment on *Mismatched* Ratios, p. 77
+[^1]: See BDM Comment on *mismatched ratios*, p. 77
 
 ## Sustainable Growth Rate
 
@@ -932,7 +928,7 @@ $$
 
 . . .
 
-$\rightarrow$ *Practice these concepts analyzing [3M]{.blue} using the [Exercise - 3M Ratios.xlsx]{.blue} (available on eClass®)*
+$\rightarrow$ *Practice these concepts using the [Financial Statement Analysis]{.blue} HBS Case (available on eClass®)*
 
 ## Criticism around traditional financial ratio analysis
 
@@ -962,8 +958,6 @@ $\rightarrow$ *Full content on Integrated Reporting: see [@SS], available on eCl
 2.  Credit ratings are affected (and have the potential to affect) business outcomes
 
 . . .
-
-$\rightarrow$ *Full content on Credit Ratings: see [UV8009 - Credit Rating Basics]{.blue}, available on eClass®*
 
 ## *Appendix I*: decomposing profitability: an alternative approach
 

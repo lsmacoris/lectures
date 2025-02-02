@@ -1,0 +1,287 @@
+---
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Introduction to Corporate Finance'
+    theme: [default, '../~ Metadata/custom.scss']
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    incremental: true
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+```{r}
+#| warning: FALSE
+#| message: FALSE
+#| echo: FALSE
+#| results: 'hide'
+
+library(highcharter)
+load('Assets/Market_Data.RDATA')
+```
+
+
+## Introduction to Corporate Finance
+
+**What is a Corporation, anyway?** Think about any business opportunity, like opening a small pizza vendor facility...
+
+1.  On the one hand, there is an endless variety of real assets needed to carry on such business
+2.  On the other hand, these assets simply do not come for free -- there has to be some way to acquire them!
+
+-   Broadly speaking, these are:
+
+    1.  **Investment Decisions** $\rightarrow$ acquisition of real assets - e.g, oven, machinery, powerplant
+    2.  **Financing Decisions**: $\rightarrow$ sale of financial assets - bank financing, equity
+
+-   Not surprisingly, these decisions are *intertwinned*:
+
+    1.  While **Investment** decisions define *what is* the set of assets to be organized...
+    2.  **Financing** decisions define *how* these assets will be acquired!
+
+## Examples of *Investment* and *Financing* Decisions
+
+![](Images/F3.png){width="70%" fig-align="center"}
+
+## Investment Decisions
+
+-   Investment decisions are generally thought of as a capital investment made [today]{.blue} to generate returns in the [future]{.blue}
+
+-   The extent to when these returns are expected to happen depends on the specific investment
+
+-   **Examples of Investment decisions:**
+
+1.  Research and Development (R&D) on creating/optimizing new products/services
+2.  Machinery, Property, Pland, and Equipment
+3.  Opening new stores
+4.  Acquiring an operation from a company
+5.  Expanding trade credit to leverage sales
+6.  Stock up warehouses with inventory during high seasonality
+
+## Financing Decisions
+
+-   After you decide on *what* to invest: *how* are you going to fund it?
+
+-   Overall, a firm can raise money by two ways:
+
+    1.  A firm can *borrow* money from a lender $\rightarrow$ firm receives the money, but now has a promise to pay back the debt plus interest
+    2.  Alternatively, the firm can raise money from the shareholders $\rightarrow$ *equity financing*
+
+-   The choice between the amount of equity *vs* is often referred to **Capital Structure** decisions
+
+-   Within each type of financing, there are specific decisions that increase the complexity:
+
+1.  Would the firm be better-off by having a 1-year or 20-year financing? Should it include collateral or not? Fixed or variable interest rate?
+2.  For equity financing, should the firm issue new equity or reinvest profits into its operations?
+
+-   **Question**: between *investment* and *financing*, which one is the most important?
+
+## Managing investment and financing decisions
+
+-   We saw that any business opportunity must be accompained by an *investment* and a *financing* decision
+
+-   Managing these decisions is a hard task, especially if you have to conduct the front-end of the business altogether
+
+-   To this point, there has to be someone to organize these flows on behalf of the firm...
+
+. . .
+
+![Investment and Financing Decisions [@BMA]](Images/F1.jpg){width="50%" fig-align="center"}
+
+## The role of the Financial Manager
+
+::: nonincremental
+![Investment and Financing Decisions [@BMA]](Images/F2.jpg){width="40%" fig-align="center"}
+
+-   A **Financial Manager**[^1] stands between the firm and outside investors:
+    1.  On the one hand, it helps managing the firm's operations, particularly by helping to make good investment decisions
+    2.  On the other hand, it deals with investors such as shareholders and financial institutions
+:::
+
+[^1]: Following [@BMA], we use this term to refer to anyone (or a group of people) responsible for an investment or financing decision.
+
+## The Investment Trade-off
+
+::: nonincremental
+![Investment and Financing Decisions [@BMA]](Images/F2.jpg){width="40%" fig-align="center"}
+
+1.  Suppose that firm has a proposed investment project (a real asset) and has cash on hand to finance the project
+2.  **The Financial Manager has to decide whether to invest in the project:**
+    -   If investing, cash goes to fund the project
+    -   If not investing, the firm can then pay out the cash to shareholders as an extra-dividend
+:::
+
+## The Investment Trade-off, continued
+
+-   Assume that this financial manager acts on behalf of the shareholder's interests. What do they want the financial manager to do?
+
+-   **The answer depends on the project's rate of return:**
+
+    1.  If the return offered by project is [higher]{.green} than what the shareholders can get elsewhere investing on their own $\rightarrow$ shareholders would be better off with the project
+    2.  If it offers a return rate that is [lower]{.red} than what the shareholders can achieve on their own $\rightarrow$ shareholders would be better off by having the cash on their hands
+
+-   This decision is tied to an important concept called the **opportunity cost of capital**:
+
+    1.  Whenever a corporation invests in a project, its shareholders lose the opportunity to invest the cash on their own
+    2.  Corporations increase value by [accepting]{.blue} all investment projects that earn **more** than the opportunity cost of capital.
+
+## Ibovespa and interest rate dynamics
+
+```{r,fig.width=16,fig.height=8}
+highchart(type = "stock") %>%
+    hc_title(text = "What happens to Ibovespa when SELIC expectations change?") %>%
+    hc_yAxis_multiples(list(title = list(text = "Value"),
+                            opposite = FALSE),
+                       list(showLastLabel = FALSE,
+                            opposite = TRUE,
+                            title = list(text = "Market Expectations (in %)"),
+                            labels = list(format="{value}%")))%>%
+    hc_add_series(name='Ibovespa',BVSP, yAxis = 0, showInLegend = TRUE)%>%
+    hc_add_series(name='SELIC',SELIC, yAxis = 1, showInLegend = TRUE)
+
+```
+
+## How to take actions on behalf of the shareholders
+
+-   Shareholders differ in several dimensions:
+    1.  Age
+    2.  Tastes
+    3.  Consumption Patterns
+    4.  Wealth
+    5.  Risk Aversion
+    6.  Investment Horizon
+
+. . .
+
+**Question:** which criteria should the Financial Manager use to take investment and financing decisions?
+
+-   Fortunately, there is a widely accepted criteria: [**maximize the current market value of shareholders' investment!**]{.blue}
+
+## Shareholder Value Maximization
+
+-   Maximizing shareholder wealth is a sensible goal when the they have access to well-functioning financial markets:
+
+    1.  Financial markets allow them to [share risks]{.blue} and [transport savings across time]{.blue}
+    2.  It also gives them the flexibility to [manage their own savings and investment plans]{.blue}
+
+-   **Why it works like this?** Assume that the Financial Manager acts on behalf of the stockholders of the firm. A plausible assumption is that:
+
+1.  Shareholders want to be as rich as possible...
+2.  And transform such wealth into his/her specific consumption pattern via borrowing/lending
+3.  Finally, shareholders need to manage the risk of his/her chosen consumption pattern
+
+-   Note that points [2]{.blue} and [3]{.blue} can be done by the **shareholder**
+
+-   How then can the financial manager help the firm's stockholders? **Increasing their wealth!**
+
+## The separation of ownership and control
+
+-   When we introduced the figure of the Financial Manager and the existence of financial markets, we implicitly discussed the *separation of ownership and control*
+
+-   In other words, the shareholders of the firm *cannot* fully control what the managers do
+
+-   **Is this a problem?** Up to now, we are assuming that the Financial Manager should look after the interests of the shareholders
+
+-   Although this separation is necessary, there are reasons to think that managers could pursue their *own* objectives:
+
+1.  Maximize their bonuses
+2.  Pass attractive, but risky projects to increase job safety
+3.  Overinvest to show hard work
+4.  Take on too much risk as the downside will be ultimately borne out by the shareholders
+
+## The Agency Problem
+
+::: nonincremental
+
+::: callout-tip
+### Definition
+
+The *Agency Problem* is a coordination issue present in corporate decisions. Between the [manager]{.blue} and the [shareholders]{.blue} of the firm:
+
+  1.  The manager (or the *agent*) does not have incentives to maximize shareholder value; and
+  2.  Shareholders (the *principals*) need to incur in monitoring costs to constrain value-destroying decisions
+  
+- That sets up the stage for *Corporate Governance*: the design of actions that aims to *align* the interests of the different stakeholders of the firm and reduce *Agency Costs*
+
+:::
+:::
+
+. . .
+
+- Examples of [internally]{.blue} enforced *Corporate Governance* mechanisms:
+
+. . .
+
+::: nonincremental
+  1. The creation of a *Board of Directors*
+  2. Compensation plans based on metrics that are tied to maximizing shareholder value (stock options, restricted stock units, variable compensation, etc)
+  3. Voluntary adoption of *Corporate Governance* principles, such as *ESG* practices
+
+:::
+
+
+## The Agency Problem, continued
+
+::: nonincremental
+
+::: callout-tip
+### Definition
+
+
+The *Agency Problem* is a coordination issue present in corporate decisions. Between the [manager]{.blue} and the [shareholders]{.blue} of the firm:
+
+  1.  The manager (or the *agent*) does not have incentives to maximize shareholder value; and
+  2.  Shareholders (the *principals*) need to incur in monitoring costs to constrain value-destroying decisions
+
+
+- That sets up the stage for *Corporate Governance*: the design of actions that aims to *align* the interests of the different stakeholders of the firm and reduce *Agency Costs*
+
+:::
+:::
+. . .
+
+- Examples of [externally]{.blue} enforced *Corporate Governance* mechanisms:
+
+. . . 
+
+::: nonincremental
+
+  1.  Legal and regulatory requirements - SEC (U.S), *Comissão de Valores Mobiliários (CVM)* (Brazil)
+  2.  Hostile Takeovers and Market Monitoring
+  3.  Shareholder Pressure, also called the *"Wall Street walk"*
+
+:::
+
+
+## Supplementary Reading
+
+. . .
+
+**After-class reading (available on *e-Class*):**
+
+-   Carbon Credit Markets
+
+-   What Every Leader Needs to Know About Carbon Credits
+
+. . .
+
+**Miscellaneous (social media, video content, etc):**
+
+-   **Barbarians at the Gate**: movie from 1993 describing some corporate governance conflicts in the 80's - [link](https://www.imdb.com/title/tt0106356/)
+
+-   **Sucession**: series reflecting a troublesome family business intertwined with a series of corporate governance scandals - [link](https://www.imdb.com/pt/title/tt7660850/)
+
+## References

@@ -1,18 +1,16 @@
 ---
-#title: "Risk and Return"
 author: "Lucas S. Macoris"
 format:
   revealjs:
     title: 'Investment Decision Rules'
-    theme: [default, custom.scss]
+    theme: [default, '../~ Metadata/custom.scss']
     auto-stretch: false
     author: 'Lucas S. Macoris'
-    logo: logo.jpg
+    logo: 'Images/logo.jpg'
     footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
-    cls: abntex2.cls
     incremental: true
-    bibliography: 'Bibliography.bib'
+    bibliography: '../~ Metadata/Bibliography.bib'
     slide-number: true
     show-slide-number: all
     transition: slide
@@ -21,7 +19,7 @@ format:
     width: 1600
     height: 900
     smaller: false
-
+    
 editor: visual
 from: markdown+emoji
 ---
@@ -73,7 +71,7 @@ $$
 
 . . .
 
-|                  |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
+|   | **Year 0** | **Year 1** | **Year2** | **Year3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | *Free Cash Flow* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
 
@@ -191,7 +189,7 @@ hchart(NPV,type='line',hcaes(x=Discount,y=NPV,group=Type))%>%
 
 -   In general, the difference between the cost of capital and the IRR is the [*maximum estimation error in the cost of capital that can exist without altering the original decision*]{.blue}.
 
--   But wait...how do we know that $r=22.6\%$ is the value that sets the *NPV* exactly to zero?
+-   But wait...how do we know that $\small r=22.6\%$ is the value that sets the *NPV* exactly to zero?
 
 -   This value is also known as the *internal rate of return*, and it is defined as the $\small r$ that satisfies $\small NPV = 0$
 
@@ -260,7 +258,7 @@ $$
 
 . . .
 
-|                  |      **Year 0**       |     **Year 1**     |     **Year2**      |     **Year3**      |
+|   | **Year 0** | **Year 1** | **Year2** | **Year3** |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | *Free Cash Flow* | [\$1,000,000]{.green} | [-\$500,000]{.red} | [-\$500,000]{.red} | [-\$500,000]{.red} |
 
@@ -329,7 +327,7 @@ $\rightarrow$ *The optimal rule is to borrow money so long as this rate is less 
 
 . . .
 
-|                  |     **Year 0**      |     **Year 1**     |     **Year2**      |     **Year3**      |       **Year4**        |
+|   | **Year 0** | **Year 1** | **Year2** | **Year3** | **Year4** |
 |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | *Free Cash Flow* | [\$550,000]{.green} | [-\$500,000]{.red} | [-\$500,000]{.red} | [-\$500,000]{.red} | [+\$1,000,000]{.green} |
 
@@ -400,7 +398,7 @@ hchart(NPV,type='scatter',hcaes(x=Discount,y=NPV,group=Type))%>%
 
 . . .
 
-|                  |     **Year 0**      |     **Year 1**     |     **Year2**      |     **Year3**      |       **Year4**        |
+|   | **Year 0** | **Year 1** | **Year2** | **Year3** | **Year4** |
 |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | *Free Cash Flow* | [\$750,000]{.green} | [-\$500,000]{.red} | [-\$500,000]{.red} | [-\$500,000]{.red} | [+\$1,000,000]{.green} |
 
@@ -462,11 +460,10 @@ hchart(NPV,type='line',hcaes(x=Discount,y=NPV,group=Type))%>%
     3.  Depending on the magnitude of the cash-flows, there may be no $r$ that satisfies $\small NPV=0$
 
     4.  Even if these caveats are not applicable, the IRR rule will yield the same solution as of the NPV rule (i.e, accept/reject, or indicate the rank the best investment projects)
-    
-    5. Finally, the IRR has also an implicit *reinvestment assumption* - see the *Appendix* for a detailed discussion
+
+    5.  Finally, the IRR has also an implicit *reinvestment assumption* - see the *Appendix* for a detailed discussion
 
 -   Because of these reasons, it is always recommended to use the NPV rule!
-
 
 ## Comparing IRRs for multiple projects: practice
 
@@ -523,12 +520,11 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 
 ```
 
-
 ## The *Payback* rule
 
 -   Managers are often concerned about the length of time, considering the initial investment, by which a given investment is going to pay off in terms of free cash-flows
 
--   The [payback investment rule]{.blue} states that you should only accept a project if its cash flows pay back its initial investment within a prespecified period.
+-   The [payback investment rule]{.blue} states that you should only accept a project if its cash flows pay back its initial investment within a prespecified period
 
 -   To apply the payback rule, you first calculate the amount of time it takes to pay back the initial investment, called the *payback period*
 
@@ -544,16 +540,16 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 
 . . .
 
-|       |     **Year 0**     |     **Year 1**     |     **Year 2**     |     **Year 3**     |     **Year 4**      |     **Year 5**      |
+|   | **Year 0** | **Year 1** | **Year 2** | **Year 3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | *FCF* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
 
 -   With that, for each period, we calculate the cumulative sum of the cash-flows:
 
-    1.  **Year 1**: $-219,600+46,592 =$ [-173,008]{.red}
-    2.  **Year 2**: $-173,008+69,266 =$ [-103,742]{.red}
-    3.  **Year 3**: $-103,742+80,218 =$ [-23,524]{.red}
-    4.  **Year 4**: $-23,524+101,293 =$ [+77,769]{.green}
+    1.  **Year 1**: $\small -219,600+46,592 =$ [-173,008]{.red}
+    2.  **Year 2**: $\small -173,008+69,266 =$ [-103,742]{.red}
+    3.  **Year 3**: $\small -103,742+80,218 =$ [-23,524]{.red}
+    4.  **Year 4**: $\small -23,524+101,293 =$ [+77,769]{.green}
 
 -   As we can see, the payback occurs in Year 4, because it is the first year when the cumulative cash-flows from the project (considering the investment) are [positive]{.green}
 
@@ -581,9 +577,9 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 
 . . .
 
-| **Project 1** |     **Year 0**     |     **Year 1**     |     **Year 2**     |     **Year 3**     |     **Year 4**      |     **Year 5**      |
+| **Project 1** | **Year 0** | **Year 1** | **Year 2** | **Year 3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-|     *FCF*     | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
+| *FCF* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
 
 . . .
 
@@ -593,25 +589,25 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 
 . . .
 
-| **Project 1** |     **Year 0**     |     **Year 1**     |     **Year 2**     |     **Year3**      |     **Year 4**     |     **Year 5**     |
+| **Project 1** | **Year 0** | **Year 1** | **Year 2** | **Year3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-|     *FCF*     | [-\$219,600]{.red} | [\$40,514]{.green} | [\$52,375]{.green} | [\$52,744]{.green} | [\$57,914]{.green} | [\$64,973]{.green} |
+| *FCF* | [-\$219,600]{.red} | [\$40,514]{.green} | [\$52,375]{.green} | [\$52,744]{.green} | [\$57,914]{.green} | [\$64,973]{.green} |
 
 ## Payback pitfall #1 (continued)
 
-| **Project 1** |     **Year 0**     |     **Year 1**     |     **Year 2**     |     **Year 3**     |     **Year 4**     |     **Year 5**     |
+| **Project 1** | **Year 0** | **Year 1** | **Year 2** | **Year 3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-|     *FCF*     | [-\$219,600]{.red} | [\$40,514]{.green} | [\$52,375]{.green} | [\$52,744]{.green} | [\$57,914]{.green} | [\$64,973]{.green} |
+| *FCF* | [-\$219,600]{.red} | [\$40,514]{.green} | [\$52,375]{.green} | [\$52,744]{.green} | [\$57,914]{.green} | [\$64,973]{.green} |
 
 . . .
 
 -   The *payback rule* using the discounted flow then yields:
 
-    1.  **Year 1**: $-219,600+40,514 =$ [-179,085]{.red}
-    2.  **Year 2**: $-179,085+52,375 =$ [-126,710]{.red}
-    3.  **Year 3**: $-126,710+52,744 =$ [-73,965]{.red}
-    4.  **Year 4**: $-73,965+57,914 =$ [-16,050]{.red}
-    5.  **Year 5**: $-16,050+64,973 =$ [+48,922]{.green}
+    1.  **Year 1**: $\small -219,600+40,514 =$ [-179,085]{.red}
+    2.  **Year 2**: $\small -179,085+52,375 =$ [-126,710]{.red}
+    3.  **Year 3**: $\small -126,710+52,744 =$ [-73,965]{.red}
+    4.  **Year 4**: $\small -73,965+57,914 =$ [-16,050]{.red}
+    5.  **Year 5**: $\small -16,050+64,973 =$ [+48,922]{.green}
 
 -   Therefore, using the *discounted* cash-flows, the payback period is actually 5 (five), and not 4 (four) years. If our payback period threshold was 4 years, we would reject the project!
 
@@ -627,15 +623,15 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 
 . . .
 
-| **Project 1** |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
+| **Project 1** | **Year 0** | **Year 1** | **Year2** | **Year3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-|     *FCF*     | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
+| *FCF* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
 
 . . .
 
-| **Project 2** |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
+| **Project 2** | **Year 0** | **Year 1** | **Year2** | **Year3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-|     *FCF*     | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$150,000]{.green} | [\$500,000]{.green} |
+| *FCF* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$150,000]{.green} | [\$500,000]{.green} |
 
 -   If you were to calculate the payback for these two projects, it would yield the same result (4 years), but **Project 2** generates substantially higher free cash flows in the subsequent periods!
 
@@ -691,12 +687,12 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 
 . . .
 
-|     **Project**     | **Investment** | **First Year Cash-Flow** | **Growth Rate** | **Cost of Capital** |
+| **Project** | **Investment** | **First Year Cash-Flow** | **Growth Rate** | **Cost of Capital** |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
-|    *Book Store*     |   \$300,000    |         \$63,000         |      3.00%      |         8%          |
-|    *Coffee Shop*    |   \$400,000    |         \$80,000         |      3.00%      |         8%          |
-|    *Music Store*    |   \$400,000    |        \$104,000         |      0.00%      |         8%          |
-| *Electronics Store* |   \$400,000    |        \$100,000         |      3.00%      |         11%         |
+| *Book Store* | \$300,000 | \$63,000 | 3.00% | 8% |
+| *Coffee Shop* | \$400,000 | \$80,000 | 3.00% | 8% |
+| *Music Store* | \$400,000 | \$104,000 | 0.00% | 8% |
+| *Electronics Store* | \$400,000 | \$100,000 | 3.00% | 11% |
 
 ## Choosing between projects, the *NPV* rule
 
@@ -746,7 +742,7 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 1.  Book Store: $\small -300,000 + \dfrac{63,000}{IRR-3\%}\rightarrow IRR = 24\%$
 2.  Coffee Shop: $\small -400,000 + \dfrac{80,000}{IRR-3\%}\rightarrow IRR = 23\%$
 
--   *Book Store* has a [higher]{.blue} *IRR*. However, *Coffee Shop* has a higher scale of investment level (400,000 *vs.* 300,000), generating a higher *NPV*!
+-   *Book Store* has a [higher]{.blue} *IRR*. However, *Coffee Shop* has a higher scale of investment level ($\small \$400,000$ *vs.* $\small \$300,000$), generating a higher *NPV*!
 
 -   *What if we increase the size of the smaller project?* One needs to think if this possibility is plausible from a business perspective and, if that is the case, if the *IRR* can be maintained (*e.g*, market saturation)
 
@@ -760,16 +756,16 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 
 -   For example, consider the following projects:
 
-1.  Invest \$100 today, earn 150 in one year
-2.  Invest \$100 today, earn $\small (1.5^5)\times100=759.4$ in 5 years
+1.  Invest $\small \$100$ today, earn $\small\$150$ in one year
+2.  Invest $\small$\$100$ today, earn $\small (1.5^5)\times100=759.4$ in $\small 5$ years
 
--   The *IRR* for both cases is 50%, but the second one has a much higher monetary value because of its capacity to generate a 50% over a higher horizon!
+-   The *IRR* for both cases is $\small 50\%$, but the second one has a much higher monetary value because of its capacity to generate a $\small 50\%$ over a higher horizon!
 
 ## *IRR* caveat #3: riskiness of projects
 
 -   To know whether the IRR of a project is attractive, we must compare it to the project's cost of capital, which is determined by the project's risk
 
--   Thus, an *IRR* that is attractive for a safe project need not be attractive for a risky project.
+-   Thus, an *IRR* that is attractive for a safe project need not be attractive for a risky project
 
 -   In order to see that, consider the last project of the previous exercise (*i.e*, *Electronics Store*):
 
@@ -781,7 +777,7 @@ $$
 
 -   *Electronics Store* is the project with the lowest NPV, even with higher cash-flows over time, because its cost of capital is higher!
 
--   Despite having a higher IRR, it is not sufficiently profitable to be as attractive as the safer alternatives.
+-   Despite having a higher IRR, it is not sufficiently profitable to be as attractive as the safer alternatives
 
 ## Choosing projects with resource constraints
 
@@ -809,7 +805,7 @@ $$
 
 1.  If there were no budget constraints, we would invest in all three projects since they all have $\small NPV>0$
 
-2.  If now you have a budget constraint of \$100, how to maximize the gains from the investment?
+2.  If now you have a budget constraint of $\small \$100$, how to maximize the gains from the investment?
 
 -   Note that although *project I* has the highest *NPV*, it consumes all the budget constraint, making impossible to invest in projects *II* and *III*
 
@@ -877,7 +873,7 @@ $$
 
 -   Therefore, the combined *NPV* is $\small 22.7+12.9+20.6+17.7=73.9$. There is no other combination of projects that will create more value without using more engineers than we have
 
--   Note, however, that the resource constraint forces *NetIt* to forgo three otherwise valuable projects (*C*, *D*, and *B*) with a total *NPV* of \$33.6 million
+-   Note, however, that the resource constraint forces *NetIt* to forgo three otherwise valuable projects (*C*, *D*, and *B*) with a total *NPV* of $\small \$33.6$ million
 
 ## Shortcomings of the *Profitability Index*
 
@@ -885,9 +881,9 @@ $$
 
     1.  *The set of projects taken following the profitability index ranking [completely exhausts]{.blue} the available resource*
 
-    -   Say that we have a new project, with $\small NPV=120,000$ that uses 3 engineers
+    -   Say that we have a new project, with $\small NPV=120,000$ that uses $\small 3$ engineers
     -   Its index is $\small 0.12/3=0.04$, the lowest from all the projects
-    -   However, because there are still 3 engineers available, we could pursue it!
+    -   However, because there are still $\small 3$ engineers available, we could pursue it!
 
     2.  *There is only a [single]{.blue} relevant resource constraint*
 
@@ -911,7 +907,7 @@ $\rightarrow$ *All contents are available on eClass®.*
 
 . . .
 
-|                  |     **Year 0**     |     **Year 1**     |     **Year2**      |     **Year3**      |     **Year 4**      |     **Year 5**      |
+|   | **Year 0** | **Year 1** | **Year2** | **Year3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | *Free Cash Flow* | [-\$219,600]{.red} | [\$46,592]{.green} | [\$69,266]{.green} | [\$80,218]{.green} | [\$101,293]{.green} | [\$130,684]{.green} |
 
@@ -934,7 +930,7 @@ $$
 
 . . .
 
-|                  |     **Year 0**     |  **Year 1**   |   **Year2**   |   **Year3**   |  **Year 4**   |     **Year 5**      |
+|   | **Year 0** | **Year 1** | **Year2** | **Year3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | *Free Cash Flow* | [-\$219,600]{.red} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$608,405]{.green} |
 
@@ -959,7 +955,7 @@ $$
 
 . . .
 
-|                  |     **Year 0**     |  **Year 1**   |   **Year2**   |   **Year3**   |  **Year 4**   |     **Year 5**      |
+|   | **Year 0** | **Year 1** | **Year2** | **Year3** | **Year 4** | **Year 5** |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | *Free Cash Flow* | [-\$219,600]{.red} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$0]{.green} | [\$540,094]{.green} |
 
@@ -968,6 +964,5 @@ $$
 -   Alternatively, if we kept the original cash-flow stream, but applied the $MIRR(\cdot)$ function and set the reinvestment rate to be $15\%$, we would have gotten the exact same result!
 
 -   In other words, one needs to be very cautious when interpreting *IRR* estimates
-
 
 ## References

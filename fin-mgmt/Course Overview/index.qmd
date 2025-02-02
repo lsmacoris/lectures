@@ -1,0 +1,106 @@
+---
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Course Overview - Financial Management'
+    theme: [default, '../~ Metadata/custom.scss']
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    incremental: true
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Welcome to the Course
+
+::: nonincremental
+1.  Overview and Course Organization
+2.  Grading and Evaluations
+3.  Navigating through the syllabus
+4.  How you can get the best of this course
+5.  Overall Q&A
+6.  Introduction to Corporate Finance
+:::
+
+## Overview and course organization
+
+::: nonincremental
+-   **Basic text-book**
+
+    1.  We will extensively follow *Corporate Finance* [@BDM], as our text-book
+    2.  Throughout the syllabus, it will be referred as **\[BDM\]**
+
+-   **Other mandatory reading**
+
+    1.  **\[BMA\]** *Principles of Corporate Finance* [@BMA]
+    2.  **\[PH\]** *Business Analysis and Valuation* [@PH]
+    3.  **\[SS\]** *Principles of Sustainable Finance* [@SS]
+
+-   **Supplementary Reading**
+
+    1.  *Harvard Business Review* (selected cases) - access granted on e-Class®
+    2.  Other focused contents previously defined on the syllabus
+:::
+
+## Grading and Evaluations
+
+. . .
+
+**Grading will be composed of the following activities:**
+
+1.  Mid-term Examination (**35%**)
+2.  Final Examination (**40%**)
+3.  4x Quizzes throughout the semester (**25%**)
+4.  Practical work (**10%**)
+
+. . .
+
+-   You can find the details of any of these activities in the official syllabus (available on *eClass*)
+-   In case of any questions, feel free to reach out to [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+
+. . .
+
+::: callout-tip
+### Office-hours
+
+I also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I'll be more than happy to help you with anything you need from this course. Use the *Office-hour Appointments* link at the bottom of this slide to schedule some time (or click [here](https://calendly.com/lucas-macoris-fgv/appointment-lsm)).
+:::
+
+## Getting the best of this course
+
+![](Images/what-a-week.jpeg){width="50%," fig-align="center"}
+
+## Getting the best of this course
+
+. . .
+
+**How you can get the best of this course**
+
+1.  Follow FGV-EAESP code of conduct
+2.  Be organized: pay attention to pre-readings and deliverables!
+3.  Be proactive: ask questions and participate in discussions, proactively study the list of exercises
+4.  Take the lead on your learning: you are the ultimate responsible for your success!
+
+. . .
+
+**How the professor can facilitate you getting the best of this course**
+
+1.  All mandatory content will be provided in *English*, classes will be held in *Portuguese*
+2.  Provide a safe and open space for questions, both in-person and remote
+3.  Motivate students, both from the academic and practitioner standpoints
+4.  Provide opportunities to extend knowledge beyond the mandatory readings
+
+## References
