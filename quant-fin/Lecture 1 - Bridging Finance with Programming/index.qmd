@@ -493,8 +493,8 @@ library(wbids)
   geographies = c("BRA", "ARG"),
   series = c("DT.MAT.DPPG"), #Average maturity on new external debt commitments (years)
   counterparts = c("302"), #United States
-  start_year = 2000,
-  end_year = 2023)%>%
+  start_date = 2000,
+  end_date = 2023)%>%
   download_this(
     output_name = "average_maturity_br_arg_us",
     output_extension = ".xlsx",

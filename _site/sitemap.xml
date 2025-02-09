@@ -2,134 +2,138 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lsmacoris.github.io/lectures/quant-fin.html</loc>
-    <lastmod>2025-02-02T21:39:26.341Z</lastmod>
+    <lastmod>2025-02-09T23:26:06.724Z</lastmod>
   </url>
   <url>
     <loc>https://lsmacoris.github.io/lectures/quant-fin/Lecture 4 - Data Visualization/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.488Z</lastmod>
+    <lastmod>2025-02-09T23:26:07.034Z</lastmod>
   </url>
   <url>
     <loc>https://lsmacoris.github.io/lectures/quant-fin/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html</loc>
-    <lastmod>2025-02-09T23:11:43.494Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/quant-fin/Introduction/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.369Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat.html</loc>
-    <lastmod>2025-02-02T21:39:25.668Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 8 - Debt and Taxes/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.185Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 6 - Debt Financing/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.044Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.028Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.997Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 1 - Equity Financing/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.841Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt.html</loc>
-    <lastmod>2025-02-02T21:39:24.976Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 8 - Valuation with Leverage/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.533Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 6 - Investment Decision Rules/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.333Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 4 - Working Capital Managament/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.227Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 2 - Financial Analysis/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 1 - Introduction to Corporate Finance/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.055Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/about.html</loc>
-    <lastmod>2025-02-02T21:39:24.976Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Course Overview/index.html</loc>
-    <lastmod>2025-02-02T21:39:24.992Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 10 - Mergers and Acquisitions/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.070Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 3 - EVA/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.149Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 5 - Short-term Financial Planning/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.233Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 7 - Fundamentals of Capital Budgeting/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.449Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 9 - Firm Valuation/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.605Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Introduction/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.684Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 10 - Payout Policy/index.html</loc>
-    <lastmod>2025-02-02T21:39:25.919Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.012Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.034Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 7 - Capital Structure in Perfect Capital Markets/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.106Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 9 - Financial Distress, Managerial Incentives, and Information/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.263Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lsmacoris.github.io/lectures/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.341Z</lastmod>
+    <lastmod>2025-02-09T23:26:06.980Z</lastmod>
   </url>
   <url>
     <loc>https://lsmacoris.github.io/lectures/quant-fin/Lecture 1 - Bridging Finance with Programming/index.html</loc>
-    <lastmod>2025-02-09T23:22:35.461Z</lastmod>
+    <lastmod>2025-02-09T23:30:52.857Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.724Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 9 - Financial Distress, Managerial Incentives, and Information/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.655Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 7 - Capital Structure in Perfect Capital Markets/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.494Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.424Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.404Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 10 - Payout Policy/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Introduction/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.064Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 9 - Firm Valuation/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 7 - Fundamentals of Capital Budgeting/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.814Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 5 - Short-term Financial Planning/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.808Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 3 - EVA/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 10 - Mergers and Acquisitions/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.634Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Course Overview/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.554Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/about.html</loc>
+    <lastmod>2025-02-09T23:26:05.544Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 1 - Introduction to Corporate Finance/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.624Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 2 - Financial Analysis/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.718Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 4 - Working Capital Managament/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.794Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 6 - Investment Decision Rules/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.808Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt/Lecture 8 - Valuation with Leverage/index.html</loc>
+    <lastmod>2025-02-09T23:26:05.894Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-mgmt.html</loc>
+    <lastmod>2025-02-09T23:26:05.544Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 1 - Equity Financing/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.224Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.394Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.414Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 6 - Debt Financing/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.424Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat/Lecture 8 - Debt and Taxes/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.574Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/fin-strat.html</loc>
+    <lastmod>2025-02-09T23:26:06.038Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/Introduction/index.html</loc>
+    <lastmod>2025-02-09T23:26:06.754Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/Lecture 1 - Bridging Finance with Programming/replication.html</loc>
+    <lastmod>2025-02-09T23:26:06.939Z</lastmod>
   </url>
   <url>
     <loc>https://lsmacoris.github.io/lectures/quant-fin/Lecture 3 - Manipulating Time Series/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.456Z</lastmod>
+    <lastmod>2025-02-09T23:26:07.005Z</lastmod>
   </url>
   <url>
     <loc>https://lsmacoris.github.io/lectures/quant-fin/Lecture 5 - CAPM in Practice/index.html</loc>
-    <lastmod>2025-02-02T21:39:26.503Z</lastmod>
+    <lastmod>2025-02-09T23:26:07.044Z</lastmod>
   </url>
 </urlset>
