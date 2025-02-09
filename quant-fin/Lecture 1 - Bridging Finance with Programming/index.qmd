@@ -45,8 +45,6 @@ This page was intentionally left blank
 
 ```{r}
 #| echo: false
-#| message: false
-#| warning: false
 
 source('../~ Metadata/packages.R')
 
@@ -86,7 +84,8 @@ do.call('merge.xts',
 For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
 
 1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
-2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+2.  Along with the slides, this lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased. This file, that will be posted on *eClass®*, can be downloaded and replicated on your side. To do that, download the file, open it up in *RStudio*, and render the Quarto document using the *Render* button (shortcut: `Ctrl+Shift+K`).
+3.  At the end of this lecture, you will be prompted with a hands-on exercise to test your skills using the tools you've learned as you made your way through the slides. A suggested solution will be provided in the replication file.
 :::
 
 # Bridging Finance and R
@@ -118,21 +117,9 @@ For coding replications, whenever applicable, please follow [this](https://lsmac
     1.  There is lack of public, centralized code readily available for use
     2.  Analysts employ a substantial amount of wasteful efforts trying to replicate results
 
-## Why *R*?
+. . .
 
--   We will be using [{{<fa brands r-project>}}]{.blue} throughout the course. Although you should feel that this course is *language-agnostic*, *R* is among one of the best choices for the task:
-
-::: incremental
-1.  Free and open-source
-2.  Diverse and active community working on a broad range of tools
-3.  Actively maintained packages for various purposes - *e.g.*, data manipulation, visualization, modeling, etc)
-4.  Powerful tools for communication, such as *Quarto* and *Shiny*
-5.  Smooth integration with other programming languages, *e.g.*, *SQL*, *Python*, *C*, *C++*, *Fortran*
-6.  [*RStudio*](www.posit.co/rstudio) is one of the best development environments for interactive data analysis
-7.  Top-notch tools and packages for handling financial data and analysis[^1]
-:::
-
-[^1]: For a comprehensive list of R packages designed for finance, please refer to the *R Task View: Empirical Finance* index - access [here](https://cran.r-project.org/web/views/Finance.html).
+-   It is often said that [more than 80 percent of data analysis]{.blue} is spent on preparing data rather than analyzing it. **How do you solve for that?**
 
 ## Why *Tidy*?
 
@@ -174,7 +161,7 @@ For coding replications, whenever applicable, please follow [this](https://lsmac
 
 -   All packages share an underlying design *philosophy*, *grammar*, and *data structures*
 
--   It is supported by [Posit](www.posit.co), the maintainer of [RStudio](https://posit.co/products/open-source/rstudio/) and R's largest open-source contributor[^2]
+-   It is supported by [Posit](www.posit.co), the maintainer of [RStudio](https://posit.co/products/open-source/rstudio/) and R's largest open-source contributor[^1]
 
 -   You can install the complete `tidyverse` using:
 
@@ -201,7 +188,7 @@ library(tidyverse)
 :::
 ::::::
 
-[^2]: Posit recently hired [Wes McKinney](https://wesmckinney.com/), the creator of [pandas](https://pandas.pydata.org/), highlighting its efforts to harmonize innovations among Python users.
+[^1]: Posit recently hired [Wes McKinney](https://wesmckinney.com/), the creator of [pandas](https://pandas.pydata.org/), highlighting its efforts to harmonize innovations among Python users.
 
 ## The *tidyverse* packages: `dplyr`
 
@@ -351,76 +338,6 @@ read.csv('Assets/Multiple_Assets.csv')%>%
     icon = "fa fa-save")
 
 ```
-
-## Setting up your environment
-
--   As we get started, there are a couple of things you should remember:
-
-    1.  [{{<fa brands r-project>}}]{.blue} works with *libraries*, which consists of a bundle of functions, methods, data and other components that can be loaded in your session (*i.e*, as you open *RStudio* or any other IDE of your preference)
-
-    2.  To *load* a library, you call `library(x)`, where `x` refers to the package name
-
-    -   If `x` is already installed in your computer, you are good to go
-    -   If, on the other hand, `x` is *not* installed, you need to call `install.packages('x')` before you attempt to load it
-
-    3.  `install.packages()` needs to be called once; `library()` needs to be called at the beginning of each session!
-
-## Setting up your environment, continued
-
--   To make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I'll make sure to update this list whenever needed throughout the sessions in the course's [official webpage](https://lsmacoris.github.io/lectures/quant-fin.html)
-
-```{r, eval=FALSE,echo=TRUE}
-# Package names
-packages <- c("tidyverse","tidyquant","tidymodels","xts","glue","scales","ggthemes")
-
-# Install packages not yet installed
-installed_packages <- packages %in% rownames(installed.packages())
-
-if (any(installed_packages == FALSE)) {
-  install.packages(packages[!installed_packages])
-}
-
-# Load all packages
-lapply(packages, library, character.only = TRUE)
-
-#Note that you could simply do it iteratively:
-
-#Install if not already available
-  #install.packages('tidyverse')
-  #install.packages('tidyquant')
-  #install.packages('tidymodels')
-  #install.packages('xts')
-  #install.packages('glue')
-  #install.packages('scales')
-  #install.packages('ggthemes')
-
-#Load
-  #library(tidyverse)
-  #library(tidyquant)
-  #library(tidymodels)
-  #library(xts)
-  #library(glue)
-  #library(scales)
-
-
-```
-
-## Other things you should consider: Quarto
-
--   In this course, you'll be assigned with three data cases, where you'll need to manipulate code and write your insights altogether. You may have heard of [Jupyter Notebooks](https://jupyter.org/) before as a way to do it. I want to encourage you to give [Quarto](https://quarto.org/) a try
-
-![](Images/F2.png){fig-align="center" width="50%"}
-
-## Other things you should consider: Quarto, continued
-
--   To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) link and choose your Operating System. *RStudio* will automatically locate it and make it as an option:
-
-![](Images/F3.png){fig-align="center" width="40%"}
-
-**Key Highlights**:
-
-1.  Multi-language support (*Python*, *R*, *Julia*, *JavaScript*) and seamless integration with GitHub
-2.  Advanced document formatting and output options: you can choose *pdf*, *html*, *docx*, or even a *reveal.js* presentation (like the one you're reading right now)
 
 # Accessing and Managing Financial Data
 
@@ -576,8 +493,8 @@ library(wbids)
   geographies = c("BRA", "ARG"),
   series = c("DT.MAT.DPPG"), #Average maturity on new external debt commitments (years)
   counterparts = c("302"), #United States
-  start_date = 2000,
-  end_date = 2023)%>%
+  start_year = 2000,
+  end_year = 2023)%>%
   download_this(
     output_name = "average_maturity_br_arg_us",
     output_extension = ".xlsx",
@@ -645,9 +562,9 @@ $\rightarrow$ *For full details and implementation of the `R` package `ecb`, cli
 
 ## Financial data providers
 
--   For some widely known paid data providers, there are interfaces that enable analysts to retrieve information directly within an `R` session through the provider's official *API*[^3]
+-   For some widely known paid data providers, there are interfaces that enable analysts to retrieve information directly within an `R` session through the provider's official *API*[^2]
 
-[^3]: For paid data providers, you must provide your API key in order to successfully download data.
+[^2]: For paid data providers, you must provide your API key in order to successfully download data.
 
 1.  [Bloomberg](https://www.bloomberg.com/): the [`Rblpapi`](https://github.com/Rblp/Rblpapi) provides access to data and calculations from Bloomberg
 

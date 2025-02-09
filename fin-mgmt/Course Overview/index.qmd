@@ -63,7 +63,7 @@ from: markdown+emoji
 
 1.  Mid-term Examination (**35%**)
 2.  Final Examination (**40%**)
-3.  4x Quizzes throughout the semester (**25%**)
+3.  4x Quizzes throughout the semester (**15%**)
 4.  Practical work (**10%**)
 
 . . .

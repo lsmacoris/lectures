@@ -7,7 +7,7 @@ format:
     theme: [default, ../~ Metadata/custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
-    logo: 'Images/logo.jpg'
+    logo: '/Images/logo.jpg'
     footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: ../~ Metadata/abntex2.cls
@@ -44,8 +44,6 @@ This page was intentionally left blank
 
 ```{r}
 #| echo: false
-#| message: false
-#| warning: false
 
 source('../~ Metadata/packages.R')
 
@@ -324,6 +322,94 @@ Data
 gradethis::grade_this_code()
 ```
 ::::::
+
+
+## Why *R*?
+
+-   We will be using [{{<fa brands r-project>}}]{.blue} throughout the course. Although you should feel that this course is *language-agnostic*, *R* is among one of the best choices for the task:
+
+::: incremental
+1.  Free and open-source
+2.  Diverse and active community working on a broad range of tools
+3.  Actively maintained packages for various purposes - *e.g.*, data manipulation, visualization, modeling, etc)
+4.  Powerful tools for communication, such as *Quarto* and *Shiny*
+5.  Smooth integration with other programming languages, *e.g.*, *SQL*, *Python*, *C*, *C++*, *Fortran*
+6.  [*RStudio*](www.posit.co/rstudio) is one of the best development environments for interactive data analysis
+7.  Top-notch tools and packages for handling financial data and analysis[^3]
+:::
+
+[^3]: For a comprehensive list of R packages designed for finance, please refer to the *R Task View: Empirical Finance* index - access [here](https://cran.r-project.org/web/views/Finance.html).
+
+## Setting up your environment
+
+-   As we get started, there are a couple of things you should remember:
+
+    1.  [{{<fa brands r-project>}}]{.blue} works with *libraries*, which consists of a bundle of functions, methods, data and other components that can be loaded in your session (*i.e*, as you open *RStudio* or any other IDE of your preference)
+
+    2.  To *load* a library, you call `library(x)`, where `x` refers to the package name
+
+    -   If `x` is already installed in your computer, you are good to go
+    -   If, on the other hand, `x` is *not* installed, you need to call `install.packages('x')` before you attempt to load it
+
+    3.  `install.packages()` needs to be called once; `library()` needs to be called at the beginning of each session!
+
+## Setting up your environment, continued
+
+-   To make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I'll make sure to update this list whenever needed throughout the sessions in the course's [official webpage](https://lsmacoris.github.io/lectures/quant-fin.html)
+
+```{r, eval=FALSE,echo=TRUE}
+# Package names
+packages <- c("tidyverse","tidyquant","tidymodels","xts","glue","scales","ggthemes")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load all packages
+lapply(packages, library, character.only = TRUE)
+
+#Note that you could simply do it iteratively:
+
+#Install if not already available
+  #install.packages('tidyverse')
+  #install.packages('tidyquant')
+  #install.packages('tidymodels')
+  #install.packages('xts')
+  #install.packages('glue')
+  #install.packages('scales')
+  #install.packages('ggthemes')
+
+#Load
+  #library(tidyverse)
+  #library(tidyquant)
+  #library(tidymodels)
+  #library(xts)
+  #library(glue)
+  #library(scales)
+
+
+```
+
+## Other things you should consider: Quarto
+
+-   In this course, you'll be assigned with three data cases, where you'll need to manipulate code and write your insights altogether. You may have heard of [Jupyter Notebooks](https://jupyter.org/) before as a way to do it. I want to encourage you to give [Quarto](https://quarto.org/) a try
+
+![](Images/F1.png){fig-align="center" width="50%"}
+
+## Other things you should consider: Quarto, continued
+
+-   To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) link and choose your Operating System. *RStudio* will automatically locate it and make it as an option:
+
+![](Images/F2.png){fig-align="center" width="40%"}
+
+**Key Highlights**:
+
+1.  Multi-language support (*Python*, *R*, *Julia*, *JavaScript*) and seamless integration with GitHub
+2.  Advanced document formatting and output options: you can choose *pdf*, *html*, *docx*, or even a *reveal.js* presentation (like the one you're reading right now)
+
 
 ## Getting started
 

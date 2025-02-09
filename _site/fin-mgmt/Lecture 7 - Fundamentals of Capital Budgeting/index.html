@@ -29,27 +29,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-87FLN5SXEJ"></script>
 
@@ -371,72 +351,103 @@ Lucas S. Macoris
 <section id="what-is-capital-budgeting" class="slide level2">
 <h2>What is Capital Budgeting?</h2>
 <ul>
-<li class="fragment"><p>An important responsibility of corporate financial managers is determining <span class="blue">which</span> projects or investments a firm should undertake</p></li>
-<li class="fragment"><p>According to <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span> Capital budgeting, is the process of <span class="blue">analyzing</span> investment opportunities and <span class="blue">deciding</span> which ones to accept</p></li>
-<li class="fragment"><p>You already saw that…</p>
+<li class="fragment">An important responsibility of corporate financial managers is determining <span class="blue">which</span> projects or investments a firm should undertake</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>Capital Budgeting is the process of <span class="blue">analyzing</span> investment opportunities and <span class="blue">deciding</span> which ones to accept. It consists of a list of all projects and investments that a company plans to undertake in the near future.</p>
+</div>
+</div>
+</div>
 <ol type="1">
 <li class="fragment"><p>As per our previous lectures on <em>Investment Decision Rules</em>, the <em>Net Present Value (NPV)</em> is the most accurate metric to evaluate investment projects, and there are a couple of other metrics that can help you get a better understanding of the investment opportunity</p></li>
-<li class="fragment"><p>You also saw how you can use firm’s financial data to generate insightful metrics about its performance</p></li>
-</ol></li>
-<li class="fragment"><p>So…you have the metric and the inputs, what should you do next? You need the to be able to estimate the Firm’s Cash-Flows!</p></li>
-</ul>
+<li class="fragment"><p>You also saw how you can use firm’s financials to draw insightful metrics about its performance</p></li>
+</ol>
+</div>
+<div class="fragment">
+<p><strong>Question: what’s next?</strong></p>
+</div>
 </section>
 <section id="analyzing-expected-future-performance" class="slide level2">
 <h2>Analyzing (expected) future performance</h2>
 <ul>
-<li class="fragment"><p>So far, we’ve been concerned about the firm’s <em>past</em> performance:</p>
+<li class="fragment"><p>So far, we’ve been concerned about the firm’s <span class="blue">past</span> performance:</p>
 <ol type="1">
 <li class="fragment">How profitability was trending?</li>
 <li class="fragment">How does working capital was financed?</li>
 </ol></li>
-<li class="fragment"><p>Furthermore, whenever we were analyzing project returns, cash-flows were <em>given</em></p></li>
-<li class="fragment"><p>Now, we’ll turn our attention to focus on (expected) <em>future</em> performance:</p>
+<li class="fragment"><p>Now, we’ll turn our attention to focus on (expected) <span class="blue">future</span> performance:</p>
 <ol type="1">
 <li class="fragment">How much value can a new project bring to the firm?</li>
 <li class="fragment">What are the <em>expected</em> future cash inflows/outflows?</li>
 </ol></li>
-<li class="fragment"><p>This process is generally called <span class="blue">Capital Budgeting</span>, and consists of a list of all projects and investments that a company plans to undertake in the near future</p></li>
-<li class="fragment"><p>In order to do that, we need to <span class="blue">estimate</span> the <span class="blue">future</span> cash-flows that will serve as a input to our analysis</p></li>
+<li class="fragment"><p><strong>Problem</strong>: whenever we were analyzing project returns, its cash-flows were <em>given</em></p></li>
+<li class="fragment"><p>In what follows, you will learn how to <span class="blue">estimate</span> the <span class="blue">future</span> cash-flows that will serve as a input to our analysis!</p></li>
 </ul>
 </section>
 <section id="introducing-the-free-cash-flow-fcf" class="slide level2">
 <h2>Introducing the <em>Free Cash Flow (FCF)</em></h2>
 <ul>
-<li class="fragment"><p>As discussed in our first lecture, Financial Managers, when acting on behalf of the shareholders, will maximize the value of a firm whenever they invest in projects that earn</p></li>
-<li class="fragment"><p>How to measure the incremental gains/losses due to the acceptance of a project?</p></li>
-<li class="fragment"><p>For this, we’ll use the <em>Free Cash Flow</em> measure. In sum, we need to:</p>
-<ol type="1">
-<li class="fragment">Project direct expected Revenue and Cost Estimates</li>
-<li class="fragment">Consider indirect effects</li>
-<li class="fragment">EBIT and Taxes</li>
-<li class="fragment">Adjust for non-cash effects</li>
-<li class="fragment">Consider future investments</li>
-<li class="fragment">Determine eventual adjustments, if needed</li>
-</ol></li>
-<li class="fragment"><p>We’ll be doing this in using a case study that will guide us through all the steps</p></li>
+<li class="fragment">How to measure the incremental <span class="green">gains</span>/<span class="red">losses</span> due to the acceptance of a project? For this, we’ll use the <span class="blue"><em>Free Cash Flow</em></span> measure</li>
 </ul>
+<div class="fragment">
+<div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>The <span class="blue"><em>Free Cash Flow</em></span> is a measure of the project’s available cash to be repaid to its investors after <em>all</em> costs and investments needed to <em>sustain the business plan</em> were taken into account. It is calculated by:</p>
+<ol type="1">
+<li>Projecting direct expected Revenue and Cost Estimates</li>
+<li>Considering indirect revenues/expenses</li>
+<li>Calculating EBIT and Taxes</li>
+<li>Adjusting for non-cash effects</li>
+<li>Considering future investments</li>
+<li>Determining eventual adjustments, if needed</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">We’ll be doing this in using a case study that will guide us through all the steps</li>
+</ul>
+</div>
 </section>
 <section id="case-walkthrough" class="slide level2">
 <h2>Case walkthrough</h2>
 <ul>
-<li class="fragment"><p><em>Cia. Amazônia</em> is a manufacturer of sports shoes that is analyzing the possibility of investing in a new line of sneakers, having even incurred research and market testing costs worth $125,000.00. The shoes would be manufactured in a warehouse next to the company’s factory, fully depreciated, which is vacant and could be rented for $38,000.00 per year.</p></li>
-<li class="fragment"><p>The cost of the machine is $200,000.00, depreciated over five years using the straight-line method. Its market value, estimated at the end of five years, is $35,000.00.</p></li>
-<li class="fragment"><p>The company needs to maintain a certain investment in working capital. As it is an industrial company, it will purchase raw materials before producing and selling the final product, which will result in an investment in inventories. The firm will maintain a cash balance as protection against unforeseen expenses. Credit sales will generate accounts receivable. In sum, working capital will represent 10% of sales revenue.</p></li>
+<li class="fragment"><p><em>Cia. Amazônia</em> is a manufacturer of sports shoes that is analyzing the possibility of investing in a new line of sneakers, having even incurred research and market testing costs worth <span class="math inline">\(\small \$125,000\)</span>. The shoes would be manufactured in a warehouse next to the company’s factory, fully depreciated, which is vacant and could be rented for <span class="math inline">\(\small\$38,000\)</span> per year.</p></li>
+<li class="fragment"><p>The cost of the machine is <span class="math inline">\(\small \$200,000\)</span>, depreciated over five years using the straight-line method. Its market value, estimated at the end of five years, is <span class="math inline">\(\small \$35,000\)</span></p></li>
+<li class="fragment"><p>The company needs to maintain a certain investment in working capital. As it is an industrial company, it will purchase raw materials before producing and selling the final product, which will result in an investment in inventories. The firm will maintain a cash balance as protection against unforeseen expenses. Credit sales will generate accounts receivable. In sum, working capital will represent <span class="math inline">\(\small10\%\)</span> of sales revenue.</p></li>
 </ul>
 </section>
 <section id="case-walkthrough-continued" class="slide level2">
 <h2>Case walkthrough, continued</h2>
 <ul>
-<li class="fragment"><p>The company projects the following sales over a 5-year horizon</p>
+<li class="fragment"><p>The company projects the following sales over a <span class="math inline">\(\small5\)</span>-year horizon</p>
 <ul>
-<li class="fragment"><span class="blue">Year 1</span>: 7,000</li>
-<li class="fragment"><span class="blue">Year 2</span>: 9,000</li>
-<li class="fragment"><span class="blue">Year 3</span>: 10,000</li>
-<li class="fragment"><span class="blue">Year 4</span>: 11,000</li>
-<li class="fragment"><span class="blue">Year 5</span>: 9,000</li>
+<li class="fragment"><span class="blue">Year 1</span>: <span class="math inline">\(\small 7,000\)</span></li>
+<li class="fragment"><span class="blue">Year 2</span>: <span class="math inline">\(\small 9,000\)</span></li>
+<li class="fragment"><span class="blue">Year 3</span>: $10,000</li>
+<li class="fragment"><span class="blue">Year 4</span>: <span class="math inline">\(\small11,000\)</span></li>
+<li class="fragment"><span class="blue">Year 5</span>: <span class="math inline">\(\small9,000\)</span></li>
 </ul></li>
-<li class="fragment"><p>The unit price is $28, and the unit cost is $14. It is estimated that its operating costs will rise at an average rate of 6% each year.</p></li>
-<li class="fragment"><p>On the other hand, the company knows that due to market competition, it will not be able to fully pass this on to prices and projects an average increase in sales prices of 4% each year.</p></li>
+<li class="fragment"><p>The unit price is <span class="math inline">\(\small\$28\)</span>, and the unit cost is <span class="math inline">\(\small\$14\)</span>. It is estimated that its operating costs will rise at an average rate of <span class="math inline">\(\small6\%\)</span> each year</p></li>
+<li class="fragment"><p>On the other hand, the company knows that due to market competition, it will not be able to fully pass this on to prices and projects an average increase in sales prices of <span class="math inline">\(\small4\%\)</span> each year</p></li>
 </ul>
 </section>
 <section id="step-1-revenue-and-cost-estimates" class="slide level2">
@@ -463,7 +474,7 @@ Lucas S. Macoris
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Figures/F1.jpg" class="quarto-figure quarto-figure-center" width="1000"></p>
+<p><img data-src="Images/F1.jpg" class="quarto-figure quarto-figure-center" width="1000"></p>
 </figure>
 </div>
 <ul>
@@ -494,9 +505,9 @@ Lucas S. Macoris
 <h2>Step 2: Consider indirect effects</h2>
 <ul>
 <li class="fragment"><p>In our case, we saw that the firm will use existing assets that otherwise would yield $38,000 yearly. Because of that, we need to take into consideration as an opportunity cost</p></li>
-<li class="fragment"><p>What about the $ 125,000 R&amp;D expenses incurred? This is an example of a <em>sunk cost</em>:</p>
+<li class="fragment"><p>What about the <span class="math inline">\(\small\$125,000\)</span> R&amp;D expenses incurred? This is an example of a <em>sunk cost</em>:</p>
 <ol type="1">
-<li class="fragment">Sunk costs have been or will be paid <span class="blue">regardless</span> of the decision about whether or not to proceed with the project.</li>
+<li class="fragment">Sunk costs have been or will be paid <span class="blue">regardless</span> of the decision about whether or not to proceed with the project</li>
 <li class="fragment">Therefore, they are not incremental with respect to the current decision and should not be included in its analysis</li>
 <li class="fragment">If our decision does not affect the cash flow, then the cash flow should not affect our decision!</li>
 </ol></li>
@@ -506,7 +517,7 @@ Lucas S. Macoris
 <section id="step-3-ebit-and-taxes" class="slide level2">
 <h2>Step 3: EBIT and Taxes</h2>
 <ul>
-<li class="fragment">Before we calculate tax expenses, if we assume that depreciation is tax-deductible, we can then use the $40,000 value from the straight-line depreciation to deduct our taxable earnings:</li>
+<li class="fragment">Before we calculate tax expenses, if we assume that depreciation is tax-deductible, we can then use the <span class="math inline">\(\small\$40,000\)</span> value from the straight-line depreciation to deduct our taxable earnings:</li>
 </ul>
 <div class="fragment">
 <p><span class="math display">\[
@@ -530,15 +541,17 @@ Lucas S. Macoris
 <section id="step-3-ebit-and-taxes-1" class="slide level2">
 <h2>Step 3: EBIT and Taxes</h2>
 <ul>
-<li class="fragment"><strong>Interest Expenses</strong>:
+<li class="fragment"><p>What if part of the upfront investment was financed using debt? Do we need to include <strong>interest expenses</strong> in the calculation?</p></li>
+<li class="fragment"><p>Because the <span class="blue">Free Cash Flow</span> is the measure of available resources to <em>all</em> investors of the firm (creditors + equityholders), whenever we evaluating a capital budgeting decision, we <strong>do not</strong> include interest expenses in the calculation</p>
 <ol type="1">
-<li class="fragment">When evaluating a capital budgeting decision, we <em>do not</em> include interest expenses</li>
-<li class="fragment">The reason is that we wish to evaluate the project on its own, <em>separate</em> from the financing decision</li>
-<li class="fragment">The cost of debt (along with its tax shield) can be considered in an appropriate estimate of the cost of capital for the project</li>
+<li class="fragment">We wish to evaluate the project on its own, <em>separate</em> from the financing decision</li>
+<li class="fragment">Furthermore, the cost of debt (along with its tax shield) can be considered in an appropriate estimate of the cost of capital for the project</li>
 <li class="fragment">For these reasons, we also call our incremental earnings as <span class="blue">unlevered net income</span></li>
 </ol></li>
-<li class="fragment">Therefore, in our free cash flow estimations, we’ll be focusing on the operating portion <em>as if</em> it were financed without any debt!</li>
 </ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Therefore, in our Free Cash Flow estimations, we’ll be focusing on the operating portion as if it were financed without any debt!</em></p>
+</div>
 </section>
 <section id="step-3-ebit-and-taxes-2" class="slide level2">
 <h2>Step 3: EBIT and Taxes</h2>
@@ -548,7 +561,7 @@ Lucas S. Macoris
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Figures/F2.jpg" class="quarto-figure quarto-figure-center" width="1500"></p>
+<p><img data-src="Images/F2.jpg" class="quarto-figure quarto-figure-center" width="1500"></p>
 </figure>
 </div>
 </div>
@@ -564,7 +577,7 @@ Lucas S. Macoris
 <li class="fragment">On the other hand, <em>cash</em> does!
 <ol type="1">
 <li class="fragment">Because of this, to evaluate a capital budgeting decision, we must determine its consequences for the firm’s available cash</li>
-<li class="fragment">The incremental effect of a project on the firm’s available cash, separate from any financing decisions, is the project’s <span class="blue">free cash flow</span></li>
+<li class="fragment">The incremental effect of a project on the firm’s available cash, separate from any financing decisions, is the project’s <span class="blue">Free Cash Flow</span></li>
 </ol></li>
 </ul>
 </section>
@@ -576,10 +589,10 @@ Lucas S. Macoris
 <li class="fragment">Earnings include non-cash charges, such as depreciation…</li>
 <li class="fragment">But do not include the cost of capital investment!</li>
 </ol></li>
-<li class="fragment"><p>To determine the free cash flow, we must adjust for these differences by:</p>
+<li class="fragment"><p>To determine the Free Cash Flow, we must adjust for these differences by:</p>
 <ol type="1">
 <li class="fragment">Adding back Depreciation: because depreciation is not a cash flow, we do not include it in the cash flow forecast</li>
-<li class="fragment">Capital Expenditures (CAPEX): to account for the cash that will be used to fund the equipments, we include the actual cash cost of the asset when it is purchased.</li>
+<li class="fragment">Capital Expenditures (<em>CAPEX</em>): to account for the cash that will be used to fund the equipments, we include the actual cash cost of the asset when it is purchased.</li>
 </ol></li>
 </ul>
 </section>
@@ -589,8 +602,8 @@ Lucas S. Macoris
 <li class="fragment">In our case, we have the following adjustments:</li>
 </ul>
 <ol type="1">
-<li class="fragment"><p>For <em>Depreciation</em>, we need to <span class="blue">add back</span> $50,000 across Year 1-5 to account for non-cash items</p></li>
-<li class="fragment"><p>On the other hand, to consider the <em>actual</em> cost of the machinery by the time that it was bought, we need to include $200,000 in Year 0 of the analysis</p></li>
+<li class="fragment"><p>For <em>Depreciation</em>, we need to <span class="blue">add back</span> <span class="math inline">\(\small\$50,000\)</span> across Year 1-5 to account for non-cash items</p></li>
+<li class="fragment"><p>On the other hand, to consider the <em>actual</em> cost of the machinery by the time that it was bought, we need to include <span class="math inline">\(\small\$200,000\)</span> in Year 0 of the analysis</p></li>
 </ol>
 <ul>
 <li class="fragment">With these adjustments in place, we should have the following values:</li>
@@ -598,7 +611,7 @@ Lucas S. Macoris
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Figures/F3.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
+<p><img data-src="Images/F3.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
 </figure>
 </div>
 </div>
@@ -628,7 +641,7 @@ Lucas S. Macoris
 </ul>
 <div class="fragment">
 <p><span class="math display">\[
-\Delta NWC_{t}=NWC_{t}-NWC_{t-1}
+\small \Delta NWC_{t}=NWC_{t}-NWC_{t-1}
 \]</span></p>
 <ul>
 <li class="fragment">In our case, our net working capital should look as follows:</li>
@@ -637,7 +650,7 @@ Lucas S. Macoris
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Figures/F4.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
+<p><img data-src="Images/F4.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
 </figure>
 </div>
 </div>
@@ -646,14 +659,14 @@ Lucas S. Macoris
 <h2>Step 5: Consider future investments in working capital</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Figures/F4.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
+<p><img data-src="Images/F4.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
 </figure>
 </div>
 <ol type="1">
 <li class="fragment"><p>In the beginning of Year 0, we <span class="blue">forecast</span> <span class="blue">Year 1</span>’s sales and invest in working capital</p></li>
-<li class="fragment"><p>For each Year 1-4, we look forward to period <span class="math inline">\(t+1\)</span> to determine the adequate level of working capital in <span class="math inline">\(t\)</span></p></li>
-<li class="fragment"><p>At the end of Year 5, we know that the <span class="math inline">\(NWC=0\)</span>, assuming that the project ends</p></li>
-<li class="fragment"><p>Therefore, <span class="math inline">\(\Delta NWC_{t=5}\)</span> shows that the firm can recover its investment in working capital</p></li>
+<li class="fragment"><p>For each Year 1-4, we look forward to period <span class="math inline">\(\small t+1\)</span> to determine the adequate level of working capital in <span class="math inline">\(t\)</span></p></li>
+<li class="fragment"><p>At the end of Year 5, we know that the <span class="math inline">\(\small NWC=0\)</span>, assuming that the project ends</p></li>
+<li class="fragment"><p>Therefore, <span class="math inline">\(\small \Delta NWC_{t=5}\)</span> shows that the firm can recover its investment in working capital</p></li>
 </ol>
 </section>
 <section id="step-6-calculating-the-free-cash-flow" class="slide level2">
@@ -687,7 +700,7 @@ Lucas S. Macoris
 \small FCF_{t}= \underbrace{(\text{Revenues}-\text{Costs}-\text{Depreciation})\times(1-\tau)}_{\text{Unlevered Net Income}}+\text{Depreciation}-\text{CAPEX}-\Delta NWC
 \]</span></p>
 <ul>
-<li class="fragment"><p>Note that we first deduct depreciation when computing the project’s incremental earnings, and then add it back (because it is a non-cash expense) when computing free cash flow</p></li>
+<li class="fragment"><p>Note that we first deduct depreciation when computing the project’s incremental earnings, and then add it back (because it is a non-cash expense) when computing Free Cash Flow</p></li>
 <li class="fragment"><p>Thus, the only effect of depreciation is to <span class="blue">reduce</span> the firm’s taxable income!</p></li>
 <li class="fragment"><p>Because of this, we can rewtrite the same equation as:</p></li>
 </ul>
@@ -709,7 +722,7 @@ Lucas S. Macoris
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Figures/F5.jpg" class="quarto-figure quarto-figure-center" width="1500"></p>
+<p><img data-src="Images/F5.jpg" class="quarto-figure quarto-figure-center" width="1500"></p>
 </figure>
 </div>
 </div>
@@ -730,12 +743,12 @@ Lucas S. Macoris
 <section id="step-7-adjustments-to-the-calculating-the-free-cash-flow-2" class="slide level2">
 <h2>Step 7: Adjustments to the Calculating the Free Cash Flow</h2>
 <ul>
-<li class="fragment"><p>In our case, we know that the market-value of the machinery is <span class="math inline">\(35,000\)</span>. Since it has been fully depreciated at Year 5, we know that the capital gain is simply <span class="math inline">\(35,000 - 0 = 35,000\)</span></p></li>
+<li class="fragment"><p>In our case, we know that the market-value of the machinery is <span class="math inline">\(\small 35,000\)</span>. Since it has been fully depreciated at Year 5, we know that the capital gain is simply <span class="math inline">\(\small 35,000 - 0 = 35,000\)</span></p></li>
 <li class="fragment"><p>Therefore, we also need to consider that, in Year 5, as the project has ended, we can sell the machine, pay taxes on it, and recover part the liquidation value of our investment:</p></li>
 </ul>
 <div class="fragment">
 <p><span class="math display">\[
-\text{Liquidation Value}= 35,000 \times (1-\tau)\rightarrow 35,000\times(1-34\%)=23,100
+\small \text{Liquidation Value}= 35,000 \times (1-\tau)\rightarrow 35,000\times(1-34\%)=23,100
 \]</span></p>
 <ul>
 <li class="fragment">Adding this value as a <span class="green">cash-inflow</span> in the last year of the project:</li>
@@ -743,7 +756,7 @@ Lucas S. Macoris
 </div>
 <div class="fragment">
 <p><span class="math display">\[
-FCF_{t=5}=107,584+23,100=130,684
+\small FCF_{t=5}=107,584+23,100=130,684
 \]</span></p>
 </div>
 </section>
@@ -751,7 +764,7 @@ FCF_{t=5}=107,584+23,100=130,684
 <h2>Final Result</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Figures/F6.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
+<p><img data-src="Images/F6.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
 </figure>
 </div>
 </section>
@@ -766,26 +779,39 @@ FCF_{t=5}=107,584+23,100=130,684
 NPV= \dfrac{-219,000}{(1+15\%)^0}+\dfrac{46,592}{(1+15\%)^1}+\dfrac{69,266}{(1+15\%)^2}+\dfrac{80,218}{(1+15\%)^3}+\dfrac{101,293}{(1+15\%)^4}+\dfrac{130,684}{(1+15\%)^5}=48,922.22
 \]</span></p>
 <ul>
-<li class="fragment"><p>What else needs to be done? In what follows, you’ll see how to:</p>
+<li class="fragment"><p>What else needs to be done? See the <em>Appendix</em> for a detailed discussion on some of the most common adjustments and extensions<sup>1</sup>:</p>
 <ol type="1">
-<li class="fragment">Adjust this estimate to different scenarios, such as different depreciation patterns</li>
-<li class="fragment">Incorporate value for projects that have an infinite-horizon (for example, a firm!)</li>
-<li class="fragment">Take uncertainty of the inputs that we’re using into account</li>
-<li class="fragment">Understand how to create scenarios that would show how our NPV estimates can vary with different inputs</li>
+<li class="fragment">Adjust FCF estimates to incorporate different depreciation patterns</li>
+<li class="fragment">Incorporate long-term value for projects that have an infinite-horizon (for example, a firm!)</li>
+<li class="fragment">Take uncertainty of the inputs that we’re using into account through Sensitivity, Break-Even, and Scenario Analysis</li>
 </ol></li>
 </ul>
 </div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>All extensions discussed in the <em>Appendix</em> have an accompanying <em>Excel</em> solution that has been posted on <em>eClass®.</em></p></li></ol></aside></section>
+<section id="supplementary-reading" class="slide level2">
+<h2>Supplementary Reading</h2>
+<ul>
+<li class="fragment">See <span class="blue">Note on Capital Budgeting</span> for a detailed discussion on more aspects of the capital budgeting process in practice</li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>All contents are available on eClass®.</em></p>
+</div>
+</section>
+<section>
+<section id="appendix" class="title-slide slide level1 center">
+<h1>Appendix</h1>
+
 </section>
 <section id="different-depreciation-patterns" class="slide level2">
 <h2>Different Depreciation Patterns</h2>
 <p><em>Suppose that instead of using foreign suppliers when buying your machinery, you have received an offer to use new, national supplier, which can provide machinery that is supposedly as efficient as the original one. Notwithstanding, because you’re financing a national capital good, you have access to an accelerated depreciation benefit:</em></p>
 <ol type="1">
-<li class="fragment">The market-value of the machine is still worth $200,000, to be paid in Year 0</li>
-<li class="fragment">You’ll fully depreciate the machine in the first three years: a. 30% in the first year b. 35% in the second and third year</li>
+<li class="fragment">The market-value of the machine is still worth <span class="math inline">\(\small \$200,000\)</span>, to be paid in Year 0</li>
+<li class="fragment">You’ll fully depreciate the machine in the first three years: <span class="math inline">\(\small 30\%\)</span> in the first year, and <span class="math inline">\(\small 35\%\)</span> in the second and third year</li>
 </ol>
-<ul>
-<li class="fragment">Would you accept the offer?</li>
-</ul>
+<div class="fragment">
+<p><strong>Would you accept the offer?</strong></p>
+</div>
 <div class="fragment">
 <p><span class="math inline">\(\rightarrow\)</span> <em>Answer provided in Excel</em></p>
 </div>
@@ -811,8 +837,7 @@ NPV= \dfrac{-219,000}{(1+15\%)^0}+\dfrac{46,592}{(1+15\%)^1}+\dfrac{69,266}{(1+1
 <section id="dealing-with-uncertainty" class="slide level2">
 <h2>Dealing with Uncertainty</h2>
 <ul>
-<li class="fragment"><p>The most difficult part of capital budgeting is deciding how to estimate the cash flows and cost of capital</p></li>
-<li class="fragment"><p>Unfortunately, these estimates are often subject to significant uncertainty</p></li>
+<li class="fragment"><p>The most difficult part of capital budgeting is deciding how to estimate the cash flows and cost of capital. Unfortunately, these estimates are often subject to significant uncertainty:</p></li>
 <li class="fragment"><p>How we can assess the importance of this uncertainty and identify the drivers of value in the project?</p></li>
 <li class="fragment"><p>In what follows, we’ll look at some examples outlining ways to incorporate uncertainty in our valuation model</p></li>
 </ul>
@@ -826,9 +851,9 @@ NPV= \dfrac{-219,000}{(1+15\%)^0}+\dfrac{46,592}{(1+15\%)^1}+\dfrac{69,266}{(1+1
 <h2>Dealing with Uncertainty #2: <em>Sensitivity Analysis</em></h2>
 <p><em>Shareholders might be reluctant to trust the NPV estimates if they are unable to understand which drivers potentially affect more the value of the project in best and worst-case situations. Consider that you now have three scenarios: base, worst, and best case scenarios. In each one, you have the following configuration:</em></p>
 <ol type="1">
-<li class="fragment"><p><strong>Base</strong>: (the baseline exercise from <em>Cia Amazônia</em>): Growth rate of Unit Costs: 4%; Growth rate of Unit Prices: 6%; Cost of Capital: 15%</p></li>
-<li class="fragment"><p><strong>Worst</strong>: Growth rate of Unit Costs: 0%; Growth rate of Unit Prices: 10%; Cost of Capital: 19%</p></li>
-<li class="fragment"><p><strong>Best</strong>: Growth rate of Unit Costs: 10%; Growth rate of Unit Prices: 1%; Cost of Capital: 10%</p></li>
+<li class="fragment"><p><span class="yellow"><strong>Base</strong></span>: the baseline exercise from <em>Cia Amazônia</em>. Growth rate of Unit Costs: <span class="math inline">\(\small4\%\)</span>; Growth rate of Unit Prices: <span class="math inline">\(\small6%\)</span>; Cost of Capital: <span class="math inline">\(\small15\%\)</span></p></li>
+<li class="fragment"><p><span class="red"><strong>Worst</strong></span>: Growth rate of Unit Costs: <span class="math inline">\(\small0%\)</span>; Growth rate of Unit Prices: <span class="math inline">\(\small10\%\)</span>; Cost of Capital: <span class="math inline">\(\small19\%\)</span></p></li>
+<li class="fragment"><p><span class="green"><strong>Best</strong></span>: Growth rate of Unit Costs: <span class="math inline">\(\small10\%\)</span>; Growth rate of Unit Prices: <span class="math inline">\(\small1\%\)</span>; Cost of Capital: <span class="math inline">\(\small10\%\)</span></p></li>
 </ol>
 <div class="fragment">
 <p><em>Estimate how your NPV estimates change along with your inputs, each one at a time, and identify which input is more important for the project’s NPV.</em></p>
@@ -842,30 +867,17 @@ NPV= \dfrac{-219,000}{(1+15\%)^0}+\dfrac{46,592}{(1+15\%)^1}+\dfrac{69,266}{(1+1
 <p><span class="math inline">\(\rightarrow\)</span> <em>Answer provided in Excel</em></p>
 </div>
 </section>
-<section id="supplementary-reading" class="slide level2">
-<h2>Supplementary Reading</h2>
-<ul>
-<li class="fragment">See <span class="blue">Note on Capital Budgeting (TCG324)</span> for a detailed discussion on more aspects of the capital budgeting process in practice</li>
-</ul>
-<div class="fragment">
-<p><span class="math inline">\(\rightarrow\)</span> <em>All contents are available on eClass®.</em></p>
-</div>
-</section>
-<section id="references" class="slide level2 smaller scrollable">
+<section id="references" class="slide level2">
 <h2>References</h2>
 
 <div class="quarto-auto-generated-content">
-<p><img src="logo.jpg" class="slide-logo"></p>
+<p><img src="Images/logo.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures/fin-mgmt.html">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
 </div>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-BDM" class="csl-entry" role="listitem">
-Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Global Edition / English Textbooks. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
-</div>
-</div>
-</section>
+</section></section>
+
     </div>
   </div>
 

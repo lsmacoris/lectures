@@ -59,10 +59,11 @@ source('../~ Metadata/packages.R')
 #List of assets
 assets= c('AAPL','MSFT','NVDA','GOOG','AMZN','META','TSLA')
 start='2020-01-01'
+end='2025-01-30'
 
 #Write to memory
-Data=tq_get(assets,from=start,to=Sys.Date())
-Data%>%write.csv('Assets/M7.csv',row.names = FALSE)
+M7=tq_get(assets,from=start,to=end)
+M7%>%write.csv('Assets/M7.csv',row.names = FALSE)
 
 ```
 
@@ -80,16 +81,15 @@ M7=read.csv('Assets/M7.csv')%>%mutate(date=as.Date(date))
     1.  *Tidy Finance* [@tidyfinance]
     2.  *R for Data Science* [@r4ds]
 
-:::: nonincremental
 ::: callout-note
 ### Coding Replications
 
 For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
 
 1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
-2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+2.  Along with the slides, this lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased. This file, that will be posted on *eClass®*, can be downloaded and replicated on your side. To do that, download the file, open it up in *RStudio*, and render the Quarto document using the *Render* button (shortcut: `Ctrl+Shift+K`).
+3.  At the end of this lecture, you will be prompted with a hands-on exercise to test your skills using the tools you've learned as you made your way through the slides. A suggested solution will be provided in the replication file.
 :::
-::::
 
 ## Organizing Financial Data
 
@@ -108,7 +108,7 @@ For coding replications, whenever applicable, please follow [this](https://lsmac
 #| warning: false
 #| message: false
 
-Data%>%
+M7%>%
   download_this(
     output_name = "M7",
     output_extension = ".csv",
@@ -277,7 +277,7 @@ Select only the `symbol`, `date`, `volume`, and `adjusted`, in that order. The `
 
 ## Solution
 
-::: {.solution exercise="mutate"}
+::: {.solution exercise="select"}
 Use the `select()` function to select only a subset of the available columns:
 
 ```{webr}
@@ -651,22 +651,35 @@ $\rightarrow$ [Read: *Tech stocks slump as China’s DeepSeek stokes fears over 
 
 ## Hands-On Exercise
 
--   As part of your work as a buy-side analyst, you were asked to analyze how the *Magnificent 7* performed after the *DeepSeek* episode. Follow the instructions below and answer to the following question: **Which stock suffered the most up to yesterday?**
+-   As part of your work as a buy-side analyst, you were asked to analyze how the *Magnificent 7* performed after the *DeepSeek*
+
+-   Follow the instructions and answer to the following question: **which stock suffered the most during January 2025?**
+
+1.  To answer this question, you will be using all `dplyr` verbs you've practiced so far
+2.  Furthermore, you will be also using some common base R and ther `dplyr` functions, like `lag()`, `prod()`, `as.Date()` and `drop_na()`
+
+-   The expected result is a `data.frame` object that shows, for each `symbol`, the monthly return on January, 2025, ordered from lowest-to-highest
+
+$\rightarrow$ *Suggested solution will be provided in the replication file for this lecture.*
+
+## Hands-On Exercise, continued
 
 ::: callout-tip
-### Exercise
+### Instructions
 
-1.  Select only the tickers that refer to the *Magnificent 7* group
-2.  Filter only on observations happening in 2025
-3.  Arrange the dataset (from oldest to newest)
-4.  Create, for each different `symbol`, a `Return` variable that is defined as $P_{t+1}/P_{t}$, where $t$ refers to a date
-5.  Create, for each different `symbol`, a `Cum_Return` return variable that is defined as the cumulative return
-6.  Pick the latest observation from each `symbol` and arrange the table from lowest-to-highest return
+The data, stored in `M7.csv`, can be loaded using `read.csv('M7.csv')`. You can download it using the link shown in *Slide 4*.
 
--   The data, stored in `M7.csv`, can be loaded using `read.csv('M7.csv')`
--   You can use the `year()` function to retrieve the year of a given `Date` column. Also, `slice_tail(n=x)` retrieves the bottom `x` observations, whereas `slice_head(n=y)` retrieves the top `y`
+1.  Select only the `symbol`, `date`, and `adjusted` columns, and arrange the dataset from oldest to newest
+2.  Mutate your `date` variable, making sure to read it as a Date object using `as.Date()`
+3.  Create a `Year` variable and filter only on observations happening in 2025. You can use the `year()` function to retrieve the year of a given `Date` column.
+4.  Group data by `symbol`
+5.  Create, for each different `symbol`, a `Return` variable that is defined as $P_{t+1}/P_{t}$, where $t$ refers to a date. You can use the `lag()` function for this
+6.  You will see that `lag` produces an `NA` whenever you try to lag the first observation. To make sure your data does not contain any `NA`, call `drop_na()`
+7.  Create, for each different `symbol`, a `Cum_Return` variable that is defined as the cumulative return. Compounded returns over time can be written as $\small \prod(1+R_t)=(1+R_1)\times(1+R_2)\times...\times(1+R_t)$. For this, you can use the `prod()` function.
+8.  Pick the latest observation from each `symbol` and arrange the table from lowest-to-highest return. The function `slice_tail(n=x)` retrieves the bottom `x` observations, whereas `slice_head(n=y)` retrieves the top `y`.
 :::
 
+:::: content-hidden
 ## Solution
 
 ::: panel-tabset
@@ -678,16 +691,17 @@ $\rightarrow$ [Read: *Tech stocks slump as China’s DeepSeek stokes fears over 
 
 #Read the Data
 M7%>%
+#Select only the columns of interest
+select(symbol,date,adjusted)%>%
 #Make sure date is read as a Date object
 mutate(date=as.Date(date))%>%
 #Filter for observations happening in 2025
 filter(year(date)==2025)%>%
-#Select only the columns of interest
-select(symbol,date,adjusted)%>%
 #Arrange from chronological order
 arrange(date)%>%
 #Group by Symbol to perform the calculations
 group_by(symbol)%>%
+#Create the return
 mutate(Return = adjusted/lag(adjusted,default = NA))%>%
 #Remove NAs before doing the cumulative product
 drop_na()%>%
@@ -707,17 +721,18 @@ arrange(Cum_Return)
 #| eval: true
 
 #Read the Data
-read.csv('Assets/M7.csv')%>%
+M7%>%
+#Select only the columns of interest
+select(symbol,date,adjusted)%>%
 #Make sure date is read as a Date object
 mutate(date=as.Date(date))%>%
 #Filter for observations happening in 2025
 filter(year(date)==2025)%>%
-#Select only the columns of interest
-select(symbol,date,adjusted)%>%
 #Arrange from chronological order
 arrange(date)%>%
 #Group by Symbol to perform the calculations
 group_by(symbol)%>%
+#Create the return
 mutate(Return = adjusted/lag(adjusted,default = NA))%>%
 #Remove NAs before doing the cumulative product
 drop_na()%>%
@@ -730,6 +745,7 @@ select(symbol,date,Cum_Return)%>%
 arrange(Cum_Return)
 ```
 :::
+::::
 
 ## Helpful tips while using R and Quarto
 
