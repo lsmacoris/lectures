@@ -37,7 +37,7 @@ from: markdown+emoji
 
 -   It is important to be familiarized with financial reporting concepts, such as understanding *Balance-Sheet*, *Income Statements*, and *Cash-Flow Statements*. For a summarized discussion on these reports, refer to [@BDM], *Chapter 2*.
 
--   In the *Appendix*, you'll find additional content (non-mandatory, but recommended) that can be used to get a deeper understanding and/or comprehend applications in real-world problems.
+-   In the *Appendix*, you'll find additional content (non-mandatory, but recommended) that can be used to get a deeper understanding and/or comprehend applications of financial indicators
 :::
 
 ## Financial Analysis
@@ -56,26 +56,26 @@ from: markdown+emoji
     3.  Is the firm growing its business?
     4.  Are profits trending [upwards]{.green} or [downwards]{.red}?
 
--   **Problem**: not all information about the firm's actual and past performance is disclosed.
+-   **Problem**: not all information about the firm's actual and past performance is disclosed
 
 ## Analyzing Financial Statements
 
 -   Investors often use [accounting statements]{.blue} to evaluate a firm in one of two ways:
 
-    1.  Compare the firm with itself by analyzing how the firm has changed over time.
-    2.  Compare the firm to other similar firms using a common set of [financial ratios]{.blue}.
+    1.  Compare the firm with itself by analyzing how the firm has changed [over time]{.blue}
+    2.  Compare the firm to [other similar firms]{.blue} using a common set of financial ratios 
 
 -   Despite being a high-level view of complexity that is the firm's business, such information can shed light on some areas that dictate the firm's performance
 
--   Accounting statements are the inputs of a series of analysis that can be done to assess financial performance.
+-   Accounting statements are the inputs of a series of analysis that can be done to assess financial performance
 
--   In this (and the next lectures), we'll look at a particular type of analysis that uses financial statements as an input: **ratio analysis**
+- To that point, we can mix and match information from accounting statements in order to create meaningful financial indicators that guide our analysis
 
 ## What drives firm performance?
 
 ![](Images/F1.jpg){fig-align="center"}
 
-## Introducing ratio analysis
+## Introducing Financial Analysis
 
 -   [Objective]{.blue}: evaluate the effectiveness of the firm's policies in each of the previously mentioned areas
 
@@ -97,7 +97,7 @@ from: markdown+emoji
 
 -   Our starting point will be looking at the capacity that a firm has to [honor its liabilities]{.blue}
 
--   Financial analysts often use the information in the firm's balance sheet to assess its financial *solvency* and *liquidity*:
+-   Financial analysts often use the information in the firm's balance sheet to assess its financial *solvency* and *liquidity*
 
 -   Before we dive into the calculations, let's look at two important definitions:
 
@@ -146,9 +146,9 @@ Liquidity refers to the ease with which an asset, or security, **can be converte
 
 ## Solvency Ratios
 
--   To evaluate the mix of debt and equity in a firm's capital structure, we can use:
+-   The easiest solvency indicator to begin with compares the amount of equity relative to all liabilities a firm has at a given point in time
 
-    1.  [Liabilities-to-Equity]{.blue}: measures the **overall** solvency:
+- The [Liabilities-to-Equity]{.blue} indicator measures the **overall** solvency of a given firm, and is calculated as:
 
 . . .
 
@@ -156,13 +156,28 @@ $$
 \text{Liabilities to Equity}=\dfrac{\text{Total Liabilities}}{\text{Equity}}
 $$
 
-2.  [Debt-to-Equity]{.blue}: focus on the Debt component, which is generally more binding:
+- **Interpretation**: for each $\small \$1$ of equity, how much dollars (or cents) a firm has in liabilities?
+
+1. Despite being a helpful guide on analyzing how the firm's [leverage]{.blue} decisions are reflected in the balance sheet, this indicator may not reflect the
+
+2. For example, a lot of liabilities might just be related to accounts that are part of the business cycle: wages payable, taxes payable, accounts payable (suppliers), etc
+
+## Solvency Ratios, continued
+
+
+- The [Debt-to-Equity]{.blue} focuses the on the Debt component, which is generally more descriptive of the firm's financing decisions as it only includes *interest-bearing* liabilities:
 
 . . .
 
 $$
 \text{Debt to Equity}=\dfrac{\text{Short-Term Debt + Long-Term Debt}}{\text{Equity}}
 $$
+
+- **Interpretation**: for each $\small \$1$ of equity, how much dollars (or cents) a firm has in *interest-bearing* liabilities?
+
+1. This indicator is very useful in understanding the *mix* of debt and equity a firm has ultimately decided to adopt so as to fund its projects 
+
+2. **Important**: whenever assessing which accounts should be classified as *debt*, one might need to adjust the calculations to include other items that are also interest bearing, such as leases^[See *IFRS 16* note on leases [here](https://www.ifrs.org/issued-standards/list-of-standards/ifrs-16-leases/)]
 
 ## Interpreting Solvency Ratios
 
@@ -198,6 +213,10 @@ $$
 -   In general, ratios attempt to measure the firm's ability to repay its **current** liabilities using its the **current** assets
 :::
 ::::::
+
+- All liquidity indicators seek, to some extent, answering the following question: if a firm had to liquidate some of its assets to honor its current liabilities, would the firm be able to do so?
+
+- These indicators help to understand, for example, why some firms need to hold substantial amounts of liquid assets, such as cash, instead of investing it in operating assets
 
 ## Liquidity Measures
 
