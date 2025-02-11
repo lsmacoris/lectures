@@ -58,10 +58,21 @@ To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) 
 ::: {.callout-note}
 ### 3. Contents
 
-Below you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
+At the end of this page, you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
 
 1. Hit `F` for full-screen mode
 2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`
 
 :::
+::: {.callout-note}
+### 4. Replications
 
+Along with the slides, each lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased. This file, that will also be posted on *eClass®*, can be downloaded and replicated on your side.
+
+To do that, download the file, open it up in RStudio, and render the Quarto document using the Render button (shortcut: `Ctrl+Shift+K`).
+
+You can find the permanent links to the replication files (`.qmd`) below:
+
+1. Bridging Finance with Programming - access [here](https://lsmacoris.github.io/lectures/quant-fin-replications/L1/L1-Replication.html)
+2. Collecting, Organizing, and Manipulating Financial Data - access [here](https://lsmacoris.github.io/lectures/quant-fin-replications/L2/L2-Replication.html)
+:::

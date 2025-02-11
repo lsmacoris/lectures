@@ -444,7 +444,6 @@ Lucas S. Macoris
 <li><em>R for Data Science</em> <span class="citation" data-cites="r4ds">(<a href="#/references" role="doc-biblioref" onclick="">Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023</a>)</span></li>
 </ol></li>
 </ul>
-<div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -457,9 +456,9 @@ Lucas S. Macoris
 <p>For coding replications, whenever applicable, please follow <a href="https://lsmacoris.github.io/lectures/quant-fin.html">this</a> page or hover on the specific slides with containing coding chunks.</p>
 <ol type="1">
 <li>Ensure that you have your <span class="blue"><i class="fa-brands fa-r-project" aria-label="r-project"></i></span> session properly set-up according to the instructions outlined in the course webpage</li>
-<li>In the webpage, you can also find a detailed discussion of the examples covered in this lecture</li>
+<li>Along with the slides, this lecture will also contain a replication file, in <code>.qmd</code> format, containing a thorough discussion for all examples that have been showcased. This file, that will be posted on <em>eClass®</em>, can be downloaded and replicated on your side. To do that, download the file, open it up in <em>RStudio</em>, and render the Quarto document using the <em>Render</em> button (shortcut: <code>Ctrl+Shift+K</code>).</li>
+<li>At the end of this lecture, you will be prompted with a hands-on exercise to test your skills using the tools you’ve learned as you made your way through the slides. A suggested solution will be provided in the replication file.</li>
 </ol>
-</div>
 </div>
 </div>
 </div>
@@ -468,6 +467,7 @@ Lucas S. Macoris
 <h2>Organizing Financial Data</h2>
 <ul>
 <li><p>In the previous lecture, you worked your way through the exercises by using the amazing <code>dplyr</code> functionalities on <code>data.frames</code></p></li>
+<li><p>In some cases, you had to do some workarounds with <code>drop_na()</code>, <code>slice_tail()</code> and <code>lag()</code> simply because you were manipulating time series data</p></li>
 <li><p>In this lecture, you will be introduced to a particular type of class in <code>R</code>: <code>xts</code></p></li>
 </ul>
 <div class="fragment">
@@ -504,7 +504,7 @@ Lucas S. Macoris
 <li><p>As a consequence, you won’t be able to use a lot of interesting functionalities that would perfectly apply for time series</p>
 <ol type="1">
 <li><p>But don’t you worry, I got you covered: the <code>tidyquant</code> package<sup>1</sup> integrates the best resources for collecting and analyzing financial data</p></li>
-<li><p>It integrates several financial packages, like <code>zoo</code>, <code>xts</code>, <code>quantmod</code>, <code>TTR</code>, and <code>PerformanceAnalytics</code>, with the tidy data infrastructure of the tidyverse allowing for seamless interaction between each</p></li>
+<li><p>It integrates several financial packages, like <code>zoo</code>, <code>xts</code>, <code>quantmod</code>, <code>TTR</code>, and <code>PerformanceAnalytics</code>, with the tidy data infrastructure of the <code>tidyverse</code>, allowing for seamless interaction between each</p></li>
 </ol></li>
 <li><p>You can now perform complete financial analyses using the same functionalities you’ve learned so far!</p></li>
 </ul>
@@ -652,39 +652,38 @@ Lucas S. Macoris
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(tidyquant)</span>
-<span id="cb5-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a><span class="co">#Netflix Data</span></span>
-<span id="cb5-5"><a></a>NFLX<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'NFLX'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb5-6"><a></a>  <span class="co">#Select only the necessary columns</span></span>
-<span id="cb5-7"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
-<span id="cb5-8"><a></a>  <span class="co">#Apply the weeklyReturn function and call the new column 'NFLX'</span></span>
-<span id="cb5-9"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> weeklyReturn,</span>
-<span id="cb5-10"><a></a>               <span class="at">col_rename =</span> <span class="st">'NFLX'</span>)</span>
-<span id="cb5-11"><a></a></span>
-<span id="cb5-12"><a></a><span class="co">#S&amp;P Data</span></span>
-<span id="cb5-13"><a></a>SP500<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'^GSPC'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb5-14"><a></a>  <span class="co">#Select only the necessary columns</span></span>
-<span id="cb5-15"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
-<span id="cb5-16"><a></a>  <span class="co">#Apply the weeklyReturn function and call the new column 'SP500'</span></span>
-<span id="cb5-17"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> weeklyReturn,</span>
-<span id="cb5-18"><a></a>               <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb5-19"><a></a>  <span class="co">#Apply the lag function for n=1 week and call the new column 'SP500'</span></span>
-<span id="cb5-20"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> lag.xts,</span>
-<span id="cb5-21"><a></a>            <span class="at">n=</span><span class="dv">1</span>,</span>
-<span id="cb5-22"><a></a>            <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb5-23"><a></a>  <span class="co">#Drop all rows with NA information (row 1, in this case)</span></span>
-<span id="cb5-24"><a></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb5-25"><a></a></span>
-<span id="cb5-26"><a></a><span class="co">#Merge Data </span></span>
-<span id="cb5-27"><a></a><span class="fu">inner_join</span>(NFLX,SP500)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co">#Assuming you have already loaded the tidyquant and the tidyverse packages</span></span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="co">#Netflix Data</span></span>
+<span id="cb5-4"><a></a>NFLX<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'NFLX'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a></a>  <span class="co">#Select only the necessary columns</span></span>
+<span id="cb5-6"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a></a>  <span class="co">#Apply the weeklyReturn function and call the new column 'NFLX'</span></span>
+<span id="cb5-8"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> weeklyReturn,</span>
+<span id="cb5-9"><a></a>               <span class="at">col_rename =</span> <span class="st">'NFLX'</span>)</span>
+<span id="cb5-10"><a></a></span>
+<span id="cb5-11"><a></a><span class="co">#S&amp;P Data</span></span>
+<span id="cb5-12"><a></a>SP500<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'^GSPC'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb5-13"><a></a>  <span class="co">#Select only the necessary columns</span></span>
+<span id="cb5-14"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb5-15"><a></a>  <span class="co">#Apply the weeklyReturn function and call the new column 'SP500'</span></span>
+<span id="cb5-16"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> weeklyReturn,</span>
+<span id="cb5-17"><a></a>               <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb5-18"><a></a>  <span class="co">#Apply the lag function for n=1 week and call the new column 'SP500'</span></span>
+<span id="cb5-19"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> lag.xts,</span>
+<span id="cb5-20"><a></a>            <span class="at">n=</span><span class="dv">1</span>,</span>
+<span id="cb5-21"><a></a>            <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb5-22"><a></a>  <span class="co">#Drop all rows with NA information (row 1, in this case)</span></span>
+<span id="cb5-23"><a></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb5-24"><a></a></span>
+<span id="cb5-25"><a></a><span class="co">#Merge Data </span></span>
+<span id="cb5-26"><a></a><span class="fu">inner_join</span>(NFLX,SP500)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-2">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 527 × 3
+<pre><code># A tibble: 528 × 3
    date           NFLX    SP500
    &lt;date&gt;        &lt;dbl&gt;    &lt;dbl&gt;
  1 2015-01-09 -0.0563   0      
@@ -697,7 +696,7 @@ Lucas S. Macoris
  8 2015-02-27 -0.00688  0.00635
  9 2015-03-06 -0.0438  -0.00275
 10 2015-03-13 -0.0346  -0.0158 
-# ℹ 517 more rows</code></pre>
+# ℹ 518 more rows</code></pre>
 </div>
 </div>
 </div>
@@ -707,10 +706,10 @@ Lucas S. Macoris
 <section id="working-with-time-series-objects-exercise-iii" class="slide level2">
 <h2>Working with time series objects, Exercise III</h2>
 <ul>
-<li>Lastly, finance practitioners are often asked to perform analysis on a rolling basis:
+<li>Finance practitioners are often asked to perform analysis on a rolling basis:
 <ol type="1">
 <li>We may want to calculate a given signal on day <span class="math inline">\(t\)</span> based on past <span class="math inline">\(x\)</span> periods of information</li>
-<li>Say, for example, that you want to calculate a simple and exponential moving average of adjusted prices from 5 days back for a given set of stocks</li>
+<li>Say, for example, that you want to calculate a simple and exponential moving average of adjusted prices from 5 days back for a given stock</li>
 </ol></li>
 <li>It is relatively straightforward to do it with <code>tidyquant</code>:
 <ol type="1">
@@ -726,25 +725,24 @@ Lucas S. Macoris
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(tidyquant)</span>
-<span id="cb7-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb7-3"><a></a></span>
-<span id="cb7-4"><a></a><span class="co">#Set up the list of assets</span></span>
-<span id="cb7-5"><a></a>assets<span class="ot">=</span><span class="fu">c</span>(<span class="st">'AMZN'</span>,<span class="st">'GOOG'</span>,<span class="st">'META'</span>,<span class="st">'GME'</span>)</span>
-<span id="cb7-6"><a></a></span>
-<span id="cb7-7"><a></a>assets<span class="sc">%&gt;%</span></span>
-<span id="cb7-8"><a></a>  <span class="fu">tq_get</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb7-9"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
-<span id="cb7-10"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
-<span id="cb7-11"><a></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> SMA, <span class="at">n =</span> <span class="dv">5</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb7-12"><a></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> EMA, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co">#Assuming you have already loaded the tidyquant and the tidyverse packages</span></span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="co">#Set up the list of assets</span></span>
+<span id="cb7-4"><a></a>assets<span class="ot">=</span><span class="fu">c</span>(<span class="st">'AMZN'</span>)</span>
+<span id="cb7-5"><a></a></span>
+<span id="cb7-6"><a></a>assets<span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a></a>  <span class="fu">tq_get</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb7-9"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> SMA, <span class="at">n =</span> <span class="dv">5</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> EMA, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-3-2">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10,164 × 5
-# Groups:   symbol [4]
+<pre><code># A tibble: 2,542 × 5
+# Groups:   symbol [1]
    symbol date       adjusted   SMA   EMA
    &lt;chr&gt;  &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
  1 AMZN   2015-01-02     15.4  NA    NA  
@@ -757,7 +755,60 @@ Lucas S. Macoris
  8 AMZN   2015-01-13     14.7  14.8  14.8
  9 AMZN   2015-01-14     14.7  14.8  14.8
 10 AMZN   2015-01-15     14.3  14.6  14.6
-# ℹ 10,154 more rows</code></pre>
+# ℹ 2,532 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-time-series-objects-exercise-iv" class="slide level2">
+<h2>Working with time series objects, Exercise IV</h2>
+<ul>
+<li><p>Lastly, financial analysts often cover a collection of securities on a rolling basis</p></li>
+<li><p>For example, a buy-side analyst will monitor stocks from a given industry so as to understand which ones are <span class="red">over</span>valued, and which ones are <span class="green">under</span>valued</p></li>
+<li><p>Say, for example, that you want to focus on a subset of 4 stocks, and you need to compare the cumulative return up to the latest closing price</p></li>
+<li><p>It is easy to integrate the <code>tidyquant</code> functions along with the <code>group_by()</code> function you’ve learned when working with <code>dplyr</code>:</p>
+<ol type="1">
+<li>Get the information using <code>tq_get()</code></li>
+<li>Group the data by <code>symbol</code></li>
+<li>Apply the <code>tq_mutate</code> and <code>tq_transmute</code> functions to pass time series functions to the data - in this case, the <code>dailyReturn()</code> and the <code>Return.cumulative()</code> function</li>
+</ol></li>
+</ul>
+</section>
+<section id="working-with-time-series-objects-exercise-iii-2" class="slide level2">
+<h2>Working with time series objects, Exercise III</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co">#Assuming you have already loaded the tidyquant and the tidyverse packages</span></span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a><span class="co">#Set up the list of assets</span></span>
+<span id="cb9-4"><a></a>assets<span class="ot">=</span><span class="fu">c</span>(<span class="st">'AMZN'</span>,<span class="st">'GOOG'</span>,<span class="st">'META'</span>,<span class="st">'GME'</span>)</span>
+<span id="cb9-5"><a></a></span>
+<span id="cb9-6"><a></a>assets<span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a></a>  <span class="fu">tq_get</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> dailyReturn,<span class="at">col_rename =</span> <span class="st">'daily_return'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a></a>  <span class="fu">tq_transmute</span>(daily_return,<span class="at">mutate_fun =</span> Return.cumulative)<span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric),percent,<span class="at">big.mark=</span><span class="st">'.'</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">'Ticker'</span>,<span class="st">'Cumulative Return up-to-date'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+# Groups:   Ticker [4]
+  Ticker `Cumulative Return up-to-date`
+  &lt;chr&gt;  &lt;chr&gt;                         
+1 AMZN   1 411%                        
+2 GOOG   622%                          
+3 META   818%                          
+4 GME    331%                          </code></pre>
 </div>
 </div>
 </div>
@@ -769,10 +820,10 @@ Lucas S. Macoris
 <ul>
 <li><p>There is so much you can use from <code>tidyquant</code> in your journey as a quantitative financial analyst:</p>
 <ol type="1">
-<li><p>I’d recommend looking at all the predefined functions supported by <code>tidyquant</code> - click <a href="https://business-science.github.io/tidyquant/articles/TQ02-quant-integrations-in-tidyquant.html">here</a> for a detailed discussion around all supported functions</p></li>
+<li><p>I strongly recommend looking at all the predefined functions supported by <code>tidyquant</code> - click <a href="https://business-science.github.io/tidyquant/articles/TQ02-quant-integrations-in-tidyquant.html">here</a> for a detailed discussion around all supported functions</p></li>
 <li><p>You can also customize your <em>own</em> functions that work with time series (for example, your secret trading indicator) and pass it over through <code>tq_mutate()</code> or <code>tq_transmute()</code></p></li>
 </ol></li>
-<li><p>In the <a href="https://business-science.github.io/tidyquant/articles/TQ00-introduction-to-tidyquant.html">official website</a> website, you can find a variety of examples to nurture your creativity around what you can do using this package</p></li>
+<li><p>In the package’s <a href="https://business-science.github.io/tidyquant/articles/TQ00-introduction-to-tidyquant.html">official website</a>, you can find a variety of examples to nurture your creativity around what you can do using this package</p></li>
 <li><p>All in all, that’s the motto: time series analysis made easy with <code>tidyquant</code> and the <code>tidyverse</code></p></li>
 </ul>
 </section>
@@ -789,8 +840,19 @@ Lucas S. Macoris
 <section id="hands-on-exercise" class="slide level2">
 <h2>Hands-On Exercise</h2>
 <ul>
-<li>Your manager (who did not lift any weights past the last 5 years) wanted to replicate the returns of the so called <em>Deadlift ETF</em>. You job is to create a simple table of yearly returns comparing the <em>Deadlift ETF</em> <em>vis-a-vis</em> the <em>S&amp;P500</em> Index. For that, proceed with the following instructions:</li>
+<li><p>Your manager (who did not lift any weights past the last 5 years) wanted to replicate the returns of the <em>Deadlift ETF</em> from 2020 to 2024. You job is to create a simple table of yearly returns comparing the <em>Deadlift ETF</em> <em>vis-a-vis</em> the <em>S&amp;P500</em> Index</p></li>
+<li><p>Follow the instructions and answer to the following questions:</p>
+<ol type="1">
+<li><strong>When looking at the yearly results from both the <em>Deadlift ETF</em> and <em>S&amp;P500</em>, which one did perform better?</strong></li>
+<li><strong>What are the potential explanations for the result you have found?</strong></li>
+</ol></li>
+<li><p>To answer to these questions, you will be using the a combination of <code>dplyr</code> and <code>tidyquant</code> functions you have learned so far</p></li>
+<li><p>The expected result is a <code>data.frame</code> object that shows both the <em>Deadlift ETF</em> as well as the <em>S&amp;P500</em> returns (columns) on a yearly basis (rows)</p></li>
 </ul>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Suggested solution will be provided in the replication file for this lecture.</em></p>
+</section>
+<section id="hands-on-exercise-continued" class="slide level2">
+<h2>Hands-On Exercise, continued</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -800,80 +862,15 @@ Lucas S. Macoris
 <p><strong>Exercise</strong></p>
 </div>
 <div class="callout-content">
+<p>Before you start, make sure to have the <code>tidyverse</code> and the <code>tidyquant</code> packages loaded in your session. Following the instructions from the previous lectures, you can either make a direct call to each package, <code>library(tidyverse)</code> and <code>library(tidyquant)</code>, or copy-paste the script from the course’s <a href="https://lsmacoris.github.io/lectures/quant-fin">official website</a>.</p>
 <ol type="1">
-<li>Use <code>tq_get()</code> to load information from the <em>S&amp;P Index</em> and the <em>Deadlift ETF</em> constituents in two separate <code>data.frames</code></li>
-<li>Filter for observations starting in 2020</li>
-<li>Create, for each different <code>symbol</code>, a <code>yearly_ret</code> variable that calculates the yearly return of a given stock</li>
-<li>Calculate the <em>Deadlift</em> returns (<em>Hint: it is an equally weighted portfolio</em>)</li>
+<li>Use <code>tq_get()</code> to load information from the <em>S&amp;P Index</em> and the <em>Deadlift ETF</em> constituents in two separate objects. You can use the code <code>^GSPC</code> to retrieve information for the index, and you can pass a vector <code>c('ticker1','ticker2',...,'ticker_n')</code> to get information on the <em>Deadlift ETF</em> constituents</li>
+<li>Filter for observations starting between 2020 (beginning of) and 2024 (end of) using the <code>from</code> and <code>to</code> arguments of the <code>tq_get()</code> function</li>
+<li>Group the <em>Deadlift ETF</em> data by <code>symbol</code> using the <code>group_by()</code> function</li>
+<li>For both data sets, create a <code>yearly_ret</code> variable that calculates the yearly return of a given security. You can use the <code>tq_transmute()</code> function, passing the <code>yearlyReturn()</code> function along the chain</li>
+<li>For the <em>Deadlift</em> data set, regroup the data by <code>date</code> and calculate the <em>Deadlift</em> returns using a <code>mutate()</code> function (<em>Hint: it is an equally weighted portfolio</em>)</li>
 <li>Merge both datasets using <code>inner_join()</code></li>
 </ol>
-</div>
-</div>
-</div>
-<ul>
-<li>When looking at the yearly results from both the <em>Deadlift ETF</em> and <em>S&amp;P500</em>, which one did perform better? What are the potential explanations for that?</li>
-</ul>
-</section>
-<section id="solution" class="slide level2">
-<h2>Solution</h2>
-<div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Output</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Set up the list of assets</span></span>
-<span id="cb9-2"><a></a>deadlift<span class="ot">=</span><span class="fu">c</span>(<span class="st">'META'</span>,<span class="st">'AMZN'</span>,<span class="st">'GS'</span>,<span class="st">'UBER'</span>,<span class="st">'MSFT'</span>,<span class="st">'AAPL'</span>,<span class="st">'BLK'</span>,<span class="st">'NVDA'</span>)</span>
-<span id="cb9-3"><a></a></span>
-<span id="cb9-4"><a></a><span class="co">#Set up the starting date</span></span>
-<span id="cb9-5"><a></a>start<span class="ot">=</span><span class="st">'2020-01-01'</span></span>
-<span id="cb9-6"><a></a></span>
-<span id="cb9-7"><a></a><span class="co">#Step 1: Read the Deadlift data using tidyquant</span></span>
-<span id="cb9-8"><a></a>Deadlift_Performance<span class="ot">=</span>deadlift<span class="sc">%&gt;%</span></span>
-<span id="cb9-9"><a></a>  <span class="fu">tq_get</span>(<span class="at">from=</span>start)<span class="sc">%&gt;%</span></span>
-<span id="cb9-10"><a></a>  <span class="co">#Select only the columns of interest</span></span>
-<span id="cb9-11"><a></a>  <span class="fu">select</span>(symbol,date,adjusted)<span class="sc">%&gt;%</span></span>
-<span id="cb9-12"><a></a>  <span class="co">#Group by symbol and date</span></span>
-<span id="cb9-13"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
-<span id="cb9-14"><a></a>  <span class="co">#Use tq_transmute to aggregate and calculate weekly returns</span></span>
-<span id="cb9-15"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">selected=</span>adjusted,</span>
-<span id="cb9-16"><a></a>               <span class="at">mutate_fun=</span>yearlyReturn,</span>
-<span id="cb9-17"><a></a>               <span class="at">col_rename =</span> <span class="st">'Deadlift'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb9-18"><a></a>  <span class="co">#Group by date</span></span>
-<span id="cb9-19"><a></a>  <span class="fu">group_by</span>(date)<span class="sc">%&gt;%</span></span>
-<span id="cb9-20"><a></a>  <span class="co">#Summarize average return (since it is an equally-weighted portfolio)</span></span>
-<span id="cb9-21"><a></a>  <span class="fu">summarize</span>(<span class="at">Deadlift=</span><span class="fu">mean</span>(Deadlift,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
-<span id="cb9-22"><a></a></span>
-<span id="cb9-23"><a></a><span class="co">#Step 2: Read the S&amp;P500 data using tidyquant</span></span>
-<span id="cb9-24"><a></a>SP500_Performance<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'^GSPC'</span>,<span class="at">from=</span>start)<span class="sc">%&gt;%</span></span>
-<span id="cb9-25"><a></a>  <span class="co">#Select only the columns of interest</span></span>
-<span id="cb9-26"><a></a>  <span class="fu">select</span>(symbol,date,adjusted)<span class="sc">%&gt;%</span></span>
-<span id="cb9-27"><a></a>  <span class="co">#Group by symbol and date</span></span>
-<span id="cb9-28"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
-<span id="cb9-29"><a></a>  <span class="co">#Use tq_transmute to aggregate and calculate weekly returns</span></span>
-<span id="cb9-30"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">selected=</span>adjusted,</span>
-<span id="cb9-31"><a></a>               <span class="at">mutate_fun=</span>yearlyReturn,</span>
-<span id="cb9-32"><a></a>               <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb9-33"><a></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb9-34"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>symbol)</span>
-<span id="cb9-35"><a></a>    </span>
-<span id="cb9-36"><a></a><span class="co">#Merge</span></span>
-<span id="cb9-37"><a></a>SP500_Performance<span class="sc">%&gt;%</span><span class="fu">inner_join</span>(Deadlift_Performance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-4-2">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  date         SP500 Deadlift
-  &lt;date&gt;       &lt;dbl&gt;    &lt;dbl&gt;
-1 2020-12-31  0.153    0.579 
-2 2021-12-31  0.269    0.372 
-3 2022-12-30 -0.194   -0.360 
-4 2023-12-29  0.242    1.00  
-5 2024-12-31  0.233    0.506 
-6 2025-02-07  0.0245   0.0578</code></pre>
-</div>
-</div>
 </div>
 </div>
 </div>
