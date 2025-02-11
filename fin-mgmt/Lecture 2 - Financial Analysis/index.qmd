@@ -63,13 +63,13 @@ from: markdown+emoji
 -   Investors often use [accounting statements]{.blue} to evaluate a firm in one of two ways:
 
     1.  Compare the firm with itself by analyzing how the firm has changed [over time]{.blue}
-    2.  Compare the firm to [other similar firms]{.blue} using a common set of financial ratios 
+    2.  Compare the firm to [other similar firms]{.blue} using a common set of financial ratios
 
 -   Despite being a high-level view of complexity that is the firm's business, such information can shed light on some areas that dictate the firm's performance
 
 -   Accounting statements are the inputs of a series of analysis that can be done to assess financial performance
 
-- To that point, we can mix and match information from accounting statements in order to create meaningful financial indicators that guide our analysis
+-   To that point, we can mix and match information from accounting statements in order to create meaningful financial indicators that guide our analysis
 
 ## What drives firm performance?
 
@@ -148,7 +148,7 @@ Liquidity refers to the ease with which an asset, or security, **can be converte
 
 -   The easiest solvency indicator to begin with compares the amount of equity relative to all liabilities a firm has at a given point in time
 
-- The [Liabilities-to-Equity]{.blue} indicator measures the **overall** solvency of a given firm, and is calculated as:
+-   The [Liabilities-to-Equity]{.blue} indicator measures the **overall** solvency of a given firm, and is calculated as:
 
 . . .
 
@@ -156,16 +156,15 @@ $$
 \text{Liabilities to Equity}=\dfrac{\text{Total Liabilities}}{\text{Equity}}
 $$
 
-- **Interpretation**: for each $\small \$1$ of equity, how much dollars (or cents) a firm has in liabilities?
+-   **Interpretation**: for each $\small \$1$ of equity, how much dollars (or cents) a firm has in liabilities?
 
-1. Despite being a helpful guide on analyzing how the firm's [leverage]{.blue} decisions are reflected in the balance sheet, this indicator may not reflect the
+1.  Despite being a helpful guide on analyzing how the firm's [leverage]{.blue} decisions are reflected in the balance sheet, this indicator may not reflect the
 
-2. For example, a lot of liabilities might just be related to accounts that are part of the business cycle: wages payable, taxes payable, accounts payable (suppliers), etc
+2.  For example, a lot of liabilities might just be related to accounts that are part of the business cycle: wages payable, taxes payable, accounts payable (suppliers), etc
 
 ## Solvency Ratios, continued
 
-
-- The [Debt-to-Equity]{.blue} focuses the on the Debt component, which is generally more descriptive of the firm's financing decisions as it only includes *interest-bearing* liabilities:
+-   The [Debt-to-Equity]{.blue} focuses the on the Debt component, which is generally more descriptive of the firm's financing decisions as it only includes *interest-bearing* liabilities:
 
 . . .
 
@@ -173,11 +172,13 @@ $$
 \text{Debt to Equity}=\dfrac{\text{Short-Term Debt + Long-Term Debt}}{\text{Equity}}
 $$
 
-- **Interpretation**: for each $\small \$1$ of equity, how much dollars (or cents) a firm has in *interest-bearing* liabilities?
+-   **Interpretation**: for each $\small \$1$ of equity, how much dollars (or cents) a firm has in *interest-bearing* liabilities?
 
-1. This indicator is very useful in understanding the *mix* of debt and equity a firm has ultimately decided to adopt so as to fund its projects 
+1.  This indicator is very useful in understanding the *mix* of debt and equity a firm has ultimately decided to adopt so as to fund its projects
 
-2. **Important**: whenever assessing which accounts should be classified as *debt*, one might need to adjust the calculations to include other items that are also interest bearing, such as leases^[See *IFRS 16* note on leases [here](https://www.ifrs.org/issued-standards/list-of-standards/ifrs-16-leases/)]
+2.  **Important**: whenever assessing which accounts should be classified as *debt*, one might need to adjust the calculations to include other items that are also interest bearing, such as leases[^1]
+
+[^1]: See *IFRS 16* note on leases [here](https://www.ifrs.org/issued-standards/list-of-standards/ifrs-16-leases/)
 
 ## Interpreting Solvency Ratios
 
@@ -214,9 +215,9 @@ $$
 :::
 ::::::
 
-- All liquidity indicators seek, to some extent, answering the following question: if a firm had to liquidate some of its assets to honor its current liabilities, would the firm be able to do so?
+-   All liquidity indicators seek, to some extent, answering the following question: if a firm had to liquidate some of its assets to honor its current liabilities, would the firm be able to do so?
 
-- These indicators help to understand, for example, why some firms need to hold substantial amounts of liquid assets, such as cash, instead of investing it in operating assets
+-   These indicators help to understand, for example, why some firms need to hold substantial amounts of liquid assets, such as cash, instead of investing it in operating assets
 
 ## Liquidity Measures
 
@@ -380,7 +381,9 @@ $$
 
 $$
 \text{Current Ratio}\small=\dfrac{\text{Current Assets}}{\text{Current Liabilities}}=\dfrac{77,000}{24,500}\approx3.14
-$$ $$
+$$
+
+$$
 \text{Quick Ratio}=\small \dfrac{\text{Cash+S.T Inv + Acc. Rec.}}{\text{Current Liabilities}}=\dfrac{15,000+4,500+7,500}{24,500}=\dfrac{27,000}{24,500}\approx1.1
 $$
 
@@ -410,9 +413,7 @@ $$
 
 ## One indicator to rule them all
 
--   At the end of the day, shareholders will ask: for each dollar invested, how much does the firm return back to its shareholders?
-
--   The [Return on Equity (ROE)]{.blue} measures exactly this:
+-   At the end of the day, shareholders will ask: **for each dollar invested, how much does the firm return back to its shareholders?** The [*Return on Equity (ROE)*]{.blue} measures the percent return to the shareholders of the firm:
 
 . . .
 
@@ -420,7 +421,9 @@ $$
 ROE=\dfrac{\text{Net Income}}{\text{Equity}}
 $$
 
--   [ROE]{.blue} is a comprehensive indicator of a firm's performance because it provides an indication of how well managers are employing the funds invested by the firm's shareholders to generate returns:
+- [*ROE*]{.blue} is a comprehensive indicator of a firm's performance as it gauges how well managers are employing the funds invested by the firm's shareholders to generate   returns
+
+- Using the numbers from our example, we have:
 
 . . .
 
@@ -428,29 +431,29 @@ $$
 ROE=\dfrac{\text{Net Income}}{\text{Equity}}=\dfrac{150,000}{500,000}=30\%
 $$
 
-## Analyzing ROE
+## Analyzing *ROE*
 
--   **In the long-run, firms are expected to earn a ROE that is higher than its cost of capital:**
+-   **In the long-run, firms are expected to earn a *ROE* that is higher than its cost of capital:**
 
     1.  Consistently generating ROE above average, absent any barriers to entry, makes entry attractive for competitors
-    2.  $\uparrow$ Competition $\rightarrow$ ROE tends to go down to a "normal", benchmark level
+    2.  $\uparrow$ Competition $\rightarrow$ *ROE* tends to go down to a "normal", benchmark level
 
--   **Short-term deviations from such "benchmark" level of ROE can occur due to:**
+-   **Short-term deviations from such "benchmark" level of *ROE* can occur due to:**
 
     1.  Industry conditions and competitive strategy
     2.  Accounting distortions
 
 -   **Drawbacks**:
 
-    1.  [ROE]{.blue} doesn't explain the whole story: it shows how well managers are employing shareholders' capital, but it cannot explain what were the drivers of such performance
+    1.  [*ROE*]{.blue} doesn't explain the whole story: it shows how well managers are employing shareholders' capital, but it cannot explain what were the drivers of such performance
 
-    2.  Accounting distortions: ROE comparisons can be misleading if, for some reason, different firms are exposed to different accounting treatments
+    2.  Accounting distortions: *ROE* comparisons can be misleading if, for some reason, different firms are exposed to different accounting treatments
 
-## Decomposing ROE
+## Decomposing *ROE*
 
--   Say that you want to understand *how* the firm has generated the $30\%$ [ROE]{.blue} previously shown. A firm's ROE can be broke down in two factors:
-    1.  The profitably it employs its assets
-    2.  How big the firm's asset base is relative to shareholders' investment.
+-   Say that you want to understand *how* the firm has generated the $\small 30\%$ [*ROE*]{.blue} previously shown. The indicator can be broken down in [two]{.blue} factors:
+    1.  The [profit margin]{.blue} it generates from its assets
+    2.  How big the firm's [asset base]{.blue} is relative to shareholders' investment
 
 . . .
 
@@ -458,13 +461,13 @@ $$
 ROE=\dfrac{\text{Net Income}}{\text{Equity}}=\underbrace{\dfrac{\text{Net Income}}{\text{Assets}}}_{ROA}\times \underbrace{\dfrac{\text{Assets}}{\text{Equity}}}_{Leverage}
 $$
 
-1.  The *Return on Assets* ([ROA]{.blue}) tells us how much profit a company is able to generate for each dollar of assets invested, irrespective of the mix of financing
+1.  The *Return on Assets* ([*ROA*]{.blue}) tells us how much profit a company is able to generate for each dollar of assets invested, irrespective of the mix of financing
 
 2.  Financial leverage indicates how many dollars of assets the firm is able to deploy for each dollar invested by its shareholders
 
 ## ROA and Financial Leverage
 
--   Using the numbers from our company, we have:
+-   Using the numbers from our example, we have:
 
 . . .
 
@@ -478,7 +481,7 @@ $$
 Leverage= \dfrac{\text{Assets}}{\text{Equity}}=\dfrac{750,000}{500,000}=1.5
 $$
 
--   Therefore, we can compute ROE as:
+-   Therefore, we can compute the *ROE* as:
 
 . . .
 
@@ -508,7 +511,7 @@ theme_minimal()+
 scale_colour_manual(values=c('Positive'='darkgreen','Negative'='red'))+
 scale_y_continuous(labels = scales::percent)+
 scale_x_continuous(breaks=seq(1,2,0.1))+
-labs(title='How different Leverage levels affects ROE?',
+labs(title='How different Leverage choices affect ROE?',
      subtitle='A simulation using ROA=20% and -20%, varying on Leverage levels',
      x='Leverage',
      y='Return on Equity',
@@ -519,23 +522,26 @@ geom_vline(xintercept = 1,linetype='dashed')+
 theme(legend.position = 'none',
       axis.title = element_text(size=20),
       title = element_text(size=25),
+      plot.subtitle = element_text(size=20),
       axis.text  = element_text(size=15,face='bold'))
 
 Plot
 
 ```
 
-## Analyzing the ROE decomposition
+## Analyzing the *ROE* decomposition
 
--   Our ROE decompositon yielded the following results:
+-   Our *ROE* decomposition yielded the following results:
 
-    1.  The Return on Assets is 20%
-    2.  Firm's leverage is 1.5
+    1.  The Return on Assets is $\small20\%$
+    2.  Firm's leverage is $\small1.5$
 
--   We can see that leverage acts in this case by bumping up the shareholder's return
+-   We can see that leverage acts in this case by exacerbating the shareholder's return, either [upwards]{.green} or [downwards]{.red}
 
     1.  As the firm uses debt in its mix, after paying out the interest expenses, all the remaining net income is accrued to the shareholders
     2.  Therefore, using debt leverages the returns since the the value of assets being employed in the operation are higher than what the shareholders are employing
+
+- **Note, however, that there is a catch:** if the firm's *ROA* is [negative]{.red}, it means that the shareholder's *ROE* will be even [lower]{.red} than in the case where the company was financed using 100% Equity!
 
 ## Concept check-in
 
@@ -561,26 +567,33 @@ d.  [Calculating a given industry's ROE can shed light on the industry's equilib
 e.  [If a firm opts to perform a *sale-and-leaseback operation*, it will never affect its calculated ROE]{.red}
 :::
 
-## Understanding operational performance - *DuPont*'s Formula
+## The *DuPont* Decomposition
 
-Suppose you now want to dissect the ROE levers even deeper. A way to do this is to analyze the composition of the *ROA* portion:
+- You can drill down the *ROE* determinants even deeper by explanding the *ROA* component:
+
+. . .
 
 $$
 \small ROE=ROA\times Leverage=\dfrac{\text{Net Income}}{\text{Assets}}\times \dfrac{\text{Assets}}{\text{Equity}}=\bigg[\bigg(\dfrac{\text{Net Income}}{\text{Sales}}\times \dfrac{\text{Sales}}{\text{Assets}}\bigg)\bigg]\times \dfrac{\text{Assets}}{\text{Equity}}
-$$ Therefore, we can view ROE as a composite of:
+$$
+
+- Therefore, one can view *ROE* as a composite of [three]{.blue} determinants:
+
+. . .
 
 $$
 \small ROE=\underbrace{\dfrac{\text{Net Income}}{\text{Sales}}}_{\text{Net Profit Margin}}\times \underbrace{\dfrac{\text{Sales}}{\text{Assets}}}_{\text{Asset Turnover}}\times \underbrace{\dfrac{\text{Assets}}{\text{Equity}}}_{Leverage}
 $$
 
--   The [Net Profit Margin]{.blue} indicates how much a firm keeps for each dollar of sales it makes
--   The [Asset Turnover]{.blue} indicates how many sales it gets for each dollar of assets
+  1.   The [*Net Profit Margin*]{.blue} indicates how much a firm keeps for each dollar of sales it makes
+  2.   The [*Asset Turnover*]{.blue} indicates how many sales it gets for each dollar of assets
+  3.   The [*Leverage*]{.blue} indicates how big is the firm's asset base relative to the shareholder's equity
 
 ## Applying the *DuPont*'s ROE Decomposition
 
 . . .
 
-Using the numbers from our example, we have:
+- Using the numbers from our example, we have:
 
 . . .
 
@@ -590,10 +603,10 @@ $$
 
 . . .
 
-This preliminary decomposition of ROE begins to show us how an examination of the building blocks of these ratios can yield a deeper understanding of how strategic, investment, and financing decisions made by the firm affect its ratios:
+- Such decomposition greatly improve our understanding of how strategic, investment, and financing decisions made by the firm affect its ratios:
 
 1.  By nailing ROE down to specific determinants, one can understand *how* managers are generating return to the shareholders
-2.  Understanding and comparing these specific drivers to benchmarks help us understanding the areas where the managers are over(under)performing
+2.  Understanding and comparing these specific drivers to benchmarks help us understanding the areas where the managers are [over]{.green}([under]{.red})performing
 
 . . .
 
@@ -682,7 +695,7 @@ $$
 
 ## Concept Check
 
-1.  First Scenario:
+1.  **First Scenario:**
 
 . . .
 
@@ -692,7 +705,7 @@ $$
 ROE_{1}=1\times9\%\times1.66=15\%
 $$
 
-2.  Second Scenario:
+2.  **Second Scenario:**
 
 . . .
 
@@ -723,18 +736,23 @@ $$
 
 ![](Images/F10.jpg)
 
--   Each line item can be thought of an index that represents the % of sales. *Net Profit Margin* is thus a composite effect of these impacts on firm's total sales!
+- Each line item can be thought of an index that represents the % of sales
+
+- Therefore, the *Net Profit Margin* is thus a composite effect of these impacts on firm's total sales!
 
 ## Gross Profit Margin
 
--   It is the difference between a firm's sales and cost of sales is gross profit, and is an indication of the extent to which revenues exceed *direct* costs associated with sales:
 
-. . .
+::: {.callout-tip}
+
+### Definition
+The [*Gross Profit Margin*]{.blue} is the difference between a firm's sales and cost of sales is gross profit, and is an indication of the extent to which revenues exceed *direct* costs associated with sales:
 
 $$
 \small\text{Gross Profit Margin}=\dfrac{\text{Sales - Cost of Sales}}{\text{Total Sales}}
 $$
 
+::: 
 -   Using the numbers from our example, we have:
 
 . . .
@@ -743,24 +761,29 @@ $$
 \small\text{Gross Profit Margin}=\dfrac{\text{Sales - Cost of Sales}}{\text{Total Sales}}=\dfrac{1,000,000-600,000}{1,000,000}=40\%
 $$
 
--   Factors that influence Gross Profit Margins:
+-   Factors that influence *Gross Profit Margins*:
 
     1.  The price premium that a firm's products or services operate
     2.  The efficiency of the firm's operations
 
 ## Net Operating Profit After Taxes (NOPAT)
 
--   After deducting *direct* costs, there are still *indirect* operating costs (or revenues) to be taken into consideration. *NOPAT* takes into account all [non-financial]{.blue} components
-
--   NOPAT Margin is then calculated as:
+- After deducting *direct* costs, there are still *indirect* operating costs (or revenues) to be taken into consideration, not to mention the effects of taxes. To take both *direct* and *indirect* costs as well as the effects of taxes into account, we can canculate a firm's [*NOPAT*]{.blue}
 
 . . .
 
+::: {.callout-tip}
+### Definition
+
+The [*Net Operating Profit after Taxes*]{.blue} (also known as [*NOPAT*]{.blue}) takes into account all [non-financial]{.blue} components. The *NOPAT margin* is calculated as:
+
 $$
-\small \text{NOPAT Margin}=\dfrac{(\text{Sales}-\text{COGS}-\text{SG&A}-\text{Depr./Am.}\pm\text{Other Non. Fin.})\times(1-\text{Tax Rate})}{\text{Total Sales}}
+\text{NOPAT Margin}=\dfrac{(\text{Sales}-\text{COGS}-\text{SG&A}-\text{Depr./Am.}\pm\text{Other Non. Fin.})\times(1-\text{Tax Rate})}{\text{Total Sales}}
 $$
 
--   Using our example (and assuming a 40% tax rate), we have:
+:::
+
+-   Using our example (and assuming a $\small40\%$ tax rate), we have:
 
 . . .
 
@@ -768,61 +791,90 @@ $$
 \small \text{NOPAT Margin}=\dfrac{(1,000,000-600,000-125,000)\times(1-40\%)}{1,000,000}=16.5\%
 $$
 
-## Understanding NOPAT
+## Understanding *NOPAT*
 
--   NOPAT margin provides a comprehensive indication of the operating performance of a company because it reflects all [operating]{.blue} costs and eliminates the effects of debt policy:
+-   The *NOPAT* margin provides a comprehensive indication of the operating performance of a company because it reflects all [operating]{.blue} costs and eliminates the effects of debt policy:
 
 -   In special, *Selling, General, and Administrative Expenses (SG&A)* expenses are influenced by the operating activities it has to undertake to implement its competitive strategy:
 
     1.  Firms with differentiation strategies have to undertake activities to achieve that differentiation (e.g, R&D-intensive firms)
     2.  Similarly, a company that attempts to build a brand-equity is likely to have higher selling and administration costs
 
--   On the other hand, SG&A expenses are also influenced by the *efficiency* with which it manages its overhead activities
+-   SG&A expenses are also influenced by the *efficiency* of the firm's overhead activities
 
--   **A word of caution**: as we saw, although NOPAT is a comprehensible indicator for the operating performance of a firm, it can mask some important differences when it comes to account treatments!
+. . .
 
-## EBIT, NOPAT, and the Tax Rate
+::: {.callout-important}
+### A word of caution
 
--   **Question:** in the *NOPAT* calculation, why do we use a Tax Rate (that is generally given) instead of just collecting the Tax Expenses from the Income Statement?
+As we saw, although *NOPAT* is a comprehensible indicator for the operating performance of a firm, it can mask some important differences when it comes to account treatments!
+:::
+
+
+## The *NOPAT* and the *Tax Rate*
+
+-   **Question:** in the *NOPAT* calculation, why do we use a *Tax Rate* (that is generally given) instead of just collecting the *Tax Expenses* from the Income Statement?
 
 -   Note that the tax expense in the Income Statement comes from the taxable income, which is, in turn, composed of [Operating]{.blue} as well as [Financing]{.blue} components
 
--   If you simply deduct Tax Expenses, you are potentially considering the tax-shield that comes from Net Interest Expenses into the calculation:
+-   If you simply deduct *Tax Expenses*, you are potentially considering the tax-shield that comes from *Net Interest Expenses* into the calculation:
 
     1.  Firms with more debt in its capital structure, all else equal, will pay lower taxes
     2.  Firms that had previous losses can compensate future profits paying less taxes
 
--   Therefore, he *Tax Rate* used can be a source of distortions due to different accounting treatments. Calculating the *EBIT* is a way to insulate the analysis from tax-effects:
+- Therefore,  *Tax Expenses* can be a source of distortions due to different financing decisions when comparing different firms and/or the same firm over time!
+
+- As such, a more *apples-to-apples* comparison between firms that have very different capital structure may involve insulating the analysis from financials *and* taxes! 
+
+## The *EBIT* margin
+
+::: {.callout-tip}
+### Definition
+
+The [*Earnings before Interest and Taxes*]{.blue} (also known as [*EBIT*]{.blue}) takes into account all [non-financial]{.blue} components, disregarding any effects from taxes and interest income/expenses. The *EBIT margin* is calculated as:
+
+$$
+\text{EBIT Margin}=\dfrac{(\text{Sales}-\text{COGS}-\text{SG&A}-\text{Depr./Am.}\pm\text{Other Non. Fin.})}{\text{Total Sales}}=\dfrac{275,000}{1,000,000}=27.5\%
+$$
+:::
+
+- The *EBIT* margin takes into account:
+
+  1. The direct costs of the activity (*Cost of Goods Sold*)
+  2. The indirect costs of the activity (*SG&A Expenses*)
+  
+- It *disregards* the effects of financial income/expenses in the calculation, as well as taxes
+
+- As such, such indicator can be used to compare firms with distinct financing structures!
+
+## From *EBITDA* to *EBITDA*
+
+- Apart from taxes, another criticism around *NOPAT* (and *EBIT*) is that they still take into consideration a significant *non-cash* item: *Depreciation and Amortization expenses*
+
+- The *Earnings Before Interest, Taxes, Depreciation, and Amortization* [adds back]{.blue} *Depreciation/Amortization* expenses and does not deduct taxes:
 
 . . .
 
-$$
-\small \text{EBIT Margin}=\dfrac{(\text{Sales}-\text{COGS}-\text{SG&A}-\text{Depr./Am.}\pm\text{Other Non. Fin.})}{\text{Total Sales}}=\dfrac{275,000}{1,000,000}=27.5\%
-$$
+::: {.callout-tip}
+### Definition
 
-## EBITDA
-
--   We saw that tax expenses may be highly influenced by firm-specific and period-specific factors that can distort comparisons
-
--   However, another criticism around *NOPAT* is that also it takes into consideration a significant *non-cash* item: Depreciation and Amortization expenses
-
--   The *Earnings Before Interest, Taxes, Depreciation, and Amortization* [adds back]{.blue} *Depreciation/Amortization* expenses and does not deduct taxes:
-
-. . .
+The [*Earnings before Interest and Taxes*]{.blue} (also known as [*EBIT*]{.blue}) takes into account all [non-financial]{.blue} components, disregarding any effects from taxes and interest income/expenses. The *EBIT margin* is calculated as:
 
 $$
-\small\text{EBITDA Margin}=\dfrac{\text{Net Income} + \text{Interest Expenses} + \text{Taxes}+ \text{Depreciation/Amortization}}{\text{Total Sales}}
+\small \text{EBITDA Margin}=\dfrac{\text{Net Income} + \text{Interest Expenses} + \text{Taxes}+ \text{Depreciation/Amortization}}{\text{Total Sales}}
 $$
 
--   You can also calculate the EBITDA by summing up only the relevant accounts:
-
-. . .
+Note that you can also calculate the EBITDA margin by summing up only the relevant accounts:
 
 $$
 \small\text{EBITDA Margin}=\dfrac{\text{Sales} -\text{COGS}- \text{SG&A} \pm\text{ Other Op.}}{\text{Total Sales}}
 $$
 
-## Understanding EBITDA
+:::
+
+
+
+## Understanding *EBITDA*
 
 -   Using the numbers from our example, we have:
 
@@ -832,15 +884,15 @@ $$
 \small\text{EBITDA Margin}=\dfrac{\text{Net Income} +\text{Int. Expenses} +\text{Taxes}+ \text{Depr./Am.}}{\text{Total Sales}}=\dfrac{325,000}{1,000,000}=32.5\%
 $$
 
--   Alternatively: $$
+$$
     \small\text{EBITDA Margin}=\dfrac{\text{Sales} -\text{COGS}- \text{SG&A} \pm\text{ Other Op.}}{\text{Total Sales}}= \dfrac{325,000}{1,000,000}=32.5\%
-    $$
+$$
 
--   EBITDA can be useful to contrast operations by disregarding differences stemming from:
+-   *EBITDA* is useful to contrast operations by disregarding differences stemming from:
 
 1.  Non-cash items (Depreciation and Amortization)
 2.  Taxes (different firms may have different effective tax rates)
-3.  Financing Policy (firms may have financial investment and also benefit from tax-shiedls through higher debt levels)
+3.  Financing Policy (firms may have financial investment and also benefit from tax-shields through higher debt levels)
 
 ## Market-valuation Ratios
 
@@ -848,18 +900,19 @@ $$
 
 -   Notwithstanding, these indices are *not* deterministic: although they provide valuable information, they cannot fully determine how much a firm is worth
 
--   Ideally, the balance sheet would provide us with an accurate assessment of the true value of the firm's equity. Unfortunately, this is unlikely to be the case:
+-   Ideally, the balance sheet would provide us with an accurate assessment of the true value of the firm's equity. Unfortunately, **this is unlikely to be the case**:
 
-    1.  Many of the assets listed on the balance sheet are valued based on their historical cost rather than their true value today.
-    2.  More importantly, a substantial amount of the firm's valuable assets are not captured on the balance sheet (expertise of its employees, reputation, relationships with customers and suppliers, among others)
+    1.  Many of the assets listed on the balance sheet are valued based on their [historical cost]{.blue} rather than their true, [intrinsic value]{.blue}
+    2.  More importantly, a substantial amount of the firm's valuable assets are [not captured]{.blue} on the balance sheet (expertise of its employees, reputation, relationships with customers and suppliers, among others)
 
--   For these reasons, we should expect that *Market Value of Equity* $\neq$ *Book Value of Equity*
+-   For these reasons, we should expect that [*Market Value of Equity* $\neq$ *Book Value of Equity*]{.blue}
 
-## Market-valuation Ratios - Enterprise value
+## Market-valuation Ratios - *MVE* and *Enterprise Value*
 
--   The total *market value* of a firm's equity equals the number of shares outstanding times the firm's market price per share - often referred to as *market capitalization*:
+::: {.callout-tip}
+### Definition
 
-. . .
+The [*Market Value of Equity (MVE)*]{.blue}, or simply the value of the firm's, is defined as the number of shares outstanding times the firm's market price per share - often referred to as *Market Capitalization*:
 
 $$
 \text{Market Value of Equity}= \text{Shares Outstanding} \times \text{Market Price per Share}
@@ -870,68 +923,84 @@ $$
 1.  It does *not* depend on the historical cost of the firm's assets
 2.  Rather, it depends on what investors *expect* those assets to produce in the future
 
--   We can calculate the Enterprise Value (known as the "cost to take over the business") as:
+:::
+
+. . .
+
+-   We also can calculate the firm's *Enterprise Value* (known as the *"cost to take over the business"*) as:
 
 . . .
 
 $$
-\text{Enterprise Value}=\text{Market Value of Equity} + Debt - Cash
+\small \text{Enterprise Value}=\text{Market Value of Equity} + Debt - Cash
 $$
 
-## Market-valuation Ratios - M/B Ratio
+## Market-valuation Ratios - the *M/B Ratio*
 
 We can also calculate indices that contrast *market* and *book* measurements:
 
--   The Market-to-Book Ratio highlights the differences in fundamental firm characteristics as well as the value added by management:
-
 . . .
 
-$$
-\small \text{M/B Ratio}=\dfrac{\text{Market Value of Equity}}{\text{Book Value of Equity}}
-$$
+::: {.callout-tip}
+### Definition
 
--   Where market capitalization is defined as before, and the *Book Value of Equity* is the accounting value of the firm's equity (i.e, Assets - Liabilities).
-
--   Some common patterns on M/B Ratios:
-
-    1.  A successful firm's market-to-book ratio typically exceeds 1.
-    2.  Low market-to-book ratios $\rightarrow$ also known as *value* stocks
-    3.  High market-to-book ratios $\rightarrow$ also known as *growth* stocks
-
-## Market-valuation Ratios - P/E Ratio
-
-. . .
+The [*Market-to-Book Ratio* (or simply *M/B Ratio*)]{.blue} highlights the differences in fundamental firm characteristics as well as the value added by management:
 
 $$
-\small \text{P/E Ratio} = \dfrac{\text{Market Capitalization}}{\text{Net Income}}\equiv \dfrac{\text{Share Price}}{\text{Earnings per Share}}
+\text{M/B Ratio}=\dfrac{\text{Market Value of Equity}}{\text{Book Value of Equity}}
 $$
 
--   The P/E ratio is a simple measure that is used to assess whether a stock is over- or under-valued based on the idea that the value of a stock should be proportional to the level of earnings it can generate for its shareholders
+Where market capitalization is defined as before, and the *Book Value of Equity* is the accounting value of the firm's equity (*i.e*, *Assets* - *Liabilities*).
+:::
 
-    1.  This indicator tends to be highest for industries with high expected growth rates
-    2.  Because the P/E ratio considers the value of the firm's equity, it is sensitive to the firm's choice of leverage.
-    3.  We can avoid this limitation by instead assessing the market value of the underlying business using valuation ratios based on the firm's enterprise value[^1].
+-   Some common patterns on *M/B* Ratios:
 
-[^1]: See BDM Comment on *mismatched ratios*, p. 77
+    1.  A successful firm's *Market-to-Book* ratio typically [exceeds]{.green} 1.
+    2.  [Low]{.red} *Market-to-Book* ratios $\rightarrow$ also known as [*value*]{.blue} stocks
+    3.  [High]{.green} *Market-to-Book* ratios $\rightarrow$ also known as [*growth*]{.blue} stocks
+
+## Market-valuation Ratios - the *P/E Ratio*
+
+::: {.callout-tip}
+### Definition
+
+The [*Price-Earnings Ratio* (or simply *P/E Ratio*)]{.blue} is a simple measure that is used to assess whether a stock is [over]{.red}- or [under]{.green}-valued based on the idea that the value of a stock should be *proportional* to the level of earnings it can generate for its shareholders
+
+$$
+\text{P/E Ratio} = \dfrac{\text{Market Capitalization}}{\text{Net Income}}\equiv \dfrac{\text{Share Price}}{\text{Earnings per Share}}
+$$
+:::
+
+1.  This indicator tends to be highest for industries with high expected growth rates
+2.  Because the *P/E Ratio* considers the value of the firm's equity, it is sensitive to the firm's choice of leverage
+3.  We can avoid this limitation by instead assessing the market value of the underlying business using valuation ratios based on the firm's enterprise value[^2]
+
+[^2]: See [@BDM] Comment on *mismatched ratios*, p. 77
 
 ## Sustainable Growth Rate
 
 -   We have studied factors that, ultimately, show how a firm's [profitability]{.blue} and {growth}{.blue} can be broke down in terms of investment and financing decisions
 
--   **Question** what could be considered a [sustainable]{.blue} growth rate of a business:
+. . .
 
--   We can shed light on this question by relating a firm's long-term *ROE* to its *payout policy*:
+**Question**: what could be considered a [sustainable]{.blue} growth rate of a business? We can shed light on this question by relating a firm's long-term *ROE* to its *payout policy*:
 
 1.  *ROE* shows how much the firm can generate in terms of cash for its shareholders
 2.  *Payout* indicates how much of the profits have been paid out as dividends
 
--   Hence, an estimate for a firm's sustainable growth rate (*i.e*, using only funds from its own operations and not issuing any new debt/equity) is:
-
 . . .
 
+
+::: {.callout-tip}
+### Definition
+
+The [*Sustainable Growth Rate*]{.blue} is an estimate for a given firm's growth rate using only funds from its own operations and not issuing any new debt/equity. It can be estimated as:
+
 $$
-\small g = ROE \times \text{% Retailed Profits} \equiv ROE \times \bigg(1-\dfrac{\text{Divivends Paid}}{\text{Net Income}}\bigg) \equiv ROE \times (1-\text{Payout Ratio})
+g = ROE \times \text{% Retailed Profits} \equiv ROE \times \bigg(1-\dfrac{\text{Divivends Paid}}{\text{Net Income}}\bigg) \equiv ROE \times (1-\text{Payout Ratio})
 $$
+:::
+
 
 ## Wrapping up on Financial Indicators
 
@@ -941,17 +1010,17 @@ $$
 
 -   Although these indices provide valuable information for us, there are some caveats:
 
-    1.  Indices are backward-looking: it does not mean that a firm will continue to deliver the same indices year-over-year
+    1.  Indices are *backward-looking*: it does not mean that a firm will continue to deliver the same indices year-over-year
     2.  They may suffer from accounting distortions
-    3.  Finally, they only provide a high-level view of a firm performance, and does not necessarily go in lockstep with market evaluations about the firm
+    3.  Finally, they only provide a *high-level view* of a firm performance, and does not necessarily go in lockstep with market evaluations about the firm
 
 . . .
 
 $\rightarrow$ *Practice these concepts using the [Financial Statement Analysis]{.blue} HBS Case (available on eClass®)*
 
-## Criticism around traditional financial ratio analysis
+## Criticism around traditional Financial Ratio analysis
 
--   Financial reporting serves as an important role as means of communication between managers and stakeholders -- in special, investors
+-   Financial reporting serves as an important role as means of communication between managers and stakeholders - in special, investors
 
 -   Notwithstanding, traditional financial reporting falls short on understanding the value driven from intangibles, which have been becoming a more important portion of the asset base
 
@@ -977,6 +1046,9 @@ $\rightarrow$ *Full content on Integrated Reporting: see [@SS], available on eCl
 2.  Credit ratings are affected (and have the potential to affect) business outcomes
 
 . . .
+
+# Appendix
+
 
 ## *Appendix I*: decomposing profitability: an alternative approach
 

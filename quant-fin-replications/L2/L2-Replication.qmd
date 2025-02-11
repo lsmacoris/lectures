@@ -1,0 +1,457 @@
+---
+title: "Collecting, Organizing, and Manipulating Financial Data - Replication"
+author: "Lucas S. Macoris (FGV-EAESP)"
+format:
+  html:
+    page-layout: full
+editor: visual
+---
+
+## About this Document
+
+This file replicates the codes that have been discussed in the live-session lectures of the Practical Applications in Quantitative Finance course. To ensure you can run the codes without issues, please install and load all required packages beforehand. It is always a good practice to replicate this Quarto document and experiment by making edits to the parameters. At the end of this report, you will find a suggestion on how to tweak this report — try doing some changes on your own!
+
+::: callout-important
+### Attention
+
+In this lecture, we will be working with daily stock price data from the *Magnificent Seven* (*AAPL*, *GOOG*, *MSFT*, *NVDA*, *TSLA*, *AMZN*, and *META*). I have already downloaded the data for you using the `tidyquant` package, which allows us to pull stock price data from multiple securities in a convenient format. You can hit the *Download* button to get a grasp on how the data looks like or download it directly on *eClass®* - file name: `M7.csv`. Before you start, make sure to follow the instructions from our previous replication to set up your working directory correctly.
+:::
+
+## Loading packages
+
+As we get started, we will be loading all packages referred in our official [website](https://lsmacoris.github.io/lectures/quant-fin.html).
+
+```{r}
+#| message: false #Set this to avoid Quarto printing unnecessary package messages in our document
+#| warning: false #Set this to avoid Quarto printing unnecessary warnings in our document
+
+# Package names
+packages <- c("tidyverse","tidyquant","tidymodels", "glue","scales")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load all packages
+invisible(lapply(packages, library, character.only = TRUE))
+
+```
+
+Note that you could easily get around this by installing and loading all necessary packages using a more simple syntax:
+
+```{r}
+#| eval: false #I don't want R to evaluate this code; it is just for presentation purposes
+#| echo: true #I want this code chunk to display on the Quarto Document
+
+#Install if not already available - I have commented these lines so that R does not attempt to install it everytime
+  #install.packages('tidyverse')
+  #install.packages('tidyquant')
+  #install.packages('glue')
+  #install.packages('scales')
+  #install.packages('ggthemes')
+
+#Load
+  library(tidyverse)
+  library(tidyquant)
+  library(tidymodels)
+  library(glue)
+  library(scales)
+  library(ggthemes)
+  
+```
+
+## Using `dplyr`, the data manipulation package in the `tidyverse`
+
+The `dplyr` package is one of the core packages in the `tidyverse` and is designed for efficient and readable data manipulation. It provides a set of functions (also called "verbs") that make working with data frames (or tibbles) intuitive and expressive. Key Features:
+
+1.  Filter rows: `filter()`
+2.  Select columns: `select()`
+3.  Mutate (create new columns): `mutate()`
+4.  Summarize data: `summarize()`
+5.  Group operations: `group_by()`
+6.  Join tables: `left_join()`, `right_join()`, `inner_join()`, `full_join()`
+
+To get started with our exercises, we will refer to the `M7.csv` file that has been provided. After setting the current directory of the file, we load the data using the `read.csv()` function:
+
+```{r}
+
+#Apply function to the data
+M7=read.csv('M7.csv')
+
+#Show the first 10 observations
+head(M7)
+```
+
+## 1. The `mutate()` function
+
+The `mutate()` function adds new variables that are functions of existing variables:
+
+```{r}
+#| eval: false
+#| echo: true
+
+mutate(.data, #The object you are performing the calculations 
+       new_variable_1 = var1 * 2, #Can use basic operations...
+       new_variable_2 = median(var2), #Or predefined functions)
+       variable_3 = as.character(var3) #And can be used to modify existing variables)
+       ) 
+```
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  It sequentially creates the columns you asked for and place them to the right of your `data.frame` (or `tibble`)
+3.  You can use any function, predefined or custom, and apply it to `mutate()`
+4.  It can also modify any columns you want (if the name is the same as an existing column)
+
+**Exercise**: use columns `high` and `low` and create a new column, `mid`, defined as the average between daily high and low prices.
+
+```{r}
+
+#Apply function to the data
+M7=mutate(M7, mid= (high+low)/2)
+
+#Show the first 10 observations
+head(M7)
+```
+
+## 2. The `select()` function
+
+The `select()` function select (and optionally rename) variables in a data frame, using a concise mini-language that makes it easy to refer to variables based on their name (*e.g*. `a:f` selects all columns from `a` on the left to `f` on the right) or type (e.g. `where(is.numeric)` selects all numeric columns):
+
+```{r}
+#| eval: false
+#| echo: true
+
+select(.data, #The object which you are performing the operations 
+       variable_3, #Can reorder columns
+       variable_1, 
+       variable_2:variable_4, #Matches position patterns 
+       where(is.numeric) #Can select all columns that match a given pattern
+       ) 
+```
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And select only the columns you've asked for
+3.  You can also use `select(.data,-variable)` to remove a variable
+4.  It keeps the structure of the `data.frame` intact - no rows are affected
+
+The `select()` function also comes with a handy companion of `selectors`, which are functions that help you cherry pick columns in a concise way, rather than hardcoding them altogether:
+
+1.  `:` for selecting a range of consecutive variables.
+2.  `starts_with()` starts with a string
+3.  `ends_with()` ends with a string
+4.  `contains()` contains a string
+5.  `matches()`matches a regular expression.
+6.  `where()`a function to all variables and selects those for which the function returns `TRUE`
+
+**Exercise**: Select only the `symbol`, `date`, `volume`, and `adjusted`, in that order.
+
+```{r}
+
+#Apply function to the data
+M7=select(M7,symbol,date,volume,adjusted)
+
+#Show the first 10 observations
+head(M7)
+```
+
+## 3. The `filter()` function
+
+The `filter()` function is used to subset a data frame, retaining all rows that satisfy your conditions. To be retained, the row must produce a value of `TRUE` for all conditions:
+
+```{r}
+#| eval: false
+#| echo: true
+
+filter(.data, #The object which you are performing the operations
+       variable_1 >10, #Simple arithmetic operators
+       variable_2 %in% c('AAPL','MSFT','FORD'), #Pattern search
+       !(variable_3 %in% c('Boston','Mass','Silicon Valley')), #Negate pattern search
+       variable_4 >=10 & variable_3<= 4 | is.na(variable_4) #IF and OR conditions
+       ) 
+```
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And filter the rows based on the conditions outlined
+3.  You can use any function, predefined or custom, and apply it to `filter()`
+4.  It returns a subset of the whole object, keeping the columns and the data structure intact
+
+**Exercise**: filter for observations that occurred in 2025, only. You can use the `year()` function with the `date` variable to retrieve the year.
+
+```{r}
+#Apply function to the data
+M7=filter(M7,year(date)==2025)
+
+#Show the first 10 observations
+head(M7)
+```
+
+## 3. The `arrange()` function
+
+The `arrange()` function reorders the rows of a data frame by the values of selected columns:
+
+```{r}
+#| eval: false
+#| echo: true
+
+#Some Options, always in the following format: the object you are rearranging + the reordering scheme
+arrange(.data, variable1) #Ascending by variable_1
+arrange(.data, variable1, variable_2) #Ascending by variable_1 and then variable_2
+arrange(.data, variable2, variable_1) #Ascending by variable_2 and then variable 1
+arrange(.data, variable1, desc(variable_2)) #Ascending by variable_1, and then descending by variable_2
+```
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And reorders the rows of your `data.frame` (or `tibble`)
+3.  This can be useful for visualization, but also for applying position-dependent functions, like `lag()`, `lead()`, `head()`, and `tail()`
+
+**Exercise**: arrange the dataset by descending `date` (newest to oldest) and `symbol`..
+
+```{r}
+#Apply function to the data
+M7=arrange(M7,desc(date),symbol)
+
+#Show the first 10 observations
+head(M7)
+```
+
+## 4. The `summarize()` function
+
+The `summarise()` - or `summarize()` - function creates a new data frame. It returns one row for each combination of grouping variables; if there are no grouping variables, the output will have a single row summarising all observations in the input. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified.
+
+```{r}
+#| eval: false
+#| echo: true
+
+summarize(.data, #The object which you are performing the operations 
+       new_variable_1 = mean(var1,na.rm=TRUE), #Average of var1, removing NA values
+       new_variable_2 = median(var2,na.rm=TRUE), #Median of var1, removing, NA values
+       new_variable_3 = n_distinct(var2) #Number of unique values of var2
+       ) 
+```
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And reshapes the `data.frame` (or `tibble`) by the aggregation functions
+3.  As the name suggests, it is used to summarize a table
+
+**Exercise**: summarize the dataset by creating an `average` column, defined as the average `adjusted` prices. You can use the `mean()` function to get the average. Use the option `na.rm=TRUE` inside the `mean` function to make sure that `NA` values are disregarded.
+
+```{r}
+#Apply function to the data
+Summary=summarize(M7,average=mean(adjusted,na.rm=TRUE))
+
+#Show the first observations
+head(Summary)
+
+```
+
+## 5. Slice and dice through `group_by`
+
+The `group_by()` function takes an existing table and converts it into a *grouped* table where operations are performed "by group". Using `ungroup()` removes grouping.
+
+```{r}
+#| eval: false
+#| echo: true
+
+Data=group_by(Data,v1,v2,v3)
+Data=summarize(avg=mean(x,na.rm=TRUE))
+
+```
+
+1.  This function takes the `.data` argument you provided (in your example, the `Data` object)...
+2.  And creates the `avg` variable taking the average of `x` within each tuple defined by the grouping variables (in this case, `v1`,`v2`, and `v3` )
+3.  It returns a `grouped dataframe`, with the results of `avg` displayed for each unique combination of `v1`,`v2`, and `v3`
+
+The `group_by()` function in R is part of the dplyr package and is used to create grouped data frames. It is commonly used in combination with `summarize()`, `mutate()`, and other `dplyr` functions to perform operations within groups.
+
+::: callout-alert
+### Important
+
+After grouping, it's often necessary to *ungroup* the data to prevent unintended behavior in subsequent operations:
+
+```{r}
+#| eval: false
+#| echo: true
+
+Data=group_by(Data,v1,v2,v3)
+Data=summarize(avg=mean(x,na.rm=TRUE))
+Data=ungroup(Data)
+```
+:::
+
+Let's try the latest `summarize()` call again, but now grouping the data by `symbol` first:
+
+```{r}
+#Apply function to the data
+M7=group_by(M7,symbol)
+Summary=summarize(M7,average=mean(adjusted,na.rm=TRUE))
+
+#Show the first 10 observations
+head(Summary,10)
+```
+
+## 6. Pipe your way through the code `%>%`
+
+The `dplyr` verbs, in isolation, are a great tool for data analysts, but what really makes them to shine is what glues them together. The pipe operator (`%>%` or `|>`) is a key feature of the `magrittr` package (included in the `tidyverse`) and is widely used in R, especially together with `dplyr`, for improving code readability and structuring data transformation workflows. Key benefits include:
+
+✅ Improved Readability – The sequence of transformations is clear.
+
+✅ No Need for Temporary Variables – Each step directly passes its result to the next function.
+
+✅ Avoids Nesting – No deeply nested function calls.
+
+The pipe operator allows you to pass the result of one function as the first argument to the next function, making code more readable and eliminating the need for nested function calls. To show its functionality in action, in the code chunk below, both parts of the code produce the exact same result, but the latter, using the pipe operator, is much simpler to read:
+
+```{r}
+#| eval: false
+#| echo: true
+
+#Instead of 
+Data = read.csv('Data.csv') #Start with the data
+Data = mutate(Data, new_var_1=var_1*10)#Mutate
+Data = select(Data, var_1,var_2,new_var_1,where(is.numeric))#Select
+Data = filter(Data, new_var_1>5)#Filter
+Data = arrange(Data, new_var_1,desc(var2))#Arrange
+Data = summarize(Data, new_var=mean(new_var_1,na.rm=TRUE))#Summarize
+
+#Do
+Data = read.csv('Data.csv')%>% #Start with the data
+        mutate(new_var_1=var_1*10)%>% #Mutate
+        select(var_1,var_2,new_var_1,where(is.numeric))%>% #Select
+        filter(new_var_1>5)%>% #Filter
+        arrange(new_var_1,desc(var2))%>% #Arrange
+        summarize(new_var=mean(new_var_1,na.rm=TRUE))#Summarize
+
+```
+
+## Hands-on Exercise
+
+On January $25^{th}$, chinese startup *DeepSeek* disrupted the tech stock market as investors reassessed the likely future investment in Artificial Intelligence hardware. As part of your work as a buy-side analyst, you were asked to analyze how the *Magnificent 7* performed after the *DeepSeek*. To this point, follow the instructions and answer to the following question: **which stock suffered the most during January 2025?**
+
+1.  To answer this question, you will be using all `dplyr` verbs you've practiced so far
+2.  Furthermore, you will be also using some common base R and ther `dplyr` functions, like `lag()`, `prod()`, `as.Date()` and `drop_na()`
+
+The expected result is a `data.frame` object that shows, for each `symbol`, the monthly return on January, 2025, ordered from lowest-to-highest.
+
+::: callout-tip
+### Instructions
+
+The data, stored in `M7.csv`, can be loaded using `read.csv('M7.csv')`. You can download it using the link shown in *Slide 4*.
+
+1.  Select only the `symbol`, `date`, and `adjusted` columns, and arrange the dataset from oldest to newest
+2.  Mutate your `date` variable, making sure to read it as a Date object using `as.Date()`
+3.  Create a `Year` variable and filter only on observations happening in 2025. You can use the `year()` function to retrieve the year of a given `Date` column.
+4.  Group data by `symbol`
+5.  Create, for each different `symbol`, a `Return` variable that is defined as $P_{t+1}/P_{t}$, where $t$ refers to a date. You can use the `lag()` function for this
+6.  You will see that `lag` produces an `NA` whenever you try to lag the first observation. To make sure your data does not contain any `NA`, call `drop_na()`
+7.  Create, for each different `symbol`, a `Cum_Return` variable that is defined as the cumulative return. Compounded returns over time can be written as $\small \prod(1+R_t)=(1+R_1)\times(1+R_2)\times...\times(1+R_t)$. For this, you can use the `prod()` function.
+8.  Pick the latest observation from each `symbol` and arrange the table from lowest-to-highest return. The function `slice_tail(n=x)` retrieves the bottom `x` observations, whereas `slice_head(n=y)` retrieves the top `y`.
+:::
+
+## Solution walkthrough
+
+```{r}
+#Read the Data
+M7%>%
+#Select only the columns of interest
+select(symbol,date,adjusted)%>%
+#Make sure date is read as a Date object
+mutate(date=as.Date(date))%>%
+#Filter for observations happening in 2025
+filter(year(date)==2025)%>%
+#Arrange from chronological order
+arrange(date)%>%
+#Group by Symbol to perform the calculations
+group_by(symbol)%>%
+#Create the return
+mutate(Return = adjusted/lag(adjusted,default = NA))%>%
+#Remove NAs before doing the cumulative product
+drop_na()%>%
+mutate(Cum_Return = cumprod(Return)-1)%>%
+#Select the latest observation from each symbol
+slice_tail(n=1)%>%
+#Select symbol, date, and cumulative return
+select(symbol,date,Cum_Return)%>%
+#Arrange from lowest-to-highest
+arrange(Cum_Return)
+```
+
+This code processes stock price data from `M7` using the `dplyr` package. It calculates the cumulative return for each stock (`symbol`) in the year 2025, then selects the latest available observation per stock and sorts them from lowest to highest cumulative return.
+
+1.  **Read the Data.** `M7` is assumed to be a data frame or tibble containing stock data ready in your session. You can use `read.csv()` and store it in an R object. The pipe operator `%>%`) is used to chain functions together.
+
+2.  **Select Relevant Columns.** Keeps only the relevant columns for the analysis:
+
+-   `symbol` → The stock ticker
+-   `date` → The trading date
+-   `adjusted` → The adjusted closing price (used for return calculations)
+
+Making sure the `select` function is applied as one of the first adjustments can facilitate data wrangling as it shrinks the dataset for the upcoming operations.
+
+3.  **Ensure `date` is a `Date` object in your session**. The code converts the `date` column to a `Date` object to enable time-based filtering and calculations, like `year()`.
+
+4.  **Filter Data for 2025**. The code uses `year(date) == 2025` (from the `lubridate` package, loaded together with the `tidyverse`) to keep only data from 2025.
+
+5.  **Sort Data in Chronological Order**. The code ensures that stock prices are arranged earliest to latest for correct return calculations.
+
+6.  **Groups the dataset by stock (`symbol`)**. Using `group_by()` ensures that return calculations are performed for each stock separately
+
+7.  **Calculate Daily Returns**. After the dataset is grouped, we use the `mutate()` function to create our return metric:
+
+$$
+Return=\dfrac{P_{t}}{P_{t-1}}
+$$
+
+-   Uses `lag(adjusted)` to get the previous day's adjusted price.
+-   The first row in each group will have NA (because there's no previous price)
+
+Because of that, we also need a call to `drop_na()` to make sure that whenever we are multiplying these indices, we are not including `NA` values.
+
+::: callout-important
+### Important
+
+The function `cumprod()`, which calculates the cumulative product of a series, multiplies values sequentially. However, if there are missing values (`NA`) in the sequence, `cumprod()` propagates `NA` to all subsequent values. This can corrupt the entire computation.
+
+For example, ommitting the `drop_na()` step in the solution code would produce `NA` all over `Cum_Return`:
+
+```{r}
+#Read the Data
+M7%>%
+#Select only the columns of interest
+select(symbol,date,adjusted)%>%
+#Make sure date is read as a Date object
+mutate(date=as.Date(date))%>%
+#Filter for observations happening in 2025
+filter(year(date)==2025)%>%
+#Arrange from chronological order
+arrange(date)%>%
+#Group by Symbol to perform the calculations
+group_by(symbol)%>%
+#Create the return
+mutate(Return = adjusted/lag(adjusted,default = NA))%>%
+#Remove NAs before doing the cumulative product
+mutate(Cum_Return = cumprod(Return)-1)
+```
+:::
+
+8.  **Calculate Cumulative Returns**. With the series of daily returns in place cumulative return over time can be retrieved by compounding each individual return over time:
+
+$$
+\text{Cumulative Return}_{t=1\rightarrow T}= (1+R_1)\times(1+R_2)\times(1+R_3)\times...\times(1+R_t)\equiv\prod_{t=1}^{T}(1+R_t)
+$$ To perform such calculations, the code uses `cumprod(Return)`, which multiplies returns over time. In the end, we also need to subtract 1 to express it as a percentage return.
+
+9.  **Select the Latest Observation Per Stock**. The `slice_tail()` function keeps only the last row (i.e., the most recent date) for each stock. Note that this behavior is only possible because our data has been grouped by `symbol` in the subsequent steps. In an `ungrouped` case, `slice_tail()` would retrieve the latest observation considering the data as a whole - in this case, META cumulative returns.
+
+10. **Keep Only Key Columns and Rearrange**. After we're done creating the relevant variables, we can use the `select()` function to keep only the columns that are of interest: `symbol`,`date`, and `Cum_Return`, and use the `arrange()` function to sort observations by ascending order of cumulative returns (*i.e*, lowest-to-highest).
+
+## Try doing some edits on your own!
+
+Try thinking about changes you could do to either improve code readability of the analysis. A couple of edits that can be made include, but are not limited, to:
+
+1.  Adding more time periods to the analysis
+2.  Increasing the set of `assets` to include more tech firms other than the magnificent seven
+3.  Calculate volatility metrics using `var()` or `stdev()` functions
+
+Play around with these concepts to get familiar with all the data manipulation tools that come with `dplyr`!

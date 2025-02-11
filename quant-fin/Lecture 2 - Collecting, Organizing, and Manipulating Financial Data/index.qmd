@@ -101,7 +101,7 @@ For coding replications, whenever applicable, please follow [this](https://lsmac
 
 -   Stock price information is an example of raw data that can be easily pulled from providers such as *Yahoo! Finance*. However, it is not often structured in a tidy and convenient way
 
-    1.  In this lecture, we will be working with daily stock price data from the *Magnificent Seven* (*AMZN*, *GOOG*, *MSFT*, *NVDA*, *TSLA*, *AMZN*, and *META*)
+    1.  In this lecture, we will be working with daily stock price data from the *Magnificent Seven* (*AAPL*, *GOOG*, *MSFT*, *NVDA*, *TSLA*, *AMZN*, and *META*)
     2.  I have already downloaded the data for you using the `tidyquant` package, which allows us to pull stock price data from multiple securities in a convenient format. You can hit the *Download* button to get a grasp on how the data looks like
 
 ```{r}
@@ -489,7 +489,7 @@ summarize(.data, #The object which you are performing the operations
 Summary=summarize(M7,_____)
 
 #Show the first 10 observations
-head(M7)
+head(Summary)
 
 ```
 

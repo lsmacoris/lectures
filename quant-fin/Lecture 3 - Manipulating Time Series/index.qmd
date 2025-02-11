@@ -28,8 +28,6 @@ from: markdown+emoji
 
 ```{r}
 #| echo: false
-#| message: false
-#| warning: false
 
 source('../~ Metadata/packages.R')
 
@@ -41,22 +39,24 @@ source('../~ Metadata/packages.R')
     1.  *Tidy Finance* [@tidyfinance]
     2.  *R for Data Science* [@r4ds]
 
-:::: nonincremental
 ::: callout-note
 ### Coding Replications
 
 For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
 
 1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
-2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+2.  Along with the slides, this lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased. This file, that will be posted on *eClass®*, can be downloaded and replicated on your side. To do that, download the file, open it up in *RStudio*, and render the Quarto document using the *Render* button (shortcut: `Ctrl+Shift+K`).
+3.  At the end of this lecture, you will be prompted with a hands-on exercise to test your skills using the tools you've learned as you made your way through the slides. A suggested solution will be provided in the replication file.
 :::
-::::
+
 
 ## Organizing Financial Data
 
--   In the previous lecture, you worked your way through the exercises by using the amazing `dplyr` functionalities on `data.frames`
+- In the previous lecture, you worked your way through the exercises by using the amazing `dplyr` functionalities on `data.frames`
 
--   In this lecture, you will be introduced to a particular type of class in `R`: `xts`
+- In some cases, you had to do some workarounds with `drop_na()`, `slice_tail()` and `lag()` simply because you were manipulating time series data
+
+- In this lecture, you will be introduced to a particular type of class in `R`: `xts`
 
 . . .
 
@@ -84,7 +84,7 @@ For coding replications, whenever applicable, please follow [this](https://lsmac
 
     1.  But don't you worry, I got you covered: the `tidyquant` package[^1] integrates the best resources for collecting and analyzing financial data
 
-    2.  It integrates several financial packages, like `zoo`, `xts`, `quantmod`, `TTR`, and `PerformanceAnalytics`, with the tidy data infrastructure of the tidyverse allowing for seamless interaction between each
+    2.  It integrates several financial packages, like `zoo`, `xts`, `quantmod`, `TTR`, and `PerformanceAnalytics`, with the tidy data infrastructure of the `tidyverse`, allowing for seamless interaction between each
 
 -   You can now perform complete financial analyses using the same functionalities you've learned so far!
 
@@ -92,7 +92,7 @@ For coding replications, whenever applicable, please follow [this](https://lsmac
 
 ## The `tidyquant` package, a short-video
 
-{{< video https://www.youtube.com/embed/woxJZTL2hok width="800" height="600" >}}
+{{< video https://www.youtube.com/embed/woxJZTL2hok width="800" height="600">}}
 
 ## The `tq_mutate()` function
 
@@ -180,8 +180,7 @@ assets%>%
 #| echo: false
 #| eval: true
 
-library(tidyquant)
-library(tidyverse)
+#Assuming you have already loaded the tidyquant and the tidyverse packages
 
 #Set up the list of assets
 assets=c('AMZN','GOOG','META','GME')
@@ -214,8 +213,7 @@ assets%>%
 #| echo: true
 #| eval: false
 
-library(tidyquant)
-library(tidyverse)
+#Assuming you have already loaded the tidyquant and the tidyverse packages
 
 #Netflix Data
 NFLX=tq_get('NFLX')%>%
@@ -249,8 +247,7 @@ inner_join(NFLX,SP500)
 #| echo: false
 #| eval: true
 
-library(tidyquant)
-library(tidyverse)
+#Assuming you have already loaded the tidyquant and the tidyverse packages
 
 #Netflix Data
 NFLX=tq_get('NFLX')%>%
@@ -281,12 +278,13 @@ inner_join(NFLX,SP500)
 
 ## Working with time series objects, Exercise III
 
--   Lastly, finance practitioners are often asked to perform analysis on a rolling basis:
+-   Finance practitioners are often asked to perform analysis on a rolling basis:
     1.  We may want to calculate a given signal on day $t$ based on past $x$ periods of information
-    2.  Say, for example, that you want to calculate a simple and exponential moving average of adjusted prices from 5 days back for a given set of stocks
+    2.  Say, for example, that you want to calculate a simple and exponential moving average of adjusted prices from 5 days back for a given stock
 -   It is relatively straightforward to do it with `tidyquant`:
     1.  Download stock data using the `tq_get()` function
     2.  Use `tq_mutate()` twice along with the `SMA()` and `EMA()` functions setting `n=5`
+
 
 ## Working with time series objects, Exercise III
 
@@ -297,11 +295,10 @@ inner_join(NFLX,SP500)
 #| echo: true
 #| eval: false
 
-library(tidyquant)
-library(tidyverse)
+#Assuming you have already loaded the tidyquant and the tidyverse packages
 
 #Set up the list of assets
-assets=c('AMZN','GOOG','META','GME')
+assets=c('AMZN')
 
 assets%>%
   tq_get()%>%
@@ -318,8 +315,45 @@ assets%>%
 #| echo: false
 #| eval: true
 
-library(tidyquant)
-library(tidyverse)
+#Assuming you have already loaded the tidyquant and the tidyverse packages
+
+#Set up the list of assets
+assets=c('AMZN')
+
+assets%>%
+  tq_get()%>%
+  select(date,symbol,adjusted)%>%
+  group_by(symbol)%>%
+  tq_mutate(adjusted, mutate_fun = SMA, n = 5)%>%
+  tq_mutate(adjusted, mutate_fun = EMA, n = 5)
+
+```
+:::
+
+
+## Working with time series objects, Exercise IV
+
+- Lastly, financial analysts often cover a collection of securities on a rolling basis
+- For example, a buy-side analyst will monitor stocks from a given industry so as to understand which ones are [over]{.red}valued, and which ones are [under]{.green}valued
+
+- Say, for example, that you want to focus on a subset of 4 stocks, and you need to compare the cumulative return up to the latest closing price
+
+- It is easy to integrate the `tidyquant` functions along with the `group_by()` function you've learned when working with `dplyr`:
+
+  1. Get the information using `tq_get()`
+  2. Group the data by `symbol`
+  3. Apply the `tq_mutate` and `tq_transmute` functions to pass time series functions to the data - in this case, the `dailyReturn()` and the `Return.cumulative()` function
+  
+## Working with time series objects, Exercise III
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Assuming you have already loaded the tidyquant and the tidyverse packages
 
 #Set up the list of assets
 assets=c('AMZN','GOOG','META','GME')
@@ -328,20 +362,46 @@ assets%>%
   tq_get()%>%
   select(date,symbol,adjusted)%>%
   group_by(symbol)%>%
-  tq_mutate(adjusted, mutate_fun = SMA, n = 5)%>%
-  tq_mutate(adjusted, mutate_fun = EMA, n = 5)
+  tq_mutate(adjusted, mutate_fun = dailyReturn,col_rename = 'daily_return')%>%
+  tq_transmute(daily_return,mutate_fun = Return.cumulative)%>%
+  mutate(across(where(is.numeric),percent,big.mark='.'))%>%
+  setNames(c('Ticker','Cumulative Return up-to-date'))
+
+```
+
+### Output
+
+```{r}
+#| echo: false
+#| eval: true
+
+#Assuming you have already loaded the tidyquant and the tidyverse packages
+
+#Set up the list of assets
+assets=c('AMZN','GOOG','META','GME')
+
+assets%>%
+  tq_get()%>%
+  select(date,symbol,adjusted)%>%
+  group_by(symbol)%>%
+  tq_mutate(adjusted, mutate_fun = dailyReturn,col_rename = 'daily_return')%>%
+  tq_transmute(daily_return,mutate_fun = Return.cumulative)%>%
+  mutate(across(where(is.numeric),percent))%>%
+  setNames(c('Ticker','Cumulative Return up-to-date'))
 ```
 :::
+
+
 
 ## Wrapping-up on `tidyquant`
 
 -   There is so much you can use from `tidyquant` in your journey as a quantitative financial analyst:
 
-    1.  I'd recommend looking at all the predefined functions supported by `tidyquant` - click [here](https://business-science.github.io/tidyquant/articles/TQ02-quant-integrations-in-tidyquant.html) for a detailed discussion around all supported functions
+    1.  I strongly recommend looking at all the predefined functions supported by `tidyquant` - click [here](https://business-science.github.io/tidyquant/articles/TQ02-quant-integrations-in-tidyquant.html) for a detailed discussion around all supported functions
 
     2.  You can also customize your *own* functions that work with time series (for example, your secret trading indicator) and pass it over through `tq_mutate()` or `tq_transmute()`
 
--   In the [official website](https://business-science.github.io/tidyquant/articles/TQ00-introduction-to-tidyquant.html) website, you can find a variety of examples to nurture your creativity around what you can do using this package
+-   In the package's [official website](https://business-science.github.io/tidyquant/articles/TQ00-introduction-to-tidyquant.html), you can find a variety of examples to nurture your creativity around what you can do using this package
 
 -   All in all, that's the motto: time series analysis made easy with `tidyquant` and the `tidyverse`
 
@@ -361,20 +421,37 @@ $\rightarrow$ See [[*Deadlift: The ETF World’s Latest Headscratcher*](https://
 
 ## Hands-On Exercise
 
--   Your manager (who did not lift any weights past the last 5 years) wanted to replicate the returns of the so called *Deadlift ETF*. You job is to create a simple table of yearly returns comparing the *Deadlift ETF* *vis-a-vis* the *S&P500* Index. For that, proceed with the following instructions:
+- Your manager (who did not lift any weights past the last 5 years) wanted to replicate the returns of the *Deadlift ETF* from 2020 to 2024. You job is to create a simple table of yearly returns comparing the *Deadlift ETF* *vis-a-vis* the *S&P500* Index
+
+- Follow the instructions and answer to the following questions:
+
+  1. **When looking at the yearly results from both the *Deadlift ETF* and *S&P500*, which one did perform better?**
+  2. **What are the potential explanations for the result you have found?**
+
+- To answer to these questions, you will be using the a combination of `dplyr` and `tidyquant` functions you have learned so far
+
+- The expected result is a `data.frame` object that shows both the *Deadlift ETF* as well as the *S&P500* returns (columns) on a yearly basis (rows)
+
+$\rightarrow$ *Suggested solution will be provided in the replication file for this lecture.*
+
+
+## Hands-On Exercise, continued
 
 ::: callout-tip
 ### Exercise
 
-1.  Use `tq_get()` to load information from the *S&P Index* and the *Deadlift ETF* constituents in two separate `data.frames`
-2.  Filter for observations starting in 2020
-3.  Create, for each different `symbol`, a `yearly_ret` variable that calculates the yearly return of a given stock
-4.  Calculate the *Deadlift* returns (*Hint: it is an equally weighted portfolio*)
-5.  Merge both datasets using `inner_join()`
+Before you start, make sure to have the `tidyverse` and the `tidyquant` packages loaded in your session. Following the instructions from the previous lectures, you can either make a direct call to each package, `library(tidyverse)` and `library(tidyquant)`, or copy-paste the script from the course's [official website](https://lsmacoris.github.io/lectures/quant-fin).
+
+1.  Use `tq_get()` to load information from the *S&P Index* and the *Deadlift ETF* constituents in two separate objects. You can use the code `^GSPC` to retrieve information for the index, and you can pass a vector `c('ticker1','ticker2',...,'ticker_n')` to get information on the *Deadlift ETF* constituents
+2.  Filter for observations starting between 2020 (beginning of) and 2024 (end of) using the `from` and `to` arguments of the `tq_get()` function
+3. Group the *Deadlift ETF* data by `symbol` using the `group_by()` function
+4. For both data sets, create a `yearly_ret` variable that calculates the yearly return of a given security. You can use the `tq_transmute()` function, passing the `yearlyReturn()` function along the chain
+5. For the *Deadlift* data set, regroup the data by `date` and calculate the *Deadlift* returns using a `mutate()` function (*Hint: it is an equally weighted portfolio*) 
+6. Merge both datasets using `inner_join()`
 :::
 
--   When looking at the yearly results from both the *Deadlift ETF* and *S&P500*, which one did perform better? What are the potential explanations for that?
 
+::: content-hidden
 ## Solution
 
 ::: panel-tabset
@@ -389,10 +466,11 @@ deadlift=c('META','AMZN','GS','UBER','MSFT','AAPL','BLK','NVDA')
 
 #Set up the starting date
 start='2020-01-01'
+end='2024-12-31'
 
 #Step 1: Read the Deadlift data using tidyquant
 Deadlift_Performance=deadlift%>%
-  tq_get(from=start)%>%
+  tq_get(from=start,to=end)%>%
   #Select only the columns of interest
   select(symbol,date,adjusted)%>%
   #Group by symbol and date
@@ -407,7 +485,7 @@ Deadlift_Performance=deadlift%>%
   summarize(Deadlift=mean(Deadlift,na.rm=TRUE))
 
 #Step 2: Read the S&P500 data using tidyquant
-SP500_Performance=tq_get('^GSPC',from=start)%>%
+SP500_Performance=tq_get('^GSPC',from=start,to=end)%>%
   #Select only the columns of interest
   select(symbol,date,adjusted)%>%
   #Group by symbol and date
@@ -420,26 +498,27 @@ SP500_Performance=tq_get('^GSPC',from=start)%>%
   select(-symbol)
     
 #Merge
-SP500_Performance%>%inner_join(Deadlift_Performance)
-
+SP500_Performance%>%
+  inner_join(Deadlift_Performance)%>%
+  mutate(across(where(is.numeric),percent))%>%
+  mutate(date=year(date))%>%
+  setNames(c('Year','S&P500','DeadLift ETF'))
   
 ```
 
 ## Output
 
 ```{r}
-#| echo: false
-#| eval: true
-
 # Set up the list of assets
 deadlift=c('META','AMZN','GS','UBER','MSFT','AAPL','BLK','NVDA')
 
 #Set up the starting date
 start='2020-01-01'
+end='2024-12-31'
 
 #Step 1: Read the Deadlift data using tidyquant
 Deadlift_Performance=deadlift%>%
-  tq_get(from=start)%>%
+  tq_get(from=start,to=end)%>%
   #Select only the columns of interest
   select(symbol,date,adjusted)%>%
   #Group by symbol and date
@@ -454,7 +533,7 @@ Deadlift_Performance=deadlift%>%
   summarize(Deadlift=mean(Deadlift,na.rm=TRUE))
 
 #Step 2: Read the S&P500 data using tidyquant
-SP500_Performance=tq_get('^GSPC',from=start)%>%
+SP500_Performance=tq_get('^GSPC',from=start,to=end)%>%
   #Select only the columns of interest
   select(symbol,date,adjusted)%>%
   #Group by symbol and date
@@ -467,8 +546,13 @@ SP500_Performance=tq_get('^GSPC',from=start)%>%
   select(-symbol)
     
 #Merge
-SP500_Performance%>%inner_join(Deadlift_Performance)
+SP500_Performance%>%
+  inner_join(Deadlift_Performance)%>%
+  mutate(across(where(is.numeric),percent))%>%
+  mutate(date=year(date))%>%
+  setNames(c('Year','S&P500','DeadLift ETF'))
 ```
 :::
 
+:::
 ## References

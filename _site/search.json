@@ -3483,21 +3483,21 @@
     "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#outline",
     "title": "Financial Analysis",
     "section": "Outline",
-    "text": "Outline\n\n\nThis lecture will extensively use the following text-books:\n\n\n(Healy and Palepu 2012): Business Analysis Valuation: Using Financial Statements\n(Berk and DeMarzo 2023): Corporate Finance\n\n\n(Healy and Palepu 2012) provides a more comprehensive discussion around the use of financial indications, although the content pretty much resembles (Berk and DeMarzo 2023)\nIt is important to be familiarized with financial reporting concepts, such as understanding Balance-Sheet, Income Statements, and Cash-Flow Statements. For a summarized discussion on these reports, refer to (Berk and DeMarzo 2023), Chapter 2.\nIn the Appendix, you’ll find additional content (non-mandatory, but recommended) that can be used to get a deeper understanding and/or comprehend applications in real-world problems."
+    "text": "Outline\n\n\nThis lecture will extensively use the following text-books:\n\n\n(Healy and Palepu 2012): Business Analysis Valuation: Using Financial Statements\n(Berk and DeMarzo 2023): Corporate Finance\n\n\n(Healy and Palepu 2012) provides a more comprehensive discussion around the use of financial indications, although the content pretty much resembles (Berk and DeMarzo 2023)\nIt is important to be familiarized with financial reporting concepts, such as understanding Balance-Sheet, Income Statements, and Cash-Flow Statements. For a summarized discussion on these reports, refer to (Berk and DeMarzo 2023), Chapter 2.\nIn the Appendix, you’ll find additional content (non-mandatory, but recommended) that can be used to get a deeper understanding and/or comprehend applications of financial indicators"
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#financial-analysis",
     "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#financial-analysis",
     "title": "Financial Analysis",
     "section": "Financial Analysis",
-    "text": "Financial Analysis\n\nWe saw in our previous lecture that:\n\nFinance Managers have to deal with investment and financing decisions\nThe extent of their actions in these two areas can either create or destroy value\n\nHow to analyze the effect of their actions on the firm value?\nTo this point, the goal of financial analysis is to assess the performance of a firm:\n\nIs the firm getting too risky?\nIs the profitability aligned with its industry peers?\nIs the firm growing its business?\nAre profits trending upwards or downwards?\n\nProblem: not all information about the firm’s actual and past performance is disclosed."
+    "text": "Financial Analysis\n\nWe saw in our previous lecture that:\n\nFinance Managers have to deal with investment and financing decisions\nThe extent of their actions in these two areas can either create or destroy value\n\nHow to analyze the effect of their actions on the firm value?\nTo this point, the goal of financial analysis is to assess the performance of a firm:\n\nIs the firm getting too risky?\nIs the profitability aligned with its industry peers?\nIs the firm growing its business?\nAre profits trending upwards or downwards?\n\nProblem: not all information about the firm’s actual and past performance is disclosed"
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#analyzing-financial-statements",
     "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#analyzing-financial-statements",
     "title": "Financial Analysis",
     "section": "Analyzing Financial Statements",
-    "text": "Analyzing Financial Statements\n\nInvestors often use accounting statements to evaluate a firm in one of two ways:\n\nCompare the firm with itself by analyzing how the firm has changed over time.\nCompare the firm to other similar firms using a common set of financial ratios.\n\nDespite being a high-level view of complexity that is the firm’s business, such information can shed light on some areas that dictate the firm’s performance\nAccounting statements are the inputs of a series of analysis that can be done to assess financial performance.\nIn this (and the next lectures), we’ll look at a particular type of analysis that uses financial statements as an input: ratio analysis"
+    "text": "Analyzing Financial Statements\n\nInvestors often use accounting statements to evaluate a firm in one of two ways:\n\nCompare the firm with itself by analyzing how the firm has changed over time\nCompare the firm to other similar firms using a common set of financial ratios\n\nDespite being a high-level view of complexity that is the firm’s business, such information can shed light on some areas that dictate the firm’s performance\nAccounting statements are the inputs of a series of analysis that can be done to assess financial performance\nTo that point, we can mix and match information from accounting statements in order to create meaningful financial indicators that guide our analysis"
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#what-drives-firm-performance",
@@ -3507,18 +3507,18 @@
     "text": "What drives firm performance?"
   },
   {
-    "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#introducing-ratio-analysis",
-    "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#introducing-ratio-analysis",
+    "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#introducing-financial-analysis",
+    "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#introducing-financial-analysis",
     "title": "Financial Analysis",
-    "section": "Introducing ratio analysis",
-    "text": "Introducing ratio analysis\n\nObjective: evaluate the effectiveness of the firm’s policies in each of the previously mentioned areas\nHigh-level view: while ratio analysis may not give an analyst all the answers regarding the firm’s performance, it will help the analyst frame questions for further probing.\nOn the investment side, we have:\n\nManaging Revenue and Expenses\nManaging Working Capital and Fixed Assets\n\nOn the financing side, we have:\n\nManaging Liabilities and Equity\nManaging Payout\n\nFor each of these areas, we can use financial statements and create indicators that shed light on important factors that drive firm’s performance!"
+    "section": "Introducing Financial Analysis",
+    "text": "Introducing Financial Analysis\n\nObjective: evaluate the effectiveness of the firm’s policies in each of the previously mentioned areas\nHigh-level view: while ratio analysis may not give an analyst all the answers regarding the firm’s performance, it will help the analyst frame questions for further probing.\nOn the investment side, we have:\n\nManaging Revenue and Expenses\nManaging Working Capital and Fixed Assets\n\nOn the financing side, we have:\n\nManaging Liabilities and Equity\nManaging Payout\n\nFor each of these areas, we can use financial statements and create indicators that shed light on important factors that drive firm’s performance!"
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#liquidity-and-financial-strength",
     "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#liquidity-and-financial-strength",
     "title": "Financial Analysis",
     "section": "Liquidity and Financial Strength",
-    "text": "Liquidity and Financial Strength\n\nOur starting point will be looking at the capacity that a firm has to honor its liabilities\nFinancial analysts often use the information in the firm’s balance sheet to assess its financial solvency and liquidity:\nBefore we dive into the calculations, let’s look at two important definitions:\n\n\n\n\n\n\n\n\nSolvency - Definition\n\n\nThe ability of a company to meet its long-term debts and financial obligations. Solvency portrays the ability of a business (or individual) to pay off its financial obligations.\n\n\n\n\n\n\n\n\n\nLiquidity - Definition\n\n\nLiquidity refers to the ease with which an asset, or security, can be converted into cash without affecting its market price. In other words, liquidity describes the degree to which an asset can be quickly bought or sold in the market at a price reflecting its true value."
+    "text": "Liquidity and Financial Strength\n\nOur starting point will be looking at the capacity that a firm has to honor its liabilities\nFinancial analysts often use the information in the firm’s balance sheet to assess its financial solvency and liquidity\nBefore we dive into the calculations, let’s look at two important definitions:\n\n\n\n\n\n\n\n\nSolvency - Definition\n\n\nThe ability of a company to meet its long-term debts and financial obligations. Solvency portrays the ability of a business (or individual) to pay off its financial obligations.\n\n\n\n\n\n\n\n\n\nLiquidity - Definition\n\n\nLiquidity refers to the ease with which an asset, or security, can be converted into cash without affecting its market price. In other words, liquidity describes the degree to which an asset can be quickly bought or sold in the market at a price reflecting its true value."
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#solvency-measures",
@@ -3539,7 +3539,14 @@
     "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#solvency-ratios",
     "title": "Financial Analysis",
     "section": "Solvency Ratios",
-    "text": "Solvency Ratios\n\nTo evaluate the mix of debt and equity in a firm’s capital structure, we can use:\n\nLiabilities-to-Equity: measures the overall solvency:\n\n\n\n\\[\n\\text{Liabilities to Equity}=\\dfrac{\\text{Total Liabilities}}{\\text{Equity}}\n\\]\n\nDebt-to-Equity: focus on the Debt component, which is generally more binding:\n\n\n\n\\[\n\\text{Debt to Equity}=\\dfrac{\\text{Short-Term Debt + Long-Term Debt}}{\\text{Equity}}\n\\]"
+    "text": "Solvency Ratios\n\nThe easiest solvency indicator to begin with compares the amount of equity relative to all liabilities a firm has at a given point in time\nThe Liabilities-to-Equity indicator measures the overall solvency of a given firm, and is calculated as:\n\n\n\\[\n\\text{Liabilities to Equity}=\\dfrac{\\text{Total Liabilities}}{\\text{Equity}}\n\\]\n\nInterpretation: for each \\(\\small \\$1\\) of equity, how much dollars (or cents) a firm has in liabilities?\n\n\nDespite being a helpful guide on analyzing how the firm’s leverage decisions are reflected in the balance sheet, this indicator may not reflect the\nFor example, a lot of liabilities might just be related to accounts that are part of the business cycle: wages payable, taxes payable, accounts payable (suppliers), etc"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#solvency-ratios-continued",
+    "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#solvency-ratios-continued",
+    "title": "Financial Analysis",
+    "section": "Solvency Ratios, continued",
+    "text": "Solvency Ratios, continued\n\nThe Debt-to-Equity focuses the on the Debt component, which is generally more descriptive of the firm’s financing decisions as it only includes interest-bearing liabilities:\n\n\n\\[\n\\text{Debt to Equity}=\\dfrac{\\text{Short-Term Debt + Long-Term Debt}}{\\text{Equity}}\n\\]\n\nInterpretation: for each \\(\\small \\$1\\) of equity, how much dollars (or cents) a firm has in interest-bearing liabilities?\n\n\nThis indicator is very useful in understanding the mix of debt and equity a firm has ultimately decided to adopt so as to fund its projects\nImportant: whenever assessing which accounts should be classified as debt, one might need to adjust the calculations to include other items that are also interest bearing, such as leases1\n\n\nSee IFRS 16 note on leases here"
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#interpreting-solvency-ratios",
@@ -3553,7 +3560,7 @@
     "href": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#liquidity-measures",
     "title": "Financial Analysis",
     "section": "Liquidity Measures",
-    "text": "Liquidity Measures\n\n\n\n\n\n\n\nRegardless of having enough resources to pay off its obligations, can the firm pay on time?\nLiquidity evaluates the risk related to a firm’s current liabilities\nIn general, ratios attempt to measure the firm’s ability to repay its current liabilities using its the current assets"
+    "text": "Liquidity Measures\n\n\n\n\n\n\n\nRegardless of having enough resources to pay off its obligations, can the firm pay on time?\nLiquidity evaluates the risk related to a firm’s current liabilities\nIn general, ratios attempt to measure the firm’s ability to repay its current liabilities using its the current assets\n\n\n\nAll liquidity indicators seek, to some extent, answering the following question: if a firm had to liquidate some of its assets to honor its current liabilities, would the firm be able to do so?\nThese indicators help to understand, for example, why some firms need to hold substantial amounts of liquid assets, such as cash, instead of investing it in operating assets"
   },
   {
     "objectID": "fin-mgmt/Lecture 2 - Financial Analysis/index.html#liquidity-measures-1",
