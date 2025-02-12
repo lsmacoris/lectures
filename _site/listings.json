@@ -11,18 +11,19 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/fin-strat.html",
     "items": [
-      "/fin-mgmt.html",
-      "/fin-strat.html",
-      "/quant-fin.html"
-    ]
-  },
-  {
-    "listing": "/about.html",
-    "items": [
-      "/fin-mgmt.html",
-      "/fin-strat.html"
+      "/fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html",
+      "/fin-strat/Lecture 7 - Capital Structure in Perfect Capital Markets/index.html",
+      "/fin-strat/Lecture 8 - Debt and Taxes/index.html",
+      "/fin-strat/Lecture 1 - Equity Financing/index.html",
+      "/fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html",
+      "/fin-strat/Lecture 9 - Financial Distress, Managerial Incentives, and Information/index.html",
+      "/fin-strat/Introduction/index.html",
+      "/fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html",
+      "/fin-strat/Lecture 6 - Debt Financing/index.html",
+      "/fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html",
+      "/fin-strat/Lecture 10 - Payout Policy/index.html"
     ]
   },
   {
@@ -42,19 +43,18 @@
     ]
   },
   {
-    "listing": "/fin-strat.html",
+    "listing": "/about.html",
     "items": [
-      "/fin-strat/Lecture 2 - Capital Markets and the Pricing of Risk/index.html",
-      "/fin-strat/Lecture 7 - Capital Structure in Perfect Capital Markets/index.html",
-      "/fin-strat/Lecture 8 - Debt and Taxes/index.html",
-      "/fin-strat/Lecture 1 - Equity Financing/index.html",
-      "/fin-strat/Lecture 4 - Estimating the Cost of Capital/index.html",
-      "/fin-strat/Lecture 9 - Financial Distress, Managerial Incentives, and Information/index.html",
-      "/fin-strat/Introduction/index.html",
-      "/fin-strat/Lecture 5 - Investor Behavior and Capital Market Efficiency/index.html",
-      "/fin-strat/Lecture 6 - Debt Financing/index.html",
-      "/fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html",
-      "/fin-strat/Lecture 10 - Payout Policy/index.html"
+      "/fin-mgmt.html",
+      "/fin-strat.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/fin-mgmt.html",
+      "/fin-strat.html",
+      "/quant-fin.html"
     ]
   }
 ]

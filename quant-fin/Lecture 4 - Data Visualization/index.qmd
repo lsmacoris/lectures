@@ -59,11 +59,10 @@ source('../~ Metadata/packages.R')
 #| echo: false
 
 #List of assets
-
 assets=c('META','AMZN','NFLX','GOOG')
 
 FANG=assets%>%tq_get(from='2015-01-01')
-FANG%>%write.csv('Assets/FANG.csv',row.names = FALSE)
+FANG%>%write_delim('Assets/FANG.txt',delim=';')
 
 ```
 
@@ -71,7 +70,7 @@ FANG%>%write.csv('Assets/FANG.csv',row.names = FALSE)
 #| echo: false
 
 #Making data available for webR
-FANG=read.csv('Assets/FANG.csv')
+FANG=read_delim('Assets/FANG.txt')
 
 ```
 
@@ -80,24 +79,24 @@ FANG=read.csv('Assets/FANG.csv')
 -   This lecture is mainly based the following textbooks:
     1.  *Tidy Finance* [@tidyfinance]
     2.  *R for Data Science* [@r4ds]
+    3.  *The Grammar of Graphics* [@GG]
 
-:::: nonincremental
 ::: callout-note
 ### Coding Replications
 
 For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
 
 1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
-2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+2.  Along with the slides, this lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased. This file, that will be posted on *eClass®*, can be downloaded and replicated on your side. To do that, download the file, open it up in *RStudio*, and render the Quarto document using the *Render* button (shortcut: `Ctrl+Shift+K`).
+3.  At the end of this lecture, you will be prompted with a hands-on exercise to test your skills using the tools you've learned as you made your way through the slides. A suggested solution will be provided in the replication file.
 :::
-::::
 
 ## Visualizing Financial Data
 
 -   Part of your work as a Financial Analyst is to *convey* the information to a broader public:
-    1.  Fund managers do not use *R*, *Python*, and won't be proof-reading your *.xlsx* spreadsheet
+    1.  Often times, Fund managers do not use *R*, *Python*, and won't be proof-reading your *.xlsx* file
     2.  Investors, Journalists, or the general audience all alike may not have the set of skills to ingest and analyze data like you do
--   It is imperative to think about *how* you should structure your message to effectively communicate it to your audience's needs. I introduce you the *Grammar of Graphics*:
+-   It is imperative to think about *how* you should structure your message to effectively communicate it to your audience's needs
 
 ::: callout-tip
 ### Introducing: the Grammar of Graphics
@@ -105,7 +104,7 @@ For coding replications, whenever applicable, please follow [this](https://lsmac
 The [Grammar of Graphics](https://www.amazon.com.br/Grammar-Graphics-Leland-Wilkinson/dp/0387245448) sets up the foundations that underlie the production of all types of charts, ranging from pie charts, bar charts, scatterplots, and many more. To that matter, the *Grammar of Graphics* presents a unique foundation for producing charts from quantitative information that are widely used in scientific journals, newspapers, statistical packages, and data visualization systems.
 :::
 
--   How can you implement these foundations to showcase your data analysis? Luckily, there is a way to do that in `R`
+-   How can you implement these foundations to showcase your data analysis? Luckily, there is a way to do that in `R`: I introduce you to the wonderful world of `ggplot2`
 
 ## Introducing `ggplot2`
 
@@ -132,7 +131,7 @@ The [Grammar of Graphics](https://www.amazon.com.br/Grammar-Graphics-Leland-Wilk
 
 ## `ggplot2` foundations
 
--   We will illustrate the use of `ggplot2` to replicate the *Grammar of Graphics* foundations using the `FANG` dataset, which is loaded together with your slides - if you prefer to do it direclty in `R`, hit the download button and load it using `read.csv('FANG.csv')`
+-   We will illustrate the use of `ggplot2` to replicate the *Grammar of Graphics* foundations using the `FANG` dataset, which is loaded together with your slides - if you prefer to do it direclty in `R`, hit the download button and load it using `read_delim('FANG.txt')`
 
 -   To get `ggplot2` in your session, either load `tidyverse` altogether of directly load the library:
 
@@ -151,16 +150,15 @@ library(ggplot2)
 
 ```
 
--   In what follows, we will be working with a step-by-step example of how to use `ggplot2` for data visualizations. It is important that you interactively
+-   In what follows, we will be working with a step-by-step example of how to use `ggplot2` for data visualizations
 
 ```{r}
 #| warning: false
 #| message: false
 
-FANG%>%
-  download_this(
+  download_file(
+    path='Assets/FANG.txt',
     output_name = "FANG",
-    output_extension = ".csv",
     button_label = "Download Raw data",
     has_icon = TRUE,
     icon = "fa fa-save")
@@ -508,7 +506,7 @@ your_previous_ggplot_object + theme_{insertyourtheme}
 
 ```
 
--   To check all available `themes`, check the [`ggthemes`](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) website
+-   To check all available themes, check the `ggthemes` library [`here`](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) website
 
 ## Endless possibilities for `theme` customization
 
@@ -594,7 +592,7 @@ ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
 
 ```
 
-### FiveThirdyEight
+### FiveThirtyEight
 
 ```{r}
 #Make sure that date is read as a Date object
@@ -824,6 +822,69 @@ FANG%>%
     1.  Add interactivity to your `ggplot` objects with `ggplotly` package - access [here](https://plotly.com/r/)
     2.  Other interactive charting libraries: take a look at `highcharter`, a wrapper for a famous JavaScript library - access [here](https://jkunst.com/highcharter/)
     3.  If you wish to know more about the usage of `ggplot2`, nurture your creativity by looking at some community maintained list of examples [here](https://exts.ggplot2.tidyverse.org/gallery/)
+
+
+## Alternatives to `ggplot2`
+
+- `ggplot2` is, by and large, the richest and most widely used plotting ecosystem in the [{{<fa brands r-project>}}]{.blue} language
+
+- However, there are also other interesting options, especially when it comes to [interactive data visualization]{.blue}
+  1. The [plotly](https://plotly.com/r/) ecosystem provides interactive charts for R, Python, Julia, Java, among others - you can install the `R` package using `install.packages('plotly')`
+  
+  2. The [Highcharts](https://www.highcharts.com/) is another option whenever there is a need for interactive data visualization - you can install the `R` package using `install.packages('highcharter')`
+
+- In special, the `highcharter` package works seamlessly with time series data, especially those retrieved by the `tidyquant`'s `tq_get()` function
+
+## Using the `highcharter` package
+
+::: {.panel-tabset}
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+#Select the Google Stock with OHLC information and transform to an xts object
+GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
+
+  #Initialize an empty highchart
+  highchart(type='stock')%>%
+  #Add the Google Series
+  hc_add_series(GOOG,name='Google')%>%
+  #Add title and subtitle
+  hc_title(text='A Dynamic Visualization of Google Stock Prices Over Time')%>%
+  hc_subtitle(text='Source: Yahoo! Finance')%>%
+  #Customize the tooltip
+  hc_tooltip(valueDecimals=2,valuePrefix='$')%>%
+  #Convert it to a 'The Economist' theme
+  hc_add_theme(hc_theme_economist())
+```
+
+### Solution
+
+```{r}
+#| echo: false
+#| eval: true
+
+#Select the Google Stock with OHLC information and transform to an xts object
+GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
+
+  #Initialize an empty highchart
+  highchart(type='stock')%>%
+  #Add the Google Series
+  hc_add_series(GOOG,name='Google')%>%
+  #Add title and subtitle
+  hc_title(text='A Dynamic Visualization of Google Stock Prices Over Time')%>%
+  hc_subtitle(text='Source: Yahoo! Finance')%>%
+  #Customize the tooltip
+  hc_tooltip(valueDecimals=2,valuePrefix='$')%>%
+  #Convert it to a 'The Economist' theme
+  hc_add_theme(hc_theme_economist())
+
+```
+
+
+:::
 
 ## I hope you are excited to what's next!
 

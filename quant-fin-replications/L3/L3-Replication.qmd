@@ -1,0 +1,439 @@
+---
+title: "Manipulating Time Series"
+author: "Lucas S. Macoris (FGV-EAESP)"
+format:
+  html:
+    page-layout: full
+editor: visual
+---
+
+## About this Document
+
+This file replicates the codes that have been discussed in the live-session lectures of the Practical Applications in Quantitative Finance course. To ensure you can run the codes without issues, please install and load all required packages beforehand. It is always a good practice to replicate this Quarto document and experiment by making edits to the parameters. At the end of this report, you will find a suggestion on how to tweak this report — try doing some changes on your own!
+
+::: callout-important
+### Attention
+
+In this lecture, we will be working with daily stock price data from several stocks included in the *S&P 500* index. Instead of loading the data from a `.csv` file, we will pull the data *directly* from R using the `tidyquant` package. Before you start, make sure to follow the instructions from our previous replication to set up your working directory correctly.
+:::
+
+## Loading packages
+
+As we get started, we will be loading all packages referred in our official [website](https://lsmacoris.github.io/lectures/quant-fin.html).
+
+```{r}
+#| message: false #Set this to avoid Quarto printing unnecessary package messages in our document
+#| warning: false #Set this to avoid Quarto printing unnecessary warnings in our document
+
+# Package names
+packages <- c("tidyverse","tidyquant","tidymodels", "glue","scales","ggthemes")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load all packages
+invisible(lapply(packages, library, character.only = TRUE))
+
+```
+
+Note that you could easily get around this by installing and loading all necessary packages using a more simple syntax:
+
+```{r}
+#| eval: false #I don't want R to evaluate this code; it is just for presentation purposes
+#| echo: true #I want this code chunk to display on the Quarto Document
+
+#Install if not already available - I have commented these lines so that R does not attempt to install it everytime
+  #install.packages('tidyverse')
+  #install.packages('tidyquant')
+  #install.packages('glue')
+  #install.packages('scales')
+  #install.packages('ggthemes')
+
+#Load
+  library(tidyverse)
+  library(tidyquant)
+  library(tidymodels)
+  library(glue)
+  library(scales)
+  library(ggthemes)
+  
+```
+
+## Working with Time Series
+
+
+In the previous lectures, you worked your way through the exercises by using the amazing `dplyr` functionalities on `data.frames`. In some cases, however, you had to do some workarounds with `drop_na()`, `slice_tail()` and `lag()` simply because you were manipulating time series data.
+
+The `xts`, which stantds for *eXtensible Time Series* is an `R` package that is is widely used for handling and manipulating time series data. It extends the functionality of the zoo package by providing a structured framework for managing time-indexed data efficiently. Such package provides a matrix-like structure where each row is indexed by a date-time value, allowing for efficient subsetting, merging, and manipulation of time series data. It is especially useful in financial applications where time-stamped data is common.
+
+```{r}
+library(xts) # Note that this is loaded together with the tidyquant package
+
+# Create a vector of random values
+data_values <- rnorm(10)
+
+# Create a sequence of dates
+dates <- as.Date("2024-01-01") + 0:9
+
+# Convert to xts
+xts_data <- xts(data_values, order.by = dates)
+
+# Print the xts object
+print(xts_data)
+```
+
+The output shows an interesting feature of an `xts` format in R:
+
+1. The first column contains the values
+2. The row names are timestamps
+3. The `xts` object retains an efficient internal structure
+
+## Core features of `xts`
+
+- **Time-Based Indexing & Subsetting**: you can subset an `xts` object using time-based indexing in a variety of ways. If you were to do this in a `data.frame`, R wouldn't be able to retrieve the data, as a `data.frame` does not carry any time series properties that are needed for the job:
+
+```{r}
+# Subset a specific date
+xts_data["2024-01-03"]
+
+# Subset a range
+xts_data["2024-01-03/2024-01-06"]
+
+# Subset a custom Y-M-D definition
+xts_data["2024"]       # Returns all data from 2024
+xts_data["2024-01"]    # Returns all data from January 2024
+```
+
+- **Merging and Combining Time Series**: you can merge two `xts` objects using by the timestamp component that is embedded in the `xts` structure:
+
+```{r}
+data1 <- xts(rnorm(5), order.by = as.Date("2024-01-01") + 0:4)
+data2 <- xts(rnorm(5), order.by = as.Date("2024-01-01") + 2:6)
+
+merged_data <- merge(data1, data2, join = "outer")
+print(merged_data)
+```
+
+- `join = "outer"` ensures all time points are included
+- If a time point is missing in one dataset, it is filled with `NA`
+
+- **Merging and Combining Time Series**: using functions that retrieve leads and lags of a given variable are a key component of `xts` objects. Due to its timestamp component, one can shift variables backwards (using the `lag()` function) as well as forward (using the `lag()`) function:
+
+```{r}
+lagged_data <- lag(data1)  # Shift values by 1 day
+print(lagged_data)
+
+merged_data <- merge(lagged_data, data1, join = "outer")
+print(merged_data)
+```
+
+All in all, when it comes to working with financial data, `xts` objects are particularly useful for:
+
+1. Handling stock price data from `tidyquant`
+2. Calculating log returns for portfolio management
+3. Aligning time series data (*e.g.*, joining different financial datasets)
+4. Aggregating financial data (*e.g.*, monthly returns)
+5. Subsetting data by years/months/days
+6. Calculating rolling functions (*e.g*, yearly averages)
+7. Aggregating data at different intervals (*e.g*, convert daily to weekly prices)
+
+
+Unfortunately, there is an issue: the `tidyverse` is not fully designed to work with time series classes, such as `xts`. Since `xts` is optimized for time series operations, some functions that would work well when managing time series are not easily translated using the packages from the `tidyverse`:
+
+1. `tidyverse`: Designed for tabular (data frame-like) structures, emphasizing "tidy" data (each row is an observation, each column is a variable)
+
+2. `xts`: Designed for time series, optimizing time-based indexing and calculations but less compatible with tidyverse workflows
+
+## Introducing the `tidyquant` package
+
+The `tidyquant` package (see official documentation [here](https://business-science.github.io/tidyquant/index.html)) helps integrate both paradigms, making financial analysis more intuitive in R. It integrates several financial packages, like `zoo`, `xts`, `quantmod`, `TTR`, and `PerformanceAnalytics`, with the tidy data infrastructure of the `tidyverse`, allowing for seamless interaction between `tidyverse` data manipulation and financial functions.
+
+There are mainly *three* functions in the `tidyquant` package that we will be using throughout this lecture: `tq_get()`, `tq_mutate()`, and `tq_transmute()`.
+
+## The `tq_get()` function
+
+::: callout-tip
+### Definition
+
+The `tq_transmute()` returns only newly created columns and is typically used when periodicity changes. Its syntax is the following:
+
+The `tq_get()` function is a powerful tool for retrieving financial data in a tidy format. It provides an easy way to import stock prices, economic data, and key financial metrics from multiple sources, including *Yahoo Finance*, *FRED*, *Alpha Vantage*, and *Quandl*.
+
+```{r}
+#| eval: false
+#| echo: true
+tq_get(x, get = "stock.prices", from = NULL, to = NULL, ...)
+```
+
+- `x`:	a character string or vector specifying the stock symbol(s) or identifier(s)
+- `get`:	the type of data to retrieve. Defaults to `"stock.prices"`
+- `from`:	start date, in YYYY-MM-DD format. Defaults to `NULL` (gets all available data)
+- `to`:	end date, in YYYY-MM-DD format. Defaults to `NULL` (gets all available data)
+- `...`: additional arguments specific to the data source
+
+:::
+
+One of the most common uses of `tq_get()` is fetching stock price data. Say, for example, that you want to fetch data from *Apple* between January and February for 2024. It is easy to use `tq_get()` to retrieve such information:
+
+```{r}
+# Assuming you have the tidyquant loaded in your session
+
+# Fetch Apple (AAPL) stock data from 2024-01-01 to 2024-02-01
+aapl_data <- tq_get("AAPL", from = "2024-01-01", to = "2024-02-01")
+
+# Print first few rows
+head(aapl_data)
+```
+
+- The result is a tidy `tibble`, unlike quantmod’s `xts` format.
+
+## The `tq_mutate()` function
+
+::: callout-tip
+### Definition
+
+The `tq_mutate()` function adds adds new variables to an existing `tibble`:
+
+```{r}
+#| eval: false
+#| echo: true
+
+tq_mutate(.data, #The object you are performing the calculations 
+       selected_variables, #The columns to send to the mutation function
+       mutate_fun, #The mutation function from either the xts, quantmod, or TTR package.
+       col_rename #A string or character vector containing names that can be used to quickly rename columns
+       ) 
+```
+:::
+
+1.  The main advantage is the results are returned as a `tibble` and the function can be used with the `tidyverse`
+2.  It is used when you expected additional columns to be added to the resulting data frame
+3.  You can use several time series related functions from other `R` packages - call `tq_mutate_fun_options()` to see the list of available options
+4.  All in all, it is similar in spirit to `mutate()`
+
+## The `tq_transmute()` function
+
+::: callout-tip
+### Definition
+
+The `tq_transmute()` returns only newly created columns and is typically used when periodicity changes. Its syntax is the following:
+
+```{r}
+#| eval: false
+#| echo: true
+
+tq_mutate(.data, #The object you are performing the calculations 
+       selected_variables, #The columns to send to the mutation function
+       mutate_fun, #The mutation function from either the xts, quantmod, or TTR package.
+       col_rename #A string or character vector containing names that can be used to quickly rename columns
+       )
+```
+:::
+
+1.  `tq_transmute()` works exactly like `tq_mutate()` except it only returns the newly created columns
+2.  This is helpful when changing periodicity where the new columns would not have the same number of rows as the original tibble
+3.  All in all, it is similar in spirit to `summarize()`
+
+## Working with time series objects
+
+An immediate useful example of using a time series specific functionality with a tidyverse logic relates to [filtering]{.blue}. Sometimes, we may be interested in getting only a subset of the data (for example, only *GOOG* information). Furthermore, we may be interested in subsetting only a specific time frame for our analysis
+
+
+It is relatively straightforward to do it with `tidyquant`:
+
+1.  Use `filter()` to select only rows where `symbol=='GOOG'`
+2.  In the same call, filter for `date>= min_date` and `date<=max_date`
+
+```{r}
+
+#Assuming you have the tidyverse and the tidyquant packages loadded
+
+#Set up the list of assets
+assets=c('AMZN','GOOG','META','GME')
+
+#Filter out
+assets%>%
+  tq_get()%>%
+  filter(symbol=='GOOG',
+         date>='2020-01-01',
+         date<='2024-12-31')
+
+```
+
+Another example of using a time series specific functionality is working with leads and lags: sometimes, we need to shift our variables by a specific interval, like getting the previous day's price. Say, for example, that you want to understand how *S&P* returns levels relate to *NFLX* returns one-week ahead. It is relatively straightforward to do it with `tidyquant`:
+
+1.  Download *S&P 500* and *NFLX* data using the `tq_get()` function
+2.  Use `tq_transmute()` to compute the weekly returns for each security based on daily data
+3.  Use `tq_mutate()` to generate a lagged series of *S&P 500* returns
+
+```{r}
+#Assuming you have the tidyverse and the tidyquant packages loadded
+
+#Netflix Data
+NFLX=tq_get('NFLX')%>%
+  #Select only the necessary columns
+  select(date,symbol,adjusted)%>%
+  #Apply the weeklyReturn function and call the new column 'NFLX'
+  tq_transmute(mutate_fun = weeklyReturn,
+               col_rename = 'NFLX')
+
+#S&P Data
+SP500=tq_get('^GSPC')%>%
+  #Select only the necessary columns
+  select(date,symbol,adjusted)%>%
+  #Apply the weeklyReturn function and call the new column 'SP500'
+  tq_transmute(mutate_fun = weeklyReturn,
+               col_rename = 'SP500')%>%
+  #Apply the lag function for n=1 week and call the new column 'SP500'
+  tq_transmute(mutate_fun = lag.xts,
+            n=1,
+            col_rename = 'SP500')%>%
+  #Drop all rows with NA information (row 1, in this case)
+  drop_na()
+
+#Merge Data 
+inner_join(NFLX,SP500)
+```
+
+## Rolling functions
+
+Finance practitioners are often asked to perform analysis on a rolling basis: we may want to calculate a given signal on day $t$ based on past $x$ periods of information. Say, for example, that you want to calculate a simple and exponential moving average of adjusted prices from 5 days back for a given stock. It is relatively straightforward to do it with `tidyquant`:
+
+1.  Download stock data using the `tq_get()` function
+2.  Use `tq_mutate()` twice along with the `SMA()` and `EMA()` functions setting `n=5`
+
+```{r}
+#Assuming you have the tidyverse and the tidyquant packages loadded
+
+#Set up the list of assets
+assets=c('AMZN')
+
+assets%>%
+  tq_get()%>%
+  select(date,symbol,adjusted)%>%
+  group_by(symbol)%>%
+  tq_mutate(adjusted, mutate_fun = SMA, n = 5)%>%
+  tq_mutate(adjusted, mutate_fun = EMA, n = 5)
+```
+
+Lastly, financial analysts often cover a collection of securities on a rolling basis. For example, a buy-side analyst will monitor stocks from a given industry so as to understand which ones are [over]{.red}valued, and which ones are [under]{.green}valued. Say, for example, that you want to focus on a subset of 4 stocks, and you need to compare the cumulative return up to the latest closing price. 
+
+It is easy to integrate the `tidyquant` functions along with the `group_by()` function you've learned when working with `dplyr`:
+
+1. Get the information using `tq_get()`
+2. Group the data by `symbol`
+3. Apply the `tq_mutate` and `tq_transmute` functions to pass time series functions to the data - in this case, the `dailyReturn()` and the `Return.cumulative()` function
+
+```{r}
+#Assuming you have the tidyverse and the tidyquant packages loadded
+
+#Set up the list of assets
+assets=c('AMZN','GOOG','META','GME')
+
+assets%>%
+  tq_get()%>%
+  select(date,symbol,adjusted)%>%
+  group_by(symbol)%>%
+  tq_mutate(adjusted, mutate_fun = dailyReturn,col_rename = 'daily_return')%>%
+  tq_transmute(daily_return,mutate_fun = Return.cumulative)%>%
+  mutate(across(where(is.numeric),percent,big.mark='.'))%>%
+  setNames(c('Ticker','Cumulative Return up-to-date'))
+
+```
+
+## Hands-on Exercise
+
+Your manager (who did not lift any weights past the last 5 years) wanted to replicate the returns of the *Deadlift ETF* from 2020 to 2024. You job is to create a simple table of yearly returns comparing the *Deadlift ETF* *vis-a-vis* the *S&P 500* Index. Follow the instructions and answer to the following questions:
+
+  1. **When looking at the yearly results from both the *Deadlift ETF* and *S&P 500*, which one did perform better?**
+  2. **What are the potential explanations for the result you have found?**
+
+To answer to these questions, you will be using the a combination of `dplyr` and `tidyquant` functions you have learned so far. The expected result is a `data.frame` object that shows both the *Deadlift ETF* as well as the *S&P 500* returns (columns) on a yearly basis (rows).
+
+::: callout-tip
+### Instructions
+
+Before you start, make sure to have the `tidyverse` and the `tidyquant` packages loaded in your session. Following the instructions from the previous lectures, you can either make a direct call to each package, `library(tidyverse)` and `library(tidyquant)`, or copy-paste the script from the course's [official website](https://lsmacoris.github.io/lectures/quant-fin).
+
+1.  Use `tq_get()` to load information from the *S&P Index* and the *Deadlift ETF* constituents in two separate objects. You can use the code `^GSPC` to retrieve information for the index, and you can pass a vector `c('ticker1','ticker2',...,'ticker_n')` to get information on the *Deadlift ETF* constituents
+2.  Filter for observations starting between 2020 (beginning of) and 2024 (end of) using the `from` and `to` arguments of the `tq_get()` function
+3. Group the *Deadlift ETF* data by `symbol` using the `group_by()` function
+4. For both data sets, create a `yearly_ret` variable that calculates the yearly return of a given security. You can use the `tq_transmute()` function, passing the `yearlyReturn()` function along the chain
+5. For the *Deadlift* data set, regroup the data by `date` and calculate the *Deadlift* returns using a `mutate()` function (*Hint: it is an equally weighted portfolio*) 
+6. Merge both datasets using `inner_join()`
+:::
+
+
+## Solution walkthrough
+
+```{r}
+#Assuming you have the tidyverse and the tidyquant packages loadded
+
+# Set up the list of assets
+deadlift=c('META','AMZN','GS','UBER','MSFT','AAPL','BLK','NVDA')
+
+#Set up the starting date
+start='2020-01-01'
+end='2024-12-31'
+
+#Step 1: Read the Deadlift data using tidyquant
+Deadlift_Performance=deadlift%>%
+  tq_get(from=start,to=end)%>%
+  #Select only the columns of interest
+  select(symbol,date,adjusted)%>%
+  #Group by symbol and date
+  group_by(symbol)%>%
+  #Use tq_transmute to aggregate and calculate weekly returns
+  tq_transmute(selected=adjusted,
+               mutate_fun=yearlyReturn,
+               col_rename = 'Deadlift')%>%
+  #Group by date
+  group_by(date)%>%
+  #Summarize average return (since it is an equally-weighted portfolio)
+  summarize(Deadlift=mean(Deadlift,na.rm=TRUE))
+
+#Step 2: Read the S&P 500 data using tidyquant
+SP500_Performance=tq_get('^GSPC',from=start,to=end)%>%
+  #Select only the columns of interest
+  select(symbol,date,adjusted)%>%
+  #Group by symbol and date
+  group_by(symbol)%>%
+  #Use tq_transmute to aggregate and calculate weekly returns
+  tq_transmute(selected=adjusted,
+               mutate_fun=yearlyReturn,
+               col_rename = 'SP500')%>%
+  ungroup()%>%
+  select(-symbol)
+    
+#Merge
+SP500_Performance%>%
+  inner_join(Deadlift_Performance)%>%
+  mutate(across(where(is.numeric),percent))%>%
+  mutate(date=year(date))%>%
+  setNames(c('Year','S&P 500','DeadLift ETF'))
+  
+```
+
+This solution uses `tidyquant` and `tidyverse` to analyze the yearly returns of a custom portfolio (*i.e.*, the *"Deadlift ETF"*) consisting of eight stocks and compares it with the *S&P 500*.
+
+
+1.  **Define Assets and Time Range.** first, we dedfine a custom portfolio (deadlift) containing eight stocks, and set the start and end dates for data collection.
+
+2.  **Fetch & Process the Deadlift Portfolio Returns.** Starting with the *Deadlift ETF*, we first fetch historical stock prices using `tq_get()` for each asset contained in the ETF. After that, we only keep the relevant columns - namely, `symbol`, `date`, and `adjusted`. Using `group_by()` to group by `symbol`, we use the `tq_transmute()` function to apply the `yearlyReturns` function to the `adjusted` column, renaming it as `Deadlift`.
+
+3. **Calculating portfolio returns.** Since this ETF is an equally-weighted portfolio, and using the fact that a portfolio return is a weighted average of the individual securities, you can safely use the `mean()` function to calculate the return of such portfolio. To make sure that the calculation is performed for each year, use `group_by()` again, grouping by `date`.
+
+
+## Try doing some edits on your own!
+
+Try thinking about changes you could do to either improve code readability of the analysis. A couple of edits that can be made include, but are not limited, to:
+
+1. Adding more time periods to the analysis
+2. Contrasting the *DeadLift ETF* with the *S&P 500* in terms of variance and Sharpe Ratio
+3. Doing the comparison using value-weighted returns (*i.e*, weighting the securities inside the portfolio according to its market capitalization) or inverse volatility (*i.e*, riskier assets have lower weights)
+
+Play around with these concepts to get familiar with all the data manipulation tools that come with the `tidyquant` package!

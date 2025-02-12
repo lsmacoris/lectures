@@ -275,7 +275,7 @@ $$
 ## Concept Check
 
 ::: nonincremental
--   Assume the following data: Current Assets = 450; Current Liabilities = 250; Inventory = 200; Cash = 50; Account Receivables = 200. Calculate and interpret the Quick Ratio.
+-   Assume the following data: Current Assets = $\small\$450$; Current Liabilities = $\small\$250$; Inventory = $\small\$200$; Cash = $\small\$50$; Account Receivables = $\small\$200$. Calculate and interpret the Quick Ratio.
 
     a.  1.0
     b.  2.0
@@ -295,7 +295,7 @@ $$
 
 . . .
 
--   A Quick Ratio of 1 means that for each dollar due in the short-term, the firm has the same dollar value in assets.
+-   A Quick Ratio of $\small\1$ means that for each dollar due in the short-term, the firm has the same dollar value in assets.
 
 ## Concept Check
 
@@ -311,7 +311,7 @@ $$
 
 ## Concept Check
 
--   What can you say about the firm's liquidity in this case as the Current Ratio is \>1 and the Quick Ratio is equal to 1? Can we asset that the firm has a zero risk of incurring in liquidity issues?
+-   What can you say about the firm's liquidity in this case as the Current Ratio is $\small>1$ and the Quick Ratio is equal to $\small1$? Can we asset that the firm has a zero risk of incurring in liquidity issues?
 
 . . .
 
@@ -421,9 +421,9 @@ $$
 ROE=\dfrac{\text{Net Income}}{\text{Equity}}
 $$
 
-- [*ROE*]{.blue} is a comprehensive indicator of a firm's performance as it gauges how well managers are employing the funds invested by the firm's shareholders to generate   returns
+-   [*ROE*]{.blue} is a comprehensive indicator of a firm's performance as it gauges how well managers are employing the funds invested by the firm's shareholders to generate returns
 
-- Using the numbers from our example, we have:
+-   Using the numbers from our example, we have:
 
 . . .
 
@@ -436,12 +436,9 @@ $$
 -   **In the long-run, firms are expected to earn a *ROE* that is higher than its cost of capital:**
 
     1.  Consistently generating ROE above average, absent any barriers to entry, makes entry attractive for competitors
-    2.  $\uparrow$ Competition $\rightarrow$ *ROE* tends to go down to a "normal", benchmark level
+    2.  $\uparrow$ Competition $\rightarrow$ *ROE* tends to go down to a "normal", benchmark level^[ROE levels can vary significantly across industries - click [here](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/roe.html) for  an industry summary compiled in *Aswath Damodaran*'s website.]
 
--   **Short-term deviations from such "benchmark" level of *ROE* can occur due to:**
-
-    1.  Industry conditions and competitive strategy
-    2.  Accounting distortions
+-   **Short-term deviations from such "benchmark" level of *ROE* can occur due to** industry conditions and competitive strategy, accounting distortions, among other factors
 
 -   **Drawbacks**:
 
@@ -496,9 +493,10 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(plotly)
+library(highcharter)
 
-ROA_Pos=0.2
-ROA_Neg=-0.2
+ROA_Pos=20
+ROA_Neg=-20
 Leverage=seq(1,2,0.1)
 
 ROA_Pos_Sq=ROA_Pos*Leverage
@@ -506,26 +504,68 @@ ROA_Neg_Sq=ROA_Neg*Leverage
 
 Data=data.frame(Positive=ROA_Pos_Sq,Negative=ROA_Neg_Sq,Leverage=Leverage)%>%gather(Key,Value,-Leverage)
 
-Plot=ggplot(Data,aes(x=Leverage,y=Value,color=Key))+geom_line(size=1)+
-theme_minimal()+
-scale_colour_manual(values=c('Positive'='darkgreen','Negative'='red'))+
-scale_y_continuous(labels = scales::percent)+
-scale_x_continuous(breaks=seq(1,2,0.1))+
-labs(title='How different Leverage choices affect ROE?',
-     subtitle='A simulation using ROA=20% and -20%, varying on Leverage levels',
-     x='Leverage',
-     y='Return on Equity',
-     color='Return on Assets')+
-geom_vline(xintercept = 1,linetype='dashed')+
-  annotate("text",x=1.25,y=-0.3,label='ROA = -20%',size=10)+
-  annotate("text",x=1.25,y=0.3,label='ROA = +20%',size=10)+
-theme(legend.position = 'none',
-      axis.title = element_text(size=20),
-      title = element_text(size=25),
-      plot.subtitle = element_text(size=20),
-      axis.text  = element_text(size=15,face='bold'))
+#Higharter Theme
+Theme <- hc_theme(
+  chart = list(
+    backgroundColor = "#FFFFFF"
+  ),
+  title = list(
+    style = list(
+      color = "#333333",
+      fontSize = '30px'
+    )
+  ),
+  subtitle = list(
+    style = list(
+      color = "#666666",
+      fontSize = "25px"
+    )
+  ),
+  legend = list(
+    itemStyle = list(
+      color = "#666666"
+      )
+    ),
+  yAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
 
-Plot
+  ),
+  xAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+  )
+)
+
+
+
+Data%>%
+  hchart("line",hcaes(x=Leverage,y=Value,group=Key))%>%
+  hc_title(text='How different Leverage choices affect ROE?')%>%
+  hc_subtitle(text='A simulation using ROA=20% and -20%, varying on Leverage levels')%>%
+  hc_tooltip(valueDecimals=2,valuePrefix='$')%>%
+  hc_tooltip(pointFormat = 'Leverage: {point.x: .2f} <br/>ROE: {point.y: .2f}%',
+             labels = list(style=list(fontSize='20px')))%>%
+  hc_xAxis(title=list(text='Leverage'),labels=list(format='{value}'))%>%
+  hc_yAxis(title=list(text='ROE'),labels=list(format='{value}%'))%>%
+  hc_colors(c('darkred','darkgreen'))%>%
+  hc_add_theme(Theme)%>%
+  hc_annotations(
+    list(
+      labels = list(
+        list(point = list(x = 1, y = -15, xAxis = 0, yAxis = 0), text = "No Leverage"),
+        list(point = list(x = 1.4, y = -15, xAxis = 0, yAxis = 0), text = "Moderate Leverage"),
+        list(point = list(x = 2, y = -15, xAxis = 0, yAxis = 0), text = "Excessive Leverage")
+      )
+    )
+  )
+
 
 ```
 
@@ -533,15 +573,15 @@ Plot
 
 -   Our *ROE* decomposition yielded the following results:
 
-    1.  The Return on Assets is $\small20\%$
-    2.  Firm's leverage is $\small1.5$
+    1.  The [Return on Assets]{.blue} is $\small20\%$
+    2.  Firm's [Leverage]{.blue} is $\small1.5$
 
 -   We can see that leverage acts in this case by exacerbating the shareholder's return, either [upwards]{.green} or [downwards]{.red}
 
     1.  As the firm uses debt in its mix, after paying out the interest expenses, all the remaining net income is accrued to the shareholders
     2.  Therefore, using debt leverages the returns since the the value of assets being employed in the operation are higher than what the shareholders are employing
 
-- **Note, however, that there is a catch:** if the firm's *ROA* is [negative]{.red}, it means that the shareholder's *ROE* will be even [lower]{.red} than in the case where the company was financed using 100% Equity!
+-   **Note, however, that there is a catch:** if the firm's *ROA* is [negative]{.red}, it means that the shareholder's *ROE* will be even [lower]{.red} than in the case where the company was financed using $\small100\%$ Equity!
 
 ## Concept check-in
 
@@ -569,7 +609,7 @@ e.  [If a firm opts to perform a *sale-and-leaseback operation*, it will never a
 
 ## The *DuPont* Decomposition
 
-- You can drill down the *ROE* determinants even deeper by explanding the *ROA* component:
+-   You can drill down the *ROE* determinants even deeper by explanding the *ROA* component:
 
 . . .
 
@@ -577,7 +617,7 @@ $$
 \small ROE=ROA\times Leverage=\dfrac{\text{Net Income}}{\text{Assets}}\times \dfrac{\text{Assets}}{\text{Equity}}=\bigg[\bigg(\dfrac{\text{Net Income}}{\text{Sales}}\times \dfrac{\text{Sales}}{\text{Assets}}\bigg)\bigg]\times \dfrac{\text{Assets}}{\text{Equity}}
 $$
 
-- Therefore, one can view *ROE* as a composite of [three]{.blue} determinants:
+-   Therefore, one can view *ROE* as a composite of [three]{.blue} determinants:
 
 . . .
 
@@ -585,15 +625,15 @@ $$
 \small ROE=\underbrace{\dfrac{\text{Net Income}}{\text{Sales}}}_{\text{Net Profit Margin}}\times \underbrace{\dfrac{\text{Sales}}{\text{Assets}}}_{\text{Asset Turnover}}\times \underbrace{\dfrac{\text{Assets}}{\text{Equity}}}_{Leverage}
 $$
 
-  1.   The [*Net Profit Margin*]{.blue} indicates how much a firm keeps for each dollar of sales it makes
-  2.   The [*Asset Turnover*]{.blue} indicates how many sales it gets for each dollar of assets
-  3.   The [*Leverage*]{.blue} indicates how big is the firm's asset base relative to the shareholder's equity
+1.  The [*Net Profit Margin*]{.blue} indicates how much a firm keeps for each dollar of sales it makes
+2.  The [*Asset Turnover*]{.blue} indicates how many sales it gets for each dollar of assets
+3.  The [*Leverage*]{.blue} indicates how big is the firm's asset base relative to the shareholder's equity
 
 ## Applying the *DuPont*'s ROE Decomposition
 
 . . .
 
-- Using the numbers from our example, we have:
+-   Using the numbers from our example, we have:
 
 . . .
 
@@ -603,7 +643,7 @@ $$
 
 . . .
 
-- Such decomposition greatly improve our understanding of how strategic, investment, and financing decisions made by the firm affect its ratios:
+-   Such decomposition greatly improve our understanding of how strategic, investment, and financing decisions made by the firm affect its ratios:
 
 1.  By nailing ROE down to specific determinants, one can understand *how* managers are generating return to the shareholders
 2.  Understanding and comparing these specific drivers to benchmarks help us understanding the areas where the managers are [over]{.green}([under]{.red})performing
@@ -615,13 +655,13 @@ $\rightarrow$ *See [Leverage Example.xlsx]{.blue} (available on eClass®) for a 
 ## Concept Check
 
 ::: nonincremental
--   Bonner Corp.'s sales last year were \$430,500, and its year-end total assets were \$360,000. The average firm in the industry has a total assets turnover ratio (TATO) of 2.2. Bonner's new CFO believes the firm has excess assets that can be sold so as to bring the TATO down to the industry average without affecting sales. By how much must the assets be reduced to bring the TATO to the industry average, holding sales constant?
+-   Bonner Corp.'s sales last year were $\small\$430,500$, and its year-end total assets were $\small\$360,000$. The average firm in the industry has a total assets turnover ratio (TATO) of $\small2.2$. Bonner's new CFO believes the firm has excess assets that can be sold so as to bring the TATO down to the industry average without affecting sales. By how much must the assets be reduced to bring the TATO to the industry average, holding sales constant?
 
-    a.  \$164,318
-    b.  \$172,979
-    c.  \$182,083
-    d.  \$191,188
-    e.  \$200,747
+    a.  $\small\$164,318$
+    b.  $\small\$172,979$
+    c.  $\small\$182,083$
+    d.  $\small\$191,188$
+    e.  $\small\$200,747$
 :::
 
 ## Concept Check
@@ -639,17 +679,17 @@ $$
 . . .
 
 $$
-\Delta Assets = \text{Actual Assets}-\text{Target Assets}\rightarrow 360,000-195,681.8\approx 164,318
+\small \Delta Assets = \text{Actual Assets}-\text{Target Assets}\rightarrow 360,000-195,681.8\approx 164,318
 $$
 
--   Therefore, if we believe that freeing up assets is not going to affect sales, Bonner Corp needs to reduce \$164,318 to get to the desired industry average.
+-   Therefore, if we believe that freeing up assets is not going to affect sales, Bonner Corp needs to reduce $\small\$164,318$ to get to the desired industry average.
 
 ## Concept Check
 
--   After figuring out that the amount of assets to be liquidated is around \$164,318, the CFO was given two options:
+-   After figuring out that the amount of assets to be liquidated is around $\small\$164,318$, the CFO was given two options:
 
-    1.  A mix of selling Properly, Plant and Equipment, worth \$120,000 in book value, and liquidating \$44,318 in inventories, to be paid as dividends
-    2.  Liquidating \$130,000 in short-term financial investments and \$34,318 in cash, to be paid as dividends
+    1.  A mix of selling Properly, Plant and Equipment, worth $\small\$120,000$ in book value, and liquidating $\small\$44,318$ in inventories, to be paid as dividends
+    2.  Liquidating $\small\$130,000$ in short-term financial investments and $\small\$34,318$ in cash, to be paid as dividends
 
 -   Which one should get Bonner Corp. closer to the desired TATO and why?
 
@@ -671,9 +711,9 @@ $$
 Which of the following statements is CORRECT?
 
 a.  The modified DuPont equation provides information about how operations affect the ROE, but the equation does not include the effects of debt on the ROE.
-b.  Suppose a firm's total assets turnover ratio falls from 1.0 to 0.9, but at the same time its profit margin rises from 9% to 10% and its debt increases from 40% of total assets to 60%. Without additional information, we cannot tell what will happen to the ROE.
-c.  Suppose a firm's total assets turnover ratio falls from 1.0 to 0.9, but at the same time its profit margin rises from 9% to 10%, and its debt increases from 40% of total assets to 60%. Under these conditions, the ROE will decrease.
-d.  Suppose a firm's total assets turnover ratio falls from 1.0 to 0.9, but at the same time its profit margin rises from 9% to 10% and its debt increases from 40% of total assets to 60%. Under these conditions, the ROE will increase.
+b.  Suppose a firm's total assets turnover ratio falls from $\small1.0$ to $\small0.9$, but at the same time its profit margin rises from $\small9\%$ to $\small10\%$ and its debt increases from $\small40\%$ of total assets to $\small60\%$. Without additional information, we cannot tell what will happen to the ROE.
+c.  Suppose a firm's total assets turnover ratio falls from $\small1.0$ to $\small0.9$, but at the same time its profit margin rises from $\small9\%$ to $\small10\%$, and its debt increases from $\small40\%$ of total assets to $\small60\%$. Under these conditions, the ROE will decrease.
+d.  Suppose a firm's total assets turnover ratio falls from $\small1.0$ to $\small0.9$, but at the same time its profit margin rises from $\small9\%$ to $\small10\%$ and its debt increases from $\small40\%$ of total assets to $\small60\%$. Under these conditions, the ROE will increase.
 e.  Other things held constant, an increase in the debt ratio will result in an increase in the profit margin on sales.
 :::
 
@@ -687,11 +727,11 @@ $$
 \small ROE=\underbrace{\dfrac{\text{Net Income}}{\text{Sales}}}_{\text{Net Profit Margin}}\times \underbrace{\dfrac{\text{Sales}}{\text{Assets}}}_{\text{Asset Turnover}}\times \underbrace{\dfrac{\text{Assets}}{\text{Equity}}}_{Leverage}
 $$
 
-1.  If Asset Turnover went from 1 to 0.9 $\rightarrow$ a decrease of -10% ($\Delta A.T$)
-2.  If Margins went up from 9% to 10% $\rightarrow$ an increase of 11.11% ($\Delta Margin$)
+1.  If the [Asset Turnover]{.blue} went from $\small1$ to $\small0.9$ $\rightarrow$ a decrease of $\small-10\%$ ($\Delta A.T$)
+2.  If the [Profit Margin]{.blue} went up from $\small9\%$ to $\small10\%$ $\rightarrow$ an increase of $\small11.11\%$ ($\Delta Margin$)
 
--   $0.9\times 1.11=1$, so the ROA components offset each other
--   If ROA stays the same (and \>0) and we increase our leverage, we know that $ROE$ will increase
+-   $\small 0.9\times 1.11=1$, so the ROA components offset each other
+-   If $\small ROA$ stays the same (and $\small>0$) and we increase our leverage, we know that $\small ROE$ will increase
 
 ## Concept Check
 
@@ -736,23 +776,22 @@ $$
 
 ![](Images/F10.jpg)
 
-- Each line item can be thought of an index that represents the % of sales
+-   Each line item can be thought of an index that represents the % of sales
 
-- Therefore, the *Net Profit Margin* is thus a composite effect of these impacts on firm's total sales!
+-   Therefore, the *Net Profit Margin* is thus a composite effect of these impacts on firm's total sales!
 
 ## Gross Profit Margin
 
-
-::: {.callout-tip}
-
+::: callout-tip
 ### Definition
+
 The [*Gross Profit Margin*]{.blue} is the difference between a firm's sales and cost of sales is gross profit, and is an indication of the extent to which revenues exceed *direct* costs associated with sales:
 
 $$
 \small\text{Gross Profit Margin}=\dfrac{\text{Sales - Cost of Sales}}{\text{Total Sales}}
 $$
+:::
 
-::: 
 -   Using the numbers from our example, we have:
 
 . . .
@@ -768,11 +807,11 @@ $$
 
 ## Net Operating Profit After Taxes (NOPAT)
 
-- After deducting *direct* costs, there are still *indirect* operating costs (or revenues) to be taken into consideration, not to mention the effects of taxes. To take both *direct* and *indirect* costs as well as the effects of taxes into account, we can canculate a firm's [*NOPAT*]{.blue}
+-   After deducting *direct* costs, there are still *indirect* operating costs (or revenues) to be taken into consideration, not to mention the effects of taxes. To take both *direct* and *indirect* costs as well as the effects of taxes into account, we can canculate a firm's [*NOPAT*]{.blue}
 
 . . .
 
-::: {.callout-tip}
+::: callout-tip
 ### Definition
 
 The [*Net Operating Profit after Taxes*]{.blue} (also known as [*NOPAT*]{.blue}) takes into account all [non-financial]{.blue} components. The *NOPAT margin* is calculated as:
@@ -780,7 +819,6 @@ The [*Net Operating Profit after Taxes*]{.blue} (also known as [*NOPAT*]{.blue})
 $$
 \text{NOPAT Margin}=\dfrac{(\text{Sales}-\text{COGS}-\text{SG&A}-\text{Depr./Am.}\pm\text{Other Non. Fin.})\times(1-\text{Tax Rate})}{\text{Total Sales}}
 $$
-
 :::
 
 -   Using our example (and assuming a $\small40\%$ tax rate), we have:
@@ -804,12 +842,11 @@ $$
 
 . . .
 
-::: {.callout-important}
+::: callout-important
 ### A word of caution
 
 As we saw, although *NOPAT* is a comprehensible indicator for the operating performance of a firm, it can mask some important differences when it comes to account treatments!
 :::
-
 
 ## The *NOPAT* and the *Tax Rate*
 
@@ -822,13 +859,13 @@ As we saw, although *NOPAT* is a comprehensible indicator for the operating perf
     1.  Firms with more debt in its capital structure, all else equal, will pay lower taxes
     2.  Firms that had previous losses can compensate future profits paying less taxes
 
-- Therefore,  *Tax Expenses* can be a source of distortions due to different financing decisions when comparing different firms and/or the same firm over time!
+-   Therefore, *Tax Expenses* can be a source of distortions due to different financing decisions when comparing different firms and/or the same firm over time!
 
-- As such, a more *apples-to-apples* comparison between firms that have very different capital structure may involve insulating the analysis from financials *and* taxes! 
+-   As such, a more *apples-to-apples* comparison between firms that have very different capital structure may involve insulating the analysis from financials *and* taxes!
 
 ## The *EBIT* margin
 
-::: {.callout-tip}
+::: callout-tip
 ### Definition
 
 The [*Earnings before Interest and Taxes*]{.blue} (also known as [*EBIT*]{.blue}) takes into account all [non-financial]{.blue} components, disregarding any effects from taxes and interest income/expenses. The *EBIT margin* is calculated as:
@@ -838,24 +875,24 @@ $$
 $$
 :::
 
-- The *EBIT* margin takes into account:
+-   The *EBIT* margin takes into account:
 
-  1. The direct costs of the activity (*Cost of Goods Sold*)
-  2. The indirect costs of the activity (*SG&A Expenses*)
-  
-- It *disregards* the effects of financial income/expenses in the calculation, as well as taxes
+    1.  The direct costs of the activity (*Cost of Goods Sold*)
+    2.  The indirect costs of the activity (*SG&A Expenses*)
 
-- As such, such indicator can be used to compare firms with distinct financing structures!
+-   It *disregards* the effects of financial income/expenses in the calculation, as well as taxes
+
+-   As such, such indicator can be used to compare firms with distinct financing structures!
 
 ## From *EBITDA* to *EBITDA*
 
-- Apart from taxes, another criticism around *NOPAT* (and *EBIT*) is that they still take into consideration a significant *non-cash* item: *Depreciation and Amortization expenses*
+-   Apart from taxes, another criticism around *NOPAT* (and *EBIT*) is that they still take into consideration a significant *non-cash* item: *Depreciation and Amortization expenses*
 
-- The *Earnings Before Interest, Taxes, Depreciation, and Amortization* [adds back]{.blue} *Depreciation/Amortization* expenses and does not deduct taxes:
+-   The *Earnings Before Interest, Taxes, Depreciation, and Amortization* [adds back]{.blue} *Depreciation/Amortization* expenses and does not deduct taxes:
 
 . . .
 
-::: {.callout-tip}
+::: callout-tip
 ### Definition
 
 The [*Earnings before Interest and Taxes*]{.blue} (also known as [*EBIT*]{.blue}) takes into account all [non-financial]{.blue} components, disregarding any effects from taxes and interest income/expenses. The *EBIT margin* is calculated as:
@@ -869,10 +906,7 @@ Note that you can also calculate the EBITDA margin by summing up only the releva
 $$
 \small\text{EBITDA Margin}=\dfrac{\text{Sales} -\text{COGS}- \text{SG&A} \pm\text{ Other Op.}}{\text{Total Sales}}
 $$
-
 :::
-
-
 
 ## Understanding *EBITDA*
 
@@ -909,7 +943,7 @@ $$
 
 ## Market-valuation Ratios - *MVE* and *Enterprise Value*
 
-::: {.callout-tip}
+::: callout-tip
 ### Definition
 
 The [*Market Value of Equity (MVE)*]{.blue}, or simply the value of the firm's, is defined as the number of shares outstanding times the firm's market price per share - often referred to as *Market Capitalization*:
@@ -922,7 +956,6 @@ $$
 
 1.  It does *not* depend on the historical cost of the firm's assets
 2.  Rather, it depends on what investors *expect* those assets to produce in the future
-
 :::
 
 . . .
@@ -941,7 +974,7 @@ We can also calculate indices that contrast *market* and *book* measurements:
 
 . . .
 
-::: {.callout-tip}
+::: callout-tip
 ### Definition
 
 The [*Market-to-Book Ratio* (or simply *M/B Ratio*)]{.blue} highlights the differences in fundamental firm characteristics as well as the value added by management:
@@ -961,7 +994,7 @@ Where market capitalization is defined as before, and the *Book Value of Equity*
 
 ## Market-valuation Ratios - the *P/E Ratio*
 
-::: {.callout-tip}
+::: callout-tip
 ### Definition
 
 The [*Price-Earnings Ratio* (or simply *P/E Ratio*)]{.blue} is a simple measure that is used to assess whether a stock is [over]{.red}- or [under]{.green}-valued based on the idea that the value of a stock should be *proportional* to the level of earnings it can generate for its shareholders
@@ -990,8 +1023,7 @@ $$
 
 . . .
 
-
-::: {.callout-tip}
+::: callout-tip
 ### Definition
 
 The [*Sustainable Growth Rate*]{.blue} is an estimate for a given firm's growth rate using only funds from its own operations and not issuing any new debt/equity. It can be estimated as:
@@ -1000,7 +1032,6 @@ $$
 g = ROE \times \text{% Retailed Profits} \equiv ROE \times \bigg(1-\dfrac{\text{Divivends Paid}}{\text{Net Income}}\bigg) \equiv ROE \times (1-\text{Payout Ratio})
 $$
 :::
-
 
 ## Wrapping up on Financial Indicators
 
@@ -1048,7 +1079,6 @@ $\rightarrow$ *Full content on Integrated Reporting: see [@SS], available on eCl
 . . .
 
 # Appendix
-
 
 ## *Appendix I*: decomposing profitability: an alternative approach
 
