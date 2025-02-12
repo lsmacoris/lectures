@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.55">
+
+  <meta name="author" content="Lucas S. Macoris">
+  <title>Lucas S. Macoris – Mergers and Acquisitions</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-87FLN5SXEJ"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Mergers and Acquisitions</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Lucas S. Macoris 
+</div>
+</div>
+</div>
+
+</section>
+<section id="mergers-and-acquisitions" class="slide level2">
+<h2>Mergers and Acquisitions</h2>
+<ul>
+<li class="fragment"><p><em>July, 2008:</em> <em>Anheuser-Busch</em> agreed to an acquisition by Belgian-based beer giant <em>InBev</em> for <span class="blue">$70 per share in cash</span></p></li>
+<li class="fragment"><p>In fact, <em>Anheuser-Busch</em>’s board flatly rejected an initial <span class="blue">$65 per share</span> offer, preferring to remain independent</p></li>
+<li class="fragment"><p>What happens next?</p>
+<ol type="1">
+<li class="fragment"><p><em>InBev</em>’s managers faced the daunting task of integrating <em>Anheuser</em>’s organization and brands into their global company and generating enough value from the transaction to justify the price they paid</p></li>
+<li class="fragment"><p>Apart from the deal itself, new <span class="blue">financing</span> and <span class="blue">investment</span> decisions are brought into action</p></li>
+</ol></li>
+<li class="fragment"><p>This lecture discusses <span class="blue">Mergers and Acquisitions</span>, often referred to as M&amp;A, and its importance to Financial Managers</p></li>
+</ul>
+</section>
+<section id="historical-context-merger-waves" class="slide level2">
+<h2>Historical Context: Merger Waves</h2>
+<ul>
+<li class="fragment"><p>The takeover market is characterized by <em>merger waves</em>: <span class="blue">peaks</span> of heavy activity followed by quiet <span class="blue">troughs</span> of few transactions. Some stylized facts on M&amp;A activity from an historical perspective:</p></li>
+<li class="fragment"><p>For example, M&amp;A activity is <span class="green">greater</span> during economic <span class="green">expansions</span> than during contractions and correlates with bull markets:</p>
+<ol type="1">
+<li class="fragment">The same economic activities that drive expansions most likely also drive peaks in merger activity</li>
+<li class="fragment">For example, lower interest rates, existence of investment opportunities may affect economic activity and, at the same time, foster M&amp;A activity</li>
+</ol></li>
+<li class="fragment"><p>To that matter, we can look at the time-series of economic booms and bursts and analyze which characteristics took place in each M&amp;A “<em>wave</em>”</p></li>
+</ul>
+</section>
+<section id="historical-context-merger-waves-continued" class="slide level2">
+<h2>Historical Context: Merger Waves (continued)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F1.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="historical-context-merger-waves-continued-1" class="slide level2">
+<h2>Historical Context: Merger Waves (continued)</h2>
+<ul>
+<li class="fragment"><p>The periods of the greatest takeover activity occurred in the <em>1960s</em>, <em>1980s</em>, <em>1990s</em>, and <em>2000s</em>. Each merger wave was characterized by a typical type of deal:</p>
+<ul>
+<li class="fragment"><p><span class="blue">1960</span>: “<em>conglomerate wave</em>” <span class="math inline">\(\rightarrow\)</span> firms typically acquired firms in <em>unrelated</em> businesses. The rationale was that managerial expertise was portable across business lines and that the conglomerate business form offered great financial advantages</p></li>
+<li class="fragment"><p><span class="blue">1980</span>: “<em>hostile, bust-up</em>” takeovers <span class="math inline">\(\rightarrow\)</span> acquirers purchased poorly performing conglomerates and sold off its individual business units for more than the purchase price</p></li>
+<li class="fragment"><p><span class="blue">1990</span>: “<em>strategic</em>” or “<em>global</em>” deals <span class="math inline">\(\rightarrow\)</span> more likely to be friendly and to involve companies in related businesses; these mergers often were designed to create strong firms on a scale that would allow them to compete globally</p></li>
+<li class="fragment"><p><span class="blue">2000</span>: <em>consolidation</em> <span class="math inline">\(\rightarrow\)</span> in many industries such as telecommunications and software. This wave also saw private equity firms, such as <em>KKR</em>, <em>TPG</em>, <em>BlackRock</em>, and <em>Cerberus</em> playing a bigger role in acquiring larger firms, such as <em>Hertz</em>. This wave eventually ended with the 2008 economic contraction</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="types-of-mergers" class="slide level2">
+<h2>Types of Mergers</h2>
+<ul>
+<li class="fragment">From an historical perspective, M&amp;A activity was quite different across each wave. What actually characterizes mergers?</li>
+<li class="fragment">While we tend to talk about merger waves and mergers in general, the term “merger,” as commonly used, encompasses <span class="blue">several types</span> of transactions that vary by the <em>relation</em> between the target and the acquirer and the <em>method</em> of payment used in the transaction, which are generally included in a document called <span class="blue"><em>term-sheet</em></span></li>
+</ul>
+<div class="fragment">
+<p><strong>Relationship between target and acquirer</strong>:</p>
+<ol type="1">
+<li class="fragment">If the target and acquirer are in the <span class="blue">same</span> industry, the merger is typically called a <span class="blue">horizontal</span> merger</li>
+<li class="fragment">If the target’s industry buys or sells to the acquirer’s industry, it is called a <span class="blue">vertical</span> merger</li>
+<li class="fragment">Finally, if the target and acquirer operate in unrelated industries, the deal is a <span class="blue">conglomerate</span> merger</li>
+</ol>
+</div>
+</section>
+<section id="types-of-mergers-continued" class="slide level2">
+<h2>Types of Mergers (continued)</h2>
+<div class="fragment">
+<p><strong>Method of payment</strong>:</p>
+<ul>
+<li class="fragment"><p>Deals also vary based on whether the target shareholders receive stock or cash as payment for target shares:</p>
+<ol type="1">
+<li class="fragment">When they receive stock, the deal is often called a stock swap, because target shareholders are swapping their old stock for new stock in either the acquirer or the newly created merged firm</li>
+<li class="fragment">The consideration paid to target shareholders can be very complex, including debt instruments, options, and mixes of any of these with cash and/or stock. Commonly, however, target shareholders receive stock, cash, or a mix of the two</li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="market-reaction-to-takeovers" class="slide level2">
+<h2>Market Reaction to Takeovers</h2>
+<ul>
+<li class="fragment"><p>Abstracting from the fundamental question of takeovers, what happens <span class="blue">after</span> the deal has been announced (or, alternatively, put in place)?</p></li>
+<li class="fragment"><p>A bidder is unlikely to acquire a target company for less than its current market value. Instead, most acquirers pay a substantial <span class="blue">acquisition premium</span>, which is the percentage difference between the acquisition price and the pre-merger price of the target firm.</p></li>
+<li class="fragment"><p>Based on historical data from U.S. markets over 1985-2005:</p>
+<ol type="1">
+<li class="fragment">The <span class="blue">acquisition premium</span> over the pre-merger price was around <span class="green">+43%</span></li>
+<li class="fragment">The <span class="blue">market reaction</span> to the acquisition announcement on the <em>target</em> stocks was <span class="green">+15%</span></li>
+<li class="fragment">The <span class="blue">market reaction</span> to the acquisition announcement on the <em>acquired</em> stocks was <span class="yellow">+1%</span></li>
+</ol></li>
+</ul>
+</section>
+<section id="market-reaction-to-takeovers-continued" class="slide level2">
+<h2>Market Reaction to Takeovers (continued)</h2>
+<ul>
+<li class="fragment"><p>Although acquirer shareholders see an average gain of <span class="yellow">1%</span>, in half of the transactions, the bidder price <span class="red">decreases</span>. This raises up some questions:</p>
+<ol type="1">
+<li class="fragment">Why do acquirers pay a premium over the market value for a target company?</li>
+<li class="fragment">Although the price of the target company rises on average upon the announcement of the takeover, why does it rise less than the premium offered by the acquirer?</li>
+<li class="fragment">If the transaction is a good idea, why does the acquirer not consistently experience a large price increase?</li>
+</ol></li>
+<li class="fragment"><p>In what follows, we’ll discuss each of these questions in detail</p></li>
+</ul>
+</section>
+<section id="reasons-to-acquire-a-company" class="slide level2">
+<h2>Reasons to acquire a company</h2>
+<ul>
+<li class="fragment">Let’s focus on <span class="blue">Question 1</span>: why do acquirers pay a premium over the market value for a target company?</li>
+<li class="fragment">For most investors, an investment in the stock market is a zero-NPV investment.</li>
+<li class="fragment">How, then, can an acquirer pay a premium for a target and still satisfy the requirement that the investment is a positive-NPV investment opportunity?</li>
+</ul>
+<div class="fragment">
+<p><strong>Answer:</strong> an acquirer might be able to <span class="blue">add economic value</span>, as a result of the acquisition, that an individual investor cannot add! In general, these come from <em>synergies</em>, such as cost reductions, revenue enhancements strategies!</p>
+</div>
+</section>
+<section id="synergy-reasons-to-merge" class="slide level2">
+<h2>Synergy Reasons to Merge</h2>
+<ol type="1">
+<li class="fragment"><em>Economies of Scale and Scope</em></li>
+<li class="fragment"><em>Vertical Integration</em></li>
+<li class="fragment"><em>Expertise and Learning Curve</em></li>
+<li class="fragment"><em>Monopoly Gains</em></li>
+<li class="fragment"><em>Efficiency Gains</em></li>
+<li class="fragment"><em>Tax Savings from Operating Losses</em></li>
+<li class="fragment"><em>Diversification</em></li>
+<li class="fragment"><em>Earnings Growth</em></li>
+</ol>
+</section>
+<section id="managerial-reasons-to-merge" class="slide level2">
+<h2>Managerial Reasons to Merge</h2>
+<ul>
+<li class="fragment"><p>Most of the reasons given so far are economically motivated, shareholder-driven incentives to merge. However, managers sometimes have their own reasons to merge. <span class="blue">These may be exacerbated in the absence of corporate governance mechanisms</span></p></li>
+<li class="fragment"><p>Recall from our previous discussion that that the announcement gains for acquirers were <span class="red">negative</span> in 50% of the time. Some explanations might include:</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Conflicts of Interest</strong></p>
+<ol type="1">
+<li class="fragment"><p><em>Limited downside, infinite upside</em>: a CEO that owns 1% of her firm’s stock bears 1% of every dollar lost on a bad acquisition, but enjoys 100% of the gains in compensation and prestige that come with being the CEO of a larger company and may have additional compensation</p></li>
+<li class="fragment"><p>Managers or controlling shareholders may also exploit their informational advantage by choosing to acquire their own firm when it is undervalued by the market</p></li>
+</ol>
+</div>
+</section>
+<section id="managerial-reasons-to-merge-continued" class="slide level2">
+<h2>Managerial Reasons to Merge (continued)</h2>
+<ul>
+<li class="fragment"><p>Most of the reasons given so far are economically motivated, shareholder-driven incentives to merge. However, managers sometimes have their own reasons to merge. <span class="blue">These may be exacerbated in the absence of corporate governance mechanisms</span></p></li>
+<li class="fragment"><p>Recall from our previous discussion that that the announcement gains for acquirers were <span class="red">negative</span> in 50% of the time. Some explanations might include:</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Overconfidence</strong></p>
+<ol type="1">
+<li class="fragment"><p><em>Managerial hubris</em>: which maintains that overconfident CEOs pursue mergers that have low chance of creating value because they truly believe that their ability to manage is great enough to succeed</p></li>
+<li class="fragment"><p>Overconfident managers believe they are doing the right thing for their shareholders, but irrationally overestimate their own abilities</p></li>
+</ol>
+</div>
+</section>
+<section id="valuing-an-acquisition" class="slide level2">
+<h2>Valuing an acquisition</h2>
+<ul>
+<li class="fragment">Conceptually, we can separate the price paid for a target into its pre-bid market value plus a premium:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \text{Acquisition Price} = \text{Target's pre-bid capitalization} + \text{Acquisition Premium}
+\]</span></p>
+<ul>
+<li class="fragment">From the acquirer’s perspective, the benefits of the acquisition can be calculated as:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \text{Value Acquired} = \text{Target Stand-Alone Value} + \text{PV(Synergies)}
+\]</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Combining both, we can see that the takeover is a positive-NPV project only if:</em></p>
+<p><span class="math display">\[
+\small \text{PV(Synergies)} &gt; \text{Acquisition Premium} \rightarrow NPV&gt;0
+\]</span></p>
+</div>
+</section>
+<section id="valuing-the-acquisition-continued" class="slide level2">
+<h2>Valuing the acquisition (continued)</h2>
+<ul>
+<li class="fragment"><p>Although the premium that is offered is a concrete number, the synergies <em>are not</em>:</p>
+<ol type="1">
+<li class="fragment">Investors might well be skeptical of the acquirer’s estimate of their magnitude</li>
+<li class="fragment">The market reaction, from the acquirer’s perspective, will depend on the investor’s expectations on the present value of synergies created</li>
+</ol></li>
+<li class="fragment"><p>The acquirer’s market reaction was, on average, <span class="yellow">+1%</span>, with a median of 0%. Thus, the market, on average, believes that the premium is approximately equal to the synergies! This helps answering <span class="blue">Question 3</span></p></li>
+<li class="fragment"><p>Note, however, that there is a large cross-section variation across deals:</p>
+<ol type="1">
+<li class="fragment">Positive reactions to bids are concentrated in smaller bidders</li>
+<li class="fragment">During the 1990s, 87 large public acquirers announced bids that resulted in $1 billion or more in value reduction at announcement. This can be related to value-destroying operations driven by managerial incentives, and not synergies-related</li>
+</ol></li>
+</ul>
+</section>
+<section id="making-the-offer" class="slide level2">
+<h2>Making the offer</h2>
+<ul>
+<li class="fragment"><p>A <span class="blue">tender offer</span> is a public announcement of its intention to purchase a large block of shares for a specified price</p></li>
+<li class="fragment"><p>Bidders can pay the tender offer value using <em>cash</em>, <em>stock</em>, or a combination of both:</p>
+<ol type="1">
+<li class="fragment">In a <span class="blue">cash transaction</span>, the bidder simply pays for the target, including any premium, in cash</li>
+<li class="fragment">In a <span class="blue">stock transaction</span>, the bidder pays for the target by issuing new stock and giving it to the target shareholders</li>
+</ol></li>
+<li class="fragment"><p>The determination of actual the price that will be offered to the shareholders of the target firm is determined by the <em>Exchange Ratio</em>:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \text{Exchange Ratio} = (\text{# of acquirer shares received for each target share}) \times \text{Acquirer Stock Price}
+\]</span></p>
+<ul>
+<li class="fragment">In what follows, we’ll determine how the <em>Exchange Ratio</em> can be estimated</li>
+</ul>
+</div>
+</section>
+<section id="exchange-ratio-in-stock-swap-mergers" class="slide level2">
+<h2>Exchange Ratio in stock swap mergers</h2>
+<ul>
+<li class="fragment"><p>Let <span class="math inline">\(A\)</span> be the premerger, or stand-alone, value of the acquirer, and <span class="math inline">\(T\)</span> be the premerger (stand-alone) value of the target. Let <span class="math inline">\(S\)</span> be the value of the synergies created by the merger.</p></li>
+<li class="fragment"><p>If the acquirer has <span class="math inline">\(N_A\)</span> shares before the merger, at a share price <span class="math inline">\(P_A\)</span>, and issues additional <span class="math inline">\(x\)</span> shares to pay for the target, the acquirer’s share price would increase if:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \dfrac{A+T+S}{N_A+x}&gt;\dfrac{A}{N_A}\equiv P_A
+\]</span></p>
+<ul>
+<li class="fragment">Therefore, an acquirer would earn a positive NPV in the transaction if the value of the shares offered is <em>less</em> than the value of the target plus the synergies:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small x P_A &lt; T + S
+\]</span></p>
+</div>
+</section>
+<section id="exchange-ratio-in-stock-swap-mergers-continued" class="slide level2">
+<h2>Exchange Ratio in stock swap mergers (continued)</h2>
+<ul>
+<li class="fragment">From the previous equation:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small x P_A &lt; T + S
+\]</span></p>
+<ul>
+<li class="fragment">If we define the target firm pre-announcement value as <span class="math inline">\(T = P_T \times N_T\)</span>, we can then rearrange the last equation to find the maximum exchange ratio that an acquirer can use to have positive NPV in the transaction:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \text{Exchange Ratio}=\dfrac{x}{N_T}&lt;\underbrace{\dfrac{P_T}{P_A}}_{\text{Difference in Price}}\times\underbrace{\bigg(1+\dfrac{S}{T}\bigg)}_{\text{Synergy %}}
+\]</span></p>
+<ul>
+<li class="fragment">For example, if the value of synergies equals 20% of the value of the target, you would be willing to pay an exchange ratio 20% higher than the current price ratio</li>
+</ul>
+</div>
+</section>
+<section id="exercise-example-1" class="slide level2">
+<h2>Exercise Example #1</h2>
+<p><em>Taggart Transcontinental and Phoenix-Durango have entered into a stock swap merger agreement whereby Taggart will pay a 30% premium over Phoenix-Durango’s premerger price. If Taggart’s premerger price per share was $15 and Phoenix-Durango’s was $30. Determine the exchange ratio that Taggart will offer.</em></p>
+<p><span class="math inline">\(\rightarrow\)</span> <strong>Solution: define the ratio as:</strong></p>
+<p><span class="math display">\[
+\text{Exchange Ratio}=\dfrac{\text{Target Price}\times \text{(1+Premium)}}{\text{Acquirer Price}}=\dfrac{30\times(1+30\%)}{15}=2.6
+\]</span></p>
+<ul>
+<li class="fragment">In words, this means that for using a stock swap merger agreement, <em>Taggart</em> needs to offer 2.6 shares for each share in <em>Durango</em></li>
+</ul>
+</section>
+<section id="exercise-example-2" class="slide level2">
+<h2>Exercise Example #2</h2>
+<p><em>At the time Sprint announced plans to acquire Nextel in December 2004, Sprint stock was trading for $25 per share and Nextel stock was trading for $30 per share. If the projected synergies were $12 billion, and Nextel had 1.033 billion shares outstanding, what is the maximum exchange ratio Sprint could offer in a stock swap and still generate a positive NPV? What is the maximum cash offer Sprint could make?</em></p>
+<div class="fragment">
+<p><span class="math display">\[
+\small \text{Exchange Ratio}&lt;\dfrac{30}{25}\bigg(1+\dfrac{12}{31}\bigg)= 1.665
+\]</span></p>
+<ol type="1">
+<li class="fragment"><p>That is, Sprint could offer up to 1.665 shares of Sprint stock for each share of Nextel stock and generate a positive NPV. That would yield target shareholders <span class="math inline">\(1.665 \times 25 = 41.62\)</span></p></li>
+<li class="fragment"><p>Alternatively, one could pay the target price plus the synergies per share:</p></li>
+</ol>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small 30+\dfrac{12}{1,033}=30+11.62=41.62
+\]</span></p>
+</div>
+</section>
+<section id="board-and-shareholder-approval" class="slide level2">
+<h2>Board and Shareholder Approval</h2>
+<ul>
+<li class="fragment"><p>For a merger to proceed, both the <span class="blue">target</span> and the <span class="blue">acquiring</span> board of directors must approve the deal and put the question to a vote of the shareholders of the target (and, in some cases, the shareholders of the acquiring firm as well)</p>
+<ol type="1">
+<li class="fragment"><p>In a <span class="blue">friendly</span> takeover, there is no dispute: the target board of directors <span class="green">supports</span> the deal and agrees on a price for the stock</p></li>
+<li class="fragment"><p>In a <span class="blue">hostile</span> takeover, there is dispute: the target board of directors <span class="red">fights</span> the takeover attempt. In this situation, the acquirer firm needs to garner enough shares (&gt;50%) to take control and replace the board of directors</p></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><strong>Question:</strong> if the shareholders of a target company receive a premium over the current market value of their shares, why would a board of directors ever oppose a takeover?</p>
+</div>
+<div class="fragment">
+<p><em>Answer:</em> both rational (<em>e.g.</em>, offer price may be too low, swap exchange is not advantageous in current prices) and irrational (<em>e.g.</em> managers self-interests) may play a role in here.</p>
+</div>
+</section>
+<section id="more-on-hostile-takeovers" class="slide level2">
+<h2>More on Hostile Takeovers</h2>
+<ul>
+<li class="fragment"><p>Mergers and Acquisitions can also be thought of a <em>market for corporate control</em> helps discipline managers from publicly traded firms to keep pushing for adding value to the shareholders:</p>
+<ol type="1">
+<li class="fragment"><p>When managers <span class="red">poorly</span> perform on a consistent basis <span class="math inline">\(\rightarrow\)</span> investors adjust expectations down <span class="math inline">\(\rightarrow\)</span> stock prices go <span class="red">down</span></p></li>
+<li class="fragment"><p>When managers consistently <span class="green">outperform</span> <span class="math inline">\(\rightarrow\)</span> investors adjust expectations up <span class="math inline">\(\rightarrow\)</span> stock prices <span class="green">increase</span></p></li>
+</ol></li>
+<li class="fragment"><p>It is interesting to think about what happens in situation <span class="blue">1</span>:</p>
+<ol type="1">
+<li class="fragment">If stock prices go <span class="red">down</span>, the enterprise value of the firm decreases</li>
+<li class="fragment">The lump-sum value required for acquiring the firm is now <em>cheaper</em></li>
+<li class="fragment">The firm is now more prone to being a target in a takeover!</li>
+</ol></li>
+<li class="fragment"><p>Incumbent managers are put into the spotlight, as a new shareholder can vote to replace them. Because of such credible threat of termination, managers have <em>ex-ante</em> incentives to maximize shareholder value!</p></li>
+</ul>
+</section>
+<section id="approval-and-takeover-defenses" class="slide level2">
+<h2>Approval and Takeover Defenses</h2>
+<ul>
+<li class="fragment"><p>For a hostile takeover to succeed, the acquirer must go around the target board and appeal <em>directly</em> to the target shareholders - something called <em>tender offer</em></p></li>
+<li class="fragment"><p>The acquirer will usually couple this with a <em>proxy fight</em>: the acquirer attempts to convince target shareholders to unseat the target board by using their proxy votes to support the acquirers’ candidates for election to the target board</p></li>
+<li class="fragment"><p>There are a couple ways a target firm can adopt to stop or prevent this dynamic - all in which somewhat increase the takeover price - see details on <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span><em>, Chapter 28</em>:</p>
+<ol type="1">
+<li class="fragment"><em>Poison Pills</em></li>
+<li class="fragment"><em>Staggered Boards</em></li>
+<li class="fragment"><em>White Knights</em></li>
+<li class="fragment"><em>Golden Parachutes</em></li>
+<li class="fragment"><em>Recapitalization</em></li>
+</ol></li>
+</ul>
+</section>
+<section id="who-gets-value-from-a-takeover---the-acquirer-side" class="slide level2">
+<h2>Who gets value from a takeover - the acquirer side</h2>
+<ul>
+<li class="fragment"><p>From Slide 9, we saw that acquirer firms barely experience any positive reactions to takeovers. Instead, the premium the acquirer pays is approximately equal to the value it adds, <span class="blue">which means the target shareholders ultimately capture the value added by the acquirer</span>.</p></li>
+<li class="fragment"><p>To see that, suppose that you are one of the 1MM shareholders of a company, with 1 share</p></li>
+<li class="fragment"><p>Shares are trading at <span class="blue">$45</span>. An acquirer believes that the same firm, under his management, could be worth <span class="blue">$75</span></p>
+<ol type="1">
+<li class="fragment">The acquirer makes a <em>tender offer</em> for the majority of the shares (50%+1) for <span class="blue">$\60</span></li>
+<li class="fragment">If <span class="red">fewer</span> than 50% of the shareholders tender their shares, the deal is off.</li>
+</ol></li>
+<li class="fragment"><p>Profit for the acquirer: <span class="math inline">\(\small 1MM \times (75-60)=7.5MM\)</span></p></li>
+</ul>
+</section>
+<section id="who-gets-value-from-a-takeover---the-target-side" class="slide level2">
+<h2>Who gets value from a takeover - the target side</h2>
+<div class="fragment">
+<p><em>Question: If a tender offer has an acquisition premium, why wouldn’t all shareholders of the firm promptly accept it?</em></p>
+<ul>
+<li class="fragment"><p>All in all the deal is profitable, as the acquisition price ($60), is higher than the current market value ($45)</p></li>
+<li class="fragment"><p>But if all shareholders tender their shares, as an individual shareholder, <span class="blue">you could do better by not tendering your share</span>, since the market value of the acquired firm will be worth <span class="blue">$75</span>!</p></li>
+<li class="fragment"><p>If all shareholders think like this, no one will tender their shares <span class="math inline">\(\rightarrow\)</span> the deal is off and all the target shareholders are worse-off!</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> The only way to persuade shareholders it to increase the offer price up to <span class="blue">$75</span>. However, this would erode all economic profits from the acquirer, and he wouldn’t bother at all to invest time and effort in the acquisition</p>
+<ul>
+<li class="fragment">This is also referred to as the <span class="blue">free-rider problem</span> in M&amp;A. How to circumvent that?</li>
+</ul>
+</div>
+</section>
+<section id="circumventing-the-free-rider-problem" class="slide level2">
+<h2>Circumventing the <em>free-rider</em> problem</h2>
+<ol type="1">
+<li class="fragment"><p>Because of the <em>free-rider</em> problem, shareholders would need to receive <span class="blue">$75</span>, which wouldn’t pay off for the acquirer, as the NPV of the deal would be zero</p></li>
+<li class="fragment"><p>Therefore, we would need to think of strategies that make the acquirer earn <span class="blue">positive</span> NPV in the transaction<sup>1</sup>!</p></li>
+</ol>
+<ul>
+<li class="fragment"><p><em>Toeholds</em>: one way for the acquirer to increase its profits is buying shares <span class="blue">anonymously</span> in the market. Regulations generally prevent acquirers from buying an unlimited amount of shares without conveying any information (<em>e.g</em>, disclose any participation <span class="math inline">\(\small \geq 10\%\)</span>), but we could:</p>
+<ol type="1">
+<li class="fragment">Buy 10% of the shares anonymously for <span class="blue">$50</span></li>
+<li class="fragment">Do a tender offer for the remaining 40% of the shares considering <span class="blue">$75</span></li>
+</ol></li>
+<li class="fragment"><p>With that, the acquirer profits would be <span class="math inline">\(\small (75-50)\times 100,000=2,5MM\)</span>. Why should target shareholders care? Because this creates a threat for the incumbent managers!</p></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>See <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span> for the examples of Leveraged Buyouts and Freezeout mergers on page 1025.</p></li></ol></aside></section>
+<section id="regulatory-issues" class="slide level2">
+<h2>Regulatory Issues</h2>
+<ul>
+<li class="fragment"><p>Mergers need to be approved by regulators, although the extent to which these regulators block M&amp;A activity varies from country to country</p></li>
+<li class="fragment"><p>In Brazil, the regulatory agency in charge of deciding on M&amp;A activity is the <span class="blue"><em>Conselho Administrativo de Defesa Econômica (CADE)</em></span><sup>1</sup>, which is responsible for oversighting M&amp;A activity and prevent monopolist practices that may harm ultimate customers through:</p>
+<ol type="1">
+<li class="fragment"><p><span class="blue">Preemptive</span>: <span class="green">approve</span>/<span class="red">deny</span> M&amp;A activity based on its expected effect to consumer welfare</p></li>
+<li class="fragment"><p><span class="blue">Repressive</span>: judge matters related to monopolistic practices, such as overpricing, cartels, etc</p></li>
+<li class="fragment"><p><span class="blue">Educative</span>: incentive studies aiming to better understand relevant competition issues</p></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><strong>Important: not all M&amp;A activity is harmful for the customers</strong></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>See, for example, the <a href="https://cdn.cade.gov.br/Portal/centrais-de-conteudo/publicacoes/estudos-economicos/documentos-de-trabalho/2019/documento-de-trabalho-n03-2019-avaliacao-ex-post-de-ato-de-concentracao-o-caso-sadia-perdigao.pdf">Perdigão-Sadia (BRFoods)</a> case</em></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>More information on how <em>CADE</em> operates: click <a href="https://cdn.cade.gov.br/Portal/acesso-a-informacao/perguntas-frequentes/cartilha-do-cade.pdf">here.</a></p></li></ol></aside></section>
+<section id="new-evidence-on-common-ownership-and-concentration" class="slide level2">
+<h2>New evidence on common ownership and concentration</h2>
+<ul>
+<li class="fragment"><p>Why a regulatory agency cares so much about competition? Because it can affect customer’s welfare!</p>
+<ol type="1">
+<li class="fragment">Firms can use their monopolistic power to increase prices</li>
+<li class="fragment">They can also influence other market outcomes in such a way to maximize their profits</li>
+</ol></li>
+<li class="fragment"><p>Long story, short: from your <em>Economics 101</em> class, <em>ceteris paribus</em>, fostering competition increases consumer welfare</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Question</strong>: if that is the case, and assuming that there are no gains from synergies that can be distributed over to customers, is having market-shares fairly distributed across competitors sufficient to ensure that customers are better-off?</p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>In the next slides, you can see the distribution of ownership across big entrepreneurial firms in the U.S. <span class="citation" data-cites="Schmalz2018">(<a href="#/references" role="doc-biblioref" onclick=""><strong>Schmalz2018?</strong></a>)</span>. Can you spot something odd?</em></p>
+</div>
+</section>
+<section id="new-evidence-on-common-ownership-and-concentration-continued" class="slide level2">
+<h2>New evidence on common ownership and concentration (continued)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F2.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="new-evidence-on-common-ownership-and-concentration-continued-1" class="slide level2">
+<h2>New evidence on common ownership and concentration (continued)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F3.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="supplementary-reading" class="slide level2">
+<h2>Supplementary Reading</h2>
+<ul>
+<li class="fragment">See <span class="blue">Finance Reading: The Mergers and Acquisitions Process</span> for a thorough discussion around the M&amp;A process</li>
+<li class="fragment">See <span class="blue">Evaluating M&amp;A Deals: Introduction to the Deal NPV</span> for a detailed discussion on how to use the valuation methods from previous lectures to assess the value of an M&amp;A deal</li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>All contents are available on eClass®.</em></p>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+<div class="quarto-auto-generated-content">
+<p><img src="Images/logo.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures/fin-mgmt.html">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-BDM" class="csl-entry" role="listitem">
+Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Global Edition / English Textbooks. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
+</div>
+</div>
+</section>
+
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/lsmacoris\.github\.io\/lectures");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
