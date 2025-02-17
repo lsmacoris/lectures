@@ -1,6 +1,6 @@
 project:
   type: website
-
+  output-dir: docs
 website:
   title: "Lucas S. Macoris"
   repo-url: https://github.com/lsmacoris/lectures

@@ -316,17 +316,17 @@ Attention
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the xts object</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(xts_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                  [,1]
-2024-01-01  0.12923375
-2024-01-02  1.05136027
-2024-01-03  0.26639516
-2024-01-04 -0.21815822
-2024-01-05 -1.00402404
-2024-01-06  0.21449874
-2024-01-07 -0.06405398
-2024-01-08 -0.10146413
-2024-01-09 -0.44289444
-2024-01-10 -0.41029840</code></pre>
+<pre><code>                 [,1]
+2024-01-01 -0.0311796
+2024-01-02  1.0418157
+2024-01-03  0.3798561
+2024-01-04  0.3937990
+2024-01-05 -0.3137402
+2024-01-06  1.2345958
+2024-01-07 -0.9439697
+2024-01-08  2.8185340
+2024-01-09  1.1683529
+2024-01-10  0.1580560</code></pre>
 </div>
 </div>
 <p>The output shows an interesting feature of an <code>xts</code> format in R:</p>
@@ -346,45 +346,45 @@ Attention
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xts_data[<span class="st">"2024-01-03"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                [,1]
-2024-01-03 0.2663952</code></pre>
+2024-01-03 0.3798561</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset a range</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>xts_data[<span class="st">"2024-01-03/2024-01-06"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 [,1]
-2024-01-03  0.2663952
-2024-01-04 -0.2181582
-2024-01-05 -1.0040240
-2024-01-06  0.2144987</code></pre>
+2024-01-03  0.3798561
+2024-01-04  0.3937990
+2024-01-05 -0.3137402
+2024-01-06  1.2345958</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset a custom Y-M-D definition</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>xts_data[<span class="st">"2024"</span>]       <span class="co"># Returns all data from 2024</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                  [,1]
-2024-01-01  0.12923375
-2024-01-02  1.05136027
-2024-01-03  0.26639516
-2024-01-04 -0.21815822
-2024-01-05 -1.00402404
-2024-01-06  0.21449874
-2024-01-07 -0.06405398
-2024-01-08 -0.10146413
-2024-01-09 -0.44289444
-2024-01-10 -0.41029840</code></pre>
+<pre><code>                 [,1]
+2024-01-01 -0.0311796
+2024-01-02  1.0418157
+2024-01-03  0.3798561
+2024-01-04  0.3937990
+2024-01-05 -0.3137402
+2024-01-06  1.2345958
+2024-01-07 -0.9439697
+2024-01-08  2.8185340
+2024-01-09  1.1683529
+2024-01-10  0.1580560</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>xts_data[<span class="st">"2024-01"</span>]    <span class="co"># Returns all data from January 2024</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                  [,1]
-2024-01-01  0.12923375
-2024-01-02  1.05136027
-2024-01-03  0.26639516
-2024-01-04 -0.21815822
-2024-01-05 -1.00402404
-2024-01-06  0.21449874
-2024-01-07 -0.06405398
-2024-01-08 -0.10146413
-2024-01-09 -0.44289444
-2024-01-10 -0.41029840</code></pre>
+<pre><code>                 [,1]
+2024-01-01 -0.0311796
+2024-01-02  1.0418157
+2024-01-03  0.3798561
+2024-01-04  0.3937990
+2024-01-05 -0.3137402
+2024-01-06  1.2345958
+2024-01-07 -0.9439697
+2024-01-08  2.8185340
+2024-01-09  1.1683529
+2024-01-10  0.1580560</code></pre>
 </div>
 </div>
 <ul>
@@ -397,14 +397,14 @@ Attention
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(data1, data2, <span class="at">join =</span> <span class="st">"outer"</span>)</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(merged_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                data1       data2
-2024-01-01 0.93949193          NA
-2024-01-02 1.08695627          NA
-2024-01-03 0.12798001  0.07848852
-2024-01-04 1.54138622 -0.27483433
-2024-01-05 0.03788241  0.51204350
-2024-01-06         NA  0.37849420
-2024-01-07         NA -0.60381148</code></pre>
+<pre><code>                 data1     data2
+2024-01-01  0.77660506        NA
+2024-01-02 -0.07132066        NA
+2024-01-03 -1.21682731 -1.044143
+2024-01-04  1.11537272 -1.104123
+2024-01-05 -1.88927661  0.206480
+2024-01-06          NA -1.425320
+2024-01-07          NA  1.118018</code></pre>
 </div>
 </div>
 <ul>
@@ -416,22 +416,22 @@ Attention
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>lagged_data <span class="ot">&lt;-</span> <span class="fu">lag</span>(data1)  <span class="co"># Shift values by 1 day</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lagged_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                [,1]
-2024-01-01        NA
-2024-01-02 0.9394919
-2024-01-03 1.0869563
-2024-01-04 0.1279800
-2024-01-05 1.5413862</code></pre>
+<pre><code>                  [,1]
+2024-01-01          NA
+2024-01-02  0.77660506
+2024-01-03 -0.07132066
+2024-01-04 -1.21682731
+2024-01-05  1.11537272</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(lagged_data, data1, <span class="at">join =</span> <span class="st">"outer"</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(merged_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           lagged_data      data1
-2024-01-01          NA 0.93949193
-2024-01-02   0.9394919 1.08695627
-2024-01-03   1.0869563 0.12798001
-2024-01-04   0.1279800 1.54138622
-2024-01-05   1.5413862 0.03788241</code></pre>
+<pre><code>           lagged_data       data1
+2024-01-01          NA  0.77660506
+2024-01-02  0.77660506 -0.07132066
+2024-01-03 -0.07132066 -1.21682731
+2024-01-04 -1.21682731  1.11537272
+2024-01-05  1.11537272 -1.88927661</code></pre>
 </div>
 </div>
 <p>All in all, when it comes to working with financial data, <code>xts</code> objects are particularly useful for:</p>
@@ -674,7 +674,7 @@ Definition
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> SMA, <span class="at">n =</span> <span class="dv">5</span>)<span class="sc">%&gt;%</span></span>
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> EMA, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2,543 × 5
+<pre><code># A tibble: 2,546 × 5
 # Groups:   symbol [1]
    symbol date       adjusted   SMA   EMA
    &lt;chr&gt;  &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -688,7 +688,7 @@ Definition
  8 AMZN   2015-01-13     14.7  14.8  14.8
  9 AMZN   2015-01-14     14.7  14.8  14.8
 10 AMZN   2015-01-15     14.3  14.6  14.6
-# ℹ 2,533 more rows</code></pre>
+# ℹ 2,536 more rows</code></pre>
 </div>
 </div>
 <p>Lastly, financial analysts often cover a collection of securities on a rolling basis. For example, a buy-side analyst will monitor stocks from a given industry so as to understand which ones are <span class="red">over</span>valued, and which ones are <span class="green">under</span>valued. Say, for example, that you want to focus on a subset of 4 stocks, and you need to compare the cumulative return up to the latest closing price.</p>
@@ -733,10 +733,10 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 # Groups:   Ticker [4]
   Ticker `Cumulative Return up-to-date`
   &lt;chr&gt;  &lt;chr&gt;                         
-1 AMZN   1.409%                        
+1 AMZN   1.382%                        
 2 GOOG   617%                          
-3 META   821%                          
-4 GME    322%                          </code></pre>
+3 META   843%                          
+4 GME    329%                          </code></pre>
 </div>
 </div>
 </section>

@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.55">
+
+  <meta name="author" content="Lucas S. Macoris">
+  <title>Lucas S. Macoris – Fundamentals of Capital Budgeting</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-87FLN5SXEJ"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Fundamentals of Capital Budgeting</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Lucas S. Macoris 
+</div>
+</div>
+</div>
+
+</section>
+<section id="what-is-capital-budgeting" class="slide level2">
+<h2>What is Capital Budgeting?</h2>
+<ul>
+<li class="fragment">An important responsibility of corporate financial managers is determining <span class="blue">which</span> projects or investments a firm should undertake</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>Capital Budgeting is the process of <span class="blue">analyzing</span> investment opportunities and <span class="blue">deciding</span> which ones to accept. It consists of a list of all projects and investments that a company plans to undertake in the near future.</p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li class="fragment"><p>As per our previous lectures on <em>Investment Decision Rules</em>, the <em>Net Present Value (NPV)</em> is the most accurate metric to evaluate investment projects, and there are a couple of other metrics that can help you get a better understanding of the investment opportunity</p></li>
+<li class="fragment"><p>You also saw how you can use firm’s financials to draw insightful metrics about its performance</p></li>
+</ol>
+</div>
+<div class="fragment">
+<p><strong>Question: what’s next?</strong></p>
+</div>
+</section>
+<section id="analyzing-expected-future-performance" class="slide level2">
+<h2>Analyzing (expected) future performance</h2>
+<ul>
+<li class="fragment"><p>So far, we’ve been concerned about the firm’s <span class="blue">past</span> performance:</p>
+<ol type="1">
+<li class="fragment">How profitability was trending?</li>
+<li class="fragment">How does working capital was financed?</li>
+</ol></li>
+<li class="fragment"><p>Now, we’ll turn our attention to focus on (expected) <span class="blue">future</span> performance:</p>
+<ol type="1">
+<li class="fragment">How much value can a new project bring to the firm?</li>
+<li class="fragment">What are the <em>expected</em> future cash inflows/outflows?</li>
+</ol></li>
+<li class="fragment"><p><strong>Problem</strong>: whenever we were analyzing project returns, its cash-flows were <em>given</em></p></li>
+<li class="fragment"><p>In what follows, you will learn how to <span class="blue">estimate</span> the <span class="blue">future</span> cash-flows that will serve as a input to our analysis!</p></li>
+</ul>
+</section>
+<section id="introducing-the-free-cash-flow-fcf" class="slide level2">
+<h2>Introducing the <em>Free Cash Flow (FCF)</em></h2>
+<ul>
+<li class="fragment">How to measure the incremental <span class="green">gains</span>/<span class="red">losses</span> due to the acceptance of a project? For this, we’ll use the <span class="blue"><em>Free Cash Flow</em></span> measure</li>
+</ul>
+<div class="fragment">
+<div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>The <span class="blue"><em>Free Cash Flow</em></span> is a measure of the project’s available cash to be repaid to its investors after <em>all</em> costs and investments needed to <em>sustain the business plan</em> were taken into account. It is calculated by:</p>
+<ol type="1">
+<li>Projecting direct expected Revenue and Cost Estimates</li>
+<li>Considering indirect revenues/expenses</li>
+<li>Calculating EBIT and Taxes</li>
+<li>Adjusting for non-cash effects</li>
+<li>Considering future investments</li>
+<li>Determining eventual adjustments, if needed</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">We’ll be doing this in using a case study that will guide us through all the steps</li>
+</ul>
+</div>
+</section>
+<section id="case-walkthrough" class="slide level2">
+<h2>Case walkthrough</h2>
+<ul>
+<li class="fragment"><p><em>Cia. Amazônia</em> is a manufacturer of sports shoes that is analyzing the possibility of investing in a new line of sneakers, having even incurred research and market testing costs worth <span class="math inline">\(\small \$125,000\)</span>. The shoes would be manufactured in a warehouse next to the company’s factory, fully depreciated, which is vacant and could be rented for <span class="math inline">\(\small\$38,000\)</span> per year.</p></li>
+<li class="fragment"><p>The cost of the machine is <span class="math inline">\(\small \$200,000\)</span>, depreciated over five years using the straight-line method. Its market value, estimated at the end of five years, is <span class="math inline">\(\small \$35,000\)</span></p></li>
+<li class="fragment"><p>The company needs to maintain a certain investment in working capital. As it is an industrial company, it will purchase raw materials before producing and selling the final product, which will result in an investment in inventories. The firm will maintain a cash balance as protection against unforeseen expenses. Credit sales will generate accounts receivable. In sum, working capital will represent <span class="math inline">\(\small10\%\)</span> of sales revenue.</p></li>
+</ul>
+</section>
+<section id="case-walkthrough-continued" class="slide level2">
+<h2>Case walkthrough, continued</h2>
+<ul>
+<li class="fragment"><p>The company projects the following sales over a <span class="math inline">\(\small5\)</span>-year horizon</p>
+<ul>
+<li class="fragment"><span class="blue">Year 1</span>: <span class="math inline">\(\small 7,000\)</span></li>
+<li class="fragment"><span class="blue">Year 2</span>: <span class="math inline">\(\small 9,000\)</span></li>
+<li class="fragment"><span class="blue">Year 3</span>: $10,000</li>
+<li class="fragment"><span class="blue">Year 4</span>: <span class="math inline">\(\small11,000\)</span></li>
+<li class="fragment"><span class="blue">Year 5</span>: <span class="math inline">\(\small9,000\)</span></li>
+</ul></li>
+<li class="fragment"><p>The unit price is <span class="math inline">\(\small\$28\)</span>, and the unit cost is <span class="math inline">\(\small\$14\)</span>. It is estimated that its operating costs will rise at an average rate of <span class="math inline">\(\small6\%\)</span> each year</p></li>
+<li class="fragment"><p>On the other hand, the company knows that due to market competition, it will not be able to fully pass this on to prices and projects an average increase in sales prices of <span class="math inline">\(\small4\%\)</span> each year</p></li>
+</ul>
+</section>
+<section id="step-1-revenue-and-cost-estimates" class="slide level2">
+<h2>Step 1: Revenue and Cost Estimates</h2>
+<ul>
+<li class="fragment"><p>Earnings are not actual cash flows. However, as a practical matter, to derive the forecasted cash flows of a project, financial managers often begin by forecasting earnings</p></li>
+<li class="fragment"><p>Thus, we begin by determining the incremental earnings of a project—that is, the amount by which the firm’s earnings are expected to change as a result of the investment decision.</p></li>
+<li class="fragment"><p>In our case, we begin by determining the <span class="blue">direct</span> earnings and cost estimates from the operation:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \text{Gross Profit}_{t}=\text{Sales}_t\times(\text{Price per Unit}_t-\text{Cost per Unit}_t)
+\]</span></p>
+<ul>
+<li class="fragment">The <em>Gross Profit</em> is our starting point for estimating incremental earnings</li>
+</ul>
+</div>
+</section>
+<section id="step-1-revenue-and-cost-estimates-1" class="slide level2">
+<h2>Step 1: Revenue and Cost Estimates</h2>
+<ul>
+<li class="fragment">Your <em>Gross Profit</em> estimation should look like the following:</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F1.jpg" class="quarto-figure quarto-figure-center" width="1000"></p>
+</figure>
+</div>
+<ul>
+<li class="fragment"><p>Before we calculate tax expenses, we need to deduct all other costs that may affect taxes:</p>
+<ol type="1">
+<li class="fragment">For example, depreciation and amortization are non-cash items, but they are generally tax-deductible</li>
+<li class="fragment">Furthermore, all other incremental costs, even if they are indirect, need to be taken into account</li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="step-2-consider-indirect-effects" class="slide level2">
+<h2>Step 2: Consider indirect effects</h2>
+<ul>
+<li class="fragment"><p>When computing the incremental earnings of an investment decision, we should include <span class="blue">all</span> changes between:</p>
+<ol type="1">
+<li class="fragment">The firm’s earnings <span class="green">with</span> the project;</li>
+<li class="fragment">The firm’s earnings <span class="red">without</span> the project</li>
+</ol></li>
+<li class="fragment"><p>There are two important sources of indirect costs that need to be considered:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Opportunity Costs</strong>: many projects use a resource that the company <em>already owns</em>. However, in many cases the resource could provide value for the firm in another opportunity or project.</p></li>
+<li class="fragment"><p><strong>Project externalities</strong>: <em>indirect effects</em> of the project that may <span class="green">increase</span> or <span class="red">decrease</span> the profits of other business activities of the firm</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="step-2-consider-indirect-effects-1" class="slide level2">
+<h2>Step 2: Consider indirect effects</h2>
+<ul>
+<li class="fragment"><p>In our case, we saw that the firm will use existing assets that otherwise would yield $38,000 yearly. Because of that, we need to take into consideration as an opportunity cost</p></li>
+<li class="fragment"><p>What about the <span class="math inline">\(\small\$125,000\)</span> R&amp;D expenses incurred? This is an example of a <em>sunk cost</em>:</p>
+<ol type="1">
+<li class="fragment">Sunk costs have been or will be paid <span class="blue">regardless</span> of the decision about whether or not to proceed with the project</li>
+<li class="fragment">Therefore, they are not incremental with respect to the current decision and should not be included in its analysis</li>
+<li class="fragment">If our decision does not affect the cash flow, then the cash flow should not affect our decision!</li>
+</ol></li>
+<li class="fragment"><p>Examples of sunk costs may include, but are not limited to: past R&amp;D expenses, fixed overhead costs, and unavoidable competition effects</p></li>
+</ul>
+</section>
+<section id="step-3-ebit-and-taxes" class="slide level2">
+<h2>Step 3: EBIT and Taxes</h2>
+<ul>
+<li class="fragment">Before we calculate tax expenses, if we assume that depreciation is tax-deductible, we can then use the <span class="math inline">\(\small\$40,000\)</span> value from the straight-line depreciation to deduct our taxable earnings:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small EBIT_{t}= [\text{Sales}_t\times(\text{Price per Unit}_t-\text{Cost per Unit}_t)-\text{Depreciation}_t-\text{Other Costs}_t]
+\]</span></p>
+<ul>
+<li class="fragment">And the Income Tax that we’ll deduct is:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \text{Income Tax}_{t}= EBIT_{t}\times\tau_t
+\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Which tax-rate to use?</strong> The correct tax rate to use is the firm’s <em>marginal</em> corporate tax rate, which is the tax rate it will pay on an <em>incremental</em> dollar of pre-tax income</li>
+</ul>
+</div>
+</section>
+<section id="step-3-ebit-and-taxes-1" class="slide level2">
+<h2>Step 3: EBIT and Taxes</h2>
+<ul>
+<li class="fragment"><p>What if part of the upfront investment was financed using debt? Do we need to include <strong>interest expenses</strong> in the calculation?</p></li>
+<li class="fragment"><p>Because the <span class="blue">Free Cash Flow</span> is the measure of available resources to <em>all</em> investors of the firm (creditors + equityholders), whenever we evaluating a capital budgeting decision, we <strong>do not</strong> include interest expenses in the calculation</p>
+<ol type="1">
+<li class="fragment">We wish to evaluate the project on its own, <em>separate</em> from the financing decision</li>
+<li class="fragment">Furthermore, the cost of debt (along with its tax shield) can be considered in an appropriate estimate of the cost of capital for the project</li>
+<li class="fragment">For these reasons, we also call our incremental earnings as <span class="blue">unlevered net income</span></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Therefore, in our Free Cash Flow estimations, we’ll be focusing on the operating portion as if it were financed without any debt!</em></p>
+</div>
+</section>
+<section id="step-3-ebit-and-taxes-2" class="slide level2">
+<h2>Step 3: EBIT and Taxes</h2>
+<ul>
+<li class="fragment">Considering both <em>Depreciation</em> and the <em>Opportunity Costs</em>, our <em>Unlevered Net Income</em> is:</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F2.jpg" class="quarto-figure quarto-figure-center" width="1500"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="step-4-adjust-for-non-cash-effects" class="slide level2">
+<h2>Step 4: Adjust for non-cash effects</h2>
+<ul>
+<li class="fragment">As discussed in previous lectures, earnings are merely an <em>accounting</em> measure of the firm’s performance:
+<ol type="1">
+<li class="fragment">They <em>do not</em> represent real profits</li>
+<li class="fragment">As a consequence, the firm cannot use its earnings to buy goods, pay employees, fund new investments, or pay dividends to shareholders</li>
+</ol></li>
+<li class="fragment">On the other hand, <em>cash</em> does!
+<ol type="1">
+<li class="fragment">Because of this, to evaluate a capital budgeting decision, we must determine its consequences for the firm’s available cash</li>
+<li class="fragment">The incremental effect of a project on the firm’s available cash, separate from any financing decisions, is the project’s <span class="blue">Free Cash Flow</span></li>
+</ol></li>
+</ul>
+</section>
+<section id="step-4-adjust-for-non-cash-effects-1" class="slide level2">
+<h2>Step 4: Adjust for non-cash effects</h2>
+<ul>
+<li class="fragment"><p>There are important differences between earnings and cash flow:</p>
+<ol type="1">
+<li class="fragment">Earnings include non-cash charges, such as depreciation…</li>
+<li class="fragment">But do not include the cost of capital investment!</li>
+</ol></li>
+<li class="fragment"><p>To determine the Free Cash Flow, we must adjust for these differences by:</p>
+<ol type="1">
+<li class="fragment">Adding back Depreciation: because depreciation is not a cash flow, we do not include it in the cash flow forecast</li>
+<li class="fragment">Capital Expenditures (<em>CAPEX</em>): to account for the cash that will be used to fund the equipments, we include the actual cash cost of the asset when it is purchased.</li>
+</ol></li>
+</ul>
+</section>
+<section id="step-4-adjust-for-non-cash-effects-2" class="slide level2">
+<h2>Step 4: Adjust for non-cash effects</h2>
+<ul>
+<li class="fragment">In our case, we have the following adjustments:</li>
+</ul>
+<ol type="1">
+<li class="fragment"><p>For <em>Depreciation</em>, we need to <span class="blue">add back</span> <span class="math inline">\(\small\$50,000\)</span> across Year 1-5 to account for non-cash items</p></li>
+<li class="fragment"><p>On the other hand, to consider the <em>actual</em> cost of the machinery by the time that it was bought, we need to include <span class="math inline">\(\small\$200,000\)</span> in Year 0 of the analysis</p></li>
+</ol>
+<ul>
+<li class="fragment">With these adjustments in place, we should have the following values:</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F3.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="step-5-consider-future-investments-in-working-capital" class="slide level2">
+<h2>Step 5: Consider future investments in working capital</h2>
+<ul>
+<li class="fragment"><p>Now that we have considered all cash effects from the investment that is needed, is there anything else that needs to be taken into consideration?</p></li>
+<li class="fragment"><p>Most projects will require the firm to <span class="blue">continuosly</span> invest in net working capital as time goes by:</p>
+<ol type="1">
+<li class="fragment">Firms may need to maintain a minimum cash balance to meet unexpected expenditures</li>
+<li class="fragment">Inventories of raw materials and finished products are needed to accommodate uncertainties and demand fluctuations</li>
+<li class="fragment">Finally, customers may not pay for the goods they purchase immediately, and the firm may have credit with its suppliers</li>
+</ol></li>
+<li class="fragment"><p>Although it is difficult to consider all potential fluctuations on working capital, it is expected that a portion of it should be <span class="green">positively</span> correlated with sales:</p>
+<ol type="1">
+<li class="fragment">As sales go up, firms may want to keep its past terms with suppliers and customers</li>
+<li class="fragment">All else equal, an increase in sales should increase the amount of working capital needed</li>
+</ol></li>
+</ul>
+</section>
+<section id="step-5-consider-future-investments-in-working-capital-1" class="slide level2">
+<h2>Step 5: Consider future investments in working capital</h2>
+<ul>
+<li class="fragment"><p>In our case, we summarized this idea by taking into consideration that working capital is 10% of the Sales revenue</p></li>
+<li class="fragment"><p>Therefore, our year-over-year change in net working capital reflects the additions/deductions on the amount of net working capital for each year:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \Delta NWC_{t}=NWC_{t}-NWC_{t-1}
+\]</span></p>
+<ul>
+<li class="fragment">In our case, our net working capital should look as follows:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F4.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="step-5-consider-future-investments-in-working-capital-2" class="slide level2">
+<h2>Step 5: Consider future investments in working capital</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F4.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
+</figure>
+</div>
+<ol type="1">
+<li class="fragment"><p>In the beginning of Year 0, we <span class="blue">forecast</span> <span class="blue">Year 1</span>’s sales and invest in working capital</p></li>
+<li class="fragment"><p>For each Year 1-4, we look forward to period <span class="math inline">\(\small t+1\)</span> to determine the adequate level of working capital in <span class="math inline">\(t\)</span></p></li>
+<li class="fragment"><p>At the end of Year 5, we know that the <span class="math inline">\(\small NWC=0\)</span>, assuming that the project ends</p></li>
+<li class="fragment"><p>Therefore, <span class="math inline">\(\small \Delta NWC_{t=5}\)</span> shows that the firm can recover its investment in working capital</p></li>
+</ol>
+</section>
+<section id="step-6-calculating-the-free-cash-flow" class="slide level2">
+<h2>Step 6: Calculating the Free Cash Flow</h2>
+<ul>
+<li class="fragment">We can summarize what we have so far by:</li>
+</ul>
+<div class="fragment">
+<p><span class="blue">(+) Revenues</span><br>
+(-) Costs<br>
+(-) Depreciation<br>
+<span class="blue">(=) EBIT</span><br>
+(-) Tax Expenses<br>
+<span class="blue">(=) Unlevered Net Income</span><br>
+(+) Depreciation<br>
+(-) CAPEX<br>
+(-) <span class="math inline">\(\Delta\)</span> NWC<br>
+<span class="blue">(=) Free Cash Flow</span></p>
+<ul>
+<li class="fragment">This is the standard estimate of a <em>Free Cash Flow</em>, which is the amount of <em>incremental cash</em> that a project can actually bring to the firm!</li>
+</ul>
+</div>
+</section>
+<section id="step-6-calculating-the-free-cash-flow-1" class="slide level2">
+<h2>Step 6: Calculating the Free Cash Flow</h2>
+<ul>
+<li class="fragment">We can summarize the <em>Free Cash Flow</em> calculation as follows:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small FCF_{t}= \underbrace{(\text{Revenues}-\text{Costs}-\text{Depreciation})\times(1-\tau)}_{\text{Unlevered Net Income}}+\text{Depreciation}-\text{CAPEX}-\Delta NWC
+\]</span></p>
+<ul>
+<li class="fragment"><p>Note that we first deduct depreciation when computing the project’s incremental earnings, and then add it back (because it is a non-cash expense) when computing Free Cash Flow</p></li>
+<li class="fragment"><p>Thus, the only effect of depreciation is to <span class="blue">reduce</span> the firm’s taxable income!</p></li>
+<li class="fragment"><p>Because of this, we can rewtrite the same equation as:</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small FCF_{t}= (\text{Revenues}-\text{Costs})\times(1-\tau)-\text{CAPEX}-\Delta NWC+\tau\times\text{Depreciation}
+\]</span></p>
+<ul>
+<li class="fragment">Where the last term is the <em>depreciation tax shield</em></li>
+</ul>
+</div>
+</section>
+<section id="step-7-adjustments-to-the-calculating-the-free-cash-flow" class="slide level2">
+<h2>Step 7: Adjustments to the Calculating the Free Cash Flow</h2>
+<ul>
+<li class="fragment">Our standard <em>Free Cash Flow</em> estimates should look like the following:</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F5.jpg" class="quarto-figure quarto-figure-center" width="1500"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="step-7-adjustments-to-the-calculating-the-free-cash-flow-1" class="slide level2">
+<h2>Step 7: Adjustments to the Calculating the Free Cash Flow</h2>
+<ul>
+<li class="fragment"><p>Our final step is to account for any eventual adjustments needed. Some examples include (but are not limited) to:</p>
+<ol type="1">
+<li class="fragment">Other non-cash items: amortization of intangibles, for example, can be taken into consideration</li>
+<li class="fragment">Timing of cash flows: can be estimated on a monthly or quarterly basis</li>
+<li class="fragment">Different depreciation patterns: straight line depreciation may not apply to all cases</li>
+<li class="fragment">Liquidation or Salvage value: assets that are no longer needed often have a resale value, or some salvage value if the parts are sold for scrap</li>
+<li class="fragment">Termination Value: value for the subsequent periods whenever we have infinite-horizon projects</li>
+</ol></li>
+</ul>
+</section>
+<section id="step-7-adjustments-to-the-calculating-the-free-cash-flow-2" class="slide level2">
+<h2>Step 7: Adjustments to the Calculating the Free Cash Flow</h2>
+<ul>
+<li class="fragment"><p>In our case, we know that the market-value of the machinery is <span class="math inline">\(\small 35,000\)</span>. Since it has been fully depreciated at Year 5, we know that the capital gain is simply <span class="math inline">\(\small 35,000 - 0 = 35,000\)</span></p></li>
+<li class="fragment"><p>Therefore, we also need to consider that, in Year 5, as the project has ended, we can sell the machine, pay taxes on it, and recover part the liquidation value of our investment:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \text{Liquidation Value}= 35,000 \times (1-\tau)\rightarrow 35,000\times(1-34\%)=23,100
+\]</span></p>
+<ul>
+<li class="fragment">Adding this value as a <span class="green">cash-inflow</span> in the last year of the project:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small FCF_{t=5}=107,584+23,100=130,684
+\]</span></p>
+</div>
+</section>
+<section id="final-result" class="slide level2">
+<h2>Final Result</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F6.jpg" class="quarto-figure quarto-figure-center" width="2000"></p>
+</figure>
+</div>
+</section>
+<section id="bridging-npv-and-free-cash-flow" class="slide level2">
+<h2>Bridging <em>NPV</em> and <em>Free Cash Flow</em></h2>
+<ul>
+<li class="fragment">We can finally use our FCF estimates in the <em>NPV</em> formula to gauge the value of the project:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small
+NPV= \dfrac{-219,000}{(1+15\%)^0}+\dfrac{46,592}{(1+15\%)^1}+\dfrac{69,266}{(1+15\%)^2}+\dfrac{80,218}{(1+15\%)^3}+\dfrac{101,293}{(1+15\%)^4}+\dfrac{130,684}{(1+15\%)^5}=48,922.22
+\]</span></p>
+<ul>
+<li class="fragment"><p>What else needs to be done? See the <em>Appendix</em> for a detailed discussion on some of the most common adjustments and extensions<sup>1</sup>:</p>
+<ol type="1">
+<li class="fragment">Adjust FCF estimates to incorporate different depreciation patterns</li>
+<li class="fragment">Incorporate long-term value for projects that have an infinite-horizon (for example, a firm!)</li>
+<li class="fragment">Take uncertainty of the inputs that we’re using into account through Sensitivity, Break-Even, and Scenario Analysis</li>
+</ol></li>
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>All extensions discussed in the <em>Appendix</em> have an accompanying <em>Excel</em> solution that has been posted on <em>eClass®.</em></p></li></ol></aside></section>
+<section id="supplementary-reading" class="slide level2">
+<h2>Supplementary Reading</h2>
+<ul>
+<li class="fragment">See <span class="blue">Note on Capital Budgeting</span> for a detailed discussion on more aspects of the capital budgeting process in practice</li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>All contents are available on eClass®.</em></p>
+</div>
+</section>
+<section>
+<section id="appendix" class="title-slide slide level1 center">
+<h1>Appendix</h1>
+
+</section>
+<section id="different-depreciation-patterns" class="slide level2">
+<h2>Different Depreciation Patterns</h2>
+<p><em>Suppose that instead of using foreign suppliers when buying your machinery, you have received an offer to use new, national supplier, which can provide machinery that is supposedly as efficient as the original one. Notwithstanding, because you’re financing a national capital good, you have access to an accelerated depreciation benefit:</em></p>
+<ol type="1">
+<li class="fragment">The market-value of the machine is still worth <span class="math inline">\(\small \$200,000\)</span>, to be paid in Year 0</li>
+<li class="fragment">You’ll fully depreciate the machine in the first three years: <span class="math inline">\(\small 30\%\)</span> in the first year, and <span class="math inline">\(\small 35\%\)</span> in the second and third year</li>
+</ol>
+<div class="fragment">
+<p><strong>Would you accept the offer?</strong></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Answer provided in Excel</em></p>
+</div>
+</section>
+<section id="tax-carryforwards" class="slide level2">
+<h2>Tax Carryforwards</h2>
+<p><em>Suppose that instead of having the previous accelerated depreciation alternative, you have received a more aggressive one: depreciate 100% of the machine in the first year. You also notice that you can deduct your taxable income with tax carryforward up to a limit of 30% of the taxable income. Calculate the new NPV of the project and discuss how it has changed.</em></p>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Answer provided in Excel</em></p>
+</div>
+</section>
+<section id="continuation-value" class="slide level2">
+<h2>Continuation Value</h2>
+<p><em>In our standard setting, our assumption was that the firm’s operation would cease after Year 5. Because of that, we initially included in our Free Cash Flow estimates a Termination Value that represented the sale of unused assets, after taking into account its tax effects.</em></p>
+<ol type="1">
+<li class="fragment"><p><em>Suppose that the firm is able to continue its operations indefinitely after Year 5, and that the FCF is expected to stay the same as of Year 5. Calculate the new NPV of the project assuming the same cost of capital. Justify why the values have changed significantly.</em></p></li>
+<li class="fragment"><p><em>How your answer would change if the FCF grew at a 2% rate after Year 5, indefinitely?</em></p></li>
+</ol>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Answer provided in Excel</em></p>
+</div>
+</section>
+<section id="dealing-with-uncertainty" class="slide level2">
+<h2>Dealing with Uncertainty</h2>
+<ul>
+<li class="fragment"><p>The most difficult part of capital budgeting is deciding how to estimate the cash flows and cost of capital. Unfortunately, these estimates are often subject to significant uncertainty:</p></li>
+<li class="fragment"><p>How we can assess the importance of this uncertainty and identify the drivers of value in the project?</p></li>
+<li class="fragment"><p>In what follows, we’ll look at some examples outlining ways to incorporate uncertainty in our valuation model</p></li>
+</ul>
+</section>
+<section id="dealing-with-uncertainty-1-break-even-analysis" class="slide level2">
+<h2>Dealing with Uncertainty #1: <em>Break-Even Analysis</em></h2>
+<p><em>Shareholders at Cia Amazônia are concerned that rising costs of activity may hinder any profitable investment opportunity projected in the original project. More specifically, their main concern is that the average growth rate in Unit Costs, which was estimated to be 6%, is estimated using very unreasonable scenario, and that higher increases in unit costs might induce the project’s NPV to be negative. Estimate what is the maximum average increase in unit costs over the years that would change the decision to invest in the project.</em></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Answer provided in Excel</em></p>
+</section>
+<section id="dealing-with-uncertainty-2-sensitivity-analysis" class="slide level2">
+<h2>Dealing with Uncertainty #2: <em>Sensitivity Analysis</em></h2>
+<p><em>Shareholders might be reluctant to trust the NPV estimates if they are unable to understand which drivers potentially affect more the value of the project in best and worst-case situations. Consider that you now have three scenarios: base, worst, and best case scenarios. In each one, you have the following configuration:</em></p>
+<ol type="1">
+<li class="fragment"><p><span class="yellow"><strong>Base</strong></span>: the baseline exercise from <em>Cia Amazônia</em>. Growth rate of Unit Costs: <span class="math inline">\(\small4\%\)</span>; Growth rate of Unit Prices: <span class="math inline">\(\small6%\)</span>; Cost of Capital: <span class="math inline">\(\small15\%\)</span></p></li>
+<li class="fragment"><p><span class="red"><strong>Worst</strong></span>: Growth rate of Unit Costs: <span class="math inline">\(\small0%\)</span>; Growth rate of Unit Prices: <span class="math inline">\(\small10\%\)</span>; Cost of Capital: <span class="math inline">\(\small19\%\)</span></p></li>
+<li class="fragment"><p><span class="green"><strong>Best</strong></span>: Growth rate of Unit Costs: <span class="math inline">\(\small10\%\)</span>; Growth rate of Unit Prices: <span class="math inline">\(\small1\%\)</span>; Cost of Capital: <span class="math inline">\(\small10\%\)</span></p></li>
+</ol>
+<div class="fragment">
+<p><em>Estimate how your NPV estimates change along with your inputs, each one at a time, and identify which input is more important for the project’s NPV.</em></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Answer provided in Excel</em></p>
+</div>
+</section>
+<section id="dealing-with-uncertainty-3-scenario-analysis" class="slide level2">
+<h2>Dealing with Uncertainty #3: <em>Scenario Analysis</em></h2>
+<p><em>What if you want to vary over more than one input at a time? Say that, for example, you want to think about a combination of growth rates for unit costs AND unit revenues at the same time? It is very reasonable to assume that more than one driver is going to change at a time. To do that, create a 3x3 grid of combinations considering the growth rates of Unit Costs and Unit Price and show how your NPV estimates change for each pair of growth rate estimates.</em></p>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Answer provided in Excel</em></p>
+</div>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+
+<div class="quarto-auto-generated-content">
+<p><img src="Images/logo.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures/fin-mgmt.html">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
+</div>
+</div>
+</section></section>
+
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/lsmacoris\.github\.io\/lectures");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

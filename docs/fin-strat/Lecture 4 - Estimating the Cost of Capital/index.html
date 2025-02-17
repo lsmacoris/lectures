@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.55">
+
+  <meta name="author" content="Lucas S. Macoris">
+  <title>Lucas S. Macoris – Estimating the Cost of Capital</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-87FLN5SXEJ"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link href="../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+  <script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+  <script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+  <script src="../../site_libs/proj4js-2.3.15/proj4.js"></script>
+
+  <link href="../../site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+
+  <script src="../../site_libs/highcharts-9.3.1/highcharts.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/stock.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/map.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/data.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/organization.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/vector.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/venn.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/custom/reset.js"></script>
+
+  <script src="../../site_libs/highcharts-9.3.1/modules/boost.js"></script>
+
+  <script src="../../site_libs/highchart-binding-0.9.4/highchart.js"></script>
+
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Estimating the Cost of Capital</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Lucas S. Macoris 
+</div>
+</div>
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li class="fragment"><p>This lecture is mainly based the following textbooks:</p>
+<ol type="1">
+<li class="fragment"><span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span></li>
+<li class="fragment"><span class="citation" data-cites="BMA">(<a href="#/references" role="doc-biblioref" onclick="">Brealey, Myers, and Allen 2020</a>)</span></li>
+</ol></li>
+<li class="fragment"><p>Study review and practice: I strongly recommend using <a href="https://henriquemartins.net/">Prof.&nbsp;Henrique Castro</a> (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:</p>
+<ol type="1">
+<li class="fragment">Multiple Choice Exercises - click <a href="https://henriquemartins.net/teaching/financial_strategy/p4tf.html">here</a></li>
+<li class="fragment">Numeric Exercises - click <a href="https://henriquemartins.net/teaching/financial_strategy/p4num.html">here</a></li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>For coding replications, whenever applicable, please follow <a href="https://lsmacoris.github.io/lectures/fin-strat.html">this</a> page or hover on the specific slides with coding chunks.</em></p>
+</div>
+</section>
+<section>
+<section id="the-capital-asset-pricing-model" class="title-slide slide level1 center">
+<h1>The Capital Asset Pricing Model</h1>
+
+</section>
+<section id="from-our-last-lecture-you-saw-that" class="slide level2">
+<h2>From our last lecture, you saw that…</h2>
+<ul>
+<li class="fragment"><p>Determining how much to expect an asset to reward investors is tied to portfolio choices</p></li>
+<li class="fragment"><p>The required return is the expected return that is necessary to compensate for the risk investment <span class="math inline">\(i\)</span> will contribute to the portfolio:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small E[R_i]  &gt;  R_f + \beta_i^P  \times (E[R_p] - R_f)
+\]</span></p>
+<ol type="1">
+<li class="fragment">It is is equal to the <span class="blue">risk-free</span> interest rate…</li>
+<li class="fragment">…plus the <span class="blue">risk premium</span> of the current portfolio, P…</li>
+<li class="fragment">… scaled by <span class="math inline">\(i\)</span>’s sensitivity to <span class="math inline">\(P\)</span>, denoted by <span class="blue"><span class="math inline">\(\beta_i^P\)</span></span></li>
+</ol>
+<ul>
+<li class="fragment">In such a way, this enables us to “price” the required returns for investing in any asset based on the amount of required returns that are needed to improve the performance of an efficient portfolio!</li>
+</ul>
+</div>
+</section>
+<section id="putting-it-into-practice" class="slide level2">
+<h2>Putting it into practice</h2>
+<ul>
+<li class="fragment"><p>Once we can identify the efficient portfolio, we can compute the expected return of any security based on its beta with the efficient portfolio according to the equation just shown</p></li>
+<li class="fragment"><p>However, <span class="blue">we face a practical issue</span>: in order to identify the efficient portfolio we must know the <span class="blue">expected returns</span> (<span class="math inline">\(E[\cdot]\)</span>), volatilities (<span class="math inline">\(\sigma\)</span>), and correlations between all securities</p></li>
+<li class="fragment"><p>To answer this question, we’ll look at the <em>Capital Asset Pricing Model</em> - also known as <span class="blue">CAPM</span>:</p>
+<ol type="1">
+<li class="fragment">It allows us to <span class="blue">identify the efficient portfolio</span> of risky assets <em>without</em> having any knowledge of the expected return of each security</li>
+<li class="fragment">Instead of that, the CAPM makes some identifying assumptions regarding the investor behavior</li>
+</ol></li>
+</ul>
+</section>
+<section id="about-the-capm" class="slide level2">
+<h2>About the CAPM</h2>
+<ul>
+<li class="fragment"><p>As we’ll see throughout the lecture, <span class="blue">CAPM</span> is very practical and straightforward to implement, and the the CAPM-based approach is very robust</p>
+<ol type="1">
+<li class="fragment"><p>It imposes a disciplined process on managers to identify the cost of capital</p></li>
+<li class="fragment"><p>It makes the capital budgeting process less subject to managerial manipulation than if managers could set project costs of capital (<em>i.e.</em>, the opportunity cost for the firm’s equity) without clear justification</p></li>
+<li class="fragment"><p>It is often the model many investors use to evaluate risk</p></li>
+<li class="fragment"><p>All in all, it gets managers to think about risk in the correct way: instead of thinking about total risk, the CAPM shows us that we only the market risk (non-diversifiable) should be the concern</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="the-capm-assumptions" class="slide level2">
+<h2>The CAPM Assumptions</h2>
+<ul>
+<li class="fragment"><p>There are basically <span class="blue">three</span> simplifying assumptions around investor behavior that the <span class="blue">CAPM</span> establishes:</p>
+<ol type="1">
+<li class="fragment"><p>Investors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate</p></li>
+<li class="fragment"><p>Investors hold only efficient portfolios of traded securities.</p></li>
+<li class="fragment"><p>Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities. There is no information asymmetry.</p></li>
+</ol></li>
+<li class="fragment"><p>With these assumptions, we are able to identify the efficient portfolio without having knowledge of the expected returns, volatilities, and correlations between all available investments</p></li>
+</ul>
+</section>
+<section id="the-capm-assumptions-1" class="slide level2">
+<h2>The CAPM Assumptions</h2>
+<ul>
+<li class="fragment"><p>There are basically <span class="blue">three</span> simplifying assumptions around investor behavior that the <span class="blue">CAPM</span> establishes:</p>
+<ol type="1">
+<li class="fragment"><p>Investors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate</p></li>
+<li class="fragment"><p>Investors hold only efficient portfolios of traded securities.</p></li>
+<li class="fragment"><p>Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities. There is no information asymmetry.</p></li>
+</ol></li>
+<li class="fragment"><p>With these assumptions, we are able to identify the efficient portfolio without having knowledge of the expected returns, volatilities, and correlations between all available investments</p></li>
+</ul>
+</section>
+<section id="the-capm-assumptions-2" class="slide level2">
+<h2>The CAPM Assumptions</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Assumption I</strong></p>
+</div>
+<div class="callout-content">
+<p><em>Investors can buy and sell all securities at competitive market prices (without incurring taxes or transactions costs) and can borrow and lend at the risk-free interest rate</em></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">This assumption states that there are no market imperfections that would prevent investors adjust their portfolios according to their needs</li>
+</ul>
+<ol type="1">
+<li class="fragment">All investors have access to the same set of securities (<em>i.e</em> there is no such investment that is only for <em>accredited investors</em>)</li>
+<li class="fragment">All investors are able to buy and sell securities at the same conditions</li>
+<li class="fragment">Finally, they’re all able to access a risk-free investment, <span class="math inline">\(R_f\)</span>, both for investment and lending</li>
+</ol>
+<ul>
+<li class="fragment">This guarantees that if a given investor is not holding an optimized portfolio anymore, he/she can adjust his/her holdings so as to hold the optimized portfolio again</li>
+</ul>
+</section>
+<section id="the-capm-assumptions-continued" class="slide level2">
+<h2>The CAPM Assumptions, continued</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Assumption II</strong></p>
+</div>
+<div class="callout-content">
+<p><em>Investors hold only efficient portfolios of traded securities—portfolios that yield the maximum expected return for a given level of volatility. All in all, for a given level of volatility assumed, an investor will always select the portfolio with the highest risk</em> <span class="math inline">\(\times\)</span> return relationship</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>This assumption states that <em>all</em> investors behave so as to choose the portfolio with the highest return for a given level of risk that they are willing to accept</p></li>
+<li class="fragment"><p>As we saw, investors will seek to choose a given portfolio <span class="math inline">\(P\)</span> such that has the highest <em>Sharpe Ratio</em> - which we called the <span class="blue">tangent</span> portfolio</p></li>
+<li class="fragment"><p>Although risk preferences may change, investors will seek to combine a risky portfolio <span class="math inline">\(P\)</span> with the risk-free rate so as to adjust for their preferences:</p></li>
+</ul>
+<ol type="1">
+<li class="fragment">Investors that have preferences towards risk will weight in more on the <span class="blue">tangent</span> portfolio and less on the risk-free asset</li>
+<li class="fragment">On the other hand, investors that are risk-adverse will weight in more on the <span class="blue">risk-free</span> asset</li>
+</ol>
+</section>
+<section id="the-capm-assumptions-continued-1" class="slide level2">
+<h2>The CAPM Assumptions, continued</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Assumption III</strong></p>
+</div>
+<div class="callout-content">
+<p><em>Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities.</em></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Plausibly, there are many investors in the world, and each may have his or her own estimates of the volatilities, correlations, and expected returns of the available securities…</p></li>
+<li class="fragment"><p>But investors don’t come up with these estimates arbitrarily:</p>
+<ol type="1">
+<li class="fragment">They base them on historical patterns and other information (including market prices)</li>
+<li class="fragment">If all investors use publicly available information sources, then their estimates are likely to be similar</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>As a consequence, it is not unreasonable to consider a special case in which all investors have the same estimates concerning future investments and returns</em></p>
+</div>
+</section>
+<section id="wrapping-up-the-assumptions" class="slide level2">
+<h2>Wrapping up the assumptions</h2>
+<ul>
+<li class="fragment"><p>Think about your simplifying assumptions now…</p>
+<ol type="1">
+<li class="fragment">If investors have homogeneous expectations (<em>Assumption #3</em>), they will identify the same efficient portfolio (the one with the highest <span class="blue">Sharpe Ratio</span>)</li>
+<li class="fragment">We know that all investors will invest in the efficient portfolio of risky assets (<em>Assumption #2</em>)</li>
+<li class="fragment">Finally, as they can borrow and lend at the same rate <span class="math inline">\(R_f\)</span> (<em>Assumption #1</em>), they can adjust the risk according to their preferences</li>
+</ol></li>
+<li class="fragment"><p>If these are valid, under the <span class="blue">CAPM</span> assumptions, we can identify the efficient portfolio: <span class="blue">it is equal to the market portfolio</span>!</p></li>
+<li class="fragment"><p>A <em>Market Portfolio</em> contains <em>all</em> traded securities in a economy according to their shares relative to the total!</p></li>
+</ul>
+</section>
+<section id="the-capital-market-line" class="slide level2">
+<h2>The Capital Market Line</h2>
+<ul>
+<li class="fragment"><p>When the <span class="blue">CAPM</span> assumptions hold, the <span class="blue">market portfolio</span> is the efficient portfolio, so the <span class="blue">tangent</span> portfolio that we discussed before is actually the <span class="blue">market portfolio</span></p></li>
+<li class="fragment"><p>The tangent line goes that through the market portfolio is called the <span class="blue">Capital Market Line (CML)</span>:</p>
+<ol type="1">
+<li class="fragment">It contains <span class="blue">all</span> possible choices of portfolios that investors would pick</li>
+<li class="fragment">According to the <span class="blue">CAPM</span>, these portfolios will always be a combination of the risk-free rate, <span class="math inline">\(R_f\)</span>, and the market portfolio</li>
+</ol></li>
+<li class="fragment"><p>Therefore, investors should always choose a portfolio on the <span class="blue">Capital Market Line</span>, by holding some combination of the risk-free security and the market portfolio</p></li>
+</ul>
+</section>
+<section id="the-capital-market-line-1" class="slide level2">
+<h2>The Capital Market Line</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</section>
+<section id="pricing-the-risk-premium-under-the-capm" class="slide level2">
+<h2>Pricing the Risk Premium under the CAPM</h2>
+<ol type="1">
+<li class="fragment"><p>We can now identify the efficient portfolio: <span class="blue">it is equal to the market portfolio</span></p></li>
+<li class="fragment"><p>What does that mean for us in terms of determining expected equity returns? Recall that, from our previous class, the required return for a given stock <span class="math inline">\(i\)</span> should be:</p></li>
+</ol>
+<div class="fragment">
+<p><span class="math display">\[
+\small E[R_i]  &gt;  R_f + \beta_i^P  \times (E[R_p] - R_f)
+\]</span></p>
+<ul>
+<li class="fragment">Until now, we were agnostic on what <span class="math inline">\(P\)</span> was. Under the CAPM, we can change <span class="math inline">\(R_p\)</span> to <span class="math inline">\(R_m\)</span> (which is the return of the market portfolio):</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small E[R_i] =  R_f + \beta_i^M  \times (E[R_m] - R_f)
+\]</span></p>
+<ul>
+<li class="fragment">Consequently, the <span class="math inline">\(\beta\)</span> of a security measures its volatility due to <em>market risk</em> relative to the market as a whole, and thus captures the security’s sensitivity to market risk</li>
+</ul>
+</div>
+</section>
+<section id="pricing-the-risk-premium-under-the-capm-continued" class="slide level2">
+<h2>Pricing the Risk Premium under the CAPM, continued</h2>
+<ul>
+<li class="fragment">The <span class="blue">CAPM</span> implies that there is a <em>linear</em> relationship between a stock’s sensitivity to the market (<span class="math inline">\(\beta\)</span>) and its expected return:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small E[R_i] =  \underbrace{R_f + \beta_i^M  \times (E[R_m] - R_f)}_{\text{This is a 1st order equation: }a+bx}
+\]</span></p>
+<ul>
+<li class="fragment"><p>This relationship has also a name: the <span class="blue">Security Market Line (SML)</span>. It is the line along which all individual securities should lie when plotted according to their expected return and <span class="math inline">\(\beta\)</span></p>
+<ol type="1">
+<li class="fragment">Contrast this result with the Capital Market Line shown before, where there is no clear relationship between an individual stock’s volatility and its expected return</li>
+<li class="fragment">Due to the linear nature between the expected return and <span class="math inline">\(\beta\)</span>, a stock’s expected return is due only to the fraction of its volatility that is common with the market</li>
+</ol></li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Therefore, the distance of each stock to the right of the capital market line <span class="blue">must</span> be due to its diversifiable risk!</em></p>
+</div>
+</section>
+<section id="capital-market-line-shows-no-clear-relationship-between-risk-and-return" class="slide level2">
+<h2>Capital Market Line shows no clear relationship between risk and return…</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F2.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</section>
+<section id="the-security-market-line-makes-the-relationship-clear-when-focusing-only-on-the-sensitivy-to-the-market-risk-beta" class="slide level2">
+<h2>The Security Market Line makes the relationship clear when focusing only on the sensitivy to the market risk (<span class="math inline">\(\beta\)</span>)!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F3.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</section>
+<section id="beta-of-a-portfolio" class="slide level2">
+<h2>Beta of a portfolio</h2>
+<ul>
+<li class="fragment"><p>Because the security market line applies to all tradable investment opportunities, we can apply it to portfolios as well</p></li>
+<li class="fragment"><p>How can we find the <span class="math inline">\(\beta\)</span> of a full portfolio of assets? In order to see that, assume that you have several assets <span class="math inline">\(i\)</span> in portfolio <span class="math inline">\(P\)</span></p></li>
+<li class="fragment"><p>Thus, the return of the portfolio can be writen as <span class="math inline">\(R_p=\sum_{i}x_i R_i\)</span>, where <span class="math inline">\(x_i\)</span> is the weight of each asset <span class="math inline">\(i\)</span> in the portfolio</p></li>
+<li class="fragment"><p>The <span class="math inline">\(\beta\)</span> of this “asset” is then:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \beta_{p}=\dfrac{Cov(R_p,R_m)}{\sigma^2_m}=\dfrac{Cov(\sum_{i}x_i R_i,R_m)}{\sigma^2_m}=\sum_i x_i\dfrac{Cov(R_i,R_m)}{\sigma^2_m}=\sum_i x_i\times \beta_i
+\]</span> <span class="math inline">\(\rightarrow\)</span> <em>Therefore, the</em> <span class="math inline">\(\beta\)</span> of a portfolio is simply the weighted average of the indidivual betas!</p>
+</div>
+</section></section>
+<section>
+<section id="estimating-the-equity-cost-of-capital" class="title-slide slide level1 center">
+<h1>Estimating the Equity Cost of Capital</h1>
+
+</section>
+<section id="estimating-the-equity-cost-of-capital-1" class="slide level2">
+<h2>Estimating the Equity Cost of Capital</h2>
+<ul>
+<li class="fragment"><p>Based on the CAPM model we’ve just seen, the cost of capital of any investment opportunity equals the expected return of the available investments with the same beta (those that are along the <em>Capital Market Line</em>):</p></li>
+<li class="fragment"><p>You can know use this rationale to estimate how much an investor should need to earn in order to invest in a given stock <span class="math inline">\(i\)</span>:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[R_i = R_f + \beta \times (E[R_m] - R_f)\]</span></p>
+<ul>
+<li class="fragment">In what follows, we’ll see how this can be used in practce</li>
+</ul>
+</div>
+</section>
+<section id="estimating-the-equity-cost-of-capital-example" class="slide level2">
+<h2>Estimating the Equity Cost of Capital, example</h2>
+<ul>
+<li class="fragment">Suppose you estimate that <em>Disney</em> (ticker: <em>DIS</em>) has a volatility of 20% and a <span class="math inline">\(\beta\)</span> of 1.29. A similar process for <em>Chipotle</em> (ticker: <em>CMG</em>) yields a volatility of 30% and a <span class="math inline">\(\beta\)</span> of 0.55. If the risk-free interest rate is 3% and you estimate the market’s expected return to be 8%, calculate the equity cost of capital for <em>DIS</em> and <em>CMG.</em></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[R_{DIS}=3\%+1.29 \times (8\%−3\%) = 3\% + 6.45\% =9.45\%\]</span></p>
+<p><span class="math display">\[R_{GMG}=3\%+0.55 \times(8\%−3\%)=3\%+2.75\%=5.75\%\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Because market risk cannot be diversified, it is the <span class="blue">market risk</span> that determines the cost of capital. Therefore, <span class="blue">DIS</span> has a higher cost of equity capital than <span class="blue">CMG</span>, even though it is less volatile</em></p>
+</div>
+</section>
+<section id="estimating-the-equity-cost-of-capital-in-practice" class="slide level2">
+<h2>Estimating the Equity Cost of Capital in practice</h2>
+<ul>
+<li class="fragment"><p>Ok, now you now the dynamics behind the pricing of securities under the <span class="blue">CAPM</span></p></li>
+<li class="fragment"><p>However, no one really told you from where the numbers came from</p></li>
+<li class="fragment"><p>Recall that, under the <span class="blue">CAPM</span>, we need to have estimates related to the market portfolio:</p>
+<ol type="1">
+<li class="fragment">It is is equal to the risk-free interest rate, <span class="blue"><span class="math inline">\(R_f\)</span></span>…</li>
+<li class="fragment">The expected return on the market portfolio, <span class="blue"><span class="math inline">\(E[R_m]\)</span></span>…</li>
+<li class="fragment">And a stock’s s sensitivity to the market portfolio, denoted by <span class="blue"><span class="math inline">\(\beta\)</span></span></li>
+</ol></li>
+<li class="fragment"><p>We will proceed by understanding each of these components and how to get estimates for them</p></li>
+</ul>
+</section>
+<section id="first-step-defining-the-market-portfolio" class="slide level2">
+<h2>First step: defining the Market Portfolio</h2>
+<ul>
+<li class="fragment"><p>First and foremost, what is the definition of a <span class="blue">market portfolio</span>? It is the total supply of securities, with the proportions of each security corresponding to the proportion of the total market that each security represents</p></li>
+<li class="fragment"><p>Thus, the market portfolio contains more of the largest stocks and less of the smallest stocks. In order to see that, note that the market capitalization of one firm is simply the total market value of a firm’s outstanding shares:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\small MV_i = \text{# of shares outstanding} \times \text{Price per share} = N_i \times P_i\]</span></p>
+<ul>
+<li class="fragment">We then calculate the portfolio weights of each security (a <em>“Value-Weighted”</em> Portfolio): a portfolio in which each security is held in proportion to its market capitalization:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\small x_i = \frac{MV_i}{Total\; MV}= \frac{MV_i}{\sum{MV}}\]</span></p>
+</div>
+</section>
+<section id="the-market-portfolio-and-its-proxies" class="slide level2">
+<h2>The Market Portfolio and its proxies</h2>
+<ul>
+<li class="fragment">If we were to look at real capital markets, there are a couple of portfolios (which are generally called <em>indexes</em> that aim to mimick the dynamics of a market portfolio. Examples of market portfolios indexes include:
+<ol type="1">
+<li class="fragment"><span class="blue">S&amp;P500</span>: A value-weighted portfolio of the 500 largest U.S. stocks</li>
+<li class="fragment"><span class="blue">Dow Jones Industrial Average (DJIA)</span>: a price-weighted portfolio of 30 large industrial stocks (holds an equal number of shares of each stock).</li>
+<li class="fragment"><span class="blue">Ibovespa</span>: around 90 BR stocks following an algorithm that focuses on liquidity</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><strong>Caution</strong>: indexes like the <span class="blue">S&amp;P500</span> and <span class="blue">Ibovespa</span> are not considered the <span class="blue">market portfolio</span>, but rather, they are <em>proxies</em> for the market portfolios - in other words, they are reasonable approximations of the market portfolio for a given set universe of securities</p>
+</div>
+</section>
+<section id="cost-of-equity-components-the-risk-free-rate" class="slide level2">
+<h2>#1 Cost of Equity Components: the risk-free rate</h2>
+<ul>
+<li class="fragment"><p>The first ingredient of CAPM is <span class="blue">risk-free rate</span>, which is the interest rate that investors can earn while having zero to limited volatility</p></li>
+<li class="fragment"><p>Suggestions on how to pick the Risk-Free (<span class="math inline">\(R_f\)</span>) rate to be used:</p>
+<ol type="1">
+<li class="fragment">The yield on U.S. Treasury securities</li>
+<li class="fragment">Surveys suggest most practitioners use 10- to 30-year treasuries</li>
+<li class="fragment">Highest quality assets</li>
+</ol></li>
+<li class="fragment"><p>Often, we use a short-term risk-free rate to evaluate a short-term investment, and a long-term rate when evaluating a long-term investment</p></li>
+</ul>
+</section>
+<section id="cost-of-equity-components-the-market-risk-premium" class="slide level2">
+<h2>#2 Cost of Equity Components: the market risk premium</h2>
+<ul>
+<li class="fragment"><p>Another component of the Cost of Equity is the difference between <span class="math inline">\(E[R_m]\)</span> and <span class="math inline">\(R_f\)</span> (the market risk premium)</p></li>
+<li class="fragment"><p>Ways to estimate the market risk premium:</p>
+<ol type="1">
+<li class="fragment">Estimate the risk premium (<span class="math inline">\(E[R_m] − R_f\)</span>) using the historical average excess return of the market over the risk-free interest rate</li>
+<li class="fragment">Notice that, even with long periods, we often have large standard errors</li>
+<li class="fragment">Implicitly, you are assuming that the past is a good proxy for the future</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F4.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="note-criticism-around-using-historical-data" class="slide level2">
+<h2>Note: criticism around using historical data</h2>
+<ul>
+<li class="fragment"><p>When estimating the Cost of Equity, using historical data has two problems:</p>
+<ol type="1">
+<li class="fragment">Standard errors of the estimates are often large</li>
+<li class="fragment">They are <em>backward</em> looking, meaning that they reflect <em>past</em>, and not <em>future</em>, information. Therefore, we cannot be sure they are representative of current expectations</li>
+</ol></li>
+<li class="fragment"><p>An alternative is to use a “discount rate” that is consistent with the current level of the market index in consideration: assume that, for a given firm <span class="math inline">\(i\)</span>, current prices can be modeled as future dividends (<em>Gordon</em> model). If that is true, then we have that:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+P_i=\dfrac{D_1}{r-g}\rightarrow r = \dfrac{D_1}{P_i}+g\equiv \text{Dividend Yield}+ \text{Growth rate on Dividends}
+\]</span></p>
+</div>
+</section>
+<section id="note-criticism-around-using-historical-data-example" class="slide level2">
+<h2>Note: Criticism around using historical data, example</h2>
+<ul>
+<li class="fragment">Let’s say that, after aggregating all firms, <em>Ibovespa</em>’s current dividend yield is 2%. Also, both earnings and dividends per share are expected to grow 6% per year. If that is true, then the discount rate that would make sense to justify the actual level of the <em>Ibovespa</em> index is the discount rate, <span class="math inline">\(r\)</span>:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+R_m = \text{Dividend yield} + \text{Growth Rate on Dividends}= 2\% + 6\% = 8\%
+\]</span></p>
+<ul>
+<li class="fragment"><p>While this model is highly inaccurate for an individual firm, the assumption of constant expected growth is more reasonable when considering the overall market</p></li>
+<li class="fragment"><p>Following such methods, researchers generally report estimates in the 3%–5% range for the future equity risk premium</p></li>
+</ul>
+</div>
+</section>
+<section id="cost-of-equity-components-beta-estimation" class="slide level2">
+<h2>#3 Cost of Equity Components: <span class="math inline">\(\beta\)</span> estimation</h2>
+<ul>
+<li class="fragment"><p>As of now, you were able to get a sense on how to get reasonable estimates for <span class="math inline">\(R_f\)</span> and the Market Risk Premium, <span class="math inline">\(E[R_m]-R_f\)</span></p></li>
+<li class="fragment"><p>All that is left is to estimate the stocks’s sensitivity to the returns of the market portfolio, <span class="math inline">\(\beta\)</span>. Recall that, a new asset <span class="math inline">\(i\)</span> should be enhance the performance of a portfolio if:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \underbrace{\frac{E[R_i] - R_f}{\sigma_{i} \times Corr(R_i,R_m)}}_{\text{Sharpe Ratio of } i} &gt; \underbrace{\frac{E[R_m] - R_f}{\sigma_{m}}}_{\text{Sharpe Ratio of Market}}
+\]</span></p>
+<ul>
+<li class="fragment">With that, we saw that the expected return from an asset <span class="math inline">\(i\)</span> should be:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small R_i - R_f = \underbrace{\frac{\sigma_{i} \times corr(R_i,R_m)}{\sigma_{m}}}_{\beta^M_i}  \times (E[R_m] - R_f)
+\]</span></p>
+</div>
+</section>
+<section id="cost-of-equity-components-beta-estimation-continued" class="slide level2">
+<h2>#3 Cost of Equity Components: <span class="math inline">\(\beta\)</span> estimation, continued</h2>
+<ul>
+<li class="fragment">Because <span class="math inline">\(\small Corr(R_i,R_m)=\frac{Cov(R_i,R_m)}{\sigma_i\sigma_m}\)</span>, we have that:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small (R_i - R_f)=\frac{\sigma_{i} \times Cov(R_i,R_m)}{\sigma_i \sigma_m\sigma_{m}}  \times (E[R_p] - R_f)\rightarrow  (R_i - R_f)=  \underbrace{\frac{Cov(R_i,R_m)}{\sigma^2_m}}_{\text{OLS formula for slope}}\times (E[R_p] - R_f)
+\]</span></p>
+<ul>
+<li class="fragment">We can then estimate <span class="math inline">\(\beta\)</span> using an <em>Ordinary Least Squares</em> regression:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small (R_i - R_f) = \alpha_i + \beta_i \times (R_m - R_f) + \epsilon_i
+\]</span></p>
+<ul>
+<li class="fragment"><span class="math inline">\(\epsilon_i\)</span> is the error term (or the <em>residual</em>). It represents the <em>deviations</em> from the best-fitting line and is, by definition, zero on average (or else we could improve the fit), and represent firm-specific risk that is diversifiable and that averages out in a large portfolio</li>
+</ul>
+</div>
+</section>
+<section id="example-looking-at-petr3.sa-beta-1.02" class="slide level2">
+<h2>Example: looking at PETR3.SA (<span class="math inline">\(\beta\)</span> = 1.02)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-127528a95e15ddd32cb5" style="width:1440px;height:768px;"></div>
+<script type="application/json" data-for="htmlwidget-127528a95e15ddd32cb5">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":"PETR3 and IBOV returns (2023-2024)"},"yAxis":{"title":{"text":"PETR3 returns"},"type":"linear","labels":{"format":"{value}%"}},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}}},"series":[{"group":"group","data":[{"PETR3 returns":-1.413850100619418,"IBOV returns":-2.077536286380388,"fitted":-1.956863786169806,"x":-2.077536286380388,"y":-1.413850100619418},{"PETR3 returns":1.666682668928821,"IBOV returns":1.121287176237917,"fitted":1.325376299545917,"x":1.121287176237917,"y":1.666682668928821},{"PETR3 returns":3.240577014632029,"IBOV returns":2.073404598705064,"fitted":2.30232235701045,"x":2.073404598705064,"y":3.240577014632029},{"PETR3 returns":-0.6277891876697361,"IBOV returns":1.225841254487614,"fitted":1.432656864030498,"x":1.225841254487614,"y":-0.6277891876697361},{"PETR3 returns":0.6689122578718232,"IBOV returns":0.3592561284869067,"fitted":0.5434735528901014,"x":0.3592561284869067,"y":0.6689122578718232},{"PETR3 returns":0.5906043560782726,"IBOV returns":1.542658866397506,"fitted":1.757736218306653,"x":1.542658866397506,"y":0.5906043560782726},{"PETR3 returns":1.284417680707373,"IBOV returns":0.7672749567224413,"fitted":0.9621324033742269,"x":0.7672749567224413,"y":1.284417680707373},{"PETR3 returns":0.5434735552124481,"IBOV returns":0.1020015568658605,"fitted":0.2795104811308714,"x":0.1020015568658605,"y":0.5434735552124481},{"PETR3 returns":-0.2161933503269098,"IBOV returns":-0.8589790573576339,"fitted":-0.7065298960452782,"x":-0.8589790573576339,"y":-0.2161933503269098},{"PETR3 returns":-2.491894391653648,"IBOV returns":-1.535396155649316,"fitted":-1.400586114095904,"x":-1.535396155649316,"y":-2.491894391653648},{"PETR3 returns":7.037048230483944,"IBOV returns":2.038218893355181,"fitted":2.266219104082251,"x":2.038218893355181,"y":7.037048230483944},{"PETR3 returns":-1.280282434372937,"IBOV returns":0.9090174893888081,"fitted":1.107571196106983,"x":0.9090174893888081,"y":-1.280282434372937},{"PETR3 returns":3.399927617647114,"IBOV returns":0.4926546437591162,"fitted":0.68035073892994,"x":0.4926546437591162,"y":3.399927617647114},{"PETR3 returns":1.118634379716288,"IBOV returns":-0.6238606799638946,"fitted":-0.4652802703036615,"x":-0.6238606799638946,"y":1.118634379716288},{"PETR3 returns":2.313117107629092,"IBOV returns":-0.5271547003143362,"fitted":-0.3660524615034907,"x":-0.5271547003143362,"y":2.313117107629092},{"PETR3 returns":-0.753600852516878,"IBOV returns":1.180746403602217,"fitted":1.386386061979336,"x":1.180746403602217,"y":-0.753600852516878},{"PETR3 returns":0.429187233411632,"IBOV returns":1.032487525214987,"fitted":1.234260994937496,"x":1.032487525214987,"y":0.429187233411632},{"PETR3 returns":-2.794215519964305,"IBOV returns":-0.0753097771356015,"fitted":0.09757534938247345,"x":-0.0753097771356015,"y":-2.794215519964305},{"PETR3 returns":-2.265806642874646,"IBOV returns":-1.408302587876509,"fitted":-1.270178291452548,"x":-1.408302587876509,"y":-2.265806642874646},{"PETR3 returns":0.3114260475322261,"IBOV returns":-0.5457680752342209,"fitted":-0.385151222659411,"x":-0.5457680752342209,"y":0.3114260475322261},{"PETR3 returns":1.621217663935037,"IBOV returns":1.469326469326471,"fitted":1.682491511600907,"x":1.469326469326471,"y":1.621217663935037},{"PETR3 returns":-1.968770953290766,"IBOV returns":-1.082514181023853,"fitted":-0.9358942082796703,"x":-1.082514181023853,"y":-1.968770953290766},{"PETR3 returns":-4.743750488785059,"IBOV returns":-2.108581248942598,"fitted":-1.988718316990905,"x":-2.108581248942598,"y":-4.743750488785059},{"PETR3 returns":1.199542781111229,"IBOV returns":-1.314413062264064,"fitted":-1.17384038215706,"x":-1.314413062264064,"y":1.199542781111229},{"PETR3 returns":3.627888163537141,"IBOV returns":-0.0313392939441437,"fitted":0.1426924632857089,"x":-0.0313392939441437,"y":3.627888163537141},{"PETR3 returns":-0.5199362956566866,"IBOV returns":-0.4942096333997226,"fitted":-0.3322482767720139,"x":-0.4942096333997226,"y":-0.5199362956566866},{"PETR3 returns":2.020915695565328,"IBOV returns":1.818013343217206,"fitted":2.040271191605598,"x":1.818013343217206,"y":2.020915695565328},{"PETR3 returns":0,"IBOV returns":-1.910230975045957,"fitted":-1.785195606968213,"x":-1.910230975045957,"y":0},{"PETR3 returns":2.732240002046371,"IBOV returns":0.3404989655140467,"fitted":0.5242272540795283,"x":0.3404989655140467,"y":2.732240002046371},{"PETR3 returns":0.4986658967557123,"IBOV returns":0.643550624133149,"fitted":0.8351816764120695,"x":0.643550624133149,"y":0.4986658967557123},{"PETR3 returns":-0.5954395108073718,"IBOV returns":-1.090531576723075,"fitted":-0.9441206758714432,"x":-1.090531576723075,"y":-0.5954395108073718},{"PETR3 returns":0.4326247703356767,"IBOV returns":1.656155082250432,"fitted":1.874192107042883,"x":1.656155082250432,"y":0.4326247703356767},{"PETR3 returns":-0.09940271463850792,"IBOV returns":0.4230551342263578,"fitted":0.6089362633253413,"x":0.4230551342263578,"y":-0.09940271463850792},{"PETR3 returns":-1.525707646565289,"IBOV returns":-0.5477457804467512,"fitted":-0.3871805010494671,"x":-0.5477457804467512,"y":-1.525707646565289},{"PETR3 returns":-2.492422983480991,"IBOV returns":-1.967924027702805,"fitted":-1.844393137657393,"x":-1.967924027702805,"y":-2.492422983480991},{"PETR3 returns":3.73057791804865,"IBOV returns":0.5300880991488732,"fitted":0.7187603571107896,"x":0.5300880991488732,"y":3.73057791804865},{"PETR3 returns":-1.498517524191645,"IBOV returns":-1.714630523579652,"fitted":-1.584494427272194,"x":-1.714630523579652,"y":-1.498517524191645},{"PETR3 returns":1.656526900421684,"IBOV returns":-0.1530135161939339,"fitted":0.01784530796952985,"x":-0.1530135161939339,"y":1.656526900421684},{"PETR3 returns":-4.38975827738961,"IBOV returns":-0.7369147960004208,"fitted":-0.5812825304616864,"x":-0.7369147960004208,"y":-4.38975827738961},{"PETR3 returns":0,"IBOV returns":-0.521289978271644,"fitted":-0.3600348034473162,"x":-0.521289978271644,"y":0},{"PETR3 returns":-2.74781939851404,"IBOV returns":-1.014513579537291,"fitted":-0.8661203358980777,"x":-1.014513579537291,"y":-2.74781939851404},{"PETR3 returns":3.64806837875522,"IBOV returns":0.5226177341617788,"fitted":0.71109518530556,"x":0.5226177341617788,"y":3.64806837875522},{"PETR3 returns":1.48379590289307,"IBOV returns":0.802957656981107,"fitted":0.9987456114878459,"x":0.802957656981107,"y":1.48379590289307},{"PETR3 returns":-3.026197922240592,"IBOV returns":-0.4508118433619868,"fitted":-0.2877187903036549,"x":-0.4508118433619868,"y":-3.026197922240592},{"PETR3 returns":1.542777328223988,"IBOV returns":2.218213915646472,"fitted":2.450907907418149,"x":2.218213915646472,"y":1.542777328223988},{"PETR3 returns":-1.243083206210349,"IBOV returns":-1.378824854514737,"fitted":-1.239931858910488,"x":-1.378824854514737,"y":-1.243083206210349},{"PETR3 returns":-0.6993081813493562,"IBOV returns":-1.382874437285264,"fitted":-1.244087043794922,"x":-1.382874437285264,"y":-0.6993081813493562},{"PETR3 returns":-3.169017444819022,"IBOV returns":-0.4796463934837569,"fitted":-0.3173052671346666,"x":-0.4796463934837569,"y":-3.169017444819022},{"PETR3 returns":-1.781820486278018,"IBOV returns":-0.1832798363088028,"fitted":-0.01321027552516355,"x":-0.1832798363088028,"y":-1.781820486278018},{"PETR3 returns":-2.443529215392437,"IBOV returns":-0.2496793999922309,"fitted":-0.08134135938853918,"x":-0.2496793999922309,"y":-2.443529215392437},{"PETR3 returns":-0.3795217727045608,"IBOV returns":0.7401996591185789,"fitted":0.9343510555860185,"x":0.7401996591185789,"y":-0.3795217727045608},{"PETR3 returns":0.4190699416153132,"IBOV returns":-1.404746942524293,"fitted":-1.266529924532018,"x":-1.404746942524293,"y":0.4190699416153132},{"PETR3 returns":-2.352064781338437,"IBOV returns":-1.038418544449016,"fitted":-0.8906486773329217,"x":-1.038418544449016,"y":-2.352064781338437},{"PETR3 returns":2.21445580372468,"IBOV returns":0.07431408103206749,"fitted":0.2511009911680911,"x":0.07431408103206749,"y":2.21445580372468},{"PETR3 returns":-0.8741773849025636,"IBOV returns":-0.7693221647953385,"fitted":-0.6145349953677013,"x":-0.7693221647953385,"y":-0.8741773849025636},{"PETR3 returns":-1.955537805581764,"IBOV returns":-2.289939234292215,"fitted":-2.174805625757837,"x":-2.289939234292215,"y":-1.955537805581764},{"PETR3 returns":0.3519833325640098,"IBOV returns":0.9221248697996343,"fitted":1.121020381379597,"x":0.9221248697996343,"y":0.3519833325640098},{"PETR3 returns":1.519873415622564,"IBOV returns":0.8509647977820167,"fitted":1.048004648061365,"x":0.8509647977820167,"y":1.519873415622564},{"PETR3 returns":1.727432207431479,"IBOV returns":1.520016052974826,"fitted":1.73450294184179,"x":1.520016052974826,"y":1.727432207431479},{"PETR3 returns":1.056613077746449,"IBOV returns":0.6008795770124031,"fitted":0.7913978843410506,"x":0.6008795770124031,"y":1.056613077746449},{"PETR3 returns":1.120251077624901,"IBOV returns":1.886180778639002,"fitted":2.110216248498083,"x":1.886180778639002,"y":1.120251077624901},{"PETR3 returns":-2.178746492193606,"IBOV returns":-1.765448882975129,"fitted":-1.636637991381735,"x":-1.765448882975129,"y":-2.178746492193606},{"PETR3 returns":4.756515080838919,"IBOV returns":-0.3690543962623472,"fitted":-0.2038293311596446,"x":-0.3690543962623472,"y":4.756515080838919},{"PETR3 returns":-1.405403804566085,"IBOV returns":0.3576143282170596,"fitted":0.5417889389308114,"x":0.3576143282170596,"y":-1.405403804566085},{"PETR3 returns":0.1462153217935303,"IBOV returns":-0.8746527402840876,"fitted":-0.7226123060291963,"x":-0.8746527402840876,"y":0.1462153217935303},{"PETR3 returns":-1.167887124524136,"IBOV returns":-0.1544890966349133,"fitted":0.01633124840054184,"x":-0.1544890966349133,"y":-1.167887124524136},{"PETR3 returns":2.658776263617435,"IBOV returns":1.016643192953914,"fitted":1.218003485548052,"x":1.016643192953914,"y":2.658776263617435},{"PETR3 returns":4.388496757952898,"IBOV returns":4.287804255402716,"fitted":4.574467539120313,"x":4.287804255402716,"y":4.388496757952898},{"PETR3 returns":0.06891069286678597,"IBOV returns":0.636450938670996,"fitted":0.8278968504464697,"x":0.636450938670996,"y":0.06891069286678597},{"PETR3 returns":1.170795483807896,"IBOV returns":-0.4041538029750158,"fitted":-0.239844035016688,"x":-0.4041538029750158,"y":1.170795483807896},{"PETR3 returns":1.497617777947058,"IBOV returns":-0.1681414266659131,"fitted":0.002322902702561302,"x":-0.1681414266659131,"y":1.497617777947058},{"PETR3 returns":0.4359517935514923,"IBOV returns":-0.2474618692309916,"fitted":-0.07906600145119,"x":-0.2474618692309916,"y":0.4359517935514923},{"PETR3 returns":2.537566658999002,"IBOV returns":0.1386583157259258,"fitted":0.3171231486472087,"x":0.1386583157259258,"y":2.537566658999002},{"PETR3 returns":-3.191156413780749,"IBOV returns":-2.119382459048824,"fitted":-1.999801193304396,"x":-2.119382459048824,"y":-3.191156413780749},{"PETR3 returns":0.3027317415255304,"IBOV returns":0.4369039484953818,"fitted":0.6231462170363274,"x":0.4369039484953818,"y":0.3027317415255304},{"PETR3 returns":1.542601661167109,"IBOV returns":-0.4024260542125346,"fitted":-0.2380712312616412,"x":-0.4024260542125346,"y":1.542601661167109},{"PETR3 returns":-0.5283937661065718,"IBOV returns":-0.6993948839312369,"fitted":-0.5427842010461569,"x":-0.6993948839312369,"y":-0.5283937661065718},{"PETR3 returns":-1.427636073649574,"IBOV returns":-0.8796744816895963,"fitted":-0.7277650008039708,"x":-0.8796744816895963,"y":-1.427636073649574},{"PETR3 returns":-2.660821850469541,"IBOV returns":0.5971929001485687,"fitted":0.7876150689631575,"x":0.5971929001485687,"y":-2.660821850469541},{"PETR3 returns":2.696064392778208,"IBOV returns":1.466144593531093,"fitted":1.679226661131539,"x":1.466144593531093,"y":2.696064392778208},{"PETR3 returns":-4.461950555965299,"IBOV returns":-2.398690056687602,"fitted":-2.286392374070769,"x":-2.398690056687602,"y":-4.461950555965299},{"PETR3 returns":-0.5494473870132688,"IBOV returns":-0.1275422606375143,"fitted":0.04398078465268482,"x":-0.1275422606375143,"y":-0.5494473870132688},{"PETR3 returns":1.460118115342546,"IBOV returns":0.3703449021090988,"fitted":0.5548514915946008,"x":0.3703449021090988,"y":1.460118115342546},{"PETR3 returns":4.200717541007215,"IBOV returns":2.910720927046029,"fitted":3.16147361978614,"x":2.910720927046029,"y":4.200717541007215},{"PETR3 returns":1.642384714491563,"IBOV returns":0.8502301517860467,"fitted":1.047250844494221,"x":0.8502301517860467,"y":1.642384714491563},{"PETR3 returns":0.7712376223007134,"IBOV returns":1.010920201429633,"fitted":1.212131253957055,"x":1.010920201429633,"y":0.7712376223007134},{"PETR3 returns":0.1822099107417596,"IBOV returns":0.3118173161304805,"fitted":0.4947976652224649,"x":0.3118173161304805,"y":0.1822099107417596},{"PETR3 returns":2.400868733767569,"IBOV returns":0.7519916610825739,"fitted":0.9464505609164511,"x":0.7519916610825739,"y":2.400868733767569},{"PETR3 returns":3.516877026150644,"IBOV returns":0.1921371563700758,"fitted":0.3719965721265266,"x":0.1921371563700758,"y":3.516877026150644},{"PETR3 returns":-1.990388753729266,"IBOV returns":0.5209101637409619,"fitted":0.7093430860884934,"x":0.5209101637409619,"y":-1.990388753729266},{"PETR3 returns":2.240883413341965,"IBOV returns":-0.7658512872721901,"fitted":-0.6109736067908641,"x":-0.7658512872721901,"y":2.240883413341965},{"PETR3 returns":-0.6164259046322784,"IBOV returns":1.170120339390346,"fitted":1.375482898889165,"x":1.170120339390346,"y":-0.6164259046322784},{"PETR3 returns":0.4479598200616497,"IBOV returns":0.5919970765576377,"fitted":0.7822837524126335,"x":0.5919970765576377,"y":0.4479598200616497},{"PETR3 returns":0.4802806865983555,"IBOV returns":0.5785229047843954,"fitted":0.7684582108556275,"x":0.5785229047843954,"y":0.4802806865983555},{"PETR3 returns":-1.502228406204287,"IBOV returns":-0.4803828615287387,"fitted":-0.3180609402649084,"x":-0.4803828615287387,"y":-1.502228406204287},{"PETR3 returns":2.07971998200871,"IBOV returns":-0.257682850480434,"fitted":-0.08955351811608572,"x":-0.257682850480434,"y":2.07971998200871},{"PETR3 returns":1.086599085540185,"IBOV returns":-1.02702653530915,"fitted":-0.8789595955524908,"x":-1.02702653530915,"y":1.086599085540185},{"PETR3 returns":-0.7390123278681604,"IBOV returns":1.15257352941176,"fitted":1.357478515789821,"x":1.15257352941176,"y":-0.7390123278681604},{"PETR3 returns":1.658219253897486,"IBOV returns":0.7741654097079609,"fitted":0.9692025406487923,"x":0.7741654097079609,"y":1.658219253897486},{"PETR3 returns":-0.632490733023916,"IBOV returns":-0.5166537428092255,"fitted":-0.3552776675630148,"x":-0.5166537428092255,"y":-0.632490733023916},{"PETR3 returns":-0.9380180602560628,"IBOV returns":-1.238070205650166,"fitted":-1.095506711304502,"x":-1.238070205650166,"y":-0.9380180602560628},{"PETR3 returns":-1.217460768710976,"IBOV returns":-0.5799921077023318,"fitted":-0.4202677248904295,"x":-0.5799921077023318,"y":-1.217460768710976},{"PETR3 returns":2.909977154183352,"IBOV returns":2.058429870309686,"fitted":2.286957128392368,"x":2.058429870309686,"y":2.909977154183352},{"PETR3 returns":1.197597799987071,"IBOV returns":1.802559580337348,"fitted":2.024414436585458,"x":1.802559580337348,"y":1.197597799987071},{"PETR3 returns":0.6245983968242275,"IBOV returns":0.1226034577728852,"fitted":0.3006496236278539,"x":0.1226034577728852,"y":0.6245983968242275},{"PETR3 returns":2.025461442989629,"IBOV returns":1.69837438773337,"fitted":1.917512377281788,"x":1.69837438773337,"y":2.025461442989629},{"PETR3 returns":3.105999601014409,"IBOV returns":0.7660762586161773,"fitted":0.9609024464788155,"x":0.7660762586161773,"y":3.105999601014409},{"PETR3 returns":4.813657132637483,"IBOV returns":1.325678858409529,"fitted":1.535097961353854,"x":1.325678858409529,"y":4.813657132637483},{"PETR3 returns":1.274070687505136,"IBOV returns":0.270896179252933,"fitted":0.4528094162984032,"x":0.270896179252933,"y":1.274070687505136},{"PETR3 returns":0.04205580158977984,"IBOV returns":-0.5053862412217947,"fitted":-0.3437163401536366,"x":-0.5053862412217947,"y":0.04205580158977984},{"PETR3 returns":4.303404804523114,"IBOV returns":1.992410679869461,"fitted":2.219216336872713,"x":1.992410679869461,"y":4.303404804523114},{"PETR3 returns":-1.484121564567409,"IBOV returns":0.1276570727897219,"fitted":0.3058350231911232,"x":0.1276570727897219,"y":-1.484121564567409},{"PETR3 returns":0.6025948022863048,"IBOV returns":-0.3883544006508921,"fitted":-0.2236326272148512,"x":-0.3883544006508921,"y":0.6025948022863048},{"PETR3 returns":2.485770671514054,"IBOV returns":0.9262533892453462,"fitted":1.125256561393195,"x":0.9262533892453462,"y":2.485770671514054},{"PETR3 returns":0.2630093026628089,"IBOV returns":-0.1968996646031118,"fitted":-0.02718527192948378,"x":-0.1968996646031118,"y":0.2630093026628089},{"PETR3 returns":3.993003759120395,"IBOV returns":0.6671013693133387,"fitted":0.8593465610273724,"x":0.6671013693133387,"y":3.993003759120395},{"PETR3 returns":-1.653593951504184,"IBOV returns":-1.234014283341633,"fitted":-1.091345021564138,"x":-1.234014283341633,"y":-1.653593951504184},{"PETR3 returns":-3.391261473526419,"IBOV returns":0.03615450586038627,"fitted":0.2119463179746365,"x":0.03615450586038627,"y":-3.391261473526419},{"PETR3 returns":1.946899568111315,"IBOV returns":-0.6169259604797528,"fitted":-0.458164712180484,"x":-0.6169259604797528,"y":1.946899568111315},{"PETR3 returns":-0.8680607126422379,"IBOV returns":-0.6089155383405376,"fitted":-0.4499454000002125,"x":-0.6089155383405376,"y":-0.8680607126422379},{"PETR3 returns":0.7297074945979976,"IBOV returns":-0.7164555023272068,"fitted":-0.5602897140076369,"x":-0.7164555023272068,"y":0.7297074945979976},{"PETR3 returns":1.101129608705231,"IBOV returns":1.458677933853836,"fitted":1.671565291260557,"x":1.458677933853836,"y":1.101129608705231},{"PETR3 returns":-5.13040905483666,"IBOV returns":-0.2500359004248942,"fitted":-0.08170715638369588,"x":-0.2500359004248942,"y":-5.13040905483666},{"PETR3 returns":1.722053594930095,"IBOV returns":1.343077561458927,"fitted":1.552950375297779,"x":1.343077561458927,"y":1.722053594930095},{"PETR3 returns":0.23760902474943,"IBOV returns":-0.4988593918427764,"fitted":-0.3370192882795368,"x":-0.4988593918427764,"y":0.23760902474943},{"PETR3 returns":-0.02964080098767363,"IBOV returns":0.3972253014881355,"fitted":0.5824328587419163,"x":0.3972253014881355,"y":-0.02964080098767363},{"PETR3 returns":-1.274448447253063,"IBOV returns":-1.775840868597811,"fitted":-1.64730097174922,"x":-1.775840868597811,"y":-1.274448447253063},{"PETR3 returns":-0.5403815354306563,"IBOV returns":1.253555430654196,"fitted":1.461093750598188,"x":1.253555430654196,"y":-0.5403815354306563},{"PETR3 returns":0,"IBOV returns":-0.8040505307069901,"fitted":-0.650168982687941,"x":-0.8040505307069901,"y":0},{"PETR3 returns":-0.7847919776720502,"IBOV returns":-0.6121653015889184,"fitted":-0.4532799082428746,"x":-0.6121653015889184,"y":-0.7847919776720502},{"PETR3 returns":-0.3042155944301794,"IBOV returns":0.3804811465620173,"fitted":0.5652520617575916,"x":0.3804811465620173,"y":-0.3042155944301794},{"PETR3 returns":1.464748041339781,"IBOV returns":1.358081348902829,"fitted":1.568345420745402,"x":1.358081348902829,"y":1.464748041339781},{"PETR3 returns":-2.105275923016281,"IBOV returns":-1.302153206332168,"fitted":-1.161260822498638,"x":-1.302153206332168,"y":-2.105275923016281},{"PETR3 returns":0.03074115597081484,"IBOV returns":0.4315654441810812,"fitted":0.6176684990369036,"x":0.4315654441810812,"y":0.03074115597081484},{"PETR3 returns":-0.8599636188231785,"IBOV returns":-0.3197455569747709,"fitted":-0.1532346513402948,"x":-0.3197455569747709,"y":-0.8599636188231785},{"PETR3 returns":0.5576242364421891,"IBOV returns":-0.2452457124430429,"fitted":-0.07679205331662112,"x":-0.2452457124430429,"y":0.5576242364421891},{"PETR3 returns":0.770179566563467,"IBOV returns":0.4517149857084624,"fitted":0.6383434858509088,"x":0.4517149857084624,"y":0.770179566563467},{"PETR3 returns":1.834305041308149,"IBOV returns":1.807203407772495,"fitted":2.029179362420505,"x":1.807203407772495,"y":1.834305041308149},{"PETR3 returns":2.071436560106332,"IBOV returns":0.9358077476563142,"fitted":1.135060071507537,"x":0.9358077476563142,"y":2.071436560106332},{"PETR3 returns":1.794132380315938,"IBOV returns":0.5488618944800683,"fitted":0.7380237220064045,"x":0.5488618944800683,"y":1.794132380315938},{"PETR3 returns":-0.4333997950683788,"IBOV returns":0.4524293488951558,"fitted":0.6390764776882282,"x":0.4524293488951558,"y":-0.4333997950683788},{"PETR3 returns":-5.629713666635294,"IBOV returns":-2.09693211488251,"fitted":-1.97676540517107,"x":-2.09693211488251,"y":-5.629713666635294},{"PETR3 returns":1.691258059120204,"IBOV returns":0.1641803483623638,"fitted":0.3433107265386422,"x":0.1641803483623638,"y":1.691258059120204},{"PETR3 returns":5.261583490581501,"IBOV returns":1.461056520255943,"fitted":1.674005904732219,"x":1.461056520255943,"y":5.261583490581501},{"PETR3 returns":-2.097093212773093,"IBOV returns":-0.5699384138490915,"fitted":-0.4099518580224252,"x":-0.5699384138490915,"y":-2.097093212773093},{"PETR3 returns":-0.70423675118364,"IBOV returns":-0.3208300343098491,"fitted":-0.154347408897203,"x":-0.3208300343098491,"y":-0.70423675118364},{"PETR3 returns":1.418440908736707,"IBOV returns":-0.2258830538064971,"fitted":-0.05692446916088872,"x":-0.2258830538064971,"y":1.418440908736707},{"PETR3 returns":-4.195807673714236,"IBOV returns":-0.893967790622463,"fitted":-0.7424310403917177,"x":-0.893967790622463,"y":-4.195807673714236},{"PETR3 returns":0.6690962603617567,"IBOV returns":-0.1071058004485037,"fitted":0.06495017218731287,"x":-0.1071058004485037,"y":0.6690962603617567},{"PETR3 returns":-0.06040837947851596,"IBOV returns":-0.2429217624392743,"fitted":-0.07440750101209193,"x":-0.2429217624392743,"y":-0.06040837947851596},{"PETR3 returns":1.14870722484357,"IBOV returns":-0.5718364262322639,"fitted":-0.4118993654106992,"x":-0.5718364262322639,"y":1.14870722484357},{"PETR3 returns":-0.02986073909432285,"IBOV returns":-0.04982729353343318,"fitted":0.123722346908298,"x":-0.04982729353343318,"y":-0.02986073909432285},{"PETR3 returns":0.05976889803145369,"IBOV returns":-0.2408111533586776,"fitted":-0.07224185298225672,"x":-0.2408111533586776,"y":0.05976889803145369},{"PETR3 returns":0.4780577324814628,"IBOV returns":-1.062973785626564,"fitted":-0.9158442524714751,"x":-1.062973785626564,"y":0.4780577324814628},{"PETR3 returns":-0.2081597534712931,"IBOV returns":-0.5470422052906376,"fitted":-0.3864585785652488,"x":-0.5470422052906376,"y":-0.2081597534712931},{"PETR3 returns":2.949932436755476,"IBOV returns":-0.498403215948906,"fitted":-0.3365512165580129,"x":-0.498403215948906,"y":2.949932436755476},{"PETR3 returns":-0.7525156886869611,"IBOV returns":-0.5277181811890075,"fitted":-0.3666306364281132,"x":-0.5277181811890075,"y":-0.7525156886869611},{"PETR3 returns":0.5832566830067165,"IBOV returns":0.371362474126391,"fitted":0.5558955991248505,"x":0.371362474126391,"y":0.5832566830067165},{"PETR3 returns":-0.9857988872726486,"IBOV returns":-0.8491538788136133,"fitted":-0.6964485035447673,"x":-0.8491538788136133,"y":-0.9857988872726486},{"PETR3 returns":1.513003860759987,"IBOV returns":1.50923279937778,"fitted":1.723438490294441,"x":1.50923279937778,"y":1.513003860759987},{"PETR3 returns":5.701493336092489,"IBOV returns":1.703743241847167,"fitted":1.923021236521003,"x":1.703743241847167,"y":5.701493336092489},{"PETR3 returns":-0.2541631202149897,"IBOV returns":-0.9387565073856186,"fitted":-0.7883877251746498,"x":-0.9387565073856186,"y":-0.2541631202149897},{"PETR3 returns":-0.7927498357222174,"IBOV returns":-1.016013535453664,"fitted":-0.8676594065886173,"x":-1.016013535453664,"y":-0.7927498357222174},{"PETR3 returns":1.027414923085779,"IBOV returns":1.108454120876745,"fitted":1.312208592974773,"x":1.108454120876745,"y":1.027414923085779},{"PETR3 returns":0.367208625604265,"IBOV returns":1.095448297060297,"fitted":1.298863612616538,"x":1.095448297060297,"y":0.367208625604265},{"PETR3 returns":-0.08443041629127013,"IBOV returns":-0.7339279078409477,"fitted":-0.5782177523758875,"x":-0.7339279078409477,"y":-0.08443041629127013},{"PETR3 returns":-2.704211243495036,"IBOV returns":-1.525503041647169,"fitted":-1.390435014565135,"x":-1.525503041647169,"y":-2.704211243495036},{"PETR3 returns":3.329451400295391,"IBOV returns":1.858443780131669,"fitted":2.081755944445015,"x":1.858443780131669,"y":3.329451400295391},{"PETR3 returns":-1.372928265052398,"IBOV returns":-0.09839430670184335,"fitted":0.07388883801738852,"x":-0.09839430670184335,"y":-1.372928265052398},{"PETR3 returns":4.602277203247795,"IBOV returns":-0.3786817460115333,"fitted":-0.2137077360279517,"x":-0.3786817460115333,"y":4.602277203247795},{"PETR3 returns":0.4888536600139881,"IBOV returns":-1.14718190418559,"fitted":-1.002248289926829,"x":-1.14718190418559,"y":0.4888536600139881},{"PETR3 returns":-0.7837865531779009,"IBOV returns":-0.5793852653360299,"fitted":-0.4196450577243095,"x":-0.5793852653360299,"y":-0.7837865531779009},{"PETR3 returns":-0.6810099349790821,"IBOV returns":1.361511711602326,"fitted":1.571865237982086,"x":1.361511711602326,"y":-0.6810099349790821},{"PETR3 returns":1.097102904045788,"IBOV returns":0.9282787060564734,"fitted":1.127334692962955,"x":0.9282787060564734,"y":1.097102904045788},{"PETR3 returns":-1.302214559199122,"IBOV returns":0.176319001763181,"fitted":0.3557659230333435,"x":0.176319001763181,"y":-1.302214559199122},{"PETR3 returns":2.941169706467184,"IBOV returns":1.028973734091521,"fitted":1.230655573690263,"x":1.028973734091521,"y":2.941169706467184},{"PETR3 returns":-1.468622327586289,"IBOV returns":-0.53102385419459,"fitted":-0.3700225124025098,"x":-0.53102385419459,"y":-1.468622327586289},{"PETR3 returns":1.246605713983651,"IBOV returns":-0.3957628117684742,"fitted":-0.2312342295620113,"x":-0.3957628117684742,"y":1.246605713983651},{"PETR3 returns":0,"IBOV returns":-0.3736642770188037,"fitted":-0.2085594250788714,"x":-0.3736642770188037,"y":0},{"PETR3 returns":0.1338310085986283,"IBOV returns":0.7204317499108992,"fitted":0.9140676530255262,"x":0.7204317499108992,"y":0.1338310085986283},{"PETR3 returns":-1.443469956160492,"IBOV returns":-2.148363452546442,"fitted":-2.029537932356539,"x":-2.148363452546442,"y":-1.443469956160492},{"PETR3 returns":0.7322958639453425,"IBOV returns":-0.1170950105471635,"fitted":0.05470047063497377,"x":-0.1170950105471635,"y":0.7322958639453425},{"PETR3 returns":0.6462276152404023,"IBOV returns":-0.07240817522778942,"fitted":0.1005526171829336,"x":-0.07240817522778942,"y":0.6462276152404023},{"PETR3 returns":-2.755509948722368,"IBOV returns":-1.494069441449208,"fitted":-1.358181711494868,"x":-1.494069441449208,"y":-2.755509948722368},{"PETR3 returns":3.713911072708531,"IBOV returns":0.117345196290497,"fitted":0.2952542409753387,"x":0.117345196290497,"y":3.713911072708531},{"PETR3 returns":-0.504004338117503,"IBOV returns":1.228056364638275,"fitted":1.434929738234322,"x":1.228056364638275,"y":-0.504004338117503},{"PETR3 returns":1.01308295430429,"IBOV returns":0.7206366487803706,"fitted":0.9142778951007003,"x":0.7206366487803706,"y":1.01308295430429},{"PETR3 returns":-1.900238713564983,"IBOV returns":-1.293698794663922,"fitted":-1.152585942748961,"x":-1.293698794663922,"y":-1.900238713564983},{"PETR3 returns":-1.18375358909556,"IBOV returns":-1.423642194738262,"fitted":-1.28591791357585,"x":-1.423642194738262,"y":-1.18375358909556},{"PETR3 returns":-3.022046430102265,"IBOV returns":0.1657570601045766,"fitted":0.3449285546383752,"x":0.1657570601045766,"y":-3.022046430102265},{"PETR3 returns":-0.3930331955172561,"IBOV returns":-0.2843134665997726,"fitted":-0.1168785883350765,"x":-0.2843134665997726,"y":-0.3930331955172561},{"PETR3 returns":2.508453591688364,"IBOV returns":0.7821051516542443,"fitted":0.9773493294887738,"x":0.7821051516542443,"y":2.508453591688364},{"PETR3 returns":4.096783323196096,"IBOV returns":0.8636244197249621,"fitted":1.06099439854204,"x":0.8636244197249621,"y":4.096783323196096},{"PETR3 returns":1.030109684231961,"IBOV returns":1.372920212581197,"fitted":1.583571241663867,"x":1.372920212581197,"y":1.030109684231961},{"PETR3 returns":-0.3398730389866822,"IBOV returns":0.2689807002064448,"fitted":0.4508439867636999,"x":0.2689807002064448,"y":-0.3398730389866822},{"PETR3 returns":3.147939070617722,"IBOV returns":-1.108064006287857,"fitted":-0.9621103035548703,"x":-1.108064006287857,"y":3.147939070617722},{"PETR3 returns":0.9918788739283979,"IBOV returns":0.6738428045683031,"fitted":0.8662637945939257,"x":0.6738428045683031,"y":0.9918788739283979},{"PETR3 returns":2.266440505206835,"IBOV returns":-0.5371822815658955,"fitted":-0.3763415348241232,"x":-0.5371822815658955,"y":2.266440505206835},{"PETR3 returns":2.33932607206897,"IBOV returns":-1.594367946992448,"fitted":-1.461095729501332,"x":-1.594367946992448,"y":2.33932607206897},{"PETR3 returns":-0.7218487721703082,"IBOV returns":-0.04909696650885476,"fitted":0.1244717188770126,"x":-0.04909696650885476,"y":-0.7218487721703082},{"PETR3 returns":-1.090640179122548,"IBOV returns":-0.7447107119048502,"fitted":-0.5892817426674899,"x":-0.7447107119048502,"y":-1.090640179122548},{"PETR3 returns":-6.027961048488361,"IBOV returns":-0.326985108921396,"fitted":-0.1606629911281943,"x":-0.326985108921396,"y":-6.027961048488361},{"PETR3 returns":1.53849030764881,"IBOV returns":0.8662499445848404,"fitted":1.063688389955396,"x":0.8662499445848404,"y":1.53849030764881},{"PETR3 returns":0.2824620485361695,"IBOV returns":-0.8192542325205276,"fitted":-0.6657691557286927,"x":-0.8192542325205276,"y":0.2824620485361695},{"PETR3 returns":-0.7426219270093792,"IBOV returns":1.72560489231588,"fitted":1.945452979424872,"x":1.72560489231588,"y":-0.7426219270093792},{"PETR3 returns":-0.7224045507422394,"IBOV returns":-1.285971928173768,"fitted":-1.144657580578515,"x":-1.285971928173768,"y":-0.7224045507422394},{"PETR3 returns":-0.805612706665737,"IBOV returns":-0.6787230474576522,"fitted":-0.5215732992530885,"x":-0.6787230474576522,"y":-0.805612706665737},{"PETR3 returns":-0.8645494337626181,"IBOV returns":0.5438453062240001,"fitted":0.7328763147612043,"x":0.5438453062240001,"y":-0.8645494337626181},{"PETR3 returns":1.162787539007182,"IBOV returns":1.68723043201584,"fitted":1.906077817482862,"x":1.68723043201584,"y":1.162787539007182},{"PETR3 returns":0.8359434188252468,"IBOV returns":2.700494554683486,"fitted":2.945765114922871,"x":2.700494554683486,"y":0.8359434188252468},{"PETR3 returns":-0.2590573781964034,"IBOV returns":0.2767433987813206,"fitted":0.4588091154222631,"x":0.2767433987813206,"y":-0.2590573781964034},{"PETR3 returns":-2.207778346318601,"IBOV returns":0.6591440411184424,"fitted":0.8511817273372048,"x":0.6591440411184424,"y":-2.207778346318601},{"PETR3 returns":-2.363901114299682,"IBOV returns":-0.1416976892376853,"fitted":0.02945622094202027,"x":-0.1416976892376853,"y":-2.363901114299682},{"PETR3 returns":2.121875696627074,"IBOV returns":-0.07304847227936895,"fitted":0.09989562292425712,"x":-0.07304847227936895,"y":2.121875696627074},{"PETR3 returns":-0.3196645330863279,"IBOV returns":1.364568278829026,"fitted":1.575001512175832,"x":1.364568278829026,"y":-0.3196645330863279},{"PETR3 returns":2.244789319986507,"IBOV returns":-0.2155243874133794,"fitted":-0.04629567689793038,"x":-0.2155243874133794,"y":2.244789319986507},{"PETR3 returns":1.150029331171187,"IBOV returns":2.452316076294281,"fitted":2.691114816242672,"x":2.452316076294281,"y":1.150029331171187},{"PETR3 returns":-2.015495371889731,"IBOV returns":1.011935651271401,"fitted":1.21317318397121,"x":1.011935651271401,"y":-2.015495371889731},{"PETR3 returns":4.219403883066231,"IBOV returns":0.3901232982275848,"fitted":0.5751456545360353,"x":0.3901232982275848,"y":4.219403883066231},{"PETR3 returns":-0.3289510096297188,"IBOV returns":0.8259903088068343,"fitted":1.022378892281921,"x":0.8259903088068343,"y":-0.3289510096297188},{"PETR3 returns":-0.9900917995085079,"IBOV returns":-0.3870097942027861,"fitted":-0.2222529570845488,"x":-0.3870097942027861,"y":-0.9900917995085079},{"PETR3 returns":0.162754861867076,"IBOV returns":0.3407453406259142,"fitted":0.5244800539847886,"x":0.3407453406259142,"y":0.162754861867076},{"PETR3 returns":0.4510664499638439,"IBOV returns":0.4292458444083103,"fitted":0.6152884104055747,"x":0.4292458444083103,"y":0.4510664499638439},{"PETR3 returns":-0.2905577179093011,"IBOV returns":-0.8169005182657063,"fitted":-0.6633540630023277,"x":-0.8169005182657063,"y":-0.2905577179093011},{"PETR3 returns":-0.6622538810339251,"IBOV returns":0.1123130107852255,"fitted":0.2900908297470615,"x":0.1123130107852255,"y":-0.6622538810339251},{"PETR3 returns":0.9333352604835587,"IBOV returns":0.6802829340483596,"fitted":0.8728718651497602,"x":0.6802829340483596,"y":0.9333352604835587},{"PETR3 returns":-1.321008406433755,"IBOV returns":-0.3453508037111419,"fitted":-0.179507613329253,"x":-0.3453508037111419,"y":-1.321008406433755},{"PETR3 returns":0.9371021447080574,"IBOV returns":0.975408601042016,"fitted":1.175693607534158,"x":0.975408601042016,"y":0.9371021447080574},{"PETR3 returns":-1.326264198611837,"IBOV returns":0.6062938326095058,"fitted":0.7969533290108778,"x":0.6062938326095058,"y":-1.326264198611837},{"PETR3 returns":-1.962362294689024,"IBOV returns":-1.014808396368549,"fitted":-0.8664228407511306,"x":-1.014808396368549,"y":-1.962362294689024},{"PETR3 returns":-0.7403530917664214,"IBOV returns":0.07886248748059099,"fitted":0.2557680076964906,"x":0.07886248748059099,"y":-0.7403530917664214},{"PETR3 returns":-2.375692828908205,"IBOV returns":-1.008644397689573,"fitted":-0.8600981017372823,"x":-1.008644397689573,"y":-2.375692828908205},{"PETR3 returns":0.3112766670351874,"IBOV returns":0.3080646060036774,"fitted":0.4909470946135502,"x":0.3080646060036774,"y":0.3112766670351874},{"PETR3 returns":3.41325550939009,"IBOV returns":0.8602491865725037,"fitted":1.057531148481167,"x":0.8602491865725037,"y":3.41325550939009},{"PETR3 returns":-0.3000560501404959,"IBOV returns":-0.1400538184336053,"fitted":0.03114295942944925,"x":-0.1400538184336053,"y":-0.3000560501404959},{"PETR3 returns":-1.532138188391952,"IBOV returns":-0.4042043556367947,"fitted":-0.2398959059545091,"x":-0.4042043556367947,"y":-1.532138188391952},{"PETR3 returns":1.333704515308254,"IBOV returns":2.422410860501722,"fitted":2.660429753689713,"x":2.422410860501722,"y":1.333704515308254},{"PETR3 returns":2.330670009208013,"IBOV returns":1.063607924921794,"fitted":1.266192930098923,"x":1.063607924921794,"y":2.330670009208013},{"PETR3 returns":-0.7770603935404408,"IBOV returns":-0.4929609758334452,"fitted":-0.3309670576096367,"x":-0.4929609758334452,"y":-0.7770603935404408},{"PETR3 returns":2.052392265195424,"IBOV returns":0.6812752982019665,"fitted":0.8738901074637421,"x":0.6812752982019665,"y":2.052392265195424},{"PETR3 returns":0.6615467469760716,"IBOV returns":0.5851209911202027,"fitted":0.7752283573527629,"x":0.5851209911202027,"y":0.6615467469760716},{"PETR3 returns":0.1840293205175758,"IBOV returns":-0.7940781639881433,"fitted":-0.6399365637449886,"x":-0.7940781639881433,"y":0.1840293205175758},{"PETR3 returns":0,"IBOV returns":1.053484602917343,"fitted":1.255805619366739,"x":1.053484602917343,"y":0},{"PETR3 returns":1.338207155728943,"IBOV returns":0.431980148583011,"fitted":0.6180940178026759,"x":0.431980148583011,"y":1.338207155728943},{"PETR3 returns":1.501825107514443,"IBOV returns":0.5875573433368642,"fitted":0.777728243014444,"x":0.5875573433368642,"y":1.501825107514443},{"PETR3 returns":-0.1530598496137237,"IBOV returns":0.4950087244351531,"fitted":0.6827662076327902,"x":0.4950087244351531,"y":-0.1530598496137237},{"PETR3 returns":-0.4087931421373536,"IBOV returns":-0.006706708198578326,"fitted":0.1679673999284291,"x":-0.006706708198578326,"y":-0.4087931421373536}],"type":"scatter","name":"Actual Returns"},{"group":"group","data":[{"PETR3 returns":-1.413850100619418,"IBOV returns":-2.077536286380388,"fitted":-1.956863786169806,"x":-2.077536286380388,"y":-1.956863786169806},{"PETR3 returns":1.666682668928821,"IBOV returns":1.121287176237917,"fitted":1.325376299545917,"x":1.121287176237917,"y":1.325376299545917},{"PETR3 returns":3.240577014632029,"IBOV returns":2.073404598705064,"fitted":2.30232235701045,"x":2.073404598705064,"y":2.30232235701045},{"PETR3 returns":-0.6277891876697361,"IBOV returns":1.225841254487614,"fitted":1.432656864030498,"x":1.225841254487614,"y":1.432656864030498},{"PETR3 returns":0.6689122578718232,"IBOV returns":0.3592561284869067,"fitted":0.5434735528901014,"x":0.3592561284869067,"y":0.5434735528901014},{"PETR3 returns":0.5906043560782726,"IBOV returns":1.542658866397506,"fitted":1.757736218306653,"x":1.542658866397506,"y":1.757736218306653},{"PETR3 returns":1.284417680707373,"IBOV returns":0.7672749567224413,"fitted":0.9621324033742269,"x":0.7672749567224413,"y":0.9621324033742269},{"PETR3 returns":0.5434735552124481,"IBOV returns":0.1020015568658605,"fitted":0.2795104811308714,"x":0.1020015568658605,"y":0.2795104811308714},{"PETR3 returns":-0.2161933503269098,"IBOV returns":-0.8589790573576339,"fitted":-0.7065298960452782,"x":-0.8589790573576339,"y":-0.7065298960452782},{"PETR3 returns":-2.491894391653648,"IBOV returns":-1.535396155649316,"fitted":-1.400586114095904,"x":-1.535396155649316,"y":-1.400586114095904},{"PETR3 returns":7.037048230483944,"IBOV returns":2.038218893355181,"fitted":2.266219104082251,"x":2.038218893355181,"y":2.266219104082251},{"PETR3 returns":-1.280282434372937,"IBOV returns":0.9090174893888081,"fitted":1.107571196106983,"x":0.9090174893888081,"y":1.107571196106983},{"PETR3 returns":3.399927617647114,"IBOV returns":0.4926546437591162,"fitted":0.68035073892994,"x":0.4926546437591162,"y":0.68035073892994},{"PETR3 returns":1.118634379716288,"IBOV returns":-0.6238606799638946,"fitted":-0.4652802703036615,"x":-0.6238606799638946,"y":-0.4652802703036615},{"PETR3 returns":2.313117107629092,"IBOV returns":-0.5271547003143362,"fitted":-0.3660524615034907,"x":-0.5271547003143362,"y":-0.3660524615034907},{"PETR3 returns":-0.753600852516878,"IBOV returns":1.180746403602217,"fitted":1.386386061979336,"x":1.180746403602217,"y":1.386386061979336},{"PETR3 returns":0.429187233411632,"IBOV returns":1.032487525214987,"fitted":1.234260994937496,"x":1.032487525214987,"y":1.234260994937496},{"PETR3 returns":-2.794215519964305,"IBOV returns":-0.0753097771356015,"fitted":0.09757534938247345,"x":-0.0753097771356015,"y":0.09757534938247345},{"PETR3 returns":-2.265806642874646,"IBOV returns":-1.408302587876509,"fitted":-1.270178291452548,"x":-1.408302587876509,"y":-1.270178291452548},{"PETR3 returns":0.3114260475322261,"IBOV returns":-0.5457680752342209,"fitted":-0.385151222659411,"x":-0.5457680752342209,"y":-0.385151222659411},{"PETR3 returns":1.621217663935037,"IBOV returns":1.469326469326471,"fitted":1.682491511600907,"x":1.469326469326471,"y":1.682491511600907},{"PETR3 returns":-1.968770953290766,"IBOV returns":-1.082514181023853,"fitted":-0.9358942082796703,"x":-1.082514181023853,"y":-0.9358942082796703},{"PETR3 returns":-4.743750488785059,"IBOV returns":-2.108581248942598,"fitted":-1.988718316990905,"x":-2.108581248942598,"y":-1.988718316990905},{"PETR3 returns":1.199542781111229,"IBOV returns":-1.314413062264064,"fitted":-1.17384038215706,"x":-1.314413062264064,"y":-1.17384038215706},{"PETR3 returns":3.627888163537141,"IBOV returns":-0.0313392939441437,"fitted":0.1426924632857089,"x":-0.0313392939441437,"y":0.1426924632857089},{"PETR3 returns":-0.5199362956566866,"IBOV returns":-0.4942096333997226,"fitted":-0.3322482767720139,"x":-0.4942096333997226,"y":-0.3322482767720139},{"PETR3 returns":2.020915695565328,"IBOV returns":1.818013343217206,"fitted":2.040271191605598,"x":1.818013343217206,"y":2.040271191605598},{"PETR3 returns":0,"IBOV returns":-1.910230975045957,"fitted":-1.785195606968213,"x":-1.910230975045957,"y":-1.785195606968213},{"PETR3 returns":2.732240002046371,"IBOV returns":0.3404989655140467,"fitted":0.5242272540795283,"x":0.3404989655140467,"y":0.5242272540795283},{"PETR3 returns":0.4986658967557123,"IBOV returns":0.643550624133149,"fitted":0.8351816764120695,"x":0.643550624133149,"y":0.8351816764120695},{"PETR3 returns":-0.5954395108073718,"IBOV returns":-1.090531576723075,"fitted":-0.9441206758714432,"x":-1.090531576723075,"y":-0.9441206758714432},{"PETR3 returns":0.4326247703356767,"IBOV returns":1.656155082250432,"fitted":1.874192107042883,"x":1.656155082250432,"y":1.874192107042883},{"PETR3 returns":-0.09940271463850792,"IBOV returns":0.4230551342263578,"fitted":0.6089362633253413,"x":0.4230551342263578,"y":0.6089362633253413},{"PETR3 returns":-1.525707646565289,"IBOV returns":-0.5477457804467512,"fitted":-0.3871805010494671,"x":-0.5477457804467512,"y":-0.3871805010494671},{"PETR3 returns":-2.492422983480991,"IBOV returns":-1.967924027702805,"fitted":-1.844393137657393,"x":-1.967924027702805,"y":-1.844393137657393},{"PETR3 returns":3.73057791804865,"IBOV returns":0.5300880991488732,"fitted":0.7187603571107896,"x":0.5300880991488732,"y":0.7187603571107896},{"PETR3 returns":-1.498517524191645,"IBOV returns":-1.714630523579652,"fitted":-1.584494427272194,"x":-1.714630523579652,"y":-1.584494427272194},{"PETR3 returns":1.656526900421684,"IBOV returns":-0.1530135161939339,"fitted":0.01784530796952985,"x":-0.1530135161939339,"y":0.01784530796952985},{"PETR3 returns":-4.38975827738961,"IBOV returns":-0.7369147960004208,"fitted":-0.5812825304616864,"x":-0.7369147960004208,"y":-0.5812825304616864},{"PETR3 returns":0,"IBOV returns":-0.521289978271644,"fitted":-0.3600348034473162,"x":-0.521289978271644,"y":-0.3600348034473162},{"PETR3 returns":-2.74781939851404,"IBOV returns":-1.014513579537291,"fitted":-0.8661203358980777,"x":-1.014513579537291,"y":-0.8661203358980777},{"PETR3 returns":3.64806837875522,"IBOV returns":0.5226177341617788,"fitted":0.71109518530556,"x":0.5226177341617788,"y":0.71109518530556},{"PETR3 returns":1.48379590289307,"IBOV returns":0.802957656981107,"fitted":0.9987456114878459,"x":0.802957656981107,"y":0.9987456114878459},{"PETR3 returns":-3.026197922240592,"IBOV returns":-0.4508118433619868,"fitted":-0.2877187903036549,"x":-0.4508118433619868,"y":-0.2877187903036549},{"PETR3 returns":1.542777328223988,"IBOV returns":2.218213915646472,"fitted":2.450907907418149,"x":2.218213915646472,"y":2.450907907418149},{"PETR3 returns":-1.243083206210349,"IBOV returns":-1.378824854514737,"fitted":-1.239931858910488,"x":-1.378824854514737,"y":-1.239931858910488},{"PETR3 returns":-0.6993081813493562,"IBOV returns":-1.382874437285264,"fitted":-1.244087043794922,"x":-1.382874437285264,"y":-1.244087043794922},{"PETR3 returns":-3.169017444819022,"IBOV returns":-0.4796463934837569,"fitted":-0.3173052671346666,"x":-0.4796463934837569,"y":-0.3173052671346666},{"PETR3 returns":-1.781820486278018,"IBOV returns":-0.1832798363088028,"fitted":-0.01321027552516355,"x":-0.1832798363088028,"y":-0.01321027552516355},{"PETR3 returns":-2.443529215392437,"IBOV returns":-0.2496793999922309,"fitted":-0.08134135938853918,"x":-0.2496793999922309,"y":-0.08134135938853918},{"PETR3 returns":-0.3795217727045608,"IBOV returns":0.7401996591185789,"fitted":0.9343510555860185,"x":0.7401996591185789,"y":0.9343510555860185},{"PETR3 returns":0.4190699416153132,"IBOV returns":-1.404746942524293,"fitted":-1.266529924532018,"x":-1.404746942524293,"y":-1.266529924532018},{"PETR3 returns":-2.352064781338437,"IBOV returns":-1.038418544449016,"fitted":-0.8906486773329217,"x":-1.038418544449016,"y":-0.8906486773329217},{"PETR3 returns":2.21445580372468,"IBOV returns":0.07431408103206749,"fitted":0.2511009911680911,"x":0.07431408103206749,"y":0.2511009911680911},{"PETR3 returns":-0.8741773849025636,"IBOV returns":-0.7693221647953385,"fitted":-0.6145349953677013,"x":-0.7693221647953385,"y":-0.6145349953677013},{"PETR3 returns":-1.955537805581764,"IBOV returns":-2.289939234292215,"fitted":-2.174805625757837,"x":-2.289939234292215,"y":-2.174805625757837},{"PETR3 returns":0.3519833325640098,"IBOV returns":0.9221248697996343,"fitted":1.121020381379597,"x":0.9221248697996343,"y":1.121020381379597},{"PETR3 returns":1.519873415622564,"IBOV returns":0.8509647977820167,"fitted":1.048004648061365,"x":0.8509647977820167,"y":1.048004648061365},{"PETR3 returns":1.727432207431479,"IBOV returns":1.520016052974826,"fitted":1.73450294184179,"x":1.520016052974826,"y":1.73450294184179},{"PETR3 returns":1.056613077746449,"IBOV returns":0.6008795770124031,"fitted":0.7913978843410506,"x":0.6008795770124031,"y":0.7913978843410506},{"PETR3 returns":1.120251077624901,"IBOV returns":1.886180778639002,"fitted":2.110216248498083,"x":1.886180778639002,"y":2.110216248498083},{"PETR3 returns":-2.178746492193606,"IBOV returns":-1.765448882975129,"fitted":-1.636637991381735,"x":-1.765448882975129,"y":-1.636637991381735},{"PETR3 returns":4.756515080838919,"IBOV returns":-0.3690543962623472,"fitted":-0.2038293311596446,"x":-0.3690543962623472,"y":-0.2038293311596446},{"PETR3 returns":-1.405403804566085,"IBOV returns":0.3576143282170596,"fitted":0.5417889389308114,"x":0.3576143282170596,"y":0.5417889389308114},{"PETR3 returns":0.1462153217935303,"IBOV returns":-0.8746527402840876,"fitted":-0.7226123060291963,"x":-0.8746527402840876,"y":-0.7226123060291963},{"PETR3 returns":-1.167887124524136,"IBOV returns":-0.1544890966349133,"fitted":0.01633124840054184,"x":-0.1544890966349133,"y":0.01633124840054184},{"PETR3 returns":2.658776263617435,"IBOV returns":1.016643192953914,"fitted":1.218003485548052,"x":1.016643192953914,"y":1.218003485548052},{"PETR3 returns":4.388496757952898,"IBOV returns":4.287804255402716,"fitted":4.574467539120313,"x":4.287804255402716,"y":4.574467539120313},{"PETR3 returns":0.06891069286678597,"IBOV returns":0.636450938670996,"fitted":0.8278968504464697,"x":0.636450938670996,"y":0.8278968504464697},{"PETR3 returns":1.170795483807896,"IBOV returns":-0.4041538029750158,"fitted":-0.239844035016688,"x":-0.4041538029750158,"y":-0.239844035016688},{"PETR3 returns":1.497617777947058,"IBOV returns":-0.1681414266659131,"fitted":0.002322902702561302,"x":-0.1681414266659131,"y":0.002322902702561302},{"PETR3 returns":0.4359517935514923,"IBOV returns":-0.2474618692309916,"fitted":-0.07906600145119,"x":-0.2474618692309916,"y":-0.07906600145119},{"PETR3 returns":2.537566658999002,"IBOV returns":0.1386583157259258,"fitted":0.3171231486472087,"x":0.1386583157259258,"y":0.3171231486472087},{"PETR3 returns":-3.191156413780749,"IBOV returns":-2.119382459048824,"fitted":-1.999801193304396,"x":-2.119382459048824,"y":-1.999801193304396},{"PETR3 returns":0.3027317415255304,"IBOV returns":0.4369039484953818,"fitted":0.6231462170363274,"x":0.4369039484953818,"y":0.6231462170363274},{"PETR3 returns":1.542601661167109,"IBOV returns":-0.4024260542125346,"fitted":-0.2380712312616412,"x":-0.4024260542125346,"y":-0.2380712312616412},{"PETR3 returns":-0.5283937661065718,"IBOV returns":-0.6993948839312369,"fitted":-0.5427842010461569,"x":-0.6993948839312369,"y":-0.5427842010461569},{"PETR3 returns":-1.427636073649574,"IBOV returns":-0.8796744816895963,"fitted":-0.7277650008039708,"x":-0.8796744816895963,"y":-0.7277650008039708},{"PETR3 returns":-2.660821850469541,"IBOV returns":0.5971929001485687,"fitted":0.7876150689631575,"x":0.5971929001485687,"y":0.7876150689631575},{"PETR3 returns":2.696064392778208,"IBOV returns":1.466144593531093,"fitted":1.679226661131539,"x":1.466144593531093,"y":1.679226661131539},{"PETR3 returns":-4.461950555965299,"IBOV returns":-2.398690056687602,"fitted":-2.286392374070769,"x":-2.398690056687602,"y":-2.286392374070769},{"PETR3 returns":-0.5494473870132688,"IBOV returns":-0.1275422606375143,"fitted":0.04398078465268482,"x":-0.1275422606375143,"y":0.04398078465268482},{"PETR3 returns":1.460118115342546,"IBOV returns":0.3703449021090988,"fitted":0.5548514915946008,"x":0.3703449021090988,"y":0.5548514915946008},{"PETR3 returns":4.200717541007215,"IBOV returns":2.910720927046029,"fitted":3.16147361978614,"x":2.910720927046029,"y":3.16147361978614},{"PETR3 returns":1.642384714491563,"IBOV returns":0.8502301517860467,"fitted":1.047250844494221,"x":0.8502301517860467,"y":1.047250844494221},{"PETR3 returns":0.7712376223007134,"IBOV returns":1.010920201429633,"fitted":1.212131253957055,"x":1.010920201429633,"y":1.212131253957055},{"PETR3 returns":0.1822099107417596,"IBOV returns":0.3118173161304805,"fitted":0.4947976652224649,"x":0.3118173161304805,"y":0.4947976652224649},{"PETR3 returns":2.400868733767569,"IBOV returns":0.7519916610825739,"fitted":0.9464505609164511,"x":0.7519916610825739,"y":0.9464505609164511},{"PETR3 returns":3.516877026150644,"IBOV returns":0.1921371563700758,"fitted":0.3719965721265266,"x":0.1921371563700758,"y":0.3719965721265266},{"PETR3 returns":-1.990388753729266,"IBOV returns":0.5209101637409619,"fitted":0.7093430860884934,"x":0.5209101637409619,"y":0.7093430860884934},{"PETR3 returns":2.240883413341965,"IBOV returns":-0.7658512872721901,"fitted":-0.6109736067908641,"x":-0.7658512872721901,"y":-0.6109736067908641},{"PETR3 returns":-0.6164259046322784,"IBOV returns":1.170120339390346,"fitted":1.375482898889165,"x":1.170120339390346,"y":1.375482898889165},{"PETR3 returns":0.4479598200616497,"IBOV returns":0.5919970765576377,"fitted":0.7822837524126335,"x":0.5919970765576377,"y":0.7822837524126335},{"PETR3 returns":0.4802806865983555,"IBOV returns":0.5785229047843954,"fitted":0.7684582108556275,"x":0.5785229047843954,"y":0.7684582108556275},{"PETR3 returns":-1.502228406204287,"IBOV returns":-0.4803828615287387,"fitted":-0.3180609402649084,"x":-0.4803828615287387,"y":-0.3180609402649084},{"PETR3 returns":2.07971998200871,"IBOV returns":-0.257682850480434,"fitted":-0.08955351811608572,"x":-0.257682850480434,"y":-0.08955351811608572},{"PETR3 returns":1.086599085540185,"IBOV returns":-1.02702653530915,"fitted":-0.8789595955524908,"x":-1.02702653530915,"y":-0.8789595955524908},{"PETR3 returns":-0.7390123278681604,"IBOV returns":1.15257352941176,"fitted":1.357478515789821,"x":1.15257352941176,"y":1.357478515789821},{"PETR3 returns":1.658219253897486,"IBOV returns":0.7741654097079609,"fitted":0.9692025406487923,"x":0.7741654097079609,"y":0.9692025406487923},{"PETR3 returns":-0.632490733023916,"IBOV returns":-0.5166537428092255,"fitted":-0.3552776675630148,"x":-0.5166537428092255,"y":-0.3552776675630148},{"PETR3 returns":-0.9380180602560628,"IBOV returns":-1.238070205650166,"fitted":-1.095506711304502,"x":-1.238070205650166,"y":-1.095506711304502},{"PETR3 returns":-1.217460768710976,"IBOV returns":-0.5799921077023318,"fitted":-0.4202677248904295,"x":-0.5799921077023318,"y":-0.4202677248904295},{"PETR3 returns":2.909977154183352,"IBOV returns":2.058429870309686,"fitted":2.286957128392368,"x":2.058429870309686,"y":2.286957128392368},{"PETR3 returns":1.197597799987071,"IBOV returns":1.802559580337348,"fitted":2.024414436585458,"x":1.802559580337348,"y":2.024414436585458},{"PETR3 returns":0.6245983968242275,"IBOV returns":0.1226034577728852,"fitted":0.3006496236278539,"x":0.1226034577728852,"y":0.3006496236278539},{"PETR3 returns":2.025461442989629,"IBOV returns":1.69837438773337,"fitted":1.917512377281788,"x":1.69837438773337,"y":1.917512377281788},{"PETR3 returns":3.105999601014409,"IBOV returns":0.7660762586161773,"fitted":0.9609024464788155,"x":0.7660762586161773,"y":0.9609024464788155},{"PETR3 returns":4.813657132637483,"IBOV returns":1.325678858409529,"fitted":1.535097961353854,"x":1.325678858409529,"y":1.535097961353854},{"PETR3 returns":1.274070687505136,"IBOV returns":0.270896179252933,"fitted":0.4528094162984032,"x":0.270896179252933,"y":0.4528094162984032},{"PETR3 returns":0.04205580158977984,"IBOV returns":-0.5053862412217947,"fitted":-0.3437163401536366,"x":-0.5053862412217947,"y":-0.3437163401536366},{"PETR3 returns":4.303404804523114,"IBOV returns":1.992410679869461,"fitted":2.219216336872713,"x":1.992410679869461,"y":2.219216336872713},{"PETR3 returns":-1.484121564567409,"IBOV returns":0.1276570727897219,"fitted":0.3058350231911232,"x":0.1276570727897219,"y":0.3058350231911232},{"PETR3 returns":0.6025948022863048,"IBOV returns":-0.3883544006508921,"fitted":-0.2236326272148512,"x":-0.3883544006508921,"y":-0.2236326272148512},{"PETR3 returns":2.485770671514054,"IBOV returns":0.9262533892453462,"fitted":1.125256561393195,"x":0.9262533892453462,"y":1.125256561393195},{"PETR3 returns":0.2630093026628089,"IBOV returns":-0.1968996646031118,"fitted":-0.02718527192948378,"x":-0.1968996646031118,"y":-0.02718527192948378},{"PETR3 returns":3.993003759120395,"IBOV returns":0.6671013693133387,"fitted":0.8593465610273724,"x":0.6671013693133387,"y":0.8593465610273724},{"PETR3 returns":-1.653593951504184,"IBOV returns":-1.234014283341633,"fitted":-1.091345021564138,"x":-1.234014283341633,"y":-1.091345021564138},{"PETR3 returns":-3.391261473526419,"IBOV returns":0.03615450586038627,"fitted":0.2119463179746365,"x":0.03615450586038627,"y":0.2119463179746365},{"PETR3 returns":1.946899568111315,"IBOV returns":-0.6169259604797528,"fitted":-0.458164712180484,"x":-0.6169259604797528,"y":-0.458164712180484},{"PETR3 returns":-0.8680607126422379,"IBOV returns":-0.6089155383405376,"fitted":-0.4499454000002125,"x":-0.6089155383405376,"y":-0.4499454000002125},{"PETR3 returns":0.7297074945979976,"IBOV returns":-0.7164555023272068,"fitted":-0.5602897140076369,"x":-0.7164555023272068,"y":-0.5602897140076369},{"PETR3 returns":1.101129608705231,"IBOV returns":1.458677933853836,"fitted":1.671565291260557,"x":1.458677933853836,"y":1.671565291260557},{"PETR3 returns":-5.13040905483666,"IBOV returns":-0.2500359004248942,"fitted":-0.08170715638369588,"x":-0.2500359004248942,"y":-0.08170715638369588},{"PETR3 returns":1.722053594930095,"IBOV returns":1.343077561458927,"fitted":1.552950375297779,"x":1.343077561458927,"y":1.552950375297779},{"PETR3 returns":0.23760902474943,"IBOV returns":-0.4988593918427764,"fitted":-0.3370192882795368,"x":-0.4988593918427764,"y":-0.3370192882795368},{"PETR3 returns":-0.02964080098767363,"IBOV returns":0.3972253014881355,"fitted":0.5824328587419163,"x":0.3972253014881355,"y":0.5824328587419163},{"PETR3 returns":-1.274448447253063,"IBOV returns":-1.775840868597811,"fitted":-1.64730097174922,"x":-1.775840868597811,"y":-1.64730097174922},{"PETR3 returns":-0.5403815354306563,"IBOV returns":1.253555430654196,"fitted":1.461093750598188,"x":1.253555430654196,"y":1.461093750598188},{"PETR3 returns":0,"IBOV returns":-0.8040505307069901,"fitted":-0.650168982687941,"x":-0.8040505307069901,"y":-0.650168982687941},{"PETR3 returns":-0.7847919776720502,"IBOV returns":-0.6121653015889184,"fitted":-0.4532799082428746,"x":-0.6121653015889184,"y":-0.4532799082428746},{"PETR3 returns":-0.3042155944301794,"IBOV returns":0.3804811465620173,"fitted":0.5652520617575916,"x":0.3804811465620173,"y":0.5652520617575916},{"PETR3 returns":1.464748041339781,"IBOV returns":1.358081348902829,"fitted":1.568345420745402,"x":1.358081348902829,"y":1.568345420745402},{"PETR3 returns":-2.105275923016281,"IBOV returns":-1.302153206332168,"fitted":-1.161260822498638,"x":-1.302153206332168,"y":-1.161260822498638},{"PETR3 returns":0.03074115597081484,"IBOV returns":0.4315654441810812,"fitted":0.6176684990369036,"x":0.4315654441810812,"y":0.6176684990369036},{"PETR3 returns":-0.8599636188231785,"IBOV returns":-0.3197455569747709,"fitted":-0.1532346513402948,"x":-0.3197455569747709,"y":-0.1532346513402948},{"PETR3 returns":0.5576242364421891,"IBOV returns":-0.2452457124430429,"fitted":-0.07679205331662112,"x":-0.2452457124430429,"y":-0.07679205331662112},{"PETR3 returns":0.770179566563467,"IBOV returns":0.4517149857084624,"fitted":0.6383434858509088,"x":0.4517149857084624,"y":0.6383434858509088},{"PETR3 returns":1.834305041308149,"IBOV returns":1.807203407772495,"fitted":2.029179362420505,"x":1.807203407772495,"y":2.029179362420505},{"PETR3 returns":2.071436560106332,"IBOV returns":0.9358077476563142,"fitted":1.135060071507537,"x":0.9358077476563142,"y":1.135060071507537},{"PETR3 returns":1.794132380315938,"IBOV returns":0.5488618944800683,"fitted":0.7380237220064045,"x":0.5488618944800683,"y":0.7380237220064045},{"PETR3 returns":-0.4333997950683788,"IBOV returns":0.4524293488951558,"fitted":0.6390764776882282,"x":0.4524293488951558,"y":0.6390764776882282},{"PETR3 returns":-5.629713666635294,"IBOV returns":-2.09693211488251,"fitted":-1.97676540517107,"x":-2.09693211488251,"y":-1.97676540517107},{"PETR3 returns":1.691258059120204,"IBOV returns":0.1641803483623638,"fitted":0.3433107265386422,"x":0.1641803483623638,"y":0.3433107265386422},{"PETR3 returns":5.261583490581501,"IBOV returns":1.461056520255943,"fitted":1.674005904732219,"x":1.461056520255943,"y":1.674005904732219},{"PETR3 returns":-2.097093212773093,"IBOV returns":-0.5699384138490915,"fitted":-0.4099518580224252,"x":-0.5699384138490915,"y":-0.4099518580224252},{"PETR3 returns":-0.70423675118364,"IBOV returns":-0.3208300343098491,"fitted":-0.154347408897203,"x":-0.3208300343098491,"y":-0.154347408897203},{"PETR3 returns":1.418440908736707,"IBOV returns":-0.2258830538064971,"fitted":-0.05692446916088872,"x":-0.2258830538064971,"y":-0.05692446916088872},{"PETR3 returns":-4.195807673714236,"IBOV returns":-0.893967790622463,"fitted":-0.7424310403917177,"x":-0.893967790622463,"y":-0.7424310403917177},{"PETR3 returns":0.6690962603617567,"IBOV returns":-0.1071058004485037,"fitted":0.06495017218731287,"x":-0.1071058004485037,"y":0.06495017218731287},{"PETR3 returns":-0.06040837947851596,"IBOV returns":-0.2429217624392743,"fitted":-0.07440750101209193,"x":-0.2429217624392743,"y":-0.07440750101209193},{"PETR3 returns":1.14870722484357,"IBOV returns":-0.5718364262322639,"fitted":-0.4118993654106992,"x":-0.5718364262322639,"y":-0.4118993654106992},{"PETR3 returns":-0.02986073909432285,"IBOV returns":-0.04982729353343318,"fitted":0.123722346908298,"x":-0.04982729353343318,"y":0.123722346908298},{"PETR3 returns":0.05976889803145369,"IBOV returns":-0.2408111533586776,"fitted":-0.07224185298225672,"x":-0.2408111533586776,"y":-0.07224185298225672},{"PETR3 returns":0.4780577324814628,"IBOV returns":-1.062973785626564,"fitted":-0.9158442524714751,"x":-1.062973785626564,"y":-0.9158442524714751},{"PETR3 returns":-0.2081597534712931,"IBOV returns":-0.5470422052906376,"fitted":-0.3864585785652488,"x":-0.5470422052906376,"y":-0.3864585785652488},{"PETR3 returns":2.949932436755476,"IBOV returns":-0.498403215948906,"fitted":-0.3365512165580129,"x":-0.498403215948906,"y":-0.3365512165580129},{"PETR3 returns":-0.7525156886869611,"IBOV returns":-0.5277181811890075,"fitted":-0.3666306364281132,"x":-0.5277181811890075,"y":-0.3666306364281132},{"PETR3 returns":0.5832566830067165,"IBOV returns":0.371362474126391,"fitted":0.5558955991248505,"x":0.371362474126391,"y":0.5558955991248505},{"PETR3 returns":-0.9857988872726486,"IBOV returns":-0.8491538788136133,"fitted":-0.6964485035447673,"x":-0.8491538788136133,"y":-0.6964485035447673},{"PETR3 returns":1.513003860759987,"IBOV returns":1.50923279937778,"fitted":1.723438490294441,"x":1.50923279937778,"y":1.723438490294441},{"PETR3 returns":5.701493336092489,"IBOV returns":1.703743241847167,"fitted":1.923021236521003,"x":1.703743241847167,"y":1.923021236521003},{"PETR3 returns":-0.2541631202149897,"IBOV returns":-0.9387565073856186,"fitted":-0.7883877251746498,"x":-0.9387565073856186,"y":-0.7883877251746498},{"PETR3 returns":-0.7927498357222174,"IBOV returns":-1.016013535453664,"fitted":-0.8676594065886173,"x":-1.016013535453664,"y":-0.8676594065886173},{"PETR3 returns":1.027414923085779,"IBOV returns":1.108454120876745,"fitted":1.312208592974773,"x":1.108454120876745,"y":1.312208592974773},{"PETR3 returns":0.367208625604265,"IBOV returns":1.095448297060297,"fitted":1.298863612616538,"x":1.095448297060297,"y":1.298863612616538},{"PETR3 returns":-0.08443041629127013,"IBOV returns":-0.7339279078409477,"fitted":-0.5782177523758875,"x":-0.7339279078409477,"y":-0.5782177523758875},{"PETR3 returns":-2.704211243495036,"IBOV returns":-1.525503041647169,"fitted":-1.390435014565135,"x":-1.525503041647169,"y":-1.390435014565135},{"PETR3 returns":3.329451400295391,"IBOV returns":1.858443780131669,"fitted":2.081755944445015,"x":1.858443780131669,"y":2.081755944445015},{"PETR3 returns":-1.372928265052398,"IBOV returns":-0.09839430670184335,"fitted":0.07388883801738852,"x":-0.09839430670184335,"y":0.07388883801738852},{"PETR3 returns":4.602277203247795,"IBOV returns":-0.3786817460115333,"fitted":-0.2137077360279517,"x":-0.3786817460115333,"y":-0.2137077360279517},{"PETR3 returns":0.4888536600139881,"IBOV returns":-1.14718190418559,"fitted":-1.002248289926829,"x":-1.14718190418559,"y":-1.002248289926829},{"PETR3 returns":-0.7837865531779009,"IBOV returns":-0.5793852653360299,"fitted":-0.4196450577243095,"x":-0.5793852653360299,"y":-0.4196450577243095},{"PETR3 returns":-0.6810099349790821,"IBOV returns":1.361511711602326,"fitted":1.571865237982086,"x":1.361511711602326,"y":1.571865237982086},{"PETR3 returns":1.097102904045788,"IBOV returns":0.9282787060564734,"fitted":1.127334692962955,"x":0.9282787060564734,"y":1.127334692962955},{"PETR3 returns":-1.302214559199122,"IBOV returns":0.176319001763181,"fitted":0.3557659230333435,"x":0.176319001763181,"y":0.3557659230333435},{"PETR3 returns":2.941169706467184,"IBOV returns":1.028973734091521,"fitted":1.230655573690263,"x":1.028973734091521,"y":1.230655573690263},{"PETR3 returns":-1.468622327586289,"IBOV returns":-0.53102385419459,"fitted":-0.3700225124025098,"x":-0.53102385419459,"y":-0.3700225124025098},{"PETR3 returns":1.246605713983651,"IBOV returns":-0.3957628117684742,"fitted":-0.2312342295620113,"x":-0.3957628117684742,"y":-0.2312342295620113},{"PETR3 returns":0,"IBOV returns":-0.3736642770188037,"fitted":-0.2085594250788714,"x":-0.3736642770188037,"y":-0.2085594250788714},{"PETR3 returns":0.1338310085986283,"IBOV returns":0.7204317499108992,"fitted":0.9140676530255262,"x":0.7204317499108992,"y":0.9140676530255262},{"PETR3 returns":-1.443469956160492,"IBOV returns":-2.148363452546442,"fitted":-2.029537932356539,"x":-2.148363452546442,"y":-2.029537932356539},{"PETR3 returns":0.7322958639453425,"IBOV returns":-0.1170950105471635,"fitted":0.05470047063497377,"x":-0.1170950105471635,"y":0.05470047063497377},{"PETR3 returns":0.6462276152404023,"IBOV returns":-0.07240817522778942,"fitted":0.1005526171829336,"x":-0.07240817522778942,"y":0.1005526171829336},{"PETR3 returns":-2.755509948722368,"IBOV returns":-1.494069441449208,"fitted":-1.358181711494868,"x":-1.494069441449208,"y":-1.358181711494868},{"PETR3 returns":3.713911072708531,"IBOV returns":0.117345196290497,"fitted":0.2952542409753387,"x":0.117345196290497,"y":0.2952542409753387},{"PETR3 returns":-0.504004338117503,"IBOV returns":1.228056364638275,"fitted":1.434929738234322,"x":1.228056364638275,"y":1.434929738234322},{"PETR3 returns":1.01308295430429,"IBOV returns":0.7206366487803706,"fitted":0.9142778951007003,"x":0.7206366487803706,"y":0.9142778951007003},{"PETR3 returns":-1.900238713564983,"IBOV returns":-1.293698794663922,"fitted":-1.152585942748961,"x":-1.293698794663922,"y":-1.152585942748961},{"PETR3 returns":-1.18375358909556,"IBOV returns":-1.423642194738262,"fitted":-1.28591791357585,"x":-1.423642194738262,"y":-1.28591791357585},{"PETR3 returns":-3.022046430102265,"IBOV returns":0.1657570601045766,"fitted":0.3449285546383752,"x":0.1657570601045766,"y":0.3449285546383752},{"PETR3 returns":-0.3930331955172561,"IBOV returns":-0.2843134665997726,"fitted":-0.1168785883350765,"x":-0.2843134665997726,"y":-0.1168785883350765},{"PETR3 returns":2.508453591688364,"IBOV returns":0.7821051516542443,"fitted":0.9773493294887738,"x":0.7821051516542443,"y":0.9773493294887738},{"PETR3 returns":4.096783323196096,"IBOV returns":0.8636244197249621,"fitted":1.06099439854204,"x":0.8636244197249621,"y":1.06099439854204},{"PETR3 returns":1.030109684231961,"IBOV returns":1.372920212581197,"fitted":1.583571241663867,"x":1.372920212581197,"y":1.583571241663867},{"PETR3 returns":-0.3398730389866822,"IBOV returns":0.2689807002064448,"fitted":0.4508439867636999,"x":0.2689807002064448,"y":0.4508439867636999},{"PETR3 returns":3.147939070617722,"IBOV returns":-1.108064006287857,"fitted":-0.9621103035548703,"x":-1.108064006287857,"y":-0.9621103035548703},{"PETR3 returns":0.9918788739283979,"IBOV returns":0.6738428045683031,"fitted":0.8662637945939257,"x":0.6738428045683031,"y":0.8662637945939257},{"PETR3 returns":2.266440505206835,"IBOV returns":-0.5371822815658955,"fitted":-0.3763415348241232,"x":-0.5371822815658955,"y":-0.3763415348241232},{"PETR3 returns":2.33932607206897,"IBOV returns":-1.594367946992448,"fitted":-1.461095729501332,"x":-1.594367946992448,"y":-1.461095729501332},{"PETR3 returns":-0.7218487721703082,"IBOV returns":-0.04909696650885476,"fitted":0.1244717188770126,"x":-0.04909696650885476,"y":0.1244717188770126},{"PETR3 returns":-1.090640179122548,"IBOV returns":-0.7447107119048502,"fitted":-0.5892817426674899,"x":-0.7447107119048502,"y":-0.5892817426674899},{"PETR3 returns":-6.027961048488361,"IBOV returns":-0.326985108921396,"fitted":-0.1606629911281943,"x":-0.326985108921396,"y":-0.1606629911281943},{"PETR3 returns":1.53849030764881,"IBOV returns":0.8662499445848404,"fitted":1.063688389955396,"x":0.8662499445848404,"y":1.063688389955396},{"PETR3 returns":0.2824620485361695,"IBOV returns":-0.8192542325205276,"fitted":-0.6657691557286927,"x":-0.8192542325205276,"y":-0.6657691557286927},{"PETR3 returns":-0.7426219270093792,"IBOV returns":1.72560489231588,"fitted":1.945452979424872,"x":1.72560489231588,"y":1.945452979424872},{"PETR3 returns":-0.7224045507422394,"IBOV returns":-1.285971928173768,"fitted":-1.144657580578515,"x":-1.285971928173768,"y":-1.144657580578515},{"PETR3 returns":-0.805612706665737,"IBOV returns":-0.6787230474576522,"fitted":-0.5215732992530885,"x":-0.6787230474576522,"y":-0.5215732992530885},{"PETR3 returns":-0.8645494337626181,"IBOV returns":0.5438453062240001,"fitted":0.7328763147612043,"x":0.5438453062240001,"y":0.7328763147612043},{"PETR3 returns":1.162787539007182,"IBOV returns":1.68723043201584,"fitted":1.906077817482862,"x":1.68723043201584,"y":1.906077817482862},{"PETR3 returns":0.8359434188252468,"IBOV returns":2.700494554683486,"fitted":2.945765114922871,"x":2.700494554683486,"y":2.945765114922871},{"PETR3 returns":-0.2590573781964034,"IBOV returns":0.2767433987813206,"fitted":0.4588091154222631,"x":0.2767433987813206,"y":0.4588091154222631},{"PETR3 returns":-2.207778346318601,"IBOV returns":0.6591440411184424,"fitted":0.8511817273372048,"x":0.6591440411184424,"y":0.8511817273372048},{"PETR3 returns":-2.363901114299682,"IBOV returns":-0.1416976892376853,"fitted":0.02945622094202027,"x":-0.1416976892376853,"y":0.02945622094202027},{"PETR3 returns":2.121875696627074,"IBOV returns":-0.07304847227936895,"fitted":0.09989562292425712,"x":-0.07304847227936895,"y":0.09989562292425712},{"PETR3 returns":-0.3196645330863279,"IBOV returns":1.364568278829026,"fitted":1.575001512175832,"x":1.364568278829026,"y":1.575001512175832},{"PETR3 returns":2.244789319986507,"IBOV returns":-0.2155243874133794,"fitted":-0.04629567689793038,"x":-0.2155243874133794,"y":-0.04629567689793038},{"PETR3 returns":1.150029331171187,"IBOV returns":2.452316076294281,"fitted":2.691114816242672,"x":2.452316076294281,"y":2.691114816242672},{"PETR3 returns":-2.015495371889731,"IBOV returns":1.011935651271401,"fitted":1.21317318397121,"x":1.011935651271401,"y":1.21317318397121},{"PETR3 returns":4.219403883066231,"IBOV returns":0.3901232982275848,"fitted":0.5751456545360353,"x":0.3901232982275848,"y":0.5751456545360353},{"PETR3 returns":-0.3289510096297188,"IBOV returns":0.8259903088068343,"fitted":1.022378892281921,"x":0.8259903088068343,"y":1.022378892281921},{"PETR3 returns":-0.9900917995085079,"IBOV returns":-0.3870097942027861,"fitted":-0.2222529570845488,"x":-0.3870097942027861,"y":-0.2222529570845488},{"PETR3 returns":0.162754861867076,"IBOV returns":0.3407453406259142,"fitted":0.5244800539847886,"x":0.3407453406259142,"y":0.5244800539847886},{"PETR3 returns":0.4510664499638439,"IBOV returns":0.4292458444083103,"fitted":0.6152884104055747,"x":0.4292458444083103,"y":0.6152884104055747},{"PETR3 returns":-0.2905577179093011,"IBOV returns":-0.8169005182657063,"fitted":-0.6633540630023277,"x":-0.8169005182657063,"y":-0.6633540630023277},{"PETR3 returns":-0.6622538810339251,"IBOV returns":0.1123130107852255,"fitted":0.2900908297470615,"x":0.1123130107852255,"y":0.2900908297470615},{"PETR3 returns":0.9333352604835587,"IBOV returns":0.6802829340483596,"fitted":0.8728718651497602,"x":0.6802829340483596,"y":0.8728718651497602},{"PETR3 returns":-1.321008406433755,"IBOV returns":-0.3453508037111419,"fitted":-0.179507613329253,"x":-0.3453508037111419,"y":-0.179507613329253},{"PETR3 returns":0.9371021447080574,"IBOV returns":0.975408601042016,"fitted":1.175693607534158,"x":0.975408601042016,"y":1.175693607534158},{"PETR3 returns":-1.326264198611837,"IBOV returns":0.6062938326095058,"fitted":0.7969533290108778,"x":0.6062938326095058,"y":0.7969533290108778},{"PETR3 returns":-1.962362294689024,"IBOV returns":-1.014808396368549,"fitted":-0.8664228407511306,"x":-1.014808396368549,"y":-0.8664228407511306},{"PETR3 returns":-0.7403530917664214,"IBOV returns":0.07886248748059099,"fitted":0.2557680076964906,"x":0.07886248748059099,"y":0.2557680076964906},{"PETR3 returns":-2.375692828908205,"IBOV returns":-1.008644397689573,"fitted":-0.8600981017372823,"x":-1.008644397689573,"y":-0.8600981017372823},{"PETR3 returns":0.3112766670351874,"IBOV returns":0.3080646060036774,"fitted":0.4909470946135502,"x":0.3080646060036774,"y":0.4909470946135502},{"PETR3 returns":3.41325550939009,"IBOV returns":0.8602491865725037,"fitted":1.057531148481167,"x":0.8602491865725037,"y":1.057531148481167},{"PETR3 returns":-0.3000560501404959,"IBOV returns":-0.1400538184336053,"fitted":0.03114295942944925,"x":-0.1400538184336053,"y":0.03114295942944925},{"PETR3 returns":-1.532138188391952,"IBOV returns":-0.4042043556367947,"fitted":-0.2398959059545091,"x":-0.4042043556367947,"y":-0.2398959059545091},{"PETR3 returns":1.333704515308254,"IBOV returns":2.422410860501722,"fitted":2.660429753689713,"x":2.422410860501722,"y":2.660429753689713},{"PETR3 returns":2.330670009208013,"IBOV returns":1.063607924921794,"fitted":1.266192930098923,"x":1.063607924921794,"y":1.266192930098923},{"PETR3 returns":-0.7770603935404408,"IBOV returns":-0.4929609758334452,"fitted":-0.3309670576096367,"x":-0.4929609758334452,"y":-0.3309670576096367},{"PETR3 returns":2.052392265195424,"IBOV returns":0.6812752982019665,"fitted":0.8738901074637421,"x":0.6812752982019665,"y":0.8738901074637421},{"PETR3 returns":0.6615467469760716,"IBOV returns":0.5851209911202027,"fitted":0.7752283573527629,"x":0.5851209911202027,"y":0.7752283573527629},{"PETR3 returns":0.1840293205175758,"IBOV returns":-0.7940781639881433,"fitted":-0.6399365637449886,"x":-0.7940781639881433,"y":-0.6399365637449886},{"PETR3 returns":0,"IBOV returns":1.053484602917343,"fitted":1.255805619366739,"x":1.053484602917343,"y":1.255805619366739},{"PETR3 returns":1.338207155728943,"IBOV returns":0.431980148583011,"fitted":0.6180940178026759,"x":0.431980148583011,"y":0.6180940178026759},{"PETR3 returns":1.501825107514443,"IBOV returns":0.5875573433368642,"fitted":0.777728243014444,"x":0.5875573433368642,"y":0.777728243014444},{"PETR3 returns":-0.1530598496137237,"IBOV returns":0.4950087244351531,"fitted":0.6827662076327902,"x":0.4950087244351531,"y":0.6827662076327902},{"PETR3 returns":-0.4087931421373536,"IBOV returns":-0.006706708198578326,"fitted":0.1679673999284291,"x":-0.006706708198578326,"y":0.1679673999284291}],"type":"line","name":"Expected Returns"}],"xAxis":{"type":"linear","title":{"text":"IBOV returns"},"labels":{"format":"{value}%"}},"subtitle":{"text":"Considering closing adjusted prices from Yahoo! Finance"},"tooltip":{"formatter":"function () {\n    if (this.series.name === 'Actual Returns') {\n      return `<b>${this.series.name}:<\/b>\n              <\/br><b>Ibovespa:<\/b> ${this.x.toFixed(2)}%\n              <\/br><b>PETR3:<\/b> ${this.y.toFixed(2)}%`\n      } else if (this.series.name === 'Expected Returns') {\n        return `<b>${this.series.name}<\/b><\/br>${this.y.toFixed(2)}%`\n      }}"}},"theme":{"chart":{"backgroundColor":"#FFFFFF"},"title":{"style":{"color":"#333333","fontSize":"30px"}},"subtitle":{"style":{"color":"#666666","fontSize":"25px"}},"legend":{"itemStyle":{"color":"#666666"}},"yAxis":{"labels":{"style":{"fontSize":"15px"}},"title":{"style":{"fontSize":"25px"}}},"xAxis":{"labels":{"style":{"fontSize":"15px"}},"title":{"style":{"fontSize":"25px"}}}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="understanding-the-alpha-term-inside-the-ols-estimation" class="slide level2">
+<h2>Understanding the <span class="math inline">\(\alpha\)</span> term inside the OLS estimation</h2>
+<ul>
+<li class="fragment">Recall that our OLS specification was:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small (R_i - R_f) = \alpha_i + \beta_i \times (R_m - R_f) + \epsilon_i
+\]</span></p>
+<ol type="1">
+<li class="fragment"><p><span class="math inline">\(\alpha_i\)</span> is the constant term. It measures the historical performance of the security relative to the expected return predicted by the security market line</p></li>
+<li class="fragment"><p>It is the distance that the stock’s average return is above or below the SML. Thus, we can say <span class="math inline">\(\alpha_i\)</span> is a risk-adjusted measure of the stock’s historical performance.</p></li>
+<li class="fragment"><p>According to the CAPM, <span class="math inline">\(\alpha_i\)</span> <span class="blue">should not be significantly different from zero</span></p></li>
+</ol>
+<ul>
+<li class="fragment">If <span class="math inline">\(\alpha&gt;0\)</span> constistently, it would mean that a security delivers a <em>constant</em> positive return and, by definition, independent from the market returns</li>
+<li class="fragment">If that is the case, investors would buy the security up to a point where price adjusts so that <span class="math inline">\(\alpha\)</span> goes to zero (recall <em>Assumption #1</em>)!</li>
+</ul>
+</div>
+</section>
+<section id="beta-estimation-practice" class="slide level2">
+<h2>Beta Estimation, practice</h2>
+<ul>
+<li class="fragment">Assuming that the market volatility, <span class="math inline">\(\sigma_m\)</span>, is 10%, estimate the <span class="math inline">\(\beta\)</span> for each of these three securities:</li>
+</ul>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Portfolio</th>
+<th>Weight</th>
+<th>Volatility (<span class="math inline">\(\sigma\)</span>)</th>
+<th>Correlation with M</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HEC Corp</td>
+<td>0.21</td>
+<td>13%</td>
+<td>0.42</td>
+</tr>
+<tr class="even">
+<td>Green Midget</td>
+<td>0.31</td>
+<td>20%</td>
+<td>0.68</td>
+</tr>
+<tr class="odd">
+<td>Alive And Well</td>
+<td>0.48</td>
+<td>12%</td>
+<td>0.54</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><span class="math inline">\(\beta_{H} = \frac{Sd(R_i) \times Corr(R_i,R_m)}{Sd(R_m)} = \frac{0.13 \times 0.42}{0.10} = \small 0.546\)</span></li>
+<li class="fragment"><span class="math inline">\(\beta_{G} = \frac{Sd(R_i) \times Corr(R_i,R_m)}{Sd(R_m)} = \frac{0.20 \times 0.68}{0.10} = \small 1.36\)</span></li>
+<li class="fragment"><span class="math inline">\(\beta_{A} = \frac{Sd(R_i) \times Corr(R_i,R_m)}{Sd(R_m)} = \frac{0.12 \times 0.54}{0.10} = \small 0.648\)</span></li>
+</ul>
+</div>
+</section>
+<section id="beta-estimation-practice-1" class="slide level2">
+<h2>Beta Estimation, practice</h2>
+<ul>
+<li class="fragment">Suppose you have estimated <span class="blue">Tikyberd</span>’s beta to be 0.8 with a 95% confidence interval of 0.65 to 0.95. Assuming the risk-free rate is 2% and the market is expected to return 12%, what range would you estimate for <span class="blue">Tikyberd</span>’s equity cost of capital?</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[E[R_i]=r_f + β_i (E[R_M] −R_f) =2\% + 0.65 (12\% − 2\%) = 8.5\%\]</span></p>
+<p><span class="math display">\[E[R_i]=r_f + β_i (E[R_M] −R_f) = 2\% + 0.95 (12\% − 2\%) = 11.5\%\]</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Therefore, the range for the expected returns from <span class="blue">Tikyberd</span> is</em> <span class="math inline">\([8.5\%,11.5\%]\)</span></p>
+</div>
+</section></section>
+<section>
+<section id="estimating-the-debt-cost-of-capital" class="title-slide slide level1 center">
+<h1>Estimating the Debt Cost of Capital</h1>
+
+</section>
+<section id="the-debt-cost-of-capital" class="slide level2">
+<h2>The Debt Cost of Capital</h2>
+<ul>
+<li class="fragment"><p>In the previous slides, we saw how to use the <span class="blue">CAPM</span> to estimate the cost of capital of a firm’s equity</p></li>
+<li class="fragment"><p>What about a firm’s <span class="blue">debt</span> — in other words, <span class="blue">how to estimate the expected return required by a firm’s creditors</span>?</p></li>
+<li class="fragment"><p>In what follows, we’ll see some approaches for estimating the <span class="blue">Debt Cost of Capital</span>. Recall that the Cost of Capital of a given firm will then be a weighted average of the Equity and Debt costs</p></li>
+<li class="fragment"><p>We’ll look at <span class="blue">two</span> different methods:</p>
+<ol type="1">
+<li class="fragment">Using Debt Yields</li>
+<li class="fragment">Using the CAPM to generate debt betas</li>
+</ol></li>
+</ul>
+</section>
+<section id="approach-1-debt-yields" class="slide level2">
+<h2>Approach #1: Debt Yields</h2>
+<ul>
+<li class="fragment">Recall that the <em>Yield to Maturity</em> (<span class="blue">YTM</span>) is the IRR an investor will earn from holding the bond to maturity and receiving its promised payments
+<ol type="1">
+<li class="fragment">If there is little risk the firm will default, yield to maturity is a reasonable estimate of investors’ expected rate of return</li>
+<li class="fragment">On the other hand, if there is significant risk of default, yield to maturity will overstate investors’ expected return</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F5.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="approach-1-debt-yields-continued" class="slide level2">
+<h2>Approach #1: Debt Yields, continued</h2>
+<ul>
+<li class="fragment">How can we adjust for potential losses due to defaults? We can estimate the expected returns from debt, <span class="math inline">\(r_d\)</span>, as:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small r_d=\text{YTM} - \text{Prob. of Default}\times \text{Expected Loss given Default}
+\]</span></p>
+<ul>
+<li class="fragment"><p>In order to see that, assume that the average loss rate for unsecured debt is 60%</p></li>
+<li class="fragment"><p>During average times, the annual default rate for B-rated bonds is 5.5%.</p></li>
+<li class="fragment"><p>In this case, the expected return to B-rated bondholders during average times is <span class="math inline">\(\small 0.055 \times 0.60 = 3.3\%\)</span> below the bond’s quoted yield:</p></li>
+</ul>
+</div>
+</section>
+<section id="approach-2-debt-betas" class="slide level2">
+<h2>Approach #2: Debt Betas</h2>
+<ul>
+<li class="fragment"><p>We can also use the <span class="blue">CAPM</span> to estimate debt cost through identifying the sensitivity of a given firm’s <span class="blue">debt</span> returns to the market returns</p>
+<ol type="1">
+<li class="fragment">Debt betas are difficult to estimate because corporate bonds are traded infrequently, so there’s little variation in bond returns</li>
+<li class="fragment">One approximation is to use estimates of betas of bond indices by rating category</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F6.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="debt-betas-practice" class="slide level2">
+<h2>Debt Betas, practice</h2>
+<ul>
+<li class="fragment">In early 2013, auto parts retailer <span class="blue">Autozone</span> had outstanding 10-year bonds with a Yield-to-Maturity of 3% and a <span class="blue">BBB</span> rating. If corresponding risk-free rates were 1.5% and the market risk premium is 8%, estimate the expected return of <span class="blue">Autozone</span>’s debt.</li>
+</ul>
+<div class="fragment">
+<p><strong>Approach #1</strong>: using the average estimates in Table and an expected loss rate of 60%, we have:</p>
+<p><span class="math display">\[
+\small r_d = 3\% - 0.5\% \times 0.6 = 2.7\%
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Approach #2</strong>: alternatively, we can estimate the bond’s expected return using CAPM and an estimated beta of 0.10:</p>
+<p><span class="math display">\[
+\small r_d = 1.5\% + 0.10(8\%) = 2.3\%
+\]</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>Both estimates are rough approximations and they both suggest that the expected return of <span class="blue">Autozone</span>’s debt is below its yield-to-maturity of 3%</em></p>
+</div>
+</section></section>
+<section>
+<section id="estimating-a-projects-cost-of-capital" class="title-slide slide level1 center">
+<h1>Estimating a Project’s Cost of Capital</h1>
+
+</section>
+<section id="a-projects-cost-of-capital" class="slide level2">
+<h2>A Project’s Cost of Capital</h2>
+<ul>
+<li class="fragment"><p>When we started studying the <span class="blue">CAPM</span>, the focus was to price the required returns of a company <span class="blue">as a whole</span> by means of the sensitivity of its returns with the market</p></li>
+<li class="fragment"><p>What about investment opportunities <em>within</em> a firm (or, alternatively, that are not publicly traded)? Because a new project is not itself a publicly traded security, we cannot use historical risks of equity and debt to estimate beta and the cost of capital</p></li>
+<li class="fragment"><p>Furthermore, the decision to invest in specific projects using the firm’s cost of capital might ignore the project’s risk:</p>
+<ol type="1">
+<li class="fragment">If, for example, a company has an overall <span class="math inline">\(\beta\)</span> of 0.75, it is, on average, less sensitive to changes in market returns</li>
+<li class="fragment">However, this company can operate in multiple industries at the same time - <em>e.g</em>, <em>Ultrapar - Grupo Ultra</em></li>
+<li class="fragment">Finally, there may be some specific projects, such as <em>Research and Development (R&amp;D)</em>, that are likely riskier than the average risk of a project within the company</li>
+</ol></li>
+</ul>
+</section>
+<section id="estimating-a-projects-cost-of-capital-1" class="slide level2">
+<h2>Estimating a project’s Cost of Capital</h2>
+<ul>
+<li class="fragment"><p>Whenever we are evaluating a new project, the ultimate decision is assert whether or not to undertake a project:</p>
+<ol type="1">
+<li class="fragment">If the expected return is <span class="green">higher</span> than the opportunity cost for investing in that project, we should <span class="green">undertake</span> the project</li>
+<li class="fragment">If the expected return is <span class="red">lower</span> than the opportunity cost for investing in that project, we should <span class="red">reject</span> the project</li>
+</ol></li>
+<li class="fragment"><p>How can we do this as the cost of capital that is required to make this decision is specific to a project, which does not have historical data available?</p></li>
+<li class="fragment"><p>There are several ways in which we can use information to estimate such return</p></li>
+<li class="fragment"><p>These methods range in the complexity in which we assume the project to have, as well as the source of funds that are used to fund the project</p></li>
+</ul>
+</section>
+<section id="approach-1-all-equity-comparables" class="slide level2">
+<h2>Approach #1: All-Equity Comparables</h2>
+<ul>
+<li class="fragment"><p>The simplest setting of a theoretical comparable firm is to find an <span class="blue">all-equity financed firm</span> (a firm with no debt) in a single line of business that is comparable to the project</p></li>
+<li class="fragment"><p>Remember that:</p>
+<ol type="1">
+<li class="fragment">Assets = Equity + Debt</li>
+<li class="fragment">When debt is zero: Assets = Equity.</li>
+</ol></li>
+<li class="fragment"><p>Based on the information from this firm, use the comparable firm’s equity <span class="math inline">\(\beta\)</span> and cost of capital as estimates to estimate the project’s cost of capital</p>
+<ol type="1">
+<li class="fragment">The rationale here is that your project is an asset by itself. If you find an all-equity firm, the equity <span class="math inline">\(\beta\)</span> will also be the beta of its assets</li>
+<li class="fragment">Consequently, you can use this estimate as the <span class="math inline">\(\beta\)</span> estimate of your project</li>
+</ol></li>
+</ul>
+</section>
+<section id="a-projects-cost-of-capital-practice" class="slide level2">
+<h2>A Project’s Cost of Capital, practice</h2>
+<ul>
+<li class="fragment">You have just invented a new low-cost, long-lasting rechargeable battery for use in electric cars. You are working on your business plan, and believe your firm will face similar market risk to <span class="blue">Seguin Inc</span>, which has a <span class="math inline">\(\beta\)</span> of 1.3. To develop your financial plan, estimate the cost of capital of financing your firm assuming a risk-free rate of 2.5% and a market risk premium of 6.5%.</li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment">Using <span class="blue">Seguin</span>’s beta as the estimate of the project beta (<em>i.e.</em>, assuming the market risk of your project is the same as this company’s):</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+r_{\text{Project}} = 2.5\% + 1.3 \times 6.5\% = 10.95\%
+\]</span></p>
+</div>
+</section>
+<section id="introducing-leverage" class="slide level2">
+<h2>Introducing Leverage</h2>
+<ul>
+<li class="fragment"><p>What if the firm that we have used as a comparable peer is <em>not</em> 100% Equity? As a result, the situation is a bit more complicated if the comparable firm has debt</p></li>
+<li class="fragment"><p>In that case, the cash flows generated by the firm’s assets are used to pay <em>both</em> <span class="blue">debt</span> and <span class="blue">equity</span> holders</p></li>
+<li class="fragment"><p>Consequently, the returns of the firm’s equity (which are being measured using the <span class="math inline">\(\beta\)</span> from its equity returns) alone are not representative of the underlying assets risk!</p>
+<ol type="1">
+<li class="fragment">In fact, because of the firm’s leverage, the equity will often be much <span class="red">riskier</span></li>
+<li class="fragment">Thus, the beta of a levered firm’s equity will not be a good estimate of the beta of its assets and of our project</li>
+</ol></li>
+</ul>
+</section>
+<section id="approach-2-leveraged-comparable-firms" class="slide level2">
+<h2>Approach #2: Leveraged Comparable Firms</h2>
+<ul>
+<li class="fragment"><p>How can we compute the cost of capital of a given project whenever the comparable firm has debt? A method to solve this issue is to <span class="blue">unlever</span> the <span class="math inline">\(\beta\)</span> of the comparable firm</p></li>
+<li class="fragment"><p>To understand that, recall that a firm’s asset cost of capital or unlevered cost of capital is the expected return required by the firm’s investors to hold the firm’s underlying <span class="blue">assets</span>, and is a weighted average of the firm’s equity and debt costs of capital:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[r_U = \frac{E}{E+D}\times r_E + \frac{D}{E+D} \times r_D\]</span></p>
+<ul>
+<li class="fragment">Analogously, because the beta of a portfolio is the weighted-average of the betas:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\beta_U = \frac{E}{E+D}\times \beta_E + \frac{D}{E+D} \times \beta_D\]</span></p>
+</div>
+</section>
+<section id="approach-2-leveraged-comparable-firms-continued" class="slide level2">
+<h2>Approach #2: Leveraged Comparable Firms, continued</h2>
+<ul>
+<li class="fragment"><p>Why we should <span class="blue">unlever</span> the return on equity (or, alternatively, the equity <span class="math inline">\(\beta\)</span>)? Note that whenever we measure the cost of equity, we are measuring the expected returns based on the <span class="blue">equity</span> risk, which has some implicaitons if a given firm has debt:</p>
+<ol type="1">
+<li class="fragment">Because debt payments are given, equityholders are referred to as <em>residual claimants</em> - they’ll receive their compensation only after the debtholders receive their payments</li>
+<li class="fragment">As such, if a given firm has debt in its financing structure, <span class="blue">this makes the equity to be riskier</span> - all in all, an equityholder may not receive anything after paying out debtholders!</li>
+</ol></li>
+<li class="fragment"><p>But if you are evaluating a project based on a comparable firm that has debt, you want to consider only the risk of the underlying business, but not the risk due to financial leverage!</p></li>
+<li class="fragment"><p>As a consequence, unlevering the <span class="math inline">\(\beta\)</span> or the required return makes the comparison to be relative to the <em>investments</em> of a company, regardless of the financing structure!</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>See the Appendix for the calculations around how to lever (or unlever)</em> <span class="math inline">\(\beta\)</span> and expected returns</p>
+</div>
+</section>
+<section id="a-projects-cost-of-capital-practice-1" class="slide level2">
+<h2>A Project’s Cost of Capital, practice</h2>
+<ul>
+<li class="fragment">Suppose that your firm is launching a new product and you identify <span class="blue">Company X</span> as a firm with comparable investments. <span class="blue">X</span>’s equity has a market capitalization of 77 billion and a beta of 0.75. <span class="blue">X</span> also has 57 billion of AA-rated debt outstanding, with an average yield of 4.1%. Estimate the cost of capital of your firm’s investment given a risk-free rate of 2.5% and a market risk-premium of 6%.</li>
+</ul>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>Solution</em>: <span class="blue">Company’s X</span> equity cost of capital is:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+r_E = 2.5\% + 0.75 \times 6\% = 7\%
+\]</span></p>
+</div>
+<div class="fragment">
+<p>As a result, <span class="blue">Company’s X</span> unlevered cost of capital is (using the yield as debt cost):</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[r_U =\frac{77}{77+57} \times  7\% + \frac{57}{77+57} \times 4.1\% = 5.76\%\]</span></p>
+</div>
+</section>
+<section id="a-projects-cost-of-capital-practice-2" class="slide level2">
+<h2>A Project’s Cost of Capital, practice</h2>
+<ul>
+<li class="fragment">Assuming that the debt <span class="math inline">\(\beta\)</span> is zero, We can also use <span class="blue">X</span>’s unlevered Beta and CAPM:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \beta_u =\frac{77}{77+57} \times  0.75 + \frac{57}{77+57} \times 0 = 0.43
+\]</span></p>
+<ul>
+<li class="fragment">Therefore, the unlevered cost of capital is:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small r_u = 2.5\% + 0,43 \times 6\% = 5.08\%
+\]</span></p>
+<ol type="1">
+<li class="fragment"><p>In the first case, we assumed that the expected return debt is equal to its promised yield of 3.2% (which <span class="blue">overstates</span> the return)</p></li>
+<li class="fragment"><p>In the second, we assumed the debt has a beta of zero, which implies an expected return equal to the risk-free rate of 3% according (which <span class="blue">underestimates</span> the cost of debt</p></li>
+<li class="fragment"><p>The truth is somewhere between the two results</p></li>
+</ol>
+</div>
+</section>
+<section id="introducing-cash-and-net-debt" class="slide level2">
+<h2>Introducing Cash and Net Debt</h2>
+<ul>
+<li class="fragment"><p>Sometimes, firms maintain large cash balances in excess of their operating needs. Holding cash is a risk-free asset, and as so, <span class="blue">reduces</span> the average risk of the firm’s assets</p></li>
+<li class="fragment"><p>Therefore, we should exclude cash holdings when computing the asset’s risk, as we’re interested in the risk of the firm’s underlying business operations, <span class="blue">separate from its cash position</span></p></li>
+<li class="fragment"><p>In that case, we can measure the leverage of the firm in terms of its <span class="blue">net debt</span>:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \text{Net Debt} = Debt - \text{Excess Cash and Short-Term Investments}
+\]</span></p>
+<ul>
+<li class="fragment"><p><em>Intuition</em>: if a firm holds $1 in cash and has $1 in risk-free debt, then the interest earned on the cash will equal the interest paid on the debt</p></li>
+<li class="fragment"><p>The cash flows from each source cancel each other, just as if the firm held no cash and no debt!</p></li>
+</ul>
+</div>
+</section>
+<section id="a-projects-cost-of-capital-practice-3" class="slide level2">
+<h2>A Project’s Cost of Capital, practice</h2>
+<ul>
+<li class="fragment">In mid-2022, <span class="blue">Garmin</span> had a market capitalization of $18.8 billion, $100 million in debt, and $1.6 billion in cash. If its estimated <span class="blue">equity</span> beta was 0.93, estimate the beta of Garmin’s <span class="blue">underlying business</span></li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment">In other words, we want to estimate the beta of Garmin’s <span class="blue">assets</span>, which comprise the whole business, not just the equity portion! Note that Garmin’s Net Debt is $ <span class="math inline">\(\small (0.1-1.6)=-1.5\)</span> billion, and the enterprise value is simply <span class="math inline">\(\small \text{Equity + Net Debt = } 18.8-1.6=17.3\)</span>. Assuming that cash and debt are both risk-free investments, we can estimate <span class="math inline">\(\beta_U\)</span> as:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \beta_U = \frac{E}{E+D}\times \beta_E + \frac{D}{E+D} \times \beta_D =  \frac{18.8}{18.8-1.5}\times 0.93 + \frac{-1.5}{18.8-1.5} = 1.01
+\]</span></p>
+<ul>
+<li class="fragment">If a firm has more cash than debt, <span class="blue">its net debt will be negative</span>. In this case, its <span class="blue">unlevered</span> beta and cost of capital will exceed its equity beta and cost of capital, as the risk of the firm’s equity is mitigated by its cash holdings!</li>
+</ul>
+</div>
+</section>
+<section id="industry-betas-for-estimating-a-projects-cost-of-capital" class="slide level2">
+<h2>Industry betas for estimating a project’s cost of capital</h2>
+<ul>
+<li class="fragment"><p>Using a <em>single</em> comparable firm is often not a good idea, as there might be a lot of noise in the estimation of the results</p></li>
+<li class="fragment"><p>However, it is possible to combine estimates of asset betas for <span class="blue">multiple firms in the same industry</span> to reduce our estimation error and improve the estimation accuracy:</p></li>
+</ul>
+<ol type="1">
+<li class="fragment">For example, instead of using only one comparable firm to find the unlevered <span class="math inline">\(\beta\)</span>, we may use the average (or median) of several firms that are thought of as comparable peers</li>
+<li class="fragment">As you imagine, <em>unlevered</em> betas within an industry are much more stable than the pure <em>equity</em> betas: large differences in the firms’ equity betas are mainly due to differences in leverage, whereas the firms’ asset betas are much more similar, suggesting that the underlying businesses in this industry have similar market risk</li>
+</ol>
+<div class="fragment">
+<p><span class="math inline">\(\rightarrow\)</span> <em>See accompanying excel notebook with an exercise on Industry betas</em></p>
+<p><span class="math inline">\(\rightarrow\)</span> <em>See <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/Betas.html">Damodaran (here)</a> industry betas for the U.S.</em></p>
+</div>
+</section>
+<section id="project-risk-and-financing-some-caveats" class="slide level2">
+<h2>Project Risk and Financing, some caveats</h2>
+<ul>
+<li class="fragment"><p>We saw that we should evaluate a project’s cost of capital by comparing it with the <span class="blue">unlevered assets of firms in the same line of business</span></p></li>
+<li class="fragment"><p>However, even firm asset betas reflect the market risk of the <span class="blue">average project</span> in the firm. <span class="blue">Individually</span>, projects can differ in risk:</p>
+<ol type="1">
+<li class="fragment">For instance, think about a multi-divisional firm, like 3M, where each division will likely have its own level of market risk.</li>
+<li class="fragment">Even within a firm with a single line of business, some projects obviously have different market risk characteristics from the firm’s other activities, like R&amp;D <em>versus</em> product line expansion projects</li>
+<li class="fragment">Finally, <em>Operating Leverage</em> may also play a role - see <span class="citation" data-cites="BDM">(<a href="#/references" role="doc-biblioref" onclick="">Berk and DeMarzo 2023</a>)</span> for a detailed discussion</li>
+</ol></li>
+</ul>
+</section>
+<section id="financing-with-equity-and-debt" class="slide level2">
+<h2>Financing with Equity and Debt</h2>
+<ul>
+<li class="fragment"><p>Thus far, presumed the project we are evaluating is <span class="blue">all-equity</span> financed:</p>
+<ol type="1">
+<li class="fragment">Whenever we have another comparable firm that is 100% equity-financed and has similar risk, we can use it to estimate expected returns</li>
+<li class="fragment">If the comparable firm has equity <em>and</em> debt, we can <em>unlever</em> the cost of capital (or the <span class="math inline">\(\beta\)</span>) so as to compare the underlying business</li>
+</ol></li>
+<li class="fragment"><p>What if the firm in which we wish to estimate the cost of capital <span class="blue">is not 100% equity</span> anymore?</p></li>
+<li class="fragment"><p>For cases like this, we will turn our attention to the <span class="blue">Weighted Average Cost of Capital</span> (also known as <span class="blue">WACC</span>), the weighted average of the cost of capital from <em>all</em> the firm’s claimants:</p></li>
+</ul>
+<ol type="1">
+<li class="fragment">It takes into account the cost of equity, <span class="math inline">\(r_E\)</span>, which is generally estimated using the <span class="blue">CAPM</span></li>
+<li class="fragment">It also takes into account the fact that debtholders should also expect a return, <span class="math inline">\(r_D\)</span> (which is generally lower than <span class="math inline">\(r_E\)</span>) for financing the firm</li>
+</ol>
+</section>
+<section id="the-weighted-average-cost-of-capital-wacc" class="slide level2">
+<h2>The Weighted Average Cost of Capital (WACC)</h2>
+<ul>
+<li class="fragment">In perfect capital markets (which we’ll define later in the course), the <span class="blue">WACC</span> of the firm’s assets can be estimated as:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+r_{\text{WACC}} = \frac{E}{D+E}\times r_E + \frac{D}{D+E} \times r_D
+\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">Because interest expense is often tax deductible (using, for example, a marginal tax-rate <span class="math inline">\(\tau\)</span>), the <span class="blue">WACC</span> is <em>less</em> than the expected return of the firm’s assets - this will make the <em>“after-tax”</em> WACC decrease in comparison to the <em>“pre-tax”</em> above:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+r_{\text{WACC}} = \frac{E}{D+E}\times r_E + \frac{D}{D+E} \times r_D\times \underbrace{(1-\tau)}_{\text{Tax-shield}}
+\]</span></p>
+</div>
+</section>
+<section id="pre-tax-wacc" class="slide level2">
+<h2>Pre-tax WACC</h2>
+<ul>
+<li class="fragment">The <em>pre-tax WACC</em> is simply the weighted average of the different costs of capital:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+r_{\text{WACC}} = \frac{E}{D+E}\times r_E + \frac{D}{D+E} \times r_D
+\]</span></p>
+<ul>
+<li class="fragment">Note that it is the cost calculated <span class="blue">without</span> any adjustments that could arise due to tax-shiedls</li>
+</ul>
+<ol type="1">
+<li class="fragment">Expected return investors will earn by holding the firm’s <span class="blue">assets</span> - <em>i.e</em>, the whole business</li>
+<li class="fragment">In a world with taxes, it can be used to evaluate an <span class="blue">all-equity</span> project with the <span class="blue">same risk as the comparable firm</span></li>
+</ol>
+</div>
+</section>
+<section id="after-tax-wacc" class="slide level2">
+<h2>After-tax WACC</h2>
+<ul>
+<li class="fragment">The <em>after-tax WACC</em> takes into account the fact that debt is generally <em>tax-deductible</em>, and therefore should have a <span class="blue">lower</span> effective cost than simply <span class="math inline">\(r_D\)</span>. If you assume that a company has a marginal tax-rate of <span class="math inline">\(\tau\)</span>, the after-tax WACC is:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+r_{\text{WACC}} = \frac{E}{D+E}\times r_e + \frac{D}{D+E} \times r_d\times (1-\tau)
+\]</span></p>
+<ol type="1">
+<li class="fragment">In a world with taxes, it can be used to evaluate a project with the <span class="blue">same risk and the same financing as the comparable firm</span></li>
+<li class="fragment">Why? Since the after-tax WACC takes into account the benefitial effects from tax-shields, it can only be applied to cases where <em>both</em> the risk <em>and</em> the financing structure of the company is equal to the comparable firm!</li>
+</ol>
+</div>
+</section>
+<section id="project-risk-and-financing-practice" class="slide level2">
+<h2>Project Risk and Financing, practice</h2>
+<ul>
+<li class="fragment">Cavo Corp’s equity cost of capital is 15%, and its debt cost of capital is 7%. The corporate tax rate is 34%, and the firm has 100 million in debt outstanding and a market capitalization of 250 million. What is Cavo’s unlevered cost of capital (or pre-tax WACC) and its weighted average cost of capital (or after-tax WACC)?</li>
+</ul>
+<ol type="1">
+<li class="fragment"><span class="blue">The Unlevered Cost of Capital (<span class="math inline">\(r_U\)</span>)</span> or <span class="blue">pre-tax WACC</span> is:</li>
+</ol>
+<div class="fragment">
+<p><span class="math display">\[
+r_U =  \frac{250}{250+100}\times 15\% + \frac{100}{250+100} \times 7\%  = 12.71\%
+\]</span></p>
+<ol start="2" type="1">
+<li class="fragment">The <span class="blue">after-taxWACC</span> is:</li>
+</ol>
+</div>
+<div class="fragment">
+<p><span class="math display">\[r_{\text{WACC}} =  \frac{250}{250+100}\times 15\% + \frac{100}{250+100} \times 7\% \times (1-34\%) = 12.03\%\]</span></p>
+</div>
+</section>
+<section id="practice" class="slide level2">
+<h2>Practice</h2>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Practice using the following links:</p>
+<ol type="1">
+<li class="fragment"><a href="https://henriquemartins.net/teaching/financial_strategy/p5tf.html" data-preview-link="true">Multiple-choice Questions</a></li>
+<li class="fragment"><a href="https://henriquemartins.net/teaching/financial_strategy/p5num.html" data-preview-link="true">Numeric Questions</a></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="appendix" class="title-slide slide level1 center">
+<h1>Appendix</h1>
+
+</section>
+<section id="levered-and-unlevered-beta" class="slide level2">
+<h2>Levered and Unlevered <span class="math inline">\(\beta\)</span></h2>
+<ul>
+<li class="fragment">Recall that the unlevered beta, <span class="math inline">\(\beta_U\)</span>, is simply:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small \beta_U = \frac{E}{E+D}\times \beta_E + \frac{D}{E+D} \times \beta_D
+\]</span></p>
+<ul>
+<li class="fragment">Putting it into <span class="math inline">\(\beta_E\)</span> terms, we have:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small \begin{align}
+&amp;\beta_U = \frac{(E\times \beta_E +D\times \beta_D)}{E+D}\\
+&amp;\rightarrow E\times \beta_E =(E+D)\times\beta_U - D\times \beta_D\\
+&amp;\rightarrow\beta_E =\dfrac{(E+D)\times\beta_U - D\times \beta_D}{E}=\beta_U+\dfrac{D}{E}\times \beta_U-\dfrac{D}{E}\times \beta_D\\
+&amp;\rightarrow \beta_E= \beta_U+\dfrac{D}{E}\times(\beta_U-\beta_D)
+\end{align}
+\]</span></p>
+<ul>
+<li class="fragment">In words, if leverage <span class="blue">increases</span>, the equity sensitivity should increase as well</li>
+</ul>
+</div>
+</section>
+<section id="levered-and-unlevered-cost-of-capital" class="slide level2">
+<h2>Levered and Unlevered Cost of Capital</h2>
+<ul>
+<li class="fragment">Note that, as we can lever (or unlever) <span class="math inline">\(\beta\)</span>, we can do the same with the required returns from equity, <span class="math inline">\(r_E\)</span>:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small r_U = \frac{E}{E+D}\times r_E + \frac{D}{E+D} \times r_D
+\]</span></p>
+<ul>
+<li class="fragment">Putting it into <span class="math inline">\(r_E\)</span> terms and using the same rationale, we have:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+r_E= r_U+\dfrac{D}{E}\times(r_U-r_D)
+\]</span></p>
+<ul>
+<li class="fragment">In words, if leverage <span class="blue">increases</span> (through higher debt-to-equity ratios), the equity sensitivity should increase as well, and the required returns for equity should increase!</li>
+</ul>
+</div>
+</section>
+<section id="common-misconception-relevering-the-wacc" class="slide level2">
+<h2>Common misconception: (re)levering the WACC</h2>
+<ul>
+<li class="fragment">Suppose that a firm has a debt-to-value ratio of 25%, a debt cost of capital of 5.33%, an equity cost of capital of 12%, and a tax rate of 25%. The current <em>WACC</em> is</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small r_{\text{WACC}}=0.75 \times 12\% + 0.25\times 5.33\% \times (1- 25\%) = 10\%
+\]</span></p>
+<ul>
+<li class="fragment">What happens to <em>WACC</em> if the firm increases its debt-to-value ratio to 50%? It is tempting to do:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small  r_{\text{WACC}}=0.5 \times 12\% + 0.5\times 5.33\% \times (1- 25\%) = 8\%
+\]</span></p>
+<ul>
+<li class="fragment">Note, however, that this is <span class="red">wrong</span>, because we’re keeping <span class="math inline">\(r_E\)</span> and <span class="math inline">\(r_D\)</span> fixed! Since these are the cost of equity and debt, we should expect these to increase with leverage, as the risk of both shareholders and debt holders increase!</li>
+</ul>
+</div>
+</section>
+<section id="common-misconception-relevering-the-wacc-1" class="slide level2">
+<h2>Common misconception: (re)levering the WACC</h2>
+<ul>
+<li class="fragment">When the firm increases leverage, the risk of its equity and debt will increase, increasing <span class="math inline">\(\small r_E\)</span> and <span class="math inline">\(\small r_D\)</span>! To compute the new WACC correctly, we must first determine the firm’s unlevered cost of capital:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\small
+r_U = 0.75 \times 12\% + 0.25\times 5.33\% = 10.33\%
+\]</span></p>
+<ul>
+<li class="fragment">If <span class="math inline">\(r_D\)</span> has risen to <span class="math inline">\(6.67\%\)</span> with the change in leverage, then:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small
+r_E = 10.33\% + \dfrac{0.5}{0.5}\times(10.33\%-6.67\%)=14\%
+\]</span></p>
+<ul>
+<li class="fragment">Finally, the correct new <em>WACC</em> is:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\small
+r_{\text{WACC}}=0.5 \times 14\% + 0.5\times 6.67\% \times (1- 25\%) = 9.5\%
+\]</span></p>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+<div class="quarto-auto-generated-content">
+<p><img src="logo.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-BDM" class="csl-entry" role="listitem">
+Berk, J., and P. DeMarzo. 2023. <em>Corporate Finance, Global Edition</em>. Global Edition / English Textbooks. Pearson. <a href="https://books.google.com.br/books?id=m78oEAAAQBAJ">https://books.google.com.br/books?id=m78oEAAAQBAJ</a>.
+</div>
+<div id="ref-BMA" class="csl-entry" role="listitem">
+Brealey, R. A., S. C. Myers, and F. Allen. 2020. <em>Principles of Corporate Finance</em>. The Irwin/McGraw-Hill Series in Finance, Insurance, and Real Estate. McGraw-Hill Education. <a href="https://books.google.com.br/books?id=nsrHuwEACAAJ">https://books.google.com.br/books?id=nsrHuwEACAAJ</a>.
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/lsmacoris\.github\.io\/lectures");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

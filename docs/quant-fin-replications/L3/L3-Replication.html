@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.55">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Lucas S. Macoris (FGV-EAESP)">
+
+<title>Manipulating Time Series – Lucas S. Macoris</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-87FLN5SXEJ"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Lucas S. Macoris</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lsmacoris.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../fin-mgmt.html"> 
+<span class="menu-text">Financial Management</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../fin-strat.html"> 
+<span class="menu-text">Financial Strategy</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../quant-fin.html"> 
+<span class="menu-text">Quantitative Finance</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lsmacoris"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:lucasmacoris@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/lucas-macoris-390a47160/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://drive.google.com/file/d/184m-BDeB-31SSyEuzqINco2UzqRFXhma/view?usp=drive_link"> <i class="bi bi-file-pdf" role="img" aria-label="CV">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Manipulating Time Series</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lucas S. Macoris (FGV-EAESP) </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="about-this-document" class="level2">
+<h2 class="anchored" data-anchor-id="about-this-document">About this Document</h2>
+<p>This file replicates the codes that have been discussed in the live-session lectures of the Practical Applications in Quantitative Finance course. To ensure you can run the codes without issues, please install and load all required packages beforehand. It is always a good practice to replicate this Quarto document and experiment by making edits to the parameters. At the end of this report, you will find a suggestion on how to tweak this report — try doing some changes on your own!</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this lecture, we will be working with daily stock price data from several stocks included in the <em>S&amp;P 500</em> index. Instead of loading the data from a <code>.csv</code> file, we will pull the data <em>directly</em> from R using the <code>tidyquant</code> package. Before you start, make sure to follow the instructions from our previous replication to set up your working directory correctly.</p>
+</div>
+</div>
+</section>
+<section id="loading-packages" class="level2">
+<h2 class="anchored" data-anchor-id="loading-packages">Loading packages</h2>
+<p>As we get started, we will be loading all packages referred in our official <a href="https://lsmacoris.github.io/lectures/quant-fin.html">website</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Package names</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>,<span class="st">"tidyquant"</span>,<span class="st">"tidymodels"</span>, <span class="st">"glue"</span>,<span class="st">"scales"</span>,<span class="st">"ggthemes"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages not yet installed</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>installed_packages <span class="ot">&lt;-</span> packages <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(installed_packages <span class="sc">==</span> <span class="cn">FALSE</span>)) {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(packages[<span class="sc">!</span>installed_packages])</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load all packages</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that you could easily get around this by installing and loading all necessary packages using a more simple syntax:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Install if not already available - I have commented these lines so that R does not attempt to install it everytime</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#install.packages('tidyverse')</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#install.packages('tidyquant')</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#install.packages('glue')</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#install.packages('scales')</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#install.packages('ggthemes')</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Load</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyquant)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidymodels)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(glue)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(scales)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggthemes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="working-with-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-time-series">Working with Time Series</h2>
+<p>In the previous lectures, you worked your way through the exercises by using the amazing <code>dplyr</code> functionalities on <code>data.frames</code>. In some cases, however, you had to do some workarounds with <code>drop_na()</code>, <code>slice_tail()</code> and <code>lag()</code> simply because you were manipulating time series data.</p>
+<p>The <code>xts</code>, which stantds for <em>eXtensible Time Series</em> is an <code>R</code> package that is is widely used for handling and manipulating time series data. It extends the functionality of the zoo package by providing a structured framework for managing time-indexed data efficiently. Such package provides a matrix-like structure where each row is indexed by a date-time value, allowing for efficient subsetting, merging, and manipulation of time series data. It is especially useful in financial applications where time-stamped data is common.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xts) <span class="co"># Note that this is loaded together with the tidyquant package</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector of random values</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data_values <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a sequence of dates</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>dates <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2024-01-01"</span>) <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to xts</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>xts_data <span class="ot">&lt;-</span> <span class="fu">xts</span>(data_values, <span class="at">order.by =</span> dates)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the xts object</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(xts_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   [,1]
+2024-01-01  0.187052628
+2024-01-02 -2.118986610
+2024-01-03 -0.189449810
+2024-01-04  0.766324475
+2024-01-05  0.009011437
+2024-01-06 -1.101096847
+2024-01-07  0.258730380
+2024-01-08 -0.471201630
+2024-01-09  1.065146769
+2024-01-10 -0.281211504</code></pre>
+</div>
+</div>
+<p>The output shows an interesting feature of an <code>xts</code> format in R:</p>
+<ol type="1">
+<li>The first column contains the values</li>
+<li>The row names are timestamps</li>
+<li>The <code>xts</code> object retains an efficient internal structure</li>
+</ol>
+</section>
+<section id="core-features-of-xts" class="level2">
+<h2 class="anchored" data-anchor-id="core-features-of-xts">Core features of <code>xts</code></h2>
+<ul>
+<li><strong>Time-Based Indexing &amp; Subsetting</strong>: you can subset an <code>xts</code> object using time-based indexing in a variety of ways. If you were to do this in a <code>data.frame</code>, R wouldn’t be able to retrieve the data, as a <code>data.frame</code> does not carry any time series properties that are needed for the job:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset a specific date</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xts_data[<span class="st">"2024-01-03"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 [,1]
+2024-01-03 -0.1894498</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset a range</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>xts_data[<span class="st">"2024-01-03/2024-01-06"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   [,1]
+2024-01-03 -0.189449810
+2024-01-04  0.766324475
+2024-01-05  0.009011437
+2024-01-06 -1.101096847</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset a custom Y-M-D definition</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>xts_data[<span class="st">"2024"</span>]       <span class="co"># Returns all data from 2024</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   [,1]
+2024-01-01  0.187052628
+2024-01-02 -2.118986610
+2024-01-03 -0.189449810
+2024-01-04  0.766324475
+2024-01-05  0.009011437
+2024-01-06 -1.101096847
+2024-01-07  0.258730380
+2024-01-08 -0.471201630
+2024-01-09  1.065146769
+2024-01-10 -0.281211504</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>xts_data[<span class="st">"2024-01"</span>]    <span class="co"># Returns all data from January 2024</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   [,1]
+2024-01-01  0.187052628
+2024-01-02 -2.118986610
+2024-01-03 -0.189449810
+2024-01-04  0.766324475
+2024-01-05  0.009011437
+2024-01-06 -1.101096847
+2024-01-07  0.258730380
+2024-01-08 -0.471201630
+2024-01-09  1.065146769
+2024-01-10 -0.281211504</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Merging and Combining Time Series</strong>: you can merge two <code>xts</code> objects using by the timestamp component that is embedded in the <code>xts</code> structure:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">xts</span>(<span class="fu">rnorm</span>(<span class="dv">5</span>), <span class="at">order.by =</span> <span class="fu">as.Date</span>(<span class="st">"2024-01-01"</span>) <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">xts</span>(<span class="fu">rnorm</span>(<span class="dv">5</span>), <span class="at">order.by =</span> <span class="fu">as.Date</span>(<span class="st">"2024-01-01"</span>) <span class="sc">+</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(data1, data2, <span class="at">join =</span> <span class="st">"outer"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(merged_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                data1       data2
+2024-01-01 -0.3188591          NA
+2024-01-02  1.3669653          NA
+2024-01-03 -0.5614160 -0.03716457
+2024-01-04  2.3792035 -0.26900819
+2024-01-05 -0.7954646 -1.21316667
+2024-01-06         NA  0.04639750
+2024-01-07         NA -1.28359390</code></pre>
+</div>
+</div>
+<ul>
+<li><p><code>join = "outer"</code> ensures all time points are included</p></li>
+<li><p>If a time point is missing in one dataset, it is filled with <code>NA</code></p></li>
+<li><p><strong>Merging and Combining Time Series</strong>: using functions that retrieve leads and lags of a given variable are a key component of <code>xts</code> objects. Due to its timestamp component, one can shift variables backwards (using the <code>lag()</code> function) as well as forward (using the <code>lag()</code>) function:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>lagged_data <span class="ot">&lt;-</span> <span class="fu">lag</span>(data1)  <span class="co"># Shift values by 1 day</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lagged_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 [,1]
+2024-01-01         NA
+2024-01-02 -0.3188591
+2024-01-03  1.3669653
+2024-01-04 -0.5614160
+2024-01-05  2.3792035</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(lagged_data, data1, <span class="at">join =</span> <span class="st">"outer"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(merged_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           lagged_data      data1
+2024-01-01          NA -0.3188591
+2024-01-02  -0.3188591  1.3669653
+2024-01-03   1.3669653 -0.5614160
+2024-01-04  -0.5614160  2.3792035
+2024-01-05   2.3792035 -0.7954646</code></pre>
+</div>
+</div>
+<p>All in all, when it comes to working with financial data, <code>xts</code> objects are particularly useful for:</p>
+<ol type="1">
+<li>Handling stock price data from <code>tidyquant</code></li>
+<li>Calculating log returns for portfolio management</li>
+<li>Aligning time series data (<em>e.g.</em>, joining different financial datasets)</li>
+<li>Aggregating financial data (<em>e.g.</em>, monthly returns)</li>
+<li>Subsetting data by years/months/days</li>
+<li>Calculating rolling functions (<em>e.g</em>, yearly averages)</li>
+<li>Aggregating data at different intervals (<em>e.g</em>, convert daily to weekly prices)</li>
+</ol>
+<p>Unfortunately, there is an issue: the <code>tidyverse</code> is not fully designed to work with time series classes, such as <code>xts</code>. Since <code>xts</code> is optimized for time series operations, some functions that would work well when managing time series are not easily translated using the packages from the <code>tidyverse</code>:</p>
+<ol type="1">
+<li><p><code>tidyverse</code>: Designed for tabular (data frame-like) structures, emphasizing “tidy” data (each row is an observation, each column is a variable)</p></li>
+<li><p><code>xts</code>: Designed for time series, optimizing time-based indexing and calculations but less compatible with tidyverse workflows</p></li>
+</ol>
+</section>
+<section id="introducing-the-tidyquant-package" class="level2">
+<h2 class="anchored" data-anchor-id="introducing-the-tidyquant-package">Introducing the <code>tidyquant</code> package</h2>
+<p>The <code>tidyquant</code> package (see official documentation <a href="https://business-science.github.io/tidyquant/index.html">here</a>) helps integrate both paradigms, making financial analysis more intuitive in R. It integrates several financial packages, like <code>zoo</code>, <code>xts</code>, <code>quantmod</code>, <code>TTR</code>, and <code>PerformanceAnalytics</code>, with the tidy data infrastructure of the <code>tidyverse</code>, allowing for seamless interaction between <code>tidyverse</code> data manipulation and financial functions.</p>
+<p>There are mainly <em>three</em> functions in the <code>tidyquant</code> package that we will be using throughout this lecture: <code>tq_get()</code>, <code>tq_mutate()</code>, and <code>tq_transmute()</code>.</p>
+</section>
+<section id="the-tq_get-function" class="level2">
+<h2 class="anchored" data-anchor-id="the-tq_get-function">The <code>tq_get()</code> function</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>tq_transmute()</code> returns only newly created columns and is typically used when periodicity changes. Its syntax is the following:</p>
+<p>The <code>tq_get()</code> function is a powerful tool for retrieving financial data in a tidy format. It provides an easy way to import stock prices, economic data, and key financial metrics from multiple sources, including <em>Yahoo Finance</em>, <em>FRED</em>, <em>Alpha Vantage</em>, and <em>Quandl</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tq_get</span>(x, <span class="at">get =</span> <span class="st">"stock.prices"</span>, <span class="at">from =</span> <span class="cn">NULL</span>, <span class="at">to =</span> <span class="cn">NULL</span>, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>x</code>: a character string or vector specifying the stock symbol(s) or identifier(s)</li>
+<li><code>get</code>: the type of data to retrieve. Defaults to <code>"stock.prices"</code></li>
+<li><code>from</code>: start date, in YYYY-MM-DD format. Defaults to <code>NULL</code> (gets all available data)</li>
+<li><code>to</code>: end date, in YYYY-MM-DD format. Defaults to <code>NULL</code> (gets all available data)</li>
+<li><code>...</code>: additional arguments specific to the data source</li>
+</ul>
+</div>
+</div>
+<p>One of the most common uses of <code>tq_get()</code> is fetching stock price data. Say, for example, that you want to fetch data from <em>Apple</em> between January and February for 2024. It is easy to use <code>tq_get()</code> to retrieve such information:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have the tidyquant loaded in your session</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch Apple (AAPL) stock data from 2024-01-01 to 2024-02-01</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>aapl_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(<span class="st">"AAPL"</span>, <span class="at">from =</span> <span class="st">"2024-01-01"</span>, <span class="at">to =</span> <span class="st">"2024-02-01"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print first few rows</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aapl_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  symbol date        open  high   low close   volume adjusted
+  &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 AAPL   2024-01-02  187.  188.  184.  186. 82488700     185.
+2 AAPL   2024-01-03  184.  186.  183.  184. 58414500     183.
+3 AAPL   2024-01-04  182.  183.  181.  182. 71983600     181.
+4 AAPL   2024-01-05  182.  183.  180.  181. 62303300     180.
+5 AAPL   2024-01-08  182.  186.  182.  186. 59144500     184.
+6 AAPL   2024-01-09  184.  185.  183.  185. 42841800     184.</code></pre>
+</div>
+</div>
+<ul>
+<li>The result is a tidy <code>tibble</code>, unlike quantmod’s <code>xts</code> format.</li>
+</ul>
+</section>
+<section id="the-tq_mutate-function" class="level2">
+<h2 class="anchored" data-anchor-id="the-tq_mutate-function">The <code>tq_mutate()</code> function</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>tq_mutate()</code> function adds adds new variables to an existing <code>tibble</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tq_mutate</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>       selected_variables, <span class="co">#The columns to send to the mutation function</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>       mutate_fun, <span class="co">#The mutation function from either the xts, quantmod, or TTR package.</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>       col_rename <span class="co">#A string or character vector containing names that can be used to quickly rename columns</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>       ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>The main advantage is the results are returned as a <code>tibble</code> and the function can be used with the <code>tidyverse</code></li>
+<li>It is used when you expected additional columns to be added to the resulting data frame</li>
+<li>You can use several time series related functions from other <code>R</code> packages - call <code>tq_mutate_fun_options()</code> to see the list of available options</li>
+<li>All in all, it is similar in spirit to <code>mutate()</code></li>
+</ol>
+</section>
+<section id="the-tq_transmute-function" class="level2">
+<h2 class="anchored" data-anchor-id="the-tq_transmute-function">The <code>tq_transmute()</code> function</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>tq_transmute()</code> returns only newly created columns and is typically used when periodicity changes. Its syntax is the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tq_mutate</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>       selected_variables, <span class="co">#The columns to send to the mutation function</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>       mutate_fun, <span class="co">#The mutation function from either the xts, quantmod, or TTR package.</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>       col_rename <span class="co">#A string or character vector containing names that can be used to quickly rename columns</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><code>tq_transmute()</code> works exactly like <code>tq_mutate()</code> except it only returns the newly created columns</li>
+<li>This is helpful when changing periodicity where the new columns would not have the same number of rows as the original tibble</li>
+<li>All in all, it is similar in spirit to <code>summarize()</code></li>
+</ol>
+</section>
+<section id="working-with-time-series-objects" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-time-series-objects">Working with time series objects</h2>
+<p>An immediate useful example of using a time series specific functionality with a tidyverse logic relates to <span class="blue">filtering</span>. Sometimes, we may be interested in getting only a subset of the data (for example, only <em>GOOG</em> information). Furthermore, we may be interested in subsetting only a specific time frame for our analysis</p>
+<p>It is relatively straightforward to do it with <code>tidyquant</code>:</p>
+<ol type="1">
+<li>Use <code>filter()</code> to select only rows where <code>symbol=='GOOG'</code></li>
+<li>In the same call, filter for <code>date&gt;= min_date</code> and <code>date&lt;=max_date</code></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Assuming you have the tidyverse and the tidyquant packages loadded</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Set up the list of assets</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>assets<span class="ot">=</span><span class="fu">c</span>(<span class="st">'AMZN'</span>,<span class="st">'GOOG'</span>,<span class="st">'META'</span>,<span class="st">'GME'</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter out</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>assets<span class="sc">%&gt;%</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_get</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(symbol<span class="sc">==</span><span class="st">'GOOG'</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>         date<span class="sc">&gt;=</span><span class="st">'2020-01-01'</span>,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>         date<span class="sc">&lt;=</span><span class="st">'2024-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,258 × 8
+   symbol date        open  high   low close   volume adjusted
+   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 GOOG   2020-01-02  67.1  68.4  67.1  68.4 28132000     68.1
+ 2 GOOG   2020-01-03  67.4  68.6  67.3  68.0 23728000     67.8
+ 3 GOOG   2020-01-06  67.5  69.8  67.5  69.7 34646000     69.5
+ 4 GOOG   2020-01-07  69.9  70.1  69.5  69.7 30054000     69.4
+ 5 GOOG   2020-01-08  69.6  70.6  69.5  70.2 30560000     70.0
+ 6 GOOG   2020-01-09  71.0  71.4  70.5  71.0 30018000     70.7
+ 7 GOOG   2020-01-10  71.4  71.7  70.9  71.5 36414000     71.2
+ 8 GOOG   2020-01-13  71.8  72.0  71.3  72.0 33046000     71.7
+ 9 GOOG   2020-01-14  72.0  72.1  71.4  71.5 31178000     71.3
+10 GOOG   2020-01-15  71.5  72.1  71.5  72.0 25654000     71.7
+# ℹ 1,248 more rows</code></pre>
+</div>
+</div>
+<p>Another example of using a time series specific functionality is working with leads and lags: sometimes, we need to shift our variables by a specific interval, like getting the previous day’s price. Say, for example, that you want to understand how <em>S&amp;P</em> returns levels relate to <em>NFLX</em> returns one-week ahead. It is relatively straightforward to do it with <code>tidyquant</code>:</p>
+<ol type="1">
+<li>Download <em>S&amp;P 500</em> and <em>NFLX</em> data using the <code>tq_get()</code> function</li>
+<li>Use <code>tq_transmute()</code> to compute the weekly returns for each security based on daily data</li>
+<li>Use <code>tq_mutate()</code> to generate a lagged series of <em>S&amp;P 500</em> returns</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Assuming you have the tidyverse and the tidyquant packages loadded</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Netflix Data</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>NFLX<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'NFLX'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Select only the necessary columns</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Apply the weeklyReturn function and call the new column 'NFLX'</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> weeklyReturn,</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">col_rename =</span> <span class="st">'NFLX'</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#S&amp;P Data</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>SP500<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'^GSPC'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Select only the necessary columns</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Apply the weeklyReturn function and call the new column 'SP500'</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> weeklyReturn,</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Apply the lag function for n=1 week and call the new column 'SP500'</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_transmute</span>(<span class="at">mutate_fun =</span> lag.xts,</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">n=</span><span class="dv">1</span>,</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Drop all rows with NA information (row 1, in this case)</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Merge Data </span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(NFLX,SP500)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(date)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 528 × 3
+   date           NFLX    SP500
+   &lt;date&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+ 1 2015-01-09 -0.0563   0      
+ 2 2015-01-16  0.0244  -0.00651
+ 3 2015-01-23  0.297   -0.0124 
+ 4 2015-01-30  0.00992  0.0160 
+ 5 2015-02-06  0.00579 -0.0277 
+ 6 2015-02-13  0.0489   0.0303 
+ 7 2015-02-20  0.0260   0.0202 
+ 8 2015-02-27 -0.00688  0.00635
+ 9 2015-03-06 -0.0438  -0.00275
+10 2015-03-13 -0.0346  -0.0158 
+# ℹ 518 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="rolling-functions" class="level2">
+<h2 class="anchored" data-anchor-id="rolling-functions">Rolling functions</h2>
+<p>Finance practitioners are often asked to perform analysis on a rolling basis: we may want to calculate a given signal on day <span class="math inline">\(t\)</span> based on past <span class="math inline">\(x\)</span> periods of information. Say, for example, that you want to calculate a simple and exponential moving average of adjusted prices from 5 days back for a given stock. It is relatively straightforward to do it with <code>tidyquant</code>:</p>
+<ol type="1">
+<li>Download stock data using the <code>tq_get()</code> function</li>
+<li>Use <code>tq_mutate()</code> twice along with the <code>SMA()</code> and <code>EMA()</code> functions setting <code>n=5</code></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Assuming you have the tidyverse and the tidyquant packages loadded</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Set up the list of assets</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>assets<span class="ot">=</span><span class="fu">c</span>(<span class="st">'AMZN'</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>assets<span class="sc">%&gt;%</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_get</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> SMA, <span class="at">n =</span> <span class="dv">5</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> EMA, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2,546 × 5
+# Groups:   symbol [1]
+   symbol date       adjusted   SMA   EMA
+   &lt;chr&gt;  &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 AMZN   2015-01-02     15.4  NA    NA  
+ 2 AMZN   2015-01-05     15.1  NA    NA  
+ 3 AMZN   2015-01-06     14.8  NA    NA  
+ 4 AMZN   2015-01-07     14.9  NA    NA  
+ 5 AMZN   2015-01-08     15.0  15.0  15.0
+ 6 AMZN   2015-01-09     14.8  14.9  15.0
+ 7 AMZN   2015-01-12     14.6  14.8  14.8
+ 8 AMZN   2015-01-13     14.7  14.8  14.8
+ 9 AMZN   2015-01-14     14.7  14.8  14.8
+10 AMZN   2015-01-15     14.3  14.6  14.6
+# ℹ 2,536 more rows</code></pre>
+</div>
+</div>
+<p>Lastly, financial analysts often cover a collection of securities on a rolling basis. For example, a buy-side analyst will monitor stocks from a given industry so as to understand which ones are <span class="red">over</span>valued, and which ones are <span class="green">under</span>valued. Say, for example, that you want to focus on a subset of 4 stocks, and you need to compare the cumulative return up to the latest closing price.</p>
+<p>It is easy to integrate the <code>tidyquant</code> functions along with the <code>group_by()</code> function you’ve learned when working with <code>dplyr</code>:</p>
+<ol type="1">
+<li>Get the information using <code>tq_get()</code></li>
+<li>Group the data by <code>symbol</code></li>
+<li>Apply the <code>tq_mutate</code> and <code>tq_transmute</code> functions to pass time series functions to the data - in this case, the <code>dailyReturn()</code> and the <code>Return.cumulative()</code> function</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Assuming you have the tidyverse and the tidyquant packages loadded</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Set up the list of assets</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>assets<span class="ot">=</span><span class="fu">c</span>(<span class="st">'AMZN'</span>,<span class="st">'GOOG'</span>,<span class="st">'META'</span>,<span class="st">'GME'</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>assets<span class="sc">%&gt;%</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_get</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,symbol,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_mutate</span>(adjusted, <span class="at">mutate_fun =</span> dailyReturn,<span class="at">col_rename =</span> <span class="st">'daily_return'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_transmute</span>(daily_return,<span class="at">mutate_fun =</span> Return.cumulative)<span class="sc">%&gt;%</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric),percent,<span class="at">big.mark=</span><span class="st">'.'</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">'Ticker'</span>,<span class="st">'Cumulative Return up-to-date'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 5 warnings in `mutate()`.
+The first warning was:
+ℹ In argument: `across(where(is.numeric), percent, big.mark = ".")`.
+ℹ In group 1: `symbol = "AMZN"`.
+Caused by warning:
+! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.
+Supply arguments directly to `.fns` through an anonymous function instead.
+
+  # Previously
+  across(a:b, mean, na.rm = TRUE)
+
+  # Now
+  across(a:b, \(x) mean(x, na.rm = TRUE))
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 4 remaining warnings.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+# Groups:   Ticker [4]
+  Ticker `Cumulative Return up-to-date`
+  &lt;chr&gt;  &lt;chr&gt;                         
+1 AMZN   1.382%                        
+2 GOOG   617%                          
+3 META   843%                          
+4 GME    329%                          </code></pre>
+</div>
+</div>
+</section>
+<section id="hands-on-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on-exercise">Hands-on Exercise</h2>
+<p>Your manager (who did not lift any weights past the last 5 years) wanted to replicate the returns of the <em>Deadlift ETF</em> from 2020 to 2024. You job is to create a simple table of yearly returns comparing the <em>Deadlift ETF</em> <em>vis-a-vis</em> the <em>S&amp;P 500</em> Index. Follow the instructions and answer to the following questions:</p>
+<ol type="1">
+<li><strong>When looking at the yearly results from both the <em>Deadlift ETF</em> and <em>S&amp;P 500</em>, which one did perform better?</strong></li>
+<li><strong>What are the potential explanations for the result you have found?</strong></li>
+</ol>
+<p>To answer to these questions, you will be using the a combination of <code>dplyr</code> and <code>tidyquant</code> functions you have learned so far. The expected result is a <code>data.frame</code> object that shows both the <em>Deadlift ETF</em> as well as the <em>S&amp;P 500</em> returns (columns) on a yearly basis (rows).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Instructions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you start, make sure to have the <code>tidyverse</code> and the <code>tidyquant</code> packages loaded in your session. Following the instructions from the previous lectures, you can either make a direct call to each package, <code>library(tidyverse)</code> and <code>library(tidyquant)</code>, or copy-paste the script from the course’s <a href="https://lsmacoris.github.io/lectures/quant-fin">official website</a>.</p>
+<ol type="1">
+<li>Use <code>tq_get()</code> to load information from the <em>S&amp;P Index</em> and the <em>Deadlift ETF</em> constituents in two separate objects. You can use the code <code>^GSPC</code> to retrieve information for the index, and you can pass a vector <code>c('ticker1','ticker2',...,'ticker_n')</code> to get information on the <em>Deadlift ETF</em> constituents</li>
+<li>Filter for observations starting between 2020 (beginning of) and 2024 (end of) using the <code>from</code> and <code>to</code> arguments of the <code>tq_get()</code> function</li>
+<li>Group the <em>Deadlift ETF</em> data by <code>symbol</code> using the <code>group_by()</code> function</li>
+<li>For both data sets, create a <code>yearly_ret</code> variable that calculates the yearly return of a given security. You can use the <code>tq_transmute()</code> function, passing the <code>yearlyReturn()</code> function along the chain</li>
+<li>For the <em>Deadlift</em> data set, regroup the data by <code>date</code> and calculate the <em>Deadlift</em> returns using a <code>mutate()</code> function (<em>Hint: it is an equally weighted portfolio</em>)</li>
+<li>Merge both datasets using <code>inner_join()</code></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="solution-walkthrough" class="level2">
+<h2 class="anchored" data-anchor-id="solution-walkthrough">Solution walkthrough</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Assuming you have the tidyverse and the tidyquant packages loadded</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the list of assets</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>deadlift<span class="ot">=</span><span class="fu">c</span>(<span class="st">'META'</span>,<span class="st">'AMZN'</span>,<span class="st">'GS'</span>,<span class="st">'UBER'</span>,<span class="st">'MSFT'</span>,<span class="st">'AAPL'</span>,<span class="st">'BLK'</span>,<span class="st">'NVDA'</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Set up the starting date</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>start<span class="ot">=</span><span class="st">'2020-01-01'</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>end<span class="ot">=</span><span class="st">'2024-12-31'</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Step 1: Read the Deadlift data using tidyquant</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>Deadlift_Performance<span class="ot">=</span>deadlift<span class="sc">%&gt;%</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_get</span>(<span class="at">from=</span>start,<span class="at">to=</span>end)<span class="sc">%&gt;%</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Select only the columns of interest</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(symbol,date,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Group by symbol and date</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Use tq_transmute to aggregate and calculate weekly returns</span></span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_transmute</span>(<span class="at">selected=</span>adjusted,</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">mutate_fun=</span>yearlyReturn,</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">col_rename =</span> <span class="st">'Deadlift'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Group by date</span></span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date)<span class="sc">%&gt;%</span></span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Summarize average return (since it is an equally-weighted portfolio)</span></span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Deadlift=</span><span class="fu">mean</span>(Deadlift,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a><span class="co">#Step 2: Read the S&amp;P 500 data using tidyquant</span></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>SP500_Performance<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'^GSPC'</span>,<span class="at">from=</span>start,<span class="at">to=</span>end)<span class="sc">%&gt;%</span></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Select only the columns of interest</span></span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(symbol,date,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Group by symbol and date</span></span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Use tq_transmute to aggregate and calculate weekly returns</span></span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_transmute</span>(<span class="at">selected=</span>adjusted,</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>               <span class="at">mutate_fun=</span>yearlyReturn,</span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>               <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>symbol)</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a><span class="co">#Merge</span></span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>SP500_Performance<span class="sc">%&gt;%</span></span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(Deadlift_Performance)<span class="sc">%&gt;%</span></span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric),percent))<span class="sc">%&gt;%</span></span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date=</span><span class="fu">year</span>(date))<span class="sc">%&gt;%</span></span>
+<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">'Year'</span>,<span class="st">'S&amp;P 500'</span>,<span class="st">'DeadLift ETF'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(date)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+   Year `S&amp;P 500` `DeadLift ETF`
+  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;         
+1  2020 15.29%    57.9%         
+2  2021 26.89%    37.2%         
+3  2022 -19.44%   -36.0%        
+4  2023 24.23%    100.5%        
+5  2024 23.84%    52.1%         </code></pre>
+</div>
+</div>
+<p>This solution uses <code>tidyquant</code> and <code>tidyverse</code> to analyze the yearly returns of a custom portfolio (<em>i.e.</em>, the <em>“Deadlift ETF”</em>) consisting of eight stocks and compares it with the <em>S&amp;P 500</em>.</p>
+<ol type="1">
+<li><p><strong>Define Assets and Time Range.</strong> first, we dedfine a custom portfolio (deadlift) containing eight stocks, and set the start and end dates for data collection.</p></li>
+<li><p><strong>Fetch &amp; Process the Deadlift Portfolio Returns.</strong> Starting with the <em>Deadlift ETF</em>, we first fetch historical stock prices using <code>tq_get()</code> for each asset contained in the ETF. After that, we only keep the relevant columns - namely, <code>symbol</code>, <code>date</code>, and <code>adjusted</code>. Using <code>group_by()</code> to group by <code>symbol</code>, we use the <code>tq_transmute()</code> function to apply the <code>yearlyReturns</code> function to the <code>adjusted</code> column, renaming it as <code>Deadlift</code>.</p></li>
+<li><p><strong>Calculating portfolio returns.</strong> Since this ETF is an equally-weighted portfolio, and using the fact that a portfolio return is a weighted average of the individual securities, you can safely use the <code>mean()</code> function to calculate the return of such portfolio. To make sure that the calculation is performed for each year, use <code>group_by()</code> again, grouping by <code>date</code>.</p></li>
+</ol>
+</section>
+<section id="try-doing-some-edits-on-your-own" class="level2">
+<h2 class="anchored" data-anchor-id="try-doing-some-edits-on-your-own">Try doing some edits on your own!</h2>
+<p>Try thinking about changes you could do to either improve code readability of the analysis. A couple of edits that can be made include, but are not limited, to:</p>
+<ol type="1">
+<li>Adding more time periods to the analysis</li>
+<li>Contrasting the <em>DeadLift ETF</em> with the <em>S&amp;P 500</em> in terms of variance and Sharpe Ratio</li>
+<li>Doing the comparison using value-weighted returns (<em>i.e</em>, weighting the securities inside the portfolio according to its market capitalization) or inverse volatility (<em>i.e</em>, riskier assets have lower weights)</li>
+</ol>
+<p>Play around with these concepts to get familiar with all the data manipulation tools that come with the <code>tidyquant</code> package!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/lsmacoris\.github\.io\/lectures");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2025, Lucas Macoris. Photography by <a href="https://www.jurizieri.com.br/">Juliana Rizieri</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions"><ul><li><a href="https://github.com/lsmacoris/lectures/edit/main/quant-fin-replications/L3/L3-Replication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lsmacoris/lectures/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
