@@ -1,0 +1,195 @@
+---
+title: "Data Case Prep - Solutions"
+author: "Lucas S. Macoris (FGV-EAESP)"
+format:
+  html:
+    page-layout: full
+editor: visual
+---
+
+# About
+
+This exercise list is a preparation for students of the *Practical Applications in Quantitative Finance* course held at FGV-EAESP. This document serves as a refresher on key R programming concepts covered in previous lectures, reinforcing the essential skills needed for quantitative finance applications. By revisiting these foundations, you’ll ensure a solid grasp of the tools and techniques required to analyze financial data effectively. As we progress, you’ll apply these concepts to real-world finance examples, including portfolio analysis, risk assessment, and asset pricing models. Mastering these skills now will prepare you to fully engage with the practical applications we’ll explore throughout the course.
+
+To help you structure your submission, I have provided a Quarto mock template, which is already available for you to use. This template is designed to help you seamlessly integrate your code and analysis, ensuring a clear and organized presentation of your work. Feel free to use it as a starting point to format your responses effectively. The mock template can be found in the *Data Cases* folder on *eClass®*.
+
+::: callout-important
+### Deliverable
+
+Each student is expected to deliver his/her assignment individually, although you can freely work in groups for solving the questions. A submission must be either an `.R` script or a `.qmd` (Quarto) file, ensuring that both your code and interpretations of the results are clearly presented. Whenever applicable, include concise explanations alongside your code to demonstrate your understanding of the analysis. The due date for this submission is specified on *eClass®*, so please check the platform for details.
+:::
+
+## Tech-setup
+
+Before you start, make sure that you have your `R` session correctly configured with all the following packages by running the code below:
+
+```{r}
+#| warning: false
+#| message: false
+
+# Package names
+packages <- c("tidyverse","tidyquant","tidymodels","xts", "glue","scales", "ggthemes")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load all packages
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+## Exercise 1
+
+**This exercise aims to gauge your skill in fetching data in `R` through different sources. You are asked to work on the following questions:**
+
+1.  Go to our *eClass®* and download the *Ibovespa_Sample.txt* file inside the *Data Cases* folder. This file contains stock price information regarding 10 publicly traded companies that are part of the Brazilian market index, *Ibovespa*.
+
+2.  Read the file into your session using the `read_delim()` function, and assign to an object called `FILE_SAMPLE`. Make sure you have the `tidyverse` package loaded. Depending on how your computer reads delimited data, you may need to set the argument `sep` to `sep=';'` or `sep=' '`.
+
+```{r}
+#| warning: false
+#| message: false
+
+FILE_SAMPLE=read_delim('Ibovespa_Sample.txt',delim=' ')
+
+```
+
+3.  Inspect the first 10 lines of the object you have just created using the `head()` function, setting `n=10` as an argument.
+
+```{r}
+#| warning: false
+#| message: false
+
+FILE_SAMPLE%>%head(n=10)
+
+```
+
+4.  How many rows and columns does your object have? You can use the function `dim(yourdata)` to find the exact dimensions.
+
+This object has `r dim(FILE_SAMPLE)[1]` rows and `r dim(FILE_SAMPLE)[2]` columns.
+
+5.  Alternatively, fetch the exact same stock level information directly from *Yahoo! Finance* using the `tq_get()` function. Collect the data beginning in 2020 (January $1^{st}$ until the end of 2024 (December $31^{st}$) using the `from` and `to` arguments of the `tq_get()` function. Make sure you have the `tidyquant` package loaded. Assign this data to a new object in your `R` session called `YAHOO_SAMPLE`.
+
+```{r}
+#| warning: false
+#| message: false
+
+assets = unique(FILE_SAMPLE$symbol)
+
+YAHOO_SAMPLE=assets%>%tq_get(from='2020-01-01',to='2024-12-31')
+
+```
+
+6.  How many rows and columns does this new object have?
+
+This object has `r dim(FILE_SAMPLE)[1]` rows and `r dim(FILE_SAMPLE)[2]` columns.
+
+## Exercise 2
+
+**This exercise aims to gauge your skill on manipulating data using the `tidyverse` and the `tidyquant`. After loading these packages, provide your answers to the following questions:**
+
+1.  Using the `YAHOO_SAMPLE` you created before, create a new column, `Year`, that is defined as the year of a given timestamp found in the `date` column. You can use `year(date)` along with a `mutate` function to create this new variable. Update your `YAHOO_SAMPLE` object to make sure you have saved this variable.
+
+```{r}
+#| warning: false
+#| message: false
+
+YAHOO_SAMPLE=YAHOO_SAMPLE%>%
+  mutate(Year=year(date))
+
+```
+
+2.  Using the updated `YAHOO_SAMPLE` object, use the `filter` function to filter for observations that occur in $2024$, use `group_by()` to group the data by `symbol`, and use the `summarize` the function to create a new variable, `avg_price`, defined as the average `adjusted` prices for each year-symbol combination. Sort your dataset by `avg_price` (highest-to-lowest), storing this result in an object called `2023_2024_Summary` and call it in your terminal. Which company had the highest price levels, and which one had the lowest?
+
+```{r}
+#| warning: false
+#| message: false
+
+Summary_2023_2024=YAHOO_SAMPLE%>%
+  filter(Year==2024)%>%
+  group_by(symbol)%>%
+  summarize(avg_price=mean(adjusted,na.rm=TRUE))%>%
+  arrange(avg_price)
+
+Summary_2023_2024
+
+```
+
+3.  Using the `YAHOO_SAMPLE` dataset, group your data by `symbol` and create a summary of yearly returns. To do that, first pipe the grouped data into into the `tq_transmute` function applying the `yearlyReturn`, assigning it to a new variable,`yearly_return`. Arrange your result by `date` and `yearly_return` (highest-to-lowest). Which stock had the best performance in 2020, and which stock had the worst?
+
+```{r}
+#| warning: false
+#| message: false
+
+YAHOO_SAMPLE%>%
+  group_by(symbol)%>%
+  tq_transmute(select='adjusted',
+            mutate_fun = yearlyReturn,
+            col_rename = 'yearly_return')%>%
+  arrange(date,desc(yearly_return))
+
+```
+
+*WEGE3.SA* has the highest return in 2020, whereas *BRFS3.SA* had the worst.
+
+## Exercise 3
+
+**This exercise aims to gauge your skill on data visualization using the `ggplot2` package. After loading this package, provide your answers to the following questions:**
+
+1.  Using the `YAHOO_SAMPLE` object, create a `ggplot` object with the follow `aes`: the `x` component should refer to the `date` column, the `y` axis should refer to the `adjusted` column, and the `group` argument should refer to the `symbol` column.
+
+```{r}
+#| warning: false
+#| message: false
+
+YAHOO_SAMPLE%>%ggplot(aes(x=date,y=adjusted,group=symbol))
+
+```
+
+2.  Add a geometry layer to your chart using the `geom_line()` function and call it in your terminal.
+
+```{r}
+#| warning: false
+#| message: false
+
+YAHOO_SAMPLE%>%
+  ggplot(aes(x=date,y=adjusted,group=symbol))+
+  geom_line()
+
+```
+
+3.  Change the titles of your x and y axis, as well as chart title and subtitle using the `labs()` function.
+
+```{r}
+#| warning: false
+#| message: false
+
+YAHOO_SAMPLE%>%
+  ggplot(aes(x=date,y=adjusted,group=symbol))+
+  geom_line()+
+  labs(title='Stock prices over time',
+       subtitle='Source: Yahoo! Finance',
+       x='Date',
+       y='Adjusted Prices')
+
+```
+
+4.  Facet your data by each symbol using the `facet_wrap(symbol~.)` function. Set the arguments of this function in such a way that you have a 2x3 orientation (*i.e*, `nrow=2` and `ncol=2`).
+
+```{r}
+#| warning: false
+#| message: false
+
+YAHOO_SAMPLE%>%
+  ggplot(aes(x=date,y=adjusted,group=symbol))+
+  geom_line()+
+  labs(title='Stock prices over time',
+       subtitle='Source: Yahoo! Finance',
+       x='Date',
+       y='Adjusted Prices')+
+  facet_wrap(symbol~.,nrow=3,ncol=2)
+
+```

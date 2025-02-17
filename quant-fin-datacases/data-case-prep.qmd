@@ -13,11 +13,10 @@ This exercise list is a preparation for students of the *Practical Applications 
 
 To help you structure your submission, I have provided a Quarto mock template, which is already available for you to use. This template is designed to help you seamlessly integrate your code and analysis, ensuring a clear and organized presentation of your work. Feel free to use it as a starting point to format your responses effectively. The mock template can be found in the *Data Cases* folder on *eClass®*.
 
-::: {.callout-important}
+::: callout-important
 ### Deliverable
 
 Each student is expected to deliver his/her assignment individually, although you can freely work in groups for solving the questions. A submission must be either an `.R` script or a `.qmd` (Quarto) file, ensuring that both your code and interpretations of the results are clearly presented. Whenever applicable, include concise explanations alongside your code to demonstrate your understanding of the analysis. The due date for this submission is specified on *eClass®*, so please check the platform for details.
-
 :::
 
 ## Tech-setup
@@ -41,7 +40,6 @@ if (any(installed_packages == FALSE)) {
 # Load all packages
 invisible(lapply(packages, library, character.only = TRUE))
 ```
-
 
 Alternatively, you can simply call:
 
@@ -67,7 +65,7 @@ Alternatively, you can simply call:
 ```
 
 ::: callout-note
-For the remainder of the sessions, you will use financial data from multiple sources, either that being from a local file  or a pull from *Yahoo! Finance*. Whenever you are working with local files, it is always important to make sure that your R is able to locate it. To check the working directory of your session, simply type `getwd()`, and it will prompt your current directory. If you want to change your directory, simply type `setwd('C:/path/to/your/folder')` with the specific path to your desired folder. To make sure that you switched directories, you can type `getwd()` to confirm the new directory.
+For the remainder of the sessions, you will use financial data from multiple sources, either that being from a local file or a pull from *Yahoo! Finance*. Whenever you are working with local files, it is always important to make sure that your R is able to locate it. To check the working directory of your session, simply type `getwd()`, and it will prompt your current directory. If you want to change your directory, simply type `setwd('C:/path/to/your/folder')` with the specific path to your desired folder. To make sure that you switched directories, you can type `getwd()` to confirm the new directory.
 
 Most of the issues regarding not being able to load a specific file, like `.csv` and `.xlsx` spreadsheets can be easily solved by placing your R file (either a plain script, like `myscript.R`, or a quarto document, `myquartodoc.qmd`) in the **same** folder as of your data. When you open your R script or Quarto document, it will automatically set that folder (which coincides with the data folder) as the working directory. To confirm which files are available to you, you can simply type `list.files()` to get the list of all files that R can find in the working directory.
 
@@ -78,25 +76,31 @@ If you prefer, whenever you are calling a function that requires a path to your 
 
 **This exercise aims to gauge your skill in fetching data in `R` through different sources. You are asked to work on the following questions:**
 
-1. Go to our *eClass®* and download the *Ibovespa_Sample.txt* file inside the *Data Cases* folder. This file contains stock price information regarding 10 publicly traded companies that are part of the Brazilian market index, *Ibovespa*.
+1.  Go to our *eClass®* and download the *Ibovespa_Sample.txt* file inside the *Data Cases* folder. This file contains stock price information regarding 10 publicly traded companies that are part of the Brazilian market index, *Ibovespa*.
 
-2. Read the file into your session using the `read_delim()` function, using the argument `sep=';'`, and assign to an object called `FILE_SAMPLE`. Make sure you have the `tidyverse` package loaded.
+2.  Read the file into your session using the `read_delim()` function, and assign to an object called `FILE_SAMPLE`. Make sure you have the `tidyverse` package loaded. Depending on how your computer reads delimited data, you may need to set the argument `sep` to `sep=';'` or `sep=' '`.
 
-3. Inspect the first 10 lines of the object you have just created using the `head()` function, setting `n=10` as an argument.
+3.  Inspect the first 10 lines of the object you have just created using the `head()` function, setting `n=10` as an argument.
 
-4. How many rows and columns does your object have?
+4.  How many rows and columns does your object have? You can use the function `dim(yourdata)` to find the exact dimensions.
 
-5. Alternatively, fetch the exact same stock level information directly from *Yahoo! Finance* using the `tq_get()` function. Collect the data beginning in 2020 (January $1^{st}$ until the end of 2024 (December $31^{st}$) using the `from` and `to` arguments of the `tq_get()` function. Make sure you have the `tidyquant` package loaded. Assign this data to a new object in your `R` session called `YAHOO_SAMPLE`.
+5.  Alternatively, fetch the exact same stock level information directly from *Yahoo! Finance* using the `tq_get()` function. Collect the data beginning in 2020 (January $1^{st}$ until the end of 2024 (December $31^{st}$) using the `from` and `to` arguments of the `tq_get()` function. Make sure you have the `tidyquant` package loaded. Assign this data to a new object in your `R` session called `YAHOO_SAMPLE`.
 
-6. How many rows and columns does this new object have?
+::: callout-tip
+### Hint
+
+You can use the `unique(FILE_SAMPLE$symbol)` to find the exact tickers contained in the file, and assign it to a new object, `assets`, which will then be piped onto a call to `tq_get()`.
+:::
+
+6.  How many rows and columns does this new object have?
 
 ## Exercise 2
 
 **This exercise aims to gauge your skill on manipulating data using the `tidyverse` and the `tidyquant`. After loading these packages, provide your answers to the following questions:**
 
-1. Using the `YAHOO_SAMPLE` you created before, create a new column, `Year`, that is defined as the year of a given timestamp found in the `date` column. You can use `year(date)` along with a `mutate` function to create this new variable. Update your `YAHOO_SAMPLE` object to make sure you have saved this variable.
+1.  Using the `YAHOO_SAMPLE` you created before, create a new column, `Year`, that is defined as the year of a given timestamp found in the `date` column. You can use `year(date)` along with a `mutate` function to create this new variable. Update your `YAHOO_SAMPLE` object to make sure you have saved this variable.
 
-::: {.callout-tip}
+::: callout-tip
 ### Hint
 
 Recall that the syntax for using the `mutate` function is:
@@ -114,14 +118,11 @@ mutate(.data, #The object you are performing the calculations
 ```
 
 Furthermore, recall that you can always use the pipe operator (`%>%`) to chain operations along the way whenever you are using the `tidyverse`.
-
 :::
 
+2.  Using the updated `YAHOO_SAMPLE` object, use the `filter` function to filter for observations that occur in $2024$, use `group_by()` to group the data by `symbol`, and use the `summarize` the function to create a new variable, `avg_price`, defined as the average `adjusted` prices for each year-symbol combination. Sort your dataset by `avg_price` (highest-to-lowest), storing this result in an object called `2023_2024_Summary` and call it in your terminal. Which company had the highest price levels, and which one had the lowest?
 
-
-2. Using the updated `YAHOO_SAMPLE` object, use the `filter` function to filter for observations that occur between $2023$ and $2024$, use `group_by()` to group the data by `symbol` and `Year`, and use the `summarize` the function to create a new variable, `avg_price`, defined as the average `adjusted` prices for each year-symbol combination. Sort your dataset by `year` and `avg_price` (highest-to-lowest), storing this result in an object called `2023_2024_Summary` and call it in your terminal. Which company had the highest price levels, and which one had the lowest?
-
-::: {.callout-tip}
+::: callout-tip
 ### Hint
 
 Recall that the syntax for using the `filter` function is:
@@ -136,13 +137,11 @@ filter(.data, #The object which you are performing the operations
        variable_4 >=10 & variable_3<= 4 | is.na(variable_4) #IF and OR conditions
        ) 
 ```
-
 :::
 
+3.  Using the `YAHOO_SAMPLE` dataset, group your data by `symbol` and create a summary of yearly returns. To do that, first pipe the grouped data into into the `tq_transmute` function applying the `yearlyReturn`, assigning it to a new variable,`yearly_return`. Arrange your result by `date` and `yearly_return` (highest-to-lowest). Which stock had the best performance in 2020, and which stock had the worst?
 
-3. Using the `YAHOO_SAMPLE` dataset, group your data by `symbol` and create a summary of returns up-to-date. To do that, first pipe the grouped data into the `tq_mutate` function to create a new variable, `daily_return`, using the `dailyReturn` function. After that, pipe the result into the `tq_transmute` function applying the `Return.cumulative` to the `daily_return` column, assigning it to a new variable `cum_return`. Arrange your result by `Year` and `cum_return`. Which stock had the best performance, and which stock had the worst?
-
-::: {.callout-tip}
+::: callout-tip
 ### Hint
 
 Recall that the syntax for using both `tq_mutate` and `tq_transmute` function is:
@@ -164,18 +163,15 @@ tq_transmute(.data, #The object you are performing the calculations
        )
 
 ```
-
 :::
-
-
 
 ## Exercise 3
 
 **This exercise aims to gauge your skill on data visualization using the `ggplot2` package. After loading this package, provide your answers to the following questions:**
 
-1. Using the `YAHOO_SAMPLE` object, create a `ggplot` object with the follow `aes`: the `x` component should refer to the `date` column, the `y` axis should refer to the `adjusted` column, and the `group` argument should refer to the `symbol` column.
+1.  Using the `YAHOO_SAMPLE` object, create a `ggplot` object with the follow `aes`: the `x` component should refer to the `date` column, the `y` axis should refer to the `adjusted` column, and the `group` argument should refer to the `symbol` column.
 
-::: {.callout-tip}
+::: callout-tip
 ### Hint
 
 Recall that the syntax for mapping your data to `ggplot` is:
@@ -185,13 +181,10 @@ Recall that the syntax for mapping your data to `ggplot` is:
 #| echo: true
 ggplot(data=your_data, aes(x= variable_1, y=variable_2, group=your_group,...))
 ```
-
 :::
 
-2. Add a geometry layer to your chart using the `geom_line()` function and call it in your terminal.
+2.  Add a geometry layer to your chart using the `geom_line()` function and call it in your terminal.
 
-3. Change the titles of your x and y axis, as well as chart title and subtitle using the `labs()` function.
+3.  Change the titles of your x and y axis, as well as chart title and subtitle using the `labs()` function.
 
-4. Facet your data by each symbol using the `facet_wrap(symbol~.)` function. Set the arguments of this function in such a way that you have a 2x3 orientation (*i.e*, `n_row=3` and `n_col=2`).
-
-
+4.  Facet your data by each symbol using the `facet_wrap(symbol~.)` function. Set the arguments of this function in such a way that you have a 2x3 orientation (*i.e*, `nrow=2` and `ncol=2`).
