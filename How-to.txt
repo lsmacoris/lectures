@@ -1,3 +1,8 @@
+
+------------------------------
+MANUAL
+------------------------------
+
 - We need to use SSH authentication to link RStudio to Github: https://www.youtube.com/watch?v=_Bn78aor_N4
 - Create a folder 'lectures'
 - Link this folder to a github using the process in the video
@@ -23,3 +28,14 @@ quarto publish gh-pages
 - It will use the contents from main, render all .qmds and create a gh-pages branch with the rendered content
 - The rendered content will be uploaded inside the 'lectures' folder onto xxxx.github.io/lectures.
 
+
+------------------------------
+USING GITHUB PAGES
+------------------------------
+
+1. Make sure that the .yaml file refers to the /lectures folder of your sire
+2. Set 'output-dir' in the yaml file to refer to the docs folder of your main branch
+3. After that, go to GitHub, settings, gh-pages, set 'Deploy from a branch' and refer to main/docs
+4. With that, everytime you push a new version of a given .qmd, it will automatically update the /docs file, and it will reflect in the site.
+
+In this way, there is no need to rebuild the site everytime.

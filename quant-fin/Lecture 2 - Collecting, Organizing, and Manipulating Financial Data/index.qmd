@@ -679,7 +679,6 @@ The data, stored in `M7.csv`, can be loaded using `read.csv('M7.csv')`. You can 
 8.  Pick the latest observation from each `symbol` and arrange the table from lowest-to-highest return. The function `slice_tail(n=x)` retrieves the bottom `x` observations, whereas `slice_head(n=y)` retrieves the top `y`.
 :::
 
-:::: content-hidden
 ## Solution
 
 ::: panel-tabset
@@ -745,7 +744,6 @@ select(symbol,date,Cum_Return)%>%
 arrange(Cum_Return)
 ```
 :::
-::::
 
 ## Helpful tips while using R and Quarto
 
