@@ -51,7 +51,7 @@ To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) 
 
   1. It has multi-language support (*Python*, *R*, *Julia*, *JavaScript*), parses equations and mathematical notations via *pandoc*, and integrates seamlessly with GitHub
   2. Advanced document formatting and output options: you can choose *pdf*, *html*, *docx*, or even a *reveal.js* presentation (like the ones from this course!)
-  3. It is easy, intuitive, and lets you focus on the most important aspect of your work: the analysis
+  3. It is easy, intuitive, and lets you focus on the most important aspect of your work
 
 :::
 
