@@ -57,6 +57,8 @@ source('../~ Metadata/packages.R')
 
 ```{r}
 #| echo: false
+#| message: false
+#| warning: false
 
 #List of assets
 assets=c('META','AMZN','NFLX','GOOG')
@@ -216,10 +218,10 @@ Use the `ggplot()` function together with `aes(x, y, group)`:
 #| exercise: step1
 #| solution: true
 #Let's use Apple (META) adjusted prices
-AAPL=FANG%>%filter(symbol=='META')
+META=FANG%>%filter(symbol=='META')
 
 #Use ggplot2 to map the aesthetics to the plot
-ggplot(AAPL, aes(x=date,y=adjusted,group=symbol))
+ggplot(META, aes(x=date,y=adjusted,group=symbol))
 ```
 :::
 
@@ -320,26 +322,172 @@ gradethis::grade_this_code()
 
 ## Step 3: be creative with additional layers
 
-```{webr}
+::::: panel-tabset
+## Exercise
 
-#Let's use Meta (META) adjusted prices and make sure that date is read as a Date object
-META=FANG%>%filter(symbol=='META')%>%mutate(date=as.Date(date))
+::: {#lst-step3}
+```{webr}
+#| exercise: step3
+#| completion: true
+#| min-lines: 7
+#| max-lines: 10
+#| fig-width: 8
+#| fig-height: 4
+#Let's use Meta (META) adjusted prices
+META=FANG%>%filter(symbol=='META')
 
 #Use ggplot2 to map the aesthetics to the plot
 ggplot(META, aes(x=date,y=adjusted,group=symbol)) +
-  #Basic layer - aesthetic mapping
-  geom_line()+
-  #Adding a trend
-  geom_smooth(method='loess')+
-  #Adding Annotations
-  labs(title='META adjusted prices',
-       subtitle = 'Source: Yahoo! Finance',
-       x = 'Year',
-       y = 'Adjusted Prices')+
+geom_line()+
+geom_smooth(_____)+
+___(x=____,
+    y='Adjusted Prices',
+    title=_________,
+    subtitle=__________)
+```
+
+In your previously created `ggplot` object, add a smoothed trend of adjusted prices using the `geom_smooth(method='loess')` geometry and adjust the labels of your axis, chart title, and subtitle. You can pass additional layers using the `+` operator. For changing the labels, you can use the `labs(x='Your X Label',y='Your Y Label', title='Your Title', subtitle='Your subtitle')` syntax. The x-axis should be called "Date," y-axis should be called "Adjusted Prices", the title should be called "META Prices Over Time", and the subtitle should be called "Source: Yahoo! Finance". The `FANG` dataset and `ggplot2` have been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.
+:::
+
+## Solution
+
+::: {.solution exercise="step3"}
+You can call the `geom_smooth()` along with `method='loess'` to have a smoothed trend added on top of your chart, and customize your labels by calling the `labs()` argument. You can chain these operations on top of your chart using the `+` sign.
+
+```{webr}
+#| exercise: step3
+#| solution: true
+#Let's use Meta (META) adjusted prices
+META=FANG%>%filter(symbol=='META')
+
+#Use ggplot2 to map the aesthetics to the plot
+ggplot(META, aes(x=date,y=adjusted,group=symbol)) +
+geom_line()+
+#Adding a trend
+geom_smooth(method='loess')+
+#Adding Annotations
+labs(title='META adjusted prices',
+     subtitle = 'Source: Yahoo! Finance',
+     x = 'Year',
+     y = 'Adjusted Prices')
+
+```
+:::
+
+```{webr}
+#| exercise: step3
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
+
+## More annotations
+
+-   Apart from simply changing the labels of your axis, titles and subtitles, you can also use `ggplot2` to customize the appearance of your axis:
+
+    1.  The family of functions `scale_x_{}` apply a given structure to the x-axis - *e.g*, `scale_x_date()`,`scale_x_continuous()`
+    2.  The family of functions `scale_y_{}` apply a given structure to the y-axis - *e.g*, `scale_y_continuous()` etc
+
+-   With that, you can, for example:
+
+    1.  Force the x-axis to be formatted as a date, adjusting how it is being displayed
+    2.  Force the y-axis to be formatted in terms of dollar amounts
+
+-   In this way, you can impose meaningful structures in your chart depending on the type of data you are considering in your mapping to `x` and `y` axis!
+
+## More annotations, continued
+
+-   For example, the code snippet below formats the x-axis to show breaks at the year level, and formats the y-axis in such a way that it goes from $\small\$0$ to $\small\$1,000$ by increments of $\small\$50$
+
+```{r}
+#| eval: false
+#| echo: true
+
+  #Your previous ggplot call up to now
+  {your_previous_ggplot} +
   #Changing the behavior of scales
   scale_x_date(date_breaks = '1 year',labels = year) +
-  scale_y_continuous(labels = dollar, breaks = seq(0,1000,50))
+  scale_y_continuous(labels = dollar, breaks = seq(from=0,to=1000,by=50))
+
 ```
+
+-   Click [here](https://ggplot2.tidyverse.org/reference/scale_continuous.html) to see comprehensive list of all customizations that can be done across both x-axis and y-axis for continuous scales (`scale_x_continuous()` and `scale_y_continuous()`)
+
+-   Click [here](https://ggplot2.tidyverse.org/reference/scale_date.html) to see comprehensive list of all customizations that can be done across both x-axis and y-axis for date scales (`scale_x_date()` and `scale_y_date()`)
+
+::: callout-important
+### Formatting scales
+
+To properly format the appearance of your axis, make sure to have the `scales` package properly installed and loaded. You can do so by calling `install.packages('scales')` and `library(scales)`.
+:::
+
+## Step 4: customize your axis
+
+::::: panel-tabset
+## Exercise
+
+::: {#lst-step4}
+```{webr}
+#| exercise: step4
+#| completion: true
+#| min-lines: 7
+#| max-lines: 12
+#| fig-width: 8
+#| fig-height: 4
+#Let's use Meta (META) adjusted prices
+META=FANG%>%filter(symbol=='META')
+
+#Use ggplot2 to map the aesthetics to the plot
+ggplot(META, aes(x=date,y=adjusted,group=symbol)) +
+geom_line()+
+#Adding a trend
+geom_smooth(method='loess')+
+#Adding Annotations
+labs(title='META adjusted prices',
+     subtitle = 'Source: Yahoo! Finance',
+     x = 'Year',
+     y = 'Adjusted Prices')
+#Changing the behavior of scales
+_______(date_breaks = '1 year',labels = year) +
+_______(labels = dollar, breaks = seq(from=0,to=1000,by=50))
+```
+
+Using your previously created `ggplot` object, customize the appearance of the x-axis and y-axis in the following way: the x-axis shoudl be formatted as a date using an appropriate function that shows each year as a breakpoint, whereas the y-axis should be formatted in dollar terms, ranging from zero to one thousand dollars, by increments of 50, using an appropriate function. You can pass additional layers using the `+` operator. The `FANG` dataset and `ggplot2` have been already loaded for you. Even if you submit the wrong answer, a live-tutoring feature will provide you with a handful of tips to adjust your code and resubmit your solution.
+:::
+
+## Solution
+
+::: {.solution exercise="step4"}
+Use `scale_x_date()` with the appropriate arguments to format the x-axis, doing the same thing for the y-axis using `scale_y_continuous()`:
+
+```{webr}
+#| exercise: step4
+#| solution: true
+#Let's use Meta (META) adjusted prices
+META=FANG%>%filter(symbol=='META')
+
+#Use ggplot2 to map the aesthetics to the plot
+ggplot(META, aes(x=date,y=adjusted,group=symbol)) +
+geom_line()+
+#Adding a trend
+geom_smooth(method='loess')+
+#Adding Annotations
+labs(title='META adjusted prices',
+     subtitle = 'Source: Yahoo! Finance',
+     x = 'Year',
+     y = 'Adjusted Prices')+
+#Changing the behavior of scales
+scale_x_date(date_breaks = '1 year',labels = year) +
+scale_y_continuous(labels = dollar, breaks = seq(from=0,to=1000,by=50))
+```
+:::
+
+```{webr}
+#| exercise: step4
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
 
 ## Adding multiple data points
 
@@ -709,7 +857,7 @@ ggplot(FANG, aes(x=date,y=adjusted,group=symbol,colour=symbol)) +
 
 ## Integrating `tidyquant`
 
--   Like in our previous lecture, `tidyquant` added very important funcionatilities for those who work in finance to easily manage financial time series using the well-established foundations of the `tidyverse`
+-   Like in our previous lecture, `tidyquant` added very important functionalities for those who work in finance to easily manage financial time series using the well-established foundations of the `tidyverse`
 
 -   When it comes to data visualization, `tidyquant` also provides a handful of integrations that can be inserted into your `ggplot` call:
 
@@ -811,18 +959,6 @@ FANG%>%
 ```
 :::
 
-## Wrapping-up
-
--   All in all, `ggplot2` is a powerful companion on data visualization for `R` users
-
--   `tidyquant` helps you bridge the gap between the lack of powerful libraries for financial data visualization and `ggplot2`'s capabilities
-
--   Topics not covered in this lecture, but definitely worth the time:
-
-    1.  Add interactivity to your `ggplot` objects with `ggplotly` package - access [here](https://plotly.com/r/)
-    2.  Other interactive charting libraries: take a look at `highcharter`, a wrapper for a famous JavaScript library - access [here](https://jkunst.com/highcharter/)
-    3.  If you wish to know more about the usage of `ggplot2`, nurture your creativity by looking at some community maintained list of examples [here](https://exts.ggplot2.tidyverse.org/gallery/)
-
 ## Alternatives to `ggplot2`
 
 -   `ggplot2` is, by and large, the richest and most widely used plotting ecosystem in the [{{<fa brands r-project>}}]{.blue} language
@@ -851,7 +987,7 @@ FANG%>%
 library(highcharter)
 
 #Select the Google Stock with OHLC information and transform to an xts object
-GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
+GOOG=tq_get('GOOG')%>%select(-symbol)%>%as.xts()
 
   #Initialize an empty highchart
   highchart(type='stock')%>%
@@ -864,6 +1000,7 @@ GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
   hc_tooltip(valueDecimals=2,valuePrefix='$')%>%
   #Convert it to a 'The Economist' theme
   hc_add_theme(hc_theme_economist())
+
 ```
 
 ### Solution
@@ -878,9 +1015,8 @@ GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
 #Load the highcharter package (if not loaded yet)
 library(highcharter)
 
-
 #Select the Google Stock with OHLC information and transform to an xts object
-GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
+GOOG=tq_get('GOOG')%>%select(-symbol)%>%as.xts()
 
   #Initialize an empty highchart
   highchart(type='stock')%>%
@@ -908,14 +1044,12 @@ GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
 ::: callout-tip
 ### Exercise
 
-1.  Use `tq_get()` to load information for *GameStop* (ticker: *GME*) and store it in a `data.frame`
-2.  Filter for observations between occurring in between December 2020 (beginning of) and March 2021 (end of)
-3.  Use `ggplot()`, along with `geom_candlestick()`, to chart the historical adjusted prices
-4.  Create an vertical line annotation using `geom_vline`, setting the `xintercept` argument to the date of the Reddit frenzy (`as.Date('2021-01-25')`)
-5.  Use the theme from *The Economist* and call `theme()` and `labs()` to adjust the aesthetics and labels
+1.  Use `tq_get()` to load information for *GameStop* (ticker: *GME*) and store it in a `data.frame`. Using the arguments `from` and `to` from `tq_get()`, filter for observations between occurring in between December 2020 (beginning of) and March 2021 (end of)
+2.  Use `ggplot(aes(x=date,group=symbol))`, along with `geom_candlestick()` and its appropriate arguments, to chart the historical OHLC prices
+3.  Create a vertical line annotation using `geom_vline`, setting the `xintercept` argument to the date of the Reddit frenzy (`as.Date('2021-01-25')`)
+4.  Use the theme from *The Economist* calling `theme_economist()`. Make sure to have the `ggthemes` package installed and loaded
+5.  Finally, call `theme()` and `labs()` to adjust the aesthetics of your theme and labels as you think it would best convey your message. For example, you can use the `scales` package to format the appearance of your x and y labels (for example, displaying a dollar sign in front of adjusted prices)
 :::
-
--   Share your results with the broader group!
 
 ## Hands-On Exercise, solutions
 
@@ -930,6 +1064,7 @@ GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
 library(tidyquant)
 library(tidyverse)
 library(ggthemes)
+library(scales)
 
 #Setting start/end dates + reddit date
 start='2020-12-01'
@@ -939,7 +1074,7 @@ reddit_date=as.Date('2021-01-25')
 #Get the data
 tq_get('GME',from=start,to=end)%>%
   #Mapping
-  ggplot(aes(x=date,y=adjusted,group=symbol))+
+  ggplot(aes(x=date,group=symbol))+
   #Geom
   geom_candlestick(aes(open = open, high = high, low = low, close = close))+
   #Labels
@@ -972,21 +1107,27 @@ tq_get('GME',from=start,to=end)%>%
 #| echo: false
 #| eval: true
 
+#Setting start/end dates + reddit date
 start='2020-12-01'
 end='2021-03-31'
 reddit_date=as.Date('2021-01-25')
 
+#Get the data
 tq_get('GME',from=start,to=end)%>%
-  ggplot(aes(x=date,y=adjusted,group=symbol))+
+  #Mapping
+  ggplot(aes(x=date,group=symbol))+
+  #Geom
+  geom_candlestick(aes(open = open, high = high, low = low, close = close))+
+  #Labels
   labs(x='',
        y='Adjusted Prices',
-       title='GameStop (ticker: GME) prices during the Reddit (Wall St. Bets) frenzy',
+       title='GameStop (ticker: GME) prices during the reddit (Wall St. Bets) frenzy',
        subtitle='Source: Yahoo! Finance')+
-  geom_candlestick(aes(open = open, high = high, low = low, close = close))+
+  #Annotation
   geom_vline(xintercept=reddit_date,linetype='dashed')+
-  annotate(geom='text',x=reddit_date-2,y=75,label='Reddit Frenzy Starts',angle=90)+
+  annotate(geom='text',x=reddit_date-5,y=75,label='Reddit Frenzy Starts',angle=90)+
   #Scales
-  scale_x_date(date_breaks = '1 week') +
+  scale_x_date(date_breaks = '2 weeks') +
   scale_y_continuous(labels = dollar) +
   #Custom 'The Economist' theme
   theme_economist()+
@@ -994,8 +1135,8 @@ tq_get('GME',from=start,to=end)%>%
   theme(legend.position='none',
         axis.title.y = element_text(vjust=+4,face='bold'),
         axis.title.x = element_text(vjust=-3,face='bold'),
-        plot.title = element_text(size=15),
-        plot.subtitle = element_text(size=12,vjust=-2,hjust=0,margin = margin(b=15)),
+        plot.title = element_text(size=10),
+        plot.subtitle = element_text(size=8,vjust=-2,hjust=0,margin = margin(b=15)),
         axis.text.y = element_text(size=8),
         axis.text.x = element_text(angle=45,size=8,vjust=0.75))
 
