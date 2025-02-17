@@ -304,7 +304,7 @@ $$\small \frac{2.29}{6.73}-1 = -65.9\%$$
 
 ## Average Annual Return and Variance
 
-::: callout-tip
+:::: callout-tip
 ### Definition
 
 ::: nonincremental
@@ -318,7 +318,7 @@ $$\small Var[R] =  \frac{1}{T-1} \sum_{t=1}^{T} (R_t- \overline{R})^2 $$
 
 $$\small SD(R) = \sqrt{Var(R)}$$
 :::
-:::
+::::
 
 ::: callout-important
 ### Important
@@ -393,7 +393,7 @@ SE=SD/sqrt(N)
 
 . . .
 
-::: callout-tip
+:::: callout-tip
 ### Definition
 
 ::: nonincremental
@@ -401,7 +401,7 @@ SE=SD/sqrt(N)
 
 $$SE(R) = \frac{SD(R)}{\sqrt{\text{Number of Observations}}}$$
 :::
-:::
+::::
 
 ## Data Exercise - Standard Error
 
@@ -480,7 +480,7 @@ $$\small CAGR = \bigg[\prod_{i=1}^{`r N`}(1+R_i)\bigg]^{\frac{1}{`r N`}}-1\appro
 
 . . .
 
-::: callout-tip
+:::: callout-tip
 ### Definition
 
 ::: nonincremental
@@ -488,7 +488,7 @@ $$\small CAGR = \bigg[\prod_{i=1}^{`r N`}(1+R_i)\bigg]^{\frac{1}{`r N`}}-1\appro
     1.  The average return for an investment with risk; and
     2.  The average return of a risk-free asset
 :::
-:::
+::::
 
 1.  The relationship is expected to be [positve]{.green} - higher excess returns should be accompained with higher volatility
 2.  In practice the association [is not 100% linear as one might expect]{.blue}!
@@ -579,9 +579,9 @@ $\rightarrow$ *The key takeaway here is that the risk premium of a security is d
 #| message: false
 
 #Generate the .csv file
-tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','BBDC4.SA','EGIE3.SA','B3SA3.SA','AZZA3.SA','GRND3.SA')
+tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','bbdc3.SA','EGIE3.SA','B3SA3.SA','AZZA3.SA','GRND3.SA')
 
-if(!file.exists('Contents/Portfolio_Data.csv')){
+if(!file.exists('Assets/Portfolio_Data.csv')){
   do.call('cbind',
   sapply(tickers,function(x) getSymbols(x,auto.assign = FALSE))%>%
   map(xts::.subset.xts,j=6)%>%
@@ -705,7 +705,7 @@ $\rightarrow$ *Key Takeaway: the return of the market portfolio is simply the su
 
 . . .
 
-::: callout-tip
+:::: callout-tip
 ### Market Risk Premium - Sources
 
 ::: nonincremental
@@ -713,7 +713,7 @@ $\rightarrow$ *Key Takeaway: the return of the market portfolio is simply the su
     1.  *United States and other countries* (A. Damodaran, NYU Stern): access [here](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histimpl.html)
     2.  *Brazil* (CEQEF-FGV): access [here](https://ceqef.fgv.br/sites/default/files/2023-03/Estimacao_ERF%20%281%29.pdf)
 :::
-:::
+::::
 
 # $\beta$ and the Cost of Capital
 
@@ -756,7 +756,7 @@ $\rightarrow$ *Key Takeaway: because the stock riskier than the market portfolio
 #| warning: false
 #| message: false
 
-tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','BBDC4.SA','EGIE3.SA','B3SA3.SA','AZZA3.SA','GRND3.SA','^BVSP')
+tickers=c('PETR3.SA','VALE3.SA','WEGE3.SA','LREN3.SA','RAIZ4.SA','bbdc3.SA','EGIE3.SA','B3SA3.SA','AZZA3.SA','GRND3.SA','^BVSP')
 
 Data = sapply(tickers,function(x) getSymbols(x,auto.assign = FALSE))%>%
       map(xts::.subset.xts,j=6)%>%
