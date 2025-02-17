@@ -823,26 +823,32 @@ FANG%>%
     2.  Other interactive charting libraries: take a look at `highcharter`, a wrapper for a famous JavaScript library - access [here](https://jkunst.com/highcharter/)
     3.  If you wish to know more about the usage of `ggplot2`, nurture your creativity by looking at some community maintained list of examples [here](https://exts.ggplot2.tidyverse.org/gallery/)
 
-
 ## Alternatives to `ggplot2`
 
-- `ggplot2` is, by and large, the richest and most widely used plotting ecosystem in the [{{<fa brands r-project>}}]{.blue} language
+-   `ggplot2` is, by and large, the richest and most widely used plotting ecosystem in the [{{<fa brands r-project>}}]{.blue} language
 
-- However, there are also other interesting options, especially when it comes to [interactive data visualization]{.blue}
-  1. The [plotly](https://plotly.com/r/) ecosystem provides interactive charts for R, Python, Julia, Java, among others - you can install the `R` package using `install.packages('plotly')`
-  
-  2. The [Highcharts](https://www.highcharts.com/) is another option whenever there is a need for interactive data visualization - you can install the `R` package using `install.packages('highcharter')`
+-   However, there are also other interesting options, especially when it comes to [interactive data visualization]{.blue}
 
-- In special, the `highcharter` package works seamlessly with time series data, especially those retrieved by the `tidyquant`'s `tq_get()` function
+    1.  The [plotly](https://plotly.com/r/) ecosystem provides interactive charts for R, Python, Julia, Java, among others - you can install the `R` package using `install.packages('plotly')`
+
+    2.  The [Highcharts](https://www.highcharts.com/) is another option whenever there is a need for interactive data visualization - you can install the `R` package using `install.packages('highcharter')`
+
+-   In special, the `highcharter` package works seamlessly with time series data, especially those retrieved by the `tidyquant`'s `tq_get()` function
 
 ## Using the `highcharter` package
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### Code
+
 ```{r}
 #| echo: true
 #| eval: false
+
+#Install the highcharter package (if not installed yet)
+#install.packages('highcharter')
+
+#Load the highcharter package (if not loaded yet)
+library(highcharter)
 
 #Select the Google Stock with OHLC information and transform to an xts object
 GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
@@ -866,6 +872,13 @@ GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
 #| echo: false
 #| eval: true
 
+#Install the highcharter package (if not installed yet)
+#install.packages('highcharter')
+
+#Load the highcharter package (if not loaded yet)
+library(highcharter)
+
+
 #Select the Google Stock with OHLC information and transform to an xts object
 GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
 
@@ -882,8 +895,6 @@ GOOG=FANG%>%filter(symbol=='GOOG')%>%select(-symbol)%>%as.xts()
   hc_add_theme(hc_theme_economist())
 
 ```
-
-
 :::
 
 ## I hope you are excited to what's next!

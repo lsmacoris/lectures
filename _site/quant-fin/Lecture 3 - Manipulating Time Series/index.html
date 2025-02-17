@@ -524,7 +524,7 @@ Lucas S. Macoris
 <p><strong>Definition</strong></p>
 </div>
 <div class="callout-content">
-<p>The <code>tq_mutate()</code> function adds adds new variables to an existing <code>tibble</code>;</p>
+<p>The <code>tq_mutate()</code> function adds adds new variables to an existing <code>tibble</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">tq_mutate</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
 <span id="cb1-2"><a></a>       selected_variables, <span class="co">#The columns to send to the mutation function</span></span>
@@ -555,7 +555,7 @@ Lucas S. Macoris
 <div class="callout-content">
 <p>The <code>tq_transmute()</code> returns only newly created columns and is typically used when periodicity changes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">tq_mutate</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">tq_transmute</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
 <span id="cb2-2"><a></a>       selected_variables, <span class="co">#The columns to send to the mutation function</span></span>
 <span id="cb2-3"><a></a>       mutate_fun, <span class="co">#The mutation function from either the xts, quantmod, or TTR package.</span></span>
 <span id="cb2-4"><a></a>       col_rename <span class="co">#A string or character vector containing names that can be used to quickly rename columns</span></span>
@@ -639,9 +639,9 @@ Lucas S. Macoris
 </ol></li>
 <li>It is relatively straightforward to do it with <code>tidyquant</code>:
 <ol type="1">
-<li>Download <em>S&amp;P500</em> and <em>NFLX</em> data using the <code>tq_get()</code> function</li>
+<li>Download <em>S&amp;P 500</em> and <em>NFLX</em> data using the <code>tq_get()</code> function</li>
 <li>Use <code>tq_transmute()</code> to compute the weekly returns for each security based on daily data</li>
-<li>Use <code>tq_mutate()</code> to generate a lagged series of <em>S&amp;P500</em> returns</li>
+<li>Use <code>tq_mutate()</code> to generate a lagged series of <em>S&amp;P 500</em> returns</li>
 </ol></li>
 </ul>
 </section>
@@ -741,7 +741,7 @@ Lucas S. Macoris
 <div id="tabset-3-2">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2,542 × 5
+<pre><code># A tibble: 2,543 × 5
 # Groups:   symbol [1]
    symbol date       adjusted   SMA   EMA
    &lt;chr&gt;  &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -755,7 +755,7 @@ Lucas S. Macoris
  8 AMZN   2015-01-13     14.7  14.8  14.8
  9 AMZN   2015-01-14     14.7  14.8  14.8
 10 AMZN   2015-01-15     14.3  14.6  14.6
-# ℹ 2,532 more rows</code></pre>
+# ℹ 2,533 more rows</code></pre>
 </div>
 </div>
 </div>
@@ -776,8 +776,8 @@ Lucas S. Macoris
 </ol></li>
 </ul>
 </section>
-<section id="working-with-time-series-objects-exercise-iii-2" class="slide level2">
-<h2>Working with time series objects, Exercise III</h2>
+<section id="working-with-time-series-objects-exercise-iv-1" class="slide level2">
+<h2>Working with time series objects, Exercise IV</h2>
 <div class="panel-tabset">
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Output</a></li></ul>
 <div class="tab-content">
@@ -805,10 +805,10 @@ Lucas S. Macoris
 # Groups:   Ticker [4]
   Ticker `Cumulative Return up-to-date`
   &lt;chr&gt;  &lt;chr&gt;                         
-1 AMZN   1 411%                        
-2 GOOG   622%                          
-3 META   818%                          
-4 GME    331%                          </code></pre>
+1 AMZN   1 409%                        
+2 GOOG   617%                          
+3 META   821%                          
+4 GME    322%                          </code></pre>
 </div>
 </div>
 </div>
@@ -840,14 +840,14 @@ Lucas S. Macoris
 <section id="hands-on-exercise" class="slide level2">
 <h2>Hands-On Exercise</h2>
 <ul>
-<li><p>Your manager (who did not lift any weights past the last 5 years) wanted to replicate the returns of the <em>Deadlift ETF</em> from 2020 to 2024. You job is to create a simple table of yearly returns comparing the <em>Deadlift ETF</em> <em>vis-a-vis</em> the <em>S&amp;P500</em> Index</p></li>
+<li><p>Your manager (who did not lift any weights past the last 5 years) wanted to replicate the returns of the <em>Deadlift ETF</em> from 2020 to 2024. You job is to create a simple table of yearly returns comparing the <em>Deadlift ETF</em> <em>vis-a-vis</em> the <em>S&amp;P 500</em> Index</p></li>
 <li><p>Follow the instructions and answer to the following questions:</p>
 <ol type="1">
-<li><strong>When looking at the yearly results from both the <em>Deadlift ETF</em> and <em>S&amp;P500</em>, which one did perform better?</strong></li>
+<li><strong>When looking at the yearly results from both the <em>Deadlift ETF</em> and <em>S&amp;P 500</em>, which one did perform better?</strong></li>
 <li><strong>What are the potential explanations for the result you have found?</strong></li>
 </ol></li>
 <li><p>To answer to these questions, you will be using the a combination of <code>dplyr</code> and <code>tidyquant</code> functions you have learned so far</p></li>
-<li><p>The expected result is a <code>data.frame</code> object that shows both the <em>Deadlift ETF</em> as well as the <em>S&amp;P500</em> returns (columns) on a yearly basis (rows)</p></li>
+<li><p>The expected result is a <code>data.frame</code> object that shows both the <em>Deadlift ETF</em> as well as the <em>S&amp;P 500</em> returns (columns) on a yearly basis (rows)</p></li>
 </ul>
 <p><span class="math inline">\(\rightarrow\)</span> <em>Suggested solution will be provided in the replication file for this lecture.</em></p>
 </section>
@@ -871,6 +871,74 @@ Lucas S. Macoris
 <li>For the <em>Deadlift</em> data set, regroup the data by <code>date</code> and calculate the <em>Deadlift</em> returns using a <code>mutate()</code> function (<em>Hint: it is an equally weighted portfolio</em>)</li>
 <li>Merge both datasets using <code>inner_join()</code></li>
 </ol>
+</div>
+</div>
+</div>
+</section>
+<section id="solution" class="slide level2">
+<h2>Solution</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># Set up the list of assets</span></span>
+<span id="cb11-2"><a></a>deadlift<span class="ot">=</span><span class="fu">c</span>(<span class="st">'META'</span>,<span class="st">'AMZN'</span>,<span class="st">'GS'</span>,<span class="st">'UBER'</span>,<span class="st">'MSFT'</span>,<span class="st">'AAPL'</span>,<span class="st">'BLK'</span>,<span class="st">'NVDA'</span>)</span>
+<span id="cb11-3"><a></a></span>
+<span id="cb11-4"><a></a><span class="co">#Set up the starting date</span></span>
+<span id="cb11-5"><a></a>start<span class="ot">=</span><span class="st">'2020-01-01'</span></span>
+<span id="cb11-6"><a></a>end<span class="ot">=</span><span class="st">'2024-12-31'</span></span>
+<span id="cb11-7"><a></a></span>
+<span id="cb11-8"><a></a><span class="co">#Step 1: Read the Deadlift data using tidyquant</span></span>
+<span id="cb11-9"><a></a>Deadlift_Performance<span class="ot">=</span>deadlift<span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a></a>  <span class="fu">tq_get</span>(<span class="at">from=</span>start,<span class="at">to=</span>end)<span class="sc">%&gt;%</span></span>
+<span id="cb11-11"><a></a>  <span class="co">#Select only the columns of interest</span></span>
+<span id="cb11-12"><a></a>  <span class="fu">select</span>(symbol,date,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb11-13"><a></a>  <span class="co">#Group by symbol and date</span></span>
+<span id="cb11-14"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb11-15"><a></a>  <span class="co">#Use tq_transmute to aggregate and calculate weekly returns</span></span>
+<span id="cb11-16"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">selected=</span>adjusted,</span>
+<span id="cb11-17"><a></a>               <span class="at">mutate_fun=</span>yearlyReturn,</span>
+<span id="cb11-18"><a></a>               <span class="at">col_rename =</span> <span class="st">'Deadlift'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb11-19"><a></a>  <span class="co">#Group by date</span></span>
+<span id="cb11-20"><a></a>  <span class="fu">group_by</span>(date)<span class="sc">%&gt;%</span></span>
+<span id="cb11-21"><a></a>  <span class="co">#Summarize average return (since it is an equally-weighted portfolio)</span></span>
+<span id="cb11-22"><a></a>  <span class="fu">summarize</span>(<span class="at">Deadlift=</span><span class="fu">mean</span>(Deadlift,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb11-23"><a></a></span>
+<span id="cb11-24"><a></a><span class="co">#Step 2: Read the S&amp;P 500 data using tidyquant</span></span>
+<span id="cb11-25"><a></a>SP500_Performance<span class="ot">=</span><span class="fu">tq_get</span>(<span class="st">'^GSPC'</span>,<span class="at">from=</span>start,<span class="at">to=</span>end)<span class="sc">%&gt;%</span></span>
+<span id="cb11-26"><a></a>  <span class="co">#Select only the columns of interest</span></span>
+<span id="cb11-27"><a></a>  <span class="fu">select</span>(symbol,date,adjusted)<span class="sc">%&gt;%</span></span>
+<span id="cb11-28"><a></a>  <span class="co">#Group by symbol and date</span></span>
+<span id="cb11-29"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb11-30"><a></a>  <span class="co">#Use tq_transmute to aggregate and calculate weekly returns</span></span>
+<span id="cb11-31"><a></a>  <span class="fu">tq_transmute</span>(<span class="at">selected=</span>adjusted,</span>
+<span id="cb11-32"><a></a>               <span class="at">mutate_fun=</span>yearlyReturn,</span>
+<span id="cb11-33"><a></a>               <span class="at">col_rename =</span> <span class="st">'SP500'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb11-34"><a></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb11-35"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>symbol)</span>
+<span id="cb11-36"><a></a>    </span>
+<span id="cb11-37"><a></a><span class="co">#Merge</span></span>
+<span id="cb11-38"><a></a>SP500_Performance<span class="sc">%&gt;%</span></span>
+<span id="cb11-39"><a></a>  <span class="fu">inner_join</span>(Deadlift_Performance)<span class="sc">%&gt;%</span></span>
+<span id="cb11-40"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric),percent))<span class="sc">%&gt;%</span></span>
+<span id="cb11-41"><a></a>  <span class="fu">mutate</span>(<span class="at">date=</span><span class="fu">year</span>(date))<span class="sc">%&gt;%</span></span>
+<span id="cb11-42"><a></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">'Year'</span>,<span class="st">'S&amp;P 500'</span>,<span class="st">'DeadLift ETF'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+   Year `S&amp;P 500` `DeadLift ETF`
+  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;         
+1  2020 15.29%    57.9%         
+2  2021 26.89%    37.2%         
+3  2022 -19.44%   -36.0%        
+4  2023 24.23%    100.5%        
+5  2024 23.84%    52.1%         </code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
