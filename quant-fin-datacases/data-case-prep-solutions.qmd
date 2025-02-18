@@ -190,6 +190,33 @@ YAHOO_SAMPLE%>%
        subtitle='Source: Yahoo! Finance',
        x='Date',
        y='Adjusted Prices')+
-  facet_wrap(symbol~.,nrow=3,ncol=2)
+  facet_wrap(symbol~.,nrow=3,ncol=2)+
+  theme_minimal()
+```
 
+
+5. Apply a predefined theme using the `theme_minimal()` function.
+
+```{r}
+#| warning: false
+#| message: false
+
+YAHOO_SAMPLE%>%
+  ggplot(aes(x=date,y=adjusted,group=symbol))+
+  geom_line()+
+  labs(title='Stock prices over time',
+       subtitle='Source: Yahoo! Finance',
+       x='Date',
+       y='Adjusted Prices')+
+  facet_wrap(symbol~.,nrow=3,ncol=2)+
+  theme_minimal()
+```
+
+6. Save your plot using the `ggsave()` function. To use it, call `ggsave('myplot.jpg',width=10,height = 6)` to save the last plot that has been prompted to your terminal using a 10x6 resolution (in units).
+
+```{r}
+#| warning: false
+#| message: false
+
+ggsave('myplot.jpg',width=10,height = 6)
 ```

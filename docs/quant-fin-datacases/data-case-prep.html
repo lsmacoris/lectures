@@ -309,6 +309,7 @@ Note
 <p>For the remainder of the sessions, you will use financial data from multiple sources, either that being from a local file or a pull from <em>Yahoo! Finance</em>. Whenever you are working with local files, it is always important to make sure that your R is able to locate it. To check the working directory of your session, simply type <code>getwd()</code>, and it will prompt your current directory. If you want to change your directory, simply type <code>setwd('C:/path/to/your/folder')</code> with the specific path to your desired folder. To make sure that you switched directories, you can type <code>getwd()</code> to confirm the new directory.</p>
 <p>Most of the issues regarding not being able to load a specific file, like <code>.csv</code> and <code>.xlsx</code> spreadsheets can be easily solved by placing your R file (either a plain script, like <code>myscript.R</code>, or a quarto document, <code>myquartodoc.qmd</code>) in the <strong>same</strong> folder as of your data. When you open your R script or Quarto document, it will automatically set that folder (which coincides with the data folder) as the working directory. To confirm which files are available to you, you can simply type <code>list.files()</code> to get the list of all files that R can find in the working directory.</p>
 <p>If you prefer, whenever you are calling a function that requires a path to your computer, you can always provide the full path of the file: for example, using <code>"C:/Users/Lucas/Documents/GitHub/Folder/test.csv'</code> would find the <code>test.csv</code> even if <code>Folder</code> is not your working directory.</p>
+<p>Whenever you are unsure about how a specific function works, type the function in an R script and you will notice that RStudio will auto complete the function name for you. To get more information on a given function’s arguments, hit <code>F1</code> to see a description at the bottom-right of your session.</p>
 </div>
 </div>
 </section>
@@ -316,7 +317,7 @@ Note
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p><strong>This exercise aims to gauge your skill in fetching data in <code>R</code> through different sources. You are asked to work on the following questions:</strong></p>
 <ol type="1">
-<li><p>Go to our <em>eClass®</em> and download the <em>Ibovespa_Sample.txt</em> file inside the <em>Data Cases</em> folder. This file contains stock price information regarding 10 publicly traded companies that are part of the Brazilian market index, <em>Ibovespa</em>.</p></li>
+<li><p>Go to our <em>eClass®</em> and download the <em>Ibovespa_Sample.txt</em> file inside the <em>Data Cases</em> folder. This file contains stock price information regarding 6 publicly traded companies that are part of the Brazilian market index, <em>Ibovespa</em>.</p></li>
 <li><p>Read the file into your session using the <code>read_delim()</code> function, and assign to an object called <code>FILE_SAMPLE</code>. Make sure you have the <code>tidyverse</code> package loaded. Depending on how your computer reads delimited data, you may need to set the argument <code>sep</code> to <code>sep=';'</code> or <code>sep=' '</code>.</p></li>
 <li><p>Inspect the first 10 lines of the object you have just created using the <code>head()</code> function, setting <code>n=10</code> as an argument.</p></li>
 <li><p>How many rows and columns does your object have? You can use the function <code>dim(yourdata)</code> to find the exact dimensions.</p></li>
@@ -332,7 +333,13 @@ Hint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can use the <code>unique(FILE_SAMPLE$symbol)</code> to find the exact tickers contained in the file, and assign it to a new object, <code>assets</code>, which will then be piped onto a call to <code>tq_get()</code>.</p>
+<p>Remember that the syntax for using <code>tq_get()</code> to collect stock prices is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_stocks <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(<span class="fu">c</span>(<span class="st">"stock1"</span>, <span class="st">"stock2"</span>),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">from =</span> <span class="st">"YYYY-MM-DD"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">to   =</span> <span class="st">"YYYY-MM-DD"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Furthermore, you can use the <code>unique(FILE_SAMPLE$symbol)</code> to find the exact tickers contained in the file, and assign it to a new object, <code>assets</code>, which will then be piped onto a call to <code>tq_get()</code>.</p>
 </div>
 </div>
 <ol start="6" type="1">
@@ -357,11 +364,11 @@ Hint
 <div class="callout-body-container callout-body">
 <p>Recall that the syntax for using the <code>mutate</code> function is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">new_variable_1 =</span> var1 <span class="sc">*</span> <span class="dv">2</span>, <span class="co">#Can use basic operations...</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">new_variable_2 =</span> <span class="fu">median</span>(var2), <span class="co">#Or predefined functions)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">variable_3 =</span> <span class="fu">as.character</span>(var3) <span class="co">#And can be used to modify existing variables)</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">new_variable_1 =</span> var1 <span class="sc">*</span> <span class="dv">2</span>, <span class="co">#Can use basic operations...</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">new_variable_2 =</span> <span class="fu">median</span>(var2), <span class="co">#Or predefined functions)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">variable_3 =</span> <span class="fu">as.character</span>(var3) <span class="co">#And can be used to modify existing variables)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Furthermore, recall that you can always use the pipe operator (<code>%&gt;%</code>) to chain operations along the way whenever you are using the <code>tidyverse</code>.</p>
 </div>
@@ -381,12 +388,12 @@ Hint
 <div class="callout-body-container callout-body">
 <p>Recall that the syntax for using the <code>filter</code> function is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(.data, <span class="co">#The object which you are performing the operations</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       variable_1 <span class="sc">&gt;</span><span class="dv">10</span>, <span class="co">#Simple arithmetic operators</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       variable_2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'AAPL'</span>,<span class="st">'MSFT'</span>,<span class="st">'FORD'</span>), <span class="co">#Pattern search</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="sc">!</span>(variable_3 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Boston'</span>,<span class="st">'Mass'</span>,<span class="st">'Silicon Valley'</span>)), <span class="co">#Negate pattern search</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       variable_4 <span class="sc">&gt;=</span><span class="dv">10</span> <span class="sc">&amp;</span> variable_3<span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">|</span> <span class="fu">is.na</span>(variable_4) <span class="co">#IF and OR conditions</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(.data, <span class="co">#The object which you are performing the operations</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       variable_1 <span class="sc">&gt;</span><span class="dv">10</span>, <span class="co">#Simple arithmetic operators</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>       variable_2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'AAPL'</span>,<span class="st">'MSFT'</span>,<span class="st">'FORD'</span>), <span class="co">#Pattern search</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>       <span class="sc">!</span>(variable_3 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Boston'</span>,<span class="st">'Mass'</span>,<span class="st">'Silicon Valley'</span>)), <span class="co">#Negate pattern search</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>       variable_4 <span class="sc">&gt;=</span><span class="dv">10</span> <span class="sc">&amp;</span> variable_3<span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">|</span> <span class="fu">is.na</span>(variable_4) <span class="co">#IF and OR conditions</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>       ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -403,19 +410,13 @@ Hint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Recall that the syntax for using both <code>tq_mutate</code> and <code>tq_transmute</code> function is:</p>
+<p>Recall that the syntax for using the <code>tq_transmute</code> function is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tq_mutate</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       selected_variables, <span class="co">#The columns to send to the mutation function</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>       mutate_fun, <span class="co">#The mutation function from either the xts, quantmod, or TTR package.</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>       col_rename <span class="co">#A string or character vector containing names that can be used to quickly rename columns</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>       )</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tq_transmute</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>       selected_variables, <span class="co">#The columns to send to the mutation function</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>       mutate_fun, <span class="co">#The mutation function from either the xts, quantmod, or TTR package.</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>       col_rename <span class="co">#A string or character vector containing names that can be used to quickly rename columns</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tq_transmute</span>(.data, <span class="co">#The object you are performing the calculations </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>       selected_variables, <span class="co">#The columns to send to the mutation function</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>       mutate_fun, <span class="co">#The mutation function from either the xts, quantmod, or TTR package.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>       col_rename <span class="co">#A string or character vector containing names that can be used to quickly rename columns</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -436,9 +437,13 @@ Hint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Recall that the syntax for mapping your data to <code>ggplot</code> is:</p>
+<p>Recall that the syntax for mapping your data to <code>ggplot</code> and adding further layers for adjusting aesthetics is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>your_data, <span class="fu">aes</span>(<span class="at">x=</span> variable_1, <span class="at">y=</span>variable_2, <span class="at">group=</span>your_group,...))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>your_data, <span class="fu">aes</span>(<span class="at">x=</span> variable_1, <span class="at">y=</span>variable_2, <span class="at">group=</span>your_group,...))<span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>geom_{yourgeom} <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">additional_layer_1</span>()<span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">additional_layer_2</span>()<span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">any_additional_layer_commands</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -446,6 +451,8 @@ Hint
 <li><p>Add a geometry layer to your chart using the <code>geom_line()</code> function and call it in your terminal.</p></li>
 <li><p>Change the titles of your x and y axis, as well as chart title and subtitle using the <code>labs()</code> function.</p></li>
 <li><p>Facet your data by each symbol using the <code>facet_wrap(symbol~.)</code> function. Set the arguments of this function in such a way that you have a 2x3 orientation (<em>i.e</em>, <code>nrow=2</code> and <code>ncol=2</code>).</p></li>
+<li><p>Apply a predefined theme using the <code>theme_minimal()</code> function.</p></li>
+<li><p>Save your plot using the <code>ggsave()</code> function. To use it, call <code>ggsave('myplot.jpg',width=10,height = 6)</code> to save the last plot that has been prompted to your terminal using a 10x6 resolution (in units).</p></li>
 </ol>
 
 
