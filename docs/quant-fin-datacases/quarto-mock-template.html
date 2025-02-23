@@ -113,35 +113,6 @@ gtag('js', new Date());
 gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -287,37 +258,6 @@ window.Quarto = {
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(scales)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggthemes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p><strong>This exercise aims to gauge your skill in fetching data in <code>R</code> through different sources. You are asked to work on the following questions:</strong></p>
-<ol type="1">
-<li><p>Go to our <em>eClass®</em> and download the <em>Ibovespa_Sample.txt</em> file inside the <em>Data Cases</em> folder. This file contains stock price information regarding 10 publicly traded companies that are part of the Brazilian market index, <em>Ibovespa</em>.</p></li>
-<li><p>Read the file into your session using the <code>read_delim()</code> function, using the argument <code>sep=';'</code>, and assign to an object called <code>FILE_SAMPLE</code>. Make sure you have the <code>tidyverse</code> package loaded.</p></li>
-<li><p>Inspect the first 10 lines of the object you have just created using the <code>head()</code> function, setting <code>n=10</code> as an argument.</p></li>
-<li><p>How many rows and columns does your object have?</p></li>
-<li><p>Alternatively, fetch the exact same stock level information directly from <em>Yahoo! Finance</em> using the <code>tq_get()</code> function. Collect the data beginning in 2020 (January <span class="math inline">\(1^{st}\)</span> until the end of 2024 (December <span class="math inline">\(31^{st}\)</span>) using the <code>from</code> and <code>to</code> arguments of the <code>tq_get()</code> function. Make sure you have the <code>tidyquant</code> package loaded. Assign this data to a new object in your <code>R</code> session called <code>YAHOO_SAMPLE</code>.</p></li>
-<li><p>How many rows and columns does this new object have?</p></li>
-</ol>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p><strong>This exercise aims to gauge your skill on manipulating data using the <code>tidyverse</code> and the <code>tidyquant</code>. After loading these packages, provide your answers to the following questions:</strong></p>
-<ol type="1">
-<li><p>Using the <code>YAHOO_SAMPLE</code> you created before, create a new column, <code>Year</code>, that is defined as the year of a given timestamp found in the <code>date</code> column. You can use <code>year(date)</code> along with a <code>mutate</code> function to create this new variable. Update your <code>YAHOO_SAMPLE</code> object to make sure you have saved this variable.</p></li>
-<li><p>Using the updated <code>YAHOO_SAMPLE</code> object, use the <code>filter</code> function to filter for observations that occur between <span class="math inline">\(2023\)</span> and <span class="math inline">\(2024\)</span>, use <code>group_by()</code> to group the data by <code>symbol</code> and <code>Year</code>, and use the <code>summarize</code> the function to create a new variable, <code>avg_price</code>, defined as the average <code>adjusted</code> prices for each year-symbol combination. Sort your dataset by <code>year</code> and <code>avg_price</code> (highest-to-lowest), storing this result in an object called <code>2023_2024_Summary</code> and call it in your terminal. Which company had the highest price levels, and which one had the lowest?</p></li>
-<li><p>Using the <code>YAHOO_SAMPLE</code> dataset, group your data by <code>symbol</code> and create a summary of returns up-to-date. To do that, first pipe the grouped data into the <code>tq_mutate</code> function to create a new variable, <code>daily_return</code>, using the <code>dailyReturn</code> function. After that, pipe the result into the <code>tq_transmute</code> function applying the <code>Return.cumulative</code> to the <code>daily_return</code> column, assigning it to a new variable <code>cum_return</code>. Arrange your result by <code>Year</code> and <code>cum_return</code>. Which stock had the best performance, and which stock had the worst?</p></li>
-</ol>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p><strong>This exercise aims to gauge your skill on data visualization using the <code>ggplot2</code> package. After loading this package, provide your answers to the following questions:</strong></p>
-<ol type="1">
-<li><p>Using the <code>YAHOO_SAMPLE</code> object, create a <code>ggplot</code> object with the follow <code>aes</code>: the <code>x</code> component should refer to the <code>date</code> column, the <code>y</code> axis should refer to the <code>adjusted</code> column, and the <code>group</code> argument should refer to the <code>symbol</code> column.</p></li>
-<li><p>Add a geometry layer to your chart using the <code>geom_line()</code> function and call it in your terminal.</p></li>
-<li><p>Change the titles of your x and y axis, as well as chart title and subtitle using the <code>labs()</code> function.</p></li>
-<li><p>Facet your data by each symbol using the <code>facet_wrap(symbol~.)</code> function. Set the arguments of this function in such a way that you have a 2x3 orientation (<em>i.e</em>, <code>n_row=3</code> and <code>n_col=2</code>).</p></li>
-</ol>
 
 
 </section>
