@@ -177,7 +177,7 @@ YAHOO_SAMPLE%>%
 
 ```
 
-4.  Facet your data by each symbol using the `facet_wrap(symbol~.)` function. Set the arguments of this function in such a way that you have a 2x3 orientation (*i.e*, `nrow=2` and `ncol=2`).
+4.  Facet your data by each symbol using the `facet_wrap(symbol~.)` function. Set the arguments of this function in such a way that you have a 2x3 orientation (*i.e*, `nrow=2` and `ncol=3`).
 
 ```{r}
 #| warning: false
@@ -194,8 +194,7 @@ YAHOO_SAMPLE%>%
   theme_minimal()
 ```
 
-
-5. Apply a predefined theme using the `theme_minimal()` function.
+5.  Apply a predefined theme using the `theme_minimal()` function.
 
 ```{r}
 #| warning: false
@@ -212,7 +211,7 @@ YAHOO_SAMPLE%>%
   theme_minimal()
 ```
 
-6. Save your plot using the `ggsave()` function. To use it, call `ggsave('myplot.jpg',width=10,height = 6)` to save the last plot that has been prompted to your terminal using a 10x6 resolution (in units).
+6.  Save your plot using the `ggsave()` function. To use it, call `ggsave('myplot.jpg',width=10,height = 6)` to save the last plot that has been prompted to your terminal using a 10x6 resolution (in units).
 
 ```{r}
 #| warning: false
