@@ -73,9 +73,9 @@ To do that, download the file, open it up in RStudio, and render the Quarto docu
 
 You can find the permanent links to the replication files (`.qmd`) below:
 
-1. Bridging Finance with Programming - access [here](https://lsmacoris.github.io/lectures/quant-fin-replications/L1/L1-Replication.html)
-2. Collecting, Organizing, and Manipulating Financial Data - access [here](https://lsmacoris.github.io/lectures/quant-fin-replications/L2/L2-Replication.html)
-3. Manipulating Time Series Data - access [here](https://lsmacoris.github.io/lectures/quant-fin-replications/L3/L3-Replication.html)
-4. Data Visualization - access [here](https://lsmacoris.github.io/lectures/quant-fin-replications/L4/L4-Replication.html)
+1. Bridging Finance with Programming - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L1/L1-Replication.html)
+2. Collecting, Organizing, and Manipulating Financial Data - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L2/L2-Replication.html)
+3. Manipulating Time Series Data - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L3/L3-Replication.html)
+4. Data Visualization - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L4/L4-Replication.html)
 
 :::
