@@ -1,0 +1,683 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  live-revealjs:
+    title: 'Bridging Finance with Programming'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: false
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    show-hints: true
+    show-solutions: true
+    webr:
+    packages:
+      - tidyverse
+      - xts
+      - glue
+      - scales
+    resources:
+      - Assets
+    render-df: gt-interactive
+
+editor: visual
+from: markdown+emoji
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+This page was intentionally left blank
+
+{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
+
+```{r}
+#| echo: false
+
+source('../~ Metadata/packages.R')
+
+```
+
+```{r echo=FALSE}
+# Load all packages
+invisible(lapply(packages, library, character.only = TRUE))
+
+assets= c('AAPL','MSFT','NVDA')
+asset_list=lapply(assets,function(x) getSymbols(x,auto.assign = FALSE))%>%
+  setNames(assets)%>%
+  map(as.data.frame)%>%
+  map(rownames_to_column)%>%
+  map(~setNames(.,c('Timestamp','Open','High','Low','Close','Volume','Adjusted')))
+
+walk2(assets,asset_list,\(name,df) write_csv(df,glue('Assets/{name}.csv')))
+
+do.call('merge.xts',
+        lapply(assets,function(x) getSymbols(x,auto.assign = FALSE))%>%setNames
+        (assets))%>%
+  as.data.frame()%>%
+  rownames_to_column('Timestamp')%>%
+  write.csv('Assets/Multiple_Assets.csv',row.names = FALSE)
+
+```
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+    1.  *Tidy Finance* [@tidyfinance]
+    2.  *R for Data Science* [@r4ds]
+
+::: callout-note
+### Coding Replications
+
+For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
+
+1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
+2.  Along with the slides, this lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased. This file, that will be posted on *eClass®*, can be downloaded and replicated on your side. To do that, download the file, open it up in *RStudio*, and render the Quarto document using the *Render* button (shortcut: `Ctrl+Shift+K`).
+3.  At the end of this lecture, you will be prompted with a hands-on exercise to test your skills using the tools you've learned as you made your way through the slides. A suggested solution will be provided in the replication file.
+:::
+
+# Bridging Finance and R
+
+## The Tools of the Trade, part I: the *data*
+
+-   For most of the topics within the study of finance, there is a well-grounded, established use of statistical, economic, and mathematical concepts that set the stage for data analysis:
+
+    1.  Macroeconomic analysts use time-series models to predict future interest rates
+    2.  Financial analysts study the potential effects in stock prices of issuing equity
+    3.  Hedge Fund Managers use models to predict inflation and adjust their positions
+
+. . .
+
+-   Back in the pre-internet era, the use of technology to support those activities was limited to a smaller set of players (*e.g*, hedge funds, banks, investment trusts). Nowadays, financial information is accessible to the broader public almost in real time:
+
+    1.  [*Yahoo! Finance*](https://finance.yahoo.com/) provides data on stocks, ETFs, and market indices
+    2.  [*EDGAR*](https://www.sec.gov/search-filings) provides information on all periodic fillings provided by US-listed companies
+    3.  A wide range of social media platforms, such as [X](www.x.com) (formerly Twitter) and [Reddit](www.reddit.com), have been recently use as a way to spread and collect financial information
+
+## The Tools of the Trade, part II: the *technology*
+
+-   Not only the availability of financial data, but also the necessary *technology* to process it, were among the bottlenecks for the adoption of such methods in financial practice
+
+-   Nowadays, the widespread adoption of open-source technologies, such as [{{<fa brands r-project>}}]{.blue} and [{{<fa brands python>}}]{.blue}, helped bridging the gap towards a more inclusive environment for those methods
+
+-   Despite such advances, one quickly learns that the actual implementation of models to solve problems in the area of financial economics is typically rather *opaque*:
+
+    1.  There is lack of public, centralized code readily available for use
+    2.  Analysts employ a substantial amount of wasteful efforts trying to replicate results
+
+. . .
+
+-   It is often said that [more than 80 percent of data analysis]{.blue} is spent on preparing data rather than analyzing it. **How do you solve for that?**
+
+## Why *Tidy*?
+
+-   It is often said that [more than 80 percent of data analysis]{.blue} is spent on preparing data rather than analyzing it
+
+-   As you start working with data, you quickly realize that you indeed spend a lot of time reading, cleaning, and transforming your data just
+
+::: callout-tip
+### A note on Tidy Data
+
+*"Tidy datasets are all alike, but every messy dataset is messy in its own way. Tidy datasets provide a standardized way to link the structure of a dataset (its physical layout) with its semantics (its meaning)."*
+:::
+
+-   In its essence, tidy data mainly follows [three]{.blue} principles:
+
+    1.  Every column is a variable
+    2.  Every row is an observation
+    3.  Every cell is a single value
+
+## Why *Tidy*? Continued
+
+-   In addition to the data layer, there are also tidy coding principles outlined in the tidy tools manifesto that we'll try to follow:
+
+    1.  Reuse existing data structures
+    2.  Compose simple functions with chaining methods
+    3.  Embrace functional programming
+    4.  Design for humans, improved readability
+
+-   Luckily, the [{{<fa brands r-project>}}]{.blue} community has already took a stab at creating tools and organizing a unified approach towards *tidy* analysis
+
+-   Amongst a diverse set of option for *tidy* data manipulation, the [tidyverse](https://www.tidyverse.org/) contains packages that follow a unified approach
+
+## Introducing: the *tidyverse*
+
+:::::: columns
+:::: {.column width="60%"}
+::: nonincremental
+-   The `tidyverse` is an opinionated collection of [{{<fa brands r-project>}}]{.blue} *packages* designed for data science
+
+-   All packages share an underlying design *philosophy*, *grammar*, and *data structures*
+
+-   It is supported by [Posit](www.posit.co), the maintainer of [RStudio](https://posit.co/products/open-source/rstudio/) and R's largest open-source contributor[^1]
+
+-   You can install the complete `tidyverse` using:
+
+```{r}
+#| eval: false
+#| echo: true
+
+install.packages("tidyverse")
+```
+
+-   To load `tidyverse` in your session, simply run:
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(tidyverse)
+```
+:::
+::::
+
+::: {.column width="40%"}
+![](Images/F1.png){fig-align="center"}
+:::
+::::::
+
+[^1]: Posit recently hired [Wes McKinney](https://wesmckinney.com/), the creator of [pandas](https://pandas.pydata.org/), highlighting its efforts to harmonize innovations among Python users.
+
+## The *tidyverse* packages: `dplyr`
+
+:::::: nonincremental
+-   [`dplyr`](https://dplyr.tidyverse.org/) is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges:
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/dplyr.png)
+:::
+
+::: {.column width="75%" text-align="center"}
+1.  `mutate()` adds new variables that are functions of existing variables
+2.  `select()` picks variables based on their names
+3.  `filter()` picks cases based on their values
+4.  `summarise()` reduces multiple values down to a single summary
+5.  `arrange()` changes the ordering of the rows
+:::
+:::::
+
+**Key Highlights**
+
+1.  These all combine with `group_by()`, allowing users to perform operations groupwise
+2.  Lazy evaluation methods, as well as the pipe operator, `%>%`, increases code readability and reproducibility
+::::::
+
+## Using `dplyr`
+
+```{webr}
+library(tidyverse)
+library(scales)
+
+read.csv('Assets/NVDA.csv')%>%
+  select(Timestamp,Adjusted)%>%
+  mutate(Date=as.Date(Timestamp),
+         Year=year(Date))%>%
+  filter(Year!='2025')%>%
+  arrange(Date)%>%
+  mutate(Return = Adjusted/lag(Adjusted,1)-1)%>%
+  group_by(Year)%>%
+  summarize(
+    `Average Daily Return` = percent(mean(Return,na.rm=TRUE),accuracy = 0.01),
+    `Annualized Return`= percent(prod(1+Return,na.rm=TRUE)-1,accuracy = 0.01))
+  
+```
+
+## The *tidyverse* packages: `ggplot2`
+
+:::::: nonincremental
+-   The core `tidyverse` includes the packages that you’re likely to use in everyday data analyses. As of its 1.3.0 version, the following packages are included in the core `tidyverse`:
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/ggplot2.png)
+:::
+
+::: {.column width="75%" text-align="center"}
+-   [`ggplot2`](https://ggplot2.tidyverse.org/) is a system for declaratively creating graphics, based on [The Grammar of Graphics](https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl)
+
+-   You provide the data, tell how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details
+:::
+:::::
+
+**Key Highlights**
+
+1.  It is, by and large, the richest and most widely used plotting ecosystem in the [{{<fa brands r-project>}}]{.blue} language
+2.  `ggplot2` has a rich ecosystem of extensions - ranging from annotations and interactive visualizations to specialized genomics - click [here](https://exts.ggplot2.tidyverse.org/gallery/) a community maintained list
+::::::
+
+## Using `ggplot2`
+
+```{webr}
+library(tidyverse)
+library(scales)
+
+read.csv('Assets/NVDA.csv')%>%
+  select(Timestamp,Adjusted)%>%
+  mutate(Date=as.Date(Timestamp))%>%
+  arrange(Date)%>%
+  filter(year(Date) %in% c(2023,2024))%>%
+  ggplot(aes(x=Date,y=Adjusted))+
+  geom_line()+
+  theme_light()+
+  labs(title = 'Nvidia stock prices between 2023 and 2024',
+       subtitle = 'Source: Yahoo! Finance',
+       x='',
+       y='Adjusted Close (in $)')+
+  scale_y_continuous(labels = dollar)
+```
+
+## The *tidyverse* packages: `tidyr`
+
+:::::: nonincremental
+-   The goal of [`tidyr`](https://tidyr.tidyverse.org/) is to help you create tidy data. Tidy data is data where:
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/tidyr.png)
+:::
+
+::: {.column width="75%" text-align="center"}
+1.  Each variable is a column; each column is a variable
+2.  Each observation is a row; each row is an observation
+3.  Each value is a cell; each cell is a single value
+:::
+:::::
+
+**Key Highlights**
+
+1.  Tidy data describes a standard way of storing data that is used wherever possible throughout the `tidyverse`
+2.  It makes it easier to put reshape data in a way that it can be used as an input to other `tidyverse` packages
+::::::
+
+## Using `tidyr`
+
+```{webr}
+#| warning: FALSE
+library(tidyverse)
+library(scales)
+
+read.csv('Assets/Multiple_Assets.csv')%>%
+  pivot_longer(cols=matches('Open|High|Low|Close|Volume|Adjusted'),
+               names_to = c('Asset','Metric'),
+               names_sep = '\\.',
+               values_to = 'Value')%>%
+  mutate(Date=as.Date(Timestamp),
+         Year=year(Date))%>%
+  group_by(Asset,Metric,Year)%>%
+  summarize(Value=mean(Value,na.rm=TRUE))%>%
+  pivot_wider(names_from = c('Metric'),values_from = 'Value')
+
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(scales)
+
+read.csv('Assets/Multiple_Assets.csv')%>%
+  download_this(
+    output_name = "multiple_assets",
+    output_extension = ".xlsx",
+    button_label = "Download raw data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+# Accessing and Managing Financial Data
+
+## Accessing and Managing Financial Data
+
+-   Everybody who has experience working with data is also familiar with storing and reading data in formats like `.csv`, `.xls`, `.xlsx` or other delimited value storage
+
+-   However, if your goal is to replicate a common task at a predefined time interval, like charting weekly stock prices for a selected bundle of stocks every end-of-week, it might be overwhelming to manually perform these tasks every week
+
+-   In what follows, we'll dive in the various sources of financial data - both *global* as well as specific to the *Brazilian* financial markets that can be directly fed into your `R` session:
+
+    1.  We will cover the most widely used free data resources for Finance, like *Yahoo! Finance*
+    2.  We will also discuss linkages to private information sources, such as *Bloomberg*
+    3.  Finally, we will take a look at some output data examples from some data providers
+
+## The basics: stock-level information
+
+-   So... you have been prompted with the task of collecting daily stock price information for a subset of the *U.S Big Techs*. How should you do it?
+
+-   In a nutshell, [*Yahoo! Finance*](https://finance.yahoo.com/) is your go-to guy:
+
+    1.  It provides financial news, data and commentary including stock quotes, press releases, financial reports, and original content
+    2.  It has an extensive list of open-source solutions that enables users to retrieve financial information using several coding languages
+
+-   [Highlights]{.green}: free, quick and easy to setup, with an impressive range of data containing stock prices, dividends, and splits. There is an extensive list of `R` packages can be used to retrieve *Yahoo! Finance* information - including, but not limited to, `tidyquant`, `quantmod` and `yfR`
+
+-   [Drawbacks]{.red}: its API is no longer a fully official API: as a consequence, solutions tipically used to retrieve information may not work in the future if Yahoo Finance change its structure. Importantly, data is not in real-time - often, it comes with a 15-minute delay (see [here](https://help.yahoo.com/kb/SLN2310.html))
+
+## Using *Yahoo! Finance*, continued
+
+:::: nonincremental
+-   Below, you can find an example of how to use `tq_get()`, from the `tidyquant` package, to download both *single* and *multiple* stock price information
+
+-   Data is stored in a convenient way that allows users to manipulate data seamlessly - hit *Download Data* and see how the output would look like in *Excel* format
+
+```{r,eval=FALSE,echo=TRUE}
+#Load tidyquant
+library(tidyquant)
+
+#Using tidyquant to download single stock prices
+tq_get('AAPL',from='2020-01-01',to='2024-12-31')
+
+#Using tidyquant to download multiple stock prices
+tq_get(c('AAPL','GOOGL','NVDA'),from='2020-01-01',to='2024-12-31')
+
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+tq_get(c('AAPL','GOOGL','NVDA'),from='2020-01-01',to='2024-12-31')%>%
+  download_this(
+    output_name = "big_tech_daily_prices",
+    output_extension = ".xlsx",
+    button_label = "Download Data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+::: callout-important
+### Important
+
+[Yahoo! Finance](https://br.financas.yahoo.com/) provides [*Open*]{.blue}, [*High*]{.blue}, [*Low*]{.blue}, [*Close*]{.blue}, and [*Adjusted Close*]{.blue} trading prices for each asset that is being tracked, where *Adjusted Close* is defined by the closing price adjusted for dividends and stock splits. If you are using `R`, `Python`, or any API to pull this data, ensure to use the information adjusted by dividends and splits.
+:::
+::::
+
+## Macroeconomic data providers
+
+Apart from price-level information, there are plenty of available resources to efficiently download the most commonly used macroeconomic variables directly within an `R` session:
+
+1.  The *Federal Reserve Bank of St. Louis* has as extense set of U.S and international time series from more than 100 sources via its *API*, `FRED`, for free
+
+$\rightarrow$ *Related packages:* `tidyquant`, `FredR`, `quantmod`, and `quandl`
+
+2.  The *World Bank's International Debt Statistics (IDS)* provides creditor-debtor relationships between countries, regions, and institutions
+
+$\rightarrow$ *Related packages:* `wbids`
+
+3.  The *European Central Bank*’s Statistical Data Warehouse provides data on Euro area monetary policy, financial stability, and other relevant topics
+
+$\rightarrow$ *Related packages:* `ecb`
+
+## Macroeconomic data providers, examples
+
+::: panel-tabset
+### FRED
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Load the tidyquant library
+library(tidyquant)
+
+#Go to FRED's website, search for a time series, and copy-paste its code
+series='CUSR0000SETB01'
+
+#Use the tq_get() function to retrieve the information
+tq_get(series,get='economic.data')
+
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+#Go to FRED's website, search for a time series, and copy-paste its code
+series='CUSR0000SETB01'
+
+  tq_get(series,get='economic.data')%>%
+    download_this(
+    output_name = "fred_gas_prices",
+    output_extension = ".xlsx",
+    button_label = "Download Data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+$\rightarrow$ *For full details and implementation of the `R` package `tidyquant`, click [here](https://business-science.github.io/tidyquant/)*
+
+### IBS
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Load the wbids package
+library(wbids)
+
+#Get information for Brasil, Russia, 
+ids_get(
+  geographies = c("BRA", "ARG"),
+  series = c("DT.MAT.DPPG"), #Average maturity on new external debt commitments (years)
+  counterparts = c("302"), #United States
+  start_year = 2000,
+  end_year = 2023
+)
+
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+#Load the wbids package
+library(wbids)
+
+#Get information for Brasil, Russia, 
+  ids_get(
+  geographies = c("BRA", "ARG"),
+  series = c("DT.MAT.DPPG"), #Average maturity on new external debt commitments (years)
+  counterparts = c("302"), #United States
+  start_year = 2000,
+  end_year = 2023)%>%
+  download_this(
+    output_name = "average_maturity_br_arg_us",
+    output_extension = ".xlsx",
+    button_label = "Download Data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
+
+$\rightarrow$ *For full details and implementation of the `R` package `wbids`, click [here](https://github.com/Teal-Insights/r-wbids)*
+
+### ECB
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Load the ecb package
+library(ecb)
+
+#Get information of headline and core inflation for Eurozone countries
+key <- "ICP.M.DE+FR+ES+IT+NL+U2.N.000000+XEF000.4.ANR"
+
+#Get the latest 12 observations
+filter <- list(lastNObservations = 12, detail = "full")
+
+#Retrieve the data
+hicp <- get_data(key, filter)
+
+#Parse time component to proper format
+hicp$obstime <- convert_dates(hicp$obstime)
+
+```
+
+
+$\rightarrow$ *For full details and implementation of the `R` package `ecb`, click [here](https://github.com/expersso/ecb)*
+:::
+
+## Financial data providers
+
+-   For some widely known paid data providers, there are interfaces that enable analysts to retrieve information directly within an `R` session through the provider's official *API*[^2]
+
+[^2]: For paid data providers, you must provide your API key in order to successfully download data.
+
+1.  [Bloomberg](https://www.bloomberg.com/): the [`Rblpapi`](https://github.com/Rblp/Rblpapi) provides access to data and calculations from Bloomberg
+
+2.  [Refinitiv Eikon](https://www.lseg.com/en/data-analytics/financial-data): the [`DatastreamDSWS2R`](https://github.com/CharlesCara/DatastreamDSWS2R) provides a set of functions and a class to connect, extract and upload information from the *LSEG Datastream* database
+
+3.  [Quandl](https://data.nasdaq.com/publishers/QDL): publishes free/paid data, scraped from many different sources from the web. The [`Quandl`](https://github.com/quandl/quandl-r) package can be used to retrieve data
+
+4.  [Simfin](https://www.simfin.com/en/): fundamental financial data freely available to private investors, researchers, and students. The [`simfinapi`](https://github.com/matthiasgomolka/simfinapi) package can be used to retrieve data
+
+5.  [FMP](https://site.financialmodelingprep.com/): accurate financial data (balance-sheet, income statements, etc), with historical information dating back 30 years in history. The [`fmpapi`](https://jpiburn.github.io/fmpapi/) package can be used to retrieve data
+
+## Other data providers (and `R` packages)
+
+1.  *Banco Central do Brasil (BACEN)*: interface to the *Brazilian Central Bank web services* - see package [`rbcb`](https://github.com/wilsonfreitas/rbcb)
+2.  *Tesouro Direto (Brazilian Government Bonds)*: prices and yields of bonds issued by the Brazilian government - see package [`GetTDData`](https://github.com/msperlin/GetTDData)
+3.  *CoinMarketCap*: provides cryptocurrency information and historical prices - see package [`crypto2`](https://github.com/sstoeckl/crypto2)
+4.  *Alpha Vantage*: free and paid subscriptions for financial data (including *intraday*) - see package [`alphavantager`](https://github.com/business-science/alphavantager)
+
+::: callout-important
+### Wrapping up on data providers
+
+While some data providers provide their official *API* for developers, other solutions rely on scraping historical data from the web. As such, some solutions can deprecated after some time if, for example, access is blocked. It is always important to check whether an `R` package is not deprecated by looking into the *Comprehensive R Archive Network (CRAN)* or its GitHub repository.
+:::
+
+# Appendix
+
+## The *tidyverse* packages: `purrr`
+
+:::::: nonincremental
+-   The goal of [`purrr`](https://purrr.tidyverse.org/) is to enhances R’s functional programming toolkit by providing a complete and consistent set of tools for working with functions and vectors
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/purrr.png)
+:::
+
+::: {.column width="75%" text-align="center"}
+-   Functional programming allows you to replace many for loops with code that is both more succinct and easier to read
+-   You provide a function and a list of elements to map to, and `purrr` takes care of the nitty-gritty details
+:::
+:::::
+
+**Key Highlights**
+
+1.  It seamlessly integrates with all `tidyverse` packages and functions, allowing users to apply functional programming in the most straightforward way possible
+
+2.  Simplifies the code pipeline to solve fairly realistic problems - *e.g*, estimating the *CAPM* for 100+ industries where we have a different number of observations per industry
+::::::
+
+## The *tidyverse* packages: `readr`
+
+:::::: nonincremental
+-   The goal of [`readr`](https://readr.tidyverse.org/) is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (`.csv`) and tab-separated values (`.tsv`)
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/readr.png)
+:::
+
+::: {.column width="75%" text-align="center"}
+-   It is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results
+-   Handles column-type guessing, allowing users to specify how it should parse information, providing informative problem reports when parsing leads to unexpected results
+:::
+:::::
+
+**Key Highlights**
+
+1.  Is generally much faster than base R functions (up to 10x-100x), depending on the dataset
+
+2.  All functions work exactly the same way regardless of the current locale (*e.g.*, thousands and decimal separators)
+::::::
+
+## The *tidyverse* packages: `tibble`
+
+:::::: nonincremental
+-   The [`tibble`](https://tibble.tidyverse.org/index.html) package provides a modern reimagining of a `data.frame`, keeping what time has proven to be effective, and throwing out what is not
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/tibble.png){width="60%"}
+:::
+
+::: {.column width="75%" text-align="center"}
+-   Tibbles are a modern take on data frames. They keep the features that have stood the test of time, and drop the features that used to be convenient but are now frustrating
+
+-   It is a nice way to create data frames. It encapsulates best practices for data frames and handles various data formats in an easier way
+:::
+:::::
+
+**Key Highlights**
+
+1.  Tibbles also have an enhanced `print()` method which makes them easier to use with large datasets containing complex objects.
+2.  It can store various data formats in a data-frame-like format (*e.g*, store a whole list as a column)
+::::::
+
+## The *tidyverse* packages: `stringr`
+
+:::::: nonincremental
+-   The [`stringr`](https://stringr.tidyverse.org/) package provides a cohesive set of functions designed to make working with strings (*e.g*, qualitative data, such as stock tickers, names, etc) as easy as possible:
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/stringr.png)
+:::
+
+::: {.column width="75%" text-align="center"}
+1.  `str_detect()` tells you if there’s any match to the pattern
+2.  `str_locate()` gives the position of the match
+3.  `str_count()` counts the number of pattern
+4.  `str_subset()` extracts the matching components
+5.  `str_extract()` extracts the text of the match
+6.  `str_match()` extracts parts of the match defined by parentheses
+7.  `str_replace()` replaces the matches with new text
+8.  `str_split()` splits up a string into multiple pieces
+:::
+:::::
+::::::
+
+## The *tidyverse* packages: `forcats`
+
+:::::: nonincremental
+-   The goal of the [`forcats`](https://forcats.tidyverse.org/) package is to provide a suite of tools that solve common problems with factors, variables that have a fixed and known set of possible values (*e.g*, a vector that contains all possible days in a week)
+
+::::: columns
+::: {.column width="25%" text-align="center"}
+![](Images/forcats.png)
+:::
+
+::: {.column width="75%" text-align="center"}
+1.  `fct_reorder()` reorders a factor by another variable
+2.  `fct_infreq()` reorders a factor by the frequency of values
+3.  `fct_relevel()` changes the order of a factor by hand
+4.  `fct_lump()` collapses the least/most frequent values of a factor into a consolidated group
+:::
+:::::
+
+**Key Highlights**
+
+1.  Working with factors makes it easier to display, visualize, and communicate data
+2.  Explicitly defining a variable as a `factor` handles several issues regarding inserting new data
+::::::
+
+## References

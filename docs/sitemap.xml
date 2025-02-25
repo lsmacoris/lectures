@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lsmacoris.github.io/lectures/quant-fin.html</loc>
-    <lastmod>2025-02-17T19:45:49.684Z</lastmod>
+    <lastmod>2025-02-25T17:50:50.921Z</lastmod>
   </url>
   <url>
     <loc>https://lsmacoris.github.io/lectures/quant-fin-replications/L2/L2-Replication.html</loc>
@@ -179,5 +179,65 @@
   <url>
     <loc>https://lsmacoris.github.io/lectures/quant-fin-datacases/data-case-1/data-case-1-solutions.html</loc>
     <lastmod>2025-02-23T23:11:44.511Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/coursework/Introduction/index.html</loc>
+    <lastmod>2025-02-25T17:54:32.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/coursework/Lecture 1 - Bridging Finance with Programming/index.html</loc>
+    <lastmod>2025-02-25T18:03:14.180Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/coursework/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html</loc>
+    <lastmod>2025-02-25T18:37:22.610Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/coursework/Lecture 3 - Manipulating Time Series/index.html</loc>
+    <lastmod>2025-02-25T18:39:53.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/coursework/Lecture 4 - Data Visualization/index.html</loc>
+    <lastmod>2025-02-25T18:45:34.351Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/coursework/Lecture 5 - CAPM in Practice/index.html</loc>
+    <lastmod>2025-02-17T01:07:06.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/datacases/data-case-prep/data-case-prep.html</loc>
+    <lastmod>2025-02-25T19:09:40.638Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/datacases/data-case-1/data-case-1.html</loc>
+    <lastmod>2025-02-25T19:10:48.069Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/replications/L3/L3-Replication.html</loc>
+    <lastmod>2025-02-17T01:07:06.484Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/replications/L1/L1-Replication.html</loc>
+    <lastmod>2025-02-17T01:07:06.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/datacases/data-case-prep/data-case-prep-solutions.html</loc>
+    <lastmod>2025-02-19T18:34:09.190Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/datacases/data-case-1/data-case-1-solutions.html</loc>
+    <lastmod>2025-02-23T23:11:44.511Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/datacases/quarto-mock-template.html</loc>
+    <lastmod>2025-02-23T23:20:27.642Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/replications/L2/L2-Replication.html</loc>
+    <lastmod>2025-02-17T01:07:06.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lsmacoris.github.io/lectures/quant-fin/replications/L4/L4-Replication.html</loc>
+    <lastmod>2025-02-17T19:30:00.056Z</lastmod>
   </url>
 </urlset>
