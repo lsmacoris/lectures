@@ -1,0 +1,874 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Fama French and Multi-Factor Models of Risk'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris (FGV-EAESP)'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: false
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+    1.  *Tidy Finance* [@tidyfinance]
+    2.  *R for Data Science* [@r4ds]
+
+::: callout-note
+### Coding Replications
+
+For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
+
+1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
+2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+:::
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+source('../~ Metadata/packages.R')
+hf_data=readRDS('Assets/hf_data.rds')
+
+
+```
+
+## Disclaimer
+
+::: callout-important
+### Disclaimer
+
+The information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.
+
+All code used in this lecture is publicly available and is also shared on my [GitHub](https://github.com/lsmacoris) page. Participants are encouraged to review, modify, and use the code for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.
+
+For any questions or concerns, please feel free to reach out via email at [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+:::
+
+## What if $\alpha$ is consistently different from zero?
+
+-   Let's go back to our $\alpha$ definition for a given stock $i$:
+
+
+$$
+\alpha_i = E[R_i] - R_i
+$$
+
+-   As we discussed, if you assume that [CAPM]{.blue} is the correct model to explain expected returns, competition in financial markets should make $\alpha \rightarrow 0$ in equilibrium:
+
+    1.  Stocks [above]{.green} the SML are [cheap]{.green}, so the prices should [rise]{.green} ([positive]{.green} alpha).
+    2.  Stocks [below]{.red} the SML are [expensive]{.red}, so the prices should [drop]{.red} ([negative]{.red} alpha).
+
+-   However, over the years since the discovery of the [CAPM]{.blue}, it has become increasingly clear that forming portfolios based on *market capitalization*, *book-to-market* ratios, and *past returns*, investors can construct trading strategies that have a $\small alpha>0$
+
+-   **Why**? There can be [two]{.blue} reasons why positive-alpha strategies exist in a persistent way
+
+## Why $\alpha$ is consistently different from zero?
+
+. . .
+
+**Reason #1: Investors are systematically ignoring positive-NPV investment opportunities:**
+
+-   The [CAPM]{.blue} correctly computes required risk premiums, but investors are [ignoring]{.blue} opportunities to earn extra returns without bearing any extra risk
+-   That could happen either because they are [unaware]{.blue} of them or because the [costs]{.blue} to implement the strategies are larger than the NPV of undertaking them
+
+. . .
+
+$\rightarrow$ *This explanation goes straight to the hypotheses outlined by the [CAPM]{.blue}!*
+
+-   The only way a positive-NPV opportunity can persist in a market is if some barrier to entry restricts competition. Nowadays, this hypothesis seems [unlikely]{.red}:
+
+    1.  Information required to form the portfolios is readily available;
+    2.  Trading costs are decreasing
+
+## Why $\alpha$ is consistently different from zero? Continued
+
+**Reason #2: The positive-alpha trading strategies contain risk that investors are unwilling to bear but the CAPM does not capture:**
+
+1.  A stock's beta with the market portfolio *does not* adequately measure a stock's systematic risk
+
+2.  Because of that, the [CAPM]{.blue} *does not* correctly compute the risk premium as it leaves out important [risk factors]{.blue} that investors care about other than the market sensitivity!
+
+. . .
+
+-   In other words, the positive alphas from the trading strategy are really returns for bearing risk that investors are averse to but the model *does not capture*:
+
+  1. We assumed that investor would always seek for the best risk $\times$ return combination
+
+  2. However, investors may stick with inefficient portfolios because they care about risk characteristics other than the volatility of their traded portfolio. For instance, they prefer to not be exposed to the sector they work in or to specific industries (*i.e.*, ESG-based decisions)
+
+
+## Moving Beyond the CAPM
+
+- We previously defined that the required return for any given security $i$ should follow:
+
+$$
+E[R_i] = R_f + \beta_i^P \times (E[R_P - R_f])
+$$
+
+1.  At first, we were *agnostic* on what $P$, the portfolio returns, should stand for
+2.  When we introduced the [CAPM]{.blue}, we claimed that $P=M$ - *i.e*, the efficient portfolio is the market portfolio
+
+- However, real-world frictions points us to an uncomfortable outcome:
+
+  1. The [CAPM]{.blue} assumes a single risk factor (market risk), but...
+  2. There is empirical evidence that shows additional factors can explain anomalies
+
+$\rightarrow$ *When the market portfolio is not efficient, we have to find a method to identify an efficient portfolio before we can use the above equation!*
+
+
+## Size Effect
+
+-   **Idea**: [small]{.green} market capitalization stocks have historically earned [higher]{.green} average returns than the market portfolio, even after accounting for their higher betas
+
+- A way to replicate this thesis is to split stocks each year into [10 portfolios]{.blue} by ranking them based on their [market capitalizations]{.blue}:
+
+    1.  The [first]{.blue} portfolio had the [10% smallest]{.blue} stocks in terms of market capitalization
+    2.  The [second]{.blue} portfolio had the [20% smallest]{.blue} stocks; and so on, until...
+    3.  The [tenth]{.blue} portfolio had the [10% biggest]{.blue} stocks in terms of market capitalization
+
+. . .
+
+**Calculating the monthly excess returns and the beta of each decile portfolio, we see that:**
+
+1. Portfolios with higher betas yield higher future returns (as expected)
+2. Most portfolios were above the security market ($\small \alpha>0$)
+3. The smallest deciles - *i.e*, small-cap firms - exhibit the most extreme effect
+
+## Book-to-Market Ratio
+
+-   As with *Size*, a similar rationale could be applied to stocks that have higher levels of *Market Value of Equity* *vis-a-vis* their historical values (*Book Value of Equity*)
+
+-   **Idea**: [small]{.green} market capitalization stocks have historically earned higher average returns than the market portfolio, even after accounting for their higher betas
+
+    1.  High book-to-market stocks have historically earned higher average returns than low book-to-market stocks
+    2.  Stocks with high book-to-market ratios are *value* stocks, and those with low book-to-market ratios are *growth* stocks
+
+. . .
+
+**Calculating the monthly excess returns and the beta of each decile portfolio, we see that:**
+
+1. In this case, *value* stocks - *i.e*, the stocks in the highest deciles - tend to present higher $\alpha$
+2. As such, a strategy that goes [long]{.green} on *value* stocks and [short]{.red} on *growth* stocks tends to present positive $\alpha$
+
+## Multifactor Models of Risk
+
+-   When we first introduced the [CAPM]{.blue}, we implicitly assumed that there was a single portfolio (or *"factor"*) that represented the efficient portfolio: the market (a *"single factor"* portfolio)
+
+-   However, it is not actually necessary to identify the efficient portfolio itself, as long as you identify a collection of portfolios from which the efficient portfolio can be constructed
+
+-   A [Multi-Factor Model]{.blue} is a pricing model that uses more than one portfolio (*"factors"*) to *approximate* the efficient portfolio:
+
+. . .
+
+$$
+\small E[R_i] = R_f + \beta_i^{\text{F1}} \times \underbrace{(E[R_{\text{F1}} - R_f])}_{\text{Excess return for Factor 1}}+ \beta_i^{\text{F2}} \times \underbrace{(E[R_{\text{F2}} - R_f])}_{\text{Excess return for Factor 2}}+...+\beta_i^{\text{Fn}} \times \underbrace{(E[R_{\text{Fn}} - R_f])}_{\text{Excess return for Factor n}}
+$$
+
+-   Each $\beta_i^{n}$ here is called a [factor beta]{.blue}: like the CAPM, it is the expected % change in the excess return of a security for a 1% change in the excess return of that factor portfolio, holding everything else constant
+
+## Multifactor Models of Risk, continued
+
+-   The previous equation showed that that we can write the risk premium of any marketable security as the sum of the risk premium of each factor multiplied by the sensitivity of the stock with that factor:
+
+    1.  [Single-factor:]{.blue} We use an presumably efficient portfolio, it will *alone* capture all systematic risk (for example, the *CAPM*)
+    2.  [Multifactor:]{.blue} If we use multiple portfolios as factors, then *together* these factors will capture all systematic risk - this is also known as the *Arbitrage Pricing Theory (APT)*
+
+-   **Multifactor models allow investors to break the risk premium down into different factors:**
+
+    1.  As they might not be equally averse to the different factors, multifactor models allows investors to *tailor* their risk exposure
+    2.  This idea of tailoring risk exposures based on common risk factors has become increasingly known amongst practitioners as a [smart beta]{.blue} strategy - click [here](https://institutional.fidelity.com/app/item/RD_13569_45080/factor-etfs.html) for an extensive list of factor ETFs from *Fidelity*
+
+## Which factors (portfolios) to use?
+
+-   If investors can tailor their risk exposure to specific risk factors, then the next question is: [which risk factors an investor should be exposed to]{.blue}? 
+
+- Some important risk factors found in the previous literature include, but not limited to:
+
+    1.  [Market Strategy]{.blue}: the most straightforward example is to expose to the market itself, like the CAPM did. Even if the market portfolio is not efficient, it still captures many components of systematic risk
+    
+
+    2.  [Market Capitalization Strategy]{.blue}: a trading strategy that each year buys portfolio S (small stocks) and finances this position by short selling portfolio B (big stocks) has produced positive risk-adjusted returns historically. This is called a *small-minus-big* *(SMB)* portfolio
+
+    3.  [Book-to-Market Strategy]{.blue}: a trading strategy that each year buys a portfolio of *growth* stocks and finances it by selling *value* stocks. This is called a *high-minus-low* *(HML)* portfolio
+
+## Example: the Fama-French model
+
+-   A direct application of the previous slide is the [Fama-French]{.blue} portfolio [@fama1993], which considers the [Market]{.blue}, the [Market Capitalization Strategy (*Size*)]{.blue}, and the [Book-to-Market (*Value*)]{.blue} strategy:
+
+
+$$\small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Market Cap.}}$$
+
+1.  Note that we can price the required returns for a given security $i$ according to its exposure (the $\beta$'s) to each of the factor portfolios
+2.  Before, we claimed using the CAPM that only the first factor should drive required returns (*i.e.*, the market)
+3.  If investors also care about *other* risk factors, the exposure of a given security needs to take that into account when estimating the required returns!
+
+## Application: Hedge Fund Performance Evaluation
+
+- One of the most widely known examples of applications using the [Fama-French]{.blue} model is to assess a hedge fund’s true skill in generating excess returns:
+  1. Many hedge-fund managers claim to generate excess returns ($\alpha$)...
+  2. ...but after adjusting for [Fama-French]{.blue} factors, true skill is revealed!
+
+- Investors can use this model to determine whether returns come from [skill]{.blue} (true alpha) or simply [exposure]{.blue} to common risk factors
+  1. If a fund shows [positive]{.green} $\alpha$ after accounting for the [Fama-French]{.blue} factors, it suggests manager skill
+  2. If returns are fully explained by factors, performance comes from [risk exposure]{.blue}, not manager's skill
+
+- Furthermore, investors can understand *how* exposed a given strategy is to the most common risk factors, and understand the determinants of the fund's returns over time
+
+## Hands-On Exercise
+
+- You work as a quantitative analyst at *Axe Capital*. You have been given the task of analyzing a couple of Hedge Fund strategies and assess whether they have generated true excess returns that could have been attributed to their manager's skill:
+
+  1. What is the historical performance of each strategy over time?
+  2. Which strategies, according to the [CAPM]{.blue} model, have generated $\alpha>0$?
+  3. Which strategies, according to the [Fama-French]{.blue} model, have generated $\alpha>0$?
+
+::: callout-important
+### Specific Instructions
+
+1. You will be using some of the data contained in the `edhec` dataset - click [here](https://www.rdocumentation.org/packages/PerformanceAnalytics/versions/2.0.8/topics/edhec) for a detailed explanation on the dataset.
+2. Model estimation should be done at the *monthly* level
+:::
+
+## About the dataset
+
+- The `edhec` dataset, from the *EDHEC Risk and Asset Management Research Center*, is a dataset that covers monthly Hedge Fund returns starting from 1997
+
+- Each series of returns  represents a Hedge Fund strategy that seeks to exploit a given type of market anomaly:
+
+  1. *Convertible Arbitrage* - click [here](https://risk.edhec.edu/conv-arb/) for details
+  2. *Event Driven* - click [here](https://risk.edhec.edu/event-driven/) for details
+  3. *Merger Arbitrage* - click [here](https://risk.edhec.edu/merger-arb/) for details
+  4. *Relative Value* - click [here](https://risk.edhec.edu/relative-value/) for details
+  5. *Distressed Securities* - click [here](https://risk.edhec.edu/dist-sec/) for details
+  6. *CTA Global* - click [here](https://climateimpact.edhec.edu/sites/risk/files/indices/Indices/Edhec%20Alternative%20Indices/Web/report/cta.pdf) for details
+
+## Step 1: Loading the data
+
+- The first step is to load the data on historical returns on hedge fund strategies. For that, the `edhec` dataset - provided in the `PerformanceAnalytics` package, contains the historical monthly returns for a handful of alternative global strategies
+
+
+- I have already prepped the data for you in an `.rds` file that can be downloaded using the *Download Data* button below or directly through *eClass®*. An `.rds` file is an `R` object that can be loaded directly into your `R` session 
+
+- To load an `.rds` file, you can either double-click and open using RStudio, or run the following command: 
+
+```{r}
+#| echo: false
+
+#Assuming that the file is in the correct folder
+hf_data=readRDS('hf_data.rds')
+
+```
+
+- Note that the object that has been loaded is an `xts` object, which inherits several useful properties for working with time series data!
+
+## Step 2: Historical Performance
+
+- It is very easy to work with time series using the base `R` capabilities. For example, you can pass call `cumprod(1+x)` in your dataset, and `R` understands that you want to do these operations column-wise
+
+- Alternatively, you can use the steps from the previous lectures to get the data into a proper format for using `ggplot2`
+
+::: {.panel-tabset}
+
+### Code
+```{r}
+#| eval: false
+#| echo: true
+
+#Apply the cumprod function to all columns
+cumprod(1+hf_data)-1%>%head()
+```
+
+### Output
+```{r}
+#| eval: true
+#| echo: false
+#Apply the cumprod function to all columns
+cumprod(1+hf_data)-1%>%head()
+```
+:::
+
+
+## Step 2: Historical Performance
+
+::: {.panel-tabset}
+
+### Code
+```{r}
+#| eval: false
+#| echo: true
+
+(cumprod(1+hf_data)-1)%>%
+  as.data.frame()%>%
+  rownames_to_column('date')%>%
+  mutate(date=as.Date(date))%>%
+  pivot_longer(names_to='strategy',values_to = 'cum_return',cols=2:6)%>%
+  ggplot(aes(x=date,y=cum_return,group=strategy,col=strategy))+
+  geom_line()+
+  scale_x_date(date_breaks = 'years',date_labels='%Y')+
+  scale_y_continuous(labels = percent)+
+  labs(title='Comparison of hedge fund global strategies over time',
+       subtitle='Considering EDHEC dataset of monthly hedge fund returns.',
+       col='Strategy',
+       x='',
+       y='Cumulative Return')+
+  theme_minimal()+
+  theme(legend.position = 'bottom',
+        axis.text.x = element_text(angle=90),
+        axis.title = element_text(face='bold',size=12),
+        plot.title = element_text(face='bold',size=15),
+        plot.subtitle  = element_text(size=12))
+
+```
+
+### Output
+```{r}
+#| eval: true
+#| echo: false
+#| fig.width: 15
+#| fig.height: 7
+
+(cumprod(1+hf_data)-1)%>%
+  as.data.frame()%>%
+  rownames_to_column('date')%>%
+  mutate(date=as.Date(date))%>%
+  pivot_longer(names_to='strategy',values_to = 'cum_return',cols=2:6)%>%
+  ggplot(aes(x=date,y=cum_return,group=strategy,col=strategy))+
+  geom_line(size=1.5,alpha=0.85)+
+  scale_x_date(date_breaks = 'years',date_labels='%Y')+
+  scale_y_continuous(labels = percent,breaks=seq(0,6,1))+
+  labs(title='Comparison of hedge fund global strategies over time',
+       subtitle='Considering EDHEC dataset of monthly hedge fund returns.',
+       col='Strategy',
+       x='',
+       y='Cumulative Return')+
+  theme_minimal()+
+  theme(legend.position = 'bottom',
+        axis.text.x = element_text(angle=90,size=15),
+        axis.text.y = element_text(size=15),
+        axis.title = element_text(face='bold',size=15),
+        plot.title = element_text(face='bold',size=20),
+        plot.subtitle  = element_text(size=15))
+```
+:::
+
+## Step 3: Analyzing performance determinants 
+
+- Assessing the performance of a given strategy $i$ can be done by estimating:
+
+$$
+R_{i,t}=\alpha + \sum\beta_z R_{z,t}+\varepsilon_{i,t}
+$$
+where:
+
+1. $R_{i,t}$ is the return of a given manager $i$ in month $t$
+2. $R_{i,t}$ is the return of a given factor portfolio $z$ in month $t$
+
+- An OLS regression as described above yields [two]{.blue} important components:
+  1. The estimated [$\beta_z$'s]{.blue} are the factor returns, and represent exposure of $i$ to a given risk factor
+  2. The estimated [$\alpha$]{.blue} is the return that could not be attributed to any other risk factor, and it is thus understood as the manager's true skill return
+
+## Step 3: Analyzing performance determinants, continued
+
+- Our `hf_data` contains information regarding all Hedge Fund Returns. Where to find information regarding factor portfolio returns?
+
+  1. Luckily, you don't need to manually create them - there are a couple ways by which you can download historical data on factor portfolio returns
+  2. In *Kenneth French*'s [website](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html), you will find historical factor portfolio returns for a variety of economies including the U.S., Developed Economies, Emerging Markets, and Global
+  3. In special, we will be collect monthly factor portfolio returns regarding the three-factor model as in [@fama1993]
+
+```{r}
+#| echo: true
+
+#This is the URl where the Factor Portfolio Returns are stored (US)
+FF_url <- "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors.CSV"
+
+#Download the file, adjust names and Date, input missing information, and transform to numeric
+FF_data <- read.csv(FF_url, skip = 3) %>%
+  setNames(c('date','MKT_MINUS_RF','SMB','HML','RF'))%>%
+  mutate(date = ymd(paste0(substr(date, 1, 4), "-", substr(date, 5, 6), "-01")))%>%
+  na.locf()%>%
+  mutate(across(2:5,function(x) as.numeric(x)/100))
+
+```
+
+## Step 3: Analyzing performance determinants, continued
+
+- We will now manipulate the data in order to merge both `hf_data` and the `FF_data`
+
+::: {.panel-tabset}
+
+### Code
+```{r}
+#| echo: true
+
+#Convert the hf_data to a data.frame object and adjust columns
+ hf_data = hf_data %>%
+  as.data.frame()%>%
+  rownames_to_column('date')%>%
+  mutate(date=as.Date(date))
+
+#Merge both datasets by date
+merged_df <- hf_data%>%
+  #Merge
+  left_join(FF_data, by = "date")%>%
+  #Pivot the data for each strategy
+  pivot_longer(cols = -c(date, MKT_MINUS_RF, SMB, HML, RF), names_to = "strategy", values_to = "return") %>%
+  mutate(excess_return = return - RF)  # Convert RF to decimal format
+
+```
+
+### Output
+```{r}
+#| echo: false
+
+merged_df
+
+```
+:::
+
+## Step 3: The CAPM Model
+
+- We will start by analyzing of a given strategy $i$ can be done estimating a [CAPM]{.blue} model
+- In this model, the only risk factor is the *market*:
+
+$$
+(R_{i,t}-R_{f,t})=\alpha + \beta \times (R_{m,t}-R_{f,t})+\varepsilon_{i,t}
+$$
+where:
+
+1. $R_{i,t}$ is the return of a given manager $i$ in month $t$
+2. $R_{m,t}$ is the market return in month $t$
+3. $R_{f,t}$ is the risk-free return in month $t$
+
+- In what follows, we will be estimating and interpreting the CAPM results for each strategy
+
+## Step 3: The CAPM model, one strategy output
+
+:::{.panel-tabset}
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+strategy_name = 'Convertible Arbitrage'
+#Get the filtered data
+filtered_data = merged_df%>%filter(strategy==strategy_name)
+#Estimate the Model
+model=lm(excess_return ~ MKT_MINUS_RF, data = filtered_data)
+#Visualize
+summary(model)
+```
+### Output
+```{r}
+#| echo: false
+#| eval: true
+strategy_name = 'Convertible Arbitrage'
+#Get the filtered data
+filtered_data = merged_df%>%filter(strategy==strategy_name)
+#Estimate the Model
+model=lm(excess_return ~ MKT_MINUS_RF, data = filtered_data)
+#Visualize
+summary(model)
+```
+:::
+
+## Step 3: The CAPM model, all strategies
+
+:::{.panel-tabset}
+
+### For-loop
+```{r}
+#| echo: true
+#| eval: false
+
+#Initially an empy data frame
+CAPM_results = data.frame()
+#Get all possible strategies
+strategy_names = names(hf_data)[2:7]
+
+#For each i in strategy names:
+for(i in strategy_names){
+  #Get the filtered data
+  filtered_data = merged_df%>%filter(strategy==i)
+  #Estimate the Model
+  model=lm(excess_return ~ MKT_MINUS_RF, data = filtered_data)
+  #Extract Coefficients applying the tidy() function
+  model_tidy=model%>%tidy()%>%mutate(strategy=i)
+  #Append
+  CAPM_results=CAPM_results%>%rbind(model_tidy)
+}
+  
+```
+
+### Functional Programming
+
+```{r}
+#| echo: true
+#| eval: true
+
+CAPM_results <- merged_df%>%
+  #Group by strategy
+  group_by(strategy)%>%
+  #Nest the data
+  nest()%>%
+  #For each nest, map the lm() function and the tidy function
+  mutate(model = map(data, ~ lm(excess_return ~ MKT_MINUS_RF, data = .)),
+         results = map(model, tidy)) %>%
+  #Unnest the results
+  unnest(results)%>%
+  #Select the desired columns
+  select(strategy, term, estimate, std.error, p.value)
+```
+
+### Output
+
+```{r}
+CAPM_results
+```
+:::
+
+## Step 3: which strategies generate positive alpha?
+
+:::{.panel-tabset}
+
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+CAPM_results %>%
+  filter(term=='(Intercept)')%>%
+  mutate(stat_sig=ifelse(p.value<0.10,'Statistically sig. at 10%','Not statistically sig. at 10%'))%>%
+  ggplot(aes(x=reorder(strategy,desc(estimate)),y=estimate,fill=stat_sig))+
+  geom_col(size=3)+
+  geom_text(aes(label = percent(estimate,accuracy=0.01),vjust=-1))+
+  #Annotations
+  labs(title='Which strategies did generate positive and statistically significant alphas?',
+       subtitle = 'Using the CAPM model with monthly return data.',
+       x = 'Strategy',
+       y = 'Alpha (%)',
+       fill = 'Stat. Sig')+
+  #Scales
+  scale_y_continuous(labels = percent)+
+  scale_fill_manual(values=c('darkred','darkgreen'))+
+  #Custom theme minimal
+  theme_minimal()+
+  #Adding further customizations
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+```
+
+### Output
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig.width: 15
+#| fig.height: 7
+
+
+CAPM_results %>%
+  filter(term=='(Intercept)')%>%
+  mutate(stat_sig=ifelse(p.value<0.10,'Statistically sig. at 10%','Not statistically sig. at 10%'))%>%
+  ggplot(aes(x=reorder(strategy,desc(estimate)),y=estimate,fill=stat_sig))+
+  geom_col(size=3)+
+  geom_text(aes(label = percent(estimate,accuracy=0.01),vjust=-1))+
+  #Annotations
+  labs(title='Which strategies did generate positive and statistically significant alphas?',
+       subtitle = 'Using the CAPM model with monthly return data.',
+       x = 'Strategy',
+       y = 'Alpha (%)',
+       fill = 'Stat. Sig')+
+  #Scales
+  scale_y_continuous(labels = percent)+
+  scale_fill_manual(values=c('darkred','darkgreen'))+
+  #Custom theme minimal
+  theme_minimal()+
+  #Adding further customizations
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+```
+
+
+:::
+
+
+## Step 4: The Fama-French Model
+
+- Using the [CAPM]{.blue} as our model for expected returns, 5 out of 6 strategies did deliver [positive]{.green} alphas in the study period
+- We can now extend the same rationale to adopt the [Fama-French three-factor model]{.blue}, which considers the [Market]{.blue}, the [Market Capitalization Strategy (*Size*)]{.blue}, and the [Book-to-Market (*Value*)]{.blue} strategy:
+
+
+$$
+\small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Market Cap.}}
+$$
+- As before, we will start analyzing the output for one individual strategy individually and then apply the same rationale to replicate the result across all strategies
+
+## Step 4: The Fama-French model, one strategy output
+
+:::{.panel-tabset}
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+strategy_name = 'Convertible Arbitrage'
+#Get the filtered data
+filtered_data = merged_df%>%filter(strategy==strategy_name)
+#Estimate the Model
+model=lm(excess_return ~ MKT_MINUS_RF + HML + SMB, data = filtered_data)
+#Visualize
+summary(model)
+```
+### Output
+```{r}
+#| echo: false
+#| eval: true
+strategy_name = 'Convertible Arbitrage'
+#Get the filtered data
+filtered_data = merged_df%>%filter(strategy==strategy_name)
+#Estimate the Model
+model=lm(excess_return ~ MKT_MINUS_RF + HML + SMB, data = filtered_data)
+#Visualize
+summary(model)
+```
+:::
+
+## Step 4: The Fama-French model, all strategies
+
+:::{.panel-tabset}
+
+### For-loop
+```{r}
+#| echo: true
+#| eval: false
+
+#Initially an empy data frame
+FF_results = data.frame()
+#Get all possible strategies
+strategy_names = names(hf_data)[2:7]
+
+#For each i in strategy names:
+for(i in strategy_names){
+  #Get the filtered data
+  filtered_data = merged_df%>%filter(strategy==i)
+  #Estimate the Model
+  model=lm(excess_return ~ MKT_MINUS_RF + HML + SMB, data = filtered_data)
+  #Extract Coefficients applying the tidy() function
+  model_tidy=model%>%tidy()%>%mutate(strategy=i)
+  #Append
+  FF_results=FF_results%>%rbind(model_tidy)
+}
+  
+```
+
+### Functional Programming
+
+```{r}
+#| echo: true
+#| eval: true
+
+FF_results <- merged_df%>%
+  #Group by strategy
+  group_by(strategy)%>%
+  #Nest the data
+  nest()%>%
+  #For each nest, map the lm() function and the tidy function
+  mutate(model = map(data, ~ lm(excess_return ~ MKT_MINUS_RF + HML + SMB, data = .)),
+         results = map(model, tidy)) %>%
+  #Unnest the results
+  unnest(results)%>%
+  #Select the desired columns
+  select(strategy, term, estimate, std.error, p.value)
+```
+
+### Output
+
+```{r}
+FF_results
+```
+:::
+
+## Step 4: which strategies generate positive alpha?
+
+:::{.panel-tabset}
+
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+FF_results %>%
+  filter(term=='(Intercept)')%>%
+  mutate(stat_sig=ifelse(p.value<0.10,'Statistically sig. at 10%','Not statistically sig. at 10%'))%>%
+  ggplot(aes(x=reorder(strategy,desc(estimate)),y=estimate,fill=stat_sig))+
+  geom_col(size=3)+
+  geom_text(aes(label = percent(estimate,accuracy=0.01),vjust=-1))+
+  #Annotations
+  labs(title='Which strategies did generate positive and statistically significant alphas?',
+       subtitle = 'Using the Fama-French three-factor model with monthly return data.',
+       x = 'Strategy',
+       y = 'Alpha (%)',
+       fill = 'Stat. Sig')+
+  #Scales
+  scale_y_continuous(labels = percent)+
+  scale_fill_manual(values=c('darkred','darkgreen'))+
+  #Custom theme minimal
+  theme_minimal()+
+  #Adding further customizations
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+```
+### Output
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig.width: 15
+#| fig.height: 7
+
+FF_results %>%
+  filter(term=='(Intercept)')%>%
+  mutate(stat_sig=ifelse(p.value<0.10,'Statistically sig. at 10%','Not statistically sig. at 10%'))%>%
+  ggplot(aes(x=reorder(strategy,desc(estimate)),y=estimate,fill=stat_sig))+
+  geom_col(size=3)+
+  geom_text(aes(label = percent(estimate,accuracy=0.01),vjust=-1))+
+  #Annotations
+  labs(title='Which strategies did generate positive and statistically significant alphas?',
+       subtitle = 'Using the Fama-French three-factor model with monthly return data.',
+       x = 'Strategy',
+       y = 'Alpha (%)',
+       fill = 'Stat. Sig')+
+  #Scales
+  scale_y_continuous(labels = percent)+
+  scale_fill_manual(values=c('darkred','darkgreen'))+
+  #Custom theme minimal
+  theme_minimal()+
+  #Adding further customizations
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+```
+:::
+
+
+## Step 4: The Fama-French Model Attribution
+
+```{r}
+#| fig.width: 12
+#| fig.height: 8
+
+FF_results %>%
+  filter(term != "(Intercept)")%>%
+  group_by(strategy)%>%
+  ggplot(aes(x = reorder(term,desc(estimate)), y = estimate, fill = term)) +
+  geom_col(position = position_dodge())+
+  geom_text(aes(label = round(estimate,2)),position=position_stack(vjust=0.5),col='white')+
+  theme_minimal()+
+  facet_wrap(strategy~.,ncol=3,nrow=2)+
+  #Annotations
+  labs(title = "Fama-French Factor Loadings by Hedge Fund Strategy",
+       x = "Hedge Fund Strategy",
+       y = "Factor Loading",
+       fill = 'Risk Factor')+
+  #Scales+
+  scale_fill_manual(values=c('darkred','darkgreen','black'),
+                    labels=c('High-minus-Low','Market Excess','Small-minus-Big'))+
+  #Custom theme minimal
+  theme_minimal()+
+  #Adding further customizations
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_blank(),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+```
+
+## Performance of fund managers
+
+- Some piece of evidence from [@BDM]:
+    1.  The average mutual fund manager can generate value (before computing trading costs and fees, *i.e.*, *"gross alpha"*)
+    2.  The median mutual fund manager, on the other hand, destroys value
+    3.  Only a small portion of managers are skilled enough to add value, according to this reference, in terms of *net alpha*
+
+-   Because individual investors pay fees to fund managers, the *net alpha* is [negative]{.red} - you should be better-off by putting your money on a passively-managed fund!
+
+-   That is, on average, fund managers (*"active"* strategies) do not provide value after fees, comparing to index funds (*"passive strategies"*)
+
+## Performance of fund managers, continued
+
+-   If fund managers are high-skilled investors, why they have a hard time adding value?
+
+-   One reason why it might be difficult to add value is because there is a trap of liquidity:
+
+    1.  If a manager is perceived as skilled, the deposits will grow, making harder to find above-average investment opportunities - that is why you see a lot of closed-end funds
+    2.  Performance would converge to the mean, at best
+
+-   At the end of the day, the market is competitive and people profit following the theoretical predictions
+
+    1.  Skilled managers are recompensated for their skills. They capture the economic rents associated with their skills
+    2.  Investors are not recompensated for the skills of the managers they select - in the end, they derive little benefit, because this superior performance is captured by the manager in the form of fees
+
+
+
+## Extensions to risk factors - the *Factor Zoo*
+
+- **Question:** what is the gain in performance when using the [Fama-French]{.blue} model relative to the [CAPM]{.blue}?
+
+  1. When applied to historical data, results support the three-factor model proposed in [@fama1993]
+  2. [Fama-French]{.blue} explains over $\small90\%$ of the diversified portfolios returns, compared with the average $\small70\%$ given by the [CAPM]{.blue} (in-sample performance)
+
+. . .
+
+- **Importantly, there is a growing number of proposed factors in the Asset Pricing literature - a non-exhaustive list includes:**
+  1. [@carhart1997] extend the [Fama-French]{.blue} 3-factor model by adding a *momentum* factor
+  2. [@fama2015] extend the [Fama-French]{.blue} 3-factor model by incorporating *profitability* and *investment*
+  3. [@asness2013] discuss the role of *quality* in asset returns
+
+## Extensions to risk factors - the *Factor Zoo*, continued
+
+- All in all, there is a growing number of *risk factors* that have been documented in the Asset Pricing literature. Such proliferation of risk factors in the literature has been widely known as the [*"Factor Zoo"*]{.blue} [@cochrane2011]
+
+- Many factors lack theoretical justification or robustness, highlighting the role of replication and out-of-sample validation in factor research:
+  1. [@novy-marx2013] show that controlling for gross profitability explains most market anomalies and a wide range of seemingly unrelated profitable trading strategies
+  2. [@hou2015] shows that a model using *market*, *size*, *investment*, and *profitability* factors argely summarizes the cross section of average stock returns. A comprehensive examination of nearly 80 anomalies reveals that about one-half of the anomalies are insignificant in the broad cross section
+  3. [@harvey2016] highlight issues with data mining and *p-hacking*
+
+
+## References

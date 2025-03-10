@@ -13,15 +13,15 @@ This Data Case is part of the *Practical Applications in Quantitative Finance* c
 
 ## Case Outline
 
-The pharmaceutical industry is a critical sector in financial markets, influenced by regulatory approvals, drug developments, and global health events. In this first *Data Case*, you will analyze stock performance for a set of 10 pharmaceutical companies over time, applying the `tidyverse` and `tidyquant` packages to extract and interpret insights from the data.
+The pharmaceutical industry is a critical sector in financial markets, influenced by regulatory approvals, drug developments, and global health events. In this first *Data Case*, you will analyze historical stock performance for a set of 10 pharmaceutical companies, applying the `tidyverse` and `tidyquant` packages to extract and interpret insights from the data, and create meaningful visualizations using `ggplot2`.
 
-You are a junior analyst at Atlas Capital, a leading buyside investment firm specializing in sector-focused strategies. The firm is considering increasing its exposure to the pharmaceutical industry, given its long-term growth potential and resilience in volatile markets. In the latest investment committee meeting, your fund manager raised an important question: *"How has the pharmaceutical industry performed over time? We need to identify whether now is the right time to increase our position."*
+You are a junior analyst at *Atlas Capital*, a leading buyside investment firm specializing in sector-focused strategies. The firm is considering increasing its exposure to the pharmaceutical industry, given its long-term growth potential and resilience in volatile markets. In the latest investment committee meeting, your fund manager raised an important question: *"How has the pharmaceutical industry performed over time? We need to identify whether now is the right time to increase our position."*
 
 Your team has been tasked with conducting an in-depth financial analysis of the pharmaceutical sector. The goal is to assess industry-wide trends, identify risks and opportunities, and ultimately recommend an investment stance. More specifically, your task will involve:
 
--  Collecting stock price data and compute returns
--  Visualizing key trends in returns and volatility
--  Interpreting findings and suggest investment insights
+-   Collecting stock price data and compute returns
+-   Visualizing key trends in returns and volatility
+-   Interpreting findings and suggest investment insights
 
 To streamline our research, you will focus on the 10 largest publicly traded pharmaceutical companies in the U.S, analyze their performance, risks, and potential catalysts that could drive returns in the near future. As of February 2025, the 10 largest pharmaceutical companies traded in the U.S., along with their ticker symbols, are:
 
@@ -48,7 +48,7 @@ To help you structure your submission, I have provided a Quarto mock template, w
 
 ## Tech-setup
 
-Before you start, make sure that you have your `R` session correctly configured with all the following packages by running the code below:
+Before you start, make sure that you have your `R` session correctly configured with all the following packages running the code below:
 
 ```{r}
 #| warning: false
@@ -80,6 +80,8 @@ Alternatively, you can simply call:
   install.packages('glue')
   install.packages('scales')
   install.packages('ggthemes')
+  install.packages('ggcorrplot')
+  install.packages('ggrepel')
 
 #Load
   library(tidyverse)
@@ -88,6 +90,8 @@ Alternatively, you can simply call:
   library(glue)
   library(scales)
   library(ggthemes)
+  library(ggcorrplot)
+  library(ggrepel)
   
 ```
 
@@ -113,7 +117,7 @@ financial_data=assets%>%
 
 ## Exercise 2
 
-Using the `tidyquant` package, use the  object you've just created with the `tq_transmute` function to compute the yearly returns for each stock over the analysis period. More specifically, pass the `yearlyReturn` function to adjusted column using the `tq_transmute`, labeling this new variable as `yearly_return`. Arrange your dataset by year and in descending order of `yearly_return` (highest-to-lowest). Store this into a new object called, for example, `yearly_returns`. Which stock had the highest return in 2024, and which one had the lowest? Prompt the results in your session.
+Using the `tidyquant` package, use the object you've just created with the `tq_transmute` function to compute the yearly returns for each stock over the analysis period. More specifically, pass the `yearlyReturn` function to adjusted column using the `tq_transmute`, labeling this new variable as `yearly_return`. Arrange your dataset by year and in descending order of `yearly_return` (highest-to-lowest). Store this into a new object called, for example, `yearly_returns`. Which stock had the highest return in 2024, and which one had the lowest? Prompt the results in your session.
 
 ```{r}
 #| warning: false
@@ -142,19 +146,19 @@ yearly_returns%>%
 
 ## Exercise 3
 
-With your `data.frame` containing the yearly returns over time for each stock, use `ggplot` to create a line chart of the historical cumulative returns for each stock during the study period. Which stock had the highest cumulative return up-to-date? Recall that cumulative returns can be calculated from period returns as:
+With your `data.frame` containing the yearly returns over time for each stock, use the `ggplot` function to create a line chart of the historical cumulative returns for each stock during the study period. Which stock had the highest cumulative return up-to-date? Recall that cumulative returns can be calculated from period returns as:
 
 $$
 \text{Cumulative Return}= (1+R_1)\times(1+R_2)\times ... \times(1+R_T)-1\equiv \prod (1+R_t)-1
 $$
 
-Your chart should map `date` to the x-axis, the yearly return variable to the `y` axis, and group the results by `symbol`. To make sure that you are plotting a line chart, use the `geom_line()` function after you have mapped your data. In addition to these two layers, add any customizations that you believe that are beneficial to convey the message - see the Data Visualization
+Your chart should map `date` to the `x` axis, the yearly return variable to the `y` axis, and group the results by `symbol`. To make sure that you are plotting a line chart, use the `geom_line()` function after you have mapped your data. In addition to these two layers, add any customizations that you believe that are beneficial to convey the message - see the [Data Visualization](https://lsmacoris.github.io/lectures/quant-fin/coursework/Lecture 4 - Data Visualization) lecture.
 
 ::: callout-tip
 ### Hint
 
-1.  With the `data.frame` you created to store yearly returns, group by `symbol`, and use `tq_transmute()` to apply the `Return.cumulative` function to the data.
-2.  Now, your resulting `data.frame` contains the cumulative returns for all stocks. You can adjust the column names with the `setNames()` function and pipe that into a `ggplot` call, mapping the `symbol` to the x-axis, the cumulative return column to the y-axis, and the `geom_col()` function to create a bar chart. Add as many customizations you think are worth the effort.
+1.  With the `data.frame` you created to store yearly returns, group by `symbol`, arrange the results by `symbol` and `date`, and use `mutate()` function to apply the `cumprod` function to the data. Note that you need to calculate it as `cumprod(1+yearly_return)-1`, assuming that `yearly_return` is the variable that contains the previously calculated yearly returns. 
+2.  Now, your resulting `data.frame` contains the cumulative returns for all stocks. You can pipe that into a `ggplot` call, mapping the `symbol` to the x-axis, the cumulative return column to the y-axis, and the `geom_col()` function to create a bar chart. Add as many customizations you think are worth the effort.
 :::
 
 ```{r}
@@ -176,7 +180,21 @@ yearly_returns%>%
        subtitle = 'Source: Yahoo! Finance')+
   scale_y_continuous(labels=percent,limits = c(-0.5,6))+
   theme(legend.position = 'none')
-  
+
+
+yearly_returns%>%
+  group_by(symbol)%>%
+  arrange(symbol,date)%>%
+  mutate(cum_returns=cumprod(1+yearly_return)-1)%>%
+  ggplot(aes(x=date,y=cum_returns,group=symbol,col=symbol))+
+  geom_line()+
+  theme_minimal()+
+  labs(x='Stocks',
+       y='Cumulative Return',
+       title='A comparison of individual cumulative returns from selected stocks',
+       subtitle = 'Source: Yahoo! Finance')+
+  scale_y_continuous(labels=percent,limits = c(-0.5,6))+
+  theme(legend.position = 'bottom')
   
 ```
 
@@ -189,10 +207,9 @@ After reviewing your initial analysis, your fund manager at *Atlas Capital* like
 
 As opposed to the `yearlyReturn` function, the `tidyquant` package does not have a pre-built `dailyStdev` function. Instead, what you can do is to use a combination of functions to get the expected result:
 
-1.  First, use `tq_transmute()` to calculate daily returns passing the `dailyReturn` function
-2.  Now, your resulting `data.frame` contains daily returns for all stocks. It is now in a convenient format to chain this object again, in another `tq_transmute()` function, applying the `StdDev.annualized` function and assign to a new object, like `yearly_volatility`. Note, however, that if you simply use `StdDev.annualized`, it will calculate an annualized metric for each stock for the whole period, which is not what you want.
-
-To make sure that you have calculating the annualized standard deviation for each year, you can do a composition of `apply.yearly`, which applies a given function at yearly intervals, and `StdDev.annualized`, using the following syntax:
+1.  First, use `tq_transmute()` to calculate daily returns passing the `dailyReturn` function.
+2.  Now, your resulting `data.frame` contains daily returns for all stocks. It is now in a convenient format to chain this object again, in another `tq_transmute()` function, applying the `StdDev.annualized` function and assign to a new object, like `yearly_volatility`.
+3. Note, however, that if you simply use `StdDev.annualized`, it will calculate an annualized metric for each stock for the whole period, which is not what you want. To make sure that you have calculating the annualized standard deviation for each year, you can do a composition of `apply.yearly`, which applies a given function at yearly intervals, and `StdDev.annualized`, using the following syntax:
 
 ```{r}
 #| eval: false
@@ -255,7 +272,7 @@ There are two ways you can use to create the *Sharpe Ratio*:
 
 1.  Using the previously created `yearly_returns` and `yearly_volatility` objects, use the `left_join()` function to merge them based on a common set of identifiers (in this case, `date` and `symbol`). After that, manipulate the resulting `data.frame` with `mutate` to generate the *Sharpe Ratio*.
 
-2.  Using `tq_transmute` in a very similar fashion to what you have done to calculate the yearly volatility, but now passing the the `SharpeRatio.annualized` function with arguments `Rf=0` and `scale=252`.
+2.  Using `tq_transmute` in a very similar fashion to what you have done to calculate the yearly volatility. First, use `tq_transmute` to create a series of daily returns, and after that, pipe the resulting dataset into `tq_transmute` again, but now passing the the `SharpeRatio.annualized` function with arguments `Rf=0` and `scale=252`.
 
 Although both approaches should yield similar results, potential differences might stem from rounding.
 :::
@@ -280,7 +297,7 @@ yearly_sharpe_1=financial_data%>%
 #Option 2
 yearly_sharpe_2=yearly_returns%>%
   left_join(yearly_volatility)%>%
-  group_by(symbol)%>%
+  group_by(symbol,date)%>%
   mutate(yearly_sharpe=yearly_return/yearly_volatility)
 
 yearly_sharpe_1
@@ -361,7 +378,7 @@ left_join(portfolio_returns,index_returns)
 
 After analyzing the equally weighted pharmaceutical portfolio, the fund manager was impressed with the performance results. However, they remain skeptical about whether the portfolio truly provides better risk-adjusted returns compared to simply picking one of the best-performing stocks in the industry.
 
-As final step, your job is to prove whether the portfolio offers superior risk-adjusted returns by computing the *Sharpe Ratio* for both the portfolio and its individual stocks in 2024. If the portfolio has a higher Sharpe ratio, it means that diversification helps maximize returns while controlling for risk — an essential argument when managing institutional funds.
+As final step, your job is to show whether the portfolio offers superior risk-adjusted returns by computing the *Sharpe Ratio* for both the portfolio and its individual stocks in 2024. If the portfolio has a higher *Sharpe Ratio*, it means that diversification helps maximize returns while controlling for risk — an essential argument when managing institutional funds.
 
 In order to do that, your task is to provide a visualization of the *Sharpe Ratio* of the equally-weighted portfolio you've just created and compare that to those of the individual stocks. I have already created the portfolio results for you, so you can copy-paste that to your session:
 
@@ -381,9 +398,9 @@ portfolio_sharpe=data.frame(symbol='Portfolio',
 ### Hint
 
 1.  Create the `portfolio_sharpe` in your session using the code chunk above.
-2.  Using the `yearly_returns` object you've created in Exercise 2, filter by `year(date)==2024` and `left_join()` with the `yearly_volatility` object you have created in Exercise 3, assigning the result to a new object
-3.  Finally, bind `portfolio_sharpe` to the resulting `data.frame` in a rowwise manner using `rbind(dataframe1,dataframe2)`
-4.  Finally, call `ggplot()` and adjust the aesthetics to show the relationship between risk (x-axis) and return (y-axis) for all individual stocks and the portfolio.
+2.  Using the `yearly_returns` object you've created in Exercise 2, filter by `year(date)==2024` and `left_join()` with the `yearly_volatility` object you have created in Exercise 3, assigning the result to a new object. Assign this to another object.
+3.  Bind `portfolio_sharpe` to the resulting `data.frame` from the previous step in a rowwise manner using `rbind(dataframe1,dataframe2)`. The resulting dataset should contain both the portfolio andthe individual stocks annualized returns and annualized volatility during 2024.
+4.  Finally, call `ggplot()` and adjust the aesthetics to show the relationship between risk (`x`-axis) and return (`x`-axis) for all individual stocks and the portfolio.
 :::
 
 ```{r}

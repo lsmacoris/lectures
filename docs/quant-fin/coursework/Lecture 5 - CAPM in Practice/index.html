@@ -666,8 +666,8 @@ Lucas S. Macoris
 <li><p>To load the data in your session, call:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co">#Read the data, assign it, and make sure it reads the Data column as a Date object</span></span>
-<span id="cb1-2"><a></a>FF_Data<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">'MRP_and_RF.csv'</span>)<span class="sc">%&gt;%</span><span class="fu">mutate</span>(<span class="at">Date=</span><span class="fu">as.Date</span>(Date))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co">#Assuming that you have the file in your working directory</span></span>
+<span id="cb1-2"><a></a>FF_Data<span class="ot">=</span><span class="fu">readRDS</span>(<span class="st">'FF_Data.RDS'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -675,13 +675,13 @@ Lucas S. Macoris
     async function downloadFile(event) {
       event.preventDefault();
       try {
-        const response = await fetch('data:text/csv;base64,RGF0ZTtNUlA7UmYKMjAyNC0wMS0wNTstMSw4ODAzNTEyOTY0OTY1MGUtMDI7MCwwMDA4ODAyOTA0NDI1OTQ4NTUKMjAyNC0wMS0xMjsxLDYzMDU5NDcyMTYyMzI0ZS0wMjswLDAwMTEwMDQ4NDEwNjQ5MjMzMAoyMDI0LTAxLTE5OzksOTEyMzc2NjkwODg2ODVlLTAzOzAsMDAwODgwMjkwNDQyNTk0ODU1CjIwMjQtMDEtMjY7MSwwNDMzNDc4Njc4ODkzMWUtMDI7MCwwMDExMDA0ODQxMDY0OTIzMzAKMjAyNC0wMi0wMjsxLDE4NTUyMzQxMjg2ODQ2ZS0wMjswLDAwMTA4MDQ2NjYwMDc0OTM0MAoyMDI0LTAyLTA5OzEsNDg0Mzg3OTM5MzQyNDdlLTAyOzAsMDAxMDUwNDQxMDkyNjE5OTgwCjIwMjQtMDItMTY7LTIsOTI2MTQ3NzU0NzQ0NTNlLTAzOzAsMDAxMDUwNDQxMDkyNjE5OTgwCjIwMjQtMDItMjM7MSwyNTQ5MTk0MTg4OTY4OGUtMDI7MCwwMDA4NDAyNjQ2MzcwNDYyMjkKMjAyNC0wMy0wMTsxLDA2MDIzOTQ0NzQ1MDk1ZS0wMjswLDAwMTA1MDQ0MTA5MjYxOTk4MAoyMDI0LTAzLTA4Oy0zLDg0MDUxMjQwNTA5MjIwZS0wMzswLDAwMTA1MDQ0MTA5MjYxOTk4MAoyMDI0LTAzLTE1Oy0zLDM3NzkyNDIzODk3OTY1ZS0wMzswLDAwMTA1MDQ0MTA5MjYxOTk4MAoyMDI0LTAzLTIyOzIsMzA2OTQyNDkxOTE0ODFlLTAyOzAsMDAxMDUwNDQxMDkyNjE5OTgwCjIwMjQtMDMtMjg7NCw1NjQ2MjA1NDc0ODc2M2UtMDM7MCwwMDA4NDAyNjQ2MzcwNDYyMjkKMjAyNC0wNC0wNTstMSwxNTA1NTczMjE0NDYyOWUtMDI7MCwwMDEwNTA0NDEwOTI2MTk5ODAKMjAyNC0wNC0xMjstMSw2NzU0NDQwNzkxODg5MGUtMDI7MCwwMDEwNTA0NDEwOTI2MTk5ODAKMjAyNC0wNC0xOTstMywyMTE3NTE2OTkwNzUxOWUtMDI7MCwwMDEwNTA0NDEwOTI2MTk5ODAKMjAyNC0wNC0yNjsyLDcwNzcyMzY5NDQ4NDQ5ZS0wMjswLDAwMTA1MDQ0MTA5MjYxOTk4MAoyMDI0LTA1LTAzOzUsNzQ1MDkyMDA4NzkyNDdlLTAzOzAsMDAxMDIwNDE2MTg0ODY4NTkwCjIwMjQtMDUtMTA7MSw2NTYyMzU5ODY1NTM5OGUtMDI7MCwwMDEwMDA0MDAwODAwMDc5MDAKMjAyNC0wNS0xNzsxLDU0MzIyNDUzMTc0Mzc4ZS0wMjswLDAwMTAwMDQwMDA4MDAwNzkwMAoyMDI0LTA1LTI0Oy0xLDk2ODQyOTY2MjMzNDkwZS0wMzswLDAwMTAwMDQwMDA4MDAwNzkwMAoyMDI0LTA1LTMxOy02LDU0NDk0ODc2NDkwODg1ZS0wMzswLDAwMDgwMDI0MDAzMjAwMTUyMAoyMDI0LTA2LTA3OzksMTYzNjExNTgwODMwNjhlLTAzOzAsMDAxMTAwNDg0MTA2NDkyMzMwCjIwMjQtMDYtMTQ7MSwyOTMxNTU2OTQ1MDQyNmUtMDI7MCwwMDExMDA0ODQxMDY0OTIzMzAKMjAyNC0wNi0yMTs1LDM3NjQ4MDkxNjg2ODE1ZS0wMzswLDAwMDg4MDI5MDQ0MjU5NDg1NQoyMDI0LTA2LTI4OzgsMzY4MTEzODM3MTk4MjdlLTA1OzAsMDAxMTAwNDg0MTA2NDkyMzMwCjIwMjQtMDctMDU7MSw3NjExNzIyNjg4OTIxNGUtMDI7MCwwMDA4NDAyNjQ2MzcwNDYyMjkKMjAyNC0wNy0xMjsxLDA1NzQwNDI1NDQwNjU5ZS0wMjswLDAwMTA1MDQ0MTA5MjYxOTk4MAoyMDI0LTA3LTE5Oy0xLDkyMzYzMDgwOTg0NDgyZS0wMjswLDAwMTA1MDQ0MTA5MjYxOTk4MAoyMDI0LTA3LTI2Oy02LDA5MDI4Njc4ODk4NjgyZS0wMzswLDAwMTA1MDQ0MTA5MjYxOTk4MAoyMDI0LTA4LTAyOy0yLDc3OTUzOTcyNzY3MTA0ZS0wMjswLDAwMTA3MDQ1Nzk5Nzk3NTg5MAoyMDI0LTA4LTA5Oy0xLDEzOTQyMzU5NTM5ODU0ZS0wMzswLDAwMTEwMDQ4NDEwNjQ5MjMzMAoyMDI0LTA4LTE2OzMsOTU1NTgzMzg5MDg1NDZlLTAyOzAsMDAxMTAwNDg0MTA2NDkyMzMwCjIwMjQtMDgtMjM7MSw1MDE2NDQ0NDk5NDkwOWUtMDI7MCwwMDExMDA0ODQxMDY0OTIzMzAKMjAyNC0wOC0zMDs5LDIzOTM0MzIzODI2MzE0ZS0wNDswLDAwMTEwMDQ4NDEwNjQ5MjMzMAoyMDI0LTA5LTA2Oy00LDU0NjgwNzU0NDY3OTc1ZS0wMjswLDAwMDgwMDI0MDAzMjAwMTUyMAoyMDI0LTA5LTEzOzQsMTE0NTMyOTU3NjYyMzFlLTAyOzAsMDAxMDAwNDAwMDgwMDA3OTAwCjIwMjQtMDktMjA7MSw0OTQ3MzI0NDI2MDQxOWUtMDI7MCwwMDEwMDA0MDAwODAwMDc5MDAKMjAyNC0wOS0yNzs0LDk5NDAyMjc1MTI2ODE1ZS0wMzswLDAwMTAwMDQwMDA4MDAwNzkwMAoyMDI0LTEwLTA0OzEsOTkyMDM0MDIyOTY5NTVlLTAzOzAsMDAwODgwMzA5NDU0MzM2ODE0CjIwMjQtMTAtMTE7MSwxNDI1MzY0OTQwNjI5MWUtMDI7MCwwMDA4NTAyODkwNDkxMzQyMDEKMjAyNC0xMC0xODs4LDI2MjIyODg0MjU1NjQ1ZS0wMzswLDAwMDg1MDI4OTA0OTEzNDIwMQoyMDI0LTEwLTI1Oy0xLDEzOTEzMTczOTc4Mzk3ZS0wMjswLDAwMDg1MDI4OTA0OTEzNDIwMQoyMDI0LTExLTAxOy0xLDE0MjA3NTU0NjA0ODk2ZS0wMjswLDAwMDg4MDMwOTQ1NDMzNjgxNAoyMDI0LTExLTA4OzUsMTMzNjAxNDk5MDg4NTdlLTAyOzAsMDAxMDAwNDAwMDgwMDA3OTAwCjIwMjQtMTEtMTU7LTIsMjY3NDg5OTc4NDAxMzRlLTAyOzAsMDAxMDAwNDAwMDgwMDA3OTAwCjIwMjQtMTEtMjI7MiwxNjc1MDM2MzA2NTg5NmUtMDI7MCwwMDEwMDA0MDAwODAwMDc5MDAKMjAyNC0xMS0yOTs5LDcwNzg5MjE1NDE5MTk5ZS0wMzswLDAwMDgwMDI0MDAzMjAwMTUyMAoyMDI0LTEyLTA2OzEsMDIxNDkzNDA1NzIyMDZlLTAyOzAsMDAwODUwMjg5MDQ5MTM0MjAxCjIwMjQtMTItMTM7LTksMjQ5MDIwNjk4OTk4OTFlLTAzOzAsMDAwODUwMjg5MDQ5MTM0MjAxCjIwMjQtMTItMjA7LTIsMjczNTgzNTcyMDg0OTllLTAyOzAsMDAwODUwMjg5MDQ5MTM0MjAxCjIwMjQtMTItMjc7NSw1NjY3NTA5Mjg1NTg2M2UtMDM7MCwwMDA2ODAxNzM0MTk2NTI4NzQKMjAyNC0xMi0zMTstMSw1NDQ5ODYwMDAwMDAwMGUtMDI7MCwwMDAzNDAwMjg4OTk5OTk5NTYK');
+        const response = await fetch('data:application/octet-stream;base64,WAoAAAACAAQEAQACAwAAAAMTAAAAAwAAAw4AAAA1QNNDwAAAAABA00WAAAAAAEDTR0AAAAAAQNNJAAAAAABA00rAAAAAAEDTTIAAAAAAQNNOQAAAAABA01AAAAAAAEDTUcAAAAAAQNNTgAAAAABA01VAAAAAAEDTVwAAAAAAQNNYgAAAAABA01qAAAAAAEDTXEAAAAAAQNNeAAAAAABA01/AAAAAAEDTYYAAAAAAQNNjQAAAAABA02UAAAAAAEDTZsAAAAAAQNNogAAAAABA02pAAAAAAEDTbAAAAAAAQNNtwAAAAABA02+AAAAAAEDTcUAAAAAAQNNzAAAAAABA03TAAAAAAEDTdoAAAAAAQNN4QAAAAABA03oAAAAAAEDTe8AAAAAAQNN9gAAAAABA039AAAAAAEDTgQAAAAAAQNOCwAAAAABA04SAAAAAAEDThkAAAAAAQNOIAAAAAABA04nAAAAAAEDTi4AAAAAAQNONQAAAAABA048AAAAAAEDTkMAAAAAAQNOSgAAAAABA05RAAAAAAEDTlgAAAAAAQNOXwAAAAABA05mAAAAAAEDTm0AAAAAAQNOdAAAAAABA054AAAAAAAAABAIAAAABAAQACQAAAAVjbGFzcwAAABAAAAABAAQACQAAAAREYXRlAAAA/gAAAA4AAAA1v5NBOmTwECs/kLKBmBiYzj+ETPCttDUBP4VeJc2sxH0/iEeOlvP2+j+OZnfEUwAIv2f4k50d1PU/ibNkVQ/r8T+FtrVMN+3/v292I2XAigC/a6wFRFAlCT+Xn4LmQtXBP3KyWf+FkQC/h5A75Ww9ir+RKBN9DkQWv6BxtQo1P/s/m7oinJOciD93iCpkpPb7P5D1uSfeSUY/j5rw54m3e79gIBigxkj5v3rO4E5jcnw/gsRfIGxegj+Ke9wxUpMaP3YFphtJy/w/Fe+/AqmAAz+SCM6z5oq7P4Wn1/dOY3u/k7KuyLbm2L948iDpT7R/v5x2ZYkhlfe/UqsWxQaYED+kQKmJ2r3AP47A8RA4WHo/TkaF2iyX/r+nR5dyHLNaP6URACnUWIE/jpyz7JSWGz90dJzGRlsFP2BRmR9lxgg/h2Yuhh5ykj+A68mVXeV/v4dUVL105Pa/h2PD2ZZbQz+qSLbS/FLhv5c4FsQMtoY/ljH7EE4/uT+D4bs6hdYBP4TrkT2nCHG/gvEmi2C4v7+XSBAbeR4bP3bNKVLuIQK/j6QtG2wXKgAAAA4AAAA1P0zYaVS5//w/UgfDz9FYCz9M2GlUuf/8P1IHw8/RWAs/UbPOLbyj+j9RNd6I6Ef/P1E13ojoR/8/S4imkWuwBD9RNd6I6Ef/P1E13ojoR/8/UTXeiOhH/z9RNd6I6Ef/P0uIppFrsAQ/UTXeiOhH/z9RNd6I6Ef/P1E13ojoR/8/UTXeiOhH/z9Qt++JG8QFP1Bj+2gZY/k/UGP7aBlj+T9QY/toGWP5P0o45mIZR/4/UgfDz9FYCz9SB8PP0VgLP0zYaVS5//w/UgfDz9FYCz9LiKaRa7AEP1E13ojoR/8/UTXeiOhH/z9RNd6I6Ef/P1GJ04X0f/E/UgfDz9FYCz9SB8PP0VgLP1IHw8/RWAs/UgfDz9FYCz9KOOZiGUf+P1Bj+2gZY/k/UGP7aBlj+T9QY/toGWP5P0zYkiiK0AA/S9y91D8wAj9L3L3UPzACP0vcvdQ/MAI/TNiSKIrQAD9QY/toGWP5P1Bj+2gZY/k/UGP7aBlj+T9KOOZiGUf+P0vcvdQ/MAI/S9y91D8wAj9L3L3UPzACP0ZJtUvn//8/Nki9AVRwBgAABAIAAAABAAQACQAAAAVuYW1lcwAAABAAAAADAAQACQAAAAREYXRlAAQACQAAAANNUlAABAAJAAAAAlJmAAAEAgAAAf8AAAAQAAAAAQAEAAkAAAAKZGF0YS5mcmFtZQAABAIAAAABAAQACQAAAAlyb3cubmFtZXMAAAANAAAAAoAAAAD////LAAAA/g==');
         if (!response.ok) throw new Error('Network response failed');
         const blob = await response.blob();
         const blobUrl = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = blobUrl;
-        a.download = 'FF_Data.csv';
+        a.download = 'FF_Data.rds';
         a.style.display = 'none';
         document.body.appendChild(a);
         a.dispatchEvent(new MouseEvent('click'));
@@ -738,8 +738,8 @@ Lucas S. Macoris
 <span id="cb2-29"><a></a><span class="fu">unnest</span>(data)<span class="sc">%&gt;%</span></span>
 <span id="cb2-30"><a></a><span class="co">#Pivot back to wide format</span></span>
 <span id="cb2-31"><a></a><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Key,<span class="at">values_from =</span> Value)<span class="sc">%&gt;%</span></span>
-<span id="cb2-32"><a></a><span class="co">#Wite csv</span></span>
-<span id="cb2-33"><a></a><span class="fu">write.csv</span>(<span class="st">'MRP_and_RF.csv'</span>,<span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-32"><a></a><span class="co">#Write as a csv</span></span>
+<span id="cb2-33"><a></a><span class="fu">saveRDS</span>(<span class="st">'MRP_and_RF.csv'</span>,<span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -924,26 +924,27 @@ Lucas S. Macoris
 <li>Use <code>filter</code> to work with a single ticker, say, <code>symbol=='DOW'</code></li>
 <li>Call the <code>lm()</code> function to run an <em>OLS</em> regression of excess returns on market returns</li>
 </ol></li>
-<li><p>The next slide shows the result of estimating the <span class="blue">CAPM</span> model for <em>DOW</em></p></li>
+<li><p>The next slide shows the result of estimating the <span class="blue">CAPM</span> model for <em>RYAM</em></p></li>
 </ul>
 </section>
-<section id="step-3-estimating-alpha-and-beta-dow-only" class="slide level2">
-<h2>Step 3: estimating <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (<em>DOW</em> only)</h2>
+<section id="step-3-estimating-alpha-and-beta-ryam-only" class="slide level2">
+<h2>Step 3: estimating <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (<em>RYAM</em> only)</h2>
 <div class="panel-tabset">
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Code</a></li><li><a href="#tabset-3-2">Output</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co">#Manipulate data</span></span>
-<span id="cb7-2"><a></a>DOW<span class="ot">=</span>Full_Data<span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a></a>  <span class="fu">select</span>(symbol,excess_return,MRP)</span>
-<span id="cb7-5"><a></a></span>
-<span id="cb7-6"><a></a><span class="co">#Run the OLS regression</span></span>
-<span id="cb7-7"><a></a>OLS<span class="ot">=</span><span class="fu">lm</span>(excess_return<span class="sc">~</span>MRP,<span class="at">data=</span>DOW)</span>
-<span id="cb7-8"><a></a></span>
-<span id="cb7-9"><a></a><span class="co">#Inspect the results using summary()</span></span>
-<span id="cb7-10"><a></a><span class="fu">summary</span>(OLS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a></a>RYAM<span class="ot">=</span>Full_Data<span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">filter</span>(symbol<span class="sc">==</span><span class="st">'RYAM'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a></a>  <span class="fu">select</span>(symbol,excess_return,MRP)</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a><span class="co">#Run the OLS regression</span></span>
+<span id="cb7-8"><a></a>OLS<span class="ot">=</span><span class="fu">lm</span>(excess_return<span class="sc">~</span>MRP,<span class="at">data=</span>RYAM)</span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a><span class="co">#Inspect the results using summary()</span></span>
+<span id="cb7-11"><a></a><span class="fu">summary</span>(OLS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-3-2">
@@ -951,23 +952,23 @@ Lucas S. Macoris
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = excess_return ~ MRP, data = DOW)
+lm(formula = excess_return ~ MRP, data = RYAM)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--0.41436 -0.03266 -0.00274  0.02747  0.38600 
+      Min        1Q    Median        3Q       Max 
+-0.153351 -0.036530 -0.005546  0.026486  0.185118 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) -0.006931   0.003482  -1.991   0.0471 *  
-MRP          1.118566   0.190283   5.878 7.43e-09 ***
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept) 0.008144   0.009698   0.840   0.4050  
+MRP         1.237611   0.529959   2.335   0.0236 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.07769 on 518 degrees of freedom
-  (10 observations deleted due to missingness)
-Multiple R-squared:  0.06254,   Adjusted R-squared:  0.06073 
-F-statistic: 34.56 on 1 and 518 DF,  p-value: 7.426e-09</code></pre>
+Residual standard error: 0.06842 on 50 degrees of freedom
+  (1 observation deleted due to missingness)
+Multiple R-squared:  0.09835,   Adjusted R-squared:  0.08031 
+F-statistic: 5.454 on 1 and 50 DF,  p-value: 0.02358</code></pre>
 </div>
 </div>
 </div>
@@ -991,7 +992,7 @@ F-statistic: 34.56 on 1 and 518 DF,  p-value: 7.426e-09</code></pre>
 <section id="assessing-required-returns" class="slide level2">
 <h2>Assessing Required Returns</h2>
 <ul>
-<li>Suppose you need to price the long-run required returns for investing in an opportunity that has the same equity risk and as <em>DOW</em>. It is now a straightforward application of the <span class="blue">CAPM</span>:</li>
+<li>Suppose you need to price the long-run required returns for investing in an opportunity that has the same equity risk and as <em>RYAM</em>. It is now a straightforward application of the <span class="blue">CAPM</span>:</li>
 </ul>
 <p><span class="math display">\[
 \small \text{Required Return} = R_f +  \beta \times (R_m - R_f)
@@ -1001,13 +1002,122 @@ F-statistic: 34.56 on 1 and 518 DF,  p-value: 7.426e-09</code></pre>
 <ol type="1">
 <li>The historical long-run risk-free rate return, <span class="math inline">\(\small R_f\)</span>, is <span class="math inline">\(\small 4.50\%\)</span></li>
 <li>The historical long-run market return, <span class="math inline">\(\small R_m\)</span>, is <span class="math inline">\(\small 9.94\%\)</span></li>
-<li>The <span class="math inline">\(\beta\)</span> you’ve just found is <span class="math inline">\(\small 1.12\)</span></li>
+<li>The <span class="math inline">\(\beta\)</span> you’ve just found is <span class="math inline">\(\small 1.23\)</span></li>
 </ol></li>
 <li><p>Then, the long-run required return is simply:</p></li>
 </ul>
 <p><span class="math display">\[
-\small \text{Required Return} = 4.5\%+ 1.12\times(9.94\%-4.5\%)=10.59\%
+\small \text{Required Return} = 4.5\%+ 1.23\times(9.94\%-4.5\%)=11.20\%
 \]</span></p>
+</section>
+<section id="the-dynamic-nature-of-beta" class="slide level2">
+<h2>The Dynamic Nature of <span class="math inline">\(\beta\)</span></h2>
+<ul>
+<li><p>In our previous example, <span class="math inline">\(\beta\)</span> was estimated using a simple <em>OLS</em> regression of asset excess returns on market excess returns</p></li>
+<li><p>Our estimate of <span class="math inline">\(\beta\)</span> was then used to build the required return for <em>RYAM</em>. Note, however, that the sensitivity of <em>RYAM</em> to systematic risk changes over time:</p>
+<ol type="1">
+<li>Shifts in business models (<em>e.g.</em>, firms diversifying revenue streams)</li>
+<li>Macroeconomic conditions (<em>e.g.</em>, monetary policy, recessions)</li>
+<li>Market structure changes (<em>e.g.</em>, sector rotations, liquidity shifts)</li>
+<li>Leverage variations (<em>e.g</em>., debt levels affecting risk exposure)</li>
+</ol></li>
+<li><p>In what follows, we’ll look how the <span class="math inline">\(\beta\)</span> estimate for <em>RYAM</em> changes over time considering an estimation window of <span class="math inline">\(24\)</span> weeks</p></li>
+</ul>
+</section>
+<section id="the-dynamic-nature-of-beta-continued" class="slide level2">
+<h2>The Dynamic Nature of <span class="math inline">\(\beta\)</span>, continued</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co">#Manipulate data</span></span>
+<span id="cb9-2"><a></a>RYAM<span class="ot">=</span>Full_Data<span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">filter</span>(symbol<span class="sc">==</span><span class="st">'RYAM'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">select</span>(date,symbol,excess_return,MRP)</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="co">#Create a custom OLS function that extracts all coefficients to pass it to tq_transmute </span></span>
+<span id="cb9-8"><a></a>custom_OLS <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb9-9"><a></a>    <span class="fu">coef</span>(<span class="fu">lm</span>(excess_return <span class="sc">~</span> MRP, <span class="at">data =</span> data))</span>
+<span id="cb9-10"><a></a>}</span>
+<span id="cb9-11"><a></a></span>
+<span id="cb9-12"><a></a><span class="co">#Apply the custom function to tq_transmute in rolling format</span></span>
+<span id="cb9-13"><a></a>RYAM<span class="sc">%&gt;%</span></span>
+<span id="cb9-14"><a></a>  <span class="fu">tq_transmute</span>(</span>
+<span id="cb9-15"><a></a>      <span class="at">mutate_fun =</span> rollapply,</span>
+<span id="cb9-16"><a></a>      <span class="at">by.column=</span><span class="cn">FALSE</span>,</span>
+<span id="cb9-17"><a></a>      <span class="at">width=</span><span class="dv">24</span>, <span class="co">#Use latest 24 weeks</span></span>
+<span id="cb9-18"><a></a>      <span class="at">FUN =</span> custom_OLS,</span>
+<span id="cb9-19"><a></a>      <span class="at">col_rename =</span> <span class="fu">c</span>(<span class="st">'alpha'</span>,<span class="st">'beta'</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb9-20"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(alpha))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 30 × 4
+# Groups:   symbol [1]
+   symbol date         alpha     beta
+   &lt;chr&gt;  &lt;date&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+ 1 RYAM   2024-06-14 0.0122   0.274  
+ 2 RYAM   2024-06-21 0.0110   0.311  
+ 3 RYAM   2024-06-28 0.0106   0.510  
+ 4 RYAM   2024-07-05 0.00960  0.387  
+ 5 RYAM   2024-07-12 0.00884  0.358  
+ 6 RYAM   2024-07-19 0.0122   0.00874
+ 7 RYAM   2024-07-26 0.0151  -0.186  
+ 8 RYAM   2024-08-02 0.0117   0.254  
+ 9 RYAM   2024-08-09 0.0222   0.334  
+10 RYAM   2024-08-16 0.0288   0.615  
+# ℹ 20 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-dynamic-nature-of-beta-practice" class="slide level2">
+<h2>The Dynamic Nature of <span class="math inline">\(\beta\)</span>, practice</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co">#Pipe the rolling regression object into ggplot</span></span>
+<span id="cb11-2"><a></a>rolling_regs<span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>beta))<span class="sc">+</span></span>
+<span id="cb11-4"><a></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb11-5"><a></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
+<span id="cb11-6"><a></a>  <span class="co">#Annotations</span></span>
+<span id="cb11-7"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Rolling Beta regression (RYAM)'</span>,</span>
+<span id="cb11-8"><a></a>       <span class="at">subtitle =</span> <span class="st">'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.'</span>,</span>
+<span id="cb11-9"><a></a>       <span class="at">x =</span> <span class="st">'Week'</span>,</span>
+<span id="cb11-10"><a></a>       <span class="at">y =</span> <span class="st">'Estimated Beta'</span>)<span class="sc">+</span></span>
+<span id="cb11-11"><a></a>  <span class="co">#Theme</span></span>
+<span id="cb11-12"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb11-13"><a></a>  <span class="co">#Scale x</span></span>
+<span id="cb11-14"><a></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">'4 weeks'</span>)<span class="sc">+</span>  </span>
+<span id="cb11-15"><a></a>  <span class="co">#Adding further customizations</span></span>
+<span id="cb11-16"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">'none'</span>,</span>
+<span id="cb11-17"><a></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust=</span><span class="sc">+</span><span class="dv">4</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
+<span id="cb11-18"><a></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">vjust=</span><span class="sc">-</span><span class="dv">3</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
+<span id="cb11-19"><a></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="1440"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="understanding-the-alpha-term-inside-the-ols-estimation" class="slide level2">
 <h2>Understanding the <span class="math inline">\(\alpha\)</span> term inside the OLS estimation</h2>
@@ -1055,46 +1165,46 @@ F-statistic: 34.56 on 1 and 518 DF,  p-value: 7.426e-09</code></pre>
 <section id="step-4-putting-all-together-continued" class="slide level2">
 <h2>Step 4: putting all together continued</h2>
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">For Loop</a></li><li><a href="#tabset-4-2">Functional Programming</a></li></ul>
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">For Loop</a></li><li><a href="#tabset-6-2">Functional Programming</a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1">
+<div id="tabset-6-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co">#Start an empty data.frame</span></span>
-<span id="cb9-2"><a></a>Stored_Data<span class="ot">=</span><span class="fu">data.frame</span>()</span>
-<span id="cb9-3"><a></a></span>
-<span id="cb9-4"><a></a><span class="cf">for</span> (i <span class="cf">in</span> assets){</span>
-<span id="cb9-5"><a></a>  </span>
-<span id="cb9-6"><a></a>  <span class="co">#Manipulate data</span></span>
-<span id="cb9-7"><a></a>  Filtered_Data<span class="ot">=</span>Full_Data<span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a></a>    <span class="co">#Filter for the specific ticker</span></span>
-<span id="cb9-9"><a></a>    <span class="fu">filter</span>(symbol<span class="sc">==</span> i)<span class="sc">%&gt;%</span></span>
-<span id="cb9-10"><a></a>    <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
-<span id="cb9-11"><a></a>    <span class="fu">select</span>(symbol,excess_return,MRP)</span>
-<span id="cb9-12"><a></a>  </span>
-<span id="cb9-13"><a></a>  <span class="co">#Run the OLS regression</span></span>
-<span id="cb9-14"><a></a>  OLS<span class="ot">=</span><span class="fu">lm</span>(excess_return<span class="sc">~</span>MRP,<span class="at">data=</span>Filtered_Data)</span>
-<span id="cb9-15"><a></a></span>
-<span id="cb9-16"><a></a>  <span class="co">#Get the coefficients using the coefficients() function and add it to a temp data</span></span>
-<span id="cb9-17"><a></a>  </span>
-<span id="cb9-18"><a></a>  Temp_Data <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">ticker=</span>i,</span>
-<span id="cb9-19"><a></a>                         <span class="at">alpha=</span><span class="fu">coefficients</span>(OLS)[<span class="dv">1</span>],</span>
-<span id="cb9-20"><a></a>                         <span class="at">beta=</span><span class="fu">coefficients</span>(OLS)[<span class="dv">2</span>])</span>
-<span id="cb9-21"><a></a>  </span>
-<span id="cb9-22"><a></a>  <span class="co">#Bind it to the dataframe</span></span>
-<span id="cb9-23"><a></a>  Stored_Data<span class="ot">=</span>Stored_Data<span class="sc">%&gt;%</span><span class="fu">rbind</span>(Temp_Data)</span>
-<span id="cb9-24"><a></a>  </span>
-<span id="cb9-25"><a></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co">#Start an empty data.frame</span></span>
+<span id="cb12-2"><a></a>Stored_Data<span class="ot">=</span><span class="fu">data.frame</span>()</span>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a><span class="cf">for</span> (i <span class="cf">in</span> assets){</span>
+<span id="cb12-5"><a></a>  </span>
+<span id="cb12-6"><a></a>  <span class="co">#Manipulate data</span></span>
+<span id="cb12-7"><a></a>  Filtered_Data<span class="ot">=</span>Full_Data<span class="sc">%&gt;%</span></span>
+<span id="cb12-8"><a></a>    <span class="co">#Filter for the specific ticker</span></span>
+<span id="cb12-9"><a></a>    <span class="fu">filter</span>(symbol<span class="sc">==</span> i)<span class="sc">%&gt;%</span></span>
+<span id="cb12-10"><a></a>    <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
+<span id="cb12-11"><a></a>    <span class="fu">select</span>(symbol,excess_return,MRP)</span>
+<span id="cb12-12"><a></a>  </span>
+<span id="cb12-13"><a></a>  <span class="co">#Run the OLS regression</span></span>
+<span id="cb12-14"><a></a>  OLS<span class="ot">=</span><span class="fu">lm</span>(excess_return<span class="sc">~</span>MRP,<span class="at">data=</span>Filtered_Data)</span>
+<span id="cb12-15"><a></a></span>
+<span id="cb12-16"><a></a>  <span class="co">#Get the coefficients using the coefficients() function and add it to a temp data</span></span>
+<span id="cb12-17"><a></a>  </span>
+<span id="cb12-18"><a></a>  Temp_Data <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">ticker=</span>i,</span>
+<span id="cb12-19"><a></a>                         <span class="at">alpha=</span><span class="fu">coefficients</span>(OLS)[<span class="dv">1</span>],</span>
+<span id="cb12-20"><a></a>                         <span class="at">beta=</span><span class="fu">coefficients</span>(OLS)[<span class="dv">2</span>])</span>
+<span id="cb12-21"><a></a>  </span>
+<span id="cb12-22"><a></a>  <span class="co">#Bind it to the dataframe</span></span>
+<span id="cb12-23"><a></a>  Stored_Data<span class="ot">=</span>Stored_Data<span class="sc">%&gt;%</span><span class="fu">rbind</span>(Temp_Data)</span>
+<span id="cb12-24"><a></a>  </span>
+<span id="cb12-25"><a></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-4-2">
+<div id="tabset-6-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>CAPM_Estimation<span class="ot">=</span>Full_Data<span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">select</span>(symbol,excess_return,MRP)<span class="sc">%&gt;%</span></span>
-<span id="cb10-4"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
-<span id="cb10-5"><a></a>  <span class="fu">nest</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb10-6"><a></a>  <span class="fu">mutate</span>(<span class="at">CAPM =</span> <span class="fu">map</span>(data,<span class="sc">~</span> <span class="fu">lm</span>(excess_return<span class="sc">~</span>MRP,<span class="at">data=</span>.)))<span class="sc">%&gt;%</span></span>
-<span id="cb10-7"><a></a>  <span class="fu">mutate</span>(<span class="at">coefficients =</span> <span class="fu">map</span>(CAPM,tidy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>CAPM_Estimation<span class="ot">=</span>Full_Data<span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">select</span>(symbol,excess_return,MRP)<span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a></a>  <span class="fu">nest</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">mutate</span>(<span class="at">CAPM =</span> <span class="fu">map</span>(data,<span class="sc">~</span> <span class="fu">lm</span>(excess_return<span class="sc">~</span>MRP,<span class="at">data=</span>.)))<span class="sc">%&gt;%</span></span>
+<span id="cb13-7"><a></a>  <span class="fu">mutate</span>(<span class="at">coefficients =</span> <span class="fu">map</span>(CAPM,tidy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1103,48 +1213,98 @@ F-statistic: 34.56 on 1 and 518 DF,  p-value: 7.426e-09</code></pre>
 <section id="charting-the-result" class="slide level2">
 <h2>Charting the result</h2>
 <div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Output</a></li></ul>
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Code</a></li><li><a href="#tabset-7-2">Output</a></li></ul>
 <div class="tab-content">
-<div id="tabset-5-1">
+<div id="tabset-7-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>Full_Data<span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a></a>  <span class="fu">select</span>(symbol,excess_return,MRP)<span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
-<span id="cb11-5"><a></a>  <span class="fu">nest</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb11-6"><a></a>  <span class="fu">mutate</span>(<span class="at">CAPM =</span> <span class="fu">map</span>(data,<span class="sc">~</span> <span class="fu">lm</span>(excess_return<span class="sc">~</span>MRP,<span class="at">data=</span>.)))<span class="sc">%&gt;%</span></span>
-<span id="cb11-7"><a></a>  <span class="fu">mutate</span>(<span class="at">coefficients =</span> <span class="fu">map</span>(CAPM,broom<span class="sc">::</span>tidy))<span class="sc">%&gt;%</span></span>
-<span id="cb11-8"><a></a>  <span class="fu">select</span>(coefficients)<span class="sc">%&gt;%</span></span>
-<span id="cb11-9"><a></a>  <span class="fu">unnest</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb11-10"><a></a>  <span class="fu">filter</span>(term<span class="sc">==</span><span class="st">'(Intercept)'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb11-11"><a></a>  <span class="fu">select</span>(symbol,estimate)<span class="sc">%&gt;%</span></span>
-<span id="cb11-12"><a></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">'Ticker'</span>,<span class="st">'Alpha'</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb11-13"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Ticker,<span class="at">y=</span>Alpha))<span class="sc">+</span></span>
-<span id="cb11-14"><a></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb11-15"><a></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">yend =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray50"</span>)<span class="sc">+</span></span>
-<span id="cb11-16"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">'dashed'</span>)<span class="sc">+</span></span>
-<span id="cb11-17"><a></a>  <span class="co">#Annotations</span></span>
-<span id="cb11-18"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Using CAPM to analyze over/undervalued investment opportunities'</span>,</span>
-<span id="cb11-19"><a></a>       <span class="at">subtitle =</span> <span class="st">'Source: Yahoo! Finance'</span>,</span>
-<span id="cb11-20"><a></a>       <span class="at">x =</span> <span class="st">'Ticker'</span>,</span>
-<span id="cb11-21"><a></a>       <span class="at">y =</span> <span class="st">'Adjusted Prices'</span>)<span class="sc">+</span></span>
-<span id="cb11-22"><a></a>  <span class="co">#Scales</span></span>
-<span id="cb11-23"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)<span class="sc">+</span></span>
-<span id="cb11-24"><a></a>  <span class="co">#Custom 'The Economist' theme</span></span>
-<span id="cb11-25"><a></a>  <span class="fu">theme_tq</span>()<span class="sc">+</span></span>
-<span id="cb11-26"><a></a>  <span class="co">#Adding further customizations</span></span>
-<span id="cb11-27"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">'none'</span>,</span>
-<span id="cb11-28"><a></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust=</span><span class="sc">+</span><span class="dv">4</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
-<span id="cb11-29"><a></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">vjust=</span><span class="sc">-</span><span class="dv">3</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
-<span id="cb11-30"><a></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>CAPM_Estimation<span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">select</span>(coefficients)<span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">unnest</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a></a>  <span class="fu">filter</span>(term<span class="sc">==</span><span class="st">'(Intercept)'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a></a>  <span class="fu">select</span>(symbol,estimate)<span class="sc">%&gt;%</span></span>
+<span id="cb14-6"><a></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">'Ticker'</span>,<span class="st">'Alpha'</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb14-7"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Ticker,<span class="at">y=</span>Alpha))<span class="sc">+</span></span>
+<span id="cb14-8"><a></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">5</span>)<span class="sc">+</span></span>
+<span id="cb14-9"><a></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">yend =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray50"</span>)<span class="sc">+</span></span>
+<span id="cb14-10"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">'dashed'</span>)<span class="sc">+</span></span>
+<span id="cb14-11"><a></a>  <span class="co">#Annotations</span></span>
+<span id="cb14-12"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Using CAPM to analyze over/undervalued investment opportunities'</span>,</span>
+<span id="cb14-13"><a></a>       <span class="at">subtitle =</span> <span class="st">'Source: Yahoo! Finance'</span>,</span>
+<span id="cb14-14"><a></a>       <span class="at">x =</span> <span class="st">'Ticker'</span>,</span>
+<span id="cb14-15"><a></a>       <span class="at">y =</span> <span class="st">'Alpha'</span>)<span class="sc">+</span></span>
+<span id="cb14-16"><a></a>  <span class="co">#Scales</span></span>
+<span id="cb14-17"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)<span class="sc">+</span></span>
+<span id="cb14-18"><a></a>  <span class="co">#Custom 'TidyQuant' theme</span></span>
+<span id="cb14-19"><a></a>  <span class="fu">theme_tq</span>()<span class="sc">+</span></span>
+<span id="cb14-20"><a></a>  <span class="co">#Adding further customizations</span></span>
+<span id="cb14-21"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">'none'</span>,</span>
+<span id="cb14-22"><a></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">15</span>),</span>
+<span id="cb14-23"><a></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb14-24"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
+<span id="cb14-25"><a></a>        <span class="at">plot.subtitle  =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>,<span class="at">face=</span><span class="st">'bold'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-5-2">
+<div id="tabset-7-2">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="1440"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-18-1.png" width="1440"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rolling-alphas" class="slide level2">
+<h2>Rolling Alphas</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Code</a></li><li><a href="#tabset-8-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>Full_Data<span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a></a>  <span class="fu">select</span>(date,symbol,excess_return,MRP)<span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a></a>  <span class="fu">tq_transmute</span>(</span>
+<span id="cb15-6"><a></a>      <span class="at">mutate_fun =</span> rollapply,</span>
+<span id="cb15-7"><a></a>      <span class="at">by.column=</span><span class="cn">FALSE</span>,</span>
+<span id="cb15-8"><a></a>      <span class="at">width=</span><span class="dv">24</span>, <span class="co">#Use latest 24 weeks</span></span>
+<span id="cb15-9"><a></a>      <span class="at">FUN =</span> custom_OLS,</span>
+<span id="cb15-10"><a></a>      <span class="at">col_rename =</span> <span class="fu">c</span>(<span class="st">'alpha'</span>,<span class="st">'beta'</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb15-11"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(alpha))<span class="sc">%&gt;%</span></span>
+<span id="cb15-12"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>alpha))<span class="sc">+</span></span>
+<span id="cb15-13"><a></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb15-14"><a></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
+<span id="cb15-15"><a></a>  <span class="fu">facet_wrap</span>(symbol<span class="sc">~</span>.,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">5</span>,<span class="at">scales=</span><span class="st">'free_y'</span>)<span class="sc">+</span></span>
+<span id="cb15-16"><a></a>  <span class="co">#Annotations</span></span>
+<span id="cb15-17"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Rolling Alpha Regression'</span>,</span>
+<span id="cb15-18"><a></a>       <span class="at">subtitle =</span> <span class="st">'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.'</span>,</span>
+<span id="cb15-19"><a></a>       <span class="at">x =</span> <span class="st">''</span>,</span>
+<span id="cb15-20"><a></a>       <span class="at">y =</span> <span class="st">'Estimated Alpha'</span>)<span class="sc">+</span></span>
+<span id="cb15-21"><a></a>  <span class="co">#Theme</span></span>
+<span id="cb15-22"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb15-23"><a></a>  <span class="co">#Scale x</span></span>
+<span id="cb15-24"><a></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">'4 weeks'</span>)<span class="sc">+</span></span>
+<span id="cb15-25"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)<span class="sc">+</span></span>
+<span id="cb15-26"><a></a>  <span class="co">#Adding further customizations</span></span>
+<span id="cb15-27"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">'none'</span>,</span>
+<span id="cb15-28"><a></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">15</span>),</span>
+<span id="cb15-29"><a></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>,<span class="at">angle =</span> <span class="dv">90</span>),</span>
+<span id="cb15-30"><a></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb15-31"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
+<span id="cb15-32"><a></a>        <span class="at">plot.subtitle  =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>,<span class="at">face=</span><span class="st">'bold'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-20-1.png" width="1728"></p>
 </figure>
 </div>
 </div>
@@ -1156,8 +1316,11 @@ F-statistic: 34.56 on 1 and 518 DF,  p-value: 7.426e-09</code></pre>
 <section id="capm-shortcomings" class="slide level2">
 <h2>CAPM shortcomings</h2>
 <ul>
-<li><p>In our estimation, none of the <span class="math inline">\(\small \alpha\)</span> results were statistically significant, meaning that we cannot reject the hypothesis that <span class="math inline">\(\alpha\)</span> is different from zero, which is in line with the CAPM</p></li>
-<li><p>However, when trying to use the CAPM to <span class="blue">predict</span> future performance, results are not consitent with the CAPM predictions. <strong>What could be going on?</strong></p></li>
+<li><p>In our estimation, none of the <span class="math inline">\(\small \alpha\)</span> results were statistically significant, meaning that we cannot reject the hypothesis that <span class="math inline">\(\alpha\)</span> is different from zero</p>
+<ol type="1">
+<li>In such a way, it implies that investors cannot really earn abnormal returns that are uncorrelated with the market</li>
+<li>However, many researchers have found <span class="blue">market anomalies</span> where it was possible to create a strategy that generated positive <span class="math inline">\(\alpha\)</span></li>
+</ol></li>
 <li><p>It is important to recall some of the model’s shortcomings:</p>
 <ol type="1">
 <li>Market Returns are really context-dependent, and the use of <em>NYSE/DOW/Ibovespa</em> etc is problem-specific</li>
@@ -1167,16 +1330,58 @@ F-statistic: 34.56 on 1 and 518 DF,  p-value: 7.426e-09</code></pre>
 </ol></li>
 </ul>
 </section>
+<section id="capm-and-efficient-markets" class="slide level2">
+<h2><em>CAPM</em> and Efficient Markets</h2>
+<ul>
+<li><p>The <em>CAPM</em> model relates to the <em>Efficient Market Hypothesis</em> <span class="citation" data-cites="fama1970">(<a href="#/references" role="doc-biblioref" onclick="">Fama 1970</a>)</span> by providing a framework to determine expected returns based on a single factor: the <span class="blue">systematic risk</span></p></li>
+<li><p>Hence, if the <em>Efficient Market Hypothesis</em> holds, CAPM should <span class="green">correctly</span> price all assets:</p>
+<ol type="1">
+<li>Expected returns depend only on beta, the sensitivity to systematic risk</li>
+<li>No other risk factors should systematically predict returns</li>
+</ol></li>
+</ul>
+<div class="fragment">
+<p><strong>Question</strong>: if the <em>CAPM</em> does not hold in practice, does that mean that markets are <em>inefficient</em>?</p>
+</div>
+<div class="fragment">
+<ul>
+<li><p>It is tempting to argue that if the <em>CAPM</em> <span class="red">fails</span> to account for some market anomalies, it must be that the markets are <span class="blue">not efficient</span> as the model would predict</p></li>
+<li><p>Note, however, that this discussion is more nuanced than simply rejecting the <em>Efficient Market Hypothesis</em> altogether</p></li>
+</ul>
+</div>
+</section>
+<section id="capm-and-efficient-markets-continued" class="slide level2">
+<h2><em>CAPM</em> and Efficient Markets, continued</h2>
+<ol type="1">
+<li><p>It is tempting to argue that if the <em>CAPM</em> <span class="red">fails</span> to account for some market anomalies, it must be that the markets are <span class="blue">not efficient</span> as the model would predict</p></li>
+<li><p>Note, however, that this discussion is more nuanced than simply rejecting the <em>Efficient Market Hypothesis</em> altogether</p></li>
+</ol>
+<ul>
+<li><p>All in all, testing the <em>CAPM</em> is inherently a <span class="blue">joint test</span> of:</p>
+<ol type="1">
+<li><strong>Market Efficiency</strong> - if the model is correctly specified, there should be no systematic <span class="math inline">\(\alpha&gt;0\)</span></li>
+<li><strong>Model Specification</strong> - there is an omitted factor other than the systematic risk that explains excess returns</li>
+</ol></li>
+<li><p>Therefore, if the <em>CAPM</em> fails empirical tests, it is unclear whether it is because <strong>I)</strong>markets are <span class="blue">inefficient</span>; or <strong>II)</strong> the model is simply <span class="blue">misspecified</span></p></li>
+<li><p>Alternative models, such as the <em>Fama-French Three-Factor Model</em> <span class="citation" data-cites="fama1993">(<a href="#/references" role="doc-biblioref" onclick="">Fama and French 1993</a>)</span>, attempt to address these limitations</p></li>
+</ul>
+</section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
 <div class="quarto-auto-generated-content">
-<p><img src="../../../Images/logo.jpg" class="slide-logo"></p>
+<p><img src="Images/logo.jpg" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures/quant-fin">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
 </div>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-fama1970" class="csl-entry" role="listitem">
+Fama, Eugene F. 1970. <span>“Efficient Capital Markets: A Review of Theory and Empirical Work.”</span> <em>The Journal of Finance</em> 25 (2): 383–417. <a href="https://doi.org/10.2307/2325486">https://doi.org/10.2307/2325486</a>.
+</div>
+<div id="ref-fama1993" class="csl-entry" role="listitem">
+Fama, Eugene F., and Kenneth R. French. 1993. <span>“Common Risk Factors in the Returns on Stocks and Bonds.”</span> <em>Journal of Financial Economics</em> 33 (1): 3–56.
+</div>
 <div id="ref-Markowitz" class="csl-entry" role="listitem">
 Markowitz, Harry. 1952. <span>“Portfolio Selection.”</span> <em>The Journal of Finance</em> 7 (1): 77–91. <a href="http://www.jstor.org/stable/2975974">http://www.jstor.org/stable/2975974</a>.
 </div>

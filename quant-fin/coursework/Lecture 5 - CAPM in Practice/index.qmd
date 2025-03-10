@@ -7,7 +7,7 @@ format:
     theme: [default, ../~ Metadata/custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris'
-    logo: '/Images/logo.jpg'
+    logo: 'Images/logo.jpg'
     footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: ../~ Metadata/abntex2.cls
@@ -199,8 +199,9 @@ Indexes like the [S&P500]{.blue} and [Ibovespa]{.blue} are not considered the [m
 #| message: false
 #| eval: false
 #| echo: true
-#Read the data, assign it, and make sure it reads the Data column as a Date object
-FF_Data=read.csv('MRP_and_RF.csv')%>%mutate(Date=as.Date(Date))
+
+#Assuming that you have the file in your working directory
+FF_Data=readRDS('FF_Data.RDS')
 ```
 
 ```{r}
@@ -208,9 +209,10 @@ FF_Data=read.csv('MRP_and_RF.csv')%>%mutate(Date=as.Date(Date))
 #| message: false
 
 read.csv('Assets/MRP_and_RF.csv')%>%
+  mutate(Date=as.Date(Date))%>%
   download_this(
     output_name = "FF_Data",
-    output_extension = ".csv",
+    output_extension = ".rds",
     button_label = "Download Raw data",
     has_icon = TRUE,
     icon = "fa fa-save")
@@ -257,8 +259,8 @@ mutate(data = map(data,~rownames_to_column(.,'Date')))%>%
 unnest(data)%>%
 #Pivot back to wide format
 pivot_wider(names_from = Key,values_from = Value)%>%
-#Wite csv
-write.csv('MRP_and_RF.csv',row.names = FALSE)
+#Write as a csv
+saveRDS('MRP_and_RF.csv',row.names = FALSE)
 
 ```
 
@@ -402,9 +404,9 @@ $$
     3.  Use `filter` to work with a single ticker, say, `symbol=='DOW'`
     4.  Call the `lm()` function to run an *OLS* regression of excess returns on market returns
 
--   The next slide shows the result of estimating the [CAPM]{.blue} model for *DOW*
+-   The next slide shows the result of estimating the [CAPM]{.blue} model for *RYAM*
 
-## Step 3: estimating $\alpha$ and $\beta$ (*DOW* only)
+## Step 3: estimating $\alpha$ and $\beta$ (*RYAM* only)
 
 ::: panel-tabset
 ## Code
@@ -414,12 +416,13 @@ $$
 #| eval: false
 
 #Manipulate data
-DOW=Full_Data%>%
+RYAM=Full_Data%>%
+  filter(symbol=='RYAM')%>%
   mutate(excess_return=weekly_return-Rf)%>%
   select(symbol,excess_return,MRP)
 
 #Run the OLS regression
-OLS=lm(excess_return~MRP,data=DOW)
+OLS=lm(excess_return~MRP,data=RYAM)
 
 #Inspect the results using summary()
 summary(OLS)
@@ -432,15 +435,17 @@ summary(OLS)
 #| eval: true
 
 #Manipulate data
-DOW=Full_Data%>%
+RYAM=Full_Data%>%
+  filter(symbol=='RYAM')%>%
   mutate(excess_return=weekly_return-Rf)%>%
   select(symbol,excess_return,MRP)
 
 #Run the OLS regression
-OLS=lm(excess_return~MRP,data=DOW)
+OLS=lm(excess_return~MRP,data=RYAM)
 
 #Inspect the results using summary()
 summary(OLS)
+
 ```
 :::
 
@@ -459,7 +464,7 @@ $$
 
 ## Assessing Required Returns
 
--   Suppose you need to price the long-run required returns for investing in an opportunity that has the same equity risk and as *DOW*. It is now a straightforward application of the [CAPM]{.blue}:
+-   Suppose you need to price the long-run required returns for investing in an opportunity that has the same equity risk and as *RYAM*. It is now a straightforward application of the [CAPM]{.blue}:
 
 $$
 \small \text{Required Return} = R_f +  \beta \times (R_m - R_f)
@@ -469,13 +474,151 @@ $$
 
     1.  The historical long-run risk-free rate return, $\small R_f$, is $\small 4.50\%$
     2.  The historical long-run market return, $\small R_m$, is $\small 9.94\%$
-    3.  The $\beta$ you've just found is $\small 1.12$
+    3.  The $\beta$ you've just found is $\small 1.23$
 
 -   Then, the long-run required return is simply:
 
 $$
-\small \text{Required Return} = 4.5\%+ 1.12\times(9.94\%-4.5\%)=10.59\%
+\small \text{Required Return} = 4.5\%+ 1.23\times(9.94\%-4.5\%)=11.20\%
 $$
+
+## The Dynamic Nature of $\beta$
+
+-   In our previous example, $\beta$ was estimated using a simple *OLS* regression of asset excess returns on market excess returns
+
+-   Our estimate of $\beta$ was then used to build the required return for *RYAM*. Note, however, that the sensitivity of *RYAM* to systematic risk changes over time:
+
+    1.  Shifts in business models (*e.g.*, firms diversifying revenue streams)
+    2.  Macroeconomic conditions (*e.g.*, monetary policy, recessions)
+    3.  Market structure changes (*e.g.*, sector rotations, liquidity shifts)
+    4.  Leverage variations (*e.g*., debt levels affecting risk exposure)
+
+-   In what follows, we'll look how the $\beta$ estimate for *RYAM* changes over time considering an estimation window of $24$ weeks
+
+## The Dynamic Nature of $\beta$, continued
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Manipulate data
+RYAM=Full_Data%>%
+  filter(symbol=='RYAM')%>%
+  mutate(excess_return=weekly_return-Rf)%>%
+  select(date,symbol,excess_return,MRP)
+
+#Create a custom OLS function that extracts all coefficients to pass it to tq_transmute 
+custom_OLS <- function(data) {
+    coef(lm(excess_return ~ MRP, data = data))
+}
+
+#Apply the custom function to tq_transmute in rolling format
+RYAM%>%
+  tq_transmute(
+      mutate_fun = rollapply,
+      by.column=FALSE,
+      width=24, #Use latest 24 weeks
+      FUN = custom_OLS,
+      col_rename = c('alpha','beta'))%>%
+  filter(!is.na(alpha))
+
+```
+
+### Output
+
+```{r}
+#| echo: false
+#| eval: true
+
+#Manipulate data
+RYAM=Full_Data%>%
+  filter(symbol=='RYAM')%>%
+  mutate(excess_return=weekly_return-Rf)%>%
+  select(date,symbol,excess_return,MRP)
+
+#Create a custom OLS function that extracts all coefficients to pass it to tq_transmute 
+custom_OLS <- function(data) {
+    coef(lm(excess_return ~ MRP, data = data))
+}
+
+#Apply the custom function to tq_transmute in rolling format
+rolling_regs=RYAM%>%
+  tq_transmute(
+      mutate_fun = rollapply,
+      by.column=FALSE,
+      width=24, #Use latest 24 weeks
+      FUN = custom_OLS,
+      col_rename = c('alpha','beta'))%>%
+  filter(!is.na(alpha))
+
+rolling_regs
+```
+:::
+
+## The Dynamic Nature of $\beta$, practice
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Pipe the rolling regression object into ggplot
+rolling_regs%>%
+  ggplot(aes(x=date,y=beta))+
+  geom_line()+
+  geom_smooth()+
+  #Annotations
+  labs(title='Rolling Beta regression (RYAM)',
+       subtitle = 'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.',
+       x = 'Week',
+       y = 'Estimated Beta')+
+  #Theme
+  theme_minimal()+
+  #Scale x
+  scale_x_date(date_breaks = '4 weeks')+  
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(vjust=+4,face='bold'),
+        axis.title.x = element_text(vjust=-3,face='bold'),
+        axis.text = element_text(size=8))
+```
+
+### Output
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-width: 15
+#| fig-height: 6
+
+#Pipe the rolling regression object into ggplot
+rolling_regs%>%
+  ggplot(aes(x=date,y=beta))+
+  geom_line()+
+  geom_smooth()+
+  #Annotations
+  labs(title='Rolling Beta regression (RYAM)',
+       subtitle = 'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.',
+       x = '',
+       y = 'Estimated Beta')+
+  #Theme
+  theme_minimal()+
+  #Scale x
+  scale_x_date(date_breaks = '4 weeks')+  
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title = element_text(vjust=+4,face='bold',size=15),
+        axis.text = element_text(size=15),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15,face='bold'))
+
+```
+:::
 
 ## Understanding the $\alpha$ term inside the OLS estimation
 
@@ -558,7 +701,7 @@ for (i in assets){
 
 ```{r}
 #| echo: true
-#| eval: false
+#| eval: true
 
 CAPM_Estimation=Full_Data%>%
   mutate(excess_return=weekly_return-Rf)%>%
@@ -579,37 +722,34 @@ CAPM_Estimation=Full_Data%>%
 ```{r}
 #| echo: true
 #| eval: false
+#| fig-width: 15
+#| fig-height: 6
 
-Full_Data%>%
-  mutate(excess_return=weekly_return-Rf)%>%
-  select(symbol,excess_return,MRP)%>%
-  group_by(symbol)%>%
-  nest()%>%
-  mutate(CAPM = map(data,~ lm(excess_return~MRP,data=.)))%>%
-  mutate(coefficients = map(CAPM,broom::tidy))%>%
+CAPM_Estimation%>%
   select(coefficients)%>%
   unnest()%>%
   filter(term=='(Intercept)')%>%
   select(symbol,estimate)%>%
   setNames(c('Ticker','Alpha'))%>%
   ggplot(aes(x=Ticker,y=Alpha))+
-  geom_point()+
+  geom_point(size=5)+
   geom_segment(aes(yend = 0), linetype = "dashed", color = "gray50")+
   geom_hline(yintercept=0,linetype='dashed')+
   #Annotations
   labs(title='Using CAPM to analyze over/undervalued investment opportunities',
        subtitle = 'Source: Yahoo! Finance',
        x = 'Ticker',
-       y = 'Adjusted Prices')+
+       y = 'Alpha')+
   #Scales
   scale_y_continuous(labels = percent)+
-  #Custom 'The Economist' theme
+  #Custom 'TidyQuant' theme
   theme_tq()+
   #Adding further customizations
   theme(legend.position='none',
-        axis.title.y = element_text(vjust=+4,face='bold'),
-        axis.title.x = element_text(vjust=-3,face='bold'),
-        axis.text = element_text(size=8))
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15,face='bold'))
 ```
 
 ## Output
@@ -620,44 +760,129 @@ Full_Data%>%
 #| fig-width: 15
 #| fig-height: 6
 
-Full_Data%>%
-  mutate(excess_return=weekly_return-Rf)%>%
-  select(symbol,excess_return,MRP)%>%
-  group_by(symbol)%>%
-  nest()%>%
-  mutate(CAPM = map(data,~ lm(excess_return~MRP,data=.)))%>%
-  mutate(coefficients = map(CAPM,broom::tidy))%>%
+CAPM_Estimation%>%
   select(coefficients)%>%
   unnest()%>%
   filter(term=='(Intercept)')%>%
   select(symbol,estimate)%>%
   setNames(c('Ticker','Alpha'))%>%
   ggplot(aes(x=Ticker,y=Alpha))+
-  geom_point()+
+  geom_point(size=3)+
   geom_segment(aes(yend = 0), linetype = "dashed", color = "gray50")+
   geom_hline(yintercept=0,linetype='dashed')+
   #Annotations
   labs(title='Using CAPM to analyze over/undervalued investment opportunities',
        subtitle = 'Source: Yahoo! Finance',
        x = 'Ticker',
-       y = 'Adjusted Prices')+
+       y = 'Alpha')+
   #Scales
   scale_y_continuous(labels = percent)+
-  #Custom 'Tidyquant' theme
+  #Custom 'TidyQuant' theme
   theme_tq()+
   #Adding further customizations
   theme(legend.position='none',
-        axis.title.y = element_text(vjust=+4,face='bold'),
-        axis.title.x = element_text(vjust=-3,face='bold'),
-        axis.text = element_text(size=10))
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15,face='bold'))
+
+```
+:::
+
+## Rolling Alphas
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+Full_Data%>%
+  mutate(excess_return=weekly_return-Rf)%>%
+  select(date,symbol,excess_return,MRP)%>%
+  group_by(symbol)%>%
+  tq_transmute(
+      mutate_fun = rollapply,
+      by.column=FALSE,
+      width=24, #Use latest 24 weeks
+      FUN = custom_OLS,
+      col_rename = c('alpha','beta'))%>%
+  filter(!is.na(alpha))%>%
+  ggplot(aes(x=date,y=alpha))+
+  geom_line()+
+  geom_smooth()+
+  facet_wrap(symbol~.,nrow=2,ncol=5,scales='free_y')+
+  #Annotations
+  labs(title='Rolling Alpha Regression',
+       subtitle = 'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.',
+       x = '',
+       y = 'Estimated Alpha')+
+  #Theme
+  theme_minimal()+
+  #Scale x
+  scale_x_date(date_breaks = '4 weeks')+
+  scale_y_continuous(labels = percent)+
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(face='bold',size=15),
+        axis.text.x = element_text(size=10,angle = 90),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15,face='bold'))
+
+```
+
+### Output
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-width: 18
+#| fig-height: 8
+
+Full_Data%>%
+  mutate(excess_return=weekly_return-Rf)%>%
+  select(date,symbol,excess_return,MRP)%>%
+  group_by(symbol)%>%
+  tq_transmute(
+      mutate_fun = rollapply,
+      by.column=FALSE,
+      width=24, #Use latest 24 weeks
+      FUN = custom_OLS,
+      col_rename = c('alpha','beta'))%>%
+  filter(!is.na(alpha))%>%
+  ggplot(aes(x=date,y=alpha))+
+  geom_line()+
+  geom_smooth()+
+  facet_wrap(symbol~.,nrow=2,ncol=5,scales='free_y')+
+  #Annotations
+  labs(title='Rolling Alpha Regression',
+       subtitle = 'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.',
+       x = '',
+       y = 'Estimated Alpha')+
+  #Theme
+  theme_minimal()+
+  #Scale x
+  scale_x_date(date_breaks = '4 weeks')+
+  scale_y_continuous(labels = percent)+
+  #Adding further customizations
+  theme(legend.position='none',
+        axis.title.y = element_text(face='bold',size=15),
+        axis.text.x = element_text(size=10,angle = 90),
+        axis.text.y = element_text(size=10),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15,face='bold'))
+
 ```
 :::
 
 ## CAPM shortcomings
 
--   In our estimation, none of the $\small \alpha$ results were statistically significant, meaning that we cannot reject the hypothesis that $\alpha$ is different from zero, which is in line with the CAPM
+-   In our estimation, none of the $\small \alpha$ results were statistically significant, meaning that we cannot reject the hypothesis that $\alpha$ is different from zero
 
--   However, when trying to use the CAPM to [predict]{.blue} future performance, results are not consitent with the CAPM predictions. **What could be going on?**
+    1.  In such a way, it implies that investors cannot really earn abnormal returns that are uncorrelated with the market
+    2.  However, many researchers have found [market anomalies]{.blue} where it was possible to create a strategy that generated positive $\alpha$
 
 -   It is important to recall some of the model's shortcomings:
 
@@ -665,5 +890,39 @@ Full_Data%>%
     2.  The sensitivity to market returns, $\small \beta$, might not be stable over time
     3.  Systematic Risk might not be the [only]{.blue} factor that matters!
     4.  Assumptions of the CAPM might not be that realistic
+
+## *CAPM* and Efficient Markets
+
+-   The *CAPM* model relates to the *Efficient Market Hypothesis* [@fama1970] by providing a framework to determine expected returns based on a single factor: the [systematic risk]{.blue}
+
+-   Hence, if the *Efficient Market Hypothesis* holds, CAPM should [correctly]{.green} price all assets:
+
+    1.  Expected returns depend only on beta, the sensitivity to systematic risk
+    2.  No other risk factors should systematically predict returns
+
+. . .
+
+**Question**: if the *CAPM* does not hold in practice, does that mean that markets are *inefficient*?
+
+. . .
+
+-   It is tempting to argue that if the *CAPM* [fails]{.red} to account for some market anomalies, it must be that the markets are [not efficient]{.blue} as the model would predict
+
+-   Note, however, that this discussion is more nuanced than simply rejecting the *Efficient Market Hypothesis* altogether
+
+## *CAPM* and Efficient Markets, continued
+
+1.  It is tempting to argue that if the *CAPM* [fails]{.red} to account for some market anomalies, it must be that the markets are [not efficient]{.blue} as the model would predict
+
+2.  Note, however, that this discussion is more nuanced than simply rejecting the *Efficient Market Hypothesis* altogether
+
+-   All in all, testing the *CAPM* is inherently a [joint test]{.blue} of:
+
+    1.  **Market Efficiency** - if the model is correctly specified, there should be no systematic $\alpha>0$
+    2.  **Model Specification** - there is an omitted factor other than the systematic risk that explains excess returns
+
+-   Therefore, if the *CAPM* fails empirical tests, it is unclear whether it is because **I)**markets are [inefficient]{.blue}; or **II)** the model is simply [misspecified]{.blue}
+
+-   Alternative models, such as the *Fama-French Three-Factor Model* [@fama1993], attempt to address these limitations
 
 ## References
