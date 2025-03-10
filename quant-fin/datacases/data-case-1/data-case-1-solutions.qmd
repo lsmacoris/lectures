@@ -152,12 +152,12 @@ $$
 \text{Cumulative Return}= (1+R_1)\times(1+R_2)\times ... \times(1+R_T)-1\equiv \prod (1+R_t)-1
 $$
 
-Your chart should map `date` to the `x` axis, the yearly return variable to the `y` axis, and group the results by `symbol`. To make sure that you are plotting a line chart, use the `geom_line()` function after you have mapped your data. In addition to these two layers, add any customizations that you believe that are beneficial to convey the message - see the [Data Visualization](https://lsmacoris.github.io/lectures/quant-fin/coursework/Lecture 4 - Data Visualization) lecture.
+Your chart should map `date` to the `x` axis, the yearly return variable to the `y` axis, and group the results by `symbol`. To make sure that you are plotting a line chart, use the `geom_line()` function after you have mapped your data. In addition to these two layers, add any customizations that you believe that are beneficial to convey the message - see the [Data Visualization](https://lsmacoris.github.io/lectures/quant-fin/coursework/Lecture%204%20-%20Data%20Visualization) lecture.
 
 ::: callout-tip
 ### Hint
 
-1.  With the `data.frame` you created to store yearly returns, group by `symbol`, arrange the results by `symbol` and `date`, and use `mutate()` function to apply the `cumprod` function to the data. Note that you need to calculate it as `cumprod(1+yearly_return)-1`, assuming that `yearly_return` is the variable that contains the previously calculated yearly returns. 
+1.  With the `data.frame` you created to store yearly returns, group by `symbol`, arrange the results by `symbol` and `date`, and use `mutate()` function to apply the `cumprod` function to the data. Note that you need to calculate it as `cumprod(1+yearly_return)-1`, assuming that `yearly_return` is the variable that contains the previously calculated yearly returns.
 2.  Now, your resulting `data.frame` contains the cumulative returns for all stocks. You can pipe that into a `ggplot` call, mapping the `symbol` to the x-axis, the cumulative return column to the y-axis, and the `geom_col()` function to create a bar chart. Add as many customizations you think are worth the effort.
 :::
 
@@ -209,7 +209,7 @@ As opposed to the `yearlyReturn` function, the `tidyquant` package does not have
 
 1.  First, use `tq_transmute()` to calculate daily returns passing the `dailyReturn` function.
 2.  Now, your resulting `data.frame` contains daily returns for all stocks. It is now in a convenient format to chain this object again, in another `tq_transmute()` function, applying the `StdDev.annualized` function and assign to a new object, like `yearly_volatility`.
-3. Note, however, that if you simply use `StdDev.annualized`, it will calculate an annualized metric for each stock for the whole period, which is not what you want. To make sure that you have calculating the annualized standard deviation for each year, you can do a composition of `apply.yearly`, which applies a given function at yearly intervals, and `StdDev.annualized`, using the following syntax:
+3.  Note, however, that if you simply use `StdDev.annualized`, it will calculate an annualized metric for each stock for the whole period, which is not what you want. To make sure that you have calculating the annualized standard deviation for each year, you can do a composition of `apply.yearly`, which applies a given function at yearly intervals, and `StdDev.annualized`, using the following syntax:
 
 ```{r}
 #| eval: false
@@ -455,3 +455,8 @@ Now that you have analyzed the Sharpe ratios of both individual pharmaceutical s
 Based on your findings, what would you recommend to the fund manager? Would you suggest investing in the diversified portfolio, or do certain individual stocks offer superior risk-adjusted returns? Would you propose an alternative weighting scheme, such as a market cap-weighted portfolio, to further improve performance?
 
 Write a short conclusion summarizing your key takeaways and justify your investment recommendation using data-driven insights.
+
+
+**A:** as expected, an equally weighted portfolio of assets within a given industry can reduce the portfolio volatility through eliminating firm-specific (or idiosyncratic) risk. Notwithstanding, the correlation analysis shows that these assets are, in general, reasonably correlated - as expected, given that they all refer to the same industry, and as a consequence, share common industry-wise risks. In this sense, there are limits to gains through diversification: you can get rid of firm-specific risk, but since you are fully investing in the pharmaceutical industry, industry and macroeconomic risks that affect all firms are not easily eliminated through diversification.
+
+As such, an explanation for the relatively low *Sharpe Ratio* of the portfolio can be due to the fact that diversification gains are not enough to provide better risk-adjusted returns. Fund managers should keep that in mind when picking the optimal choice of stocks for investing in a single industry, like in this case.

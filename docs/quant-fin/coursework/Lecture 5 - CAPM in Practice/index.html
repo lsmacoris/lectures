@@ -501,13 +501,11 @@ Lucas S. Macoris
 <p><strong>The Capital Asset Pricing Model (CAPM) Assumptions</strong></p>
 </div>
 <div class="callout-content">
-<div>
 <ol type="1">
-<li class="fragment"><p>Investors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate</p></li>
-<li class="fragment"><p>Investors hold only efficient portfolios of traded securities</p></li>
-<li class="fragment"><p>Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities</p></li>
+<li><p>Investors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate</p></li>
+<li><p>Investors hold only efficient portfolios of traded securities</p></li>
+<li><p>Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities</p></li>
 </ol>
-</div>
 </div>
 </div>
 </div>
@@ -739,7 +737,7 @@ Lucas S. Macoris
 <span id="cb2-30"><a></a><span class="co">#Pivot back to wide format</span></span>
 <span id="cb2-31"><a></a><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Key,<span class="at">values_from =</span> Value)<span class="sc">%&gt;%</span></span>
 <span id="cb2-32"><a></a><span class="co">#Write as a csv</span></span>
-<span id="cb2-33"><a></a><span class="fu">saveRDS</span>(<span class="st">'MRP_and_RF.csv'</span>,<span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-33"><a></a><span class="fu">saveRDS</span>(<span class="st">'MRP_and_RF.rds'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -1043,7 +1041,7 @@ F-statistic: 5.454 on 1 and 50 DF,  p-value: 0.02358</code></pre>
 <span id="cb9-10"><a></a>}</span>
 <span id="cb9-11"><a></a></span>
 <span id="cb9-12"><a></a><span class="co">#Apply the custom function to tq_transmute in rolling format</span></span>
-<span id="cb9-13"><a></a>RYAM<span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a></a>rolling_regs<span class="ot">=</span>RYAM<span class="sc">%&gt;%</span></span>
 <span id="cb9-14"><a></a>  <span class="fu">tq_transmute</span>(</span>
 <span id="cb9-15"><a></a>      <span class="at">mutate_fun =</span> rollapply,</span>
 <span id="cb9-16"><a></a>      <span class="at">by.column=</span><span class="cn">FALSE</span>,</span>
@@ -1250,61 +1248,6 @@ F-statistic: 5.454 on 1 and 50 DF,  p-value: 0.02358</code></pre>
 <div>
 <figure>
 <p><img data-src="index_files/figure-revealjs/unnamed-chunk-18-1.png" width="1440"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="rolling-alphas" class="slide level2">
-<h2>Rolling Alphas</h2>
-<div class="panel-tabset">
-<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Code</a></li><li><a href="#tabset-8-2">Output</a></li></ul>
-<div class="tab-content">
-<div id="tabset-8-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>Full_Data<span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return=</span>weekly_return<span class="sc">-</span>Rf)<span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">select</span>(date,symbol,excess_return,MRP)<span class="sc">%&gt;%</span></span>
-<span id="cb15-4"><a></a>  <span class="fu">group_by</span>(symbol)<span class="sc">%&gt;%</span></span>
-<span id="cb15-5"><a></a>  <span class="fu">tq_transmute</span>(</span>
-<span id="cb15-6"><a></a>      <span class="at">mutate_fun =</span> rollapply,</span>
-<span id="cb15-7"><a></a>      <span class="at">by.column=</span><span class="cn">FALSE</span>,</span>
-<span id="cb15-8"><a></a>      <span class="at">width=</span><span class="dv">24</span>, <span class="co">#Use latest 24 weeks</span></span>
-<span id="cb15-9"><a></a>      <span class="at">FUN =</span> custom_OLS,</span>
-<span id="cb15-10"><a></a>      <span class="at">col_rename =</span> <span class="fu">c</span>(<span class="st">'alpha'</span>,<span class="st">'beta'</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb15-11"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(alpha))<span class="sc">%&gt;%</span></span>
-<span id="cb15-12"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>alpha))<span class="sc">+</span></span>
-<span id="cb15-13"><a></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb15-14"><a></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
-<span id="cb15-15"><a></a>  <span class="fu">facet_wrap</span>(symbol<span class="sc">~</span>.,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">5</span>,<span class="at">scales=</span><span class="st">'free_y'</span>)<span class="sc">+</span></span>
-<span id="cb15-16"><a></a>  <span class="co">#Annotations</span></span>
-<span id="cb15-17"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Rolling Alpha Regression'</span>,</span>
-<span id="cb15-18"><a></a>       <span class="at">subtitle =</span> <span class="st">'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.'</span>,</span>
-<span id="cb15-19"><a></a>       <span class="at">x =</span> <span class="st">''</span>,</span>
-<span id="cb15-20"><a></a>       <span class="at">y =</span> <span class="st">'Estimated Alpha'</span>)<span class="sc">+</span></span>
-<span id="cb15-21"><a></a>  <span class="co">#Theme</span></span>
-<span id="cb15-22"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb15-23"><a></a>  <span class="co">#Scale x</span></span>
-<span id="cb15-24"><a></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">'4 weeks'</span>)<span class="sc">+</span></span>
-<span id="cb15-25"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)<span class="sc">+</span></span>
-<span id="cb15-26"><a></a>  <span class="co">#Adding further customizations</span></span>
-<span id="cb15-27"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">'none'</span>,</span>
-<span id="cb15-28"><a></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">15</span>),</span>
-<span id="cb15-29"><a></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>,<span class="at">angle =</span> <span class="dv">90</span>),</span>
-<span id="cb15-30"><a></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
-<span id="cb15-31"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
-<span id="cb15-32"><a></a>        <span class="at">plot.subtitle  =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>,<span class="at">face=</span><span class="st">'bold'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-8-2">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-20-1.png" width="1728"></p>
 </figure>
 </div>
 </div>

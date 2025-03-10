@@ -75,13 +75,11 @@ For any questions or concerns, please feel free to reach out via email at [lucas
 :::: callout-tip
 ### The Capital Asset Pricing Model (CAPM) Assumptions
 
-::: incremental
 1.  Investors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate
 
 2.  Investors hold only efficient portfolios of traded securities
 
 3.  Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities
-:::
 ::::
 
 . . .
@@ -260,7 +258,7 @@ unnest(data)%>%
 #Pivot back to wide format
 pivot_wider(names_from = Key,values_from = Value)%>%
 #Write as a csv
-saveRDS('MRP_and_RF.csv',row.names = FALSE)
+saveRDS('MRP_and_RF.rds')
 
 ```
 
@@ -516,7 +514,7 @@ custom_OLS <- function(data) {
 }
 
 #Apply the custom function to tq_transmute in rolling format
-RYAM%>%
+rolling_regs=RYAM%>%
   tq_transmute(
       mutate_fun = rollapply,
       by.column=FALSE,
@@ -789,93 +787,6 @@ CAPM_Estimation%>%
 ```
 :::
 
-## Rolling Alphas
-
-::: panel-tabset
-### Code
-
-```{r}
-#| echo: true
-#| eval: false
-
-Full_Data%>%
-  mutate(excess_return=weekly_return-Rf)%>%
-  select(date,symbol,excess_return,MRP)%>%
-  group_by(symbol)%>%
-  tq_transmute(
-      mutate_fun = rollapply,
-      by.column=FALSE,
-      width=24, #Use latest 24 weeks
-      FUN = custom_OLS,
-      col_rename = c('alpha','beta'))%>%
-  filter(!is.na(alpha))%>%
-  ggplot(aes(x=date,y=alpha))+
-  geom_line()+
-  geom_smooth()+
-  facet_wrap(symbol~.,nrow=2,ncol=5,scales='free_y')+
-  #Annotations
-  labs(title='Rolling Alpha Regression',
-       subtitle = 'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.',
-       x = '',
-       y = 'Estimated Alpha')+
-  #Theme
-  theme_minimal()+
-  #Scale x
-  scale_x_date(date_breaks = '4 weeks')+
-  scale_y_continuous(labels = percent)+
-  #Adding further customizations
-  theme(legend.position='none',
-        axis.title.y = element_text(face='bold',size=15),
-        axis.text.x = element_text(size=10,angle = 90),
-        axis.text.y = element_text(size=10),
-        plot.title = element_text(size=20,face='bold'),
-        plot.subtitle  = element_text(size=15,face='bold'))
-
-```
-
-### Output
-
-```{r}
-#| echo: false
-#| eval: true
-#| fig-width: 18
-#| fig-height: 8
-
-Full_Data%>%
-  mutate(excess_return=weekly_return-Rf)%>%
-  select(date,symbol,excess_return,MRP)%>%
-  group_by(symbol)%>%
-  tq_transmute(
-      mutate_fun = rollapply,
-      by.column=FALSE,
-      width=24, #Use latest 24 weeks
-      FUN = custom_OLS,
-      col_rename = c('alpha','beta'))%>%
-  filter(!is.na(alpha))%>%
-  ggplot(aes(x=date,y=alpha))+
-  geom_line()+
-  geom_smooth()+
-  facet_wrap(symbol~.,nrow=2,ncol=5,scales='free_y')+
-  #Annotations
-  labs(title='Rolling Alpha Regression',
-       subtitle = 'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.',
-       x = '',
-       y = 'Estimated Alpha')+
-  #Theme
-  theme_minimal()+
-  #Scale x
-  scale_x_date(date_breaks = '4 weeks')+
-  scale_y_continuous(labels = percent)+
-  #Adding further customizations
-  theme(legend.position='none',
-        axis.title.y = element_text(face='bold',size=15),
-        axis.text.x = element_text(size=10,angle = 90),
-        axis.text.y = element_text(size=10),
-        plot.title = element_text(size=20,face='bold'),
-        plot.subtitle  = element_text(size=15,face='bold'))
-
-```
-:::
 
 ## CAPM shortcomings
 
