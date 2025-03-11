@@ -4176,7 +4176,7 @@
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#if-trade-credit-is-costly-why-it-exists",
     "title": "Working Capital Management",
     "section": "If Trade Credit is costly, why it exists?",
-    "text": "If Trade Credit is costly, why it exists?\n\nIn our previous example, by not taking the discount, the firm is effectively paying \\(\\small111.5\\%\\), at an annual rate, to borrow the money.\nIf the firm can obtain a bank loan at a lower interest rate, it would be better off borrowing at the lower rate and using the cash proceeds of the loan to take advantage of the discount offered by the supplier\nBut if that is the case, why we see so much trade credit in the market?\n\n\nIt is simple and convenient \\(\\rightarrow\\) lower transaction costs\nIt is flexible\nSometimes, it is the only funding resource that a firm can obtain\n\n\nWhy should a firm ever provide trade credit?"
+    "text": "If Trade Credit is costly, why it exists?\n\nIn our previous example, by not taking the discount, the firm is effectively paying \\(\\small111.5\\%\\), at an annual rate, to borrow the money.\nIf the firm can obtain a bank loan at a lower interest rate, it would be better off borrowing at the lower rate and using the cash proceeds of the loan to take advantage of the discount offered by the supplier\nBut if that is the case, why we see so much trade credit in the market?\n\n\nIt is simple and convenient \\(\\rightarrow\\) lower transaction costs\nIt is flexible\nSometimes, it is the only funding resource that a firm can obtain\n\n\nTrade Credit can also be seen from a Receivables perspective: although firms would be better-off by adopting a cash-in-advance polocy for its receivables, extending trade credit to its suppliers can be thought of as a strategic move"
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#reasons-to-provide-trade-credit",
@@ -4204,14 +4204,14 @@
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#monitoring-accounts-receivable---average-receivable-days",
     "title": "Working Capital Management",
     "section": "Monitoring Accounts Receivable - Average Receivable Days",
-    "text": "Monitoring Accounts Receivable - Average Receivable Days\n\nAfter establishing a credit policy, a firm must monitor its accounts receivable to analyze whether its credit policy is working effectively. There are two common ways of doing so:\nMonitoring the average receivable days: the accounts receivable days is the average number of days that it takes a firm to collect on its sales.\n\nA firm can compare this number to the payment policy specified in its credit terms to judge the effectiveness of its credit policy\nIf the credit terms specify “Net 30” and the accounts receivable days outstanding is \\(\\small 50\\) days, the firm can conclude that its customers are paying \\(\\small20\\) days late, on average\n\nNote that this has the benefit of being feasible only with balance-sheet data. Notwithstanding, it conveys little information about the specificities of the due payments"
+    "text": "Monitoring Accounts Receivable - Average Receivable Days\n\nAfter establishing a Credit Policy, a firm must monitor its accounts receivable to analyze whether its credit policy is working effectively. There are two common ways of doing so:\nMonitoring the average receivable days: the accounts receivable days is the average number of days that it takes a firm to collect on its sales.\n\nA firm can compare this number to the payment policy specified in its credit terms to judge the effectiveness of its credit policy\nIf the credit terms specify “Net 30” and the accounts receivable days outstanding is \\(\\small 50\\) days, the firm can conclude that its customers are paying \\(\\small20\\) days late, on average\n\nNote that this has the benefit of being feasible only with balance-sheet data. Notwithstanding, it conveys little information about the specificities of the due payments"
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#monitoring-accounts-receivable---aging-schedules",
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#monitoring-accounts-receivable---aging-schedules",
     "title": "Working Capital Management",
     "section": "Monitoring Accounts Receivable - Aging Schedules",
-    "text": "Monitoring Accounts Receivable - Aging Schedules\n\nAging Schedules provide more detailed information regarding the specifics of due payments.\n\n\n\n\n\n\n\n\nIf, for example, the Credit Policy established \\(\\small 30\\) days, it means that the dollar percentage due is \\(\\small 21.9+12.5+4.4=38.8\\%\\)"
+    "text": "Monitoring Accounts Receivable - Aging Schedules\n\nA way to monitor Accounts Receivable is through Aging Schedules: they provide more detailed information regarding the specifics of due payments:\n\n\n\n\n\n\n\n\nIf, for example, the Credit Policy established \\(\\small 30\\) days, it means that the dollar percentage due is \\(\\small 21.9+12.5+4.4=38.8\\%\\)"
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#payables-management",
@@ -4238,15 +4238,15 @@
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#inventory-management",
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#inventory-management",
     "title": "Working Capital Management",
-    "section": "Inventory Management",
-    "text": "Inventory Management\n\nIf holding inventory is costly, why do firms ever keep high levels of inventory?\n\n\nBenefits of holding inventory\n\nIf a firm holds too little inventory, stock-outs, the situation when a firm runs out of goods, may occur, leading to lost sales\nLikewise, disappointed customers may switch to one of the firm’s competitors\nIt might be optimal for firms to hold inventory because of the seasonality in demand\n\nCosts of holding inventory\n\nAcquisition Costs\nOrder Costs\nCarrying Costs\n\n\n\n\\(\\rightarrow\\) For a detailed discussion, see (Berk and DeMarzo 2023), Chapter 26."
+    "section": "#3 Inventory Management",
+    "text": "#3 Inventory Management\n\nIf holding inventory is costly, why do firms ever keep high levels of inventory?\n\n\nBenefits of holding inventory\n\nIf a firm holds too little inventory, stock-outs, the situation when a firm runs out of goods, may occur, leading to lost sales\nLikewise, disappointed customers may switch to one of the firm’s competitors\nIt might be optimal for firms to hold inventory because of the seasonality in demand\n\nCosts of holding inventory\n\nAcquisition Costs\nOrder Costs\nCarrying Costs\n\n\n\n\\(\\rightarrow\\) For a detailed discussion, see (Berk and DeMarzo 2023), Chapter 26."
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#cash-management",
     "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#cash-management",
     "title": "Working Capital Management",
-    "section": "Cash Management",
-    "text": "Cash Management\n\nIf firms could perfectly tap into resources at any time needed, there would be no need for holding cash:\n\nFirms could invest 100% of its money in operations\nIn case of a mismatch, raise money at a fair rate to make up the differences\n\nOn the one hand, holding cash is costly, as we liquid assets may earn below-average returns\nOn the other hand, firm’s may face a much higher cost if there’s ever need for raising cash quickly (e.g, financial distress periods)\n\n\nBecause of these reasons, firms may hold cash for some specific reasons:\n\nTransactions Balance: day-to-day operations\nPrecautionary Motives: uncertainty regarding the firms cash flows\nCompensating Balance: credit agreements"
+    "section": "#4 Cash Management",
+    "text": "#4 Cash Management\n\nIf firms could perfectly tap into resources at any time needed, there would be no need for holding cash:\n\nFirms could invest \\(\\small 100\\%\\) of its money in operations\nIn case of a mismatch, raise money at a fair rate to make up the differences\n\nOn the one hand, holding cash is costly, as we liquid assets may earn below-average returns\nOn the other hand, firm’s may face a much higher cost if there’s ever need for raising cash quickly (e.g, financial distress periods)\n\n\nBecause of these reasons, firms may hold cash for some specific reasons:\n\nTransactions Balance: day-to-day operations\nPrecautionary Motives: uncertainty regarding the firms cash flows\nCompensating Balance: credit agreements"
   },
   {
     "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#supplementary-material",
@@ -10064,5 +10064,26 @@
     "title": "Capstone Project - Practical Applications in Quantitative Finance",
     "section": "Final Thoughts",
     "text": "Final Thoughts\nStudents are highly encouraged to share their codes so that everyone can replicate and contribute to their analyses. This capstone project represents an opportunity to apply your knowledge in a meaningful way, demonstrating both technical and analytical skills. Make the most of it!\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#managing-payables-trade-credit",
+    "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#managing-payables-trade-credit",
+    "title": "Working Capital Management",
+    "section": "#1 Managing Payables: Trade Credit",
+    "text": "#1 Managing Payables: Trade Credit\n\nThe credit that the firm is extending to its customer is known as trade credit\n\nA firm would, of course, prefer to be paid in cash at the time of purchase\nHowever, a “cash-only” policy may cause it to lose its customers to competition\n\nTrade credit is, in essence, a loan from the selling firm to its customer\n\nThe price discount represents an interest rate\nFirms offer favorable interest rates on trade credit as a price discount to their customers\n\nUnderstanding the terminology: what is “2/10, Net 30”? It means that the buying firm will receive a \\(\\small 2\\%\\) discount if it pays for the goods within \\(\\small 10\\) days; otherwise, the full amount is due in \\(\\small 30\\) days\nAs a Financial Manager, it is important to understand that Trade Credit has a cost (or a discount): by taking an offer to pay later, what is the additional cost that the firm needs to incur?"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#managing-receivables-credit-policy",
+    "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#managing-receivables-credit-policy",
+    "title": "Working Capital Management",
+    "section": "#2 Managing Receivables: Credit Policy",
+    "text": "#2 Managing Receivables: Credit Policy\n\nA firm can better manage its receivables by establishing a clear Credit Policy:\n\n\nEstablishing Credit Standards:\n\nWhat is the criteria to extend credit?\nInternal evaluation versus the use of credit rating agencies\n\nEstablishing Credit Terms:\n\nAfter creating the criteria, what will be the credit terms?\nThis is also highly influenced by competition and industry standards\n\nEstablishing a Collection Policy:\n\nIn case of default, what should the firm do?\nPolicies range from seizing inventory, interest expenses, legal actions\nDebt Collection business (collection agencies)"
+  },
+  {
+    "objectID": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#monitoring-payable---accounts-payable-outstanding",
+    "href": "fin-mgmt/Lecture 4 - Working Capital Managament/index.html#monitoring-payable---accounts-payable-outstanding",
+    "title": "Working Capital Management",
+    "section": "Monitoring Payable - Accounts Payable Outstanding",
+    "text": "Monitoring Payable - Accounts Payable Outstanding\n\nSimilar to the situation with its accounts receivable, a firm should monitor its accounts payable to ensure that it is making its payments at an optimal time\nOne way is to the accounts payable days outstanding and compare it to the credit terms\nSuppose that a firm has an average accounts payable balance of \\(\\small\\$250,000\\). Its average daily cost of goods sold is \\(\\small \\$14,000\\), and it receives terms of 2/15, Net 40, from its suppliers. The firm chooses to forgo the discount. Is the firm managing its accounts payable well?\n\n\n\nA: the account payable days is \\(\\small 250,000/14,000= 17.9\\) days. There are two cases:\n\nIf the firm made payment three days earlier, it could take advantage of the \\(\\small2\\%\\) discount\nIf for some reason it chooses to forgo the discount, it should not be paying the full amount until the fortieth day\n\nImportant Note: these are average terms and do not refer to specific payments."
   }
 ]
