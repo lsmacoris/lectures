@@ -281,11 +281,17 @@ Data%>%
 
 ## Hands-on Exercise: analyzing Arezzo's Financing Policy
 
--   Download *Arezzo*'s Annual Financial Statements through its *Investors Relations* website (access [here](https://ri.arezzoco.com.br/en/), also available on *eClass*®)
+-   Download *Arezzo*'s (ticker: *ARZZ3*) Annual Financial Statements, available on *eClass®*, along with the Dynamic Spreadsheet file containing the latest quarterly results 
 
--   Go straight to the supplementary notes (*"Notes to the financial statements"*) section and identify its loans breakdown (*"Loans and Borrowings"*), p. 62. Which sources are being employed and for what types of investments?
+1. Go straight to the supplementary notes (*"Notes to the financial statements"*) section and identify its loans breakdown (*"Loans and Borrowings"*)
 
--   How would you describe the company's short-term financing policy?
+2. Which funding sources are being employed and for what types of investments?
+
+3. All in all, how would you describe the company's short-term financing policy? Why?
+
+
+
+
 
 ## Short-term Financing Sources
 
