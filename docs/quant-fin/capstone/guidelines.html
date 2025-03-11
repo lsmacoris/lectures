@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Lucas S. Macoris (FGV-EAESP)">
 
-<title>Practical Applications in Quantitative Finance – Lucas S. Macoris</title>
+<title>Capstone Project - Practical Applications in Quantitative Finance – Lucas S. Macoris</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,63 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,35 +69,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-87FLN5SXEJ"></script>
 
 <script type="text/javascript">
@@ -182,7 +118,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Lucas S. Macoris</span>
     </a>
   </div>
@@ -197,19 +133,19 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./fin-mgmt.html"> 
+    <a class="nav-link" href="../../fin-mgmt.html"> 
 <span class="menu-text">Financial Management</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./fin-strat.html"> 
+    <a class="nav-link" href="../../fin-strat.html"> 
 <span class="menu-text">Financial Strategy</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./quant-fin.html" aria-current="page"> 
+    <a class="nav-link" href="../../quant-fin.html"> 
 <span class="menu-text">Quantitative Finance</span></a>
   </li>  
 </ul>
@@ -252,13 +188,19 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practical Applications in Quantitative Finance</h1>
+<h1 class="title">Capstone Project - Practical Applications in Quantitative Finance</h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-page">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lucas S. Macoris (FGV-EAESP) </p>
+          </div>
+  </div>
     
   
     
@@ -269,191 +211,84 @@ window.Quarto = {
 </header>
 
 
-<hr>
-<section id="about-the-course" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-course"><strong>About the course</strong></h2>
-<p>This is a hands-on, practical course on Quantitative Finance with applications using <code>R</code> and <code>Python</code>, two of the most widely used open-source software for data analysis. This course aims to attract undergraduate students that are aiming to translate theoretical concepts learned on the core finance courses at <em>FGV-EAESP</em> to practical applications that can guide decision making.</p>
-<p>The course will be structured in topics that are of interest to Finance practitioners, aiming to include, but not limited to: collecting and organizing financial data, equity valuation, sensitivity analysis and simulation, portfolio optimization, and backtesting. As a final evaluation, students are expected to deliver a capstone data application project showcasing at least one of the topics covered in the course. All applications will be hosted online to enable students to use the capstone project as a showcase of their acquired skills. The course will also host guest presentations from leading industry practitioners and software developers focused on financial applications using open-source languages, where students can interact, ask questions, and get to know more about the possibilities of applying programming, data science, and data analysis skills in the financial industry.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-1. Getting started
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I’ll make sure to update this list whenever needed throughout the sessions:</p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Package names</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>,<span class="st">"tidyquant"</span>,<span class="st">"tidymodels"</span>,<span class="st">"xts"</span>, <span class="st">"glue"</span>,<span class="st">"scales"</span>, <span class="st">"ggthemes"</span>,<span class="st">"highcharter"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages not yet installed</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>installed_packages <span class="ot">&lt;-</span> packages <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(installed_packages <span class="sc">==</span> <span class="cn">FALSE</span>)) {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(packages[<span class="sc">!</span>installed_packages])</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load all packages</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-2. Using Quarto
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In this course, you’ll be assigned with three data cases, where you’ll need to manipulate code and write your insights altogether. I want to encourage you to give <a href="https://quarto.org/">Quarto</a> a try.</p>
-<p>To install <span class="blue">Quarto</span>, follow <a href="https://quarto.org/docs/get-started/">this</a> link and choose your Operating System. <em>RStudio</em> will automatically locate it and make it as an option whenever creating a new file with <code>Ctrl+N</code>. Why you should give Quarto a try:</p>
+<section id="objective" class="level2">
+<h2 class="anchored" data-anchor-id="objective">Objective</h2>
+<p>As the final evaluation for the <em>Practical Applications in Quantitative Finance</em> course, students will develop a <em>Capstone Project</em> demonstrating their ability to apply quantitative finance concepts using <code>R</code>. The project should showcase at least one of the topics covered in the course or another finance-related topic, leveraging the tools and techniques introduced throughout the semester.</p>
+<p>Please take some time to review the specific guidelines that should be the basis of your project.</p>
+</section>
+<section id="group-formation" class="level2">
+<h2 class="anchored" data-anchor-id="group-formation">Group Formation</h2>
+<p>Students must work in teams of up to <strong>five members</strong>, maximum. Each team is responsible for defining roles and organizing their workflow effectively to ensure timely completion.</p>
+</section>
+<section id="project-scope" class="level2">
+<h2 class="anchored" data-anchor-id="project-scope">Project Scope</h2>
+<p>Teams are expected to generate an analysis using <strong>one or more finance concepts</strong> studied in this course or other finance-related concepts that align with the course’s focus. The analysis should be conducted using the <code>R</code> and incorporate the tools and techniques covered, such as the <code>tidyverse</code>, <code>tidyquant</code>, <code>ggplot2</code>, among others.</p>
+<p>More specifically, the expected output must be structured as one of the following deliverables:</p>
 <ol type="1">
-<li>It has multi-language support (<em>Python</em>, <em>R</em>, <em>Julia</em>, <em>JavaScript</em>), parses equations and mathematical notations via <em>pandoc</em>, and integrates seamlessly with GitHub</li>
-<li>Advanced document formatting and output options: you can choose <em>pdf</em>, <em>html</em>, <em>docx</em>, or even a <em>reveal.js</em> presentation (like the ones from this course!)</li>
-<li>It is easy, intuitive, and lets you focus on the most important aspect of your work</li>
+<li>An <code>R</code> script, well-documented and reproducible</li>
+<li>A <em>Quarto</em> document containing a dynamic report with code, analysis, and visualizations; or</li>
+<li>A <em>Shiny</em> application file</li>
 </ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-3. Contents
+Using Shiny
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At the end of this page, you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.</p>
+<p>For groups that are willing to showcase their work using <em>Shiny</em>, the professor will provide full support for hosting the application online, ensuring accessibility for external review and future professional showcasing.</p>
+<p>For a reference of what can be considered a capstone project for the course, access this link to check a web application that replicates a momentum strategy in the U.S. financial markets. Kindly note that capstone projects are expected to be much simpler than this example, as the goal is to provide students with a first hands-on finance experience on tools for data analysis and reporting in finance.</p>
+</div>
+</div>
+</section>
+<section id="evaluation-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-criteria">Evaluation Criteria</h2>
+<p>The evaluation criteria will be mainly take <em>two</em> aspects into consideration: a written report (<span class="math inline">\(40\%\)</span>) and a project showcase (<span class="math inline">\(15\%\)</span>). First, the written report, which should be done using one out of the three aforementioned output formats, will be evaluated on the basis of:</p>
 <ol type="1">
-<li>Hit <code>F</code> for full-screen mode</li>
-<li>If you are interest in getting a <code>.pdf</code> version of the slides, hit <code>E</code> to switch to print mode and then <code>Ctrl + P</code></li>
+<li>The <em>quality</em> and <em>adherence</em> of the deliverable relative to the expected goals outlined in the guidelines</li>
+<li>The group’s ability to <em>interpret</em> data using finance theory and <em>draw insights</em> from their findings</li>
+<li>Code organization, providing clean, concise, and reproducible results</li>
+<li>Originality, focusing on real-world problems that are not trivial</li>
 </ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-4. Replications
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Along with the slides, each lecture will also contain a replication file, in <code>.qmd</code> format, containing a thorough discussion for all examples that have been showcased. This file, that will also be posted on <em>eClass®</em>, can be downloaded and replicated on your side.</p>
-<p>To do that, download the file, open it up in RStudio, and render the Quarto document using the Render button (shortcut: <code>Ctrl+Shift+K</code>).</p>
-<p>You can find the permanent links to the replication files (<code>.qmd</code>) below:</p>
+<p>Furthermore, at the end of the semester, each group is also expected to present their project to the course audience. <strong>All individuals from the group are expected to attend and present</strong>. During this showcase, which should last no longer than <em>10 (ten) minutes</em>, students will be evaluated on the basis of:</p>
 <ol type="1">
-<li>Bridging Finance with Programming - access <a href="https://lsmacoris.github.io/lectures/quant-fin/replications/L1/L1-Replication.html">here</a></li>
-<li>Collecting, Organizing, and Manipulating Financial Data - access <a href="https://lsmacoris.github.io/lectures/quant-fin/replications/L2/L2-Replication.html">here</a></li>
-<li>Manipulating Time Series Data - access <a href="https://lsmacoris.github.io/lectures/quant-fin/replications/L3/L3-Replication.html">here</a></li>
-<li>Data Visualization - access <a href="https://lsmacoris.github.io/lectures/quant-fin/replications/L4/L4-Replication.html">here</a></li>
+<li><strong>Ability to Answer Practical and Technical Questions</strong>
+<ul>
+<li>Demonstrate a deep understanding of their analysis, methods, and results</li>
+<li>Presenters should be prepared to respond to questions regarding data sources, methodology, and financial interpretation</li>
+</ul></li>
+<li><strong>Organization</strong>
+<ul>
+<li>The project should be well-structured, with a logical flow from problem statement to conclusion</li>
+<li>Code and documentation should be clear, well-commented, and reproducible</li>
+</ul></li>
+<li><strong>Clear Communication</strong>
+<ul>
+<li>Presentations should be <em>concise</em>, <em>engaging</em>, and <em>accessible</em> to the audience</li>
+<li>Visualizations and explanations should effectively convey key insights</li>
+</ul></li>
 </ol>
-</div>
-</div>
-
+</section>
+<section id="expectations-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="expectations-best-practices">Expectations &amp; Best Practices</h2>
+<p>All in all, the <em>Capstone Project</em> is an opportunity for students not only to showcase their work not only for the course audience, but also for external audiences, like HR managers, recruiters, among others. At the same time you can expect to receive feedback from your colleagues, be prepared to also provide useful feedback to other groups regarding their work.</p>
+<p>To make sure that you are set up for success, try to follow these best practices to best of our ability:</p>
+<ul>
+<li><strong>Start early</strong>: effective time management is crucial for success. Make sure to devote enough time for somewhat cumbersome tasks, such as data collection and manipulation</li>
+<li><strong>Collaborate efficiently</strong>: distribute tasks within your team to leverage individual strengths. Test code snippets and make sure that the whole analysis is reproducible</li>
+<li><strong>Maintain clarity</strong>: ensure that your analysis and conclusions are well-documented and easy to follow</li>
+<li><strong>Review and iterate</strong>: test your code, validate results, and refine your presentation</li>
+</ul>
+<p>Students are highly encouraged to share their codes so that everyone can replicate and contribute to their analyses. This capstone project represents an opportunity to apply your knowledge in a meaningful way, demonstrating both technical and analytical skills. Make the most of it!</p>
+<p>In case of any quesitons, feel free to reach out to <a href="mailto:lucas.macoris@fgv.br">lucas.macoris@fgv.br</a></p>
 
 
 </section>
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-Reading Time
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1740506594180" data-listing-reading-time-sort="17" data-listing-word-count-sort="3366" data-listing-title-sort="Bridging Finance with Programming" data-listing-filename-sort="index.qmd">
-<td>
-<a href="./quant-fin/coursework/Lecture 1 - Bridging Finance with Programming/index.html" class="title listing-title">Bridging Finance with Programming</a>
-</td>
-<td>
-<span class="listing-reading-time">17 min</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-file-modified-sort="1740508642610" data-listing-reading-time-sort="18" data-listing-word-count-sort="3490" data-listing-title-sort="Collecting, Organizing, and Manipulating Financial Data" data-listing-filename-sort="index.qmd">
-<td>
-<a href="./quant-fin/coursework/Lecture 2 - Collecting, Organizing, and Manipulating Financial Data/index.html" class="title listing-title">Collecting, Organizing, and Manipulating Financial Data</a>
-</td>
-<td>
-<span class="listing-reading-time">18 min</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-file-modified-sort="1740509134351" data-listing-reading-time-sort="28" data-listing-word-count-sort="5463" data-listing-title-sort="Data Visualization" data-listing-filename-sort="index.qmd">
-<td>
-<a href="./quant-fin/coursework/Lecture 4 - Data Visualization/index.html" class="title listing-title">Data Visualization</a>
-</td>
-<td>
-<span class="listing-reading-time">28 min</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-file-modified-sort="1741648551816" data-listing-reading-time-sort="25" data-listing-word-count-sort="4918" data-listing-title-sort="Fama French and Multi-Factor Models of Risk" data-listing-filename-sort="index.qmd">
-<td>
-<a href="./quant-fin/coursework/Lecture 6 - Fama French and Multifactor Models of Risk/index.html" class="title listing-title">Fama French and Multi-Factor Models of Risk</a>
-</td>
-<td>
-<span class="listing-reading-time">25 min</span>
-</td>
-</tr>
-<tr data-index="4" data-listing-file-modified-sort="1740506072472" data-listing-reading-time-sort="11" data-listing-word-count-sort="2130" data-listing-title-sort="Introduction and Course Overview" data-listing-filename-sort="index.qmd">
-<td>
-<a href="./quant-fin/coursework/Introduction/index.html" class="title listing-title">Introduction and Course Overview</a>
-</td>
-<td>
-<span class="listing-reading-time">11 min</span>
-</td>
-</tr>
-<tr data-index="5" data-listing-file-modified-sort="1740508793964" data-listing-reading-time-sort="14" data-listing-word-count-sort="2768" data-listing-title-sort="Manipulating time series Data" data-listing-filename-sort="index.qmd">
-<td>
-<a href="./quant-fin/coursework/Lecture 3 - Manipulating Time Series/index.html" class="title listing-title">Manipulating time series Data</a>
-</td>
-<td>
-<span class="listing-reading-time">14 min</span>
-</td>
-</tr>
-<tr data-index="6" data-listing-file-modified-sort="1741651324322" data-listing-reading-time-sort="22" data-listing-word-count-sort="4226" data-listing-title-sort="The Capital Asset Pricing Model (CAPM) in practice" data-listing-filename-sort="index.qmd">
-<td>
-<a href="./quant-fin/coursework/Lecture 5 - CAPM in Practice/index.html" class="title listing-title">The Capital Asset Pricing Model (CAPM) in practice</a>
-</td>
-<td>
-<span class="listing-reading-time">22 min</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1026,7 +861,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/lsmacoris/lectures/edit/main/quant-fin.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lsmacoris/lectures/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/lsmacoris/lectures/edit/main/quant-fin/capstone/guidelines.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lsmacoris/lectures/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

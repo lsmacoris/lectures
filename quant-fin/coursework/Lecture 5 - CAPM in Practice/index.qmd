@@ -72,7 +72,7 @@ For any questions or concerns, please feel free to reach out via email at [lucas
 
 -   There are [three]{.blue} simplifying assumptions around investor behavior that the [CAPM]{.blue} establishes:
 
-:::: callout-tip
+::: callout-tip
 ### The Capital Asset Pricing Model (CAPM) Assumptions
 
 1.  Investors can buy and sell all securities at competitive market prices without incurring taxes or transactions costs can borrow and lend at the risk-free interest rate
@@ -80,7 +80,7 @@ For any questions or concerns, please feel free to reach out via email at [lucas
 2.  Investors hold only efficient portfolios of traded securities
 
 3.  Investors have homogeneous expectations regarding the volatilities, correlations, and expected returns of securities
-::::
+:::
 
 . . .
 
@@ -658,7 +658,7 @@ $\rightarrow$ *In either case, we'll be able to improve portfolio results. Howev
 
 -   For detailed information on functional programming, see `purrr` documentation [here](https://purrr.tidyverse.org/)
 
-## Step 4: putting all together continued
+## Step 4: putting all together, continued
 
 ::: panel-tabset
 ## For Loop
@@ -786,7 +786,6 @@ CAPM_Estimation%>%
 
 ```
 :::
-
 
 ## CAPM shortcomings
 

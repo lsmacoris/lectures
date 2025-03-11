@@ -1,0 +1,75 @@
+---
+title: "Capstone Project - Practical Applications in Quantitative Finance"
+author: "Lucas S. Macoris (FGV-EAESP)"
+format: html
+editor: visual
+---
+
+## Objective
+
+As the final evaluation for the *Practical Applications in Quantitative Finance* course, students will develop a *Capstone Project* demonstrating their ability to apply quantitative finance concepts using `R`. The project should showcase at least one of the topics covered in the course or another finance-related topic, leveraging the tools and techniques introduced throughout the semester.
+
+Please take some time to review the specific guidelines that should be the basis of your project. 
+
+## Group Formation
+
+Students must work in teams of up to **five members**, maximum. Each team is responsible for defining roles and organizing their workflow effectively to ensure timely completion.
+
+## Project Scope
+
+Teams are expected to generate an analysis using **one or more finance concepts** studied in this course or other finance-related concepts that align with the course's focus. The analysis should be conducted using the `R` and incorporate the tools and techniques covered, such as the `tidyverse`, `tidyquant`, `ggplot2`, among others.
+
+More specifically, the expected output must be structured as one of the following deliverables:
+
+1.   An `R` script, well-documented and reproducible
+2.   A *Quarto* document containing a dynamic report with code, analysis, and visualizations; or
+3.   A *Shiny* application file
+
+:::{.callout-tip}
+### Using Shiny
+
+For groups that are willing to showcase their work using *Shiny*, the professor will provide full support for hosting the application online, ensuring accessibility for external review and future professional showcasing.
+
+For a reference of what can be considered a capstone project for the course, access this link to check a web application that replicates a momentum strategy in the U.S. financial markets. Kindly note that capstone projects are expected to be much simpler than this example, as the goal is to provide students with a first hands-on finance experience on tools for data analysis and reporting in finance.
+
+:::
+
+
+## Evaluation Criteria
+
+The evaluation criteria will be mainly take *two* aspects into consideration: a written report ($40\%$) and a project showcase ($15\%$). First, the written report, which should be done using one out of the three aforementioned output formats, will be evaluated on the basis of:
+
+1. The *quality* and *adherence* of the deliverable relative to the expected goals outlined in the guidelines
+2. The group's ability to *interpret* data using finance theory and *draw insights* from their findings
+3. Code organization, providing clean, concise, and reproducible results
+4. Originality, focusing on real-world problems that are not trivial
+
+Furthermore, at the end of the semester, each group is also expected to present their project to the course audience. **All individuals from the group are expected to attend and present**. During this showcase, which should last no longer than *10 (ten) minutes*, students will be evaluated on the basis of:
+
+1.  **Ability to Answer Practical and Technical Questions**
+    -   Demonstrate a deep understanding of their analysis, methods, and results
+    -   Presenters should be prepared to respond to questions regarding data sources, methodology, and financial interpretation
+    
+2.  **Organization**
+    -   The project should be well-structured, with a logical flow from problem statement to conclusion
+    -   Code and documentation should be clear, well-commented, and reproducible
+    
+3.  **Clear Communication**
+    -   Presentations should be *concise*, *engaging*, and *accessible* to the audience
+    -   Visualizations and explanations should effectively convey key insights
+
+## Expectations & Best Practices
+
+All in all, the *Capstone Project* is an opportunity for students not only to showcase their work not only for the course audience, but also for external audiences, like HR managers, recruiters, among others. At the same time you can expect to receive feedback from your colleagues, be prepared to also provide useful feedback to other groups regarding their work.
+
+To make sure that you are set up for success, try to follow these best practices to best of our ability:
+
+-   **Start early**: effective time management is crucial for success. Make sure to devote enough time for somewhat cumbersome tasks, such as data collection and manipulation
+-   **Collaborate efficiently**: distribute tasks within your team to leverage individual strengths. Test code snippets and make sure that the whole analysis is reproducible
+-   **Maintain clarity**: ensure that your analysis and conclusions are well-documented and easy to follow
+-   **Review and iterate**: test your code, validate results, and refine your presentation
+
+Students are highly encouraged to share their codes so that everyone can replicate and contribute to their analyses. This capstone project represents an opportunity to apply your knowledge in a meaningful way, demonstrating both technical and analytical skills. Make the most of it!
+
+
+In case of any quesitons, feel free to reach out to [lucas.macoris@fgv.br](mailto:lucas.macoris@fgv.br)

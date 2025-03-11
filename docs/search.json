@@ -8795,8 +8795,8 @@
     "objectID": "quant-fin/coursework/Lecture 5 - CAPM in Practice/index.html#step-4-putting-all-together-continued",
     "href": "quant-fin/coursework/Lecture 5 - CAPM in Practice/index.html#step-4-putting-all-together-continued",
     "title": "The Capital Asset Pricing Model (CAPM) in practice",
-    "section": "Step 4: putting all together continued",
-    "text": "Step 4: putting all together continued\n\nFor LoopFunctional Programming\n\n\n\n#Start an empty data.frame\nStored_Data=data.frame()\n\nfor (i in assets){\n  \n  #Manipulate data\n  Filtered_Data=Full_Data%&gt;%\n    #Filter for the specific ticker\n    filter(symbol== i)%&gt;%\n    mutate(excess_return=weekly_return-Rf)%&gt;%\n    select(symbol,excess_return,MRP)\n  \n  #Run the OLS regression\n  OLS=lm(excess_return~MRP,data=Filtered_Data)\n\n  #Get the coefficients using the coefficients() function and add it to a temp data\n  \n  Temp_Data = data.frame(ticker=i,\n                         alpha=coefficients(OLS)[1],\n                         beta=coefficients(OLS)[2])\n  \n  #Bind it to the dataframe\n  Stored_Data=Stored_Data%&gt;%rbind(Temp_Data)\n  \n  }\n\n\n\n\nCAPM_Estimation=Full_Data%&gt;%\n  mutate(excess_return=weekly_return-Rf)%&gt;%\n  select(symbol,excess_return,MRP)%&gt;%\n  group_by(symbol)%&gt;%\n  nest()%&gt;%\n  mutate(CAPM = map(data,~ lm(excess_return~MRP,data=.)))%&gt;%\n  mutate(coefficients = map(CAPM,tidy))"
+    "section": "Step 4: putting all together, continued",
+    "text": "Step 4: putting all together, continued\n\nFor LoopFunctional Programming\n\n\n\n#Start an empty data.frame\nStored_Data=data.frame()\n\nfor (i in assets){\n  \n  #Manipulate data\n  Filtered_Data=Full_Data%&gt;%\n    #Filter for the specific ticker\n    filter(symbol== i)%&gt;%\n    mutate(excess_return=weekly_return-Rf)%&gt;%\n    select(symbol,excess_return,MRP)\n  \n  #Run the OLS regression\n  OLS=lm(excess_return~MRP,data=Filtered_Data)\n\n  #Get the coefficients using the coefficients() function and add it to a temp data\n  \n  Temp_Data = data.frame(ticker=i,\n                         alpha=coefficients(OLS)[1],\n                         beta=coefficients(OLS)[2])\n  \n  #Bind it to the dataframe\n  Stored_Data=Stored_Data%&gt;%rbind(Temp_Data)\n  \n  }\n\n\n\n\nCAPM_Estimation=Full_Data%&gt;%\n  mutate(excess_return=weekly_return-Rf)%&gt;%\n  select(symbol,excess_return,MRP)%&gt;%\n  group_by(symbol)%&gt;%\n  nest()%&gt;%\n  mutate(CAPM = map(data,~ lm(excess_return~MRP,data=.)))%&gt;%\n  mutate(coefficients = map(CAPM,tidy))"
   },
   {
     "objectID": "quant-fin/coursework/Lecture 5 - CAPM in Practice/index.html#charting-the-result",
@@ -10001,5 +10001,54 @@
     "title": "The Capital Asset Pricing Model (CAPM) in practice",
     "section": "Alpha estimation over time",
     "text": "Alpha estimation over time\n\nCodeOutput\n\n\n\nFull_Data%&gt;%\n  mutate(excess_return=weekly_return-Rf)%&gt;%\n  select(date,symbol,excess_return,MRP)%&gt;%\n  group_by(symbol)%&gt;%\n  tq_transmute(\n      mutate_fun = rollapply,\n      by.column=FALSE,\n      width=24, #Use latest 24 weeks\n      FUN = custom_OLS,\n      col_rename = c('alpha','beta'))%&gt;%\n  filter(!is.na(alpha))%&gt;%\n  ggplot(aes(x=date,y=alpha))+\n  geom_line()+\n  geom_smooth()+\n  facet_wrap(symbol~.,nrow=2,ncol=5,scales='free_y')+\n  #Annotations\n  labs(title='Rolling Alpha Regression',\n       subtitle = 'Source: Yahoo! Finance. Using the latest 24 observations of weekly returns.',\n       x = '',\n       y = 'Estimated Alpha')+\n  #Theme\n  theme_minimal()+\n  #Scale x\n  scale_x_date(date_breaks = '4 weeks')+\n  scale_y_continuous(labels = percent)+\n  #Adding further customizations\n  theme(legend.position='none',\n        axis.title.y = element_text(face='bold',size=15),\n        axis.text.x = element_text(size=10,angle = 90),\n        axis.text.y = element_text(size=10),\n        plot.title = element_text(size=20,face='bold'),\n        plot.subtitle  = element_text(size=15,face='bold'))"
+  },
+  {
+    "objectID": "quant-fin/capstone/guidelines.html",
+    "href": "quant-fin/capstone/guidelines.html",
+    "title": "Capstone Project - Practical Applications in Quantitative Finance",
+    "section": "",
+    "text": "As the final evaluation for the Practical Applications in Quantitative Finance course, students will develop a Capstone Project demonstrating their ability to apply quantitative finance concepts using R. The project should showcase at least one of the topics covered in the course or another finance-related topic, leveraging the tools and techniques introduced throughout the semester.\nPlease take some time to review the specific guidelines that should be the basis of your project."
+  },
+  {
+    "objectID": "quant-fin/capstone/guidelines.html#objective",
+    "href": "quant-fin/capstone/guidelines.html#objective",
+    "title": "Capstone Project - Practical Applications in Quantitative Finance",
+    "section": "",
+    "text": "As the final evaluation for the Practical Applications in Quantitative Finance course, students will develop a Capstone Project demonstrating their ability to apply quantitative finance concepts using R. The project should showcase at least one of the topics covered in the course or another finance-related topic, leveraging the tools and techniques introduced throughout the semester.\nPlease take some time to review the specific guidelines that should be the basis of your project."
+  },
+  {
+    "objectID": "quant-fin/capstone/guidelines.html#group-formation",
+    "href": "quant-fin/capstone/guidelines.html#group-formation",
+    "title": "Capstone Project - Practical Applications in Quantitative Finance",
+    "section": "Group Formation",
+    "text": "Group Formation\nStudents must work in teams of up to five members, maximum. Each team is responsible for defining roles and organizing their workflow effectively to ensure timely completion."
+  },
+  {
+    "objectID": "quant-fin/capstone/guidelines.html#project-scope",
+    "href": "quant-fin/capstone/guidelines.html#project-scope",
+    "title": "Capstone Project - Practical Applications in Quantitative Finance",
+    "section": "Project Scope",
+    "text": "Project Scope\nTeams are expected to generate an analysis using one or more finance concepts studied in this course or other finance-related concepts that align with the course’s focus. The analysis should be conducted using the R and incorporate the tools and techniques covered, such as the tidyverse, tidyquant, ggplot2, among others.\nMore specifically, the expected output must be structured as one of the following deliverables:\n\nAn R script, well-documented and reproducible\nA Quarto document containing a dynamic report with code, analysis, and visualizations; or\nA Shiny application file\n\n\n\n\n\n\n\nUsing Shiny\n\n\n\nFor groups that are willing to showcase their work using Shiny, the professor will provide full support for hosting the application online, ensuring accessibility for external review and future professional showcasing.\nFor a reference of what can be considered a capstone project for the course, access this link to check a web application that replicates a momentum strategy in the U.S. financial markets. Kindly note that capstone projects are expected to be much simpler than this example, as the goal is to provide students with a first hands-on finance experience on tools for data analysis and reporting in finance."
+  },
+  {
+    "objectID": "quant-fin/capstone/guidelines.html#final-submission-hosting",
+    "href": "quant-fin/capstone/guidelines.html#final-submission-hosting",
+    "title": "Capstone Project - Practical Applications in Quantitative Finance",
+    "section": "Final Submission & Hosting",
+    "text": "Final Submission & Hosting\n\nAll applications must be hosted online, ensuring accessibility for external review and future professional showcasing.\nDetailed submission guidelines, including hosting platforms and file formats, will be provided."
+  },
+  {
+    "objectID": "quant-fin/capstone/guidelines.html#evaluation-criteria",
+    "href": "quant-fin/capstone/guidelines.html#evaluation-criteria",
+    "title": "Capstone Project - Practical Applications in Quantitative Finance",
+    "section": "Evaluation Criteria",
+    "text": "Evaluation Criteria\nThe evaluation criteria will be mainly take two aspects into consideration: a written report (\\(40\\%\\)) and a project showcase (\\(15\\%\\)). First, the written report, which should be done using one out of the three aforementioned output formats, will be evaluated on the basis of:\n\nThe quality and adherence of the deliverable relative to the expected goals outlined in the guidelines\nThe group’s ability to interpret data using finance theory and draw insights from their findings\nCode organization, providing clean, concise, and reproducible results\nOriginality, focusing on real-world problems that are not trivial\n\nFurthermore, at the end of the semester, each group is also expected to present their project to the course audience. All individuals from the group are expected to attend and present. During this showcase, which should last no longer than 10 (ten) minutes, students will be evaluated on the basis of:\n\nAbility to Answer Practical and Technical Questions\n\nDemonstrate a deep understanding of their analysis, methods, and results\nPresenters should be prepared to respond to questions regarding data sources, methodology, and financial interpretation\n\nOrganization\n\nThe project should be well-structured, with a logical flow from problem statement to conclusion\nCode and documentation should be clear, well-commented, and reproducible\n\nClear Communication\n\nPresentations should be concise, engaging, and accessible to the audience\nVisualizations and explanations should effectively convey key insights"
+  },
+  {
+    "objectID": "quant-fin/capstone/guidelines.html#expectations-best-practices",
+    "href": "quant-fin/capstone/guidelines.html#expectations-best-practices",
+    "title": "Capstone Project - Practical Applications in Quantitative Finance",
+    "section": "Expectations & Best Practices",
+    "text": "Expectations & Best Practices\nAll in all, the Capstone Project is an opportunity for students not only to showcase their work not only for the course audience, but also for external audiences, like HR managers, recruiters, among others. At the same time you can expect to receive feedback from your colleagues, be prepared to also provide useful feedback to other groups regarding their work.\nTo make sure that you are set up for success, try to follow these best practices to best of our ability:\n\nStart early: effective time management is crucial for success. Make sure to devote enough time for somewhat cumbersome tasks, such as data collection and manipulation\nCollaborate efficiently: distribute tasks within your team to leverage individual strengths. Test code snippets and make sure that the whole analysis is reproducible\nMaintain clarity: ensure that your analysis and conclusions are well-documented and easy to follow\nReview and iterate: test your code, validate results, and refine your presentation\n\nStudents are highly encouraged to share their codes so that everyone can replicate and contribute to their analyses. This capstone project represents an opportunity to apply your knowledge in a meaningful way, demonstrating both technical and analytical skills. Make the most of it!\nIn case of any quesitons, feel free to reach out to lucas.macoris@fgv.br"
   }
 ]
