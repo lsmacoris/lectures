@@ -418,6 +418,8 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../../../site_libs/font-awesome-6.5.2/js/script.js"></script>
+
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -714,9 +716,43 @@ E[R_i] = R_f + \beta_i^P \times (E[R_P - R_f])
 <li><p>I have already prepped the data for you in an <code>.rds</code> file that can be downloaded using the <em>Download Data</em> button below or directly through <em>eClass®</em>. An <code>.rds</code> file is an <code>R</code> object that can be loaded directly into your <code>R</code> session</p></li>
 <li><p>To load an <code>.rds</code> file, you can either double-click and open using RStudio, or run the following command:</p></li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co">#Assuming that the file is in the correct folder</span></span>
+<span id="cb1-2"><a></a>hf_data<span class="ot">=</span><span class="fu">readRDS</span>(<span class="st">'hf_data.rds'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ul>
 <li>Note that the object that has been loaded is an <code>xts</code> object, which inherits several useful properties for working with time series data!</li>
 </ul>
+<div class="cell">
+<div class="cell-output-display">
+<button class="btn btn-default" onclick="
+    async function downloadFile(event) {
+      event.preventDefault();
+      try {
+        const response = await fetch('data:application/octet-stream;base64,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');
+        if (!response.ok) throw new Error('Network response failed');
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'hf_data.rds';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.dispatchEvent(new MouseEvent('click'));
+        document.body.removeChild(a);
+        setTimeout(() => {
+          window.URL.revokeObjectURL(blobUrl);
+        }, 100);
+        return false;
+      } catch (error) {
+        console.error('Download failed:', error);
+        alert('Download failed. Please try again.');
+      }
+    }
+    downloadFile(event);
+  " has_icon="TRUE"><i class="fa fa-save"></i> Download Raw data</button>
+</div>
+</div>
 </section>
 <section id="step-2-historical-performance" class="slide level2">
 <h2>Step 2: Historical Performance</h2>
@@ -729,8 +765,8 @@ E[R_i] = R_f + \beta_i^P \times (E[R_P - R_f])
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co">#Apply the cumprod function to all columns</span></span>
-<span id="cb1-2"><a></a><span class="fu">cumprod</span>(<span class="dv">1</span><span class="sc">+</span>hf_data)<span class="sc">-</span><span class="dv">1</span><span class="sc">%&gt;%</span><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co">#Apply the cumprod function to all columns</span></span>
+<span id="cb2-2"><a></a><span class="fu">cumprod</span>(<span class="dv">1</span><span class="sc">+</span>hf_data)<span class="sc">-</span><span class="dv">1</span><span class="sc">%&gt;%</span><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -793,26 +829,26 @@ E[R_i] = R_f + \beta_i^P \times (E[R_P - R_f])
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>(<span class="fu">cumprod</span>(<span class="dv">1</span><span class="sc">+</span>hf_data)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a></a>  <span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a></a>  <span class="fu">rownames_to_column</span>(<span class="st">'date'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a></a>  <span class="fu">mutate</span>(<span class="at">date=</span><span class="fu">as.Date</span>(date))<span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to=</span><span class="st">'strategy'</span>,<span class="at">values_to =</span> <span class="st">'cum_return'</span>,<span class="at">cols=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>cum_return,<span class="at">group=</span>strategy,<span class="at">col=</span>strategy))<span class="sc">+</span></span>
-<span id="cb3-7"><a></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb3-8"><a></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">'years'</span>,<span class="at">date_labels=</span><span class="st">'%Y'</span>)<span class="sc">+</span></span>
-<span id="cb3-9"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)<span class="sc">+</span></span>
-<span id="cb3-10"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Comparison of hedge fund global strategies over time'</span>,</span>
-<span id="cb3-11"><a></a>       <span class="at">subtitle=</span><span class="st">'Considering EDHEC dataset of monthly hedge fund returns.'</span>,</span>
-<span id="cb3-12"><a></a>       <span class="at">col=</span><span class="st">'Strategy'</span>,</span>
-<span id="cb3-13"><a></a>       <span class="at">x=</span><span class="st">''</span>,</span>
-<span id="cb3-14"><a></a>       <span class="at">y=</span><span class="st">'Cumulative Return'</span>)<span class="sc">+</span></span>
-<span id="cb3-15"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb3-16"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'bottom'</span>,</span>
-<span id="cb3-17"><a></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>),</span>
-<span id="cb3-18"><a></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">12</span>),</span>
-<span id="cb3-19"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">15</span>),</span>
-<span id="cb3-20"><a></a>        <span class="at">plot.subtitle  =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>(<span class="fu">cumprod</span>(<span class="dv">1</span><span class="sc">+</span>hf_data)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">rownames_to_column</span>(<span class="st">'date'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a></a>  <span class="fu">mutate</span>(<span class="at">date=</span><span class="fu">as.Date</span>(date))<span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to=</span><span class="st">'strategy'</span>,<span class="at">values_to =</span> <span class="st">'cum_return'</span>,<span class="at">cols=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>cum_return,<span class="at">group=</span>strategy,<span class="at">col=</span>strategy))<span class="sc">+</span></span>
+<span id="cb4-7"><a></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb4-8"><a></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">'years'</span>,<span class="at">date_labels=</span><span class="st">'%Y'</span>)<span class="sc">+</span></span>
+<span id="cb4-9"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)<span class="sc">+</span></span>
+<span id="cb4-10"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Comparison of hedge fund global strategies over time'</span>,</span>
+<span id="cb4-11"><a></a>       <span class="at">subtitle=</span><span class="st">'Considering EDHEC dataset of monthly hedge fund returns.'</span>,</span>
+<span id="cb4-12"><a></a>       <span class="at">col=</span><span class="st">'Strategy'</span>,</span>
+<span id="cb4-13"><a></a>       <span class="at">x=</span><span class="st">''</span>,</span>
+<span id="cb4-14"><a></a>       <span class="at">y=</span><span class="st">'Cumulative Return'</span>)<span class="sc">+</span></span>
+<span id="cb4-15"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb4-16"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'bottom'</span>,</span>
+<span id="cb4-17"><a></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>),</span>
+<span id="cb4-18"><a></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb4-19"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">15</span>),</span>
+<span id="cb4-20"><a></a>        <span class="at">plot.subtitle  =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-2">
@@ -820,7 +856,7 @@ E[R_i] = R_f + \beta_i^P \times (E[R_P - R_f])
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="1440"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -856,25 +892,44 @@ R_{i,t}=\alpha + \sum\beta_z R_{z,t}+\varepsilon_{i,t}
 <ol type="1">
 <li>Luckily, you don’t need to manually create them - there are a couple ways by which you can download historical data on factor portfolio returns</li>
 <li>In <em>Kenneth French</em>’s <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">website</a>, you will find historical factor portfolio returns for a variety of economies including the U.S., Developed Economies, Emerging Markets, and Global</li>
-<li>In special, we will be collect monthly factor portfolio returns regarding the three-factor model as in <span class="citation" data-cites="fama1993">(<a href="#/references" role="doc-biblioref" onclick="">Fama and French 1993</a>)</span></li>
+<li>In special, we will using monthly factor portfolio returns regarding the three-factor model as in <span class="citation" data-cites="fama1993">(<a href="#/references" role="doc-biblioref" onclick="">Fama and French 1993</a>)</span>, which you can download below or direclty through <em>eClass®</em></li>
 </ol></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co">#This is the URl where the Factor Portfolio Returns are stored (US)</span></span>
-<span id="cb4-2"><a></a>FF_url <span class="ot">&lt;-</span> <span class="st">"https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors.CSV"</span></span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a><span class="co">#Download the file, adjust names and Date, input missing information, and transform to numeric</span></span>
-<span id="cb4-5"><a></a>FF_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(FF_url, <span class="at">skip =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-6"><a></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">'date'</span>,<span class="st">'MKT_MINUS_RF'</span>,<span class="st">'SMB'</span>,<span class="st">'HML'</span>,<span class="st">'RF'</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb4-7"><a></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">ymd</span>(<span class="fu">paste0</span>(<span class="fu">substr</span>(date, <span class="dv">1</span>, <span class="dv">4</span>), <span class="st">"-"</span>, <span class="fu">substr</span>(date, <span class="dv">5</span>, <span class="dv">6</span>), <span class="st">"-01"</span>)))<span class="sc">%&gt;%</span></span>
-<span id="cb4-8"><a></a>  <span class="fu">na.locf</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb4-9"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>,<span class="cf">function</span>(x) <span class="fu">as.numeric</span>(x)<span class="sc">/</span><span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<button class="btn btn-default" onclick="
+    async function downloadFile(event) {
+      event.preventDefault();
+      try {
+        const response = await fetch('data:application/octet-stream;base64,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');
+        if (!response.ok) throw new Error('Network response failed');
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'ff_data.rds';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.dispatchEvent(new MouseEvent('click'));
+        document.body.removeChild(a);
+        setTimeout(() => {
+          window.URL.revokeObjectURL(blobUrl);
+        }, 100);
+        return false;
+      } catch (error) {
+        console.error('Download failed:', error);
+        alert('Download failed. Please try again.');
+      }
+    }
+    downloadFile(event);
+  " has_icon="TRUE"><i class="fa fa-save"></i> Download Raw data</button>
+</div>
 </div>
 </section>
 <section id="step-3-analyzing-performance-determinants-continued-1" class="slide level2">
 <h2>Step 3: Analyzing performance determinants, continued</h2>
 <ul>
-<li>We will now manipulate the data in order to merge both <code>hf_data</code> and the <code>FF_data</code></li>
+<li>We will now manipulate the data in order to merge both <code>hf_data</code> and the <code>ff_data</code></li>
 </ul>
 <div class="panel-tabset">
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Code</a></li><li><a href="#tabset-3-2">Output</a></li></ul>
@@ -882,7 +937,7 @@ R_{i,t}=\alpha + \sum\beta_z R_{z,t}+\varepsilon_{i,t}
 <div id="tabset-3-1">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co">#Convert the hf_data to a data.frame object and adjust columns</span></span>
-<span id="cb5-2"><a></a> hf_data <span class="ot">=</span> hf_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a></a> hf_data <span class="ot">=</span> hf_data<span class="sc">%&gt;%</span></span>
 <span id="cb5-3"><a></a>  <span class="fu">as.data.frame</span>()<span class="sc">%&gt;%</span></span>
 <span id="cb5-4"><a></a>  <span class="fu">rownames_to_column</span>(<span class="st">'date'</span>)<span class="sc">%&gt;%</span></span>
 <span id="cb5-5"><a></a>  <span class="fu">mutate</span>(<span class="at">date=</span><span class="fu">as.Date</span>(date))</span>
@@ -890,55 +945,49 @@ R_{i,t}=\alpha + \sum\beta_z R_{z,t}+\varepsilon_{i,t}
 <span id="cb5-7"><a></a><span class="co">#Merge both datasets by date</span></span>
 <span id="cb5-8"><a></a>merged_df <span class="ot">&lt;-</span> hf_data<span class="sc">%&gt;%</span></span>
 <span id="cb5-9"><a></a>  <span class="co">#Merge</span></span>
-<span id="cb5-10"><a></a>  <span class="fu">left_join</span>(FF_data, <span class="at">by =</span> <span class="st">"date"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a></a>  <span class="fu">left_join</span>(ff_data, <span class="at">by =</span> <span class="st">"date"</span>)<span class="sc">%&gt;%</span></span>
 <span id="cb5-11"><a></a>  <span class="co">#Pivot the data for each strategy</span></span>
 <span id="cb5-12"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(date, MKT_MINUS_RF, SMB, HML, RF), <span class="at">names_to =</span> <span class="st">"strategy"</span>, <span class="at">values_to =</span> <span class="st">"return"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-13"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return =</span> return <span class="sc">-</span> RF)  <span class="co"># Convert RF to decimal format</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-13"><a></a>  <span class="fu">mutate</span>(<span class="at">excess_return =</span> return <span class="sc">-</span> RF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-3-2">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1,890 × 8
-   date       MKT_MINUS_RF     SMB     HML     RF strategy  return excess_return
-   &lt;date&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;         &lt;dbl&gt;
- 1 1997-01-01       0.0499 -0.0195 -0.0142 0.0045 Converti… 0.0119        0.0074
- 2 1997-01-01       0.0499 -0.0195 -0.0142 0.0045 CTA Glob… 0.0393        0.0348
- 3 1997-01-01       0.0499 -0.0195 -0.0142 0.0045 Distress… 0.0178        0.0133
- 4 1997-01-01       0.0499 -0.0195 -0.0142 0.0045 Emerging… 0.0791        0.0746
- 5 1997-01-01       0.0499 -0.0195 -0.0142 0.0045 Equity M… 0.0189        0.0144
- 6 1997-01-01       0.0499 -0.0195 -0.0142 0.0045 Event Dr… 0.0213        0.0168
- 7 1997-02-01      -0.0049 -0.0322  0.0567 0.0039 Converti… 0.0123        0.0084
- 8 1997-02-01      -0.0049 -0.0322  0.0567 0.0039 CTA Glob… 0.0298        0.0259
- 9 1997-02-01      -0.0049 -0.0322  0.0567 0.0039 Distress… 0.0122        0.0083
-10 1997-02-01      -0.0049 -0.0322  0.0567 0.0039 Emerging… 0.0525        0.0486
-# ℹ 1,880 more rows</code></pre>
+<pre><code># A tibble: 1,902 × 8
+   date       MKT_MINUS_RF     SMB    HML     RF strategy   return excess_return
+   &lt;date&gt;            &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+ 1 1997-01-01       0.0005 -0.0005 0      0.0045 Convertib… 0.0119        0.0074
+ 2 1997-01-01       0.0005 -0.0005 0      0.0045 CTA Global 0.0393        0.0348
+ 3 1997-01-01       0.0005 -0.0005 0      0.0045 Distresse… 0.0178        0.0133
+ 4 1997-01-01       0.0005 -0.0005 0      0.0045 Emerging … 0.0791        0.0746
+ 5 1997-01-01       0.0005 -0.0005 0      0.0045 Equity Ma… 0.0189        0.0144
+ 6 1997-01-01       0.0005 -0.0005 0      0.0045 Event Dri… 0.0213        0.0168
+ 7 1997-02-01       0.003  -0.0152 0.0211 0.0039 Convertib… 0.0123        0.0084
+ 8 1997-02-01       0.003  -0.0152 0.0211 0.0039 CTA Global 0.0298        0.0259
+ 9 1997-02-01       0.003  -0.0152 0.0211 0.0039 Distresse… 0.0122        0.0083
+10 1997-02-01       0.003  -0.0152 0.0211 0.0039 Emerging … 0.0525        0.0486
+# ℹ 1,892 more rows</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="step-3-the-capm-model" class="slide level2">
-<h2>Step 3: The CAPM Model</h2>
+<section id="step-3-the-fama-french-model" class="slide level2">
+<h2>Step 3: The Fama-French Model</h2>
 <ul>
-<li>We will start by analyzing of a given strategy <span class="math inline">\(i\)</span> can be done estimating a <span class="blue">CAPM</span> model</li>
-<li>In this model, the only risk factor is the <em>market</em>:</li>
+<li>We can now extend the same rationale to adopt the <span class="blue">Fama-French three-factor model</span>, which considers the <span class="blue">Market</span>, the <span class="blue">Market Capitalization Strategy (<em>Size</em>)</span>, and the <span class="blue">Book-to-Market (<em>Value</em>)</span> strategy:</li>
 </ul>
 <p><span class="math display">\[
-(R_{i,t}-R_{f,t})=\alpha + \beta \times (R_{m,t}-R_{f,t})+\varepsilon_{i,t}
-\]</span> where:</p>
-<ol type="1">
-<li><span class="math inline">\(R_{i,t}\)</span> is the return of a given manager <span class="math inline">\(i\)</span> in month <span class="math inline">\(t\)</span></li>
-<li><span class="math inline">\(R_{m,t}\)</span> is the market return in month <span class="math inline">\(t\)</span></li>
-<li><span class="math inline">\(R_{f,t}\)</span> is the risk-free return in month <span class="math inline">\(t\)</span></li>
-</ol>
+\small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Market Cap.}}
+\]</span></p>
 <ul>
-<li>In what follows, we will be estimating and interpreting the CAPM results for each strategy</li>
+<li>As before, we will start analyzing the output for one individual strategy individually and then apply the same rationale to replicate the result across all strategies</li>
 </ul>
 </section>
-<section id="step-3-the-capm-model-one-strategy-output" class="slide level2">
-<h2>Step 3: The CAPM model, one strategy output</h2>
+<section id="step-4-the-fama-french-model-one-strategy-output" class="slide level2">
+<h2>Step 4: The Fama-French model, one strategy output</h2>
 <div class="panel-tabset">
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Output</a></li></ul>
 <div class="tab-content">
@@ -948,7 +997,7 @@ R_{i,t}=\alpha + \sum\beta_z R_{z,t}+\varepsilon_{i,t}
 <span id="cb7-2"><a></a><span class="co">#Get the filtered data</span></span>
 <span id="cb7-3"><a></a>filtered_data <span class="ot">=</span> merged_df<span class="sc">%&gt;%</span><span class="fu">filter</span>(strategy<span class="sc">==</span>strategy_name)</span>
 <span id="cb7-4"><a></a><span class="co">#Estimate the Model</span></span>
-<span id="cb7-5"><a></a>model<span class="ot">=</span><span class="fu">lm</span>(excess_return <span class="sc">~</span> MKT_MINUS_RF, <span class="at">data =</span> filtered_data)</span>
+<span id="cb7-5"><a></a>model<span class="ot">=</span><span class="fu">lm</span>(excess_return <span class="sc">~</span> MKT_MINUS_RF <span class="sc">+</span> HML <span class="sc">+</span> SMB, <span class="at">data =</span> filtered_data)</span>
 <span id="cb7-6"><a></a><span class="co">#Visualize</span></span>
 <span id="cb7-7"><a></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -958,38 +1007,39 @@ R_{i,t}=\alpha + \sum\beta_z R_{z,t}+\varepsilon_{i,t}
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = excess_return ~ MKT_MINUS_RF, data = filtered_data)
+lm(formula = excess_return ~ MKT_MINUS_RF + HML + SMB, data = filtered_data)
 
 Residuals:
       Min        1Q    Median        3Q       Max 
--0.113929 -0.004806  0.000581  0.006432  0.052478 
+-0.114088 -0.004773  0.000801  0.006918  0.052757 
 
 Coefficients:
-              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.0030327  0.0009526   3.184   0.0016 ** 
-MKT_MINUS_RF 0.0789553  0.0137361   5.748 2.15e-08 ***
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   0.0031253  0.0009681   3.228  0.00138 ** 
+MKT_MINUS_RF  0.0662528  0.0141281   4.689  4.1e-06 ***
+HML          -0.0070476  0.0220012  -0.320  0.74893    
+SMB           0.0216225  0.0326354   0.663  0.50811    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.01659 on 312 degrees of freedom
-  (1 observation deleted due to missingness)
-Multiple R-squared:  0.09576,   Adjusted R-squared:  0.09286 
-F-statistic: 33.04 on 1 and 312 DF,  p-value: 2.149e-08</code></pre>
+Residual standard error: 0.01694 on 313 degrees of freedom
+Multiple R-squared:  0.07582,   Adjusted R-squared:  0.06696 
+F-statistic: 8.559 on 3 and 313 DF,  p-value: 1.769e-05</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="step-3-the-capm-model-all-strategies" class="slide level2">
-<h2>Step 3: The CAPM model, all strategies</h2>
+<section id="step-4-the-fama-french-model-all-strategies" class="slide level2">
+<h2>Step 4: The Fama-French model, all strategies</h2>
 <div class="panel-tabset">
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">For-loop</a></li><li><a href="#tabset-5-2">Functional Programming</a></li><li><a href="#tabset-5-3">Output</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co">#Initially an empy data frame</span></span>
-<span id="cb9-2"><a></a>CAPM_results <span class="ot">=</span> <span class="fu">data.frame</span>()</span>
+<span id="cb9-2"><a></a>FF_results <span class="ot">=</span> <span class="fu">data.frame</span>()</span>
 <span id="cb9-3"><a></a><span class="co">#Get all possible strategies</span></span>
 <span id="cb9-4"><a></a>strategy_names <span class="ot">=</span> <span class="fu">names</span>(hf_data)[<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>]</span>
 <span id="cb9-5"><a></a></span>
@@ -998,23 +1048,23 @@ F-statistic: 33.04 on 1 and 312 DF,  p-value: 2.149e-08</code></pre>
 <span id="cb9-8"><a></a>  <span class="co">#Get the filtered data</span></span>
 <span id="cb9-9"><a></a>  filtered_data <span class="ot">=</span> merged_df<span class="sc">%&gt;%</span><span class="fu">filter</span>(strategy<span class="sc">==</span>i)</span>
 <span id="cb9-10"><a></a>  <span class="co">#Estimate the Model</span></span>
-<span id="cb9-11"><a></a>  model<span class="ot">=</span><span class="fu">lm</span>(excess_return <span class="sc">~</span> MKT_MINUS_RF, <span class="at">data =</span> filtered_data)</span>
+<span id="cb9-11"><a></a>  model<span class="ot">=</span><span class="fu">lm</span>(excess_return <span class="sc">~</span> MKT_MINUS_RF <span class="sc">+</span> HML <span class="sc">+</span> SMB, <span class="at">data =</span> filtered_data)</span>
 <span id="cb9-12"><a></a>  <span class="co">#Extract Coefficients applying the tidy() function</span></span>
 <span id="cb9-13"><a></a>  model_tidy<span class="ot">=</span>model<span class="sc">%&gt;%</span><span class="fu">tidy</span>()<span class="sc">%&gt;%</span><span class="fu">mutate</span>(<span class="at">strategy=</span>i)</span>
 <span id="cb9-14"><a></a>  <span class="co">#Append</span></span>
-<span id="cb9-15"><a></a>  CAPM_results<span class="ot">=</span>CAPM_results<span class="sc">%&gt;%</span><span class="fu">rbind</span>(model_tidy)</span>
+<span id="cb9-15"><a></a>  FF_results<span class="ot">=</span>FF_results<span class="sc">%&gt;%</span><span class="fu">rbind</span>(model_tidy)</span>
 <span id="cb9-16"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-5-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>CAPM_results <span class="ot">&lt;-</span> merged_df<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>FF_results <span class="ot">&lt;-</span> merged_df<span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a></a>  <span class="co">#Group by strategy</span></span>
 <span id="cb10-3"><a></a>  <span class="fu">group_by</span>(strategy)<span class="sc">%&gt;%</span></span>
 <span id="cb10-4"><a></a>  <span class="co">#Nest the data</span></span>
 <span id="cb10-5"><a></a>  <span class="fu">nest</span>()<span class="sc">%&gt;%</span></span>
 <span id="cb10-6"><a></a>  <span class="co">#For each nest, map the lm() function and the tidy function</span></span>
-<span id="cb10-7"><a></a>  <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">lm</span>(excess_return <span class="sc">~</span> MKT_MINUS_RF, <span class="at">data =</span> .)),</span>
+<span id="cb10-7"><a></a>  <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">lm</span>(excess_return <span class="sc">~</span> MKT_MINUS_RF <span class="sc">+</span> HML <span class="sc">+</span> SMB, <span class="at">data =</span> .)),</span>
 <span id="cb10-8"><a></a>         <span class="at">results =</span> <span class="fu">map</span>(model, tidy)) <span class="sc">%&gt;%</span></span>
 <span id="cb10-9"><a></a>  <span class="co">#Unnest the results</span></span>
 <span id="cb10-10"><a></a>  <span class="fu">unnest</span>(results)<span class="sc">%&gt;%</span></span>
@@ -1025,188 +1075,20 @@ F-statistic: 33.04 on 1 and 312 DF,  p-value: 2.149e-08</code></pre>
 <div id="tabset-5-3">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 5
-# Groups:   strategy [6]
-   strategy              term         estimate std.error  p.value
-   &lt;chr&gt;                 &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
- 1 Convertible Arbitrage (Intercept)   0.00303  0.000953 1.60e- 3
- 2 Convertible Arbitrage MKT_MINUS_RF  0.0790   0.0137   2.15e- 8
- 3 CTA Global            (Intercept)   0.00256  0.00135  5.77e- 2
- 4 CTA Global            MKT_MINUS_RF  0.0394   0.0194   4.30e- 2
- 5 Distressed Securities (Intercept)   0.00352  0.00104  8.09e- 4
- 6 Distressed Securities MKT_MINUS_RF  0.119    0.0150   3.93e-14
- 7 Emerging Markets      (Intercept)   0.00261  0.00169  1.25e- 1
- 8 Emerging Markets      MKT_MINUS_RF  0.237    0.0244   1.30e-19
- 9 Equity Market Neutral (Intercept)   0.00159  0.000501 1.65e- 3
-10 Equity Market Neutral MKT_MINUS_RF  0.0453   0.00723  1.25e- 9
-11 Event Driven          (Intercept)   0.00354  0.00111  1.55e- 3
-12 Event Driven          MKT_MINUS_RF  0.154    0.0160   2.06e-19</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-3-which-strategies-generate-positive-alpha" class="slide level2">
-<h2>Step 3: which strategies generate positive alpha?</h2>
-<div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Code</a></li><li><a href="#tabset-6-2">Output</a></li></ul>
-<div class="tab-content">
-<div id="tabset-6-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>CAPM_results <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">filter</span>(term<span class="sc">==</span><span class="st">'(Intercept)'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">mutate</span>(<span class="at">stat_sig=</span><span class="fu">ifelse</span>(p.value<span class="sc">&lt;</span><span class="fl">0.10</span>,<span class="st">'Statistically sig. at 10%'</span>,<span class="st">'Not statistically sig. at 10%'</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb12-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(strategy,<span class="fu">desc</span>(estimate)),<span class="at">y=</span>estimate,<span class="at">fill=</span>stat_sig))<span class="sc">+</span></span>
-<span id="cb12-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb12-6"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">percent</span>(estimate,<span class="at">accuracy=</span><span class="fl">0.01</span>),<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb12-7"><a></a>  <span class="co">#Annotations</span></span>
-<span id="cb12-8"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Which strategies did generate positive and statistically significant alphas?'</span>,</span>
-<span id="cb12-9"><a></a>       <span class="at">subtitle =</span> <span class="st">'Using the CAPM model with monthly return data.'</span>,</span>
-<span id="cb12-10"><a></a>       <span class="at">x =</span> <span class="st">'Strategy'</span>,</span>
-<span id="cb12-11"><a></a>       <span class="at">y =</span> <span class="st">'Alpha (%)'</span>,</span>
-<span id="cb12-12"><a></a>       <span class="at">fill =</span> <span class="st">'Stat. Sig'</span>)<span class="sc">+</span></span>
-<span id="cb12-13"><a></a>  <span class="co">#Scales</span></span>
-<span id="cb12-14"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)<span class="sc">+</span></span>
-<span id="cb12-15"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">'darkred'</span>,<span class="st">'darkgreen'</span>))<span class="sc">+</span></span>
-<span id="cb12-16"><a></a>  <span class="co">#Custom theme minimal</span></span>
-<span id="cb12-17"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb12-18"><a></a>  <span class="co">#Adding further customizations</span></span>
-<span id="cb12-19"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">'bottom'</span>,</span>
-<span id="cb12-20"><a></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">15</span>),</span>
-<span id="cb12-21"><a></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
-<span id="cb12-22"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
-<span id="cb12-23"><a></a>        <span class="at">plot.subtitle  =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-6-2">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-16-1.png" width="1440"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-4-the-fama-french-model" class="slide level2">
-<h2>Step 4: The Fama-French Model</h2>
-<ul>
-<li>Using the <span class="blue">CAPM</span> as our model for expected returns, 5 out of 6 strategies did deliver <span class="green">positive</span> alphas in the study period</li>
-<li>We can now extend the same rationale to adopt the <span class="blue">Fama-French three-factor model</span>, which considers the <span class="blue">Market</span>, the <span class="blue">Market Capitalization Strategy (<em>Size</em>)</span>, and the <span class="blue">Book-to-Market (<em>Value</em>)</span> strategy:</li>
-</ul>
-<p><span class="math display">\[
-\small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Market Cap.}}
-\]</span> - As before, we will start analyzing the output for one individual strategy individually and then apply the same rationale to replicate the result across all strategies</p>
-</section>
-<section id="step-4-the-fama-french-model-one-strategy-output" class="slide level2">
-<h2>Step 4: The Fama-French model, one strategy output</h2>
-<div class="panel-tabset">
-<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Code</a></li><li><a href="#tabset-7-2">Output</a></li></ul>
-<div class="tab-content">
-<div id="tabset-7-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>strategy_name <span class="ot">=</span> <span class="st">'Convertible Arbitrage'</span></span>
-<span id="cb13-2"><a></a><span class="co">#Get the filtered data</span></span>
-<span id="cb13-3"><a></a>filtered_data <span class="ot">=</span> merged_df<span class="sc">%&gt;%</span><span class="fu">filter</span>(strategy<span class="sc">==</span>strategy_name)</span>
-<span id="cb13-4"><a></a><span class="co">#Estimate the Model</span></span>
-<span id="cb13-5"><a></a>model<span class="ot">=</span><span class="fu">lm</span>(excess_return <span class="sc">~</span> MKT_MINUS_RF <span class="sc">+</span> HML <span class="sc">+</span> SMB, <span class="at">data =</span> filtered_data)</span>
-<span id="cb13-6"><a></a><span class="co">#Visualize</span></span>
-<span id="cb13-7"><a></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-7-2">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = excess_return ~ MKT_MINUS_RF + HML + SMB, data = filtered_data)
-
-Residuals:
-      Min        1Q    Median        3Q       Max 
--0.113696 -0.004617  0.000611  0.006493  0.053374 
-
-Coefficients:
-               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   0.0030400  0.0009565   3.178  0.00163 ** 
-MKT_MINUS_RF  0.0809064  0.0142876   5.663  3.4e-08 ***
-HML           0.0065289  0.0183442   0.356  0.72215    
-SMB          -0.0094793  0.0239824  -0.395  0.69292    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.01663 on 310 degrees of freedom
-  (1 observation deleted due to missingness)
-Multiple R-squared:  0.09661,   Adjusted R-squared:  0.08787 
-F-statistic: 11.05 on 3 and 310 DF,  p-value: 6.517e-07</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-4-the-fama-french-model-all-strategies" class="slide level2">
-<h2>Step 4: The Fama-French model, all strategies</h2>
-<div class="panel-tabset">
-<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">For-loop</a></li><li><a href="#tabset-8-2">Functional Programming</a></li><li><a href="#tabset-8-3">Output</a></li></ul>
-<div class="tab-content">
-<div id="tabset-8-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co">#Initially an empy data frame</span></span>
-<span id="cb15-2"><a></a>FF_results <span class="ot">=</span> <span class="fu">data.frame</span>()</span>
-<span id="cb15-3"><a></a><span class="co">#Get all possible strategies</span></span>
-<span id="cb15-4"><a></a>strategy_names <span class="ot">=</span> <span class="fu">names</span>(hf_data)[<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>]</span>
-<span id="cb15-5"><a></a></span>
-<span id="cb15-6"><a></a><span class="co">#For each i in strategy names:</span></span>
-<span id="cb15-7"><a></a><span class="cf">for</span>(i <span class="cf">in</span> strategy_names){</span>
-<span id="cb15-8"><a></a>  <span class="co">#Get the filtered data</span></span>
-<span id="cb15-9"><a></a>  filtered_data <span class="ot">=</span> merged_df<span class="sc">%&gt;%</span><span class="fu">filter</span>(strategy<span class="sc">==</span>i)</span>
-<span id="cb15-10"><a></a>  <span class="co">#Estimate the Model</span></span>
-<span id="cb15-11"><a></a>  model<span class="ot">=</span><span class="fu">lm</span>(excess_return <span class="sc">~</span> MKT_MINUS_RF <span class="sc">+</span> HML <span class="sc">+</span> SMB, <span class="at">data =</span> filtered_data)</span>
-<span id="cb15-12"><a></a>  <span class="co">#Extract Coefficients applying the tidy() function</span></span>
-<span id="cb15-13"><a></a>  model_tidy<span class="ot">=</span>model<span class="sc">%&gt;%</span><span class="fu">tidy</span>()<span class="sc">%&gt;%</span><span class="fu">mutate</span>(<span class="at">strategy=</span>i)</span>
-<span id="cb15-14"><a></a>  <span class="co">#Append</span></span>
-<span id="cb15-15"><a></a>  FF_results<span class="ot">=</span>FF_results<span class="sc">%&gt;%</span><span class="fu">rbind</span>(model_tidy)</span>
-<span id="cb15-16"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-8-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>FF_results <span class="ot">&lt;-</span> merged_df<span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a></a>  <span class="co">#Group by strategy</span></span>
-<span id="cb16-3"><a></a>  <span class="fu">group_by</span>(strategy)<span class="sc">%&gt;%</span></span>
-<span id="cb16-4"><a></a>  <span class="co">#Nest the data</span></span>
-<span id="cb16-5"><a></a>  <span class="fu">nest</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb16-6"><a></a>  <span class="co">#For each nest, map the lm() function and the tidy function</span></span>
-<span id="cb16-7"><a></a>  <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">lm</span>(excess_return <span class="sc">~</span> MKT_MINUS_RF <span class="sc">+</span> HML <span class="sc">+</span> SMB, <span class="at">data =</span> .)),</span>
-<span id="cb16-8"><a></a>         <span class="at">results =</span> <span class="fu">map</span>(model, tidy)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-9"><a></a>  <span class="co">#Unnest the results</span></span>
-<span id="cb16-10"><a></a>  <span class="fu">unnest</span>(results)<span class="sc">%&gt;%</span></span>
-<span id="cb16-11"><a></a>  <span class="co">#Select the desired columns</span></span>
-<span id="cb16-12"><a></a>  <span class="fu">select</span>(strategy, term, estimate, std.error, p.value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-8-3">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 24 × 5
 # Groups:   strategy [6]
    strategy              term         estimate std.error  p.value
    &lt;chr&gt;                 &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
- 1 Convertible Arbitrage (Intercept)   0.00304  0.000957 1.63e- 3
- 2 Convertible Arbitrage MKT_MINUS_RF  0.0809   0.0143   3.40e- 8
- 3 Convertible Arbitrage HML           0.00653  0.0183   7.22e- 1
- 4 Convertible Arbitrage SMB          -0.00948  0.0240   6.93e- 1
- 5 CTA Global            (Intercept)   0.00271  0.00134  4.43e- 2
- 6 CTA Global            MKT_MINUS_RF  0.0467   0.0201   2.06e- 2
- 7 CTA Global            HML          -0.0250   0.0257   3.32e- 1
- 8 CTA Global            SMB          -0.0639   0.0337   5.87e- 2
- 9 Distressed Securities (Intercept)   0.00348  0.00104  9.74e- 4
-10 Distressed Securities MKT_MINUS_RF  0.120    0.0156   2.11e-13
+ 1 Convertible Arbitrage (Intercept)   0.00313  0.000968 1.38e- 3
+ 2 Convertible Arbitrage MKT_MINUS_RF  0.0663   0.0141   4.10e- 6
+ 3 Convertible Arbitrage HML          -0.00705  0.0220   7.49e- 1
+ 4 Convertible Arbitrage SMB           0.0216   0.0326   5.08e- 1
+ 5 CTA Global            (Intercept)   0.00293  0.00134  2.96e- 2
+ 6 CTA Global            MKT_MINUS_RF  0.0248   0.0196   2.06e- 1
+ 7 CTA Global            HML          -0.0332   0.0305   2.76e- 1
+ 8 CTA Global            SMB          -0.0500   0.0452   2.69e- 1
+ 9 Distressed Securities (Intercept)   0.00381  0.00107  4.10e- 4
+10 Distressed Securities MKT_MINUS_RF  0.100    0.0156   4.28e-10
 # ℹ 14 more rows</code></pre>
 </div>
 </div>
@@ -1217,41 +1099,40 @@ F-statistic: 11.05 on 3 and 310 DF,  p-value: 6.517e-07</code></pre>
 <section id="step-4-which-strategies-generate-positive-alpha" class="slide level2">
 <h2>Step 4: which strategies generate positive alpha?</h2>
 <div class="panel-tabset">
-<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Code</a></li><li><a href="#tabset-9-2">Output</a></li></ul>
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Code</a></li><li><a href="#tabset-6-2">Output</a></li></ul>
 <div class="tab-content">
-<div id="tabset-9-1">
+<div id="tabset-6-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>FF_results <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a></a>  <span class="fu">filter</span>(term<span class="sc">==</span><span class="st">'(Intercept)'</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb18-3"><a></a>  <span class="fu">mutate</span>(<span class="at">stat_sig=</span><span class="fu">ifelse</span>(p.value<span class="sc">&lt;</span><span class="fl">0.10</span>,<span class="st">'Statistically sig. at 10%'</span>,<span class="st">'Not statistically sig. at 10%'</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb18-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(strategy,<span class="fu">desc</span>(estimate)),<span class="at">y=</span>estimate,<span class="at">fill=</span>stat_sig))<span class="sc">+</span></span>
-<span id="cb18-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb18-6"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">percent</span>(estimate,<span class="at">accuracy=</span><span class="fl">0.01</span>),<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb18-7"><a></a>  <span class="co">#Annotations</span></span>
-<span id="cb18-8"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Which strategies did generate positive and statistically significant alphas?'</span>,</span>
-<span id="cb18-9"><a></a>       <span class="at">subtitle =</span> <span class="st">'Using the Fama-French three-factor model with monthly return data.'</span>,</span>
-<span id="cb18-10"><a></a>       <span class="at">x =</span> <span class="st">'Strategy'</span>,</span>
-<span id="cb18-11"><a></a>       <span class="at">y =</span> <span class="st">'Alpha (%)'</span>,</span>
-<span id="cb18-12"><a></a>       <span class="at">fill =</span> <span class="st">'Stat. Sig'</span>)<span class="sc">+</span></span>
-<span id="cb18-13"><a></a>  <span class="co">#Scales</span></span>
-<span id="cb18-14"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)<span class="sc">+</span></span>
-<span id="cb18-15"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">'darkred'</span>,<span class="st">'darkgreen'</span>))<span class="sc">+</span></span>
-<span id="cb18-16"><a></a>  <span class="co">#Custom theme minimal</span></span>
-<span id="cb18-17"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb18-18"><a></a>  <span class="co">#Adding further customizations</span></span>
-<span id="cb18-19"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">'bottom'</span>,</span>
-<span id="cb18-20"><a></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">15</span>),</span>
-<span id="cb18-21"><a></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
-<span id="cb18-22"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
-<span id="cb18-23"><a></a>        <span class="at">plot.subtitle  =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>FF_results <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">filter</span>(term<span class="sc">==</span><span class="st">'(Intercept)'</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">mutate</span>(<span class="at">stat_sig=</span><span class="fu">ifelse</span>(p.value<span class="sc">&lt;</span><span class="fl">0.10</span>,<span class="st">'Statistically sig. at 10%'</span>,<span class="st">'Not statistically sig. at 10%'</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(strategy,<span class="fu">desc</span>(estimate)),<span class="at">y=</span>estimate,<span class="at">fill=</span>stat_sig))<span class="sc">+</span></span>
+<span id="cb12-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb12-6"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">percent</span>(estimate,<span class="at">accuracy=</span><span class="fl">0.01</span>),<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb12-7"><a></a>  <span class="co">#Annotations</span></span>
+<span id="cb12-8"><a></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Which strategies did generate positive and statistically significant alphas?'</span>,</span>
+<span id="cb12-9"><a></a>       <span class="at">subtitle =</span> <span class="st">'Using the Fama-French three-factor model with monthly return data.'</span>,</span>
+<span id="cb12-10"><a></a>       <span class="at">x =</span> <span class="st">'Strategy'</span>,</span>
+<span id="cb12-11"><a></a>       <span class="at">y =</span> <span class="st">'Alpha (%)'</span>,</span>
+<span id="cb12-12"><a></a>       <span class="at">fill =</span> <span class="st">'Stat. Sig'</span>)<span class="sc">+</span></span>
+<span id="cb12-13"><a></a>  <span class="co">#Scales</span></span>
+<span id="cb12-14"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)<span class="sc">+</span></span>
+<span id="cb12-15"><a></a>  <span class="co">#Custom theme minimal</span></span>
+<span id="cb12-16"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb12-17"><a></a>  <span class="co">#Adding further customizations</span></span>
+<span id="cb12-18"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">'bottom'</span>,</span>
+<span id="cb12-19"><a></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">15</span>),</span>
+<span id="cb12-20"><a></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb12-21"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
+<span id="cb12-22"><a></a>        <span class="at">plot.subtitle  =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-9-2">
+<div id="tabset-6-2">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-23-1.png" width="1440"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-18-1.png" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -1260,14 +1141,49 @@ F-statistic: 11.05 on 3 and 310 DF,  p-value: 6.517e-07</code></pre>
 </div>
 </div>
 </section>
-<section id="step-4-the-fama-french-model-attribution" class="slide level2">
-<h2>Step 4: The Fama-French Model Attribution</h2>
+<section id="step-5-the-fama-french-model-attribution" class="slide level2">
+<h2>Step 5: The Fama-French Model Attribution</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Code</a></li><li><a href="#tabset-7-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>FF_results <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">group_by</span>(strategy)<span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(term,<span class="fu">desc</span>(estimate)), <span class="at">y =</span> estimate, <span class="at">fill =</span> term)) <span class="sc">+</span></span>
+<span id="cb13-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>())<span class="sc">+</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(estimate,<span class="dv">2</span>)),<span class="at">position=</span><span class="fu">position_stack</span>(<span class="at">vjust=</span><span class="fl">0.5</span>),<span class="at">col=</span><span class="st">'white'</span>)<span class="sc">+</span></span>
+<span id="cb13-7"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb13-8"><a></a>  <span class="fu">facet_wrap</span>(strategy<span class="sc">~</span>.,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">nrow=</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb13-9"><a></a>  <span class="co">#Annotations</span></span>
+<span id="cb13-10"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fama-French Factor Loadings by Hedge Fund Strategy"</span>,</span>
+<span id="cb13-11"><a></a>       <span class="at">x =</span> <span class="st">"Hedge Fund Strategy"</span>,</span>
+<span id="cb13-12"><a></a>       <span class="at">y =</span> <span class="st">"Factor Loading"</span>,</span>
+<span id="cb13-13"><a></a>       <span class="at">fill =</span> <span class="st">'Risk Factor'</span>)<span class="sc">+</span></span>
+<span id="cb13-14"><a></a>  <span class="co">#Scales+</span></span>
+<span id="cb13-15"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">'darkred'</span>,<span class="st">'darkgreen'</span>,<span class="st">'black'</span>),</span>
+<span id="cb13-16"><a></a>                    <span class="at">labels=</span><span class="fu">c</span>(<span class="st">'High-minus-Low'</span>,<span class="st">'Market Excess'</span>,<span class="st">'Small-minus-Big'</span>))<span class="sc">+</span></span>
+<span id="cb13-17"><a></a>  <span class="co">#Custom theme minimal</span></span>
+<span id="cb13-18"><a></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb13-19"><a></a>  <span class="co">#Adding further customizations</span></span>
+<span id="cb13-20"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">'bottom'</span>,</span>
+<span id="cb13-21"><a></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">'bold'</span>,<span class="at">size=</span><span class="dv">15</span>),</span>
+<span id="cb13-22"><a></a>        <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-23"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>,<span class="at">face=</span><span class="st">'bold'</span>),</span>
+<span id="cb13-24"><a></a>        <span class="at">plot.subtitle  =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-7-2">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-24-1.png" width="1152"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-20-1.png" width="1152"></p>
 </figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

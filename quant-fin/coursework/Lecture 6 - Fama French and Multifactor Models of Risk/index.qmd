@@ -49,10 +49,36 @@ For coding replications, whenever applicable, please follow [this](https://lsmac
 source('../~ Metadata/packages.R')
 
 hf_data=readRDS('Assets/hf_data.rds')
-
+ff_data=readRDS('Assets/ff_data.rds')
 
 ```
 
+
+```{r}
+#| echo: false
+#| eval: false
+#Code to get the data
+
+#Edhec
+
+
+#Fama-French
+ff_em_url <- "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Developed_3_Factors_CSV.zip"
+
+# Download and unzip
+temp <- tempfile()
+download.file(ff_em_url, temp)
+unzip(temp, exdir = tempdir())
+
+# Locate the CSV file and read it
+ff_file <- list.files(tempdir(), pattern = "Developed_3_Factors", full.names = TRUE)
+ff_data <- read_csv(ff_em_file, skip = 3)%>%
+  setNames(c('date','MKT_MINUS_RF','SMB','HML','RF'))%>%
+  mutate(date = ymd(paste0(substr(date, 1, 4), "-", substr(date, 5, 6), "-01")))%>%
+  na.locf()%>%
+  mutate(across(2:5,function(x) as.numeric(x)/100))
+
+```
 ## Disclaimer
 
 ::: callout-important
@@ -266,13 +292,26 @@ $$\small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Mar
 
 ```{r}
 #| eval: false
-
+#| echo: true
+  
 #Assuming that the file is in the correct folder
 hf_data=readRDS('hf_data.rds')
 
 ```
-
 -   Note that the object that has been loaded is an `xts` object, which inherits several useful properties for working with time series data!
+
+```{r}
+#| warning: false
+#| message: false
+
+hf_data%>%download_this(
+  output_name = "hf_data",
+  output_extension = ".rds",
+  button_label = "Download Raw data",
+  has_icon = TRUE,
+  icon = "fa fa-save")
+
+```
 
 ## Step 2: Historical Performance
 
@@ -386,26 +425,24 @@ $$ where:
 
     1.  Luckily, you don't need to manually create them - there are a couple ways by which you can download historical data on factor portfolio returns
     2.  In *Kenneth French*'s [website](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html), you will find historical factor portfolio returns for a variety of economies including the U.S., Developed Economies, Emerging Markets, and Global
-    3.  In special, we will be collect monthly factor portfolio returns regarding the three-factor model as in [@fama1993]
+    3.  In special, we will using monthly factor portfolio returns regarding the three-factor model as in [@fama1993], which you can download below or direclty through *eClass®*
 
 ```{r}
-#| echo: true
+#| warning: false
+#| message: false
 
-#This is the URl where the Factor Portfolio Returns are stored (US)
-FF_url <- "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors.CSV"
-
-#Download the file, adjust names and Date, input missing information, and transform to numeric
-FF_data <- read.csv(FF_url, skip = 3) %>%
-  setNames(c('date','MKT_MINUS_RF','SMB','HML','RF'))%>%
-  mutate(date = ymd(paste0(substr(date, 1, 4), "-", substr(date, 5, 6), "-01")))%>%
-  na.locf()%>%
-  mutate(across(2:5,function(x) as.numeric(x)/100))
+ff_data%>%download_this(
+  output_name = "ff_data",
+  output_extension = ".rds",
+  button_label = "Download Raw data",
+  has_icon = TRUE,
+  icon = "fa fa-save")
 
 ```
 
 ## Step 3: Analyzing performance determinants, continued
 
--   We will now manipulate the data in order to merge both `hf_data` and the `FF_data`
+-   We will now manipulate the data in order to merge both `hf_data` and the `ff_data`
 
 ::: panel-tabset
 ### Code
@@ -414,7 +451,7 @@ FF_data <- read.csv(FF_url, skip = 3) %>%
 #| echo: true
 
 #Convert the hf_data to a data.frame object and adjust columns
- hf_data = hf_data %>%
+ hf_data = hf_data%>%
   as.data.frame()%>%
   rownames_to_column('date')%>%
   mutate(date=as.Date(date))
@@ -422,10 +459,10 @@ FF_data <- read.csv(FF_url, skip = 3) %>%
 #Merge both datasets by date
 merged_df <- hf_data%>%
   #Merge
-  left_join(FF_data, by = "date")%>%
+  left_join(ff_data, by = "date")%>%
   #Pivot the data for each strategy
   pivot_longer(cols = -c(date, MKT_MINUS_RF, SMB, HML, RF), names_to = "strategy", values_to = "return") %>%
-  mutate(excess_return = return - RF)  # Convert RF to decimal format
+  mutate(excess_return = return - RF)
 
 ```
 
@@ -439,186 +476,15 @@ merged_df
 ```
 :::
 
-## Step 3: The CAPM Model
+## Step 3: The Fama-French Model
 
--   We will start by analyzing of a given strategy $i$ can be done estimating a [CAPM]{.blue} model
--   In this model, the only risk factor is the *market*:
-
-$$
-(R_{i,t}-R_{f,t})=\alpha + \beta \times (R_{m,t}-R_{f,t})+\varepsilon_{i,t}
-$$ where:
-
-1.  $R_{i,t}$ is the return of a given manager $i$ in month $t$
-2.  $R_{m,t}$ is the market return in month $t$
-3.  $R_{f,t}$ is the risk-free return in month $t$
-
--   In what follows, we will be estimating and interpreting the CAPM results for each strategy
-
-## Step 3: The CAPM model, one strategy output
-
-::: panel-tabset
-### Code
-
-```{r}
-#| echo: true
-#| eval: false
-strategy_name = 'Convertible Arbitrage'
-#Get the filtered data
-filtered_data = merged_df%>%filter(strategy==strategy_name)
-#Estimate the Model
-model=lm(excess_return ~ MKT_MINUS_RF, data = filtered_data)
-#Visualize
-summary(model)
-```
-
-### Output
-
-```{r}
-#| echo: false
-#| eval: true
-strategy_name = 'Convertible Arbitrage'
-#Get the filtered data
-filtered_data = merged_df%>%filter(strategy==strategy_name)
-#Estimate the Model
-model=lm(excess_return ~ MKT_MINUS_RF, data = filtered_data)
-#Visualize
-summary(model)
-```
-:::
-
-## Step 3: The CAPM model, all strategies
-
-::: panel-tabset
-### For-loop
-
-```{r}
-#| echo: true
-#| eval: false
-
-#Initially an empy data frame
-CAPM_results = data.frame()
-#Get all possible strategies
-strategy_names = names(hf_data)[2:7]
-
-#For each i in strategy names:
-for(i in strategy_names){
-  #Get the filtered data
-  filtered_data = merged_df%>%filter(strategy==i)
-  #Estimate the Model
-  model=lm(excess_return ~ MKT_MINUS_RF, data = filtered_data)
-  #Extract Coefficients applying the tidy() function
-  model_tidy=model%>%tidy()%>%mutate(strategy=i)
-  #Append
-  CAPM_results=CAPM_results%>%rbind(model_tidy)
-}
-  
-```
-
-### Functional Programming
-
-```{r}
-#| echo: true
-#| eval: true
-
-CAPM_results <- merged_df%>%
-  #Group by strategy
-  group_by(strategy)%>%
-  #Nest the data
-  nest()%>%
-  #For each nest, map the lm() function and the tidy function
-  mutate(model = map(data, ~ lm(excess_return ~ MKT_MINUS_RF, data = .)),
-         results = map(model, tidy)) %>%
-  #Unnest the results
-  unnest(results)%>%
-  #Select the desired columns
-  select(strategy, term, estimate, std.error, p.value)
-```
-
-### Output
-
-```{r}
-CAPM_results
-```
-:::
-
-## Step 3: which strategies generate positive alpha?
-
-::: panel-tabset
-### Code
-
-```{r}
-#| echo: true
-#| eval: false
-
-CAPM_results %>%
-  filter(term=='(Intercept)')%>%
-  mutate(stat_sig=ifelse(p.value<0.10,'Statistically sig. at 10%','Not statistically sig. at 10%'))%>%
-  ggplot(aes(x=reorder(strategy,desc(estimate)),y=estimate,fill=stat_sig))+
-  geom_col(size=3)+
-  geom_text(aes(label = percent(estimate,accuracy=0.01),vjust=-1))+
-  #Annotations
-  labs(title='Which strategies did generate positive and statistically significant alphas?',
-       subtitle = 'Using the CAPM model with monthly return data.',
-       x = 'Strategy',
-       y = 'Alpha (%)',
-       fill = 'Stat. Sig')+
-  #Scales
-  scale_y_continuous(labels = percent)+
-  scale_fill_manual(values=c('darkred','darkgreen'))+
-  #Custom theme minimal
-  theme_minimal()+
-  #Adding further customizations
-  theme(legend.position='bottom',
-        axis.title = element_text(face='bold',size=15),
-        axis.text = element_text(size=10),
-        plot.title = element_text(size=20,face='bold'),
-        plot.subtitle  = element_text(size=15))
-
-```
-
-### Output
-
-```{r}
-#| echo: false
-#| eval: true
-#| fig.width: 15
-#| fig.height: 7
-
-
-CAPM_results %>%
-  filter(term=='(Intercept)')%>%
-  mutate(stat_sig=ifelse(p.value<0.10,'Statistically sig. at 10%','Not statistically sig. at 10%'))%>%
-  ggplot(aes(x=reorder(strategy,desc(estimate)),y=estimate,fill=stat_sig))+
-  geom_col(size=3)+
-  geom_text(aes(label = percent(estimate,accuracy=0.01),vjust=-1))+
-  #Annotations
-  labs(title='Which strategies did generate positive and statistically significant alphas?',
-       subtitle = 'Using the CAPM model with monthly return data.',
-       x = 'Strategy',
-       y = 'Alpha (%)',
-       fill = 'Stat. Sig')+
-  #Scales
-  scale_y_continuous(labels = percent)+
-  scale_fill_manual(values=c('darkred','darkgreen'))+
-  #Custom theme minimal
-  theme_minimal()+
-  #Adding further customizations
-  theme(legend.position='bottom',
-        axis.title = element_text(face='bold',size=15),
-        axis.text = element_text(size=10),
-        plot.title = element_text(size=20,face='bold'),
-        plot.subtitle  = element_text(size=15))
-```
-:::
-
-## Step 4: The Fama-French Model
-
--   Using the [CAPM]{.blue} as our model for expected returns, 5 out of 6 strategies did deliver [positive]{.green} alphas in the study period
 -   We can now extend the same rationale to adopt the [Fama-French three-factor model]{.blue}, which considers the [Market]{.blue}, the [Market Capitalization Strategy (*Size*)]{.blue}, and the [Book-to-Market (*Value*)]{.blue} strategy:
 
 $$
 \small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Market Cap.}}
-$$ - As before, we will start analyzing the output for one individual strategy individually and then apply the same rationale to replicate the result across all strategies
+$$
+
+- As before, we will start analyzing the output for one individual strategy individually and then apply the same rationale to replicate the result across all strategies
 
 ## Step 4: The Fama-French model, one strategy output
 
@@ -730,7 +596,6 @@ FF_results %>%
        fill = 'Stat. Sig')+
   #Scales
   scale_y_continuous(labels = percent)+
-  scale_fill_manual(values=c('darkred','darkgreen'))+
   #Custom theme minimal
   theme_minimal()+
   #Adding further customizations
@@ -764,7 +629,6 @@ FF_results %>%
        fill = 'Stat. Sig')+
   #Scales
   scale_y_continuous(labels = percent)+
-  scale_fill_manual(values=c('darkred','darkgreen'))+
   #Custom theme minimal
   theme_minimal()+
   #Adding further customizations
@@ -777,11 +641,14 @@ FF_results %>%
 ```
 :::
 
-## Step 4: The Fama-French Model Attribution
+## Step 5: The Fama-French Model Attribution
 
+:::{.panel-tabset}
+
+### Code
 ```{r}
-#| fig.width: 12
-#| fig.height: 8
+#| echo: true
+#| eval: false
 
 FF_results %>%
   filter(term != "(Intercept)")%>%
@@ -809,6 +676,40 @@ FF_results %>%
         plot.subtitle  = element_text(size=15))
 
 ```
+
+### Output
+```{r}
+#| fig.width: 12
+#| fig.height: 6
+
+FF_results %>%
+  filter(term != "(Intercept)")%>%
+  group_by(strategy)%>%
+  ggplot(aes(x = reorder(term,desc(estimate)), y = estimate, fill = term)) +
+  geom_col(position = position_dodge())+
+  geom_text(aes(label = round(estimate,2)),position=position_stack(vjust=0.5),col='white')+
+  theme_minimal()+
+  facet_wrap(strategy~.,ncol=3,nrow=2)+
+  #Annotations
+  labs(title = "Fama-French Factor Loadings by Hedge Fund Strategy",
+       x = "Hedge Fund Strategy",
+       y = "Factor Loading",
+       fill = 'Risk Factor')+
+  #Scales+
+  scale_fill_manual(values=c('darkred','darkgreen','black'),
+                    labels=c('High-minus-Low','Market Excess','Small-minus-Big'))+
+  #Custom theme minimal
+  theme_minimal()+
+  #Adding further customizations
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_blank(),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+```
+
+:::
 
 ## Performance of fund managers
 
