@@ -49,10 +49,11 @@ For coding replications, whenever applicable, please follow [this](https://lsmac
 source('../~ Metadata/packages.R')
 
 hf_data=readRDS('Assets/hf_data.rds')
-ff_data=readRDS('Assets/ff_data.rds')
+ff3_data=readRDS('Assets/ff3_data.rds')
+ff5_data=readRDS('Assets/ff5_data.rds')
+
 
 ```
-
 
 ```{r}
 #| echo: false
@@ -60,25 +61,49 @@ ff_data=readRDS('Assets/ff_data.rds')
 #Code to get the data
 
 #Edhec
+hf_data=edhec[,1:6]
+index(hf_data)=make_date(year(index(hf_data)),month(index(hf_data)),1)
+
+#Fama-French three and five-factor models
+ff3_url <- "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip"
+ff5_url <- "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_CSV.zip"
 
 
-#Fama-French
-ff_em_url <- "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Developed_3_Factors_CSV.zip"
+# Three factor
 
 # Download and unzip
 temp <- tempfile()
-download.file(ff_em_url, temp)
+download.file(ff3_url, temp)
 unzip(temp, exdir = tempdir())
 
 # Locate the CSV file and read it
-ff_file <- list.files(tempdir(), pattern = "Developed_3_Factors", full.names = TRUE)
-ff_data <- read_csv(ff_em_file, skip = 3)%>%
+ff3_data <- read_csv(list.files(tempdir(),
+                                pattern = "Research_Data_Factors",
+                                full.names = TRUE),
+                     skip = 3)%>%
   setNames(c('date','MKT_MINUS_RF','SMB','HML','RF'))%>%
   mutate(date = ymd(paste0(substr(date, 1, 4), "-", substr(date, 5, 6), "-01")))%>%
   na.locf()%>%
   mutate(across(2:5,function(x) as.numeric(x)/100))
 
+# Five-factor
+
+# Download and unzip
+temp <- tempfile()
+download.file(ff5_url, temp)
+unzip(temp, exdir = tempdir())
+
+ff5_data <- read_csv(list.files(tempdir(),
+                                pattern = "Research_Data_5_Factors",
+                                full.names = TRUE),
+                     skip = 3,n_max=738)%>%
+  setNames(c('date','MKT_MINUS_RF','SMB','HML',"RMW","CMA",'RF'))%>%
+  mutate(date = ymd(paste0(substr(date, 1, 4), "-", substr(date, 5, 6), "-01")))%>%
+  na.locf()%>%
+  mutate(across(2:7,function(x) as.numeric(x)/100))
+
 ```
+
 ## Disclaimer
 
 ::: callout-important
@@ -298,6 +323,7 @@ $$\small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Mar
 hf_data=readRDS('hf_data.rds')
 
 ```
+
 -   Note that the object that has been loaded is an `xts` object, which inherits several useful properties for working with time series data!
 
 ```{r}
@@ -431,8 +457,8 @@ $$ where:
 #| warning: false
 #| message: false
 
-ff_data%>%download_this(
-  output_name = "ff_data",
+ff3_data%>%download_this(
+  output_name = "ff3_data",
   output_extension = ".rds",
   button_label = "Download Raw data",
   has_icon = TRUE,
@@ -442,7 +468,7 @@ ff_data%>%download_this(
 
 ## Step 3: Analyzing performance determinants, continued
 
--   We will now manipulate the data in order to merge both `hf_data` and the `ff_data`
+-   We will now manipulate the data in order to merge both `hf_data` and the `ff3_data`
 
 ::: panel-tabset
 ### Code
@@ -459,7 +485,7 @@ ff_data%>%download_this(
 #Merge both datasets by date
 merged_df <- hf_data%>%
   #Merge
-  left_join(ff_data, by = "date")%>%
+  left_join(ff3_data, by = "date")%>%
   #Pivot the data for each strategy
   pivot_longer(cols = -c(date, MKT_MINUS_RF, SMB, HML, RF), names_to = "strategy", values_to = "return") %>%
   mutate(excess_return = return - RF)
@@ -481,10 +507,10 @@ merged_df
 -   We can now extend the same rationale to adopt the [Fama-French three-factor model]{.blue}, which considers the [Market]{.blue}, the [Market Capitalization Strategy (*Size*)]{.blue}, and the [Book-to-Market (*Value*)]{.blue} strategy:
 
 $$
-\small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Market Cap.}}
+\small E[R_i] = R_f + \beta_s^m \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Book-to-Market}}
 $$
 
-- As before, we will start analyzing the output for one individual strategy individually and then apply the same rationale to replicate the result across all strategies
+-   As before, we will start analyzing the output for one individual strategy individually and then apply the same rationale to replicate the result across all strategies
 
 ## Step 4: The Fama-French model, one strategy output
 
@@ -584,7 +610,7 @@ FF_results
 
 FF_results %>%
   filter(term=='(Intercept)')%>%
-  mutate(stat_sig=ifelse(p.value<0.10,'Statistically sig. at 10%','Not statistically sig. at 10%'))%>%
+  mutate(stat_sig=ifelse(p.value<0.01,'Statistically sig. at 1%','Not statistically sig. at 10%'))%>%
   ggplot(aes(x=reorder(strategy,desc(estimate)),y=estimate,fill=stat_sig))+
   geom_col(size=3)+
   geom_text(aes(label = percent(estimate,accuracy=0.01),vjust=-1))+
@@ -617,7 +643,7 @@ FF_results %>%
 
 FF_results %>%
   filter(term=='(Intercept)')%>%
-  mutate(stat_sig=ifelse(p.value<0.10,'Statistically sig. at 10%','Not statistically sig. at 10%'))%>%
+  mutate(stat_sig=ifelse(p.value<0.01,'Statistically sig. at 1%','Not statistically sig. at 10%'))%>%
   ggplot(aes(x=reorder(strategy,desc(estimate)),y=estimate,fill=stat_sig))+
   geom_col(size=3)+
   geom_text(aes(label = percent(estimate,accuracy=0.01),vjust=-1))+
@@ -643,9 +669,9 @@ FF_results %>%
 
 ## Step 5: The Fama-French Model Attribution
 
-:::{.panel-tabset}
-
+::: panel-tabset
 ### Code
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -655,7 +681,7 @@ FF_results %>%
   group_by(strategy)%>%
   ggplot(aes(x = reorder(term,desc(estimate)), y = estimate, fill = term)) +
   geom_col(position = position_dodge())+
-  geom_text(aes(label = round(estimate,2)),position=position_stack(vjust=0.5),col='white')+
+  geom_label(aes(label = round(estimate,2)),position=position_stack(vjust=0.25),col='black',fill='white')+
   theme_minimal()+
   facet_wrap(strategy~.,ncol=3,nrow=2)+
   #Annotations
@@ -678,16 +704,17 @@ FF_results %>%
 ```
 
 ### Output
+
 ```{r}
-#| fig.width: 12
-#| fig.height: 6
+#| fig.width: 15
+#| fig.height: 7
 
 FF_results %>%
   filter(term != "(Intercept)")%>%
   group_by(strategy)%>%
   ggplot(aes(x = reorder(term,desc(estimate)), y = estimate, fill = term)) +
   geom_col(position = position_dodge())+
-  geom_text(aes(label = round(estimate,2)),position=position_stack(vjust=0.5),col='white')+
+  geom_label(aes(label = round(estimate,2)),position=position_stack(vjust=0.25),col='black',fill='white')+
   theme_minimal()+
   facet_wrap(strategy~.,ncol=3,nrow=2)+
   #Annotations
@@ -708,10 +735,9 @@ FF_results %>%
         plot.subtitle  = element_text(size=15))
 
 ```
-
 :::
 
-## Performance of fund managers
+## The Performance of Fund Managers
 
 -   Some piece of evidence from [@BDM]:
 
@@ -723,14 +749,18 @@ FF_results %>%
 
 -   That is, on average, fund managers (*"active"* strategies) do not provide value after fees, comparing to index funds (*"passive strategies"*)
 
-## Performance of fund managers, continued
+## The Performance of Fund Managers, continued
 
--   If fund managers are high-skilled investors, why they have a hard time adding value?
+**If fund managers are high-skilled investors, why they have a hard time adding value?**
+
+. . .
 
 -   One reason why it might be difficult to add value is because there is a trap of liquidity:
 
     1.  If a manager is perceived as skilled, the deposits will grow, making harder to find above-average investment opportunities - that is why you see a lot of closed-end funds
     2.  Performance would converge to the mean, at best
+
+. . .
 
 -   At the end of the day, the market is competitive and people profit following the theoretical predictions
 
@@ -739,12 +769,10 @@ FF_results %>%
 
 ## Extensions to risk factors - the *Factor Zoo*
 
--   **Question:** what is the gain in performance when using the [Fama-French]{.blue} model relative to the [CAPM]{.blue}?
+-   All in all, what is the gain in performance when using the three-factor [Fama-French]{.blue} model relative to the [CAPM]{.blue}?
 
     1.  When applied to historical data, results support the three-factor model proposed in [@fama1993]
     2.  [Fama-French]{.blue} explains over $\small90\%$ of the diversified portfolios returns, compared with the average $\small70\%$ given by the [CAPM]{.blue} (in-sample performance)
-
-. . .
 
 -   **Importantly, there is a growing number of proposed factors in the Asset Pricing literature - a non-exhaustive list includes:**
     1.  [@carhart1997] extend the [Fama-French]{.blue} 3-factor model by adding a *momentum* factor
@@ -760,5 +788,39 @@ FF_results %>%
     1.  [@novy-marx2013] show that controlling for gross profitability explains most market anomalies and a wide range of seemingly unrelated profitable trading strategies
     2.  [@hou2015] shows that a model using *market*, *size*, *investment*, and *profitability* factors argely summarizes the cross section of average stock returns. A comprehensive examination of nearly 80 anomalies reveals that about one-half of the anomalies are insignificant in the broad cross section
     3.  [@harvey2016] highlight issues with data mining and *p-hacking*
+
+
+## It is now your turn...
+
+- Using the *Hedge Fund* monthly returns from the database you have just used to perform the analysis, you will now add *two* additional factors: *Investment* and *Profitability*. The resulting dataset comprises the famous *Fama-French Five Factor* model. Proceed as follows:
+
+::: callout-tip
+### Hands-on Exercise
+
+
+1. Download the *Fama-French 5 Factor* portfolios using the download link below (or directly through *eClass®*)
+2. Merge the dataset with the *Fama French* dataset you have just used. You can use the `left_join` function to join two dataframes
+3. Repeat the procedures we have used before to estimate and chart the output of an OLS regression of the form for all investment strategies:
+
+$$
+\small E[R_i] = R_f + \beta_s^M \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Book-to-Market.}} + \beta_s^{RMW} \times \underbrace{E[R_{RMW}]}_{\text{Profitability}} + \beta_s^{CMA} \times \underbrace{E[R_{CMA}]}_{\text{Investment}}
+$$
+
+How do you interpret your new findings? Does your conclusion hold after including the two additional risk factors?
+:::
+
+```{r}
+#| warning: false
+#| message: false
+
+ff5_data%>%download_this(
+  output_name = "ff5_data",
+  output_extension = ".rds",
+  button_label = "Download Raw data",
+  has_icon = TRUE,
+  icon = "fa fa-save")
+
+```
+
 
 ## References
