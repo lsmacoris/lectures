@@ -1,0 +1,975 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Building, Backtesting, and Evaluating Investment Strategies'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris (FGV-EAESP)'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: false
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+    1.  *Tidy Finance* [@tidyfinance]
+    2.  *R for Data Science* [@r4ds]
+
+::: callout-note
+### Coding Replications
+
+For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
+
+1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
+2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+:::
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+source('../~ Metadata/packages.R')
+
+#Higharter Theme
+Theme <- hc_theme(
+  chart = list(
+    backgroundColor = "#FFFFFF"
+  ),
+  title = list(
+    style = list(
+      color = "#333333",
+      fontSize = '30px'
+    )
+  ),
+  subtitle = list(
+    style = list(
+      color = "#666666",
+      fontSize = "25px"
+    )
+  ),
+  legend = list(
+    itemStyle = list(
+      color = "#666666"
+      )
+    ),
+  yAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+
+  ),
+  xAxis = list(
+    labels = list(
+      style = list(fontSize = '15px')
+    ),
+    title = list(
+      style=list(fontSize='25px'))
+  )
+)
+
+tickers = c('AMZN','RACE','VSCO')
+
+Prices=map(tickers,getSymbols,from='2023-01-01',to='2024-01-01',auto.assign = FALSE)%>%
+  setNames(tickers)%>%
+  map(~xts::.subset.xts(.,j=6))%>%
+  map(as.data.frame)%>%
+  map(~setNames(.x,'Price'))%>%
+  map(as.xts)
+
+Returns=Prices%>%map(dailyReturn,leading=FALSE)%>%map(na.omit)
+  
+
+```
+
+
+## Disclaimer
+
+::: callout-important
+### Disclaimer
+
+The information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.
+
+All code used in this lecture is publicly available and is also shared on my [GitHub](https://github.com/lsmacoris) page. Participants are encouraged to review, modify, and use the code for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.
+
+For any questions or concerns, please feel free to reach out via email at [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+:::
+
+## Analyzing a stock's performance
+
+- From our previous lectures, we have already been able to:
+  1. Employ methods for analyzing the performance of individual stocks over time
+  2. Calculate the historical performance of simple combinations of assets, such as equally-weighted portfolios
+ 
+- **In reality, however, portfolio construction is way more dynamic and complex**. What if we wanted to analyze the performance of a trading strategy that has a dynamic allocation rule?
+
+-  In this lecture, we will be working with the `PerformanceAnalytics` and `PortfolioAnalytics` packages to:      
+
+  1. Quantify the performance of a *momentum* strategy in the Brazilian financial markets
+  2. Look at ways for optimizing *portfolios* based on *Markowitz* Mean-Variance optimization and its variations
+
+
+
+## Momentum in the stock market
+
+**Do past returns explain future performance? Ideally, that shouldn't be the case, but...**
+
+:::{.callout-tip}
+### Definition
+
+Momentum strategies capitalize on the tendency of assets that have performed well in the past to continue performing well, and *vice-versa*, based on the idea that market trends persist due to behavioral biases (*e.g.*, herding, overreaction, among others).
+
+:::
+
+- Previously documented in academic research [@jegadeesh1993], such rationale can be applied to stocks, bonds, commodities, and currencies, etc
+
+  1. Works across different asset classes and time periods but subject to periodic crashes (*e.g.*, 2009 momentum crash)
+  2. It is often used alongside factor models like the *Fama-French-Carhart* Four-Factor Model, which adds a momentum factor to the *Fama-French* three-factor model
+  
+## Momentum in the stock market, continued
+
+- How can we implement a *momentum* strategy? In short, there are some key steps in defining the strategy parameters that needed to be taken into consideration:
+
+  1. Define the [lookback period]{.blue} (*e.g.*, $3$, $6$, or $12$ months) to measure past returns.
+  2. [Rank]{.blue} assets based on past performance
+  3. Construct a portfolio that goes [long]{.green} on the top-performing assets and eventually [short]{.red} on the worst performers
+  4. Rebalance periodically (*e.g*., monthly or quarterly) based on a [weighting criteria]{.blue}
+  5. Calculate the [performance]{.blue} metrics
+
+- In what follows, we will be looking at a step-by-step guide for implementing such strategy using Brazilian stocks through a hands-on exercise
+
+## Hands-On Exercise
+
+- You are a quantitative analyst at *SeekingAlpha*, a quantitative Hedge Fund specialized in automated strategies. Your goal is to quantity how a *momentum*-based strategy in the Brazilian stock market performed from 2018 to 2024
+
+::: callout-tip
+### Instructions
+
+1. We will be using data from a set of $\small 20$ selected Brazilian stocks that have been traded over the study period
+2. Our portfolio will be rebalanced *monthly* using a lookback period of *90* days, selecting the top $\small5$ stocks based on the adjusted prices
+3. The strategy will assign *equal* weights to all stocks and will consist of a *long-biased* strategy - *i.e*, you will only [buy]{.blue} stocks
+
+
+The selected stocks are: *RAIZ4*, *ITUB3*, *IRBR3*, *BBDC4*, *ABEV3*, *YDUQ3*, *BBAS3*, *B3SA3*, *WEGE3*, *RADL3*, *LREN3*, *BRFS3*, *CSAN3*, *HAPV3*, *SUZB3*, *GRND3*, *MGLU3*, *BEEF3*, *EGIE3*, and *HYPE3*
+
+:::
+
+**Would you recommend investing in a fund that replicates this strategy?**
+
+## Step 1: Collecting Data
+
+:::{.panel-tabset}
+
+### Code
+
+- You can use the previous `tq_get()` function from the `tidyquant` package to collect and retrieve the data from all tickers during the study period, already in tidy format for you to manipulate:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Define a list of Brazilian stocks (tickers)
+br_stocks <- c("RAIZ4.SA", "ITUB3.SA", "IRBR3.SA", "BBDC4.SA", "ABEV3.SA", 
+               "YDUQ3.SA", "BBAS3.SA", "B3SA3.SA", "WEGE3.SA", "RADL3.SA", 
+               "LREN3.SA", "BRFS3.SA", "CSAN3.SA", "HAPV3.SA", "SUZB3.SA", 
+               "GRND3.SA", "MGLU3.SA", "BEEF3.SA", "EGIE3.SA", "HYPE3.SA")
+
+# Get stock price data
+prices <- tq_get(br_stocks, from = "2018-01-01", to = "2024-01-01")
+
+  
+```
+
+
+### Output
+```{r}
+#| echo: false
+#| eval: true
+
+# Define a list of Brazilian stocks (tickers)
+br_stocks <- c("RAIZ4.SA", "ITUB3.SA", "IRBR3.SA", "BBDC4.SA", "ABEV3.SA", 
+               "YDUQ3.SA", "BBAS3.SA", "B3SA3.SA", "WEGE3.SA", "RADL3.SA", 
+               "LREN3.SA", "BRFS3.SA", "CSAN3.SA", "HAPV3.SA", "SUZB3.SA", 
+               "GRND3.SA", "MGLU3.SA", "BEEF3.SA", "EGIE3.SA", "HYPE3.SA")
+
+# Get stock price data
+prices <- tq_get(br_stocks, from = "2018-01-01", to = "2024-01-01")
+
+prices
+  
+```
+:::
+
+## Step 2: Define the Trading Signals
+
+- After collecting the data, we need to make sure that our *momentum* strategy accurately creates the trading signals and use them at an appropriate timestamp:
+
+  1. We use the `lag()` function to calculate, for each symbol, the adjusted trading price back in $\small 60$ days
+  2. After that, we calculate the returns - in this case, we will be using log-returns
+  3. With the 3-month returns properly calculated, we rank stocks in each `date` from highest-to-lowest returns, keeping only the five highest returns for each given date
+  4. Finally, we create a new `date` column that stores the week where we will be evaluating the returns from investing in the top 5 stocks
+
+## Step 2: Define the Trading Signals
+:::{.panel-tabset}
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+# Create the rankings
+ranks <- prices%>%
+  #Select relevant columns
+  select(symbol, date, adjusted)%>%
+  #Rename price for conciseness
+  rename(price = adjusted)%>%
+  #Group by symbol
+  group_by(symbol)%>%
+  #Reorder by symbol and dat
+  arrange(symbol, date)%>%
+  #Get the price from the last 60th trading day (roughly a 3-month lag)
+  mutate(lagged_price = lag(price, 60))%>%  
+  mutate(momentum_return = log(price/lagged_price))%>% #Using continuously compounded returns
+  drop_na()%>% #Remove any NAs
+  group_by(year(date),month(date),symbol)%>%
+  slice_head(n=1)%>%
+  mutate(rank_date = floor_date(date, "month"))%>% # Set the date where we will apply the momentum strategy 
+  group_by(rank_date)%>%
+  mutate(rank = rank(desc(momentum_return)))%>%
+  filter(rank <= 5)%>% #Get only the top 5 stocks in terms of momentum
+  mutate(date = rank_date + months(1))%>% # Apply ranking next month
+  ungroup()%>%
+  select(rank,date,symbol)
+
+```
+
+
+### Output
+```{r}
+#| echo: false
+#| eval: true
+
+# Create the rankings
+ranks <- prices%>%
+  #Select relevant columns
+  select(symbol, date, adjusted)%>%
+  #Rename price for conciseness
+  rename(price = adjusted)%>%
+  #Group by symbol
+  group_by(symbol)%>%
+  #Reorder by symbol and dat
+  arrange(symbol, date)%>%
+  #Get the price from the last 60th trading day (roughly a 3-month lag)
+  mutate(lagged_price = lag(price, 60))%>%  
+  mutate(momentum_return = log(price/lagged_price))%>% #Using continuously compounded returns
+  drop_na()%>% #Remove any NAs
+  group_by(year(date),month(date),symbol)%>%
+  slice_head(n=1)%>%
+  mutate(rank_date = floor_date(date, "month"))%>% # Set the date where we will apply the momentum strategy 
+  group_by(rank_date)%>%
+  mutate(rank = rank(desc(momentum_return)))%>%
+  filter(rank <= 5)%>% #Get only the top 5 stocks in terms of momentum
+  mutate(date = rank_date + months(1))%>% # Apply ranking next month
+  ungroup()%>%
+  select(rank,date,symbol)
+
+ranks%>%arrange(date,rank)%>%head(10)
+
+```
+:::
+
+
+## Step 3: Compute Returns
+:::{.panel-tabset}
+
+- After we set up our rankings, it is time to work on a second `data.frame`: the `returns` data
+
+- Using the raw stock prices data, we calculate the monthly return for each stock during the study period, rounding the dates to the first day of each
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+# Compute monthly returns
+returns <- prices%>%
+  group_by(symbol)%>%
+  tq_transmute(select = adjusted,
+               mutate_fun = monthlyReturn,
+               col_rename = 'monthly_return')%>%
+  mutate(date = floor_date(date, "month"))%>%
+  select(symbol, date, monthly_return)
+
+```
+
+
+### Output
+```{r}
+#| echo: false
+#| eval: true
+
+# Compute monthly returns
+returns <- prices%>%
+  group_by(symbol)%>%
+  tq_transmute(select = adjusted,
+               mutate_fun = monthlyReturn,
+               col_rename = 'monthly_return')%>%
+  mutate(date = floor_date(date, "month"))%>%
+  select(symbol, date, monthly_return)
+
+head(returns,10)
+```
+:::
+
+
+## Step 4: Portfolio Performance
+
+- Finally, it is time to find out how did your strategy perform over time
+
+  1. For that, you will match `returns` to `ranks` for each  `symbol` and `date` combination
+  2. Because we want to make sure that we are only looking at the specific breakpoint dates for the trading strategy, we use the `inner_join()` function
+
+- With that, we are able to collect, for each beginning-of-month, what was the return from the strategy up to that point!
+
+## Step 4: Portfolio Performance
+
+:::{.panel-tabset}
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+# Merge momentum ranking with next month’s returns
+strategy_LO <- inner_join(returns, ranks, by = c("symbol", "date"))%>%
+  arrange(date, rank)%>%
+  group_by(date)%>%
+  summarize(portfolio_return = mean(monthly_return, na.rm = TRUE))
+
+# Compute cumulative returns
+strategy_LO%>%
+  mutate(cumulative_return = cumprod(1 + portfolio_return) - 1)%>%
+# Plot results
+ggplot(aes(x = date, y = cumulative_return)) +
+    geom_line(color = "blue",size=2) +
+    geom_hline(yintercept=0,linetype='dashed')+
+    labs(title = "Long-biased Momentum Portfolio Performance",
+         subtitle = 'Selecting the top 5 stocks in terms of past returns, lookback period of 60 trading days, and monthly rebalancing',
+         y = "Cumulative Returns",
+         x = '')+
+    #Scales
+    scale_y_continuous(labels = percent,breaks=seq(-0.5,1.5,0.1))+
+    scale_x_date(date_breaks = '3 months')+
+    #Custom 'TidyQuant' theme
+    theme_minimal()+
+    #Adding further customizations
+    theme(legend.position='none',
+          axis.title = element_text(face='bold',size=15),
+          axis.text = element_text(size=10),
+          axis.text.x = element_text(angle=90),
+          plot.title = element_text(size=20,face='bold'),
+          plot.subtitle  = element_text(size=15))
+
+```
+
+
+### Output
+```{r}
+#| echo: false
+#| eval: true
+#| fig-width: 15
+#| fig-height: 6
+
+# Merge momentum ranking with next month’s returns
+strategy_LO <- inner_join(returns, ranks, by = c("symbol", "date"))%>%
+  arrange(date, rank)%>%
+  group_by(date)%>%
+  summarize(portfolio_return = mean(monthly_return, na.rm = TRUE))
+
+# Compute cumulative returns
+strategy_LO%>%
+  mutate(cumulative_return = cumprod(1 + portfolio_return) - 1)%>%
+# Plot results
+ggplot(aes(x = date, y = cumulative_return)) +
+    geom_line(color = "blue",size=2) +
+    geom_hline(yintercept=0,linetype='dashed')+
+    labs(title = "Long-biased Momentum Portfolio Performance",
+         subtitle = 'Selecting the top 5 stocks in terms of past returns, lookback period of 60 trading days, and monthly rebalancing',
+         y = "Cumulative Returns",
+         x = '')+
+    #Scales
+    scale_y_continuous(labels = percent,breaks=seq(-0.5,1.5,0.1))+
+    scale_x_date(date_breaks = '3 months')+
+    #Custom 'TidyQuant' theme
+    theme_minimal()+
+    #Adding further customizations
+    theme(legend.position='none',
+          axis.title = element_text(face='bold',size=15),
+          axis.text = element_text(size=10),
+          axis.text.x = element_text(angle=90),
+          plot.title = element_text(size=20,face='bold'),
+          plot.subtitle  = element_text(size=15))
+
+```
+:::
+
+## Going [long]{.green} and [short]{.red}
+
+- Our previous *momentum* strategy was defined as a *long-biased* strategy: we only selected the [top]{.green} 5 stocks in terms of past returns and built a [long]{.green} position
+
+- A potential risk in this strategy is that, even if those performed well in the past, there is a downward trend in the market 
+
+- We can add a little bit more complexity to our *momentum* based strategy by allowing [long]{.green} and [short]{.red} positions at the same time:
+
+  1. Calculate the rolling 3-month returns as before
+  2. Select the [top]{.green} and [worst]{.red} performing firms in each period
+  3. Build a [long]{.green} position on the [top]{.green} firms, and a [short]{.red} position in the [worst]{.red} firms
+  4. Recalculate metrics
+
+- In what follows, we will do small tweaks in our ranking definition so as to employ a long-short *momentum* strategy
+
+## (Re)define the Trading Signals
+:::{.panel-tabset}
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+# Create the rankings
+ranks <- prices%>%
+  #Select relevant columns
+  select(symbol, date, adjusted)%>%
+  #Rename price for conciseness
+  rename(price = adjusted)%>%
+  #Group by symbol
+  group_by(symbol)%>%
+  #Reorder by symbol and dat
+  arrange(symbol, date)%>%
+  #Get the price from the last 60th trading day (roughly a 3-month lag)
+  mutate(lagged_price = lag(price, 60))%>%  
+  mutate(momentum_return = log(price/lagged_price))%>% #Using continuously compounded returns
+  drop_na()%>% #Remove any NAs
+  group_by(year(date),month(date),symbol)%>%
+  slice_head(n=1)%>%
+  mutate(rank_date = floor_date(date, "month"))%>% # Set the date where we will apply the momentum strategy 
+  group_by(rank_date)%>%
+  mutate(rank = rank(desc(momentum_return)))%>%
+  filter(rank %in% c(1:5,15:20))%>% #Get only the top 5 stocks in terms of momentum
+  mutate(date = rank_date + months(1))%>% # Apply ranking next month
+  ungroup()%>%
+  select(symbol, date, rank)
+
+```
+
+
+### Output
+```{r}
+#| echo: false
+#| eval: true
+
+# Create the rankings
+ranks <- prices%>%
+  #Select relevant columns
+  select(symbol, date, adjusted)%>%
+  #Rename price for conciseness
+  rename(price = adjusted)%>%
+  #Group by symbol
+  group_by(symbol)%>%
+  #Reorder by symbol and dat
+  arrange(symbol, date)%>%
+  #Get the price from the last 60th trading day (roughly a 3-month lag)
+  mutate(lagged_price = lag(price, 60))%>%  
+  mutate(momentum_return = log(price/lagged_price))%>% #Using continuously compounded returns
+  drop_na()%>% #Remove any NAs
+  group_by(year(date),month(date),symbol)%>%
+  slice_head(n=1)%>%
+  mutate(rank_date = floor_date(date, "month"))%>% # Set the date where we will apply the momentum strategy 
+  group_by(rank_date)%>%
+  mutate(rank = rank(desc(momentum_return)))%>%
+  filter(rank %in% c(1:5,15:20))%>% #Get only the top 5 stocks in terms of momentum
+  mutate(date = rank_date + months(1))%>% # Apply ranking next month
+  ungroup()%>%
+  select(symbol, date, rank)
+
+ranks%>%arrange(date,rank)%>%head(10)
+
+```
+:::
+
+## Setting up a long and short *momentum* strategy
+:::{.panel-tabset}
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+strategy_LS <- inner_join(returns, ranks, by = c("symbol", "date"))%>%
+  arrange(date, rank)%>%
+  mutate(monthly_return=ifelse(rank>=15,-1*monthly_return,monthly_return))%>%
+  group_by(date)%>%
+  summarize(portfolio_return = mean(monthly_return, na.rm = TRUE))
+
+# Compute cumulative returns
+strategy_LS%>%
+  mutate(cumulative_return = cumprod(1 + portfolio_return) - 1)%>%
+# Plot results
+  ggplot(aes(x = date, y = cumulative_return)) +
+    geom_line(color = "red",size=2) +
+    geom_hline(yintercept=0,linetype='dashed')+
+    labs(title = "Long-Short Momentum Portfolio Performance",
+         subtitle = 'Selecting the top/worst 5 stocks in terms of past returns, lookback period of 60 trading days, and monthly rebalancing',
+         y = "Cumulative Returns",
+         x = '')+
+    #Scales
+    scale_y_continuous(labels = percent,breaks=seq(-0.5,1.5,0.1))+
+    scale_x_date(date_breaks = '3 months')+
+    #Custom 'TidyQuant' theme
+    theme_minimal()+
+    #Adding further customizations
+    theme(legend.position='none',
+          axis.title = element_text(face='bold',size=15),
+          axis.text = element_text(size=10),
+          axis.text.x = element_text(angle=90),
+          plot.title = element_text(size=20,face='bold'),
+          plot.subtitle  = element_text(size=15))
+
+```
+
+
+### Output
+```{r}
+#| echo: false
+#| eval: true
+#| fig-width: 15
+#| fig-height: 6
+
+strategy_LS <- inner_join(returns, ranks, by = c("symbol", "date"))%>%
+  arrange(date, rank)%>%
+  mutate(monthly_return=ifelse(rank>=15,-1*monthly_return,monthly_return))%>%
+  group_by(date)%>%
+  summarize(portfolio_return = mean(monthly_return, na.rm = TRUE))
+
+# Compute cumulative returns
+strategy_LS%>%
+  mutate(cumulative_return = cumprod(1 + portfolio_return) - 1)%>%
+# Plot results
+  ggplot(aes(x = date, y = cumulative_return)) +
+    geom_line(color = "red",size=2) +
+    geom_hline(yintercept=0,linetype='dashed')+
+    labs(title = "Long-Short Momentum Portfolio Performance",
+         subtitle = 'Selecting the top/worst 5 stocks in terms of past returns, lookback period of 60 trading days, and monthly rebalancing',
+         y = "Cumulative Returns",
+         x = '')+
+    #Scales
+    scale_y_continuous(labels = percent,breaks=seq(-0.5,1.5,0.1))+
+    scale_x_date(date_breaks = '3 months')+
+    #Custom 'TidyQuant' theme
+    theme_minimal()+
+    #Adding further customizations
+    theme(legend.position='none',
+          axis.title = element_text(face='bold',size=15),
+          axis.text = element_text(size=10),
+          axis.text.x = element_text(angle=90),
+          plot.title = element_text(size=20,face='bold'),
+          plot.subtitle  = element_text(size=15))
+
+
+```
+:::
+
+
+## Putting all together
+
+:::{.panel-tabset}
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+chart_strategy_LO=strategy_LO%>%mutate(Type='Long-biased')
+chart_strategy_LS=strategy_LS%>%mutate(Type='Long-Short')
+
+chart_strategy_LO%>%
+  rbind(chart_strategy_LS)%>%
+  group_by(Type)%>%
+  # Compute cumulative returns
+  mutate(cumulative_return = cumprod(1 + portfolio_return) - 1)%>%
+# Plot results
+  ggplot(aes(x = date, y = cumulative_return,group=Type,col=Type)) +
+    geom_line(size=2) +
+    geom_hline(yintercept=0,linetype='dashed')+
+    labs(title = "Momentum Strategies",
+         subtitle = 'Both long-biased and long-short strategies.',
+         y = "Cumulative Returns",
+         x = '')+
+    #Scales
+    scale_y_continuous(labels = percent,breaks=seq(-0.5,1.5,0.1))+
+    scale_x_date(date_breaks = '3 months')+
+    #Custom 'TidyQuant' theme
+    theme_minimal()+
+    #Adding further customizations
+    theme(legend.position='bottom',
+          axis.title = element_text(face='bold',size=15),
+          axis.text = element_text(size=10),
+          axis.text.x = element_text(angle=90),
+          plot.title = element_text(size=20,face='bold'),
+          plot.subtitle  = element_text(size=15))
+
+```
+
+### Output
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-width: 15
+#| fig-height: 6
+
+chart_strategy_LO=strategy_LO%>%mutate(Type='Long-biased')
+chart_strategy_LS=strategy_LS%>%mutate(Type='Long-Short')
+
+chart_strategy_LO%>%
+  rbind(chart_strategy_LS)%>%
+  group_by(Type)%>%
+  # Compute cumulative returns
+  mutate(cumulative_return = cumprod(1 + portfolio_return) - 1)%>%
+# Plot results
+  ggplot(aes(x = date, y = cumulative_return,group=Type,col=Type)) +
+    geom_line(size=2) +
+    geom_hline(yintercept=0,linetype='dashed')+
+    labs(title = "Momentum Strategies",
+         subtitle = 'Both long-biased and long-short strategies.',
+         y = "Cumulative Returns",
+         x = '')+
+    #Scales
+    scale_y_continuous(labels = percent,breaks=seq(-0.5,1.5,0.1))+
+    scale_x_date(date_breaks = '3 months')+
+    #Custom 'TidyQuant' theme
+    theme_minimal()+
+    #Adding further customizations
+    theme(legend.position='bottom',
+          axis.title = element_text(face='bold',size=15),
+          axis.text = element_text(size=10),
+          axis.text.x = element_text(angle=90),
+          plot.title = element_text(size=20,face='bold'),
+          plot.subtitle  = element_text(size=15))
+```
+
+:::
+
+## Assessing portfolio performance
+
+- There is so much you can do with the `PerformanceAnalytics` package - convert your newly created `strategy_*` objects into an `.xts` object by calling `portfolio%>%as.xts()` and experiment using these pre-built functions for assessing historical performance:
+
+  1. `charts.RollingPerformance()`
+  2. `charts.PerformanceSummary()`
+  3. `chart.Histogram()`
+  4. `table.AnnualizedReturns()`
+
+- Play around with changing the parameters of the strategy and document the effects of such changes!
+
+## Choosing Efficient Portfolios
+
+-   Now that we understood how to analyze the performance of single stocks, let's turn our attention to determine how an investor can analyze a *portfolio* of assets!
+-   Let's start of with the simplest case: create a portfolio with two stocks, [Amazon]{.blue} and [Ferrari]{.blue}. Previously, we've shown that, for the analysis period, we had the following results in terms of risk and return:
+
+
+```{r}
+#| fig-align: center
+
+cbind(do.call('cbind',Returns))%>%
+  setNames(tickers)%>%
+  as.data.frame()%>%
+  select(-VSCO)%>%
+  gather(key='Asset',value='Returns')%>%
+  group_by(Asset)%>%
+  summarize(`Annualized Return`= prod(1+Returns)-1,
+            `Annualized Volatility` = sd(Returns)*sqrt(250))%>%
+  mutate(across(where(is.numeric),percent,accuracy=0.01))%>%
+  arrange(`Annualized Volatility`)%>%
+  DT::datatable(rownames=FALSE,
+                options=list(dom='t',columnDefs = list(list(className = 'dt-center', targets = "_all"))))
+
+
+```
+
+-   Let's create $5$ different portfolios using $\pm20\%$ of allocation weights in each asset
+
+
+
+## Choosing an Efficient Portfolio, continued
+
+```{r}
+#| fig-align: center
+
+tickers = c('AMZN','RACE')
+
+Prices=map(tickers,getSymbols,from='2023-01-01',to='2024-01-01',auto.assign = FALSE)%>%
+  setNames(tickers)%>%
+  map(~xts::.subset.xts(.,j=6))%>%
+  map(as.data.frame)%>%
+  map(~setNames(.x,'Price'))%>%
+  map(as.xts)
+
+Returns=Prices%>%map(dailyReturn,trailing=FALSE)%>%na.omit()
+
+get_metrics<-function(weights,returns){
+
+  e_r =do.call('cbind',pmap(list(w=weights,r=returns),
+                       function(w,r) w*r))%>%rowSums()
+  
+  return= e_r%>%sapply(function(x) 1+x)%>%prod()-1
+  sd = e_r%>%sd()*sqrt(250)
+  
+  return(data.frame(return=return,sd=sd))
+}
+
+weights_list=cbind(seq(0,1,0.2),seq(1,0,-0.2))%>%split(1:6)
+
+metrics=do.call('rbind',map(weights_list,get_metrics,return=Returns))
+
+  cbind(do.call('rbind',weights_list),metrics)%>%
+  setNames(c(paste0(tickers," (%)"),'Return','Volatility'))%>%
+  mutate(across(everything(),percent,accuracy=0.01))%>%
+  DT::datatable(rownames=FALSE,
+  options=list(dom='t',columnDefs = list(list(className = 'dt-center', targets = "_all"))))
+    
+```
+
+-   We can plot this in a figure to show all possible risk $\times$ return combinations
+
+## Choosing an Efficient Portfolio, 6 portfolios
+
+```{r}
+#| fig-align: center
+#| fig-width: 15
+#| fig-height: 8
+
+weights=cbind(seq(0,1,0.2),seq(1,0,-0.2))%>%split(1:6)
+metrics=do.call('rbind',map(weights,get_metrics,return=Returns))
+data=cbind(do.call('rbind',weights),metrics)%>%
+  setNames(c(paste0(tickers," (%)"),'Return','Volatility'))%>%
+  mutate(Portfolio= paste0(percent(`AMZN (%)`),' AMZN, ',percent(`RACE (%)`),' RACE'))
+
+
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return))%>%
+  hc_plotOptions(scatter=list(marker=list(radius=8),name='Portfolio'))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .2f}% <br/>
+                            Return: {point.y: .2f}%',
+             labels = list(style=list(fontSize='20px')))%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)
+
+
+```
+
+## Choosing an Efficient Portfolio, 11 portfolios
+
+```{r}
+#| fig-align: center
+#| fig-width: 15
+#| fig-height: 8
+
+weights=cbind(seq(0,1,0.1),seq(1,0,-0.1))%>%split(1:11)
+metrics=do.call('rbind',map(weights,get_metrics,return=Returns))
+data=cbind(do.call('rbind',weights),metrics)%>%
+  setNames(c(paste0(tickers," (%)"),'Return','Volatility'))%>%
+  mutate(Portfolio= paste0(percent(`AMZN (%)`),' AMZN, ',percent(`RACE (%)`),' RACE'))
+
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return))%>%
+  hc_plotOptions(scatter=list(marker=list(radius=8),name='Portfolio'))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .2f}% <br/>
+                            Return: {point.y: .2f}%',
+             labels = list(style=list(fontSize='20px')))%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)
+
+```
+
+## Choosing an Efficient Portfolio, \>100 portfolios
+
+```{r}
+#| fig-align: center
+#| fig-width: 15
+#| fig-height: 8
+
+weights=cbind(seq(0,1,0.01),seq(1,0,-0.01))%>%split(1:101)
+metrics=do.call('rbind',map(weights,get_metrics,return=Returns))
+color=which(metrics$sd==min(metrics$sd))
+color=c(rep('Inneficient',color-1),'Minimum Variance',rep('Efficient',nrow(metrics)-color))
+data= cbind(do.call('rbind',weights),metrics,color)%>%
+  setNames(c(paste0(tickers," (%)"),'Return','Volatility','Class'))
+
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return, 
+             group = Class))%>%
+  hc_plotOptions(scatter=list(marker=list(radius=8)))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .4f}% <br/>
+                            Return: {point.y: .4f}%')%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)
+  
+  
+```
+
+## Choosing an Efficient Portfolio
+
+-   As a financial manager, one crucial job you have is to find portfolios that are not sub-optimal
+    1.  For a given level of volatility, they deliver the highest possible return
+    2.  Alternatively, for a given level of return, they deliver the lowest possible volatility
+-   An easy what to look at this is to identify the [minimum variance portfolio (MVP)]{.blue}
+    1.  This portfolio is, among all combinations, the one with the [lowest]{.blue} volatility
+    2.  From there, if a given portfolio is riskier than the [MVP]{.blue}, it [needs]{.blue} to deliver higher returns!
+    3.  On the other hand, if a portfolio is riskier than the [MVP]{.blue} and deliver the same/lower returns, it can be considered [inefficient]{.red}
+
+. . .
+
+$\rightarrow$ *In other words: investors should look only for efficient portfolios and will choose based on his specific preferences for risk!*
+
+## The Efficient Frontier
+
+-   In our example, we used only two assets. What happens when we increase the number of potential assets?
+
+-   Let's replicate the same rationale by now investing our money in three possible stocks: [Amazon]{.blue},[Ferrari]{.blue}, and [VSCO]{.blue}
+
+## Which of these portfolios are efficient?
+
+```{r}
+#| fig-align: center
+#| fig-width: 15
+#| fig-height: 8
+
+tickers = c('AMZN','RACE','VSCO')
+
+Prices=map(tickers,getSymbols,from='2023-01-01',to='2024-01-01',auto.assign = FALSE)%>%
+  setNames(tickers)%>%
+  map(~xts::.subset.xts(.,j=6))%>%
+  map(as.data.frame)%>%
+  map(~setNames(.x,'Price'))%>%
+  map(as.xts)
+
+Returns=Prices%>%map(dailyReturn)
+
+df <- expand.grid(X = 0:100,
+                  Y = 0:100,
+                  Z = 0:100)
+
+weights_list=df[rowSums(df)==100,]
+weights_list=weights_list/100
+weights_list=weights_list%>%split(1:nrow(weights_list))
+
+metrics=do.call('rbind',map(weights_list,get_metrics,return=Returns))
+
+data=cbind(do.call('rbind',weights_list),metrics)%>%setNames(c(paste0(tickers," (%)"),'Return','Volatility'))
+
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return))%>%
+  hc_plotOptions(scatter=list(marker=list(radius=8),
+                              opacity=0.5,
+                              name='Portfolio'))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .4f}% <br/>
+                            Return: {point.y: .4f}%')%>%
+  hc_title(text='Relationship between Risk and Return for AMZN and RACE')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)
+
+```
+
+## Which of these portfolios are efficient?
+
+```{r}
+#| fig-align: center
+#| fig-width: 15
+#| fig-height: 8
+
+MVP=data%>%arrange(Volatility)%>%slice(1)
+
+data=data%>%mutate(ID=row_number(),Class=ifelse(ID != rownames(MVP),'Other','Minimum Variance'))
+
+hchart(data,
+       type = "scatter", 
+       hcaes(x = Volatility, 
+             y = Return,
+             group = Class))%>%
+  hc_plotOptions(scatter=list(marker=list(radius=8),
+                              opacity=0.5))%>%
+  hc_tooltip(pointFormat = 'Volatility: {point.x: .4f}% <br/>
+                            Return: {point.y: .4f}%')%>%
+  hc_title(text='Relationship between Risk and Return for AMZN,RACE, and VSCO')%>%
+  hc_xAxis(labels=list(format='{value}%'))%>%
+  hc_yAxis(labels=list(format='{value}%'))%>%
+  hc_add_theme(Theme)%>%
+  hc_colors(c('green','lightblue'))
+
+```
+
+## Choosing an Efficient Portfolio
+
+-   What happens when you continuously increase the number of assets?
+
+    1.  If you add stocks, you improve the frontier - *i.e*, you are able to create portfolios that span better options in terms of risk and return
+    2.  If you continue adding assets, you will have what is called [Efficient Frontier]{.blue}
+
+-   The [Efficient Frontier]{.blue} is the set of portfolios where:
+
+    1.  [For a given level of volatility]{.blue}, you have the [highest]{.green} possible return among all portfolios with the same volalitity level
+    2.  [For a given level of return]{.blue}, you have the [lowest]{.green} possible volatility among all portfolios with the same return level
+
+-   Based on this, is there a [single]{.blue} portfolio in which all investors should hold? **No!** In practice, investors will choose among portfolios based on their specific preferences for risk and return
+
+## It is now your turn...
+
+-   Using the *Hedge Fund* monthly returns from the database you have just used to perform the analysis, you will now add *two* additional factors: *Investment* and *Profitability*. The resulting dataset comprises the famous *Fama-French Five Factor* model. Proceed as follows:
+
+::: callout-tip
+### Hands-on Exercise
+
+1.  Download the *Fama-French 5 Factor* portfolios using the download link below (or directly through *eClass®*)
+2.  Merge the dataset with the *Fama French* dataset you have just used. You can use the `left_join` function to join two dataframes
+3.  Repeat the procedures we have used before to estimate and chart the output of an OLS regression of the form for all investment strategies:
+
+How do you interpret your new findings? Does your conclusion hold after including the two additional risk factors?
+:::
+
+
+
+## References

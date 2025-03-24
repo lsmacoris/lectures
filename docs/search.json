@@ -10134,5 +10134,684 @@
     "title": "Fama French and Multi-Factor Models of Risk",
     "section": "It is now your turn…",
     "text": "It is now your turn…\n\nUsing the Hedge Fund monthly returns from the database you have just used to perform the analysis, you will now add two additional factors: Investment and Profitability. The resulting dataset comprises the famous Fama-French Five Factor model. Proceed as follows:\n\n\n\n\n\n\n\nHands-on Exercise\n\n\n\nDownload the Fama-French 5 Factor portfolios using the download link below (or directly through eClass®)\nMerge the dataset with the Fama French dataset you have just used. You can use the left_join function to join two dataframes\nRepeat the procedures we have used before to estimate and chart the output of an OLS regression of the form for all investment strategies:\n\n\\[\n\\small E[R_i] = R_f + \\beta_s^M \\times \\underbrace{(E[R_m]− R_f)}_{\\text{Market}}  + \\beta_s^{SMB} \\times \\underbrace{E[R_{SMB}]}_{\\text{Size}} + \\beta_s^{HML} \\times \\underbrace{E[R_{HML}]}_{\\text{Book-to-Market.}} + \\beta_s^{RMW} \\times \\underbrace{E[R_{RMW}]}_{\\text{Profitability}} + \\beta_s^{CMA} \\times \\underbrace{E[R_{CMA}]}_{\\text{Investment}}\n\\]\nHow do you interpret your new findings? Does your conclusion hold after including the two additional risk factors?\n\n\n\n\n\n Download Raw data"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#outline",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#outline",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Outline",
+    "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\nTidy Finance (Scheuch, Voigt, and Weiss 2023)\nR for Data Science (Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023)\n\n\n\n\n\n\n\n\nCoding Replications\n\n\nFor coding replications, whenever applicable, please follow this page or hover on the specific slides with containing coding chunks.\n\nEnsure that you have your  session properly set-up according to the instructions outlined in the course webpage\nIn the webpage, you can also find a detailed discussion of the examples covered in this lecture"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#disclaimer",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#disclaimer",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Disclaimer",
+    "text": "Disclaimer\n\n\n\n\n\n\nDisclaimer\n\n\nThe information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.\nAll code used in this lecture is publicly available and is also shared on my GitHub page. Participants are encouraged to review, modify, and use the code for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.\nFor any questions or concerns, please feel free to reach out via email at lucas.macoris@fgv.br"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#hands-on-exercise",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#hands-on-exercise",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Hands-On Exercise",
+    "text": "Hands-On Exercise\n\nYou are a quantitative analyst at SeekingAlpha, a quantitative Hedge Fund specialized in automated strategies. Your goal is to quantity how a momentum-based strategy in the Brazilian stock market performed from 2018 to 2024\n\n\n\n\n\n\n\nInstructions\n\n\n\nWe will be using data from a set of \\(\\small 20\\) selected Brazilian stocks that have been traded over the study period\nOur portfolio will be rebalanced monthly using a lookback period of 90 days, selecting the top \\(\\small5\\) stocks based on the adjusted prices\nThe strategy will assign equal weights to all stocks and will consist of a long-biased strategy - i.e, you will only buy stocks\n\nThe selected stocks are: RAIZ4, ITUB3, IRBR3, BBDC4, ABEV3, YDUQ3, BBAS3, B3SA3, WEGE3, RADL3, LREN3, BRFS3, CSAN3, HAPV3, SUZB3, GRND3, MGLU3, BEEF3, EGIE3, and HYPE3\n\n\n\nWould you recommend investing in a fund that replicates this strategy?"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#about-the-dataset",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#about-the-dataset",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "About the dataset",
+    "text": "About the dataset\n\nThe edhec dataset, from the EDHEC Risk and Asset Management Research Center, is a dataset that covers monthly Hedge Fund returns starting from 1997\nEach series of returns represents a Hedge Fund strategy that seeks to exploit a given type of market anomaly:\n\nConvertible Arbitrage - click here for details\nEvent Driven - click here for details\nMerger Arbitrage - click here for details\nRelative Value - click here for details\nDistressed Securities - click here for details\nCTA Global - click here for details"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#it-is-now-your-turn",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#it-is-now-your-turn",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "It is now your turn…",
+    "text": "It is now your turn…\n\nUsing the Hedge Fund monthly returns from the database you have just used to perform the analysis, you will now add two additional factors: Investment and Profitability. The resulting dataset comprises the famous Fama-French Five Factor model. Proceed as follows:\n\n\n\n\n\n\n\nHands-on Exercise\n\n\n\nDownload the Fama-French 5 Factor portfolios using the download link below (or directly through eClass®)\nMerge the dataset with the Fama French dataset you have just used. You can use the left_join function to join two dataframes\nRepeat the procedures we have used before to estimate and chart the output of an OLS regression of the form for all investment strategies:\n\nHow do you interpret your new findings? Does your conclusion hold after including the two additional risk factors?"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-expected-return-of-a-two-stock-portfolio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-expected-return-of-a-two-stock-portfolio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The Expected Return of a two-stock portfolio",
+    "text": "The Expected Return of a two-stock portfolio\n\nPreviously, we looked at returns from individual assets, but investors are always looking for ways to invest in multiple assets at the same time. What if you hold a portfolio of \\(n\\) assets?\nLet’s keep it simple for now. Suppose you have a two-stock portfolio of assets that hipotetically consists of:\n\nAmazon (AMZN) 40% of the portfolio, 10% return and standard deviation (volatility) of 25%\nFerrari (RACE): 60% of the portfolio, 15% return and stardard deviation (volatility) of 30%\n\nIf your portfolio is 40% Amazon and 60% Ferrari, then the return of your portfolio, \\(R_p\\) is:\n\n\n\\[\\small R_p= \\sum_{i=1}^{2}\\big(x_i\\times R_i\\big)=(0.4 \\times 10\\%) +(0.6 \\times 15\\%) = 13\\%\\]\n\n\n\\(\\rightarrow\\) In other words, the return of a portfolio is the weighted average of the individual asset returns!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-expected-return-of-a-two-stock-portfolio-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-expected-return-of-a-two-stock-portfolio-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The Expected Return of a two-stock portfolio, continued",
+    "text": "The Expected Return of a two-stock portfolio, continued\n\n\n\n\n\n\nImportant\n\n\nThe weights are selected by the investors and may change over time if the prices change (unless the investor actively rebalances it to match the same proportion by buying/selling). Without trading, the weights increase for those stocks whose returns exceed the portfolio’s return.\n\n\n\n\nTo see that, assume that your initial holdings are $100,000:\n\nIf Amazon is 40% of the portfolio with a 10% return \\(\\small \\rightarrow 40,000\\times (1+10\\%)=44,000\\)\nIf Ferrari is 60% of the portfolio with a 15% return \\(\\small \\rightarrow 60,000\\times (1+15\\%)=69,000\\)\n\nYour holdings are now worth \\(\\small 44,000 + 69,000= 113,000\\), which yields the 13% return, but now the weights from each stock are different:\n\nAmazon holdings are \\(\\small \\frac{44}{113}\\approx 38.9\\%\\) of the portfolio\nFerrari holdings are \\(\\small \\frac{69}{113}\\approx 61.1\\%\\) of the portfolio"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-two-stock-portfolio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-two-stock-portfolio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Volatility of a two-stock portfolio",
+    "text": "Volatility of a two-stock portfolio\n\nAs we now have a portfolio of two different assets, what should be the volatility? Recall that:\n\nAmazon (AMZN)’s standard deviation (volatility) was hipothetically 25%\nFerrari (RACE)’s stardard deviation (volatility) was hipothetically 30%\n\nAs we’ll see in the next slides, to compute the standard deviation of a portfolio, we cannot rely on the weighted average anymore!\nIn order to see that, let’s look at the historical prices from both stocks and compare:\n\nThe price trend from Amazon\nThe price trend from Ferrari\nThe dollar holdings for a portfolio of $100 that holds 40% Amazon and 60% Ferrari\n\nIn what follows, we’ll see how these dynamics shed light on the covariance of the portfolio"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-two-stock-portfolio-historical-trends",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-two-stock-portfolio-historical-trends",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Volatility of a two-stock portfolio, historical trends",
+    "text": "Volatility of a two-stock portfolio, historical trends"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-two-stock-portfolio-summary-statistics",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-two-stock-portfolio-summary-statistics",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Volatility of a two-stock portfolio, summary statistics",
+    "text": "Volatility of a two-stock portfolio, summary statistics\n\nIf we now look at the annualized statistics, we see that..\n\n\n\n\n\n\n\n\n\nThe weighted average between the individual volatilies is around 25.9%\nBut our portfolio volatility is lower than the individual volatilities. Why? Diversification!\n\n\nIntuitively, the returns from both stocks do not move in lockstep: whenever Ferrari prices goes down, Amazon prices move in a different fashion\nIn fact, the correlation between the returns of these stocks is around 0.39. In other words, these assets do not move in the same direction all the time!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#an-interlude-variance-covariance-and-correlation",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#an-interlude-variance-covariance-and-correlation",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "An interlude: Variance, Covariance, and Correlation",
+    "text": "An interlude: Variance, Covariance, and Correlation\n\nYou can find the proofs for both definitions in the Appendix\n\n\n\n\n\n\n\n\nDefinition\n\n\n\n\nThe Variance (\\(\\sigma^2\\)) is the squared deviations of the returns from their means: \\(\\small E[X-E(X)]^2\\)\nCovariance (\\(Cov\\)) is the expected product of the deviations of two returns from their means: \\(\\small [X-E(X)][Y-Y(X)]\\)\n\n\n\n\n\n\n\n\n\n\n\nTheorem I: the variance of the sum of two random variables equals the sum of the variances of those random variables, plus two times their covariance:\n\n\n\\[\n  \\sigma^2(A+B) = \\sigma^2_A + \\sigma^2_B + 2\\times Cov(A,B)\n  \\]\n\n\n\n\n\n\n\n\n\nTheorem II: The variance scales upon multiplication with a constant:\n\n\n\\[\n  \\sigma^2(\\beta \\times A ) = \\beta^2\\times \\sigma^2_A\n  \\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-two-stock-portfolio-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-two-stock-portfolio-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Volatility of a two-stock portfolio, continued",
+    "text": "Volatility of a two-stock portfolio, continued\n\nLet’s now apply this to understand our portfolio’s volatility using daily data. Define:\n\n\\(\\sigma^2_1\\) = variance of Asset 1 (Amazon).\n\\(\\sigma^2_2\\) = variance of Asset 2 (Ferrari)\n\\(\\sigma_{1,2}\\) = covariance between both assets\n\\(w_1\\) and \\(w_2\\) are the weights for both assets\n\nUsing the definitions highlighted before, that the variance of our portfolio returns, \\(R_p\\), is:\n\n\n\\[\n\\small \\sigma^2(R_p)=\\sigma^2(w_1\\times R_1+w_2\\times R_2)=w_1^2\\times \\sigma^2_1 + w_2^2 \\times \\sigma^2_2 + 2\\times w_1\\times w_2\\times \\sigma_{1,2}\n\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#variance-in-terms-of-correlation",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#variance-in-terms-of-correlation",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Variance in terms of correlation",
+    "text": "Variance in terms of correlation\n\nWe can further simplify this using the fact that the Covariance is the product of the assets’ standard deviations and their correlation:\n\n\n\\[\n\\small \\sigma^2(R_p)=w_1^2\\times \\sigma^2_1 + w_2^2 \\times \\sigma^2_1 + 2\\times w_1\\times w_2\\times \\underbrace{Cov(R_1,R_2)}_{\\sigma_1 \\times \\sigma_2 \\times Corr_{12}}\\\\\n\\small = \\underbrace{w_1^2\\times \\sigma^2_1}_{1} + \\underbrace{w_2^2 \\times \\sigma^2_1}_{2} + \\underbrace{2\\times w_1\\times w_2\\times \\sigma_1 \\times \\sigma_2 \\times Corr_{12}}_{3}\n\\]\n\n\n\nThe first term relates to the first asset (in our case, Amazon) variance and its proportion in the portfolio\nThe second term relates to the second asset (in our case, Ferrari) variance and its proportion in the portfolio\nThe third term relates to the relationship between both assets"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#a-note-on-sample-analogues",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#a-note-on-sample-analogues",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "A note on sample analogues",
+    "text": "A note on sample analogues\n\nRecall that we cannot rely on expectations to future outcomes and/or probabilities to calculate the expected returns of the portfolio and its volatility\nBecause of that, as we did before, we replace the expectation estimator, \\(E(\\cdot)\\), with our sample analogue, which is the sample average, and it is always backward-looking:\n\nFix a period for calculation (for example, the latest 30 days)\nCalculate the risk and return using sample averages\n\nTo facilitate the notation, we’ll always refer to it using a bar: \\(\\overline{R}\\). For example the covariance between the returns from stocks \\(i\\) and \\(j\\) is:\n\n\n\\[Cov(R_i,R_j) = \\frac{\\sum_{1}^{T}(R_i-\\overline{R_i} ) \\times (R_j-\\overline{R_j})}{T-1}\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#getting-back-to-our-portfolio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#getting-back-to-our-portfolio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Getting back to our portfolio",
+    "text": "Getting back to our portfolio\n\n\n\n\n\n\n\nUsing our formula for the variance of the portfolio:\n\n\n\\[\n\\small \\sigma^2_p= w_1^2\\times \\sigma^2_1 + w_2^2 \\times \\sigma^2_1 + 2\\times w_1\\times w_2\\times \\sigma_1 \\times \\sigma_2 \\times Corr_{12}\\\\\n\\small \\underbrace{\\small 0.4^2\\times 0.3290^2+0.6^2\\times 0.2124^2}_{I} + \\underbrace{2\\times 0.4\\times0.6\\times 0.3290\\times 0.2124\\times 0.3886}_{II} = 0.04659402\n\\]\n\nTherefore, \\(\\sigma_{p}\\) is simply \\(\\small \\sqrt{0.04659402}=0.2159\\) or 21.59%. You could also calculate the daily portfolio variance and annualize it at the end multiplying it by \\(\\sqrt{n}\\)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#variance-of-a-2-stock-portfolio-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#variance-of-a-2-stock-portfolio-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Variance of a 2-stock portfolio, continued",
+    "text": "Variance of a 2-stock portfolio, continued\n\nLooking at our formula, we have:\n\n\\[\n\\small \\sigma^2_p= w_1^2\\times \\sigma^2_1 + w_2^2 \\times \\sigma^2_1 + 2\\times w_1\\times w_2\\times \\sigma_1 \\times \\sigma_2 \\times Corr_{12}\\\\\n\\small \\underbrace{\\small 0.4^2\\times 0.3290^2+0.6^2\\times 0.2124^2}_{I} + \\underbrace{2\\times 0.4\\times0.6\\times 0.3290\\times 0.2124\\times 0.3886}_{II} = 0.04659402\n\\]\n\nThe first term (I) captures the individual variances contribution\nThe second term (II) captures the relationship between assets (note that 0.3312 is the correlation between both individual returns)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#wrapping-up---2-stock-portfolio-volatility",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#wrapping-up---2-stock-portfolio-volatility",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Wrapping up - 2-stock portfolio volatility",
+    "text": "Wrapping up - 2-stock portfolio volatility\n\nThese assets have roughly similar historical return and volatility, but they ‘move’ very differently:\n\n\nFor example, when Amazon performed well, Ferrari did not move in lockstep\nAs a matter of fact, their correlation is about 0.39, meaning that their prices do not trend in the same direction most of the time!\n\n\nAs you now see, the return of the portfolio is equal to the weighted average of the individual returns…\n…However, the volatility of is much lower than the volatility of the two individual stocks, as the assets are offseting each other and making the return “smoother”!\nHow much risk is eliminated when creating a portfolio? It depends on the degree to which the stocks face common risks and their prices move together (in mathematical terms, this will be captured by the correlation parameter, \\(\\small Corr_{12}\\)!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Volatility of a large portfolio",
+    "text": "Volatility of a large portfolio\n\nWhat if we added a third asset to our portfolio? Let’s say that you’re really into discretionary goods and decide to place a bet on Victoria’s Secret (ticker: VSCO), which had 30% of return in the previous last\nYou decided to keep the weight on Amazon and split Ferrari and Victoria’s Secret evenly, with 30% each\nHow does that play a role in your portfolio? As before, your portfolio Return is simply a weighted average of the individual returns:\n\n\n\\[\nR_{p}=\\sum_{i=1}^{3}w_i\\times R_i = \\underbrace{(0.4 \\times 10\\%)}_{\\text{Amazon}} +\\underbrace{(0.3 \\times 15\\%)}_{\\text{Ferrari}}+ \\underbrace{(0.3 \\times 25\\%)}_{\\text{VSCO}}\\approx 16\\%\n\\]\n\nLet’s see how this strategy performed from 2023 up to now!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#ouch-youve-seen-to-be-worse-off-now",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#ouch-youve-seen-to-be-worse-off-now",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Ouch! You’ve seen to be worse off now!",
+    "text": "Ouch! You’ve seen to be worse off now!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#your-vsco-bet-did-not-play-well-unfortunately",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#your-vsco-bet-did-not-play-well-unfortunately",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Your VSCO bet did not play well, unfortunately",
+    "text": "Your VSCO bet did not play well, unfortunately\n\n\n\n\n\n\n\nAdding VSCO to the portfolio severely hit the overall return, \\(\\small R_p\\)\nVSCO was also very volatile: its standard deviation was twice as high as Amazon. However, the portfolio volatility is substantially lower\nOne way to understand this is to look at the correlation matrix between the assets"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#vsco-is-not-strongly-correlated-with-the-other-assets",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#vsco-is-not-strongly-correlated-with-the-other-assets",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "VSCO is not strongly correlated with the other assets",
+    "text": "VSCO is not strongly correlated with the other assets\n\n\n\n\n\n\n\nLooking at the correlation matrix, we can see that:\n\n\\(\\small Corr_{\\text{AMZN,VSCO}}=0.16\\)\n\\(\\small Corr_{\\text{RACE,VSCO}}=0.14\\)\n\nAs we can see, because the correlation coefficient is very small, the contribution of VSCO to the overall portfolio volatility is limited"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-variance-of-a-3-stock-portfolio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-variance-of-a-3-stock-portfolio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The variance of a 3-stock portfolio",
+    "text": "The variance of a 3-stock portfolio\n\nHow can we extend your variance calculation for three assets?\nThe general formulation of the variance formula shows us that:\n\n\n\\[\n\\small  Var(X)=Var(A+B+C) = E[((A+B+C)-E(A+B+C))]^2 =\\\\\n\\small E[(\\underbrace{[A-E(A)]}_{\\text{First Term}}+[\\underbrace{B-E(B)}_{\\text{Second Term}}]+[\\underbrace{C-E(C)}_{\\text{Third Term}}])^2] \\\\\n\\]\n\nThis is a quadratic form, and we can decompose it as:\n\n\n\n\\[\n\\small (A+B+C)^2= A^2+B^2+C^2 + 2AB + 2AC +2BC\n\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-variance-of-a-3-stock-portfolio-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-variance-of-a-3-stock-portfolio-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The variance of a 3-stock portfolio, continued",
+    "text": "The variance of a 3-stock portfolio, continued\n\nIn portfolio terms:\n\n\n\\[\n\\small \\sigma^2_p= \\underbrace{w_1^2\\times \\sigma^2_1}_{I} + \\underbrace{w_2^2 \\times \\sigma^2_1}_{II}\n\\small + \\underbrace{w_3^2 \\times \\sigma^3_1}_{III} \\\\\n\\small + \\underbrace{2\\times w_1\\times w_2\\times \\sigma_1\\times\\sigma_2\\times Corr_{12}}_{IV}\n\\small + \\underbrace{2\\times w_1\\times w_3\\times \\sigma_1\\times\\sigma_3\\times Corr_{13}}_{V}\n\\small + \\underbrace{2\\times w_2\\times w_3\\times \\sigma_2\\times\\sigma_3\\times Corr_{23}}_{VI}\n\\]\n\nI, II, and III capture the individual stock variance contribution\nIV captures the relationship between Amazon and Ferrari (as before)\nV captures the relationship between Amazon and VSCO (new!)\nVI captures the relationship between Ferrari and VSCO (new!)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-variance-of-a-3-stock-portfolio-continued-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-variance-of-a-3-stock-portfolio-continued-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The variance of a 3-stock portfolio, continued",
+    "text": "The variance of a 3-stock portfolio, continued\n\nPlugging in the numbers from our exercise:\n\n\n\\[\n\\small \\underbrace{\\small (0.4^2\\times 0.3290^2)}_{I} + \\underbrace{(0.3^2\\times 0.2124^2)}_{II} + \\underbrace{(0.3^2\\times 0.5861^2)}_{III} \\\\\n\\small + \\underbrace{(2\\times0.4\\times0.3\\times0.3290\\times0.2124\\times0.39)}_{IV} + \\underbrace{(2\\times0.4\\times0.3\\times0.3290\\times 0.5861\\times0.16)}_{V} \\\\\n+\\small \\underbrace{(2\\times0.4\\times0.3\\times0.2124\\times 0.5861\\times0.14)}_{VI}=26.38\\%\n\\]\n\nAlthough VSCO had incurred in significant losses, its returns were minimally correlated to the the stocks"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-variance-of-a-large-portfolio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-variance-of-a-large-portfolio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The variance of a large portfolio",
+    "text": "The variance of a large portfolio\n\nWhat if you had a significantly high number \\(N\\) of assets in a portfolio? You can generalize the previous formulas using the definition below:\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nThe variance of a portfolio \\(P\\) with \\(N\\) stocks with weights \\(w_{1,2,...,N}\\) is:\n\\[\n\\sigma^2_p=\\sum_{i=1}^{N}w_i^2\\sigma_i^2 + 2\\times\\sum_{i=1}^{N}\\sum_{j\\neq i} w_i w_j \\sigma_{ij}\n\\]\n\nWhere:\n\n\\(\\sum_{i=1}^{N}w_i\\sigma_i^2\\) is the individual stock volatility contribution terms; and\n\\(2\\times\\sum_{i=1}^{N}\\sum_{j\\neq i} w_i w_j \\sigma_{ij}\\) represents all the covariance terms from every pairwise combination of stocks in the portfolio"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio---matrix-form",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio---matrix-form",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Volatility of a large portfolio - matrix form",
+    "text": "Volatility of a large portfolio - matrix form\n\nFrom our previous slide, we saw that the variance of a portfolio was defined as: \\[\n\\sigma^2_p=\\sum_{i=1}^{N}w_i^2\\sigma_i^2 + 2\\times\\sum_{i=1}^{N}\\sum_{j\\neq i} w_i w_j \\sigma_{ij}\n\\]\nDefine \\(\\mathbf{w}\\) as the vector of stock’s weights, \\([w_1,w_2,w_3,...,w_n]\\) and \\(\\Sigma\\) as the covariance matrix of returns. Then, you can rewrite \\(\\sigma^2_p\\) as:\n\n\n\\[\n\\sigma^2_p = \\mathbf{w}'\\Sigma\\mathbf{w}\n\\]\n\nIn practice, writing the variance of a portfolio in matrix terms simplifies a lot of the calculations if you want to perform calculations using Excel with \\(n&gt;2\\)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio---a-graphical-representation",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio---a-graphical-representation",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Volatility of a large portfolio - a graphical representation",
+    "text": "Volatility of a large portfolio - a graphical representation\n\n\n\n\n\nDiagonal cells contain variance terms, and the off-diagonal cells contain the covariance terms\nAs \\(N\\) assets increases, the number of terms outside the main diagonal increases more than the main diagonal.\nTherefore, the variance of a well-diversified portfolio is mostly determined by the covariances, and not the individual stock variance terms!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#limits-to-diversification",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#limits-to-diversification",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Limits to diversification",
+    "text": "Limits to diversification\n\nHow much of the variance of a portfolio we can eliminate through diversification? To see that, assume that we hold a portfolio with equal weights \\(\\frac{1}{N}\\) to all assets\n\n\nIn the diagonal, we have \\(N\\) boxes with \\(\\dfrac{1}{N^2}\\times \\overline{Var}\\), where \\(\\overline{Var}\\) is the average variance\nOff the diagonal, we have \\(N^2-N\\) boxes with \\(\\dfrac{1}{N^2}\\times \\overline{Cov}\\), where \\(\\overline{Cov}\\) is the average covariance\n\n\nTherefere, you can rearrange terms to get:\n\n\n\\[\n\\small Var(R_p) = \\bigg(N\\times\\dfrac{1}{N^2}\\times \\overline{Var}\\bigg)+ \\bigg[(N^2-N)\\dfrac{1}{N^2}\\times \\overline{Cov}\\bigg]\\\\\n\\small = \\bigg(\\frac{1}{N} \\times \\overline{Var}\\bigg) + \\bigg[\\bigg(1-\\frac{1}{N}\\bigg) \\times \\overline{Cov}\\bigg]\n\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#limits-to-diversification-graphical-interpretation",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#limits-to-diversification-graphical-interpretation",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Limits to diversification, graphical interpretation",
+    "text": "Limits to diversification, graphical interpretation"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-portfolios",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-portfolios",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Choosing Portfolios",
+    "text": "Choosing Portfolios\n\nNow that we understood how to analyze the performance of single stocks, let’s turn our attention to determine how an investor can analyze a portfolio of assets!\nLet’s start of with the simplest case: create a portfolio with two stocks, Amazon and Ferrari. Previously, we’ve shown that, for the analysis period, we had the following results in terms of risk and return:\n\n\n\n\n\n\n\n\nLet’s create \\(5\\) different portfolios using \\(\\pm20\\%\\) of allocation weights in each asset"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Choosing an Efficient Portfolio, continued",
+    "text": "Choosing an Efficient Portfolio, continued\n\n\n\n\n\n\n\nWe can plot this in a figure to show all possible risk \\(\\times\\) return combinations"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-6-portfolios",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-6-portfolios",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Choosing an Efficient Portfolio, 6 portfolios",
+    "text": "Choosing an Efficient Portfolio, 6 portfolios"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-11-portfolios",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-11-portfolios",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Choosing an Efficient Portfolio, 11 portfolios",
+    "text": "Choosing an Efficient Portfolio, 11 portfolios"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-100-portfolios",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-100-portfolios",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Choosing an Efficient Portfolio, >100 portfolios",
+    "text": "Choosing an Efficient Portfolio, &gt;100 portfolios"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Choosing an Efficient Portfolio",
+    "text": "Choosing an Efficient Portfolio\n\nWhat happens when you continuously increase the number of assets?\n\nIf you add stocks, you improve the frontier - i.e, you are able to create portfolios that span better options in terms of risk and return\nIf you continue adding assets, you will have what is called Efficient Frontier\n\nThe Efficient Frontier is the set of portfolios where:\n\nFor a given level of volatility, you have the highest possible return among all portfolios with the same volalitity level\nFor a given level of return, you have the lowest possible volatility among all portfolios with the same return level\n\nBased on this, is there a single portfolio in which all investors should hold? No! In practice, investors will choose among portfolios based on their specific preferences for risk and return"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-efficient-frontier",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-efficient-frontier",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The Efficient Frontier",
+    "text": "The Efficient Frontier\n\nIn our example, we used only two assets. What happens when we increase the number of potential assets?\nLet’s replicate the same rationale by now investing our money in three possible stocks: Amazon,Ferrari, and VSCO"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#which-of-these-portfolios-are-efficient",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#which-of-these-portfolios-are-efficient",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Which of these portfolios are efficient?",
+    "text": "Which of these portfolios are efficient?"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#which-of-these-portfolios-are-efficient-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#which-of-these-portfolios-are-efficient-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Which of these portfolios are efficient?",
+    "text": "Which of these portfolios are efficient?"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-2",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio-2",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Choosing an Efficient Portfolio",
+    "text": "Choosing an Efficient Portfolio\n\nWhat happens when you continuously increase the number of assets?\n\nIf you add stocks, you improve the frontier - i.e, you are able to create portfolios that span better options in terms of risk and return\nIf you continue adding assets, you will have what is called Efficient Frontier\n\nThe Efficient Frontier is the set of portfolios where:\n\nFor a given level of volatility, you have the highest possible return among all portfolios with the same volalitity level\nFor a given level of return, you have the lowest possible volatility among all portfolios with the same return level\n\nBased on this, is there a single portfolio in which all investors should hold? No! In practice, investors will choose among portfolios based on their specific preferences for risk and return"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-efficient-frontier-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-efficient-frontier-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The Efficient Frontier",
+    "text": "The Efficient Frontier"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Risk-Free Saving and Borrowing",
+    "text": "Risk-Free Saving and Borrowing\n\nThus far, we have considered the risk and return possibilities that result from combining risky investments into portfolios\nBy including all risky investments in the construction of the efficient frontier, we achieve the maximum diversification possible with risky assets\nIn practice, however, we have the existence of risk-free assets, such as Treasury Bills, Treasury Bonds, Tesouro Direto etc\nUp to this point, we assumed that all the available assets had a minimum level of risk - for example, stocks\nIn what follows, we will investigate what happens when we add the possibility of investing in a risk-free asset\nAs you’ll see, when you add the risk-free asset, the implication is that there should only be only one efficient portfolio!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-2",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-2",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Risk-Free Saving and Borrowing",
+    "text": "Risk-Free Saving and Borrowing\n\nAssume that you have a risk-free asset, such as a Treasury Bill, where the return is \\(R_f\\) and, by definition, has no risk\nYou decided to invest a portion \\(x\\) of your holdings in the risky portfolio, and the remaining \\(1-x\\) in the risk-free asset\nThe expected return from your new portfolio, which we’ll call \\(R_{C}\\), is:\n\n\n\\[E[R_{C}] =  x \\times E[R_p] + (1-x) \\times R_f \\]\n\nRearranging terms, we have that:\n\n\n\n\\[\nE[R_{C}] =  x \\times E[R_p] + R_f - x \\times R_f\\rightarrow R_f + x \\times ( E[R_p] - R_f )\n\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Risk-Free Saving and Borrowing, continued",
+    "text": "Risk-Free Saving and Borrowing, continued\n\nTherefore, the expected return of a portfolio that contains risky assets and a risk-free asset is defined as:\n\n\n\\[\nE[R_{C}] =  R_f + x \\times ( E[R_p] - R_f )\n\\]\n\nThis equation shows that the expected return of your portfolio is the sum of:\n\nThe risk-free rate; and\nA fraction of the portfolio’s risk premium, \\(E[R_p] - R_f\\), based on the fraction \\(x\\) that we invest in it\nA risk-premium is nothing more than the reward for bearing additional risk\n\nIn other words, if you increase \\(x\\), your expected gains should increase because you’re more exposed to risk!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-continued-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-continued-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Risk-Free Saving and Borrowing, continued",
+    "text": "Risk-Free Saving and Borrowing, continued\n\nWhat happens to the volatility of a portfolio when you add the possibility of a risk-free asset?\nRemember that the risk free rate is assumed to have no risk, and therefore its variance is zero. As a consequence, the standard deviation of your portfolio that contains risky and risk-free assets is:\n\n\n\\[\\small \\sigma_{R_{C}} = \\sqrt{(1-x)^2 \\times \\sigma^2_{R_f} + x^2 \\times \\sigma^2_{R_p}  + 2 \\times(1-x) \\times x \\times Cov(R_f, R_p)}\\]\n\nBecause \\(\\small \\sigma^2_{R_f}=0\\), this simplifies to:\n\n\n\n\\[\\sigma_{R_{C}} = \\sqrt{x^2 \\times \\sigma^2_{R_p}}\\rightarrow x \\times \\sigma_{R_p}\\]\n\nThat is, the volatility is only a fraction of the volatility of the portfolio, based on the amount we invest in it"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-combinations-in-practice",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-combinations-in-practice",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Risk-free combinations in practice",
+    "text": "Risk-free combinations in practice\n\nIn order to make this point clear, let’s go back to the efficient frontier built on top of the \\(&gt;100\\) portfolios created using AMZN and RACE\nTo facilitate the comparison, we’ll convert risk and return to annual terms\nIf that is true, then the minimum-variance portfolio has:\n\nAnnual Return \\(\\approx 3.82\\%\\)\nAnnual Volatility \\(\\approx 3.24\\%\\)\n\nSuppose you have an risk-free investment opportunity, \\(R_f\\), that generates a risk-free return of 2%\nIf that is true, we can think about all linear combinations of \\([R_f,R_p]\\) in which the returns are a weighted average of \\(R_f\\) and \\(R_p\\) and the volatility is only a fraction of \\(R_p\\)’s volatility"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-combinations-graphical-interpretation",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-combinations-graphical-interpretation",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Risk-free combinations, graphical interpretation",
+    "text": "Risk-free combinations, graphical interpretation"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-3",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-free-saving-and-borrowing-3",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Risk-Free Saving and Borrowing",
+    "text": "Risk-Free Saving and Borrowing\n\nRemember that you can have short positions (“buying stocks on margin”) by:\n\nBorrowing at \\(R_f\\) to invest in a portfolio of risky assets\nInvesting all your funds + the money you borrow in the portolio \\(P\\)\n\nIf that is true, then you will have a negative weight in one asset (a short position) and a positive and &gt;1 weight in the other asset\nIf, as we’d imagine, \\(R_p&gt;R_f\\) (i.e, the return of the minimum-variance portfolio is higher than \\(R_f\\), we could proceed by:\n\nBorrowing money at \\(R_f\\)\nUsing this money to buy the minimum-variance portfolio, yielding a return of \\(R_p\\)\n\nIn practice, because your return is a weighted average of \\(R_f\\) and \\(R_p\\) and \\(R_p&gt;R_f\\), the linear combination line “extends” to the right as you are placing a higher weight on the asset with higher return"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#buying-stocks-on-margin",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#buying-stocks-on-margin",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Buying stocks on margin",
+    "text": "Buying stocks on margin"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#selecting-the-portfolio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#selecting-the-portfolio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Selecting the portfolio",
+    "text": "Selecting the portfolio\n\nAs before, is there a single portfolio in which all investors should hold? No! In practice, investors will choose among portfolios based on their specific preferences for risk and return\nBut you may have noticed something strange…the linear combination of \\(R_f\\) and \\(R_p\\) yields a sub-optimal portolio:\n\nThere are many portfolios that yield higher returns than the minimum-variance portfolio (and are also riskier)\nHowever, if we want to have a lower risk, we can simply combine them with the risk-free asset, \\(R_f\\), and the volatility of the portfolio will be only a fraction of \\(\\sigma_P\\)\n\nIn other words, we could be better off if we had done a linear combination using a portfolio that yields a better risk \\(\\times\\) return relationship!\nHow can we find such a portfolio? We need to think about the point where \\(\\small \\partial R_c/\\partial\\sigma_p\\) is the highest - in graphical terms, the portfolio with the highest slope!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#buying-stocks-on-margin-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#buying-stocks-on-margin-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Buying stocks on margin",
+    "text": "Buying stocks on margin"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#sharpe-ratio-and-the-tangent-portfolio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#sharpe-ratio-and-the-tangent-portfolio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Sharpe-ratio and the tangent portfolio",
+    "text": "Sharpe-ratio and the tangent portfolio\n\nThe ideal portfolio that we want to combine with the risk-free asset is called the tangent portfolio:\n\nIt is tangent to the efficient frontier\nBecause of that, it has the highest risk \\(\\times\\) return combination\n\nTo identify the tangent portfolio, we compute the Sharpe Ratio:\n\n\n\\[\\text{Sharpe Ratio} = \\frac{E[R_p]-R_f}{\\sigma_{R_p}}\\]\n\nIn the Sharpe Ratio measures the ratio of reward-to-volatility provided by a portfolio:\n\n\nIt indicates the amount of excess returns a portfolio provides a “risk-adjusted” format\nHigher Sharpe Ratio \\(\\rightarrow\\) better risk \\(\\times\\) return relationship"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-use-of-the-sharpe-ratio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-use-of-the-sharpe-ratio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The use of the Sharpe Ratio",
+    "text": "The use of the Sharpe Ratio\n\nWhat is the optimal portfolio to combine with the risk-free asset? The one with the highest Sharpe Ratio! This portfolio is the one where the line with the risk-free investment is tangent to the efficient frontier of risky investments. There are two important facts about it:\n\n\nThe tangent portfolio is efficient.\nOnce we include the risk-free investment, all efficient portfolios are combinations of the risk-free investment and the tangent portfolio.\n\n\nTherefore, all investors should have the tangent portfolio. All investors should combine the tangent portfolio with the risk free asset to adjust the level of risk.\nIf you ignore the risk free asset, you have several efficient portfolios (efficient frontier). But once you combine with the risk free rate, there is only one!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-efficient-portfolio-and-required-returns-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-efficient-portfolio-and-required-returns-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The Efficient Portfolio and Required Returns",
+    "text": "The Efficient Portfolio and Required Returns\n\nSuppose you hold a portfolio \\(P\\). How do you decide whether to include a new asset? In sum, you should include a new asset \\(i\\) in a portfolio if it increases the Sharpe Ratio of the resulting portfolio! Note that the new asset has the following properties:\n\nThe excess return that this asset \\(i\\) brings is \\(E[R_i] - R_f\\)\nOn the other hand, the risk that this asset \\(i\\) brings to your portfolio is \\(\\sigma_i \\times corr(R_i,R_p)\\) - see the Appendix for a detailed explanation\n\nTherefore, is the gain in excess return from investing in \\(i\\) sufficient to make up for the increase in risk? Think about this as your average grade in the university:\n\nIf you take a test and obtains a score that is higher than your average grade \\(\\rightarrow\\) your average grade will go up\nIf, on the other hand, your score is lower than your average \\(\\rightarrow\\) your average will go down\nFinally, if your score is exactly your average grade, your average grade remains unchanged"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#efficient-portfolio-and-required-returns-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#efficient-portfolio-and-required-returns-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Efficient Portfolio and Required Returns, continued",
+    "text": "Efficient Portfolio and Required Returns, continued\n\nGoing back to our portfolio: if you compute the Sharpe Ratio of \\(i\\) and \\(P\\), including \\(i\\) is beneficial if and only if:\n\n\n\\[\\underbrace{\\frac{E[R_i] - R_f}{\\sigma_{R_i} \\times corr(R_i,R_p)}}_{\\text{Sharpe Ratio of } i} &gt; \\underbrace{\\frac{E[R_p] - R_f}{\\sigma_{R_p}}}_{\\text{Sharpe Ratio of } P}\\]\n\nMoving the denominator to the right-hand side, we have:\n\n\n\n\\[E[R_i] - R_f &gt;\\sigma_{R_i} \\times corr(R_i,R_p) \\times \\frac{E[R_p] - R_f}{\\sigma_{R_p}}\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#efficient-portfolios-and-required-returns-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#efficient-portfolios-and-required-returns-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Efficient Portfolios and Required Returns, continued",
+    "text": "Efficient Portfolios and Required Returns, continued\n\\[E[R_i] - R_f &gt; \\underbrace{\\frac{\\sigma_{R_i} \\times corr(R_i,R_p)}{\\sigma_{R_p}}}_{\\beta^P_i}  \\times (E[R_p] - R_f)\\]\n\nUsing a \\(\\beta\\) notation and moving \\(R_f\\) to the right-hand-side:\n\n\n\\[\nE[R_i]  &gt;  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\n\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#efficient-portfolio-and-required-returns-continued-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#efficient-portfolio-and-required-returns-continued-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Efficient Portfolio and Required Returns, continued",
+    "text": "Efficient Portfolio and Required Returns, continued\n\nTo conclude, increasing the amount invested in \\(i\\) will increase the Sharpe Ratio of portfolio \\(P\\) if its expected return \\(E[R_i]\\) exceeds its required return given portfolio \\(P\\), defined as:\n\n\n\\[\nE[R_i]  &gt;  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\n\\]\n\nThe required return is the expected return that is necessary to compensate for the risk investment \\(i\\) will contribute to the portfolio.\n\n\nIt is is equal to the risk-free interest rate…\n…plus the risk premium of the current portfolio, P…\n… scaled by \\(i\\)’s sensitivity to \\(P\\), denoted by \\(\\beta_i^P\\)\n\n\nIf \\(i\\) expected return exceeds this required return, then adding more of it will improve the performance of the portfolio!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#efficient-port.-and-required-returns-conclusion",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#efficient-port.-and-required-returns-conclusion",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Efficient Port. and Required Returns, conclusion",
+    "text": "Efficient Port. and Required Returns, conclusion\n\nWe saw what an efficient portfolio is and how to find it in terms of the Sharpe Ratio\nBased on this notion, this equation establishes the relation between an investment’s risk and its expected return:\n\n\n\\[R_i =  R_f + \\beta_i^P  \\times (E[R_p] - R_f)\\]\n\nIt states that we can determine the appropriate risk premium for an investment based on its \\(\\beta\\) with the efficient portfolio\nIn such a way, it enables us to “price” the required returns for investing in any asset based on the amount of required returns that are needed to improve the performance of an efficient portfolio"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#practice-2",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#practice-2",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Practice",
+    "text": "Practice\n\n\n\n\n\n\n\nImportant\n\n\nPractice using the following links:\n\nMultiple-choice Questions\nNumeric Questions"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#proof---variance-of-a-sum-of-two-random-variables",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#proof---variance-of-a-sum-of-two-random-variables",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Proof - Variance of a sum of two random variables",
+    "text": "Proof - Variance of a sum of two random variables\n\n\n\n\n\n\nTheorem I: the variance of the sum of two random variables equals the sum of the variances of those random variables, plus two times their covariance:\n\n\n\\[\n\\small\n\\sigma^2(A+B) = \\sigma^2_A + \\sigma^2_B + 2\\times Cov(A,B)\n\\] Proof: variance is defined as:\n\\[\n\\small Var(X)=E[(X-E(X))]^2\n\\] Therefore, if \\(X=A+B\\), with \\(A\\) and \\(B\\) being two random variables:\n\\[\n\\small  Var(X)=Var(A+B) = E[((A+B)-E(A+B))]^2 = E[(\\underbrace{[A-E(A)]}_{\\text{First Term}}+[\\underbrace{B-E(B)}_{\\text{Second Term}}])^2] \\\\\n\\] Which is now in the form \\(\\small (A+B)^2=A^2+B^2+2AB\\). Using the fact that \\(E(\\cdot)\\) is a linear operator, we can apply it to each of the terms:\n\\[\n\\small\n= \\underbrace{E([A-E(A)]^2}_{\\sigma^2_A}+\\underbrace{E[B-E(B)]^2}_{\\sigma^2_B}+2\\times\\underbrace{E[A-E(A)][B-E(B)]}_{Cov(A,B)} = \\sigma^2_A + \\sigma^2_B + 2\\times Cov(A,B)\\\\\n\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#proof---variance-multiplied-by-a-scalar",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#proof---variance-multiplied-by-a-scalar",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Proof - Variance multiplied by a scalar",
+    "text": "Proof - Variance multiplied by a scalar\n\n\n\n\n\n\nTheorem II: The variance scales upon multiplication with a constant:\n\n\n\\[\n  \\sigma^2(\\beta \\times A ) = \\beta^2\\times \\sigma^2_A\n  \\] Proof: define the variance in terms of \\(\\beta\\) and \\(A\\):\n\\[\n\\sigma^2(\\beta\\times A)=E[\\beta\\times A-E(\\beta\\times A)]^2 \\\\\n\\] Since \\(\\beta\\) is a constant, \\(E[\\beta]=\\beta\\) and we can write:\n\\[\nE[\\beta\\times A - \\beta\\times E(A)]^2= E[\\beta\\times (A-E[A])]^2=\\beta^2\\times \\underbrace{E(A-E[A])]^2}_{\\sigma^2_A}\n\\] Therefore, whenever there is a scale constant multiplying a random variable, it scales the variance: \\(\\beta^2 \\times\\sigma^2_A\\)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#limits-to-diversification-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#limits-to-diversification-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Limits to diversification",
+    "text": "Limits to diversification\n\nHow much of the variance of a portfolio we can eliminate through diversification? To see that, assume that we hold a portfolio with equal weights \\(\\frac{1}{N}\\) to all assets\n\n\nIn the diagonal, we have \\(N\\) boxes with \\(\\dfrac{1}{N^2}\\times \\overline{Var}\\), where \\(\\overline{Var}\\) is the average variance\nOff the diagonal, we have \\(N^2-N\\) boxes with \\(\\dfrac{1}{N^2}\\times \\overline{Cov}\\), where \\(\\overline{Cov}\\) is the average covariance\n\n\nTherefere, you can rearrange terms to get:\n\n\n\\[\n\\small Var(R_p) = \\bigg(N\\times\\dfrac{1}{N^2}\\times \\overline{Var}\\bigg)+ \\bigg[(N^2-N)\\dfrac{1}{N^2}\\times \\overline{Cov}\\bigg]\\\\\n\\small = \\bigg(\\frac{1}{N} \\times \\overline{Var}\\bigg) + \\bigg[\\bigg(1-\\frac{1}{N}\\bigg) \\times \\overline{Cov}\\bigg]\n\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#limits-to-diversification-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#limits-to-diversification-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Limits to diversification, continued",
+    "text": "Limits to diversification, continued\n\nWhat happens if \\(N\\rightarrow\\infty\\)? If you look at our equation, you’ll see that only the covariance terms remain:\n\n\n\\[\n\\small \\underset{N\\rightarrow\\infty}{\\small Var(R_p)} = \\bigg(\\frac{1}{\\infty} \\times \\overline{Var}\\bigg) + \\bigg[\\bigg(1-\\frac{1}{\\infty}\\bigg) \\times \\overline{Cov}\\bigg]\\rightarrow \\overline{Cov}\n\\]"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio-with-arbitrary-weights",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio-with-arbitrary-weights",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Volatility of a large portfolio with arbitrary weights",
+    "text": "Volatility of a large portfolio with arbitrary weights\n\nWhat if we don’t have an equally-weighted portfolio? As \\(N\\) increases, you can rewrite the variance of the portfolio1 as:\n\n\n\\[\\small \\sigma^2_{R_p} = \\sum_i w_i \\times Cov(R_i,R_p)\\]\n\nThe variance of a portfolio approaches the weighted average covariance of each stock with the portfolio!\nBecause \\(\\small Cov(R_i,R_P) = \\sigma_i \\times \\sigma_p \\times Corr_{i,p}\\) you can also write it as:\n\n\n\n\\[\\sigma^2_{R_p} = \\sum_i x_i \\times \\sigma_{i} \\times \\sigma_{p} \\times Corr_{i,p}\\]\n\nSee Berk and DeMarzo (2023), pg. 409 for a detailed explanation."
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio-with-arbitrary-weights-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#volatility-of-a-large-portfolio-with-arbitrary-weights-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Volatility of a large portfolio with arbitrary weights",
+    "text": "Volatility of a large portfolio with arbitrary weights\n\nIf we divide both sides of this equation by \\(\\sigma_{p}\\), we find:\n\n\n\\[\\sigma_{p} = \\sum_i x_i \\times \\sigma_{i}  \\times Corr(R_i,R_p)\\]\n\nWhy this equation is important?\n\nIt shows the amount of risk that each security brings to portfolio\nEach asset \\(i\\) contributes to the portfolio’s volatility according to its standard deviation (\\(\\sigma_i\\)) scaled by its correlation with the portfolio"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#references",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#references",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nJegadeesh, Narasimhan, and Sheridan Titman. 1993. “Returns to Buying Winners and Selling Losers: Implications for Stock Market Efficiency.” The Journal of Finance 48 (1): 65–91. https://doi.org/10.1111/j.1540-6261.1993.tb04702.x.\n\n\nScheuch, Christoph, Stefan Voigt, and Patrick Weiss. 2023. Tidy Finance with R. Chapman & Hall/CRC. https://www.tidy-finance.org/r/.\n\n\nWickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. O’Reilly Media. https://r4ds.had.co.nz/."
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#practice",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#practice",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Practice",
+    "text": "Practice\n\n\n\n\n\n\n\nImportant\n\n\nPractice using the following links:\n\nMultiple-choice Questions\nNumeric Questions"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-an-efficient-portfolio",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Choosing an Efficient Portfolio",
+    "text": "Choosing an Efficient Portfolio\n\nAs a financial manager, one crucial job you have is to find portfolios that are not sub-optimal\n\nFor a given level of volatility, they deliver the highest possible return\nAlternatively, for a given level of return, they deliver the lowest possible volatility\n\nAn easy what to look at this is to identify the minimum variance portfolio (MVP)\n\nThis portfolio is, among all combinations, the one with the lowest volatility\nFrom there, if a given portfolio is riskier than the MVP, it needs to deliver higher returns!\nOn the other hand, if a portfolio is riskier than the MVP and deliver the same/lower returns, it can be considered inefficient\n\n\n\n\\(\\rightarrow\\) In other words: investors should look only for efficient portfolios and will choose based on his specific preferences for risk!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#analyzing-a-stocks-performance",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#analyzing-a-stocks-performance",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Analyzing a stock’s performance",
+    "text": "Analyzing a stock’s performance\n\nFrom our previous lectures, we have already been able to:\n\nEmploy methods for analyzing the performance of individual stocks over time\nCalculate the historical performance of simple combinations of assets, such as equally-weighted portfolios\n\nIn reality, however, portfolio construction is way more dynamic and complex. What if we wanted to analyze the performance of a trading strategy that has a dynamic allocation rule?\nIn this lecture, we will be working with the PerformanceAnalytics and PortfolioAnalytics packages to:\n\n\nQuantify the performance of a momentum strategy in the Brazilian financial markets\nLook at ways for optimizing portfolios based on Markowitz Mean-Variance optimization and its variations"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#momentum-in-the-stock-market",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#momentum-in-the-stock-market",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Momentum in the stock market",
+    "text": "Momentum in the stock market\nDo past returns explain future performance? Ideally, that shouldn’t be the case, but…\n\n\n\n\n\n\nDefinition\n\n\nMomentum strategies capitalize on the tendency of assets that have performed well in the past to continue performing well, and vice-versa, based on the idea that market trends persist due to behavioral biases (e.g., herding, overreaction, among others).\n\n\n\n\nPreviously documented in academic research (Jegadeesh and Titman 1993), such rationale can be applied to stocks, bonds, commodities, and currencies, etc\n\nWorks across different asset classes and time periods but subject to periodic crashes (e.g., 2009 momentum crash)\nIt is often used alongside factor models like the Fama-French-Carhart Four-Factor Model, which adds a momentum factor to the Fama-French three-factor model"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#momentum-in-the-stock-market-continue",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#momentum-in-the-stock-market-continue",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Momentum in the stock market, continue",
+    "text": "Momentum in the stock market, continue\n\nHow can we implement a momentum strategy? In short, there are some key steps in defining the strategy parameters that needed to be taken into consideration:\n\nDefine the lookback period (e.g., \\(3\\), \\(6\\), or \\(12\\) months) to measure past returns.\nRank assets based on past performance\nConstruct a portfolio that goes long on the top-performing assets and eventually short on the worst performers\nRebalance periodically (e.g., monthly or quarterly) based on a weighting criteria\nCalculate the performance metrics\n\nIn what follows, we will be looking at a step-by-step guide for implementing such strategy using Brazilian stocks through a hands-on exercise"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-performanceanalytics-package",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-performanceanalytics-package",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The PerformanceAnalytics package",
+    "text": "The PerformanceAnalytics package"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#summary-statistics-3-assets",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#summary-statistics-3-assets",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Summary Statistics, 3 assets",
+    "text": "Summary Statistics, 3 assets\n\nCodeOutput\n\n\n\nportfolio%&gt;%as.xts()%&gt;%charts.RollingPerformance()"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#chart-sharpe-over-time-3-assets",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#chart-sharpe-over-time-3-assets",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Chart Sharpe over Time, 3 assets",
+    "text": "Chart Sharpe over Time, 3 assets"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-measures-var-and-expected-shortfall-1-asset",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#risk-measures-var-and-expected-shortfall-1-asset",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Risk Measures: VaR and Expected Shortfall, 1 asset",
+    "text": "Risk Measures: VaR and Expected Shortfall, 1 asset"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#maximum-drawdown-3-assets",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#maximum-drawdown-3-assets",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Maximum Drawdown, 3 assets",
+    "text": "Maximum Drawdown, 3 assets"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#return-distribution-1-asset",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#return-distribution-1-asset",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Return Distribution, 1 asset",
+    "text": "Return Distribution, 1 asset"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#challenge-creating-reports",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#challenge-creating-reports",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Challenge: creating reports",
+    "text": "Challenge: creating reports\n\nYou work as a quantitative analyst at Axe Capital. You have been given the task of analyzing a couple of Hedge Fund strategies and assess whether they have generated true excess returns that could have been attributed to their manager’s skill:\n\nWhat is the historical performance of each strategy over time?\nWhich strategies, according to the CAPM model, have generated \\(\\alpha&gt;0\\)?\nWhich strategies, according to the Fama-French model, have generated \\(\\alpha&gt;0\\)?\n\n\n\n\n\n\n\n\nSpecific Instructions\n\n\n\nYou will be using some of the data contained in the edhec dataset - click here for a detailed explanation on the dataset.\nModel estimation should be done at the monthly level"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-1-collecting-data",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-1-collecting-data",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 1: Collecting Data",
+    "text": "Step 1: Collecting Data\n\nCodeOutput\n\n\n\nYou can use the previous tq_get() function from the tidyquant package to collect and retrieve the data from all tickers during the study period, already in tidy format for you to manipulate:\n\n\n# Define a list of Brazilian stocks (tickers)\nbr_stocks &lt;- c(\"RAIZ4.SA\", \"ITUB3.SA\", \"IRBR3.SA\", \"BBDC4.SA\", \"ABEV3.SA\", \n               \"YDUQ3.SA\", \"BBAS3.SA\", \"B3SA3.SA\", \"WEGE3.SA\", \"RADL3.SA\", \n               \"LREN3.SA\", \"BRFS3.SA\", \"CSAN3.SA\", \"HAPV3.SA\", \"SUZB3.SA\", \n               \"GRND3.SA\", \"MGLU3.SA\", \"BEEF3.SA\", \"EGIE3.SA\", \"HYPE3.SA\")\n\n# Get stock price data\nprices &lt;- tq_get(br_stocks, from = \"2018-01-01\", to = \"2024-01-01\")\n\n\n\n\n\n# A tibble: 28,773 × 8\n   symbol   date        open  high   low close   volume adjusted\n   &lt;chr&gt;    &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1 RAIZ4.SA 2021-08-05  7.48  7.60  7.18  7.24 98849900     6.38\n 2 RAIZ4.SA 2021-08-06  7.25  7.35  7.03  7.10 28799900     6.26\n 3 RAIZ4.SA 2021-08-09  7.18  7.31  7.07  7.07 14491100     6.23\n 4 RAIZ4.SA 2021-08-10  7.12  7.16  7.05  7.10  9988600     6.26\n 5 RAIZ4.SA 2021-08-11  7.13  7.14  6.80  6.87 31978000     6.06\n 6 RAIZ4.SA 2021-08-12  6.97  6.98  6.75  6.96 17054100     6.14\n 7 RAIZ4.SA 2021-08-13  6.98  7.04  6.86  7.01 21141500     6.18\n 8 RAIZ4.SA 2021-08-16  6.97  7.12  6.78  7.02 13434600     6.19\n 9 RAIZ4.SA 2021-08-17  6.93  6.99  6.76  6.82 17772000     6.01\n10 RAIZ4.SA 2021-08-18  6.83  7     6.72  6.81  8841700     6.01\n# ℹ 28,763 more rows"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-2-historical-returns",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-2-historical-returns",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 2: Historical Returns",
+    "text": "Step 2: Historical Returns"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-3-trading-signals",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-3-trading-signals",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 3: Trading Signals",
+    "text": "Step 3: Trading Signals"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-4-reweighting",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-4-reweighting",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 4: Reweighting",
+    "text": "Step 4: Reweighting"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-5-portfolio-performance",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-5-portfolio-performance",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 5: Portfolio Performance",
+    "text": "Step 5: Portfolio Performance"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-2-define-the-trading-signals",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-2-define-the-trading-signals",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 2: Define the Trading Signals",
+    "text": "Step 2: Define the Trading Signals\n\nAfter collecting the data, we need to make sure that our momentum strategy accurately creates the trading signals and use them at an appropriate timestamp:\n\nWe use the lag() function to calculate, for each symbol, the adjusted trading price back in \\(\\small 60\\) days\nAfter that, we calculate the returns - in this case, we will be using log-returns\nWith the 3-month returns properly calculated, we rank stocks in each date from highest-to-lowest returns, keeping only the five highest returns for each given date\nFinally, we create a new date column that stores the week where we will be evaluating the returns from investing in the top 5 stocks"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-3-compute-returns",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-3-compute-returns",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 3: Compute Returns",
+    "text": "Step 3: Compute Returns\n\nCodeOutput\n\n\n\n# Compute monthly returns\nreturns &lt;- prices%&gt;%\n  group_by(symbol)%&gt;%\n  tq_transmute(select = adjusted,\n               mutate_fun = monthlyReturn,\n               col_rename = 'monthly_return')%&gt;%\n  mutate(date = floor_date(date, \"month\"))%&gt;%\n  select(symbol, date, monthly_return)\n\n\n\n\n\n# A tibble: 10 × 3\n# Groups:   symbol [1]\n   symbol   date       monthly_return\n   &lt;chr&gt;    &lt;date&gt;              &lt;dbl&gt;\n 1 RAIZ4.SA 2021-08-01      -0.0193  \n 2 RAIZ4.SA 2021-09-01       0       \n 3 RAIZ4.SA 2021-10-01      -0.0429  \n 4 RAIZ4.SA 2021-11-01      -0.195   \n 5 RAIZ4.SA 2021-12-01       0.181   \n 6 RAIZ4.SA 2022-01-01      -0.000853\n 7 RAIZ4.SA 2022-02-01      -0.111   \n 8 RAIZ4.SA 2022-03-01       0.231   \n 9 RAIZ4.SA 2022-04-01      -0.0146  \n10 RAIZ4.SA 2022-05-01      -0.112"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-4-portfolio-performance",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-4-portfolio-performance",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 4: Portfolio Performance",
+    "text": "Step 4: Portfolio Performance\n\nFinally, it is time to find out how did your strategy perform over time\n\nFor that, you will match returns to ranks for each symbol and date combination\nBecause we want to make sure that we are only looking at the specific breakpoint dates for the trading strategy, we use the inner_join() function\n\nWith that, we are able to collect, for each beginning-of-month, what was the return from the strategy up to that point!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#maximizer-function",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#maximizer-function",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Maximizer Function",
+    "text": "Maximizer Function\n\n\nCode\n# Objective function to maximize Sharpe Ratio\nmomentum_strategy &lt;- function(params) {\n  lookback &lt;- round(params[1])  # Ensure integer\n  holding &lt;- round(params[2])\n  top_n &lt;- round(params[3])\n  \n  if (lookback &lt; 30 | holding &lt; 1 | top_n &lt; 2) return(-Inf)  # Prevent invalid params\n  \n  # Compute momentum rankings\n  ranks &lt;- prices%&gt;%\n    group_by(symbol)%&gt;%\n    arrange(symbol, date)%&gt;%\n    mutate(lagged_price = lag(adjusted, lookback))%&gt;%\n    mutate(momentum_return = log(adjusted / lagged_price))%&gt;%\n    drop_na()%&gt;%\n    ungroup()%&gt;%\n    mutate(rank_date = floor_date(date, \"month\"))%&gt;%\n    group_by(rank_date)%&gt;%\n    mutate(rank = rank(desc(momentum_return)))%&gt;%\n    filter(rank &lt;= top_n)%&gt;%\n    mutate(date = rank_date %m+% months(holding))%&gt;%  # Apply ranking next month\n    select(symbol, date, rank)\n  \n  # Compute monthly returns\n  returns &lt;- prices%&gt;%\n    group_by(symbol)%&gt;%\n    tq_transmute(select = adjusted,\n                 mutate_fun = monthlyReturn,\n                 col_rename = 'monthly_return')%&gt;%\n    mutate(date = floor_date(date, \"month\"))%&gt;%\n    select(symbol, date, monthly_return)\n  \n  # Merge ranking with next period's returns\n  strategy &lt;- inner_join(returns, ranks, by = c(\"symbol\", \"date\"))%&gt;%\n    arrange(date, rank)\n  \n  # Compute portfolio returns\n  portfolio &lt;- strategy%&gt;%\n    group_by(date)%&gt;%\n    summarize(portfolio_return = mean(monthly_return, na.rm = TRUE))\n  \n  # Compute Sharpe ratio\n  avg_return &lt;- mean(portfolio$portfolio_return, na.rm = TRUE)\n  sd_return &lt;- sd(portfolio$portfolio_return, na.rm = TRUE)\n  sharpe &lt;- avg_return / sd_return\n  \n  \n  # Store results for each combination\n  optimization_results &lt;&lt;- rbind(optimization_results, \n                                 data.frame(lookback = lookback,\n                                            holding = holding,\n                                            top_n = top_n,\n                                            sharpe_ratio = sharpe))\n  \n  return(-sharpe)  # Minimize negative Sharpe\n}"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#run-optimization",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#run-optimization",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Run Optimization",
+    "text": "Run Optimization\n\nCodeOutput\n\n\n\noptimization_results=data.frame()\n\n# Run optimization\nset.seed(123)\nopt_result &lt;- DEoptim(\n  momentum_strategy,\n  lower = c(30, 1, 1),  # Min values for lookback, holding, top_n\n  upper = c(90, 5, 5), # Max values\n  DEoptim.control(itermax = 50)  # Number of iterations\n)\n\n# Print optimal parameters\nopt_params &lt;- opt_result$optim$bestmem\ncat(\"Optimal lookback:\", round(opt_params[1]), \"\\n\")\ncat(\"Optimal holding:\", round(opt_params[2]), \"\\n\")\ncat(\"Optimal top_n:\", round(opt_params[3]), \"\\n\")\n\n\n\n\n\nOptimal lookback: 69 \n\n\nOptimal holding: 3 \n\n\nOptimal top_n: 1"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#output-results",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#output-results",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Output Results",
+    "text": "Output Results\n\nCodeOutput\n\n\n\n# Create a heatmap of Sharpe ratios\nggplot(optimization_results, aes(x = factor(lookback), y = factor(top_n), fill = sharpe_ratio)) +\n  geom_tile() +\n  scale_fill_gradient(low = \"blue\", high = \"red\") +\n  labs(x = \"Lookback Period (Days)\", \n       y = \"Top N Stocks\", \n       fill = \"Sharpe Ratio\") +\n  theme_minimal() +\n  ggtitle(\"Heatmap of Sharpe Ratios by Lookback Period and Top N Stocks\")"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-efficient-portfolios",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#choosing-efficient-portfolios",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Choosing Efficient Portfolios",
+    "text": "Choosing Efficient Portfolios\n\nNow that we understood how to analyze the performance of single stocks, let’s turn our attention to determine how an investor can analyze a portfolio of assets!\nLet’s start of with the simplest case: create a portfolio with two stocks, Amazon and Ferrari. Previously, we’ve shown that, for the analysis period, we had the following results in terms of risk and return:\n\n\n\n\n\n\n\n\nLet’s create \\(5\\) different portfolios using \\(\\pm20\\%\\) of allocation weights in each asset"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-2-define-the-trading-signals-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-2-define-the-trading-signals-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 2: Define the Trading Signals",
+    "text": "Step 2: Define the Trading Signals\n\nCodeOutput\n\n\n\n# Create the rankings\nranks &lt;- prices%&gt;%\n  #Select relevant columns\n  select(symbol, date, adjusted)%&gt;%\n  #Rename price for conciseness\n  rename(price = adjusted)%&gt;%\n  #Group by symbol\n  group_by(symbol)%&gt;%\n  #Reorder by symbol and dat\n  arrange(symbol, date)%&gt;%\n  #Get the price from the last 60th trading day (roughly a 3-month lag)\n  mutate(lagged_price = lag(price, 60))%&gt;%  \n  mutate(momentum_return = log(price/lagged_price))%&gt;% #Using continuously compounded returns\n  drop_na()%&gt;% #Remove any NAs\n  group_by(year(date),month(date),symbol)%&gt;%\n  slice_head(n=1)%&gt;%\n  mutate(rank_date = floor_date(date, \"month\"))%&gt;% # Set the date where we will apply the momentum strategy \n  group_by(rank_date)%&gt;%\n  mutate(rank = rank(desc(momentum_return)))%&gt;%\n  filter(rank &lt;= 5)%&gt;% #Get only the top 5 stocks in terms of momentum\n  mutate(date = rank_date + months(1))%&gt;% # Apply ranking next month\n  ungroup()%&gt;%\n  select(rank,date,symbol)\n\n\n\n\n\n# A tibble: 10 × 3\n    rank date       symbol  \n   &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;   \n 1     1 2018-04-01 SUZB3.SA\n 2     2 2018-04-01 BBAS3.SA\n 3     3 2018-04-01 IRBR3.SA\n 4     4 2018-04-01 MGLU3.SA\n 5     5 2018-04-01 ITUB3.SA\n 6     1 2018-05-01 SUZB3.SA\n 7     2 2018-05-01 MGLU3.SA\n 8     3 2018-05-01 IRBR3.SA\n 9     4 2018-05-01 ITUB3.SA\n10     5 2018-05-01 BBAS3.SA"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-4-portfolio-performance-1",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-4-portfolio-performance-1",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Step 4: Portfolio Performance",
+    "text": "Step 4: Portfolio Performance\n\nCodeOutput\n\n\n\n# Merge momentum ranking with next month’s returns\nstrategy_LO &lt;- inner_join(returns, ranks, by = c(\"symbol\", \"date\"))%&gt;%\n  arrange(date, rank)%&gt;%\n  group_by(date)%&gt;%\n  summarize(portfolio_return = mean(monthly_return, na.rm = TRUE))\n\n# Compute cumulative returns\nstrategy_LO%&gt;%\n  mutate(cumulative_return = cumprod(1 + portfolio_return) - 1)%&gt;%\n# Plot results\nggplot(aes(x = date, y = cumulative_return)) +\n    geom_line(color = \"blue\",size=2) +\n    geom_hline(yintercept=0,linetype='dashed')+\n    labs(title = \"Long-biased Momentum Portfolio Performance\",\n         subtitle = 'Selecting the top 5 stocks in terms of past returns, lookback period of 60 trading days, and monthly rebalancing',\n         y = \"Cumulative Returns\",\n         x = '')+\n    #Scales\n    scale_y_continuous(labels = percent,breaks=seq(-0.5,1.5,0.1))+\n    scale_x_date(date_breaks = '3 months')+\n    #Custom 'TidyQuant' theme\n    theme_minimal()+\n    #Adding further customizations\n    theme(legend.position='none',\n          axis.title = element_text(face='bold',size=15),\n          axis.text = element_text(size=10),\n          axis.text.x = element_text(angle=90),\n          plot.title = element_text(size=20,face='bold'),\n          plot.subtitle  = element_text(size=15))"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#assessing-portfolio-performance",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#assessing-portfolio-performance",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Assessing portfolio performance",
+    "text": "Assessing portfolio performance\n\nThere is so much you can do with the PerformanceAnalytics package - convert your newly created strategy_* objects into an .xts object by calling portfolio%&gt;%as.xts() and experiment using these pre-built functions for assessing historical performance:\n\ncharts.RollingPerformance()\ncharts.PerformanceSummary()\nchart.Histogram()\ntable.AnnualizedReturns()\n\nPlay around with changing the parameters of the strategy and document the effects of such changes!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#going-long-and-short",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#going-long-and-short",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Going long and short",
+    "text": "Going long and short\n\nOur previous momentum strategy was defined as a long-biased strategy: we only selected the top 5 stocks in terms of past returns and built a long position\nA potential risk in this strategy is that, even if those performed well in the past, there is a downward trend in the market\nWe can add a little bit more complexity to our momentum based strategy by allowing long and short positions at the same time:\n\nCalculate the rolling 3-month returns as before\nSelect the top and worst performing firms in each period\nBuild a long position on the top firms, and a short position in the worst firms\nRecalculate metrics\n\nIn what follows, we will do small tweaks in our ranking definition so as to employ a long-short momentum strategy"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#redefine-the-trading-signals",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#redefine-the-trading-signals",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "(Re)define the Trading Signals",
+    "text": "(Re)define the Trading Signals\n\nCodeOutput\n\n\n\n# Create the rankings\nranks &lt;- prices%&gt;%\n  #Select relevant columns\n  select(symbol, date, adjusted)%&gt;%\n  #Rename price for conciseness\n  rename(price = adjusted)%&gt;%\n  #Group by symbol\n  group_by(symbol)%&gt;%\n  #Reorder by symbol and dat\n  arrange(symbol, date)%&gt;%\n  #Get the price from the last 60th trading day (roughly a 3-month lag)\n  mutate(lagged_price = lag(price, 60))%&gt;%  \n  mutate(momentum_return = log(price/lagged_price))%&gt;% #Using continuously compounded returns\n  drop_na()%&gt;% #Remove any NAs\n  group_by(year(date),month(date),symbol)%&gt;%\n  slice_head(n=1)%&gt;%\n  mutate(rank_date = floor_date(date, \"month\"))%&gt;% # Set the date where we will apply the momentum strategy \n  group_by(rank_date)%&gt;%\n  mutate(rank = rank(desc(momentum_return)))%&gt;%\n  filter(rank %in% c(1:5,15:20))%&gt;% #Get only the top 5 stocks in terms of momentum\n  mutate(date = rank_date + months(1))%&gt;% # Apply ranking next month\n  ungroup()%&gt;%\n  select(symbol, date, rank)\n\n\n\n\n\n# A tibble: 10 × 3\n   symbol   date        rank\n   &lt;chr&gt;    &lt;date&gt;     &lt;dbl&gt;\n 1 SUZB3.SA 2018-04-01     1\n 2 BBAS3.SA 2018-04-01     2\n 3 IRBR3.SA 2018-04-01     3\n 4 MGLU3.SA 2018-04-01     4\n 5 ITUB3.SA 2018-04-01     5\n 6 WEGE3.SA 2018-04-01    15\n 7 RADL3.SA 2018-04-01    16\n 8 BEEF3.SA 2018-04-01    17\n 9 BRFS3.SA 2018-04-01    18\n10 SUZB3.SA 2018-05-01     1"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#setting-up-a-long-and-short-momentum-strategy",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#setting-up-a-long-and-short-momentum-strategy",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Setting up a long and short momentum strategy",
+    "text": "Setting up a long and short momentum strategy\n\nCodeOutput\n\n\n\nstrategy_LS &lt;- inner_join(returns, ranks, by = c(\"symbol\", \"date\"))%&gt;%\n  arrange(date, rank)%&gt;%\n  mutate(monthly_return=ifelse(rank&gt;=15,-1*monthly_return,monthly_return))%&gt;%\n  group_by(date)%&gt;%\n  summarize(portfolio_return = mean(monthly_return, na.rm = TRUE))\n\n# Compute cumulative returns\nstrategy_LS%&gt;%\n  mutate(cumulative_return = cumprod(1 + portfolio_return) - 1)%&gt;%\n# Plot results\n  ggplot(aes(x = date, y = cumulative_return)) +\n    geom_line(color = \"red\",size=2) +\n    geom_hline(yintercept=0,linetype='dashed')+\n    labs(title = \"Long-Short Momentum Portfolio Performance\",\n         subtitle = 'Selecting the top/worst 5 stocks in terms of past returns, lookback period of 60 trading days, and monthly rebalancing',\n         y = \"Cumulative Returns\",\n         x = '')+\n    #Scales\n    scale_y_continuous(labels = percent,breaks=seq(-0.5,1.5,0.1))+\n    scale_x_date(date_breaks = '3 months')+\n    #Custom 'TidyQuant' theme\n    theme_minimal()+\n    #Adding further customizations\n    theme(legend.position='none',\n          axis.title = element_text(face='bold',size=15),\n          axis.text = element_text(size=10),\n          axis.text.x = element_text(angle=90),\n          plot.title = element_text(size=20,face='bold'),\n          plot.subtitle  = element_text(size=15))"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#putting-all-together",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#putting-all-together",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Putting all together",
+    "text": "Putting all together\n\nCodeOutput\n\n\n\nchart_strategy_LO=strategy_LO%&gt;%mutate(Type='Long-biased')\nchart_strategy_LS=strategy_LS%&gt;%mutate(Type='Long-Short')\n\nchart_strategy_LO%&gt;%\n  rbind(chart_strategy_LS)%&gt;%\n  group_by(Type)%&gt;%\n  # Compute cumulative returns\n  mutate(cumulative_return = cumprod(1 + portfolio_return) - 1)%&gt;%\n# Plot results\n  ggplot(aes(x = date, y = cumulative_return,group=Type,col=Type)) +\n    geom_line(size=2) +\n    geom_hline(yintercept=0,linetype='dashed')+\n    labs(title = \"Momentum Strategies\",\n         subtitle = 'Both long-biased and long-short strategies.',\n         y = \"Cumulative Returns\",\n         x = '')+\n    #Scales\n    scale_y_continuous(labels = percent,breaks=seq(-0.5,1.5,0.1))+\n    scale_x_date(date_breaks = '3 months')+\n    #Custom 'TidyQuant' theme\n    theme_minimal()+\n    #Adding further customizations\n    theme(legend.position='bottom',\n          axis.title = element_text(face='bold',size=15),\n          axis.text = element_text(size=10),\n          axis.text.x = element_text(angle=90),\n          plot.title = element_text(size=20,face='bold'),\n          plot.subtitle  = element_text(size=15))"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#momentum-in-the-stock-market-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#momentum-in-the-stock-market-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "Momentum in the stock market, continued",
+    "text": "Momentum in the stock market, continued\n\nHow can we implement a momentum strategy? In short, there are some key steps in defining the strategy parameters that needed to be taken into consideration:\n\nDefine the lookback period (e.g., \\(3\\), \\(6\\), or \\(12\\) months) to measure past returns.\nRank assets based on past performance\nConstruct a portfolio that goes long on the top-performing assets and eventually short on the worst performers\nRebalance periodically (e.g., monthly or quarterly) based on a weighting criteria\nCalculate the performance metrics\n\nIn what follows, we will be looking at a step-by-step guide for implementing such strategy using Brazilian stocks through a hands-on exercise"
   }
 ]

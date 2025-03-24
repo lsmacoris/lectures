@@ -471,7 +471,7 @@ highchart(type = "stock")%>%
 
 $\rightarrow$ *Click [here](https://brindexes.shinyapps.io/backtester-app/) for an application that simulates a momentum-based strategy for U.S. stocks*
 
--   All in all, these three factors (*Size*, *Book-to-Market*, and *Momentun*) are widely famous as the three [Fama-French factors]{.blue}
+-   All in all, these three factors (*Size*, *Book-to-Market*, and *Momentum*) are widely famous as the three [Fama-French factors]{.blue}
 
 ## What if $\alpha$ is consistently different from zero?
 
@@ -658,18 +658,14 @@ $$
 
 ## Practice
 
-::: callout-important
-
-:::{.nonincremental}
-
+:::: callout-important
+::: nonincremental
 Practice using the following links:
 
 1.  [Multiple-choice Questions](https://henriquemartins.net/teaching/financial_strategy/p5tf.html){preview-link="true"}
 2.  [Numeric Questions](https://henriquemartins.net/teaching/financial_strategy/p5num.html){preview-link="true"}
-
 :::
-:::
-
+::::
 
 ::: callout-tip
 ### Supplementary Material: an interview with Eugene Fama
@@ -677,7 +673,6 @@ Practice using the following links:
 Eugene Fama is widely known for his "Efficient Markets Hypothesis". But what does it mean in practice? Do we really believe in efficient markets? Click [here](https://www.ft.com/content/ec06fe06-6150-4f39-8175-37b9b61a5520) for an interview with Eugene Fama - access via *Financial Times*.
 
 $\rightarrow$ *All FGV-EAESP students are entitled to a [Financial Times](www.ft.com) subscription at no cost.*
-
 :::
 
 ## References
