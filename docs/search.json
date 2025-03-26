@@ -10763,7 +10763,7 @@
     "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-2-define-the-trading-signals-1",
     "title": "Building, Backtesting, and Evaluating Investment Strategies",
     "section": "Step 2: Define the Trading Signals",
-    "text": "Step 2: Define the Trading Signals\n\nCodeOutput\n\n\n\n# Create the rankings\nranks &lt;- prices%&gt;%\n  #Select relevant columns\n  select(symbol, date, adjusted)%&gt;%\n  #Rename price for conciseness\n  rename(price = adjusted)%&gt;%\n  #Group by symbol\n  group_by(symbol)%&gt;%\n  #Reorder by symbol and dat\n  arrange(symbol, date)%&gt;%\n  #Get the price from the last 60th trading day (roughly a 3-month lag)\n  mutate(lagged_price = lag(price, 60))%&gt;%  \n  mutate(momentum_return = log(price/lagged_price))%&gt;% #Using continuously compounded returns\n  drop_na()%&gt;% #Remove any NAs\n  group_by(year(date),month(date),symbol)%&gt;%\n  slice_head(n=1)%&gt;%\n  mutate(rank_date = floor_date(date, \"month\"))%&gt;% # Set the date where we will apply the momentum strategy \n  group_by(rank_date)%&gt;%\n  mutate(rank = rank(desc(momentum_return)))%&gt;%\n  filter(rank &lt;= 5)%&gt;% #Get only the top 5 stocks in terms of momentum\n  mutate(date = rank_date + months(1))%&gt;% # Apply ranking next month\n  ungroup()%&gt;%\n  select(rank,date,symbol)\n\n\n\n\n\n# A tibble: 10 × 3\n    rank date       symbol  \n   &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;   \n 1     1 2018-04-01 SUZB3.SA\n 2     2 2018-04-01 BBAS3.SA\n 3     3 2018-04-01 IRBR3.SA\n 4     4 2018-04-01 MGLU3.SA\n 5     5 2018-04-01 ITUB3.SA\n 6     1 2018-05-01 SUZB3.SA\n 7     2 2018-05-01 MGLU3.SA\n 8     3 2018-05-01 IRBR3.SA\n 9     4 2018-05-01 ITUB3.SA\n10     5 2018-05-01 BBAS3.SA"
+    "text": "Step 2: Define the Trading Signals\n\nCodeOutput\n\n\n\n# Create the rankings\nranks &lt;- prices%&gt;%\n  #Select relevant columns\n  select(symbol, date, adjusted)%&gt;%\n  #Rename price for conciseness\n  rename(price = adjusted)%&gt;%\n  #Group by symbol\n  group_by(symbol)%&gt;%\n  #Reorder by symbol and dat\n  arrange(symbol, date)%&gt;%\n  #Get the price from the last 60th trading day (roughly a 3-month lag)\n  mutate(lagged_price = lag(price, 60))%&gt;%  \n  mutate(momentum_return = log(price/lagged_price))%&gt;% #Using continuously compounded returns\n  drop_na()%&gt;% #Remove any NAs\n  group_by(year(date),month(date),symbol)%&gt;%\n  slice_head(n=1)%&gt;%\n  mutate(rank_date = floor_date(date, \"month\"))%&gt;% # Set the date where we will apply the momentum strategy \n  group_by(rank_date)%&gt;%\n  mutate(rank = rank(desc(momentum_return)))%&gt;%\n  filter(rank &lt;= 5)%&gt;% #Get only the top 5 stocks in terms of momentum\n  mutate(date = rank_date + months(1))%&gt;% # Apply ranking next month\n  ungroup()%&gt;%\n  select(rank,date,symbol)\n\n\n\n\n\n# A tibble: 10 × 3\n    rank date       symbol  \n   &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;   \n 1     1 2018-04-01 SUZB3.SA\n 2     2 2018-04-01 IRBR3.SA\n 3     3 2018-04-01 BBAS3.SA\n 4     4 2018-04-01 MGLU3.SA\n 5     5 2018-04-01 ITUB3.SA\n 6     1 2018-05-01 SUZB3.SA\n 7     2 2018-05-01 IRBR3.SA\n 8     3 2018-05-01 MGLU3.SA\n 9     4 2018-05-01 BBAS3.SA\n10     5 2018-05-01 ITUB3.SA"
   },
   {
     "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#step-4-portfolio-performance-1",
@@ -10791,7 +10791,7 @@
     "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#redefine-the-trading-signals",
     "title": "Building, Backtesting, and Evaluating Investment Strategies",
     "section": "(Re)define the Trading Signals",
-    "text": "(Re)define the Trading Signals\n\nCodeOutput\n\n\n\n# Create the rankings\nranks &lt;- prices%&gt;%\n  #Select relevant columns\n  select(symbol, date, adjusted)%&gt;%\n  #Rename price for conciseness\n  rename(price = adjusted)%&gt;%\n  #Group by symbol\n  group_by(symbol)%&gt;%\n  #Reorder by symbol and dat\n  arrange(symbol, date)%&gt;%\n  #Get the price from the last 60th trading day (roughly a 3-month lag)\n  mutate(lagged_price = lag(price, 60))%&gt;%  \n  mutate(momentum_return = log(price/lagged_price))%&gt;% #Using continuously compounded returns\n  drop_na()%&gt;% #Remove any NAs\n  group_by(year(date),month(date),symbol)%&gt;%\n  slice_head(n=1)%&gt;%\n  mutate(rank_date = floor_date(date, \"month\"))%&gt;% # Set the date where we will apply the momentum strategy \n  group_by(rank_date)%&gt;%\n  mutate(rank = rank(desc(momentum_return)))%&gt;%\n  filter(rank %in% c(1:5,15:20))%&gt;% #Get only the top 5 stocks in terms of momentum\n  mutate(date = rank_date + months(1))%&gt;% # Apply ranking next month\n  ungroup()%&gt;%\n  select(symbol, date, rank)\n\n\n\n\n\n# A tibble: 10 × 3\n   symbol   date        rank\n   &lt;chr&gt;    &lt;date&gt;     &lt;dbl&gt;\n 1 SUZB3.SA 2018-04-01     1\n 2 BBAS3.SA 2018-04-01     2\n 3 IRBR3.SA 2018-04-01     3\n 4 MGLU3.SA 2018-04-01     4\n 5 ITUB3.SA 2018-04-01     5\n 6 WEGE3.SA 2018-04-01    15\n 7 RADL3.SA 2018-04-01    16\n 8 BEEF3.SA 2018-04-01    17\n 9 BRFS3.SA 2018-04-01    18\n10 SUZB3.SA 2018-05-01     1"
+    "text": "(Re)define the Trading Signals\n\nCodeOutput\n\n\n\n# Create the rankings\nranks &lt;- prices%&gt;%\n  #Select relevant columns\n  select(symbol, date, adjusted)%&gt;%\n  #Rename price for conciseness\n  rename(price = adjusted)%&gt;%\n  #Group by symbol\n  group_by(symbol)%&gt;%\n  #Reorder by symbol and dat\n  arrange(symbol, date)%&gt;%\n  #Get the price from the last 60th trading day (roughly a 3-month lag)\n  mutate(lagged_price = lag(price, 60))%&gt;%  \n  mutate(momentum_return = log(price/lagged_price))%&gt;% #Using continuously compounded returns\n  drop_na()%&gt;% #Remove any NAs\n  group_by(year(date),month(date),symbol)%&gt;%\n  slice_head(n=1)%&gt;%\n  mutate(rank_date = floor_date(date, \"month\"))%&gt;% # Set the date where we will apply the momentum strategy \n  group_by(rank_date)%&gt;%\n  mutate(rank = rank(desc(momentum_return)))%&gt;%\n  filter(rank %in% c(1:5,15:20))%&gt;% #Get only the top 5 stocks in terms of momentum\n  mutate(date = rank_date + months(1))%&gt;% # Apply ranking next month\n  ungroup()%&gt;%\n  select(symbol, date, rank)\n\n\n\n\n\n# A tibble: 10 × 3\n   symbol   date        rank\n   &lt;chr&gt;    &lt;date&gt;     &lt;dbl&gt;\n 1 SUZB3.SA 2018-04-01     1\n 2 IRBR3.SA 2018-04-01     2\n 3 BBAS3.SA 2018-04-01     3\n 4 MGLU3.SA 2018-04-01     4\n 5 ITUB3.SA 2018-04-01     5\n 6 WEGE3.SA 2018-04-01    15\n 7 RADL3.SA 2018-04-01    16\n 8 BEEF3.SA 2018-04-01    17\n 9 BRFS3.SA 2018-04-01    18\n10 SUZB3.SA 2018-05-01     1"
   },
   {
     "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#setting-up-a-long-and-short-momentum-strategy",
@@ -10813,5 +10813,677 @@
     "title": "Building, Backtesting, and Evaluating Investment Strategies",
     "section": "Momentum in the stock market, continued",
     "text": "Momentum in the stock market, continued\n\nHow can we implement a momentum strategy? In short, there are some key steps in defining the strategy parameters that needed to be taken into consideration:\n\nDefine the lookback period (e.g., \\(3\\), \\(6\\), or \\(12\\) months) to measure past returns.\nRank assets based on past performance\nConstruct a portfolio that goes long on the top-performing assets and eventually short on the worst performers\nRebalance periodically (e.g., monthly or quarterly) based on a weighting criteria\nCalculate the performance metrics\n\nIn what follows, we will be looking at a step-by-step guide for implementing such strategy using Brazilian stocks through a hands-on exercise"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#introduction-to-corporate-finance",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#introduction-to-corporate-finance",
+    "title": "Introduction to Corporate Finance",
+    "section": "Introduction to Corporate Finance",
+    "text": "Introduction to Corporate Finance\nWhat is a Corporation, anyway? Think about any business opportunity, like opening a small pizza vendor facility…\n\nOn the one hand, there is an endless variety of real assets needed to carry on such business\nOn the other hand, these assets simply do not come for free – there has to be some way to acquire them!\n\n\nBroadly speaking, these are:\n\nInvestment Decisions \\(\\rightarrow\\) acquisition of real assets - e.g, oven, machinery, powerplant\nFinancing Decisions: \\(\\rightarrow\\) sale of financial assets - bank financing, equity\n\nNot surprisingly, these decisions are intertwinned:\n\nWhile Investment decisions define what is the set of assets to be organized…\nFinancing decisions define how these assets will be acquired!"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#examples-of-investment-and-financing-decisions",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#examples-of-investment-and-financing-decisions",
+    "title": "Introduction to Corporate Finance",
+    "section": "Examples of Investment and Financing Decisions",
+    "text": "Examples of Investment and Financing Decisions"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#investment-decisions",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#investment-decisions",
+    "title": "Introduction to Corporate Finance",
+    "section": "Investment Decisions",
+    "text": "Investment Decisions\n\nInvestment decisions are generally thought of as a capital investment made today to generate returns in the future\nThe extent to when these returns are expected to happen depends on the specific investment\nExamples of Investment decisions:\n\n\nResearch and Development (R&D) on creating/optimizing new products/services\nMachinery, Property, Pland, and Equipment\nOpening new stores\nAcquiring an operation from a company\nExpanding trade credit to leverage sales\nStock up warehouses with inventory during high seasonality"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#financing-decisions",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#financing-decisions",
+    "title": "Introduction to Corporate Finance",
+    "section": "Financing Decisions",
+    "text": "Financing Decisions\n\nAfter you decide on what to invest: how are you going to fund it?\nOverall, a firm can raise money by two ways:\n\nA firm can borrow money from a lender \\(\\rightarrow\\) firm receives the money, but now has a promise to pay back the debt plus interest\nAlternatively, the firm can raise money from the shareholders \\(\\rightarrow\\) equity financing\n\nThe choice between the amount of equity vs is often referred to Capital Structure decisions\nWithin each type of financing, there are specific decisions that increase the complexity:\n\n\nWould the firm be better-off by having a 1-year or 20-year financing? Should it include collateral or not? Fixed or variable interest rate?\nFor equity financing, should the firm issue new equity or reinvest profits into its operations?\n\n\nQuestion: between investment and financing, which one is the most important?"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#managing-investment-and-financing-decisions",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#managing-investment-and-financing-decisions",
+    "title": "Introduction to Corporate Finance",
+    "section": "Managing investment and financing decisions",
+    "text": "Managing investment and financing decisions\n\nWe saw that any business opportunity must be accompained by an investment and a financing decision\nManaging these decisions is a hard task, especially if you have to conduct the front-end of the business altogether\nTo this point, there has to be someone to organize these flows on behalf of the firm…\n\n\n\n\n\nInvestment and Financing Decisions (BMA?)"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-role-of-the-financial-manager",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-role-of-the-financial-manager",
+    "title": "Introduction to Corporate Finance",
+    "section": "The role of the Financial Manager",
+    "text": "The role of the Financial Manager\n\n\n\n\nInvestment and Financing Decisions (BMA?)\n\n\n\nA Financial Manager1 stands between the firm and outside investors:\n\nOn the one hand, it helps managing the firm’s operations, particularly by helping to make good investment decisions\nOn the other hand, it deals with investors such as shareholders and financial institutions\n\n\n\nFollowing (BMA?), we use this term to refer to anyone (or a group of people) responsible for an investment or financing decision."
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-investment-trade-off",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-investment-trade-off",
+    "title": "Introduction to Corporate Finance",
+    "section": "The Investment Trade-off",
+    "text": "The Investment Trade-off\n\n\n\n\nInvestment and Financing Decisions (BMA?)\n\n\n\nSuppose that firm has a proposed investment project (a real asset) and has cash on hand to finance the project\nThe Financial Manager has to decide whether to invest in the project:\n\nIf investing, cash goes to fund the project\nIf not investing, the firm can then pay out the cash to shareholders as an extra-dividend"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-investment-trade-off-continued",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-investment-trade-off-continued",
+    "title": "Introduction to Corporate Finance",
+    "section": "The Investment Trade-off, continued",
+    "text": "The Investment Trade-off, continued\n\nAssume that this financial manager acts on behalf of the shareholder’s interests. What do they want the financial manager to do?\nThe answer depends on the project’s rate of return:\n\nIf the return offered by project is higher than what the shareholders can get elsewhere investing on their own \\(\\rightarrow\\) shareholders would be better off with the project\nIf it offers a return rate that is lower than what the shareholders can achieve on their own \\(\\rightarrow\\) shareholders would be better off by having the cash on their hands\n\nThis decision is tied to an important concept called the opportunity cost of capital:\n\nWhenever a corporation invests in a project, its shareholders lose the opportunity to invest the cash on their own\nCorporations increase value by accepting all investment projects that earn more than the opportunity cost of capital."
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#ibovespa-and-interest-rate-dynamics",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#ibovespa-and-interest-rate-dynamics",
+    "title": "Introduction to Corporate Finance",
+    "section": "Ibovespa and interest rate dynamics",
+    "text": "Ibovespa and interest rate dynamics"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#how-to-take-actions-on-behalf-of-the-shareholders",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#how-to-take-actions-on-behalf-of-the-shareholders",
+    "title": "Introduction to Corporate Finance",
+    "section": "How to take actions on behalf of the shareholders",
+    "text": "How to take actions on behalf of the shareholders\n\nShareholders differ in several dimensions:\n\nAge\nTastes\nConsumption Patterns\nWealth\nRisk Aversion\nInvestment Horizon\n\n\n\nQuestion: which criteria should the Financial Manager use to take investment and financing decisions?\n\nFortunately, there is a widely accepted criteria: maximize the current market value of shareholders’ investment!"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#shareholder-value-maximization",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#shareholder-value-maximization",
+    "title": "Introduction to Corporate Finance",
+    "section": "Shareholder Value Maximization",
+    "text": "Shareholder Value Maximization\n\nMaximizing shareholder wealth is a sensible goal when the they have access to well-functioning financial markets:\n\nFinancial markets allow them to share risks and transport savings across time\nIt also gives them the flexibility to manage their own savings and investment plans\n\nWhy it works like this? Assume that the Financial Manager acts on behalf of the stockholders of the firm. A plausible assumption is that:\n\n\nShareholders want to be as rich as possible…\nAnd transform such wealth into his/her specific consumption pattern via borrowing/lending\nFinally, shareholders need to manage the risk of his/her chosen consumption pattern\n\n\nNote that points 2 and 3 can be done by the shareholder\nHow then can the financial manager help the firm’s stockholders? Increasing their wealth!"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-separation-of-ownership-and-control",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-separation-of-ownership-and-control",
+    "title": "Introduction to Corporate Finance",
+    "section": "The separation of ownership and control",
+    "text": "The separation of ownership and control\n\nWhen we introduced the figure of the Financial Manager and the existence of financial markets, we implicitly discussed the separation of ownership and control\nIn other words, the shareholders of the firm cannot fully control what the managers do\nIs this a problem? Up to now, we are assuming that the Financial Manager should look after the interests of the shareholders\nAlthough this separation is necessary, there are reasons to think that managers could pursue their own objectives:\n\n\nMaximize their bonuses\nPass attractive, but risky projects to increase job safety\nOverinvest to show hard work\nTake on too much risk as the downside will be ultimately borne out by the shareholders"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-agency-problem",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-agency-problem",
+    "title": "Introduction to Corporate Finance",
+    "section": "The Agency Problem",
+    "text": "The Agency Problem\n\n\n\n\n\n\n\nDefinition\n\n\nThe Agency Problem is a coordination issue present in corporate decisions. Between the manager and the shareholders of the firm:\n\nThe manager (or the agent) does not have incentives to maximize shareholder value; and\nShareholders (the principals) need to incur in monitoring costs to constrain value-destroying decisions\n\n\nThat sets up the stage for Corporate Governance: the design of actions that aims to align the interests of the different stakeholders of the firm and reduce Agency Costs\n\n\n\n\n\n\n\nExamples of internally enforced Corporate Governance mechanisms:\n\n\n\n\n\nThe creation of a Board of Directors\nCompensation plans based on metrics that are tied to maximizing shareholder value (stock options, restricted stock units, variable compensation, etc)\nVoluntary adoption of Corporate Governance principles, such as ESG practices"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-agency-problem-continued",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#the-agency-problem-continued",
+    "title": "Introduction to Corporate Finance",
+    "section": "The Agency Problem, continued",
+    "text": "The Agency Problem, continued\n\n\n\n\n\n\n\nDefinition\n\n\nThe Agency Problem is a coordination issue present in corporate decisions. Between the manager and the shareholders of the firm:\n\nThe manager (or the agent) does not have incentives to maximize shareholder value; and\nShareholders (the principals) need to incur in monitoring costs to constrain value-destroying decisions\n\n\nThat sets up the stage for Corporate Governance: the design of actions that aims to align the interests of the different stakeholders of the firm and reduce Agency Costs\n\n\n\n\n\n\n\nExamples of externally enforced Corporate Governance mechanisms:\n\n\n\n\n\nLegal and regulatory requirements - SEC (U.S), Comissão de Valores Mobiliários (CVM) (Brazil)\nHostile Takeovers and Market Monitoring\nShareholder Pressure, also called the “Wall Street walk”"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#supplementary-reading",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#supplementary-reading",
+    "title": "Introduction to Corporate Finance",
+    "section": "Supplementary Reading",
+    "text": "Supplementary Reading\n\nAfter-class reading (available on e-Class):\n\nCarbon Credit Markets\nWhat Every Leader Needs to Know About Carbon Credits\n\n\n\nMiscellaneous (social media, video content, etc):\n\nBarbarians at the Gate: movie from 1993 describing some corporate governance conflicts in the 80’s - link\nSucession: series reflecting a troublesome family business intertwined with a series of corporate governance scandals - link"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#references",
+    "href": "quant-mkt/Lecture 1 - Introduction to Corporate Finance/index.html#references",
+    "title": "Introduction to Corporate Finance",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#a-brief-introduction",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#a-brief-introduction",
+    "title": "Introduction to Corporate Finance",
+    "section": "A brief introduction",
+    "text": "A brief introduction\n\nBackground\n\n\nUndegraduate + Master’s in Finance and Economics @ University of São Paulo (USP)\nPh.D. in Economics (2023) @ INSPER - Institute of Education and Research\n\n\nAcademic Affiliations\n\n\nJan/24 - actual: Assistant Professor @ Getulio Vargas Foundation (FGV-EAESP), São Paulo, BR\n\n\nPrivate Affiliations\n\n\nDec/21 - actual: Consultant and Data Scientist @ Circana"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#how-to-use-these-slides",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#how-to-use-these-slides",
+    "title": "Introduction to Corporate Finance",
+    "section": "How to use these slides",
+    "text": "How to use these slides\n\nThese slides leverage Quarto, an open-source scientific and technical publishing system from Posit (formerly RStudio):\n\nCreate dynamic content with Python, R, Julia, and Observable\nPublish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more\nWrite using Pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.\n\nFor our course, we’ll use the following notation:\n\n\nLink will be colored in dark-orange\nInline equations and variables will be rendered in gray\nCode chunks will be provided along with outputs (R and Python)"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#an-example-of-a-code-chunk",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#an-example-of-a-code-chunk",
+    "title": "Introduction to Corporate Finance",
+    "section": "An example of a code chunk",
+    "text": "An example of a code chunk\n\nResultPythonR\n\n\n\n\n\n\n\n\nNote\n\n\nUse Show the Code code tabsets to display the code. You can use the {{&lt; bi clipboard &gt;}} buttom at the top-right to copy it to your session.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Generating data\nnp.random.seed(0)\ndat = pd.DataFrame({\n    'cond': np.repeat(['A', 'B'], 10),\n    'xvar': np.arange(1, 21) + np.random.normal(0, 3, 20),\n    'yvar': np.arange(1, 21) + np.random.normal(0, 3, 20)\n})\n\n# Plotting\nsns.set(style=\"whitegrid\")  # Set plot style\nplt.figure(figsize=(8, 6))  # Set figure size\nsns.scatterplot(data=dat, x='xvar', y='yvar', hue='cond', marker='o')  # Scatter plot\nsns.regplot(data=dat, x='xvar', y='yvar', scatter=False)  # Regression line\nplt.show()\n\n\n\n\n\n\nShow the code\nlibrary(ggplot2)\ndat &lt;- data.frame(cond = rep(c(\"A\", \"B\"), each=10),\n                  xvar = 1:20 + rnorm(20,sd=3),\n                  yvar = 1:20 + rnorm(20,sd=3))\n\nggplot(dat, aes(x=xvar, y=yvar)) +\n  geom_point(shape=1) + \n  geom_smooth()"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#course-outline",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#course-outline",
+    "title": "Introduction to Corporate Finance",
+    "section": "Course Outline",
+    "text": "Course Outline\n\nWe’ll cover the first section of course, which contemplates choice models:\n\nBinary Response Models: Logit/Probit\nMulti-choice Models: Multinomial Logit\nEconomic Implications of multi-choice models\nMarket-basket Analysis\n\nWe’ll keep a hands-on approach to be best of our capabilities, with handout exercises (code + analysis) and focus on practical applications\nEvaluation (first section) will consist of:\n\nCode coursework (DataCamp)\nHandout Exercise (deadline TBD)\n\nYou can download a notebook covering this first lecture using this link and the dataset using here"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#references",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#references",
+    "title": "Introduction to Corporate Finance",
+    "section": "References",
+    "text": "References\n\nOur first section of the Marketing Analytics course will focus on the main applications from a practical standpoint\n\n\nFor a detailed discussion on the methodological approaches undertaken thoughout the lectures, we’ll follow:\n\n\n\nDiscrete Choice Methods with Simulation - Train (2009)\nEconometric Analysis - Greene (2011)\nEconometrics - Hayashi (2000)\n\n\n\nFor a broader discussion around the practical applications on Marketing, we’ll follow Chapman and Feit (2015)"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#discrete-choice-models",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#discrete-choice-models",
+    "title": "Introduction to Corporate Finance",
+    "section": "Discrete Choice Models",
+    "text": "Discrete Choice Models\n\nMarketing practitioners are often concerned about consumers decisions around a defined set of choices:\n\nConsumers choose between a binary decision of buy/not buy, given product, consumer, and environmental characteristics\nFaced with a defined set of products, make a decision around which products to buy\nAfter experiencing a flow of consumption from a product or service up to time \\(t\\), decide whether to continue consumption at \\(t+1\\) or churn\n\nEliciting knowledge about individual choices shed light on consumer preferences and help marketers to understand how consumers value certain product attributes\nAggregating individual choices helps marketers understand how the demand curve for a given product or industry works"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#binary-choice-models",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#binary-choice-models",
+    "title": "Introduction to Corporate Finance",
+    "section": "Binary Choice Models",
+    "text": "Binary Choice Models\n\nMotivation: among a defined set of two mutually exclusive alternatives, consumers make a decision by choosing one alternative in spite of the other:\n\n\n\\[\n\\small\nY_i=\\begin{cases}\n            1, & \\text{if $Y_i$ = a predefined alternative}\\\\\n            0, & \\text{otherwise}\n         \\end{cases}\n\\]\n\nThese models implicitly tell about consumer’s preferences regarding several consumption decisions. Say that we know that a set \\(X\\) of characteristics (which may be consumer-specific, environmental, or product) affect \\(i\\)’s decision. We can then model such decision by:\n\n\n\n\\[\n\\small Y_i=f(X_i)\n\\]\n\nOur starting point will be to define what \\(f(X)\\) should look like. Depending on the shape of this function, the interpretation becomes a probabilistic measurement"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#binary-choice-models---application",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#binary-choice-models---application",
+    "title": "Introduction to Corporate Finance",
+    "section": "Binary Choice Models - Application",
+    "text": "Binary Choice Models - Application\n\nOne of the most widely applicable areas of binary choice modeling refers to churn modeling: the the percentage of customers who discontinue their use of a business’s products or services over a certain time period\nThis concept is important for businesses because it affects their revenue and offers insights into customer satisfaction and loyalty:\n\nA high churn rate may suggest there are issues with the product, service, or overall customer experience\nA low churn rate may suggest the existence of customer loyalty, high switching costs, or valuable attributes from the offer\n\nChurn modeling offers valuable insights to marketers as it is possible to derive actions ex-ante its occurrence and prevent customers from churning\nThis issue becomes more relevant when customer acquisition costs increase"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#practical-application-outline",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#practical-application-outline",
+    "title": "Introduction to Corporate Finance",
+    "section": "Practical Application Outline",
+    "text": "Practical Application Outline\n\nYou will use a bank Customer Relationship Manager (CRM) data set comprising of 10,000 bank customers and its actual engagement status (whether or not he/she has churned)\nThis data set will be primarily based on this Kaggle notebook, although some adaptations have been made for teaching purposes"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#before-we-start-tech-setup",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#before-we-start-tech-setup",
+    "title": "Introduction to Corporate Finance",
+    "section": "Before we start: tech-setup",
+    "text": "Before we start: tech-setup\n\nWe’ll be running code both in Python and R. All results will be shown in the first tabset, with their corresponding R and Python versions in the subsequent tabsets.\nBefore you start, ensure you have installed all the necessary packages:\n\n\nI’ve included all R packages in the R-dependencies.txt. Use the following code to install each package:\n\n\n\n#Require\npackages=read.delim('Assets/r-requirements.txt',header = FALSE)[,1]\n\n#Require\nlapply(packages,require,character.only=TRUE)\n\n\nFor Python libraries, use the terminal to install and then import all packages inside a notebook\n\n\n\n\npip install requirements.txt"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#quick-outline-of-the-dataset",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#quick-outline-of-the-dataset",
+    "title": "Introduction to Corporate Finance",
+    "section": "Quick outline of the dataset",
+    "text": "Quick outline of the dataset"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#variable-descriptives",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#variable-descriptives",
+    "title": "Introduction to Corporate Finance",
+    "section": "Variable Descriptives",
+    "text": "Variable Descriptives\n\nTo begin our investigation, let’s do a simple variable description of the variables that we have in our dataset:\n\n\n\nResultRPython\n\n\n\n\n'data.frame':   10000 obs. of  12 variables:\n $ customer_id     : int  15634602 15647311 15619304 15701354 15737888 15574012 15592531 15656148 15792365 15592389 ...\n $ credit_score    : int  619 608 502 699 850 645 822 376 501 684 ...\n $ country         : chr  \"France\" \"Spain\" \"France\" \"France\" ...\n $ gender          : chr  \"Female\" \"Female\" \"Female\" \"Female\" ...\n $ age             : int  42 41 42 39 43 44 50 29 44 27 ...\n $ tenure          : int  2 1 8 1 2 8 7 4 4 2 ...\n $ balance         : num  0 83.8 159.7 0 125.5 ...\n $ products_number : int  1 1 3 2 1 2 2 4 2 1 ...\n $ credit_card     : int  1 0 1 0 1 1 1 1 0 1 ...\n $ active_member   : int  1 1 0 0 1 0 1 0 1 1 ...\n $ estimated_salary: num  101.3 112.5 113.9 93.8 79.1 ...\n $ churn           : int  1 0 1 0 0 1 0 1 0 0 ...\n\n\n\n\n\n\nShow the code\nData=read.csv('Assets/bank-dataset.csv')\nData%&gt;%str()\n\n\n\n\n\n\nShow the code\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Print the structure of the DataFrame\nprint(Data.describe())"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#analyzing-churn-distribution",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#analyzing-churn-distribution",
+    "title": "Introduction to Corporate Finance",
+    "section": "Analyzing churn distribution",
+    "text": "Analyzing churn distribution\n\nResultRPython\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n(Data%&gt;%\n  select(where(is.numeric))%&gt;%\n  cor())[-10,10]%&gt;%\n  as.data.frame()%&gt;%\n  rename(Correlation='.')%&gt;%\n  rownames_to_column('Variable')%&gt;%\n  mutate(Sign=ifelse(Correlation&gt;0,'Positive','Negative'))%&gt;%\n  ggplot(aes(x=Variable,y=Correlation,fill=Sign))+\n  geom_col()+\n  coord_flip()+\n  theme_minimal()+\n  scale_fill_manual(values=c(Positive='darkgreen',Negative='red'))+\n  geom_text(aes(label=round(Correlation,2),hjust=ifelse(Correlation&lt;0,0.5,-0.5)),size=5)+\n  scale_y_continuous(limits = c(-1,1))+\n  labs(title='Churn correlation across numeric variables',\n       x='',\n       y='')+\n  theme(legend.position = 'hide',\n        plot.title = element_text(size=20,face='bold'),\n        axis.text = element_text(size=15))\n\n\n\n\n\n\nShow the code\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Select numeric columns and calculate correlation\ncorrelation_df = Data.select_dtypes(include='number').corr().iloc[:-1, -1].reset_index()\n\n# Rename columns\ncorrelation_df.columns = ['Variable', 'Correlation']\n\n# Add 'Sign' column based on correlation values\ncorrelation_df['Sign'] = correlation_df['Correlation'].apply(lambda x: 'Positive' if x &gt; 0 else 'Negative')\n\n# Plotting\nplt.figure(figsize=(10, 6))\nbars = plt.barh(correlation_df['Variable'], correlation_df['Correlation'], color=[ 'darkgreen' if sign == 'Positive' else 'red' for sign in correlation_df['Sign']])\nplt.gca().invert_yaxis()\nplt.title('Churn correlation across numeric variables', fontsize=20, fontweight='bold')\nplt.xlabel('')\nplt.ylabel('')\nplt.xlim(-1, 1)\n\n# Adding annotations\nfor bar, correlation in zip(bars, correlation_df['Correlation']):\n    plt.text(bar.get_width() * (0.8 if correlation &lt; 0 else -0.8), bar.get_y() + bar.get_height() / 2, round(correlation, 2), \n             va='center', ha='center', fontsize=10)\n\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#modeling-discrete-choice-models",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#modeling-discrete-choice-models",
+    "title": "Introduction to Corporate Finance",
+    "section": "Modeling Discrete Choice Models",
+    "text": "Modeling Discrete Choice Models\n\nSay that we are interested in modeling the occurrence of churn, which is a discrete variable for each customer \\(i\\):\n\n\n\\[\nY_i=\n\\begin{cases}\n1, \\text{if the customer has churned}\\\\\n0,  \\text{if the customer is still an active client}\n\\end{cases}\n\\]\n\nIf we have a set of covariates, \\(X_i\\), then we can define the relationship:\n\n\n\n\\[\nY_i=f(X_i)\n\\]\n\nHow our \\(f(X_i)\\) should look like?\nWhat is the interpretation of the estimates that we’ll find?"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#linear-probability-models-lpm",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#linear-probability-models-lpm",
+    "title": "Introduction to Corporate Finance",
+    "section": "Linear Probability Models (LPM)",
+    "text": "Linear Probability Models (LPM)\n\nThe simplest approach that we can take is to assume that \\(Y\\) is linear on the set of characteristics \\(X\\). In other words, \\(f(X)\\) is a linear model:\n\n\n\\[\nY_i= P(Y_i=1|X_i)=\\alpha + \\beta_1x_1+\\beta_2x_2+...+\\beta_nx_n+\\varepsilon_i\n\\]\n\nWe can then use Ordinary Least Squares (OLS) to model such relationship. Because the functional form of \\(f(X)\\) is assumed to be linear, we call this a linear probability model (LPM):\nBecause the relationship between \\(Y\\) and \\(X\\) is assumed to be linear, the changes in the probability (or likelihood) of churn are linear on the parameters \\(\\beta\\). For example, for \\(x_1\\):\n\n\n\n\\[\n\\dfrac{\\partial Y}{\\partial x_1}=\\beta_1\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#is-the-lpm-a-biased-estimator",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#is-the-lpm-a-biased-estimator",
+    "title": "Introduction to Corporate Finance",
+    "section": "Is the LPM a biased estimator?",
+    "text": "Is the LPM a biased estimator?\n\nIf we believe that the OLS assumptions are valid, \\(\\beta\\) is still a consistent estimator of the population average relationship between \\(Y\\) and \\(X\\), regardless of the type of dependent:\n\n\n\\[\n\\begin{align}\n& \\beta_{OLS}=(X'X)^{-1}X'Y\\\\\n& \\beta_{OLS}=(X'X)^{-1}X'(X\\beta+\\epsilon)=\\underbrace{(X'X)^{-1}(X'X)}_{I}\\beta+(X'X)^{-1}X'\\epsilon\\\\\n& \\beta_{OLS}=\\beta + (X'X)^{-1}X'\\epsilon\n\\end{align}\n\\]\n\nIf we assume that \\(X\\perp\\epsilon\\) - i.e, no ommited variables-, we see that \\(\\beta_{OLS}\\) is an unbiased estimator of the average effect of \\(X\\) on \\(Y\\):\n\n\n\n\\[\n\\text{if } X\\perp\\epsilon \\rightarrow \\beta_{OLS}=\\beta + (X'X)^{-1}\\underbrace{X'\\epsilon}_{=0}\\rightarrow \\beta_{OLS}=\\beta\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#modeling-churn-via-lpm",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#modeling-churn-via-lpm",
+    "title": "Introduction to Corporate Finance",
+    "section": "Modeling churn via LPM",
+    "text": "Modeling churn via LPM\n\nSuppose we want to understand the determinants of customer’s churn over time. For that, we’ll consider the following variables:\n\n\n\\[\n\\text{if } X=\\begin{bmatrix} CreditScore \\\\ D(Gender) \\\\ Age \\\\ Tenure \\\\ Balance \\\\ \\#Products \\\\ D(CreditCard) \\\\ D(Active) \\\\ Salary \\end{bmatrix} \\rightarrow Y \\sim X'\\beta+\\epsilon\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#lpm-estimation",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#lpm-estimation",
+    "title": "Introduction to Corporate Finance",
+    "section": "LPM Estimation",
+    "text": "LPM Estimation\n\nResultsRPython\n\n\n\n\n\nCall:\nlm(formula = churn ~ credit_score + gender + age + tenure + balance + \n    products_number + credit_card + active_member + estimated_salary, \n    data = Data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.77456 -0.23648 -0.12527  0.02732  1.20241 \n\nCoefficients:\n                   Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)      -1.025e-01  3.387e-02  -3.027  0.00248 ** \ncredit_score     -9.264e-05  3.877e-05  -2.389  0.01690 *  \ngenderMale       -7.733e-02  7.531e-03 -10.267  &lt; 2e-16 ***\nage               1.131e-02  3.589e-04  31.505  &lt; 2e-16 ***\ntenure           -1.849e-03  1.296e-03  -1.426  0.15392    \nbalance           6.938e-04  6.306e-05  11.003  &lt; 2e-16 ***\nproducts_number  -4.262e-03  6.766e-03  -0.630  0.52873    \ncredit_card      -2.958e-03  8.222e-03  -0.360  0.71901    \nactive_member    -1.432e-01  7.532e-03 -19.016  &lt; 2e-16 ***\nestimated_salary  7.118e-05  6.516e-05   1.092  0.27474    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.3746 on 9990 degrees of freedom\nMultiple R-squared:  0.1359,    Adjusted R-squared:  0.1351 \nF-statistic: 174.6 on 9 and 9990 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n\n\nShow the code\nData=read.csv('Assets/bank-dataset.csv')\n\nReg=lm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,data = Data)\n\n\n\n\n\n\nShow the code\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Convert 'gender' into dummy variables\nData = pd.get_dummies(Data, columns=['gender'], drop_first=True)\n\n# Define independent and dependent variables\nX = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]\ny = Data['churn']\n\n# Add a constant to the independent variables matrix for the intercept\nX = sm.add_constant(X)\n\n# Fit the linear regression model\nmodel = sm.OLS(y, X.astype(float)).fit()\n\n# Print the regression summary\nprint(model.summary())"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#overall-analysis",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#overall-analysis",
+    "title": "Introduction to Corporate Finance",
+    "section": "Overall analysis",
+    "text": "Overall analysis\n\nAll else equal, an additional year increases the likelihood of churning by:\n\n\n\\[\n\\partial Y/\\partial Age=\\beta_{Age}=0.011\n\\]\n\nMoving from the \\(25^{th}\\) to the \\(75^{th}\\) percentile of age increases the likelihood by \\(\\beta_{Age}\\times IQR(Age)=0.011\\times \\beta_{Age} \\approx0.1357006\\) or 14%\n\n\nMale customers tend to churn, on average, -7.73% less than Female customers:\n\n\n\n\\[\n\\partial Y/\\partial D(genderMale)=\\beta_{genderMale}=-0.077\n\\]\n\nSimilar analyses can be made for the following continuous variables (see Code in next slide)"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#analyses",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#analyses",
+    "title": "Introduction to Corporate Finance",
+    "section": "Analyses",
+    "text": "Analyses\n\nResultRPython\n\n\n\n\n\n\n\n\nVariable\npartial_change\n\n\n\n\nactive_member\n-14.32%\n\n\nage\n13.57%\n\n\nbalance\n8.86%\n\n\ncredit_card\n-0.30%\n\n\ncredit_score\n-1.24%\n\n\nestimated_salary\n0.70%\n\n\ngenderMale\n-7.73%\n\n\nproducts_number\n-0.43%\n\n\ntenure\n-0.74%\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\ncontinuous_vars= c('credit_score','age','tenure','balance','products_number','estimated_salary')\ndummy_vars=c('genderMale','credit_card','active_member')\n\nestimates=tidy(Reg)%&gt;%select(term,estimate)%&gt;%rename(Variable=term)\n\nData%&gt;%\n    select(all_of(continuous_vars))%&gt;%\n    apply(2,IQR,na.rm=TRUE)%&gt;%\n    as.data.frame()%&gt;%\n    rownames_to_column('Variable')%&gt;%\n    rename(Change='.')%&gt;%\n  rbind(data.frame(Variable=dummy_vars,Change=1))%&gt;%\n  left_join(estimates)%&gt;%\n  group_by(Variable)%&gt;%\n  summarize(partial_change=percent(Change*estimate,accuracy=0.01))%&gt;%\n  kable()%&gt;%\n  kable_styling(bootstrap_options = 'responsive')\n\n\n\n\n\n\nShow the code\n# Define continuous and dummy variables\ncontinuous_vars = ['credit_score', 'age', 'tenure', 'balance', 'products_number', 'estimated_salary']\ndummy_vars = ['gender_Male', 'credit_card', 'active_member']\n\n# Get coefficient estimates from the model\nestimates = model.params.reset_index()\nestimates.columns = ['Variable', 'estimate']\n\n# Calculate IQR for continuous variables\niqr_values = Data[continuous_vars].apply(lambda x: x.quantile(0.75) - x.quantile(0.25), axis=0)\niqr_df = pd.DataFrame({'Variable': iqr_values.index, 'Change': iqr_values.values})\n\n# Create a DataFrame for dummy variables\ndummy_df = pd.DataFrame({'Variable': dummy_vars, 'Change': 1})\n\n# Combine continuous and dummy variable dataframes\ncombined_df = pd.concat([iqr_df, dummy_df])\n\n# Merge with coefficient estimates\nresult_df = pd.merge(combined_df, estimates, on='Variable', how='left')\n\n# Calculate partial changes\nresult_df['partial_change'] = result_df['Change'] * result_df['estimate']*100\n\n# Format the results\nresult_df['partial_change'] = result_df['partial_change'].map(lambda x: f\"{x:.2f}%\")\n\n# Print the results\nprint(tabulate(result_df[['Variable', 'partial_change']], headers='keys', tablefmt='github'))"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#limitations-of-the-lpm",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#limitations-of-the-lpm",
+    "title": "Introduction to Corporate Finance",
+    "section": "Limitations of the LPM",
+    "text": "Limitations of the LPM\n\nAlthough a consistent estimator of the average effect, the LPM has limitations when it comes to its practical implications to binary outcomes:\n\n\nChurn probabilities should lie within \\([0,1]\\), but the predicted probabilities, \\(\\hat{Y}\\), have continuous support \\((-\\infty,+\\infty)\\). When the goal is to predict outcomes, this creates probabilities that are outside of the ranges\nThere is an implicit assumption that the effects are linear, which may not hold true. Example, an increase of $1,000 in customer’s income may have significant impacts on churn likelihood when customers are from the bottom of the income distribution, but the effects should dampen as we move towards the top of the income distribution\nHeteroskedasticity\n\\(R^2\\) is not well-defined"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#limitations-of-the-lpm-1",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#limitations-of-the-lpm-1",
+    "title": "Introduction to Corporate Finance",
+    "section": "Limitations of the LPM",
+    "text": "Limitations of the LPM\n\nHeteroskedasticityPoor Fit\\(R^2\\)\n\n\n\n\nEven though we can achieve consistent estimators, we’ll have heteroskedasticity in our estimates by construction. To see that, recall that the conditional expectation of Y given X is given by:\n\n\\[\n\\small E(Y|X)=\\underbrace{[P(Y=1|X]}_{X\\beta\\times 1} + \\underbrace{[1-P(Y=1|X)]\\times 0}_{=0} = X\\beta\n\\]\n\nGiven that the variance of a Bernoulli Distribution is given by \\(p \\times (1-p)\\), then:\n\n\\[\nV(Y|X)=P(Y|X)\\times[1-P(Y|X)]=X\\beta\\times(1-X\\beta) \\text{, which clearly depends on } X\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn most linear probability models, \\(R^2\\) has no meaningful interpretation\nSince the regression line can never fit the data perfectly if the dependent variable is binary and the regressors are continuous"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#introducing-non-linear-binary-models",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#introducing-non-linear-binary-models",
+    "title": "Introduction to Corporate Finance",
+    "section": "Introducing non-linear binary models",
+    "text": "Introducing non-linear binary models\n\nRecall that the limitations of the LPM stem from the fact that \\(f(X)=X'\\beta\\). It might be that a linear relationship does not capture all aspects that a churn analysis should have!\nTo that point, we need to think about a new relationship, \\(Y=f(X)\\), that fulfills the following points:\n\n\nThe predicted outcomes, \\(\\hat{Y}\\), lie between 0 and 1\nThe effects do not need to be linear on the parameters\nIdeally, we’d want to apply a non-linear transformation in such a way that the relationship between Y and X is sigmoid (or S-shaped) curve: the changes in the predicted probability tend to go to zero as we approach the lower and upper bounds of the distribution of X\n\n\nThe most known cases are logistic regression (\\(f(x)=\\Lambda (x)\\)) and Probit (\\(f(x)=\\Phi(X)\\))"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logistic-regression",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logistic-regression",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logistic Regression",
+    "text": "Logistic Regression\n\nLike any other transformation function, the idea behind using \\(\\Lambda(X)\\) lies on the latent variable approach: think about an unobserved component, \\(Y^\\star\\), which is a continuous variable, such as how much a consumer values a product.\nAlthough we do not observe \\(Y^\\star\\), we do observe the consumer’s decision of buying or not buying the product, depending on a given threshold:\n\n\n\\[\nY=\n\\begin{cases}\n1, \\text{ if }Y^\\star&gt;0\\\\\n0, \\text{ if }Y^\\star\\leq0\\\\\n\\end{cases}\n\\]\n\nTherefore, we can see that the probability of buying depends on a latent variable, which is not observed by the econometrician:\n\n\n\n\\[\nP(Y=1|X)=P(Y^\\star&gt;0|X)=P(\\underbrace{X\\beta+\\varepsilon}_{Y^{\\star}}&gt;0|X)\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logistic-regression-continued",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logistic-regression-continued",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logistic Regression, continued",
+    "text": "Logistic Regression, continued\n\nWe can rearrange terms and find that:\n\n\n\\[\nP(Y=1|X)=P(\\underbrace{X\\beta+\\varepsilon}_{Y^{\\star}}&gt;0|X)\\rightarrow \\underbrace{P(\\varepsilon&gt;-X\\beta|X)\\equiv P(\\varepsilon&lt;X\\beta|X)}_{\\text{Under Simmetry}}\n\\]\n\nTherefore, this framework can be used to think about any cumulative density function which has the simmetry property. For the case of Logistic Regression, our transformation function that maps \\(Y^\\star\\) (how much consumer values a good) to \\(Y\\) (decision to buy or not buy) is:\n\n\n\n\\[\nf(Y^\\star)=\\Lambda(Y^\\star)=\\dfrac{\\exp(X\\beta)}{1+\\exp(X\\beta)}\n\\]\n\nEstimation is made using Maximum Likelihood estimators."
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#applying-logistic-regression",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#applying-logistic-regression",
+    "title": "Introduction to Corporate Finance",
+    "section": "Applying Logistic Regression",
+    "text": "Applying Logistic Regression\n\nResultRPython\n\n\n\n\n\nCall:\nglm(formula = churn ~ credit_score + gender + age + tenure + \n    balance + products_number + credit_card + active_member + \n    estimated_salary, family = binomial(link = \"logit\"), data = Data)\n\nCoefficients:\n                   Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)      -3.4760701  0.2414497 -14.397   &lt;2e-16 ***\ncredit_score     -0.0006521  0.0002777  -2.349   0.0188 *  \ngenderMale       -0.5429205  0.0539700 -10.060   &lt;2e-16 ***\nage               0.0728688  0.0025513  28.561   &lt;2e-16 ***\ntenure           -0.0147067  0.0092775  -1.585   0.1129    \nbalance           0.0050449  0.0004601  10.964   &lt;2e-16 ***\nproducts_number  -0.0361688  0.0463951  -0.780   0.4356    \ncredit_card      -0.0289865  0.0587461  -0.493   0.6217    \nactive_member    -1.0792900  0.0572260 -18.860   &lt;2e-16 ***\nestimated_salary  0.0004978  0.0004698   1.060   0.2893    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 10109.8  on 9999  degrees of freedom\nResidual deviance:  8706.5  on 9990  degrees of freedom\nAIC: 8726.5\n\nNumber of Fisher Scoring iterations: 5\n\n\n\n\n\n\nShow the code\nData=read.csv('Assets/bank-dataset.csv')\n\nReg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,\n        family = binomial(link = \"logit\"),\n        data = Data)\n\nsummary(Reg)\n\n\n\n\n\n\nShow the code\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Convert 'gender' into dummy variables\nData = pd.get_dummies(Data, columns=['gender'], drop_first=True)\n\n# Define independent and dependent variables\nX = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]\ny = Data['churn']\n\n# Add a constant to the independent variables matrix for the intercept\nX = sm.add_constant(X)\n\n# Fit the linear regression model\nmodel = sm.Logit(y, X.astype(float)).fit()\n\n# Print the regression summary\nprint(model.summary())"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-1-probabilities-within-the-01-interval",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-1-probabilities-within-the-01-interval",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #1: probabilities within the [0,1] interval",
+    "text": "Logit Properties #1: probabilities within the [0,1] interval\n\nOne interesting thing to note is that, due to the properties of \\(\\Lambda(\\cdot)\\), our estimated probabilities will fall within \\([0,1]\\) depending on \\(X\\):\n\n\nWhen \\(X\\rightarrow\\infty\\), the probability of buying in our example tends to 1:\n\n\n\\[\n\\Lambda(Y)=\\dfrac{\\exp(Y)}{1+\\exp(Y)}=\\dfrac{\\exp(X\\beta)}{1+\\exp(X\\beta)}\\rightarrow1\n\\]\n\nOn the other hand, when \\(X\\rightarrow -\\infty\\), the probability of buying in our example tends to 0:\n\n\n\n\\[\n\\Lambda(Y)=\\dfrac{\\exp(Y)}{1+\\exp(Y)}=\\dfrac{\\exp(X\\beta)}{1+\\exp(X\\beta)}\\rightarrow \\dfrac{0}{1}=0\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #2: the odds-ratio",
+    "text": "Logit Properties #2: the odds-ratio\n\nRecall that the logit estimation for \\(\\small P(Y|X)\\) is given by:\n\n\n\\[\n\\small\nP(Y)=\\dfrac{\\exp(X\\beta)}{1+\\exp(X\\beta)},\\text{ which we will call by } p\n\\]\n\nLooking at the inverse, \\(1/p\\), we can see that:\n\n\n\n\\[\n\\small\n\\dfrac{1}{p}=\\dfrac{1+\\exp(X\\beta)}{\\exp(X\\beta)}=1+\\dfrac{1}{\\exp{X\\beta}}\\rightarrow \\dfrac{1-p}{p}=\\dfrac{1}{\\exp{X\\beta}}\n\\]\n\nInverting and taking logs on both sides, we’ll have:\n\n\n\n\\[\n\\small \\log{\\bigg(\\dfrac{p}{1-p}}\\bigg)=X\\beta=\\alpha+\\beta_1x_1+\\beta_2x_2+...\\beta_kx_k\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio-continued",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio-continued",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #2: the odds-ratio (continued)",
+    "text": "Logit Properties #2: the odds-ratio (continued)\n\nTherefore, whenever we’re estimating a logit model, our transformation function, \\(\\Lambda(\\cdot)\\) is actually estimating \\(\\small \\dfrac{p}{1-p}\\):\n\n\n\\[\n\\small logit(p)=\\alpha+\\beta_1x_1+\\beta_2x_2+...\\beta_kx_k\n\\]\n\nThe term \\(\\small \\dfrac{p}{1-p}\\) is called odds-ratio, and is simply the ratio of the probability of success over the probability of failure\nHence, if we want to recover the impacts of any change in the odds-ratio due to our covariates, we can exponentiate our coefficients:\n\n\n\n\\[\n\\small \\text{if } \\log\\bigg(\\dfrac{p}{1-p}\\bigg)=\\alpha+\\beta_1x_1+\\beta_2x_2+...\\beta_kx_k\\rightarrow \\dfrac{p}{1-p}=\\exp(\\alpha+\\beta_1x_1+\\beta_2x_2+...\\beta_kx_k)\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio-continued-1",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio-continued-1",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #2: the odds-ratio (continued)",
+    "text": "Logit Properties #2: the odds-ratio (continued)\n\nExplanationResultRPython\n\n\n\n\nIn previous slides, we noted that the effect of Gender is \\(\\small\\beta_2=-0.54\\). Holding everything fixed, the odds-ratio between Gender=1 (Male) versus Gender=0 (Female) is given by:\n\n\\[\n\\small \\dfrac{p}{1-p}=\\exp(\\beta_2)=\\exp(-0.54)\\approx0.58\n\\]\n\nPut another way, the chances of being a churned client are \\(\\small 0.58-1=-0.42\\) or 42% less likely for men!\nSimilarly, if we look at Age (\\(\\beta_3=0.07\\)), an increase of 1 year increases the churn probability by:\n\n\\[\n\\exp(\\beta_1)=[\\exp(0.0728688)-1]\\approx 0.07 \\text{ or } 7.55\\%\n\\]\n\n\n\n\n\n\n\n\n\n\nOddsRatio\nMultiplier\nChangeOdds\n\n\n\n\n(Intercept)\n0.0309287\n1\n-96.907%\n\n\ncredit_score\n0.9993481\n100\n-6.519%\n\n\ngender\n0.5810488\n1\n-41.895%\n\n\nage\n1.0755894\n1\n7.559%\n\n\ntenure\n0.9854009\n1\n-1.460%\n\n\nbalance\n1.0050576\n10\n5.058%\n\n\nproducts_number\n0.9644775\n1\n-3.552%\n\n\ncredit_card\n0.9714295\n1\n-2.857%\n\n\nactive_member\n0.3398367\n1\n-66.016%\n\n\nestimated_salary\n1.0004980\n100\n4.980%\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nData=read.csv('Assets/bank-dataset.csv')%&gt;%mutate(gender=ifelse(gender=='Male',1,0))\n\nReg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,\n        family = binomial(link = \"logit\"),\n        data = Data)\n\ndata.frame(OddsRatio=exp(coefficients(Reg)),\n           Multiplier = c(1,100,1,1,1,10,1,1,1,100))%&gt;%\n  mutate(ChangeOdds=percent((OddsRatio-1)*Multiplier))%&gt;%\n  kable()%&gt;%\n  kable_styling(bootstrap_options = 'responsive',font_size = 10)\n\n\n\n\n\n\nShow the code\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Convert 'gender' into dummy variables\nData = pd.get_dummies(Data, columns=['gender'], drop_first=True)\n\n# Define independent and dependent variables\nX = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]\ny = Data['churn']\n\n# Add a constant to the independent variables matrix for the intercept\nX = sm.add_constant(X)\n\n# Fit the linear regression model\nmodel = sm.Logit(y, X.astype(float)).fit()\n\n# Calculate Odds Ratio and Change in Odds\nodds_ratio = pd.DataFrame({'OddsRatio': model.params.apply(lambda x: round(pow(2, x), 4)),\n                           'Multiplier': [1, 100, 1, 1, 1, 10, 1, 1, 1, 100]})\nodds_ratio['ChangeOdds'] = ((odds_ratio['OddsRatio'] - 1) * odds_ratio['Multiplier']).map(lambda x: f\"{x:.2%}\")\n\n# Display the results\nprint(odds_ratio)"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-3-different-marginal-effects",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-3-different-marginal-effects",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #3: different marginal effects",
+    "text": "Logit Properties #3: different marginal effects\n\nExplanationResultRPython\n\n\n\n\nOne of the caveats of LPM was that the marginal effect was constant, which does not make a lot of sense from a probabilistic sense\nWith Logit, the marginal effects are not equal to \\(\\beta\\) anymore. To see that, take the derivative of \\(P(Y|X)\\) with respect to \\(x_1\\):\n\n\\[\n\\dfrac{\\partial\\Lambda(X\\beta)}{\\partial x_1}=\\beta_1 \\times\\dfrac{\\partial\\Lambda(X\\beta)}{\\partial X\\beta}\n\\]\n\nAs we can see, the effects are not going to be linear anymore!\nPut another way, given different levels of X, we may have different marginal effects on the probabilities - in what follows, we’ll analyze the case of age\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nData=read.csv('Assets/bank-dataset.csv')%&gt;%mutate(gender=ifelse(gender=='Male',1,0))\n\nReg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,\n        family = binomial(link = \"logit\"),\n        data = Data)\n\n#Set all other variables to the mean\nNewData=Data%&gt;%select(-c(churn,age))%&gt;%summarize(across(where(is.numeric),mean,na.rm=TRUE))\n\n#Include ranges for credit score\nNewData=NewData%&gt;%cbind(data.frame(age=seq(0,100)))\n\n#Predict\nPredict=predict(Reg,NewData,type='response')\n\n#Plot\nNewData%&gt;%\n  cbind(Predict)%&gt;%\n  ggplot(aes(x=age,y=Predict))+\n  geom_point()+\n  labs(title = 'Marginal effects of Age on Churn probabilities',\n       x='Age',\n       y='Predicted Probabilities')+\n  theme_minimal()+\n  scale_y_continuous(labels = percent)+\n  geom_hline(yintercept = c(0,1),linetype='dashed',color='red')\n\n\n\n\n\n\nShow the code\n# Load data\ndata = pd.read_csv('Assets/bank-dataset.csv')\ndata['gender'] = np.where(data['gender'] == 'Male', 1, 0)\n\n# Fit logistic regression model\nX = data[['credit_score', 'gender', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]\nX = sm.add_constant(X)  # Add constant term for intercept\ny = data['churn']\nmodel = sm.Logit(y, X).fit()\n\n# Set all other variables to the mean\nnew_data = X.drop(columns=['age']).mean(numeric_only=True).to_frame().transpose()\nnew_data = pd.DataFrame(np.repeat(new_data.values, 100, axis=0),columns=new_data.columns)\nage_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])\n\n# Concatenate with your existing DataFrame\nconcatenated_df = pd.concat([new_data, age_df], ignore_index=True,axis=1)\nconcatenated_df.columns=[*new_data.columns,'age']\n\n# Predict\npredicted = model.predict(concatenated_df)\n\n# Plot\nplt.figure(figsize=(10, 6))\nplt.plot(concatenated_df[['age']], predicted, marker='o', linestyle='-')\nplt.title('Marginal effects of Age on Churn probabilities')\nplt.xlabel('Age')\nplt.ylabel('Predicted Probabilities')\nplt.axhline(y=0, linestyle='--', color='red')\nplt.axhline(y=1, linestyle='--', color='red')\nplt.gca().yaxis.set_major_formatter(plt.FuncFormatter('{:.0%}'.format))\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-4-different-effects-by-categorical-variables",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-4-different-effects-by-categorical-variables",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #4: different effects by categorical variables",
+    "text": "Logit Properties #4: different effects by categorical variables\n\nExplanationResultRPython\n\n\n\n\nAnother interesting use case is to re-do the same analysis before, but now varying also on categorical variables\nFor example, what is the difference in the probability of buying by men and women?\nIn order to do that, we can set all continous variables to their means and compare the estimated probabilities for gender=1 (male) and gender=0 (female)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nData=read.csv('Assets/bank-dataset.csv')%&gt;%mutate(gender=ifelse(gender=='Male',1,0))\n\nReg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,\n        family = binomial(link = \"logit\"),\n        data = Data)\n\n#Set all other variables to the mean\nNewData=Data%&gt;%select(-c(churn,gender))%&gt;%summarize(across(where(is.numeric),mean,na.rm=TRUE))\n\n#Include ranges for gender\nNewData=NewData%&gt;%cbind(data.frame(gender=c(1,0)))\n\n#Predict\nPredict=predict(Reg,NewData,type='response')\n\n#Plot\nNewData%&gt;%\n  cbind(Predict)%&gt;%\n  mutate(Sex=ifelse(gender==1,'Male','Female'))%&gt;%\n  ggplot(aes(x=Sex,y=Predict,fill=Sex))+\n  geom_col()+\n  geom_text(aes(label=percent(Predict)),size=5,position=position_stack(vjust = 0.5))+\n  labs(title = 'Marginal effects of gender on Churn probabilities',\n       x='Gender',\n       y='Predicted Probabilities')+\n  theme_minimal()+\n  scale_y_continuous(labels=percent)+\n    theme(legend.position = 'bottom',\n        axis.text = element_text(size=15),\n        plot.title = element_text(size=18,face='bold'))\n\n\n\n\n\n\nShow the code\n# Load data\ndata = pd.read_csv('Assets/bank-dataset.csv')\ndata['gender'] = np.where(data['gender'] == 'Male', 1, 0)\n\n# Fit logistic regression model\nX = data[['credit_score', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','gender']]\nX = sm.add_constant(X)  # Add constant term for intercept\ny = data['churn']\nmodel = sm.Logit(y, X).fit()\n\n# Set all other variables to the mean\nnew_data = X.drop(columns=['gender']).mean(numeric_only=True).to_frame().transpose()\nnew_data = pd.DataFrame(np.repeat(new_data.values, 2, axis=0),columns=new_data.columns)\ngender_df = pd.DataFrame(pd.Series(range(0, 2)), columns=['gender'])\n\n# Concatenate with your existing DataFrame\nconcatenated_df = pd.concat([new_data, gender_df], ignore_index=True,axis=1)\nconcatenated_df.columns=[*new_data.columns,'gender']\n\n# Predict\npredicted = model.predict(concatenated_df)\n\n# Plot\nconcatenated_df['Predict'] = predicted\nconcatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')\n\nplt.figure(figsize=(10, 300))\nplt.bar(concatenated_df['Sex'], concatenated_df['Predict'], color=concatenated_df['Sex'].map({'Male': 'blue', 'Female': 'pink'}))\nfor i, value in enumerate(concatenated_df['Predict']):\n    plt.text(i, value, f'{value:.2%}', ha='center', va='bottom', fontsize=10)\nplt.title('Marginal effects of gender on Churn probabilities')\nplt.xlabel('Gender')\nplt.ylabel('Predicted Probabilities')\nplt.xticks(fontsize=12)\nplt.yticks(fontsize=12)\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#putting-all-together",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#putting-all-together",
+    "title": "Introduction to Corporate Finance",
+    "section": "Putting all together",
+    "text": "Putting all together\n\nExplanationResultRPython\n\n\n\n\nWe saw that women tend to churn, approximately, \\(8\\) percentage points more than men\nIs this true across all levels of age? As age levels increase, the gap between men and women may become wider due to personal traits. On the other hand, it may be that gender differences are invariant to age\nIn order to do that, we can do a mix of the two last exercises:\n\n\nSet all continuous variables, with the exception of age, to their means\nCompare the estimated probabilities for gender=1 (male) and gender=0 (female)\nYou should have \\(200\\) rows in your data frame\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nData=read.csv('Assets/bank-dataset.csv')%&gt;%mutate(gender=ifelse(gender=='Male',1,0))\n\nReg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,\n        family = binomial(link = \"logit\"),\n        data = Data)\n\n#Set all other variables to the mean\nNewData=Data%&gt;%select(-c(churn,gender,age))%&gt;%summarize(across(where(is.numeric),mean,na.rm=TRUE))\n\n#Include ranges for Age and Gender\nNewData=NewData%&gt;%\n  cbind(data.frame(age=seq(1,100)))%&gt;%\n  cbind(data.frame(gender=c(rep(1,100),rep(0,100))))\n\n#Predict\nPredict=predict(Reg,NewData,type='response')\n\n#Plot\nNewData%&gt;%\n  cbind(Predict)%&gt;%\n  mutate(Sex=ifelse(gender==1,'Male','Female'))%&gt;%\n  ggplot(aes(x=age,y=Predict,fill=Sex,col=Sex))+\n  geom_point()+\n  labs(title = 'Marginal effects of gender and age on Churn probabilities',\n       x='Age',\n       y='Predicted Probabilities')+\n  theme_minimal()+\n  scale_y_continuous(labels=percent)+\n    theme(legend.position = 'bottom',\n        axis.text = element_text(size=15),\n        plot.title = element_text(size=18,face='bold'))\n\n\n\n\n\n\nShow the code\n# Load data\ndata = pd.read_csv('Assets/bank-dataset.csv')\ndata['gender'] = np.where(data['gender'] == 'Male', 1, 0)\n\n# Fit logistic regression model\nX = data[['credit_score', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','gender','age']]\nX = sm.add_constant(X)  # Add constant term for intercept\ny = data['churn']\nmodel = sm.Logit(y, X).fit()\n\n# Set all other variables to the mean\nnew_data = X.drop(columns=['gender','age']).mean(numeric_only=True).to_frame().transpose()\nnew_data = pd.DataFrame(np.repeat(new_data.values, 200, axis=0),columns=new_data.columns)\ngender_df = pd.DataFrame([*np.repeat(1,100,axis=0),*np.repeat(0,100,axis=0)], columns=['gender'])\nage_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])\nage_df =pd.concat([age_df,age_df],ignore_index=True,axis=0)\n\n# Concatenate with your existing DataFrame\nconcatenated_df = pd.concat([gender_df, age_df], ignore_index=True,axis=1)\nconcatenated_df = pd.concat([new_data,concatenated_df], ignore_index=True,axis=1)\nconcatenated_df.columns=[*new_data.columns,'gender','age']\n\n# Predict\npredicted = model.predict(concatenated_df)\n\n# Plot\nconcatenated_df['Predict'] = predicted\nconcatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')\n\nplt.figure(figsize=(10, 6))\nfor sex in concatenated_df['Sex'].unique():\n    plt.scatter(concatenated_df[concatenated_df['Sex'] == sex]['age'], concatenated_df[concatenated_df['Sex'] == sex]['Predict'],\n                label=sex, color='blue' if sex == 'Male' else 'pink')\nplt.title('Marginal effects of gender and age on Churn probabilities')\nplt.xlabel('Age')\nplt.ylabel('Predicted Probabilities')\nplt.legend()\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparison across LPM and Logit estimations",
+    "text": "Comparison across LPM and Logit estimations\n\nWe came across two estimators for binary choice models. Do they differ in terms of the responses?\nAlthough the coefficients from the different models are not directly comparable, we can use them to understand what are the partial effects:\nFor both cases, we’ll use all the other variables at their sample mean values:\n\nFor LPM, the effect will be a slope, i.e., the marginal change depending on Age will be constant\nFor Logit, the change in the predicted probability will vary depending on the Age reference point"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparing-across-lpm-and-logit-estimations---age",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparing-across-lpm-and-logit-estimations---age",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparing across LPM and Logit estimations - age",
+    "text": "Comparing across LPM and Logit estimations - age\n\nResultRPython\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n#Read the data\nData=read.csv('Assets/bank-dataset.csv')%&gt;%mutate(gender=ifelse(gender=='Male',1,0))\n\n#Linear regression\nReg=lm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,data = Data)\n\n#Set all other variables to the mean\nNewData=Data%&gt;%select(-c(churn,age))%&gt;%summarize(across(where(is.numeric),mean,na.rm=TRUE))\n\n#Include ranges for credit score\nNewData=NewData%&gt;%cbind(data.frame(age=seq(0,100)))\n\n#Predict LM\nLM_Predict=predict(Reg,NewData,type='response')\n\n#LOGIT regression\nReg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,data = Data,family=binomial(link='logit'))\n\n#Set all other variables to the mean\nNewData=Data%&gt;%select(-c(churn,age))%&gt;%summarize(across(where(is.numeric),mean,na.rm=TRUE))\n\n#Include ranges for credit score\nNewData=NewData%&gt;%cbind(data.frame(age=seq(0,100)))\n\n#Predict LM\nLOGIT_Predict=predict(Reg,NewData,type='response')\n\n#Convert into a data.frame\ndata.frame(LPM=LM_Predict,LOGIT=LOGIT_Predict)%&gt;%\n  gather(Model,Result)%&gt;%\n  cbind(Age=seq(0,100))%&gt;%\n  ggplot(aes(x=Age,y=Result,col=Model))+\n  geom_point(size=5)+\n  labs(title = 'Predicted Probabilities, varying on Age',\n       x='Age',\n       y='Predicted Probabilities')+\n  theme_minimal()+\n  scale_y_continuous(labels = percent)+\n  geom_hline(yintercept = c(0,1),linetype='dashed')+\n  geom_vline(xintercept = c(25,55),linetype='dashed')+\n    theme(legend.position = 'bottom',\n        axis.text = element_text(size=15),\n        plot.title = element_text(size=20,face='bold'))\n\n\n\n\n\n\nShow the code\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Convert 'gender' into dummy variables\nData = pd.get_dummies(Data, columns=['gender'], drop_first=True)\n\n# Define independent and dependent variables\nX = Data[['credit_score', 'gender_Male', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]\ny = Data['churn']\n\n# Add a constant to the independent variables matrix for the intercept\nX = sm.add_constant(X)\n\n# Fit the linear regression model and the logit model\nlm_model = sm.OLS(y, X.astype(float)).fit()\nlogit_model = sm.Logit(y, X.astype(float)).fit()\n\n# Set all other variables to the mean\nnew_data = X.drop(columns=['age']).mean(numeric_only=True).to_frame().transpose()\nnew_data = pd.DataFrame(np.repeat(new_data.values, 100, axis=0),columns=new_data.columns)\nage_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])\n\n# Concatenate with your existing DataFrame\nconcatenated_df = pd.concat([new_data,age_df], ignore_index=True,axis=1)\nconcatenated_df.columns=[*new_data.columns,'age']\n\n# Predict\nlm_predicted = lm_model.predict(concatenated_df)\nlogit_predicted = logit_model.predict(concatenated_df)\n\n# Plot\nplt.figure(figsize=(10, 6))\nplt.plot(age_df, lm_predicted, label='LPM', marker='o', linestyle='-')\nplt.plot(age_df, logit_predicted, label='LOGIT', marker='o', linestyle='-')\n\n# Adding labels and title\nplt.xlabel('Age')\nplt.ylabel('Predicted Probabilities')\nplt.title('Comparison of LPM and Logit')\nplt.legend()\n\n# Displaying the plot\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparison across LPM and Logit estimations (continued)",
+    "text": "Comparison across LPM and Logit estimations (continued)\n\nIn the LPM model, the effect of age is always the same – intuitively, \\(\\beta_{Age}\\), the partial derivative of Y with respect to Age, is the same for all levels\nOn the other hand, the changes when looking at the Logit model vary depending on the reference point for Age:\n\nFor values $[0,20], it increases modestly\nAround [21,60], the changes are exponential\nBetween [60,80], the changes start to become constant\nAfter 80, we see diminishing effects\n\nDo these differences matter in practice? It depends on what you’re looking…"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued-1",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued-1",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparison across LPM and Logit estimations (continued)",
+    "text": "Comparison across LPM and Logit estimations (continued)\n\nOn the one hand, we clearly the weaknesses of the LPM when estimating probabilities for ages between \\([0,20]\\).\nOn the other hand, LPM and Logit will be almost identical between \\([30,60]\\)\n\n\nIf you tabulate the distribution of Age in your dataset, you’ll see that although LPM does a poor job in predicting probabilities for cases &lt;20, the sample proportion of these cases is less than 1%\nOn the other hand, its results are approximately the same as of Logit between \\([30,60]\\), which constitutes approximately 80% of the sample\n\n\nOk, do does it matter or not? Again, it depends…"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued-2",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued-2",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparison across LPM and Logit estimations (continued)",
+    "text": "Comparison across LPM and Logit estimations (continued)\n\nLogit or LPM?\n\n\nIf your interest is to use the model results to predict probabilities for different age brackets, then yes, you should use Logit (or any model with the similar properties)\nIf, on the other hand, you’re just interest in knowing the effects for the average person in your sample, you can use LPM\n\n\nLPM is simpler, and we know very well the properties to analyze cases potential issues such as ommited variable bias\nIn the Logit world, there is no \\(R^2\\), but there are other ways to check the predictive ability and fit of models"
+  },
+  {
+    "objectID": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#references-1",
+    "href": "quant-mkt/Lecture 1 - Choice Models and Its Applications/index.html#references-1",
+    "title": "Introduction to Corporate Finance",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nChapman, Chris, and Elea Mcdonnell Feit. 2015. R for Marketing Research and Analytics. Cham: Springer International Publishing.\n\n\nGreene, William H. 2011. Econometric Analysis. 7th ed. Upper Saddle River, NJ: Pearson.\n\n\nHayashi, Fumio. 2000. Econometrics. Princeton, NJ: Princeton University Press.\n\n\nTrain, Kenneth E. 2009. Discrete Choice Methods with Simulation. 2nd ed. Cambridge, England: Cambridge University Press."
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#a-brief-introduction",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#a-brief-introduction",
+    "title": "Introduction to Corporate Finance",
+    "section": "A brief introduction",
+    "text": "A brief introduction\n\nBackground\n\n\nUndegraduate + Master’s in Finance and Economics @ University of São Paulo (USP)\nPh.D. in Economics (2023) @ INSPER - Institute of Education and Research\n\n\nAcademic Affiliations\n\n\nJan/24 - actual: Assistant Professor @ Getulio Vargas Foundation (FGV-EAESP), São Paulo, BR\n\n\nPrivate Affiliations\n\n\nDec/21 - actual: Consultant and Data Scientist @ Circana"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#how-to-use-these-slides",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#how-to-use-these-slides",
+    "title": "Introduction to Corporate Finance",
+    "section": "How to use these slides",
+    "text": "How to use these slides\n\nThese slides leverage Quarto, an open-source scientific and technical publishing system from Posit (formerly RStudio):\n\nCreate dynamic content with Python, R, Julia, and Observable\nPublish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more\nWrite using Pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.\n\nFor our course, we’ll use the following notation:\n\n\nLink will be colored in dark-orange\nInline equations and variables will be rendered in gray\nCode chunks will be provided along with outputs (in Python)"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#an-example-of-a-code-chunk",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#an-example-of-a-code-chunk",
+    "title": "Introduction to Corporate Finance",
+    "section": "An example of a code chunk",
+    "text": "An example of a code chunk\n\nResultPython\n\n\n\n\n\n\n\n\nNote\n\n\nUse Show the Code code tabsets to display the code. You can use the {{&lt; bi clipboard &gt;}} buttom at the top-right to copy it to your session.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport statsmodels.api as sm\nimport tabulate\nfrom mizani.breaks import *\nfrom mizani.formatters import *\n\n# Generating data\nnp.random.seed(0)\ndat = pd.DataFrame({\n    'cond': np.repeat(['A', 'B'], 10),\n    'xvar': np.arange(1, 21) + np.random.normal(0, 3, 20),\n    'yvar': np.arange(1, 21) + np.random.normal(0, 3, 20)\n})\n\n# Plotting\nsns.set(style=\"whitegrid\")  # Set plot style\nplt.figure(figsize=(8, 6))  # Set figure size\nsns.scatterplot(data=dat, x='xvar', y='yvar', hue='cond', marker='o')  # Scatter plot\nsns.regplot(data=dat, x='xvar', y='yvar', scatter=False)  # Regression line\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#course-outline",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#course-outline",
+    "title": "Introduction to Corporate Finance",
+    "section": "Course Outline",
+    "text": "Course Outline\n\nWe’ll cover the first section of course, which contemplates choice models:\n\nBinary Response Models: Logit/Probit\nMulti-choice Models: Multinomial Logit\nEconomic Implications of multi-choice models\nMarket-basket Analysis\n\nWe’ll keep a hands-on approach to be best of our capabilities, with handout exercises (code + analysis) and focus on practical applications\nEvaluation (first section) will consist of:\n\nCode coursework (DataCamp)\nHandout Exercise (deadline TBD)\n\nYou can download a notebook covering this first lecture using this link and the dataset using here"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#references",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#references",
+    "title": "Introduction to Corporate Finance",
+    "section": "References",
+    "text": "References\n\nOur first section of the Marketing Analytics course will focus on the main applications from a practical standpoint\n\n\nFor a detailed discussion on the methodological approaches undertaken thoughout the lectures, we’ll follow:\n\n\nDiscrete Choice Methods with Simulation - Train (2009)\nEconometric Analysis - Greene (2011)\nEconometrics - Hayashi (2000)\n\n\nFor a broader discussion around the practical applications on Marketing, we’ll follow Chapman and Feit (2015)"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#discrete-choice-models",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#discrete-choice-models",
+    "title": "Introduction to Corporate Finance",
+    "section": "Discrete Choice Models",
+    "text": "Discrete Choice Models\n\nMarketing practitioners are often concerned about consumers decisions around a defined set of choices:\n\nConsumers choose between a binary decision of buy/not buy, given product, consumer, and environmental characteristics\nFaced with a defined set of products, make a decision around which products to buy\nAfter experiencing a flow of consumption from a product or service up to time \\(t\\), decide whether to continue consumption at \\(t+1\\) or churn\n\nEliciting knowledge about individual choices shed light on consumer preferences and help marketers to understand how consumers value certain product attributes\nAggregating individual choices helps marketers understand how the demand curve for a given product or industry works"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#binary-choice-models",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#binary-choice-models",
+    "title": "Introduction to Corporate Finance",
+    "section": "Binary Choice Models",
+    "text": "Binary Choice Models\n\nMotivation: among a defined set of two mutually exclusive alternatives, consumers make a decision by choosing one alternative in spite of the other:\n\n\n\\[\n\\small\nY_i=\\begin{cases}\n            1, & \\text{if $Y_i$ = a predefined alternative}\\\\\n            0, & \\text{otherwise}\n         \\end{cases}\n\\]\n\nThese models implicitly tell about consumer’s preferences regarding several consumption decisions. Say that we know that a set \\(X\\) of characteristics (which may be consumer-specific, environmental, or product) affect \\(i\\)’s decision. We can then model such decision by:\n\n\n\n\\[\n\\small Y_i=f(X_i)\n\\]\n\nOur starting point will be to define what \\(f(X)\\) should look like. Depending on the shape of this function, the interpretation becomes a probabilistic measurement"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#binary-choice-models---application",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#binary-choice-models---application",
+    "title": "Introduction to Corporate Finance",
+    "section": "Binary Choice Models - Application",
+    "text": "Binary Choice Models - Application\n\nOne of the most widely applicable areas of binary choice modeling refers to churn modeling: the the percentage of customers who discontinue their use of a business’s products or services over a certain time period\nThis concept is important for businesses because it affects their revenue and offers insights into customer satisfaction and loyalty:\n\nA high churn rate may suggest there are issues with the product, service, or overall customer experience\nA low churn rate may suggest the existence of customer loyalty, high switching costs, or valuable attributes from the offer\n\nChurn modeling offers valuable insights to marketers as it is possible to derive actions ex-ante its occurrence and prevent customers from churning\nThis issue becomes more relevant when customer acquisition costs increase"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#practical-application-outline",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#practical-application-outline",
+    "title": "Introduction to Corporate Finance",
+    "section": "Practical Application Outline",
+    "text": "Practical Application Outline\n\nYou will use a bank Customer Relationship Manager (CRM) data set comprising of 10,000 bank customers and its actual engagement status (whether or not he/she has churned)\nThis data set will be primarily based on this Kaggle notebook, although some adaptations have been made for teaching purposes"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#before-we-start-tech-setup",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#before-we-start-tech-setup",
+    "title": "Introduction to Corporate Finance",
+    "section": "Before we start: tech-setup",
+    "text": "Before we start: tech-setup\n\nWe’ll be running code both using Python All outputs will be shown in the first tabset, with their corresponding code in the subsequent tabsets.\nBefore you start, ensure you have installed all the necessary packages: to install all necessary Python libraries, use the terminal to install and then import all packages inside a notebook:\n\n\n\npip install requirements.txt"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#a-quick-outline-of-the-dataset",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#a-quick-outline-of-the-dataset",
+    "title": "Introduction to Corporate Finance",
+    "section": "A quick outline of the dataset",
+    "text": "A quick outline of the dataset"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#variable-descriptives",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#variable-descriptives",
+    "title": "Introduction to Corporate Finance",
+    "section": "Variable Descriptives",
+    "text": "Variable Descriptives\n\nTo begin our investigation, let’s do a simple variable description of the variables that we have in our dataset:\n\n\n\nResultPython\n\n\n\n\n\n\n\n\n\n\nSummary Statistics\n\n\n\ncredit_score\nage\ntenure\nbalance\nproducts_number\ncredit_card\nactive_member\nestimated_salary\nchurn\n\n\n\n\ncount\n10,000\n10,000\n10,000\n$10,000\n10,000.00\n10,000.00\n10,000.00\n$10,000\n10,000.00\n\n\nmean\n651\n39\n5\n$76\n1.53\n0.71\n0.52\n$100\n0.20\n\n\nstd\n97\n10\n3\n$62\n0.58\n0.46\n0.50\n$58\n0.40\n\n\nmin\n350\n18\n0\n$0\n1.00\n0.00\n0.00\n$0\n0.00\n\n\n25%\n584\n32\n3\n$0\n1.00\n0.00\n0.00\n$51\n0.00\n\n\n50%\n652\n37\n5\n$97\n1.00\n1.00\n1.00\n$100\n0.00\n\n\n75%\n718\n44\n7\n$128\n2.00\n1.00\n1.00\n$149\n0.00\n\n\nmax\n850\n92\n10\n$251\n4.00\n1.00\n1.00\n$200\n1.00\n\n\n\n\n\n\n        \n\n\n\n\n\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\nSummary = Data.drop(axis=1,labels='customer_id').describe().reset_index()\n\n# Print the structure of the DataFrame\nTable = (\n  GT(Summary)\n  .cols_align('center')\n  .tab_header(title=md(\"**Summary Statistics**\"))\n  .tab_stub('index')\n  .fmt_number(columns=['credit_score','age','tenure'],decimals = 0)\n  .fmt_number(columns=['products_number','credit_card','active_member','churn'],decimals = 2)\n  .fmt_currency(columns=['balance','estimated_salary'],decimals=0)\n  .opt_stylize(style=1,color='red')\n)\n\n#Output\nTable"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#analyzing-churn-distribution",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#analyzing-churn-distribution",
+    "title": "Introduction to Corporate Finance",
+    "section": "Analyzing churn distribution",
+    "text": "Analyzing churn distribution\n\nResultPython\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# Select numeric columns and calculate correlation with churn\ncorrelation_df = (\n  Data\n  .select_dtypes(include='number')\n  .corr()\n  .iloc[:-1, -1]\n  .reset_index()\n)\n\n# Rename columns\ncorrelation_df.columns = ['Variable', 'Correlation']\n\n# Add 'Sign' column based on correlation values\ncorrelation_df['Sign'] = correlation_df['Correlation'].apply(lambda x: 'Positive' if x &gt; 0 else 'Negative')\n\n#Chart\nplot = (\n  ggplot(correlation_df, aes(x='Variable', y='Correlation', fill='Sign'))+\n  geom_col()+\n  geom_text(aes(label=correlation_df['Correlation'].round(2)),size=10, color='black',position=position_stack(vjust=0.5))+  # Add annotations\n  scale_fill_manual(values=['red','green'])+\n  coord_flip()+\n  labs(title='Churn correlation across numeric variables')+\n  theme_minimal()+\n  theme(\n      legend_position='bottom',\n      title=element_text(size=20, weight='bold'),\n      axis_title_x=element_blank(),\n      axis_title_y=element_blank())\n  )\n\n#Display Output\nplot.show()"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#modeling-discrete-choice-models",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#modeling-discrete-choice-models",
+    "title": "Introduction to Corporate Finance",
+    "section": "Modeling Discrete Choice Models",
+    "text": "Modeling Discrete Choice Models\n\nSay that we are interested in modeling the occurrence of churn, which is a discrete variable for each customer \\(i\\):\n\n\n\\[\nY_i=\n\\begin{cases}\n1, \\text{if the customer has churned}\\\\\n0,  \\text{if the customer is still an active client}\n\\end{cases}\n\\]\n\nIf we have a set of covariates, \\(X_i\\), then we can define the relationship:\n\n\n\n\\[\nY_i=f(X_i)\n\\]\n\nHow our \\(f(X_i)\\) should look like?\nWhat is the interpretation of the estimates that we’ll find?"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#linear-probability-models-lpm",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#linear-probability-models-lpm",
+    "title": "Introduction to Corporate Finance",
+    "section": "Linear Probability Models (LPM)",
+    "text": "Linear Probability Models (LPM)\n\nThe simplest approach that we can take is to assume that \\(Y\\) is linear on the set of characteristics \\(X\\). In other words, \\(f(X)\\) is a linear model:\n\n\n\\[\nY_i= P(Y_i=1|X_i)=\\alpha + \\beta_1x_1+\\beta_2x_2+...+\\beta_nx_n+\\varepsilon_i\n\\]\n\nWe can then use Ordinary Least Squares (OLS) to model such relationship. Because the functional form of \\(f(X)\\) is assumed to be linear, we call this a linear probability model (LPM):\nBecause the relationship between \\(Y\\) and \\(X\\) is assumed to be linear, the changes in the probability (or likelihood) of churn are linear on the parameters \\(\\beta\\). For example, for \\(x_1\\):\n\n\n\n\\[\n\\dfrac{\\partial Y}{\\partial x_1}=\\beta_1\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#is-the-lpm-a-biased-estimator",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#is-the-lpm-a-biased-estimator",
+    "title": "Introduction to Corporate Finance",
+    "section": "Is the LPM a biased estimator?",
+    "text": "Is the LPM a biased estimator?\n\nIf we believe that the OLS assumptions are valid, \\(\\beta\\) is still a consistent estimator of the population average relationship between \\(Y\\) and \\(X\\), regardless of the type of dependent:\n\n\n\\[\n\\begin{align}\n& \\beta_{OLS}=(X'X)^{-1}X'Y\\\\\n& \\beta_{OLS}=(X'X)^{-1}X'(X\\beta+\\epsilon)=\\underbrace{(X'X)^{-1}(X'X)}_{I}\\beta+(X'X)^{-1}X'\\epsilon\\\\\n& \\beta_{OLS}=\\beta + (X'X)^{-1}X'\\epsilon\n\\end{align}\n\\]\n\nIf we assume that \\(X\\perp\\epsilon\\) - i.e, no ommited variables-, we see that \\(\\beta_{OLS}\\) is an unbiased estimator of the average effect of \\(X\\) on \\(Y\\):\n\n\n\n\\[\n\\text{if } X\\perp\\epsilon \\rightarrow \\beta_{OLS}=\\beta + (X'X)^{-1}\\underbrace{X'\\epsilon}_{=0}\\rightarrow \\beta_{OLS}=\\beta\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#modeling-churn-via-lpm",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#modeling-churn-via-lpm",
+    "title": "Introduction to Corporate Finance",
+    "section": "Modeling churn via LPM",
+    "text": "Modeling churn via LPM\n\nSuppose we want to understand the determinants of customer’s churn over time. For that, we’ll consider the following variables:\n\n\n\\[\n\\text{if } X=\\begin{bmatrix} CreditScore \\\\ D(Gender) \\\\ Age \\\\ Tenure \\\\ Balance \\\\ \\#Products \\\\ D(CreditCard) \\\\ D(Active) \\\\ Salary \\end{bmatrix} \\rightarrow Y \\sim X'\\beta+\\epsilon\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#lpm-estimation",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#lpm-estimation",
+    "title": "Introduction to Corporate Finance",
+    "section": "LPM Estimation",
+    "text": "LPM Estimation\n\nResultsPython\n\n\n\n\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:                  churn   R-squared:                       0.136\nModel:                            OLS   Adj. R-squared:                  0.135\nMethod:                 Least Squares   F-statistic:                     174.6\nDate:                Tue, 25 Mar 2025   Prob (F-statistic):          8.76e-309\nTime:                        17:38:09   Log-Likelihood:                -4364.5\nNo. Observations:               10000   AIC:                             8749.\nDf Residuals:                    9990   BIC:                             8821.\nDf Model:                           9                                         \nCovariance Type:            nonrobust                                         \n====================================================================================\n                       coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------------\nconst               -0.1025      0.034     -3.027      0.002      -0.169      -0.036\ncredit_score     -9.264e-05   3.88e-05     -2.389      0.017      -0.000   -1.66e-05\ngender_Male         -0.0773      0.008    -10.267      0.000      -0.092      -0.063\nage                  0.0113      0.000     31.505      0.000       0.011       0.012\ntenure              -0.0018      0.001     -1.426      0.154      -0.004       0.001\nbalance              0.0007   6.31e-05     11.003      0.000       0.001       0.001\nproducts_number     -0.0043      0.007     -0.630      0.529      -0.018       0.009\ncredit_card         -0.0030      0.008     -0.360      0.719      -0.019       0.013\nactive_member       -0.1432      0.008    -19.016      0.000      -0.158      -0.128\nestimated_salary  7.118e-05   6.52e-05      1.092      0.275   -5.66e-05       0.000\n==============================================================================\nOmnibus:                     1513.285   Durbin-Watson:                   1.994\nProb(Omnibus):                  0.000   Jarque-Bera (JB):             2319.357\nSkew:                           1.176   Prob(JB):                         0.00\nKurtosis:                       3.176   Cond. No.                     6.09e+03\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.\n[2] The condition number is large, 6.09e+03. This might indicate that there are\nstrong multicollinearity or other numerical problems.\n\n\n\n\n\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Convert 'gender' into dummy variables\nData = pd.get_dummies(Data, columns=['gender'], drop_first=True)\n\n# Define independent and dependent variables\nX = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]\ny = Data['churn']\n\n# Add a constant to the independent variables matrix for the intercept\nX = sm.add_constant(X)\n\n# Fit the linear regression model\nmodel = sm.OLS(y, X.astype(float)).fit()\n\n# Print the regression summary\nprint(model.summary())"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#overall-analysis",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#overall-analysis",
+    "title": "Introduction to Corporate Finance",
+    "section": "Overall analysis",
+    "text": "Overall analysis\n\nAll else equal, an additional year increases the likelihood of churning by:\n\n\n\\[\n\\partial Y/\\partial Age=\\beta_{Age}\\approx 0.0113\n\\]\n\nMoving from the \\(25^{th}\\) to the \\(75^{th}\\) percentile of age increases the likelihood by \\(\\beta_{Age}\\times IQR(Age)=(44-32)\\times 0.0113 \\approx 14\\) or 14%\n\n\nMale customers tend to churn, on average, python male_estimate*100% less than Female customers:\n\n\n\n\\[\n\\partial Y/\\partial D(genderMale)=\\beta_{genderMale}\\approx =-0.078\n\\]\n\nSimilar analyses can be made for the following continuous variables (see Code in next slide)"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#analyses",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#analyses",
+    "title": "Introduction to Corporate Finance",
+    "section": "Analyses",
+    "text": "Analyses\n\nResultPython\n\n\n\n\n\n\n\n\n\n\nSummary Statistics\n\n\n\nChange in Covariate\nCoefficient from OLS\nChange on Outcome (in %)\n\n\n\n\ncredit_score\n134\n−0.0001\n−1.24%\n\n\nage\n12\n0.0113\n13.57%\n\n\ntenure\n4\n−0.0018\n−0.74%\n\n\nbalance\n128\n0.0007\n8.86%\n\n\nproducts_number\n1\n−0.0043\n−0.43%\n\n\nestimated_salary\n98\n0.0001\n0.70%\n\n\ngender_Male\n1\n−0.0773\n−7.73%\n\n\ncredit_card\n1\n−0.0030\n−0.30%\n\n\nactive_member\n1\n−0.1432\n−14.32%\n\n\n\n\n\n\n        \n\n\n\n\n\n# Define continuous and dummy variables\ncontinuous_vars = ['credit_score', 'age', 'tenure', 'balance', 'products_number', 'estimated_salary']\ndummy_vars = ['gender_Male', 'credit_card', 'active_member']\n\n# Get coefficient estimates from the model\nestimates = model.params.reset_index()\nestimates.columns = ['Variable', 'estimate']\n\n# Calculate IQR for continuous variables\niqr_df = Data[continuous_vars].apply(lambda x: x.quantile(0.75) - x.quantile(0.25), axis=0)\niqr_df = pd.DataFrame({'Variable': iqr_df.index, 'Change': iqr_df.values})\n\n# Create a DataFrame for dummy variables\ndummy_df = pd.DataFrame({'Variable': dummy_vars, 'Change': 1})\n\n# Combine continuous and dummy variable dataframes\ncombined_df = pd.concat([iqr_df, dummy_df])\n\n# Merge with coefficient estimates\nresult_df = pd.merge(combined_df, estimates, on='Variable', how='left')\n\n# Calculate partial changes\nresult_df['partial_change'] = (result_df['Change'] * result_df['estimate'])\n\n#Table\nTable= (\n  GT(result_df)\n  .cols_align('center')\n  .tab_stub(rowname_col='Variable')\n  .cols_label(\n    Change = 'Change in Covariate',\n    estimate = 'Coefficient from OLS',\n    partial_change = 'Change on Outcome (in %)'\n    )\n  .fmt_number(columns = 'Change',decimals=0)\n  .fmt_number(columns = 'estimate',decimals=4)\n  .fmt_percent(columns='partial_change',decimals=2)\n  .tab_header(title=md(\"**Summary Statistics**\"))\n  .opt_stylize(style=1,color='red')\n)\n\nTable"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#limitations-of-the-lpm",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#limitations-of-the-lpm",
+    "title": "Introduction to Corporate Finance",
+    "section": "Limitations of the LPM",
+    "text": "Limitations of the LPM\n\nAlthough a consistent estimator of the average effect, the LPM has limitations when it comes to its practical implications to binary outcomes:\n\n\nChurn probabilities should lie within \\([0,1]\\), but the predicted probabilities, \\(\\hat{Y}\\), have continuous support \\((-\\infty,+\\infty)\\). When the goal is to predict outcomes, this creates probabilities that are outside of the ranges\nThere is an implicit assumption that the effects are linear, which may not hold true. Example, an increase of $1,000 in customer’s income may have significant impacts on churn likelihood when customers are from the bottom of the income distribution, but the effects should dampen as we move towards the top of the income distribution\nHeteroskedasticity\n\\(R^2\\) is not well-defined"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#limitations-of-the-lpm-1",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#limitations-of-the-lpm-1",
+    "title": "Introduction to Corporate Finance",
+    "section": "Limitations of the LPM",
+    "text": "Limitations of the LPM\n\nHeteroskedasticityPoor Fit\\(R^2\\)\n\n\n\n\nEven though we can achieve consistent estimators, we’ll have heteroskedasticity in our estimates by construction. To see that, recall that the conditional expectation of Y given X is given by:\n\n\\[\n\\small E(Y|X)=\\underbrace{[P(Y=1|X]}_{X\\beta\\times 1} + \\underbrace{[1-P(Y=1|X)]\\times 0}_{=0} = X\\beta\n\\]\n\nGiven that the variance of a Bernoulli Distribution is given by \\(p \\times (1-p)\\), then:\n\n\\[\nV(Y|X)=P(Y|X)\\times[1-P(Y|X)]=X\\beta\\times(1-X\\beta) \\text{, which clearly depends on } X\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn most linear probability models, \\(R^2\\) has no meaningful interpretation\nSince the regression line can never fit the data perfectly if the dependent variable is binary and the regressors are continuous"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#introducing-non-linear-binary-models",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#introducing-non-linear-binary-models",
+    "title": "Introduction to Corporate Finance",
+    "section": "Introducing non-linear binary models",
+    "text": "Introducing non-linear binary models\n\nRecall that the limitations of the LPM stem from the fact that \\(f(X)=X'\\beta\\). It might be that a linear relationship does not capture all aspects that a churn analysis should have!\nTo that point, we need to think about a new relationship, \\(Y=f(X)\\), that fulfills the following points:\n\n\nThe predicted outcomes, \\(\\hat{Y}\\), lie between 0 and 1\nThe effects do not need to be linear on the parameters\nIdeally, we’d want to apply a non-linear transformation in such a way that the relationship between Y and X is sigmoid (or S-shaped) curve: the changes in the predicted probability tend to go to zero as we approach the lower and upper bounds of the distribution of X\n\n\nThe most known cases are logistic regression (\\(f(x)=\\Lambda (x)\\)) and Probit (\\(f(x)=\\Phi(X)\\))"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logistic-regression",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logistic-regression",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logistic Regression",
+    "text": "Logistic Regression\n\nLike any other transformation function, the idea behind using \\(\\Lambda(X)\\) lies on the latent variable approach: think about an unobserved component, \\(Y^\\star\\), which is a continuous variable, such as how much a consumer values a product.\nAlthough we do not observe \\(Y^\\star\\), we do observe the consumer’s decision of buying or not buying the product, depending on a given threshold:\n\n\n\\[\nY=\n\\begin{cases}\n1, \\text{ if }Y^\\star&gt;0\\\\\n0, \\text{ if }Y^\\star\\leq0\\\\\n\\end{cases}\n\\]\n\nTherefore, we can see that the probability of buying depends on a latent variable, which is not observed by the econometrician:\n\n\n\n\\[\nP(Y=1|X)=P(Y^\\star&gt;0|X)=P(\\underbrace{X\\beta+\\varepsilon}_{Y^{\\star}}&gt;0|X)\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logistic-regression-continued",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logistic-regression-continued",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logistic Regression, continued",
+    "text": "Logistic Regression, continued\n\nWe can rearrange terms and find that:\n\n\n\\[\nP(Y=1|X)=P(\\underbrace{X\\beta+\\varepsilon}_{Y^{\\star}}&gt;0|X)\\rightarrow \\underbrace{P(\\varepsilon&gt;-X\\beta|X)\\equiv P(\\varepsilon&lt;X\\beta|X)}_{\\text{Under Simmetry}}\n\\]\n\nTherefore, this framework can be used to think about any cumulative density function which has the simmetry property. For the case of Logistic Regression, our transformation function that maps \\(Y^\\star\\) (how much consumer values a good) to \\(Y\\) (decision to buy or not buy) is:\n\n\n\n\\[\nf(Y^\\star)=\\Lambda(Y^\\star)=\\dfrac{\\exp(X\\beta)}{1+\\exp(X\\beta)}\n\\]\n\nEstimation is made using Maximum Likelihood estimators."
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#applying-logistic-regression",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#applying-logistic-regression",
+    "title": "Introduction to Corporate Finance",
+    "section": "Applying Logistic Regression",
+    "text": "Applying Logistic Regression\n\nResultPython\n\n\n\n\nOptimization terminated successfully.\n         Current function value: 0.435323\n         Iterations 6\n\n\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                  churn   No. Observations:                10000\nModel:                          Logit   Df Residuals:                     9990\nMethod:                           MLE   Df Model:                            9\nDate:                Tue, 25 Mar 2025   Pseudo R-squ.:                  0.1388\nTime:                        17:38:10   Log-Likelihood:                -4353.2\nconverged:                       True   LL-Null:                       -5054.9\nCovariance Type:            nonrobust   LLR p-value:                1.475e-296\n====================================================================================\n                       coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------------\nconst               -3.4761      0.241    -14.397      0.000      -3.949      -3.003\ncredit_score        -0.0007      0.000     -2.349      0.019      -0.001      -0.000\ngender_Male         -0.5429      0.054    -10.060      0.000      -0.649      -0.437\nage                  0.0729      0.003     28.561      0.000       0.068       0.078\ntenure              -0.0147      0.009     -1.585      0.113      -0.033       0.003\nbalance              0.0050      0.000     10.964      0.000       0.004       0.006\nproducts_number     -0.0362      0.046     -0.780      0.436      -0.127       0.055\ncredit_card         -0.0290      0.059     -0.493      0.622      -0.144       0.086\nactive_member       -1.0793      0.057    -18.860      0.000      -1.191      -0.967\nestimated_salary     0.0005      0.000      1.060      0.289      -0.000       0.001\n====================================================================================\n\n\n\n\n\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Convert 'gender' into dummy variables\nData = pd.get_dummies(Data, columns=['gender'], drop_first=True)\n\n# Define independent and dependent variables\nX = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]\ny = Data['churn']\n\n# Add a constant to the independent variables matrix for the intercept\nX = sm.add_constant(X)\n\n# Fit the linear regression model\nmodel = sm.Logit(y, X.astype(float)).fit()\n\n# Print the regression summary\nprint(model.summary())"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-1-probabilities-within-the-01-interval",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-1-probabilities-within-the-01-interval",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #1: probabilities within the [0,1] interval",
+    "text": "Logit Properties #1: probabilities within the [0,1] interval\n\nOne interesting thing to note is that, due to the properties of \\(\\Lambda(\\cdot)\\), our estimated probabilities will fall within \\([0,1]\\) depending on \\(X\\):\n\n\nWhen \\(X\\rightarrow\\infty\\), the probability of buying in our example tends to 1:\n\n\n\\[\n\\Lambda(Y)=\\dfrac{\\exp(Y)}{1+\\exp(Y)}=\\dfrac{\\exp(X\\beta)}{1+\\exp(X\\beta)}\\rightarrow1\n\\]\n\nOn the other hand, when \\(X\\rightarrow -\\infty\\), the probability of buying in our example tends to 0:\n\n\n\n\\[\n\\Lambda(Y)=\\dfrac{\\exp(Y)}{1+\\exp(Y)}=\\dfrac{\\exp(X\\beta)}{1+\\exp(X\\beta)}\\rightarrow \\dfrac{0}{1}=0\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #2: the odds-ratio",
+    "text": "Logit Properties #2: the odds-ratio\n\nRecall that the logit estimation for \\(\\small P(Y|X)\\) is given by:\n\n\n\\[\n\\small\nP(Y)=\\dfrac{\\exp(X\\beta)}{1+\\exp(X\\beta)},\\text{ which we will call by } p\n\\]\n\nLooking at the inverse, \\(1/p\\), we can see that:\n\n\n\n\\[\n\\small\n\\dfrac{1}{p}=\\dfrac{1+\\exp(X\\beta)}{\\exp(X\\beta)}=1+\\dfrac{1}{\\exp{X\\beta}}\\rightarrow \\dfrac{1-p}{p}=\\dfrac{1}{\\exp{X\\beta}}\n\\]\n\nInverting and taking logs on both sides, we’ll have:\n\n\n\n\\[\n\\small \\log{\\bigg(\\dfrac{p}{1-p}}\\bigg)=X\\beta=\\alpha+\\beta_1x_1+\\beta_2x_2+...\\beta_kx_k\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio-continued",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio-continued",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #2: the odds-ratio (continued)",
+    "text": "Logit Properties #2: the odds-ratio (continued)\n\nTherefore, whenever we’re estimating a logit model, our transformation function, \\(\\Lambda(\\cdot)\\) is actually estimating \\(\\small \\dfrac{p}{1-p}\\):\n\n\n\\[\n\\small logit(p)=\\alpha+\\beta_1x_1+\\beta_2x_2+...\\beta_kx_k\n\\]\n\nThe term \\(\\small \\dfrac{p}{1-p}\\) is called odds-ratio, and is simply the ratio of the probability of success over the probability of failure\nHence, if we want to recover the impacts of any change in the odds-ratio due to our covariates, we can exponentiate our coefficients:\n\n\n\n\\[\n\\small \\text{if } \\log\\bigg(\\dfrac{p}{1-p}\\bigg)=\\alpha+\\beta_1x_1+\\beta_2x_2+...\\beta_kx_k\\rightarrow \\dfrac{p}{1-p}=\\exp(\\alpha+\\beta_1x_1+\\beta_2x_2+...\\beta_kx_k)\n\\]"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio-continued-1",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-2-the-odds-ratio-continued-1",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #2: the odds-ratio (continued)",
+    "text": "Logit Properties #2: the odds-ratio (continued)\n\nExplanationResultPython\n\n\n\n\nIn previous slides, we noted that the effect of Gender is \\(\\small\\beta_2=-0.54\\). Holding everything fixed, the odds-ratio between Gender=1 (Male) versus Gender=0 (Female) is given by:\n\n\\[\n\\small \\dfrac{p}{1-p}=\\exp(\\beta_2)=\\exp(-0.54)\\approx0.58\n\\]\n\nPut another way, the chances of being a churned client are \\(\\small 0.58-1=-0.42\\) or 42% less likely for men!\nSimilarly, if we look at Age (\\(\\beta_3=0.07\\)), an increase of 1 year increases the churn probability by:\n\n\\[\n\\exp(\\beta_1)=[\\exp(0.0728688)-1]\\approx 0.07 \\text{ or } 7.55\\%\n\\]\n\n\n\n\n\n\n\n\n\n\nOddsRatio\nMultiplier\nChangeOdds\n\n\n\n\n(Intercept)\n0.0309287\n1\n-96.907%\n\n\ncredit_score\n0.9993481\n100\n-6.519%\n\n\ngender\n0.5810488\n1\n-41.895%\n\n\nage\n1.0755894\n1\n7.559%\n\n\ntenure\n0.9854009\n1\n-1.460%\n\n\nbalance\n1.0050576\n10\n5.058%\n\n\nproducts_number\n0.9644775\n1\n-3.552%\n\n\ncredit_card\n0.9714295\n1\n-2.857%\n\n\nactive_member\n0.3398367\n1\n-66.016%\n\n\nestimated_salary\n1.0004980\n100\n4.980%\n\n\n\n\n\n\n\n\n\n\n\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Convert 'gender' into dummy variables\nData = pd.get_dummies(Data, columns=['gender'], drop_first=True)\n\n# Define independent and dependent variables\nX = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]\ny = Data['churn']\n\n# Add a constant to the independent variables matrix for the intercept\nX = sm.add_constant(X)\n\n# Fit the linear regression model\nmodel = sm.Logit(y, X.astype(float)).fit()\n\n# Calculate Odds Ratio and Change in Odds\nodds_ratio = pd.DataFrame({'OddsRatio': model.params.apply(lambda x: round(pow(2, x), 4)),\n                           'Multiplier': [1, 100, 1, 1, 1, 10, 1, 1, 1, 100]})\nodds_ratio['ChangeOdds'] = ((odds_ratio['OddsRatio'] - 1) * odds_ratio['Multiplier']).map(lambda x: f\"{x:.2%}\")\n\n# Display the results\nprint(odds_ratio)"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-3-different-marginal-effects",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-3-different-marginal-effects",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #3: different marginal effects",
+    "text": "Logit Properties #3: different marginal effects\n\nExplanationResultPython\n\n\n\n\nOne of the caveats of LPM was that the marginal effect was constant, which does not make a lot of sense from a probabilistic sense\nWith Logit, the marginal effects are not equal to \\(\\beta\\) anymore. To see that, take the derivative of \\(P(Y|X)\\) with respect to \\(x_1\\):\n\n\\[\n\\dfrac{\\partial\\Lambda(X\\beta)}{\\partial x_1}=\\beta_1 \\times\\dfrac{\\partial\\Lambda(X\\beta)}{\\partial X\\beta}\n\\]\n\nAs we can see, the effects are not going to be linear anymore!\nPut another way, given different levels of X, we may have different marginal effects on the probabilities - in what follows, we’ll analyze the case of age\n\n\n\n\n\n\nOptimization terminated successfully.\n         Current function value: 0.435323\n         Iterations 6\n\n\n\n\n\n\n\n\n\n\n\n\n# Load data\ndata = pd.read_csv('Assets/bank-dataset.csv')\ndata['gender'] = np.where(data['gender'] == 'Male', 1, 0)\n\n# Fit logistic regression model\nX = data[['credit_score', 'gender', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]\nX = sm.add_constant(X)  # Add constant term for intercept\ny = data['churn']\nmodel = sm.Logit(y, X).fit()\n\n# Set all other variables to the mean\nnew_data = X.drop(columns=['age']).mean(numeric_only=True).to_frame().transpose()\nnew_data = pd.DataFrame(np.repeat(new_data.values, 100, axis=0),columns=new_data.columns)\nage_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])\n\n# Concatenate with your existing DataFrame\nconcatenated_df = pd.concat([new_data, age_df], ignore_index=True,axis=1)\nconcatenated_df.columns=[*new_data.columns,'age']\n\n# Predict\npredicted = model.predict(concatenated_df)\n\n# Plot\nplt.figure(figsize=(10, 6))\nplt.plot(concatenated_df[['age']], predicted, marker='o', linestyle='-')\nplt.title('Marginal effects of Age on Churn probabilities')\nplt.xlabel('Age')\nplt.ylabel('Predicted Probabilities')\nplt.axhline(y=0, linestyle='--', color='red')\nplt.axhline(y=1, linestyle='--', color='red')\nplt.gca().yaxis.set_major_formatter(plt.FuncFormatter('{:.0%}'.format))\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-4-different-effects-by-categorical-variables",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#logit-properties-4-different-effects-by-categorical-variables",
+    "title": "Introduction to Corporate Finance",
+    "section": "Logit Properties #4: different effects by categorical variables",
+    "text": "Logit Properties #4: different effects by categorical variables\n\nExplanationResultPython\n\n\n\n\nAnother interesting use case is to re-do the same analysis before, but now varying also on categorical variables\nFor example, what is the difference in the probability of buying by men and women?\nIn order to do that, we can set all continous variables to their means and compare the estimated probabilities for gender=1 (male) and gender=0 (female)\n\n\n\n\n\n\nOptimization terminated successfully.\n         Current function value: 0.435323\n         Iterations 6\n\n\n([0, 1], [Text(0, 0, 'Female'), Text(1, 0, 'Male')])\n\n\n(array([0.   , 0.025, 0.05 , 0.075, 0.1  , 0.125, 0.15 , 0.175, 0.2  ,\n       0.225]), [Text(0, 0.0, '0.000'), Text(0, 0.025, '0.025'), Text(0, 0.05, '0.050'), Text(0, 0.07500000000000001, '0.075'), Text(0, 0.1, '0.100'), Text(0, 0.125, '0.125'), Text(0, 0.15000000000000002, '0.150'), Text(0, 0.17500000000000002, '0.175'), Text(0, 0.2, '0.200'), Text(0, 0.225, '0.225')])\n\n\n\n\n\n\n\n\n\n\n\n\n# Load data\ndata = pd.read_csv('Assets/bank-dataset.csv')\ndata['gender'] = np.where(data['gender'] == 'Male', 1, 0)\n\n# Fit logistic regression model\nX = data[['credit_score', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','gender']]\nX = sm.add_constant(X)  # Add constant term for intercept\ny = data['churn']\nmodel = sm.Logit(y, X).fit()\n\n# Set all other variables to the mean\nnew_data = X.drop(columns=['gender']).mean(numeric_only=True).to_frame().transpose()\nnew_data = pd.DataFrame(np.repeat(new_data.values, 2, axis=0),columns=new_data.columns)\ngender_df = pd.DataFrame(pd.Series(range(0, 2)), columns=['gender'])\n\n# Concatenate with your existing DataFrame\nconcatenated_df = pd.concat([new_data, gender_df], ignore_index=True,axis=1)\nconcatenated_df.columns=[*new_data.columns,'gender']\n\n# Predict\npredicted = model.predict(concatenated_df)\n\n# Plot\nconcatenated_df['Predict'] = predicted\nconcatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')\n\nplt.figure(figsize=(10, 300))\nplt.bar(concatenated_df['Sex'], concatenated_df['Predict'], color=concatenated_df['Sex'].map({'Male': 'blue', 'Female': 'pink'}))\nfor i, value in enumerate(concatenated_df['Predict']):\n    plt.text(i, value, f'{value:.2%}', ha='center', va='bottom', fontsize=10)\nplt.title('Marginal effects of gender on Churn probabilities')\nplt.xlabel('Gender')\nplt.ylabel('Predicted Probabilities')\nplt.xticks(fontsize=12)\nplt.yticks(fontsize=12)\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#putting-all-together",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#putting-all-together",
+    "title": "Introduction to Corporate Finance",
+    "section": "Putting all together",
+    "text": "Putting all together\n\nExplanationResultPython\n\n\n\n\nWe saw that women tend to churn, approximately, \\(8\\) percentage points more than men\nIs this true across all levels of age? As age levels increase, the gap between men and women may become wider due to personal traits. On the other hand, it may be that gender differences are invariant to age\nIn order to do that, we can do a mix of the two last exercises:\n\n\nSet all continuous variables, with the exception of age, to their means\nCompare the estimated probabilities for gender=1 (male) and gender=0 (female)\nYou should have \\(200\\) rows in your data frame\n\n\n\n\n\n\nOptimization terminated successfully.\n         Current function value: 0.435323\n         Iterations 6\n\n\n\n\n\n\n\n\n\n\n\n\n# Load data\ndata = pd.read_csv('Assets/bank-dataset.csv')\ndata['gender'] = np.where(data['gender'] == 'Male', 1, 0)\n\n# Fit logistic regression model\nX = data[['credit_score', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','gender','age']]\nX = sm.add_constant(X)  # Add constant term for intercept\ny = data['churn']\nmodel = sm.Logit(y, X).fit()\n\n# Set all other variables to the mean\nnew_data = X.drop(columns=['gender','age']).mean(numeric_only=True).to_frame().transpose()\nnew_data = pd.DataFrame(np.repeat(new_data.values, 200, axis=0),columns=new_data.columns)\ngender_df = pd.DataFrame([*np.repeat(1,100,axis=0),*np.repeat(0,100,axis=0)], columns=['gender'])\nage_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])\nage_df =pd.concat([age_df,age_df],ignore_index=True,axis=0)\n\n# Concatenate with your existing DataFrame\nconcatenated_df = pd.concat([gender_df, age_df], ignore_index=True,axis=1)\nconcatenated_df = pd.concat([new_data,concatenated_df], ignore_index=True,axis=1)\nconcatenated_df.columns=[*new_data.columns,'gender','age']\n\n# Predict\npredicted = model.predict(concatenated_df)\n\n# Plot\nconcatenated_df['Predict'] = predicted\nconcatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')\n\nplt.figure(figsize=(10, 6))\nfor sex in concatenated_df['Sex'].unique():\n    plt.scatter(concatenated_df[concatenated_df['Sex'] == sex]['age'], concatenated_df[concatenated_df['Sex'] == sex]['Predict'],\n                label=sex, color='blue' if sex == 'Male' else 'pink')\nplt.title('Marginal effects of gender and age on Churn probabilities')\nplt.xlabel('Age')\nplt.ylabel('Predicted Probabilities')\nplt.legend()\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparison across LPM and Logit estimations",
+    "text": "Comparison across LPM and Logit estimations\n\nWe came across two estimators for binary choice models. Do they differ in terms of the responses?\nAlthough the coefficients from the different models are not directly comparable, we can use them to understand what are the partial effects:\nFor both cases, we’ll use all the other variables at their sample mean values:\n\nFor LPM, the effect will be a slope, i.e., the marginal change depending on Age will be constant\nFor Logit, the change in the predicted probability will vary depending on the Age reference point"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparing-across-lpm-and-logit-estimations---age",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparing-across-lpm-and-logit-estimations---age",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparing across LPM and Logit estimations - age",
+    "text": "Comparing across LPM and Logit estimations - age\n\nResultPython\n\n\n\n\nOptimization terminated successfully.\n         Current function value: 0.435323\n         Iterations 6\n\n\n\n\n\n\n\n\n\n\n\n\n# Read the CSV file into a pandas DataFrame\nData = pd.read_csv('Assets/bank-dataset.csv')\n\n# Convert 'gender' into dummy variables\nData = pd.get_dummies(Data, columns=['gender'], drop_first=True)\n\n# Define independent and dependent variables\nX = Data[['credit_score', 'gender_Male', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]\ny = Data['churn']\n\n# Add a constant to the independent variables matrix for the intercept\nX = sm.add_constant(X)\n\n# Fit the linear regression model and the logit model\nlm_model = sm.OLS(y, X.astype(float)).fit()\nlogit_model = sm.Logit(y, X.astype(float)).fit()\n\n# Set all other variables to the mean\nnew_data = X.drop(columns=['age']).mean(numeric_only=True).to_frame().transpose()\nnew_data = pd.DataFrame(np.repeat(new_data.values, 100, axis=0),columns=new_data.columns)\nage_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])\n\n# Concatenate with your existing DataFrame\nconcatenated_df = pd.concat([new_data,age_df], ignore_index=True,axis=1)\nconcatenated_df.columns=[*new_data.columns,'age']\n\n# Predict\nlm_predicted = lm_model.predict(concatenated_df)\nlogit_predicted = logit_model.predict(concatenated_df)\n\n# Plot\nplt.figure(figsize=(10, 6))\nplt.plot(age_df, lm_predicted, label='LPM', marker='o', linestyle='-')\nplt.plot(age_df, logit_predicted, label='LOGIT', marker='o', linestyle='-')\n\n# Adding labels and title\nplt.xlabel('Age')\nplt.ylabel('Predicted Probabilities')\nplt.title('Comparison of LPM and Logit')\nplt.legend()\n\n# Displaying the plot\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparison across LPM and Logit estimations (continued)",
+    "text": "Comparison across LPM and Logit estimations (continued)\n\nIn the LPM model, the effect of age is always the same – intuitively, \\(\\beta_{Age}\\), the partial derivative of Y with respect to Age, is the same for all levels\nOn the other hand, the changes when looking at the Logit model vary depending on the reference point for Age:\n\nFor values $[0,20], it increases modestly\nAround [21,60], the changes are exponential\nBetween [60,80], the changes start to become constant\nAfter 80, we see diminishing effects\n\nDo these differences matter in practice? It depends on what you’re looking…"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued-1",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued-1",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparison across LPM and Logit estimations (continued)",
+    "text": "Comparison across LPM and Logit estimations (continued)\n\nOn the one hand, we clearly the weaknesses of the LPM when estimating probabilities for ages between \\([0,20]\\).\nOn the other hand, LPM and Logit will be almost identical between \\([30,60]\\)\n\n\nIf you tabulate the distribution of Age in your dataset, you’ll see that although LPM does a poor job in predicting probabilities for cases &lt;20, the sample proportion of these cases is less than 1%\nOn the other hand, its results are approximately the same as of Logit between \\([30,60]\\), which constitutes approximately 80% of the sample\n\n\nOk, do does it matter or not? Again, it depends…"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued-2",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#comparison-across-lpm-and-logit-estimations-continued-2",
+    "title": "Introduction to Corporate Finance",
+    "section": "Comparison across LPM and Logit estimations (continued)",
+    "text": "Comparison across LPM and Logit estimations (continued)\n\nLogit or LPM?\n\n\nIf your interest is to use the model results to predict probabilities for different age brackets, then yes, you should use Logit (or any model with the similar properties)\nIf, on the other hand, you’re just interest in knowing the effects for the average person in your sample, you can use LPM\n\n\nLPM is simpler, and we know very well the properties to analyze cases potential issues such as ommited variable bias\nIn the Logit world, there is no \\(R^2\\), but there are other ways to check the predictive ability and fit of models"
+  },
+  {
+    "objectID": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#references-1",
+    "href": "quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html#references-1",
+    "title": "Introduction to Corporate Finance",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nChapman, Chris, and Elea Mcdonnell Feit. 2015. R for Marketing Research and Analytics. Cham: Springer International Publishing.\n\n\nGreene, William H. 2011. Econometric Analysis. 7th ed. Upper Saddle River, NJ: Pearson.\n\n\nHayashi, Fumio. 2000. Econometrics. Princeton, NJ: Princeton University Press.\n\n\nTrain, Kenneth E. 2009. Discrete Choice Methods with Simulation. 2nd ed. Cambridge, England: Cambridge University Press."
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-markowitz-mean-variance-problem",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-markowitz-mean-variance-problem",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The Markowitz Mean-Variance Problem",
+    "text": "The Markowitz Mean-Variance Problem\n\nWe generalize the problem of finding the efficient portfolio for a given \\(N\\) number of assets as:\n\n\\[\n\\min_{\\{w_1,w_2,w_3,w_4,w_5\\}} \\sigma^2_p = w^T \\Sigma w,\n\\text{ such that:}\n\\\\\n\\begin{cases}\n\\sum_{i=1}^5 w_i=1 \\text{ (1)}\\\\\n0\\leq w_i \\leq 1, \\forall i \\text{ (2)}\n\\end{cases}\n\\]\n\nThis is also known as the Markowtiz Mean-Variance optimization problem for a long-only portfolio"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-markowitz-mean-variance-problem-continued",
+    "href": "quant-fin/coursework/Lecture 7 - Building, Backtesting, and Evaluating Investment Strategies/index.html#the-markowitz-mean-variance-problem-continued",
+    "title": "Building, Backtesting, and Evaluating Investment Strategies",
+    "section": "The Markowitz Mean-Variance Problem, continued",
+    "text": "The Markowitz Mean-Variance Problem, continued\n\nIn other words, you are solving the following problem: find the set of allocation weights \\(w_1,w_2,w_3,w_4\\), and \\(w_5\\) (the % that you allocate in each of the five stocks) that, when used to create a portfolio, are the ones that create the portfolio with the minimum variance among all possible combinations\nIn order to do that, you have to ensure that the weights add up to 100% (so you’re fully investing your capital), which is the first condition. The second conditions states that a stock cannot have negative weights nor have a weight that is greater than 100%\n\nImportant: Note that \\(w^T\\Sigma w\\) is nothing more than the matrix form of \\(\\sum_{i=1}^{N}w_i\\sigma_i^2+ 2\\sum_{i=1}^{N}\\sum_{j\\neq i}w_i w_j\\sigma_{i,j}\\), which is the variance of a portfolio that consists of \\(N\\) assets"
   }
 ]

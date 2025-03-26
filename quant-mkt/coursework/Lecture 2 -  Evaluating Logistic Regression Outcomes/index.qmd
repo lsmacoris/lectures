@@ -1,0 +1,946 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Lecture 2 - Choice Models and its Applications'
+    theme: [default, custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris (FGV-EAESP)'
+    logo: logo.png
+    footer: "Presented by Lucas S. Macoris"
+    toc: false
+    cls: abntex2.cls
+    incremental: true
+    bibliography: 'Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+
+editor: visual
+from: markdown+emoji
+---
+
+```{r,echo=FALSE,results='hide'}
+
+#Require
+packages=read.delim('Exercises/r-requirements.txt',header = FALSE)[,1]
+
+#Require
+lapply(packages,require,character.only=TRUE)
+
+
+```
+
+## Evaluating Performance: Statistical Tests
+
+-   In our previous discussions, we saw that $R^2$, which was our measure of overall goodness-of-fit for linear regression models, really does not convey any relevant information for models like *Logit*
+
+-   Furthermore, the usual *t-tests*, used to test hypotheses around $\hat{\beta}$, is not applicable here
+
+    1.  Logistic regression assumes errors follow the [logistic distribution]{.focus}
+    2.  Consequently, the term $\dfrac{(\hat{\beta}-\beta_0)}{se(\hat{\beta})}$ does not follow a [*t-distribution*]{.focus}
+
+-   How can we test make hypothesis around *Logit* models and assess overall accuracy?
+
+-   We'll make use of the fact that *Logit* models are estimated using a likelihood function, $\mathcal{L}$, in order to derive some important evaluation metrics
+
+## Evaluating Performance: Statistical Tests (continued)
+
+-   A model like logit is estimated using a [*maximum likelihood*]{.focus} method. The likelihood of churning for a given individual $i$, with observations $(y_i,x_i)$ can be written as
+
+. . .
+
+$$
+\mathcal{L_i}(\beta,y_i,x_i)=[\Lambda(x_i\beta)^{y_i}]\times[1-\Lambda(x_i\beta)]^{1-y_i}
+$$ Because we are assuming that all churn observations (i.e, al customer decisions) are *i.i.d*, then the likelihood of the entire sample is just the product of the individual likelihoods:
+
+. . .
+
+$$
+\mathcal{L}(\beta,Y,X)=\prod_{i=1}^{N}[\Lambda(x_i\beta)^{y_i}]\times[1-\Lambda(x_i\beta)]^{1-y_i}
+$$ - In words, a maximum-likelihood estimator is trying to find the coefficients [$\beta$]{.focus} that make the sample of churn observations $(y_1,y_2,...,y_n)=Y$ more likely to occur!
+
+## Evaluating Performance: Statistical Tests (continued)
+
+-   What happens on the back-end is that a *maximum likelihood estimator* will try to find the set of parameters $\beta$ that maximize the *log-likelihood* of the model, noting that the $\log$ is a monotonic function
+
+-   At the end of the day, when we want to compare models, we can think about which model has the highest log-likelihood
+
+-   There are three common tests that can be used to test this type of question: the [Likelihood ratio (LR)]{.focus} test, the [Wald]{.focus} test, and the [Lagrange multiplier]{.focus} test (sometimes called a score test)
+
+-   These tests are sometimes described as tests for differences among nested models, because one of the models can be said to be nested within the other:
+
+    1.  The null hypothesis for all three tests is that the smaller model is the ["true"]{.green} model
+    2.  On the other hand, a large test statistics indicate that the null hypothesis is [false]{.red}.
+
+## Evaluating Performance: Statistical Tests (continued)
+
+-   As mentioned before, the likelihood is a function of the $\beta$ estimates and the data. Since the data is fixed, the only way to change the likelihood is to change the estimates of the coefficients in such a way as to maximize the probability (likelihood)
+
+. . .
+
+```{r,fig.width=15}
+
+quadr=function(x, a, b, c) {y = a*x^2 + b*x + c}
+
+Plot=data.frame(`log-likelihood`=quadr(a=-0.1,b=10,c=-5,x=seq(0,100,1)),`Coefficient Estimate`=seq(0,100,1),check.names = FALSE)%>%
+  ggplot(aes(x=`Coefficient Estimate`,y=`log-likelihood`))+
+  geom_point()+
+  theme_minimal()+
+  labs(x='Coefficient estimate',
+       y='log-Likelihood',
+       title='log-Likelihood for different coefficient values')+
+  theme(axis.text = element_blank(),
+        title = element_text(size=20,face='bold'),
+        axis.title = element_text(size=15))+
+  geom_vline(xintercept = 50,linetype='dashed',size=1,col='darkgreen')
+
+ggplotly(Plot)
+
+```
+
+## Evaluating Performance: Statistical Tests (continued)
+
+![](Figures/LR.png){fig-align="center"}
+
+. . .
+
+-   A constrained case, as a baseline, can be the case where the $Y$ has no predictors (i.e, all $\beta$'s are equal to zero)
+
+## Statistical Tests in practice - Wald Test
+
+::: panel-tabset
+### Result
+
+```{r,echo=FALSE}
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+for(i in 1:10){
+
+print(glue('Wald Test for coefficient {i}: {wald.test(b=coef(Reg),Sigma = vcov(Reg),Terms = i)$result$chi[3]}'))
+
+}
+
+```
+
+### R
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+for(i in 1:10){
+
+message(glue('Wald Test for coefficient {i}: {wald.test(b=coef(Reg),Sigma = vcov(Reg),Terms = i)$result$chi[3]}'))
+
+}
+
+```
+
+### Python
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+import pandas as pd
+import statsmodels.api as sm
+from scipy.stats import chi2
+
+# Read the CSV file into a DataFrame
+data = pd.read_csv('Exercises/bank-dataset.csv')
+
+# Convert 'gender' to dummy variables
+data = pd.get_dummies(data, columns=['gender'], drop_first=True)
+
+# Define the independent variables and the dependent variable
+X = data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = data['churn']
+
+# Add constant term to the independent variables
+X = sm.add_constant(X)
+
+# Fit logistic regression model
+reg = sm.Logit(y, X).fit()
+
+# Wald test for each coefficient
+wald_stat = reg.params / reg.bse
+p_values = 1 - chi2.cdf(wald_stat ** 2, 1)
+
+# Print p-values one per line
+for p_value in p_values:
+    print(p_value)
+
+
+```
+:::
+
+## Statistical Tests in practice - Likelihood-Ratio Test
+
+::: panel-tabset
+### Result
+
+```{python,echo=FALSE}
+
+import pandas as pd
+import statsmodels.api as sm
+
+# Read the CSV file into a DataFrame
+data = pd.read_csv('Exercises/bank-dataset.csv')
+
+# Convert 'gender' to dummy variables
+data = pd.get_dummies(data, columns=['gender'], drop_first=True)
+
+# Define the independent variables and the dependent variable
+X = data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = data['churn']
+
+# Add constant term to the independent variables
+X = sm.add_constant(X)
+
+# Fit logistic regression model
+reg = sm.Logit(y, X.astype('float')).fit()
+
+# Perform likelihood ratio test (LRT)
+lr_test = reg.llr
+df = reg.df_model
+p_value = reg.llr_pvalue
+
+print("Likelihood Ratio Test:")
+print("Chi-square:", lr_test)
+print("Degrees of freedom:", df)
+print("P-value:", p_value)
+
+```
+
+### R
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+print(anova(Reg,test="LRT"))
+
+```
+
+### Python
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+import pandas as pd
+import statsmodels.api as sm
+
+# Read the CSV file into a DataFrame
+data = pd.read_csv('Exercises/bank-dataset.csv')
+
+# Convert 'gender' to dummy variables
+data = pd.get_dummies(data, columns=['gender'], drop_first=True)
+
+# Define the independent variables and the dependent variable
+X = data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = data['churn']
+
+# Add constant term to the independent variables
+X = sm.add_constant(X)
+
+# Fit logistic regression model
+reg = sm.Logit(y, X.astype('float')).fit()
+
+# Perform likelihood ratio test (LRT)
+lr_test = reg.llr
+df = reg.df_model
+p_value = reg.llr_pvalue
+
+print("Likelihood Ratio Test:")
+print("Chi-square:", lr_test)
+print("Degrees of freedom:", df)
+print("P-value:", p_value)
+
+
+```
+:::
+
+## Evaluating Performance: Pseudo-$R^2$
+
+::: panel-tabset
+### Explanation
+
+::: nonincremental
+-   McFadden's pseudo-$R^2$ is an alternative metric for assessing a model's performance that also takes into account the use of the log-likelihood function:
+
+$$
+\text{pseudo-}R^2=1-(\mathcal{LL}_{FullModel}/\mathcal{LL}_{\beta=0})
+$$
+
+1.  If your model doesn't really predict the outcome better than the null model, and the statistic will be close to zero
+
+2.  Conversely, if the difference in log-likelihood is large, your test will approach 1
+:::
+
+### Result
+
+```{r,echo=FALSE}
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+PseudoR2(Reg)
+
+```
+
+### R
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+PseudoR2(Reg)
+
+```
+
+### Python
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+
+# Read the CSV file into a DataFrame
+data = pd.read_csv('Exercises/bank-dataset.csv')
+
+# Convert 'gender' to dummy variables
+data = pd.get_dummies(data, columns=['gender'], drop_first=True)
+
+# Define the independent variables and the dependent variable
+X = data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = data['churn']
+
+# Add constant term to the independent variables
+X = sm.add_constant(X)
+
+# Fit logistic regression model
+reg = sm.Logit(y, X).fit()
+
+# Calculate McFadden's pseudo R-squared
+def pseudoR2(model):
+    L1 = model.llf
+    L0 = sm.Logit(y, sm.add_constant(np.ones_like(y))).fit().llf
+    return 1 - (L1 / L0)
+
+pseudo_r2 = pseudoR2(reg)
+print("McFadden's Pseudo R-squared:", pseudo_r2)
+
+```
+:::
+
+## Evaluating Performance: Accuracy
+
+-   How the estimated results compare to *actual* choices from customers?
+
+    1.  On the one hand, *Logit* predicted values relate to estimated probabilities
+    2.  On the other hand, actual information on churn is [binary]{.blue}
+
+-   From a practical perspective, one needs to [map]{.blue} the estimated probabilities onto a categorization:
+
+. . .
+
+$$
+\hat{Y}=
+\begin{cases}
+1 \text{, if } p>p^\star\\
+0 \text{, if } p\leq p^\star
+\end{cases}
+$$
+
+-   But how do we pick $p^\star$?
+
+## Introducing the Confusion Matrix
+
+-   A way to assess the choice of $p^\star$ is to analyze the [confusion matrix]{.blue}:
+    1.  It shows how much predictions were [correct]{.green} by each categorization: [true]{.green} positives and [true]{.green} negatives
+    2.  It also shows how much predictions were [incorrect]{.red} by each categorization: [false]{.red} positives and [false]{.red} negatives
+-   If we agnostically set $p^\star=0.2037$, which is the sample average of `churn`, our example would yield the following terms for us:
+
+1.  The number of actual [churned]{.red} customers that were *ex-ante* classified as [churned]{.red}
+2.  The number of actual [churned]{.red} customers that were *ex-ante* classified as [not churned]{.green}
+3.  The number of actual [not churned]{.green} customers that were *ex-ante* classified as [churned]{.red}
+4.  The number of actual [not churned]{.green} customers that were *ex-ante* classified as [not churned]{.green}
+
+## Confusion Matrix
+
+::: columns
+::: {.column width="50%"}
+![](Figures/F1.png)
+:::
+
+::: {.column width="50%"}
+1.  [Green]{.green} cells indicate the [True]{.green} Positive and [True]{.green} Negative cases
+2.  [Red]{.red} cells indicate the [False]{.red} Positive and [False]{.red} Negative cases
+
+-   **Type I** Errors (153) are the [False Positive]{.focus} cases: we wrongly classified customers that did not churn as churned!
+-   **Type II** Errors (1788) are the [False Negative]{.focus} cases: we wrongly classified customers that did churn as not churned!
+:::
+:::
+
+## How should a good estimator look like? Looking at Accuracy
+
+-   Overall, a good estimator should minimize the combination of Type I and Type II errors. In other words, we want our estimator to have the highest [Accuracy]{.focus} as possible:
+
+. . .
+
+$$
+\small ACC=\dfrac{TP+TN}{TP+FP+TN+FN}=\dfrac{1,387+5,486}{10,000}\approx 69\% \text{ correct predictions}
+$$
+
+-   Notwithstanding, there might be cases where the costs attributed to Type I and Type II errors are fairly different!
+
+    1.  For example, sharing a discount coupon as a way to avoid losing a customer that was predicted to churn (Type I) while, in reality, it would not churn even without the coupon, has a much less significant cost
+    2.  Notwithstanding, losing a customer because we did not identify that he could churn (Type II) has a significant cost to the business
+
+## Sensitivity
+
+-   The first question that will likely pop up during internal conversations is: how much of the churned customers we were able to correctly identify?
+
+-   This question is of special interest in churn analysis, as the goal is to target these customers [before]{.focus} they actually have their final decision!
+
+-   The [Sensivity]{.focus} (or the [True Positive Rate]{.focus}) calculates the *proportion of correctly identified churned customers* by comparing the number of true positives with the total number of positives:
+
+. . .
+
+$$
+Sensitivity=\dfrac{TP}{TP+FN}=\dfrac{1,387}{(1,387+650)}\approx 68\%
+$$
+
+-   Overall, it seems that our model goes a decent job in identifying 68% of the actual churned customers ahead of time!
+
+## Precision
+
+-   The naivest way of identifying all churned customers is to set $p\star=0$. In other words, if we classify all customers as churned, then, for sure, we'll get all churned customers right!
+
+-   Notwithstanding, we are wrongly classifying some customers that would not churn in the future ([false]{.red} negatives). In practice, if we were to give coupons to every churn customer in potential, this action would cost us much more as we're wasting money on customers that wouldn't churn!
+
+-   The [Precision]{.focus} calculates the *how precise our churn classification was* by comparing the number of true positives with the total number of predicted positives:
+
+. . .
+
+$$
+Precision=\dfrac{TP}{TP+FP}=\dfrac{1,387}{(1,387+2,477)}\approx 35\%
+$$
+
+-   Although we hit a high number of churned customers, we're wrongly classified 65% of customers as potential churners!
+
+## Specificity
+
+-   The analog of the first question relates to how much of the non-churned customers we were able to correctly identify
+
+-   Knowing how much non-churned customers our model predicts shed light on how much we're able to understand about customers that do not churn!
+
+-   The [Specificity]{.focus} (or True Negative Rate) calculates the *proportion of correctly identified non-churned customers* by comparing the number of true negatives with the total number of negatives:
+
+. . .
+
+$$
+Specificity=\dfrac{TN}{TN+FP}=\dfrac{5,486}{(5,486+2,477)}\approx 69\%
+$$
+
+## Negative Predicted Value
+
+-   The last piece that is still left to analyze is the precision of our estimates for non-churned classifications
+
+-   In other words, out of all the non-churn predicted customers, how much were actually false negatives?
+
+-   The [Negative Predicted Value]{.focus} calculates the *proportion of correctly identified non-churned customers* by comparing the number of true negatives with the predicted negatives:
+
+. . .
+
+$$
+NPV=\dfrac{TN}{TN+FN}=\dfrac{5,486}{(5,486+650)}\approx 89.37\%
+$$
+
+-   Out of all negative classifications, 81.3% of them were correct!
+
+## Confusion Matrix Implementation
+
+::: panel-tabset
+### Result
+
+```{r results,echo=FALSE}
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+#Creating a comparison between actual and predicted churn
+Comparison=data.frame(Actual=Data$churn,
+                      Predicted=ifelse(predict(Reg,type='response')>=mean(Data$churn),1,0))
+
+#Create the confusion matrix using 1 (churn) as the (1,1) quadrant (full)
+confusionMatrix(data=factor(Comparison$Predicted,levels=c(1,0)),
+                reference=factor(Comparison$Actual,levels=c(1,0)),
+                )
+```
+
+### R
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+#Creating a comparison between actual and predicted churn
+Comparison=data.frame(Actual=Data$churn,
+                      Predicted=ifelse(predict(Reg,type='response')>=mean(Data$churn),1,0))
+
+#Create the confusion matrix using 1 (churn) as the (1,1) quadrant (full)
+confusionMatrix(data=factor(Comparison$Predicted,levels=c(1,0)),
+                reference=factor(Comparison$Actual,levels=c(1,0)),
+                )
+
+```
+
+### Python
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+import pandas as pd
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import ConfusionMatrixDisplay
+from matplotlib import pyplot as plt
+
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Exercises/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
+
+# Define independent and dependent variables
+X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = Data['churn']
+
+# Add a constant to the independent variables matrix for the intercept
+X = sm.add_constant(X)
+
+# Fit the linear regression model
+model = sm.Logit(y, X.astype(float)).fit()
+
+# Predict churn using the trained logistic regression model
+predicted_churn = model.predict() >= y.mean()  # Assuming a threshold of 0.5 for classification
+
+# Convert predicted churn to binary (1 or 0)
+predicted_churn = predicted_churn.astype(int)
+
+# Create confusion matrix
+ConfusionMatrixDisplay.from_predictions(y, predicted_churn)
+plt.show()
+
+```
+:::
+
+## Putting all together
+
+1.  As we increase our threshold, $p^\star$, we minimize the Type II error (*i.e*, we identify the churned customers) as we're identifying the true positives
+2.  On the other hand, at the same time, we are increasing the Type I error, since there is going to be a higher number of false positives!
+
+. . .
+
+```{r, echo=FALSE, fig.align='center'}
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+Comparison=Data%>%cbind(data.frame('Predicted'=predict(Reg,type='response')))
+ROC = roc(Comparison$churn ~ Comparison$Predicted)
+coords(ROC)%>%mutate(TPR=sensitivity,FPR=1-specificity)%>%
+  ggplot(aes(x=FPR,y=TPR))+
+  geom_point()+
+  theme_minimal()+
+  labs(x='FPR (1 - Specificity)',
+       y='TPR (Sensitivity)',
+       title='Different combinations of TPR and FPR according to cut-off')+
+  theme(plot.title = element_text(size=20,face='bold'),
+        axis.text = element_text(size=15),
+        axis.title = element_text(size=15))
+
+```
+
+## Finding the optimal $p^{\star}$
+
+::: panel-tabset
+### Explanation
+
+::: nonincremental
+-   If, for example, we want to find $p^{\star}$ such that it maximizes the sum of specificity + sensitivity, we can:
+
+1.  Redo our confusion matrix for each $p^{\star}=\{0,0.01,0.02,...,0.99,1\}$
+2.  Calculate the specificity and the sensitivity
+3.  Pick the threshold that maximizes the sum of both metrics
+
+-   Note that, depending upon the problem, we might want to use a different criterion to find the optimal $p^\star$
+:::
+
+### Result
+
+```{r,echo=FALSE}
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+#Creating a comparison between actual and predicted churn
+Comparison=data.frame(Actual=Data$churn,
+                      Predicted=ifelse(predict(Reg,type='response')>=mean(Data$churn),1,0))
+
+Coords=coords(ROC,print.thres=TRUE)%>%mutate(metric=sensitivity+specificity)
+Best=pull(coords(ROC,print.thres=TRUE,"best")[1])
+
+Coords%>%
+  ggplot(aes(x=threshold,y=metric))+
+  geom_point()+
+  theme_minimal()+
+  labs(y='Specificity + Sensitivity',x='Threshold for churn assignment',
+       title=paste0('Best value achieved using threshold = ',round(Best,2)))+
+  geom_vline(xintercept = pull(coords(ROC,print.thres=TRUE,"best")[1]),linetype='dashed')+
+  theme(title=element_text(size=20,face='bold'),
+        axis.text = element_text(size=15),
+        axis.title = element_text(size=15))
+
+```
+
+### R
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+#Creating a comparison between actual and predicted churn
+Comparison=data.frame(Actual=Data$churn,
+                      Predicted=ifelse(predict(Reg,type='response')>=mean(Data$churn),1,0))
+
+Coords=coords(ROC,print.thres=TRUE)%>%mutate(metric=sensitivity+specificity)
+Best=pull(coords(ROC,print.thres=TRUE,"best")[1])
+
+Coords%>%
+  ggplot(aes(x=threshold,y=metric))+
+  geom_point()+
+  theme_minimal()+
+  labs(y='Specificity + Sensitivity',x='Threshold for churn assignment',
+       title=paste0('Best value achieved using threshold = ',round(Best,2)))+
+  geom_vline(xintercept = pull(coords(ROC,print.thres=TRUE,"best")[1]),linetype='dashed')+
+  theme(title=element_text(size=20,face='bold'),
+        axis.text = element_text(size=15),
+        axis.title = element_text(size=15))
+```
+
+### Python
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Exercises/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
+
+# Define independent and dependent variables
+X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = Data['churn']
+
+# Add a constant to the independent variables matrix for the intercept
+X = sm.add_constant(X)
+
+# Fit the linear regression model
+model = sm.Logit(y, X.astype(float)).fit()
+
+# Predict churn probabilities
+probs = model.predict()
+
+# Calculate specificity and sensitivity
+fpr, tpr, thresholds = roc_curve(y, probs)
+specificity = 1 - fpr
+sensitivity = tpr
+
+# Find the best threshold value
+best_threshold_index = np.argmax(specificity + sensitivity)
+best_threshold = thresholds[best_threshold_index]
+
+# Visualize the results
+plt.figure(figsize=(10, 6))
+plt.plot(thresholds, sensitivity + specificity, marker='o')
+plt.axvline(x=best_threshold, color='r', linestyle='--', label=f'Best Threshold: {best_threshold:.2f}')
+plt.xlabel('Threshold for churn assignment')
+plt.ylabel('Specificity + Sensitivity')
+plt.title(f'Best value achieved using threshold = {best_threshold:.2f}')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+```
+:::
+
+## Comparing among different classifiers
+
+-   Say that, for some reason, you have ommitted `age` from the analysis. How can you assess how the predictive power of your model is going to deteriorate? One way to do this is to analyze what we call [*Area under the Curve*]{.focus} (or simply [AUC]{.focus}):
+
+![](Figures/F2.png){fig-align="center"}
+
+## AUC under different models
+
+::: panel-tabset
+### Explanation
+
+::: non-incremental
+-   An ROC curve (receiver operating characteristic curve) is a graph showing the performance of a classification model at all classification thresholds. This curve plots two parameters:
+
+1.  True Positive Rate
+2.  False Positive Rate
+
+-   AUC provides an aggregate measure of performance across all possible classification thresholds
+
+-   AUC isn't a very useful metric whenever the costs of Type I and Type II errors are very different
+:::
+
+### Result
+
+```{r,fig.align='center',fig.width=20,fig.height=8}
+Data=read.csv('Exercises/bank-dataset.csv')
+
+
+Reg_1=glm(churn ~ credit_score + gender  + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+Reg_2=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+
+P_1=Data%>%cbind(data.frame('Predicted'=predict(Reg_1,type='response')))
+P_2=Data%>%cbind(data.frame('Predicted'=predict(Reg_2,type='response')))
+
+ROC_1 = roc(P_1$churn ~ P_1$Predicted)
+ROC_2 = roc(P_2$churn ~ P_2$Predicted)
+
+ROC_1=coords(ROC_1)%>%mutate(TPR=sensitivity,FPR=1-specificity,type='Without Age')
+ROC_2=coords(ROC_2)%>%mutate(TPR=sensitivity,FPR=1-specificity,type='With Age')
+
+rbind(ROC_1,ROC_2)%>%
+  ggplot(aes(x=FPR,y=TPR,col=type))+
+  geom_point()+
+  theme_minimal()+
+  labs(x='FPR (1 - Specificity)',
+       y='TPR (Sensitivity)',
+       title='Model with Age outperforms the other for any threshold!')+
+  theme(plot.title = element_text(size=40,face='bold'),
+        axis.text = element_text(size=30),
+        axis.title = element_text(size=30),
+        legend.position ='bottom')
+
+```
+
+### R
+
+```{r,fig.align='center',fig.width=20,fig.height=8}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+Data=read.csv('Exercises/bank-dataset.csv')
+
+
+Reg_1=glm(churn ~ credit_score + gender  + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+Reg_2=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+
+P_1=Data%>%cbind(data.frame('Predicted'=predict(Reg_1,type='response')))
+P_2=Data%>%cbind(data.frame('Predicted'=predict(Reg_2,type='response')))
+
+ROC_1 = roc(P_1$churn ~ P_1$Predicted)
+ROC_2 = roc(P_2$churn ~ P_2$Predicted)
+
+ROC_1=coords(ROC_1)%>%mutate(TPR=sensitivity,FPR=1-specificity,type='Without Age')
+ROC_2=coords(ROC_2)%>%mutate(TPR=sensitivity,FPR=1-specificity,type='With Age')
+
+rbind(ROC_1,ROC_2)%>%
+  ggplot(aes(x=FPR,y=TPR,col=type))+
+  geom_point()+
+  theme_minimal()+
+  labs(x='FPR (1 - Specificity)',
+       y='TPR (Sensitivity)',
+       title='Model with Age outperforms the other for any threshold!')+
+  theme(plot.title = element_text(size=40,face='bold'),
+        axis.text = element_text(size=30),
+        axis.title = element_text(size=30),
+        legend.position ='bottom')
+
+```
+
+### Python
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+import pandas as pd
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_curve, roc_auc_score
+import matplotlib.pyplot as plt
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Exercises/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data['gender'] = pd.get_dummies(Data['gender'], drop_first=True)
+
+
+# Define independent and dependent variables for Reg_1 (without 'age')
+X1 = Data[['credit_score', 'gender', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+
+# Define independent and dependent variables for Reg_2 (with 'age')
+X2 = Data[['credit_score', 'gender', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+
+# Dependent variable
+y = Data['churn']
+
+# Fit logistic regression models
+reg_1 = model = sm.Logit(y, X1.astype(float)).fit()
+reg_2 = model = sm.Logit(y, X2.astype(float)).fit()
+
+# Predict probabilities for both models
+probs_1 = reg_1.predict()
+probs_2 = reg_2.predict()
+
+# Compute ROC curves
+fpr_1, tpr_1, _ = roc_curve(y, probs_1)
+fpr_2, tpr_2, _ = roc_curve(y, probs_2)
+
+# Compute AUC scores
+auc_1 = roc_auc_score(y, probs_1)
+auc_2 = roc_auc_score(y, probs_2)
+
+# Plot ROC curves
+plt.figure(figsize=(10, 8))
+plt.plot(fpr_1, tpr_1, color='blue', lw=2, label=f'Without Age (AUC = {auc_1:.2f})')
+plt.plot(fpr_2, tpr_2, color='red', lw=2, label=f'With Age (AUC = {auc_2:.2f})')
+plt.plot([0, 1], [0, 1], color='gray', lw=1, linestyle='--')
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.xlabel('False Positive Rate (1 - Specificity)')
+plt.ylabel('True Positive Rate (Sensitivity)')
+plt.title('ROC Curve')
+plt.legend(loc="lower right")
+plt.show()
+
+
+```
+:::
+
+## Other topics for further investigation
+
+-   There are some potential topics that you may want to dive in when looking at binary choice models (not only *Logit*):
+
+-   Look for other binary classification models, such as *Probit*, Random Forests, etc
+
+    1.  Compare different models in terms of predictive power, statistics etc
+    2.  Think about metrics to optimize your classificaiton results based on the question that you're aiming to solve!
+
+-   Bridging Econometrics with Machine Learning: there can be a variety of ways to make your analysis more robust:
+
+    1.  Using train/test splits and balanced samples
+    2.  Using cross-validation folds
+    3.  Comparing the classification performance across different models
+    4.  For `R`, refer to the [`caret`](https://topepo.github.io/caret/) package. For Python, refer to [`scikit-learn`](https://scikit-learn.org/stable/)
+
+## References

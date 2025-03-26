@@ -1,0 +1,408 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Lecture 4 - Multiple Choice Models'
+    theme: [default, custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris (FGV-EAESP)'
+    logo: logo.png
+    footer: "Presented by Lucas S. Macoris"
+    toc: false
+    cls: abntex2.cls
+    incremental: true
+    bibliography: 'Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+
+editor: visual
+from: markdown+emoji
+---
+
+```{r,echo=FALSE,results='hide'}
+
+library(reticulate)
+
+```
+
+## Thinking about consumer choices
+
+-   Many firms compile records of customer transactions. These records are very valuable to marketers and inform us about customers’ purchasing patterns:
+
+  1. What are the ways in which we might optimize pricing or inventory given the purchase patterns?
+  2. Which relationships between the purchases and other customer information are more prevalent?
+
+- Such records may comprise an enormous number of data points yet with relatively little information in each observation
+
+- Our last lecture will examine a strategy to extract insight from transactions and co-occurrence data: [association rule mining]{.focus}
+
+## Thinking about consumer choices
+
+- Intuition: when events occur [together]{.focus} more often than one would expect from their [individual]{.focus} rates of occurrence, such co-occurrence is an interesting pattern
+
+  1. People tend to buy *beer* and *olives* together
+  2. Pasta consumption tends to be positively related to spices and sauces
+
+- It is all about the *conditional* expectation!
+  1. Suppose that *sausages* represent 5\% of the transaction
+  2. Also, *ketchup* brands represent 3\% of the transactions
+
+1. If the proportion of the hot-dog sales that [also]{.focus} have ketchup is 3\%, then there is no significant relationship because this is what we would expect from the overall data
+
+2. If on the other hand the proportion of ketch-up sales is 25\% given a hot-dog sale, this indicates that the conditional probability (given a hot-dog transaction) is relevant!
+
+## Methodological terms
+
+- One way we can define these relationships is to characterize each situation
+
+1. An [association]{.focus} is simply the co-occurrence of two or more things. *Example:* sausages and ketchup tend to be in the transaction
+
+2. A [transaction]{.focus} is a *set* of items that co-occur in an observation. In marketing, a common transaction is the [market basket]{.focus}: $\{\text{sausages},\text{sauces},\text{mustard},\text{beer}\}$
+
+3. A [rule]{.focus} expresses the incidence across transactions of one set of items as a [condition]{.focus} of another set of items. A condition in this sense does not imply a causal relationship, only an association of some strength, whether strong or weak
+
+- Translating our example using these terms, if we identify that ketch-up is generally bought along with sausages and sauces, then we have the following rule:
+
+. . .
+
+$$
+\small
+\{\text{sausage},\text{mustard}\}\implies\{\text{ketchup}\}
+$$
+
+## Metrics
+
+- Association rules are expressed with a few common metrics that reflect the rules of conditional probability:
+
+1. The [support]{.focus} is the proportion of all transactions that contain the set. If the set $\small \{\text{sausage},\text{ketchup}\}$ appears in 10 out of 200 transactions, the support is $\small 0.05$. What matters is that these items were in 10 transactions together - other items may be included.
+
+
+2. The [confidence]{.focus} is the support for the co-occurrence of all items in a rule, [conditional]{.focus} on the support for the left hand set alone:
+
+. . .
+
+$$
+\small
+\text{Confidence}(\text{sausage}\implies \text{ketchup})=\dfrac{\#(\text{sausage } \cap \text{ketchup})}{\#\text{sausage}}
+$$
+
+- For example, if sausage appears in 200 transactions overall, and 50 of these also contain ketchup, the confidence is $\small 50/200 = 25\%$. In words, ketchup appears 25\% of the time that sausage appears
+
+## Metrics
+
+- Note that *Confidence* in this context carries no implication about hypothesis testing, confidence intervals, or the like; it is only a measure of [conditional association]{.focus}. Likewise, *Confidence* [is not symmetric]{.focus}. If $\small Support(\text{\{Sausage\}})\neq Support(\text{\{Ketchup\}})$:
+
+. . .
+
+$$
+Confidence(\text{sausage}\implies\text{ketchup})\neq Confidence(\text{ketchup}\implies\text{sauage})
+$$
+
+- How we can use these concepts to create "success" metrics for some associations? One of the most common ways is to define an increase (or "*lift*"):
+
+. . .
+
+
+$$
+lift(\text{sausage}\implies\text{ketchup})=\dfrac{support(\text{sausage }\cap \text{ketchup})}{support(\text{sausage })\times support(\text{ketchup})}
+$$
+
+## Understanding lift
+
+
+- [Lift]{.focus} measures how the *joint probability of the events* compares to the case where the events are *independent*. If the individual appearances from *sausage* and *ketchup* are 75 and 80, respectively, we have: 
+
+. . .
+
+$$
+\small \dfrac{(50/200)}{\bigg(\dfrac{75}{200}\times\dfrac{80}{200}\bigg)}=\dfrac{0.25}{0.375\times0.4}\approx 1.66
+$$
+
+- The combination of sausages [and]{.focus} ketchup is 66\% higher than what we would expect if these items were bought independently!
+
+- This provides us with a metric of how relevant this association is, and we can take this into account when thinking about how we can exploit them in terms of marketing campaigns
+
+## Wrapping up on metrics
+
+- [Support]{.focus}, [Confidence]{.focus}, and [Lift]{.focus} tell us different things. When we search for some specific rules, we wish to find rules such that:
+
+1. They exceed a minimum threshold on each item: sets that occur relatively frequently in transactions (high [Support]{.focus})
+
+2. That shows trong conditional relationships ([Confidence]{.focus})
+
+3. That are more common than chance ([Lift]{.focus})
+
+- In what follows, we will use a transactions data (similar to a CRM) 
+
+
+## About the dataset
+
+- This data set comprises lists of items purchased together (that is, market baskets), where the individual items have been recorded as category labels instead of product names
+
+
+- Data reflects choices that have been made together across diferent categories 
+
+- In what folows, we'll analyze the dataset and collect information on revelant associations between categories
+
+. . .
+
+**Note**: the dataset has been adapted to fit the purpose of the lecture. You can find the original dataset [here](https://www.kaggle.com/datasets/heeraldedhia/groceries-dataset) 
+
+
+## Analyzing the dataset
+
+```{python}
+#| echo: false
+#| eval: true
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from mlxtend.frequent_patterns import apriori
+from mlxtend.frequent_patterns import association_rules
+
+# Load the Groceries dataset
+data = pd.read_csv('Exercises/Groceries.csv')
+
+```
+
+
+:::{.nonincremental}
+
+1. Loading packages
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from mlxtend.frequent_patterns import apriori
+from mlxtend.frequent_patterns import association_rules
+
+
+# Load the Groceries dataset
+data = pd.read_csv('Exercises/Groceries.csv')
+data.head(10)
+
+```
+
+2. Describing the top 10 categories
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+top10=data.groupby(['itemDescription']).size().sort_values(ascending=False).head(10)
+
+
+# Assuming 'top10' is the DataFrame containing the top 10 products
+# Plot bar chart using seaborn
+plt.figure(figsize=(10, 6))
+sns.barplot(x=top10.index, y=top10.values)
+plt.title('Top 10 Products')
+plt.xlabel('Product')
+plt.ylabel('Frequency')
+plt.xticks(rotation=45, ha='right')
+plt.show()
+
+```
+
+
+**Note:** because there are significant changes in the way that association rules are managed in `Python` and `R`, we'll stick with the `Python` routines for this class. For a comprehensive approach on how to conduct market-basket analysis using `R`, refer to the [`arules`](https://cran.r-project.org/web/packages/arules/index.html) package
+
+:::
+
+## Looking for association rules
+
+:::{.panel-tabset}
+
+### Explanation
+
+:::{.nonincremental}
+
+- How we can look for meaningful associations between items bought together?
+
+- First, we need to transform our dataset in such a way that it has the following structure:
+
+  1. Each [row]{.focus} represents one [transaction]{.focus} - i.e, a *Customer* $\times$ *Date*
+  2. Each [column]{.focus} represents a specific [category]{.focus}
+  3. For each cell, we'll do *one-hot-encoding*: if a given transaction happened to have a category in its basket, we'll assign 1. If not, we will assign zero
+
+- In this way, we'll get the dataset in the correct format to start thinking about our three metrics: *support*, *confidence*, and *lift*
+
+
+:::
+
+### Result
+
+```{python}
+
+data['Quantity'] = np.full_like(data['itemDescription'], 1).astype(int)
+data['Invoice'] = data["Member_number"].astype(str) + '-' +data["Date"].astype(str)
+data.head()
+
+basket = (data.groupby(["Invoice","itemDescription"])["Quantity"].
+          sum().
+          unstack().
+          reset_index().
+          fillna(0).
+          set_index("Invoice")
+          )
+
+def encode(x):
+    if x==0:
+        return 0
+    if x>=1:
+        return 1
+    
+basket_encode = basket.map(encode)
+
+basket_encode.head(10)
+```
+
+### Python
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+data['Quantity'] = np.full_like(data['itemDescription'], 1).astype(int)
+data['Invoice'] = data["Member_number"].astype(str) + '-' +data["Date"].astype(str)
+data.head()
+
+basket = (data.groupby(["Invoice","itemDescription"])["Quantity"].
+          sum().
+          unstack().
+          reset_index().
+          fillna(0).
+          set_index("Invoice")
+          )
+
+def encode(x):
+    if x==0:
+        return 0
+    if x>=1:
+        return 1
+    
+basket_encode = basket.map(encode)`
+
+```
+
+:::
+
+## Creating Rules
+
+:::{.panel-tabset}
+
+### Explanation
+
+:::{.nonincremental}
+
+- With the dataset already in place, we can start looking for reasonable associations
+
+- As transactions dataset tend to have a reasonably high number of items, we may want to switch our attention to items that represent a given threshold of *support*
+
+- We will look for items that represent, at least, [0.5\%]{.focus} of the transactions ($\approx 20$ times)
+
+- Conditional on these items, we'll look for all combinations and check for the ones that we have reasonable *lift*
+
+- We'll export our results to a `.csv` file for easier manipulation
+
+:::
+
+### Result
+
+```{python}
+
+frequent_itemsets = apriori(basket_encode, min_support=0.005, use_colnames=True)
+
+rules = association_rules(frequent_itemsets, metric="lift").sort_values("lift", ascending=False).reset_index(drop=True)
+
+rules.to_csv('Associations.csv')
+
+rules.head(10)
+
+```
+
+### Python
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| echo: true
+#| eval: false
+
+frequent_itemsets = apriori(basket_encode, min_support=0.005, use_colnames=True)
+
+rules = association_rules(frequent_itemsets, metric="lift").sort_values("lift", ascending=False).reset_index(drop=True)
+
+rules.to_csv('Associations.csv')
+
+```
+
+:::
+
+
+## Discussion - Market Basket Analysis
+
+- All in all, we were able to find [four]{.focus} rules with relevant *lift* levels:
+
+  1. $(Frankfurter \implies Beer)$
+  2. $(Beer \implies Frankfurter)$
+  3. $(Yogurt \implies Cereal)$
+  4. $(Cereal \implies Yogurt)$
+
+- Which potential marketing actions can be done based on this information?
+
+  1. Promotions: buy one, get discount on the other
+  2. In-store management: place items near the same aisle 
+  3. Coupouning: provides coupons for joint purchases
+  4. Special packs
+
+## Discussion - Market Basket Analysis (continued)
+
+- Market-basket analysis (and association rules in general) are not testing hypothesis, but simply finding [potentially]{.focus} reasonable associations!
+
+- Bridging association rules with decision-making: one can leverage the relevant associations and do a series of other studies in such a way to understand consumption patterns:
+
+1. Understand socioeconomic characteristics of individuals who had the relevant association rules (who they are, what they eat, how much they spend, etc)
+
+2. Conduct qualitative surveys to understand the specific reasons why the association is appearing (randomness? soccer games?)
+
+3. Perform other statistical analyses to analyze the data
+
+4. Conduct experiments: what if we halve the price of *beer* but increase the price of *frankfurters*? Is this going to generate higher profits?
+
+## Wrapping-up: what've done so far
+
+1. Looked at how consumers make [binary]{.focus} choices
+2. After that, you expanded your focus to consider [multi-choice]{.focus} set
+3. Finally, you saw ways to understand [associations]{.focus} between choices
+
+- Looking ahead:
+
+  1. Explore different models that seek to provide similar answers (*e.g*, different classification methods)
+  
+  2. Bridge traditional econometrics with tradictional machine learning pipelines used in practice: cross-validation, train/test sets, hyperparameter tuning etc
+  
+  3. Endogeneity: counterfactual experiments are hard to tackle as we need clever ways to insulate our models from ommited variable bias
+  
+  4. Think about *when* you need to use a more complex model, and *why*!
+  
+- I hope you had as much fun as I did!

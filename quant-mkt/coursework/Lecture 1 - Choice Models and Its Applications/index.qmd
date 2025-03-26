@@ -1,0 +1,1477 @@
+---
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Introduction to Corporate Finance'
+    theme: [default, '../~ Metadata/custom.scss']
+    auto-stretch: false
+    author: 'Lucas S. Macoris'
+    logo: 'Images/logo.png'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-mkt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    incremental: true
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+
+editor: visual
+from: markdown+emoji
+---
+
+## A brief introduction
+
+```{r,echo=FALSE,results='hide'}
+
+source('../~ Metadata/packages.R')
+
+```
+
+1.  **Background**
+
+-   Undegraduate + Master's in Finance and Economics [\@ University of São Paulo (USP)](https://www.usp.br/)
+-   Ph.D. in Economics (2023) [\@ INSPER - Institute of Education and Research](https://insper.edu.br/en)
+
+2.  **Academic Affiliations**
+
+-   Jan/24 - actual: Assistant Professor [\@ Getulio Vargas Foundation (FGV-EAESP), São Paulo, BR](https://eaesp.fgv.br/en)
+
+3.  **Private Affiliations**
+
+-   Dec/21 - actual: Consultant and Data Scientist [\@ Circana](https://circana.com/)
+
+## How to use these slides
+
+-   These slides leverage [Quarto](quarto.org), an open-source scientific and technical publishing system from Posit (formerly RStudio):
+
+    1.  Create dynamic content with [Python, R, Julia]{.focus}, and [Observable]{.focus}
+    2.  Publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more
+    3.  Write using Pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.
+
+-   For our course, we'll use the following notation:
+
+1.  Link will be colored in [dark-orange](https://google.com)
+2.  Inline equations and variables will be rendered in `gray`
+3.  Code chunks will be provided along with outputs (in `Python`)
+
+## An example of a code chunk
+
+:::: panel-tabset
+### Result
+
+::: callout-note
+Use `Show the Code` code tabsets to display the code. You can use the {{< bi clipboard >}} buttom at the top-right to copy it to your session.
+:::
+
+```{python}
+#| fig.align: 'center'
+#| echo: FALSE
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import statsmodels.api as sm
+import tabulate
+from plotnine import *
+from great_tables import GT, md
+from mizani.formatters import percent_format
+
+# Generating data
+np.random.seed(0)
+dat = pd.DataFrame({
+    'cond': np.repeat(['A', 'B'], 10),
+    'xvar': np.arange(1, 21) + np.random.normal(0, 3, 20),
+    'yvar': np.arange(1, 21) + np.random.normal(0, 3, 20)
+})
+
+# Plotting
+sns.set(style="whitegrid")  # Set plot style
+plt.figure(figsize=(8, 6))  # Set figure size
+sns.scatterplot(data=dat, x='xvar', y='yvar', hue='cond', marker='o')  # Scatter plot
+sns.regplot(data=dat, x='xvar', y='yvar', scatter=False)  # Regression line
+plt.show()
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import statsmodels.api as sm
+import tabulate
+from mizani.breaks import *
+from mizani.formatters import *
+
+# Generating data
+np.random.seed(0)
+dat = pd.DataFrame({
+    'cond': np.repeat(['A', 'B'], 10),
+    'xvar': np.arange(1, 21) + np.random.normal(0, 3, 20),
+    'yvar': np.arange(1, 21) + np.random.normal(0, 3, 20)
+})
+
+# Plotting
+sns.set(style="whitegrid")  # Set plot style
+plt.figure(figsize=(8, 6))  # Set figure size
+sns.scatterplot(data=dat, x='xvar', y='yvar', hue='cond', marker='o')  # Scatter plot
+sns.regplot(data=dat, x='xvar', y='yvar', scatter=False)  # Regression line
+plt.show()
+
+```
+:::
+
+## Course Outline
+
+-   We'll cover the [first section]{.focus} of course, which contemplates [choice models]{.focus}:
+
+    1.  Binary Response Models: *Logit*/*Probit*
+    2.  Multi-choice Models: *Multinomial Logit*
+    3.  Economic Implications of multi-choice models
+    4.  Market-basket Analysis
+
+-   We'll keep a [hands-on]{.focus} approach to be best of our capabilities, with handout exercises (code + analysis) and focus on practical applications
+
+-   Evaluation (first section) will consist of:
+
+    1.  Code coursework ([DataCamp](https://datacamp.com))
+    2.  Handout Exercise (deadline TBD)
+
+-   You can download a notebook covering this first lecture using [this](https://drive.google.com/file/d/1czHPRZ6t5_jBcLKHJrv5eO8F4CjT4oVY/view?usp=drive_link) link and the dataset using [here](https://drive.google.com/file/d/12pKTORubx5win6TCGw7sww2tr9XLdUj0/view?usp=drive_link)
+
+## References
+
+-   Our first section of the *Marketing Analytics* course will focus on the main applications from a practical standpoint
+
+1.  For a detailed discussion on the methodological approaches undertaken thoughout the lectures, we'll follow:
+
+  a.  *Discrete Choice Methods with Simulation* - @Train
+  b.  *Econometric Analysis* - @Greene
+  c.  *Econometrics* - @Hayashi
+
+2.  For a broader discussion around the practical applications on Marketing, we'll follow @Chapman
+
+## Discrete Choice Models
+
+-   Marketing practitioners are often concerned about consumers decisions around a *defined* set of choices:
+
+    1.  Consumers choose between a binary decision of [buy]{.green}/[not buy]{.red}, given product, consumer, and environmental characteristics
+
+    2.  Faced with a defined set of products, make a decision around [which]{.focus} products to buy
+
+    3.  After experiencing a flow of consumption from a product or service up to time $t$, decide whether to [continue]{.green} consumption at $t+1$ or [churn]{.red}
+
+-   Eliciting knowledge about individual choices shed light on consumer preferences and help marketers to understand how consumers value certain product attributes
+
+-   Aggregating individual choices helps marketers understand how the [demand]{.focus} curve for a given product or industry works
+
+## Binary Choice Models
+
+-   Motivation: among a *defined* set of *two* mutually exclusive alternatives, consumers make a decision by [choosing]{.focus} one alternative in spite of the other:
+
+. . .
+
+$$
+\small
+Y_i=\begin{cases}
+            1, & \text{if $Y_i$ = a predefined alternative}\\
+            0, & \text{otherwise}
+         \end{cases}
+$$
+
+-   These models implicitly tell about consumer's preferences regarding several consumption decisions. Say that we know that a set $X$ of characteristics (which may be consumer-specific, environmental, or product) affect $i$'s decision. We can then model such decision by:
+
+. . .
+
+$$
+\small Y_i=f(X_i)
+$$
+
+-   Our starting point will be to define what $f(X)$ should look like. Depending on the shape of this function, the interpretation becomes a *probabilistic* measurement
+
+## Binary Choice Models - Application
+
+-   One of the most widely applicable areas of binary choice modeling refers to [churn]{.focus} modeling: the the percentage of customers who [discontinue]{.red} their use of a business's products or services over a certain time period
+
+-   This concept is important for businesses because it affects their revenue and offers insights into customer satisfaction and loyalty:
+
+    1.  A high churn rate may suggest there are issues with the product, service, or overall customer experience
+
+    2.  A low churn rate may suggest the existence of customer loyalty, high switching costs, or valuable attributes from the offer
+
+-   Churn modeling offers valuable insights to marketers as it is possible to derive actions *ex-ante* its occurrence and [prevent]{.green} customers from churning
+
+-   This issue becomes more relevant when customer acquisition costs increase
+
+## Practical Application Outline
+
+-   You will use a bank Customer Relationship Manager (CRM) data set comprising of 10,000 bank customers and its actual engagement status (whether or not he/she has [churned]{.red})
+
+-   This data set will be primarily based on [this](https://www.kaggle.com/code/fekihmea/customer-churn-analysis-pace-strategy/notebook) *Kaggle* notebook, although some adaptations have been made for teaching purposes
+
+## Before we start: tech-setup
+
+-   We'll be running code both using `Python` All outputs will be shown in the first tabset, with their corresponding code in the subsequent tabsets.
+
+-   Before you start, ensure you have installed all the necessary packages: to install all necessary `Python` libraries, use the terminal to install and then `import` all packages inside a notebook:
+
+. . .
+
+```{python}
+#| eval: false
+#| echo: true
+
+pip install requirements.txt
+
+```
+
+## A quick outline of the dataset
+
+```{r}
+
+Data=read.csv('Assets/bank-dataset.csv')
+
+DT::datatable(Data,
+              rownames = FALSE,
+              extensions = 'Buttons',
+              options = list(
+    lengthMenu = list(c(5,10, 50, -1), 
+                      c('5', '10', '50', 'All')),
+    paging = T,
+    pageLength = 5,
+    columnDefs = list(list(className = 'dt-center',targets=c(0:11)))))
+
+```
+
+## Variable Descriptives
+
+-   To begin our investigation, let's do a simple variable description of the variables that we have in our dataset:
+
+. . .
+
+::: panel-tabset
+### Result
+
+
+```{python}
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Assets/bank-dataset.csv')
+Summary = Data.drop(axis=1,labels='customer_id').describe().reset_index()
+
+# Print the structure of the DataFrame
+Table = (
+  GT(Summary)
+  .cols_align('center')
+  .tab_header(title=md("**Summary Statistics**"))
+  .tab_stub('index')
+  .fmt_number(columns=['credit_score','age','tenure'],decimals = 0)
+  .fmt_number(columns=['products_number','credit_card','active_member','churn'],decimals = 2)
+  .fmt_currency(columns=['balance','estimated_salary'],decimals=0)
+  .opt_stylize(style=1,color='red')
+)
+
+#Output
+Table
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Assets/bank-dataset.csv')
+Summary = Data.drop(axis=1,labels='customer_id').describe().reset_index()
+
+# Print the structure of the DataFrame
+Table = (
+  GT(Summary)
+  .cols_align('center')
+  .tab_header(title=md("**Summary Statistics**"))
+  .tab_stub('index')
+  .fmt_number(columns=['credit_score','age','tenure'],decimals = 0)
+  .fmt_number(columns=['products_number','credit_card','active_member','churn'],decimals = 2)
+  .fmt_currency(columns=['balance','estimated_salary'],decimals=0)
+  .opt_stylize(style=1,color='red')
+)
+
+#Output
+Table
+
+```
+:::
+
+## Analyzing churn distribution
+
+::: panel-tabset
+### Result
+
+```{python}
+#| eval: true
+#| fig-align: 'center'
+#| fig-height: 20
+#| fig-width: 8
+
+# Select numeric columns and calculate correlation with churn
+correlation_df = (
+  Data
+  .select_dtypes(include='number')
+  .corr()
+  .iloc[:-1, -1]
+  .reset_index()
+)
+
+# Rename columns
+correlation_df.columns = ['Variable', 'Correlation']
+
+# Add 'Sign' column based on correlation values
+correlation_df['Sign'] = correlation_df['Correlation'].apply(lambda x: 'Positive' if x > 0 else 'Negative')
+
+#Chart
+plot = (
+  ggplot(correlation_df, aes(x='Variable', y='Correlation', fill='Sign'))+
+  geom_col()+
+  geom_text(aes(label=correlation_df['Correlation'].round(2)),size=10, color='black',position=position_stack(vjust=0.5))+  # Add annotations
+  scale_fill_manual(values=['red','green'])+
+  coord_flip()+
+  labs(title='Churn correlation across numeric variables')+
+  theme_minimal()+
+  theme(
+      legend_position='bottom',
+      title=element_text(size=20, weight='bold'),
+      axis_title_x=element_blank(),
+      axis_title_y=element_blank())
+  )
+
+#Display Output
+plot.show()
+
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Select numeric columns and calculate correlation with churn
+correlation_df = (
+  Data
+  .select_dtypes(include='number')
+  .corr()
+  .iloc[:-1, -1]
+  .reset_index()
+)
+
+# Rename columns
+correlation_df.columns = ['Variable', 'Correlation']
+
+# Add 'Sign' column based on correlation values
+correlation_df['Sign'] = correlation_df['Correlation'].apply(lambda x: 'Positive' if x > 0 else 'Negative')
+
+#Chart
+plot = (
+  ggplot(correlation_df, aes(x='Variable', y='Correlation', fill='Sign'))+
+  geom_col()+
+  geom_text(aes(label=correlation_df['Correlation'].round(2)),size=10, color='black',position=position_stack(vjust=0.5))+  # Add annotations
+  scale_fill_manual(values=['red','green'])+
+  coord_flip()+
+  labs(title='Churn correlation across numeric variables')+
+  theme_minimal()+
+  theme(
+      legend_position='bottom',
+      title=element_text(size=20, weight='bold'),
+      axis_title_x=element_blank(),
+      axis_title_y=element_blank())
+  )
+
+#Display Output
+plot.show()
+```
+:::
+
+## Modeling Discrete Choice Models
+
+-   Say that we are interested in modeling the *occurrence* of `churn`, which is a discrete variable for each customer $i$:
+
+. . .
+
+$$
+Y_i=
+\begin{cases}
+1, \text{if the customer has churned}\\
+0,  \text{if the customer is still an active client}
+\end{cases}
+$$
+
+-   If we have a set of covariates, $X_i$, then we can define the relationship:
+
+. . .
+
+$$
+Y_i=f(X_i)
+$$
+
+1.  How our $f(X_i)$ should look like?
+2.  What is the interpretation of the estimates that we'll find?
+
+## Linear Probability Models (LPM)
+
+-   The simplest approach that we can take is to assume that $Y$ is linear on the set of characteristics $X$. In other words, $f(X)$ is a [linear]{.focus} model:
+
+. . .
+
+$$
+Y_i= P(Y_i=1|X_i)=\alpha + \beta_1x_1+\beta_2x_2+...+\beta_nx_n+\varepsilon_i
+$$
+
+-   We can then use *Ordinary Least Squares (OLS)* to model such relationship. Because the functional form of $f(X)$ is assumed to be linear, we call this a *linear probability model (LPM)*:
+
+-   Because the relationship between $Y$ and $X$ is assumed to be linear, the changes in the probability (or likelihood) of `churn` are linear on the parameters $\beta$. For example, for $x_1$:
+
+. . .
+
+$$
+\dfrac{\partial Y}{\partial x_1}=\beta_1
+$$
+
+## Is the LPM a *biased* estimator?
+
+-   If we believe that the *OLS* assumptions are valid, $\beta$ is still a consistent estimator of the population average relationship between $Y$ and $X$, regardless of the type of dependent:
+
+. . .
+
+$$
+\begin{align}
+& \beta_{OLS}=(X'X)^{-1}X'Y\\
+& \beta_{OLS}=(X'X)^{-1}X'(X\beta+\epsilon)=\underbrace{(X'X)^{-1}(X'X)}_{I}\beta+(X'X)^{-1}X'\epsilon\\
+& \beta_{OLS}=\beta + (X'X)^{-1}X'\epsilon
+\end{align}
+$$
+
+-   If we assume that $X\perp\epsilon$ - i.e, no *ommited variables*-, we see that $\beta_{OLS}$ is an unbiased estimator of the *average* effect of $X$ on $Y$:
+
+. . .
+
+$$
+\text{if } X\perp\epsilon \rightarrow \beta_{OLS}=\beta + (X'X)^{-1}\underbrace{X'\epsilon}_{=0}\rightarrow \beta_{OLS}=\beta
+$$
+
+## Modeling churn via LPM
+
+-   Suppose we want to understand the determinants of customer's churn over time. For that, we'll consider the following variables:
+
+. . .
+
+$$
+\text{if } X=\begin{bmatrix} CreditScore \\ D(Gender) \\ Age \\ Tenure \\ Balance \\ \#Products \\ D(CreditCard) \\ D(Active) \\ Salary \end{bmatrix} \rightarrow Y \sim X'\beta+\epsilon
+$$
+
+## LPM Estimation
+
+::: panel-tabset
+### Results
+
+```{python}
+#| echo: false
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Assets/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
+
+# Define independent and dependent variables
+X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = Data['churn']
+
+# Add a constant to the independent variables matrix for the intercept
+X = sm.add_constant(X)
+
+# Fit the linear regression model
+model = sm.OLS(y, X.astype(float)).fit()
+
+# Print the regression summary
+print(model.summary())
+
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Assets/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
+
+# Define independent and dependent variables
+X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = Data['churn']
+
+# Add a constant to the independent variables matrix for the intercept
+X = sm.add_constant(X)
+
+# Fit the linear regression model
+model = sm.OLS(y, X.astype(float)).fit()
+
+# Print the regression summary
+print(model.summary())
+
+
+```
+:::
+
+## Overall analysis
+
+1.  All else equal, an additional year increases the likelihood of churning by:
+
+. . .
+
+$$
+\partial Y/\partial Age=\beta_{Age}\approx 0.0113
+$$
+
+-   Moving from the $25^{th}$ to the $75^{th}$ percentile of `age` increases the likelihood by $\beta_{Age}\times IQR(Age)=(44-32)\times 0.0113 \approx 14$ or 14%
+
+2.  *Male* customers tend to churn, on average, `python male_estimate*100`% less than *Female* customers:
+
+. . .
+
+$$
+\partial Y/\partial D(genderMale)=\beta_{genderMale}\approx =-0.078
+$$
+
+3.  Similar analyses can be made for the following continuous variables (see Code in next slide)
+
+## Analyses
+
+::: panel-tabset
+### Result
+
+```{python}
+#| echo: FALSE
+
+# Define continuous and dummy variables
+continuous_vars = ['credit_score', 'age', 'tenure', 'balance', 'products_number', 'estimated_salary']
+dummy_vars = ['gender_Male', 'credit_card', 'active_member']
+
+# Get coefficient estimates from the model
+estimates = model.params.reset_index()
+estimates.columns = ['Variable', 'estimate']
+
+# Calculate IQR for continuous variables
+iqr_df = Data[continuous_vars].apply(lambda x: x.quantile(0.75) - x.quantile(0.25), axis=0)
+iqr_df = pd.DataFrame({'Variable': iqr_df.index, 'Change': iqr_df.values})
+
+# Create a DataFrame for dummy variables
+dummy_df = pd.DataFrame({'Variable': dummy_vars, 'Change': 1})
+
+# Combine continuous and dummy variable dataframes
+combined_df = pd.concat([iqr_df, dummy_df])
+
+# Merge with coefficient estimates
+result_df = pd.merge(combined_df, estimates, on='Variable', how='left')
+
+# Calculate partial changes
+result_df['partial_change'] = (result_df['Change'] * result_df['estimate'])
+
+#Table
+Table= (
+  GT(result_df)
+  .cols_align('center')
+  .tab_stub(rowname_col='Variable')
+  .cols_label(
+    Change = 'Change in Covariate',
+    estimate = 'Coefficient from OLS',
+    partial_change = 'Change on Outcome (in %)'
+    )
+  .fmt_number(columns = 'Change',decimals=0)
+  .fmt_number(columns = 'estimate',decimals=4)
+  .fmt_percent(columns='partial_change',decimals=2)
+  .tab_header(title=md("**Summary Statistics**"))
+  .opt_stylize(style=1,color='red')
+)
+
+Table
+
+
+```
+
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Define continuous and dummy variables
+continuous_vars = ['credit_score', 'age', 'tenure', 'balance', 'products_number', 'estimated_salary']
+dummy_vars = ['gender_Male', 'credit_card', 'active_member']
+
+# Get coefficient estimates from the model
+estimates = model.params.reset_index()
+estimates.columns = ['Variable', 'estimate']
+
+# Calculate IQR for continuous variables
+iqr_df = Data[continuous_vars].apply(lambda x: x.quantile(0.75) - x.quantile(0.25), axis=0)
+iqr_df = pd.DataFrame({'Variable': iqr_df.index, 'Change': iqr_df.values})
+
+# Create a DataFrame for dummy variables
+dummy_df = pd.DataFrame({'Variable': dummy_vars, 'Change': 1})
+
+# Combine continuous and dummy variable dataframes
+combined_df = pd.concat([iqr_df, dummy_df])
+
+# Merge with coefficient estimates
+result_df = pd.merge(combined_df, estimates, on='Variable', how='left')
+
+# Calculate partial changes
+result_df['partial_change'] = (result_df['Change'] * result_df['estimate'])
+
+#Table
+Table= (
+  GT(result_df)
+  .cols_align('center')
+  .tab_stub(rowname_col='Variable')
+  .cols_label(
+    Change = 'Change in Covariate',
+    estimate = 'Coefficient from OLS',
+    partial_change = 'Change on Outcome (in %)'
+    )
+  .fmt_number(columns = 'Change',decimals=0)
+  .fmt_number(columns = 'estimate',decimals=4)
+  .fmt_percent(columns='partial_change',decimals=2)
+  .tab_header(title=md("**Summary Statistics**"))
+  .opt_stylize(style=1,color='red')
+)
+
+Table
+
+```
+:::
+
+## Limitations of the *LPM*
+
+-   Although a consistent estimator of the average effect, the *LPM* has limitations when it comes to its practical implications to *binary* outcomes:
+
+1.  Churn probabilities should lie within $[0,1]$, but the *predicted* probabilities, $\hat{Y}$, have *continuous* support $(-\infty,+\infty)$. When the goal is to [predict]{.focus} outcomes, this creates probabilities that are outside of the ranges
+
+2.  There is an implicit assumption that the effects are *linear*, which may not hold true. Example, an increase of \$1,000 in customer's income may have significant impacts on churn likelihood when customers are from the bottom of the income distribution, but the effects should dampen as we move towards the top of the income distribution
+
+3.  Heteroskedasticity
+
+4.  $R^2$ is not well-defined
+
+## Limitations of the *LPM*
+
+::::: panel-tabset
+### Heteroskedasticity
+
+::: nonincremental
+-   Even though we can achieve consistent estimators, we'll have [heteroskedasticity]{.focus} in our estimates by construction. To see that, recall that the conditional expectation of Y given X is given by:
+
+$$
+\small E(Y|X)=\underbrace{[P(Y=1|X]}_{X\beta\times 1} + \underbrace{[1-P(Y=1|X)]\times 0}_{=0} = X\beta
+$$
+
+-   Given that the variance of a Bernoulli Distribution is given by $p \times (1-p)$, then:
+
+$$
+V(Y|X)=P(Y|X)\times[1-P(Y|X)]=X\beta\times(1-X\beta) \text{, which clearly depends on } X
+$$
+:::
+
+### Poor Fit
+
+```{python}
+#| echo: FALSE
+#| fig.align: 'center'
+
+Estimates=pd.DataFrame({'Predicted':model.predict()})
+Estimates['Fit']=Estimates['Predicted'].between(0,1).map({True: 'Within P(Y|x Interval)', False: 'Outside P(Y|x Interval)'})
+
+
+Plot= (
+  ggplot(Estimates,aes(x='Predicted',y=after_stat('count'),fill='Fit'))+
+  geom_histogram(alpha=0.8)+
+  geom_vline(xintercept = [0,1],linetype='dashed',color='red')+
+  scale_x_continuous(labels=percent_format())+
+  labs(x='Predicted Probabilities',y='Density',
+       title='Predicted Values based on LPM')+
+  theme_minimal()+
+  theme(legend_position = 'bottom',
+        axis_text = element_text(size=15),
+        plot_title = element_text(size=20,face='bold'))
+  )
+
+Plot.show()
+  
+```
+
+### $R^2$
+
+::: nonincremental
+-   In most linear probability models, $R^2$ has no meaningful interpretation
+
+-   Since the regression line can never fit the data perfectly if the dependent variable is binary and the regressors are continuous
+:::
+:::::
+
+## Introducing non-linear binary models
+
+-   Recall that the limitations of the *LPM* stem from the fact that $f(X)=X'\beta$. It might be that a [linear]{.focus} relationship does not capture all aspects that a churn analysis should have!
+
+-   To that point, we need to think about a new relationship, $Y=f(X)$, that fulfills the following points:
+
+1.  The predicted outcomes, $\hat{Y}$, lie between 0 and 1
+2.  The effects do not need to be linear on the parameters
+3.  Ideally, we'd want to apply a non-linear transformation in such a way that the relationship between Y and X is *sigmoid* (or S-shaped) curve: the changes in the predicted probability tend to go to zero as we approach the lower and upper bounds of the distribution of X
+
+-   The most known cases are *logistic regression* ($f(x)=\Lambda (x)$) and Probit ($f(x)=\Phi(X)$)
+
+## Logistic Regression
+
+-   Like any other transformation function, the idea behind using $\Lambda(X)$ lies on the [latent]{.focus} variable approach: think about an unobserved component, $Y^\star$, which is a continuous variable, such as how much a consumer values a product.
+
+-   Although we do not observe $Y^\star$, we do observe the consumer's decision of buying or not buying the product, depending on a given threshold:
+
+. . .
+
+$$
+Y=
+\begin{cases}
+1, \text{ if }Y^\star>0\\
+0, \text{ if }Y^\star\leq0\\
+\end{cases}
+$$
+
+-   Therefore, we can see that the probability of buying depends on a latent variable, which is not observed by the econometrician:
+
+. . .
+
+$$
+P(Y=1|X)=P(Y^\star>0|X)=P(\underbrace{X\beta+\varepsilon}_{Y^{\star}}>0|X)
+$$
+
+## Logistic Regression, continued
+
+-   We can rearrange terms and find that:
+
+. . .
+
+$$
+P(Y=1|X)=P(\underbrace{X\beta+\varepsilon}_{Y^{\star}}>0|X)\rightarrow \underbrace{P(\varepsilon>-X\beta|X)\equiv P(\varepsilon<X\beta|X)}_{\text{Under Simmetry}}
+$$
+
+-   Therefore, this framework can be used to think about any cumulative density function which has the simmetry property. For the case of Logistic Regression, our transformation function that maps $Y^\star$ (how much consumer values a good) to $Y$ (decision to buy or not buy) is:
+
+. . .
+
+$$
+f(Y^\star)=\Lambda(Y^\star)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)}
+$$
+
+-   Estimation is made using *Maximum Likelihood* estimators.
+
+## Applying Logistic Regression
+
+::: panel-tabset
+### Result
+
+```{python}
+#| echo: FALSE
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Assets/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
+
+# Define independent and dependent variables
+X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = Data['churn']
+
+# Add a constant to the independent variables matrix for the intercept
+X = sm.add_constant(X)
+
+# Fit the linear regression model
+model = sm.Logit(y, X.astype(float)).fit()
+
+# Print the regression summary
+print(model.summary())
+
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Assets/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
+
+# Define independent and dependent variables
+X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = Data['churn']
+
+# Add a constant to the independent variables matrix for the intercept
+X = sm.add_constant(X)
+
+# Fit the linear regression model
+model = sm.Logit(y, X.astype(float)).fit()
+
+# Print the regression summary
+print(model.summary())
+
+```
+:::
+
+## Logit Properties #1: probabilities within the \[0,1\] interval
+
+-   One interesting thing to note is that, due to the properties of $\Lambda(\cdot)$, our estimated probabilities will fall within $[0,1]$ depending on $X$:
+
+1.  When $X\rightarrow\infty$, the probability of buying in our example tends to 1:
+
+. . .
+
+$$
+\Lambda(Y)=\dfrac{\exp(Y)}{1+\exp(Y)}=\dfrac{\exp(X\beta)}{1+\exp(X\beta)}\rightarrow1
+$$
+
+2.  On the other hand, when $X\rightarrow -\infty$, the probability of buying in our example tends to 0:
+
+. . .
+
+$$
+\Lambda(Y)=\dfrac{\exp(Y)}{1+\exp(Y)}=\dfrac{\exp(X\beta)}{1+\exp(X\beta)}\rightarrow \dfrac{0}{1}=0
+$$
+
+## Logit Properties #2: the *odds-ratio*
+
+-   Recall that the *logit* estimation for $\small P(Y|X)$ is given by:
+
+. . .
+
+$$
+\small
+P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
+$$
+
+-   Looking at the inverse, $1/p$, we can see that:
+
+. . .
+
+$$
+\small
+\dfrac{1}{p}=\dfrac{1+\exp(X\beta)}{\exp(X\beta)}=1+\dfrac{1}{\exp{X\beta}}\rightarrow \dfrac{1-p}{p}=\dfrac{1}{\exp{X\beta}}
+$$
+
+-   Inverting and taking logs on both sides, we'll have:
+
+. . .
+
+$$
+\small \log{\bigg(\dfrac{p}{1-p}}\bigg)=X\beta=\alpha+\beta_1x_1+\beta_2x_2+...\beta_kx_k
+$$
+
+## Logit Properties #2: the *odds-ratio* (continued)
+
+-   Therefore, whenever we're estimating a *logit* model, our transformation function, $\Lambda(\cdot)$ is actually estimating $\small \dfrac{p}{1-p}$:
+
+. . .
+
+$$
+\small logit(p)=\alpha+\beta_1x_1+\beta_2x_2+...\beta_kx_k
+$$
+
+-   The term $\small \dfrac{p}{1-p}$ is called *odds-ratio*, and is simply the ratio of the probability of success over the probability of failure
+
+-   Hence, if we want to recover the impacts of any change in the odds-ratio due to our covariates, we can exponentiate our coefficients:
+
+. . .
+
+$$
+\small \text{if } \log\bigg(\dfrac{p}{1-p}\bigg)=\alpha+\beta_1x_1+\beta_2x_2+...\beta_kx_k\rightarrow \dfrac{p}{1-p}=\exp(\alpha+\beta_1x_1+\beta_2x_2+...\beta_kx_k)
+$$
+
+## Logit Properties #2: the *odds-ratio* (continued)
+
+:::: panel-tabset
+### Explanation
+
+::: nonincremental
+-   In previous slides, we noted that the effect of `Gender` is $\small\beta_2=-0.54$. Holding everything fixed, the *odds-ratio* between `Gender=1` (Male) versus `Gender=0` (Female) is given by:
+
+$$
+\small \dfrac{p}{1-p}=\exp(\beta_2)=\exp(-0.54)\approx0.58
+$$
+
+-   Put another way, the chances of being a churned client are $\small 0.58-1=-0.42$ or 42% less likely for men!
+
+-   Similarly, if we look at `Age` ($\beta_3=0.07$), an increase of 1 year increases the churn probability by:
+
+$$
+\exp(\beta_1)=[\exp(0.0728688)-1]\approx 0.07 \text{ or } 7.55\%
+$$
+:::
+
+### Result
+
+```{r,fig.align='center'}
+
+Data=read.csv('Assets/bank-dataset.csv')%>%mutate(gender=ifelse(gender=='Male',1,0))
+
+Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
+        family = binomial(link = "logit"),
+        data = Data)
+
+data.frame(OddsRatio=exp(coefficients(Reg)),
+           Multiplier = c(1,100,1,1,1,10,1,1,1,100))%>%
+  mutate(ChangeOdds=percent((OddsRatio-1)*Multiplier))%>%
+  kable()%>%
+  kable_styling(bootstrap_options = 'responsive',font_size = 30)
+
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Assets/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
+
+# Define independent and dependent variables
+X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+y = Data['churn']
+
+# Add a constant to the independent variables matrix for the intercept
+X = sm.add_constant(X)
+
+# Fit the linear regression model
+model = sm.Logit(y, X.astype(float)).fit()
+
+# Calculate Odds Ratio and Change in Odds
+odds_ratio = pd.DataFrame({'OddsRatio': model.params.apply(lambda x: round(pow(2, x), 4)),
+                           'Multiplier': [1, 100, 1, 1, 1, 10, 1, 1, 1, 100]})
+odds_ratio['ChangeOdds'] = ((odds_ratio['OddsRatio'] - 1) * odds_ratio['Multiplier']).map(lambda x: f"{x:.2%}")
+
+# Display the results
+print(odds_ratio)
+
+```
+::::
+
+## Logit Properties #3: different marginal effects
+
+:::: panel-tabset
+### Explanation
+
+::: nonincremental
+-   One of the caveats of LPM was that the marginal effect was [constant]{.focus}, which does not make a lot of sense from a probabilistic sense
+
+-   With *Logit*, the marginal effects are not equal to $\beta$ anymore. To see that, take the derivative of $P(Y|X)$ with respect to $x_1$:
+
+$$
+\dfrac{\partial\Lambda(X\beta)}{\partial x_1}=\beta_1 \times\dfrac{\partial\Lambda(X\beta)}{\partial X\beta}
+$$
+
+-   As we can see, the effects are not going to be linear anymore!
+
+-   Put another way, given different levels of X, we may have different marginal effects on the probabilities - in what follows, we'll analyze the case of `age`
+:::
+
+### Result
+
+```{python}
+#| fig.align: 'center'
+#| fig.width: 10
+#| fig.height: 7
+
+# Load data
+data = pd.read_csv('Assets/bank-dataset.csv')
+data['gender'] = np.where(data['gender'] == 'Male', 1, 0)
+
+# Fit logistic regression model
+X = data[['credit_score', 'gender', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]
+X = sm.add_constant(X)  # Add constant term for intercept
+y = data['churn']
+model = sm.Logit(y, X).fit()
+
+# Set all other variables to the mean
+new_data = X.drop(columns=['age']).mean(numeric_only=True).to_frame().transpose()
+new_data = pd.DataFrame(np.repeat(new_data.values, 100, axis=0),columns=new_data.columns)
+age_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])
+
+# Concatenate with your existing DataFrame
+concatenated_df = pd.concat([new_data, age_df], ignore_index=True,axis=1)
+concatenated_df.columns=[*new_data.columns,'age']
+
+# Predict
+predicted = model.predict(concatenated_df)
+
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(concatenated_df[['age']], predicted, marker='o', linestyle='-')
+plt.title('Marginal effects of Age on Churn probabilities')
+plt.xlabel('Age')
+plt.ylabel('Predicted Probabilities')
+plt.axhline(y=0, linestyle='--', color='red')
+plt.axhline(y=1, linestyle='--', color='red')
+plt.gca().yaxis.set_major_formatter(plt.FuncFormatter('{:.0%}'.format))
+plt.grid(True)
+plt.show()
+
+
+```
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Load data
+data = pd.read_csv('Assets/bank-dataset.csv')
+data['gender'] = np.where(data['gender'] == 'Male', 1, 0)
+
+# Fit logistic regression model
+X = data[['credit_score', 'gender', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]
+X = sm.add_constant(X)  # Add constant term for intercept
+y = data['churn']
+model = sm.Logit(y, X).fit()
+
+# Set all other variables to the mean
+new_data = X.drop(columns=['age']).mean(numeric_only=True).to_frame().transpose()
+new_data = pd.DataFrame(np.repeat(new_data.values, 100, axis=0),columns=new_data.columns)
+age_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])
+
+# Concatenate with your existing DataFrame
+concatenated_df = pd.concat([new_data, age_df], ignore_index=True,axis=1)
+concatenated_df.columns=[*new_data.columns,'age']
+
+# Predict
+predicted = model.predict(concatenated_df)
+
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(concatenated_df[['age']], predicted, marker='o', linestyle='-')
+plt.title('Marginal effects of Age on Churn probabilities')
+plt.xlabel('Age')
+plt.ylabel('Predicted Probabilities')
+plt.axhline(y=0, linestyle='--', color='red')
+plt.axhline(y=1, linestyle='--', color='red')
+plt.gca().yaxis.set_major_formatter(plt.FuncFormatter('{:.0%}'.format))
+plt.grid(True)
+plt.show()
+
+```
+::::
+
+## Logit Properties #4: different effects by categorical variables
+
+:::: panel-tabset
+### Explanation
+
+::: nonincremental
+-   Another interesting use case is to re-do the same analysis before, but now varying also on categorical variables
+
+-   For example, what is the difference in the probability of buying by men and women?
+
+-   In order to do that, we can set all continous variables to their means and compare the estimated probabilities for `gender=1` (male) and `gender=0` (female)
+:::
+
+### Result
+
+```{python}
+#| echo: FALSE
+#| fig.align: 'center'
+#| fig.height: 7
+#| fig.width: 10
+
+# Load data
+data = pd.read_csv('Assets/bank-dataset.csv')
+data['gender'] = np.where(data['gender'] == 'Male', 1, 0)
+
+# Fit logistic regression model
+X = data[['credit_score', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','gender']]
+X = sm.add_constant(X)  # Add constant term for intercept
+y = data['churn']
+model = sm.Logit(y, X).fit()
+
+# Set all other variables to the mean
+new_data = X.drop(columns=['gender']).mean(numeric_only=True).to_frame().transpose()
+new_data = pd.DataFrame(np.repeat(new_data.values, 2, axis=0),columns=new_data.columns)
+gender_df = pd.DataFrame(pd.Series(range(0, 2)), columns=['gender'])
+
+# Concatenate with your existing DataFrame
+concatenated_df = pd.concat([new_data, gender_df], ignore_index=True,axis=1)
+concatenated_df.columns=[*new_data.columns,'gender']
+
+# Predict
+predicted = model.predict(concatenated_df)
+
+# Plot
+concatenated_df['Predict'] = predicted
+concatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
+
+plt.figure(figsize=(10, 300))
+plt.bar(concatenated_df['Sex'], concatenated_df['Predict'], color=concatenated_df['Sex'].map({'Male': 'blue', 'Female': 'pink'}))
+for i, value in enumerate(concatenated_df['Predict']):
+    plt.text(i, value, f'{value:.2%}', ha='center', va='bottom', fontsize=10)
+plt.title('Marginal effects of gender on Churn probabilities')
+plt.xlabel('Gender')
+plt.ylabel('Predicted Probabilities')
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.show()
+
+
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Load data
+data = pd.read_csv('Assets/bank-dataset.csv')
+data['gender'] = np.where(data['gender'] == 'Male', 1, 0)
+
+# Fit logistic regression model
+X = data[['credit_score', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','gender']]
+X = sm.add_constant(X)  # Add constant term for intercept
+y = data['churn']
+model = sm.Logit(y, X).fit()
+
+# Set all other variables to the mean
+new_data = X.drop(columns=['gender']).mean(numeric_only=True).to_frame().transpose()
+new_data = pd.DataFrame(np.repeat(new_data.values, 2, axis=0),columns=new_data.columns)
+gender_df = pd.DataFrame(pd.Series(range(0, 2)), columns=['gender'])
+
+# Concatenate with your existing DataFrame
+concatenated_df = pd.concat([new_data, gender_df], ignore_index=True,axis=1)
+concatenated_df.columns=[*new_data.columns,'gender']
+
+# Predict
+predicted = model.predict(concatenated_df)
+
+# Plot
+concatenated_df['Predict'] = predicted
+concatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
+
+plt.figure(figsize=(10, 300))
+plt.bar(concatenated_df['Sex'], concatenated_df['Predict'], color=concatenated_df['Sex'].map({'Male': 'blue', 'Female': 'pink'}))
+for i, value in enumerate(concatenated_df['Predict']):
+    plt.text(i, value, f'{value:.2%}', ha='center', va='bottom', fontsize=10)
+plt.title('Marginal effects of gender on Churn probabilities')
+plt.xlabel('Gender')
+plt.ylabel('Predicted Probabilities')
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.show()
+
+```
+::::
+
+## Putting all together
+
+:::: panel-tabset
+### Explanation
+
+::: nonincremental
+-   We saw that women tend to churn, approximately, $8$ percentage points more than men
+
+-   Is this true across [all]{.focus} levels of age? As age levels increase, the gap between men and women may become wider due to personal traits. On the other hand, it may be that gender differences are invariant to age
+
+-   In order to do that, we can do a mix of the two last exercises:
+
+1.  Set all continuous variables, with the exception of `age`, to their means
+2.  Compare the estimated probabilities for `gender=1` (male) and `gender=0` (female)
+3.  You should have $200$ rows in your data frame
+:::
+
+### Result
+
+```{python}
+#| echo: FALSE
+#| fig.align: 'center'
+#| fig.height: 7
+#| fig.width: 10
+
+# Load data
+data = pd.read_csv('Assets/bank-dataset.csv')
+data['gender'] = np.where(data['gender'] == 'Male', 1, 0)
+
+# Fit logistic regression model
+X = data[['credit_score', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','gender','age']]
+X = sm.add_constant(X)  # Add constant term for intercept
+y = data['churn']
+model = sm.Logit(y, X).fit()
+
+# Set all other variables to the mean
+new_data = X.drop(columns=['gender','age']).mean(numeric_only=True).to_frame().transpose()
+new_data = pd.DataFrame(np.repeat(new_data.values, 200, axis=0),columns=new_data.columns)
+gender_df = pd.DataFrame([*np.repeat(1,100,axis=0),*np.repeat(0,100,axis=0)], columns=['gender'])
+age_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])
+age_df =pd.concat([age_df,age_df],ignore_index=True,axis=0)
+
+# Concatenate with your existing DataFrame
+concatenated_df = pd.concat([gender_df, age_df], ignore_index=True,axis=1)
+concatenated_df = pd.concat([new_data,concatenated_df], ignore_index=True,axis=1)
+concatenated_df.columns=[*new_data.columns,'gender','age']
+
+# Predict
+predicted = model.predict(concatenated_df)
+
+# Plot
+concatenated_df['Predict'] = predicted
+concatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
+
+plt.figure(figsize=(10, 6))
+for sex in concatenated_df['Sex'].unique():
+    plt.scatter(concatenated_df[concatenated_df['Sex'] == sex]['age'], concatenated_df[concatenated_df['Sex'] == sex]['Predict'],
+                label=sex, color='blue' if sex == 'Male' else 'pink')
+plt.title('Marginal effects of gender and age on Churn probabilities')
+plt.xlabel('Age')
+plt.ylabel('Predicted Probabilities')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Load data
+data = pd.read_csv('Assets/bank-dataset.csv')
+data['gender'] = np.where(data['gender'] == 'Male', 1, 0)
+
+# Fit logistic regression model
+X = data[['credit_score', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','gender','age']]
+X = sm.add_constant(X)  # Add constant term for intercept
+y = data['churn']
+model = sm.Logit(y, X).fit()
+
+# Set all other variables to the mean
+new_data = X.drop(columns=['gender','age']).mean(numeric_only=True).to_frame().transpose()
+new_data = pd.DataFrame(np.repeat(new_data.values, 200, axis=0),columns=new_data.columns)
+gender_df = pd.DataFrame([*np.repeat(1,100,axis=0),*np.repeat(0,100,axis=0)], columns=['gender'])
+age_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])
+age_df =pd.concat([age_df,age_df],ignore_index=True,axis=0)
+
+# Concatenate with your existing DataFrame
+concatenated_df = pd.concat([gender_df, age_df], ignore_index=True,axis=1)
+concatenated_df = pd.concat([new_data,concatenated_df], ignore_index=True,axis=1)
+concatenated_df.columns=[*new_data.columns,'gender','age']
+
+# Predict
+predicted = model.predict(concatenated_df)
+
+# Plot
+concatenated_df['Predict'] = predicted
+concatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
+
+plt.figure(figsize=(10, 6))
+for sex in concatenated_df['Sex'].unique():
+    plt.scatter(concatenated_df[concatenated_df['Sex'] == sex]['age'], concatenated_df[concatenated_df['Sex'] == sex]['Predict'],
+                label=sex, color='blue' if sex == 'Male' else 'pink')
+plt.title('Marginal effects of gender and age on Churn probabilities')
+plt.xlabel('Age')
+plt.ylabel('Predicted Probabilities')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+```
+::::
+
+## Comparison across LPM and Logit estimations
+
+-   We came across two estimators for binary choice models. Do they differ in terms of the responses?
+
+-   Although the coefficients from the different models are not directly comparable, we can use them to understand what are the partial effects:
+
+-   For both cases, we'll use all the other variables at their sample mean values:
+
+    1.  For *LPM*, the effect will be a [slope]{.focus}, *i.e.*, the marginal change depending on `Age` will be constant
+    2.  For *Logit*, the change in the predicted probability will vary depending on the `Age` reference point
+
+## Comparing across LPM and Logit estimations - `age`
+
+::: panel-tabset
+### Result
+
+```{python}
+#| echo: FALSE
+#| fig.align: 'center'
+#| fig.height: 7
+#| fig.width: 10
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Assets/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
+
+# Define independent and dependent variables
+X = Data[['credit_score', 'gender_Male', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]
+y = Data['churn']
+
+# Add a constant to the independent variables matrix for the intercept
+X = sm.add_constant(X)
+
+# Fit the linear regression model and the logit model
+lm_model = sm.OLS(y, X.astype(float)).fit()
+logit_model = sm.Logit(y, X.astype(float)).fit()
+
+# Set all other variables to the mean
+new_data = X.drop(columns=['age']).mean(numeric_only=True).to_frame().transpose()
+new_data = pd.DataFrame(np.repeat(new_data.values, 100, axis=0),columns=new_data.columns)
+age_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])
+
+# Concatenate with your existing DataFrame
+concatenated_df = pd.concat([new_data,age_df], ignore_index=True,axis=1)
+concatenated_df.columns=[*new_data.columns,'age']
+
+# Predict
+lm_predicted = lm_model.predict(concatenated_df)
+logit_predicted = logit_model.predict(concatenated_df)
+
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(age_df, lm_predicted, label='LPM', marker='o', linestyle='-')
+plt.plot(age_df, logit_predicted, label='LOGIT', marker='o', linestyle='-')
+
+# Adding labels and title
+plt.xlabel('Age')
+plt.ylabel('Predicted Probabilities')
+plt.title('Comparison of LPM and Logit')
+plt.legend()
+
+# Displaying the plot
+plt.grid(True)
+plt.show()
+
+
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Read the CSV file into a pandas DataFrame
+Data = pd.read_csv('Assets/bank-dataset.csv')
+
+# Convert 'gender' into dummy variables
+Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
+
+# Define independent and dependent variables
+X = Data[['credit_score', 'gender_Male', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]
+y = Data['churn']
+
+# Add a constant to the independent variables matrix for the intercept
+X = sm.add_constant(X)
+
+# Fit the linear regression model and the logit model
+lm_model = sm.OLS(y, X.astype(float)).fit()
+logit_model = sm.Logit(y, X.astype(float)).fit()
+
+# Set all other variables to the mean
+new_data = X.drop(columns=['age']).mean(numeric_only=True).to_frame().transpose()
+new_data = pd.DataFrame(np.repeat(new_data.values, 100, axis=0),columns=new_data.columns)
+age_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])
+
+# Concatenate with your existing DataFrame
+concatenated_df = pd.concat([new_data,age_df], ignore_index=True,axis=1)
+concatenated_df.columns=[*new_data.columns,'age']
+
+# Predict
+lm_predicted = lm_model.predict(concatenated_df)
+logit_predicted = logit_model.predict(concatenated_df)
+
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(age_df, lm_predicted, label='LPM', marker='o', linestyle='-')
+plt.plot(age_df, logit_predicted, label='LOGIT', marker='o', linestyle='-')
+
+# Adding labels and title
+plt.xlabel('Age')
+plt.ylabel('Predicted Probabilities')
+plt.title('Comparison of LPM and Logit')
+plt.legend()
+
+# Displaying the plot
+plt.grid(True)
+plt.show()
+```
+
+:::
+
+## Comparison across LPM and Logit estimations (continued)
+
+-   In the *LPM* model, the effect of `age` is always the same -- intuitively, $\beta_{Age}$, the partial derivative of Y with respect to `Age`, is the same for all levels
+
+-   On the other hand, the changes when looking at the *Logit* model vary depending on the reference point for `Age`:
+
+    1.  For values \$\[0,20\], it increases modestly
+    2.  Around \[21,60\], the changes are exponential
+    3.  Between \[60,80\], the changes start to become constant
+    4.  After 80, we see diminishing effects
+
+-   Do these differences matter in practice? [It depends on what you're looking...]{.focus}
+
+## Comparison across LPM and Logit estimations (continued)
+
+-   On the one hand, we clearly the weaknesses of the *LPM* when estimating probabilities for ages between $[0,20]$.
+
+-   On the other hand, *LPM* and *Logit* will be almost identical between $[30,60]$
+
+1.  If you tabulate the distribution of `Age` in your dataset, you'll see that although *LPM* does a poor job in predicting probabilities for cases \<20, the sample proportion of these cases is less than 1%
+
+2.  On the other hand, its results are approximately the same as of *Logit* between $[30,60]$, which constitutes approximately 80% of the sample
+
+-   Ok, do does it matter or not? Again, [it depends...]{.focus}
+
+## Comparison across LPM and Logit estimations (continued)
+
+-   Logit or LPM?
+
+1.  If your interest is to use the model results to [predict]{.focus} probabilities for different age brackets, then yes, you should use *Logit* (or any model with the similar properties)
+
+2.  If, on the other hand, you're just interest in knowing the effects for the average person in your sample, you can use *LPM*
+
+-   *LPM* is simpler, and we know very well the properties to analyze cases potential issues such as *ommited variable bias*
+
+-   In the *Logit* world, there is no $R^2$, but there are other ways to check the predictive ability and fit of models
+
+## References

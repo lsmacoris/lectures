@@ -101,7 +101,6 @@ Returns=Prices%>%map(dailyReturn,leading=FALSE)%>%map(na.omit)
 
 ```
 
-
 ## Disclaimer
 
 ::: callout-important
@@ -116,72 +115,67 @@ For any questions or concerns, please feel free to reach out via email at [lucas
 
 ## Analyzing a stock's performance
 
-- From our previous lectures, we have already been able to:
-  1. Employ methods for analyzing the performance of individual stocks over time
-  2. Calculate the historical performance of simple combinations of assets, such as equally-weighted portfolios
- 
-- **In reality, however, portfolio construction is way more dynamic and complex**. What if we wanted to analyze the performance of a trading strategy that has a dynamic allocation rule?
+-   From our previous lectures, we have already been able to:
 
--  In this lecture, we will be working with the `PerformanceAnalytics` and `PortfolioAnalytics` packages to:      
+    1.  Employ methods for analyzing the performance of individual stocks over time
+    2.  Calculate the historical performance of simple combinations of assets, such as equally-weighted portfolios
 
-  1. Quantify the performance of a *momentum* strategy in the Brazilian financial markets
-  2. Look at ways for optimizing *portfolios* based on *Markowitz* Mean-Variance optimization and its variations
+-   **In reality, however, portfolio construction is way more dynamic and complex**. What if we wanted to analyze the performance of a trading strategy that has a dynamic allocation rule?
 
+-   In this lecture, we will be working with the `PerformanceAnalytics` and `PortfolioAnalytics` packages to:
 
+1.  Quantify the performance of a *momentum* strategy in the Brazilian financial markets
+2.  Look at ways for optimizing *portfolios* based on *Markowitz* Mean-Variance optimization and its variations
 
 ## Momentum in the stock market
 
 **Do past returns explain future performance? Ideally, that shouldn't be the case, but...**
 
-:::{.callout-tip}
+::: callout-tip
 ### Definition
 
 Momentum strategies capitalize on the tendency of assets that have performed well in the past to continue performing well, and *vice-versa*, based on the idea that market trends persist due to behavioral biases (*e.g.*, herding, overreaction, among others).
-
 :::
 
-- Previously documented in academic research [@jegadeesh1993], such rationale can be applied to stocks, bonds, commodities, and currencies, etc
+-   Previously documented in academic research [@jegadeesh1993], such rationale can be applied to stocks, bonds, commodities, and currencies, etc
 
-  1. Works across different asset classes and time periods but subject to periodic crashes (*e.g.*, 2009 momentum crash)
-  2. It is often used alongside factor models like the *Fama-French-Carhart* Four-Factor Model, which adds a momentum factor to the *Fama-French* three-factor model
-  
+    1.  Works across different asset classes and time periods but subject to periodic crashes (*e.g.*, 2009 momentum crash)
+    2.  It is often used alongside factor models like the *Fama-French-Carhart* Four-Factor Model, which adds a momentum factor to the *Fama-French* three-factor model
+
 ## Momentum in the stock market, continued
 
-- How can we implement a *momentum* strategy? In short, there are some key steps in defining the strategy parameters that needed to be taken into consideration:
+-   How can we implement a *momentum* strategy? In short, there are some key steps in defining the strategy parameters that needed to be taken into consideration:
 
-  1. Define the [lookback period]{.blue} (*e.g.*, $3$, $6$, or $12$ months) to measure past returns.
-  2. [Rank]{.blue} assets based on past performance
-  3. Construct a portfolio that goes [long]{.green} on the top-performing assets and eventually [short]{.red} on the worst performers
-  4. Rebalance periodically (*e.g*., monthly or quarterly) based on a [weighting criteria]{.blue}
-  5. Calculate the [performance]{.blue} metrics
+    1.  Define the [lookback period]{.blue} (*e.g.*, $3$, $6$, or $12$ months) to measure past returns.
+    2.  [Rank]{.blue} assets based on past performance
+    3.  Construct a portfolio that goes [long]{.green} on the top-performing assets and eventually [short]{.red} on the worst performers
+    4.  Rebalance periodically (*e.g*., monthly or quarterly) based on a [weighting criteria]{.blue}
+    5.  Calculate the [performance]{.blue} metrics
 
-- In what follows, we will be looking at a step-by-step guide for implementing such strategy using Brazilian stocks through a hands-on exercise
+-   In what follows, we will be looking at a step-by-step guide for implementing such strategy using Brazilian stocks through a hands-on exercise
 
 ## Hands-On Exercise
 
-- You are a quantitative analyst at *SeekingAlpha*, a quantitative Hedge Fund specialized in automated strategies. Your goal is to quantity how a *momentum*-based strategy in the Brazilian stock market performed from 2018 to 2024
+-   You are a quantitative analyst at *SeekingAlpha*, a quantitative Hedge Fund specialized in automated strategies. Your goal is to quantity how a *momentum*-based strategy in the Brazilian stock market performed from 2018 to 2024
 
 ::: callout-tip
 ### Instructions
 
-1. We will be using data from a set of $\small 20$ selected Brazilian stocks that have been traded over the study period
-2. Our portfolio will be rebalanced *monthly* using a lookback period of *90* days, selecting the top $\small5$ stocks based on the adjusted prices
-3. The strategy will assign *equal* weights to all stocks and will consist of a *long-biased* strategy - *i.e*, you will only [buy]{.blue} stocks
-
+1.  We will be using data from a set of $\small 20$ selected Brazilian stocks that have been traded over the study period
+2.  Our portfolio will be rebalanced *monthly* using a lookback period of *90* days, selecting the top $\small5$ stocks based on the adjusted prices
+3.  The strategy will assign *equal* weights to all stocks and will consist of a *long-biased* strategy - *i.e*, you will only [buy]{.blue} stocks
 
 The selected stocks are: *RAIZ4*, *ITUB3*, *IRBR3*, *BBDC4*, *ABEV3*, *YDUQ3*, *BBAS3*, *B3SA3*, *WEGE3*, *RADL3*, *LREN3*, *BRFS3*, *CSAN3*, *HAPV3*, *SUZB3*, *GRND3*, *MGLU3*, *BEEF3*, *EGIE3*, and *HYPE3*
-
 :::
 
 **Would you recommend investing in a fund that replicates this strategy?**
 
 ## Step 1: Collecting Data
 
-:::{.panel-tabset}
-
+::: panel-tabset
 ### Code
 
-- You can use the previous `tq_get()` function from the `tidyquant` package to collect and retrieve the data from all tickers during the study period, already in tidy format for you to manipulate:
+-   You can use the previous `tq_get()` function from the `tidyquant` package to collect and retrieve the data from all tickers during the study period, already in tidy format for you to manipulate:
 
 ```{r}
 #| echo: true
@@ -199,8 +193,8 @@ prices <- tq_get(br_stocks, from = "2018-01-01", to = "2024-01-01")
   
 ```
 
-
 ### Output
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -221,17 +215,18 @@ prices
 
 ## Step 2: Define the Trading Signals
 
-- After collecting the data, we need to make sure that our *momentum* strategy accurately creates the trading signals and use them at an appropriate timestamp:
+-   After collecting the data, we need to make sure that our *momentum* strategy accurately creates the trading signals and use them at an appropriate timestamp:
 
-  1. We use the `lag()` function to calculate, for each symbol, the adjusted trading price back in $\small 60$ days
-  2. After that, we calculate the returns - in this case, we will be using log-returns
-  3. With the 3-month returns properly calculated, we rank stocks in each `date` from highest-to-lowest returns, keeping only the five highest returns for each given date
-  4. Finally, we create a new `date` column that stores the week where we will be evaluating the returns from investing in the top 5 stocks
+    1.  We use the `lag()` function to calculate, for each symbol, the adjusted trading price back in $\small 60$ days
+    2.  After that, we calculate the returns - in this case, we will be using log-returns
+    3.  With the 3-month returns properly calculated, we rank stocks in each `date` from highest-to-lowest returns, keeping only the five highest returns for each given date
+    4.  Finally, we create a new `date` column that stores the week where we will be evaluating the returns from investing in the top 5 stocks
 
 ## Step 2: Define the Trading Signals
-:::{.panel-tabset}
 
+::: panel-tabset
 ### Code
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -262,8 +257,8 @@ ranks <- prices%>%
 
 ```
 
-
 ### Output
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -297,15 +292,15 @@ ranks%>%arrange(date,rank)%>%head(10)
 ```
 :::
 
-
 ## Step 3: Compute Returns
-:::{.panel-tabset}
 
-- After we set up our rankings, it is time to work on a second `data.frame`: the `returns` data
+::: panel-tabset
+-   After we set up our rankings, it is time to work on a second `data.frame`: the `returns` data
 
-- Using the raw stock prices data, we calculate the monthly return for each stock during the study period, rounding the dates to the first day of each
+-   Using the raw stock prices data, we calculate the monthly return for each stock during the study period, rounding the dates to the first day of each
 
 ### Code
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -321,8 +316,8 @@ returns <- prices%>%
 
 ```
 
-
 ### Output
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -340,21 +335,20 @@ head(returns,10)
 ```
 :::
 
+## Step 4: Portfolio Performance
+
+-   Finally, it is time to find out how did your strategy perform over time
+
+    1.  For that, you will match `returns` to `ranks` for each `symbol` and `date` combination
+    2.  Because we want to make sure that we are only looking at the specific breakpoint dates for the trading strategy, we use the `inner_join()` function
+
+-   With that, we are able to collect, for each beginning-of-month, what was the return from the strategy up to that point!
 
 ## Step 4: Portfolio Performance
 
-- Finally, it is time to find out how did your strategy perform over time
-
-  1. For that, you will match `returns` to `ranks` for each  `symbol` and `date` combination
-  2. Because we want to make sure that we are only looking at the specific breakpoint dates for the trading strategy, we use the `inner_join()` function
-
-- With that, we are able to collect, for each beginning-of-month, what was the return from the strategy up to that point!
-
-## Step 4: Portfolio Performance
-
-:::{.panel-tabset}
-
+::: panel-tabset
 ### Code
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -391,8 +385,8 @@ ggplot(aes(x = date, y = cumulative_return)) +
 
 ```
 
-
 ### Output
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -434,23 +428,24 @@ ggplot(aes(x = date, y = cumulative_return)) +
 
 ## Going [long]{.green} and [short]{.red}
 
-- Our previous *momentum* strategy was defined as a *long-biased* strategy: we only selected the [top]{.green} 5 stocks in terms of past returns and built a [long]{.green} position
+-   Our previous *momentum* strategy was defined as a *long-biased* strategy: we only selected the [top]{.green} 5 stocks in terms of past returns and built a [long]{.green} position
 
-- A potential risk in this strategy is that, even if those performed well in the past, there is a downward trend in the market 
+-   A potential risk in this strategy is that, even if those performed well in the past, there is a downward trend in the market
 
-- We can add a little bit more complexity to our *momentum* based strategy by allowing [long]{.green} and [short]{.red} positions at the same time:
+-   We can add a little bit more complexity to our *momentum* based strategy by allowing [long]{.green} and [short]{.red} positions at the same time:
 
-  1. Calculate the rolling 3-month returns as before
-  2. Select the [top]{.green} and [worst]{.red} performing firms in each period
-  3. Build a [long]{.green} position on the [top]{.green} firms, and a [short]{.red} position in the [worst]{.red} firms
-  4. Recalculate metrics
+    1.  Calculate the rolling 3-month returns as before
+    2.  Select the [top]{.green} and [worst]{.red} performing firms in each period
+    3.  Build a [long]{.green} position on the [top]{.green} firms, and a [short]{.red} position in the [worst]{.red} firms
+    4.  Recalculate metrics
 
-- In what follows, we will do small tweaks in our ranking definition so as to employ a long-short *momentum* strategy
+-   In what follows, we will do small tweaks in our ranking definition so as to employ a long-short *momentum* strategy
 
 ## (Re)define the Trading Signals
-:::{.panel-tabset}
 
+::: panel-tabset
 ### Code
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -481,8 +476,8 @@ ranks <- prices%>%
 
 ```
 
-
 ### Output
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -517,9 +512,10 @@ ranks%>%arrange(date,rank)%>%head(10)
 :::
 
 ## Setting up a long and short *momentum* strategy
-:::{.panel-tabset}
 
+::: panel-tabset
 ### Code
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -556,8 +552,8 @@ strategy_LS%>%
 
 ```
 
-
 ### Output
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -598,10 +594,9 @@ strategy_LS%>%
 ```
 :::
 
-
 ## Putting all together
 
-:::{.panel-tabset}
+::: panel-tabset
 ### Code
 
 ```{r}
@@ -676,25 +671,23 @@ chart_strategy_LO%>%
           plot.title = element_text(size=20,face='bold'),
           plot.subtitle  = element_text(size=15))
 ```
-
 :::
 
 ## Assessing portfolio performance
 
-- There is so much you can do with the `PerformanceAnalytics` package - convert your newly created `strategy_*` objects into an `.xts` object by calling `portfolio%>%as.xts()` and experiment using these pre-built functions for assessing historical performance:
+-   There is so much you can do with the `PerformanceAnalytics` package - convert your newly created `strategy_*` objects into an `.xts` object by calling `portfolio%>%as.xts()` and experiment using these pre-built functions for assessing historical performance:
 
-  1. `charts.RollingPerformance()`
-  2. `charts.PerformanceSummary()`
-  3. `chart.Histogram()`
-  4. `table.AnnualizedReturns()`
+    1.  `charts.RollingPerformance()`
+    2.  `charts.PerformanceSummary()`
+    3.  `chart.Histogram()`
+    4.  `table.AnnualizedReturns()`
 
-- Play around with changing the parameters of the strategy and document the effects of such changes!
+-   Play around with changing the parameters of the strategy and document the effects of such changes!
 
 ## Choosing Efficient Portfolios
 
 -   Now that we understood how to analyze the performance of single stocks, let's turn our attention to determine how an investor can analyze a *portfolio* of assets!
 -   Let's start of with the simplest case: create a portfolio with two stocks, [Amazon]{.blue} and [Ferrari]{.blue}. Previously, we've shown that, for the analysis period, we had the following results in terms of risk and return:
-
 
 ```{r}
 #| fig-align: center
@@ -716,8 +709,6 @@ cbind(do.call('cbind',Returns))%>%
 ```
 
 -   Let's create $5$ different portfolios using $\pm20\%$ of allocation weights in each asset
-
-
 
 ## Choosing an Efficient Portfolio, continued
 
@@ -956,20 +947,32 @@ hchart(data,
 
 -   Based on this, is there a [single]{.blue} portfolio in which all investors should hold? **No!** In practice, investors will choose among portfolios based on their specific preferences for risk and return
 
-## It is now your turn...
+## The Markowitz Mean-Variance Problem
 
--   Using the *Hedge Fund* monthly returns from the database you have just used to perform the analysis, you will now add *two* additional factors: *Investment* and *Profitability*. The resulting dataset comprises the famous *Fama-French Five Factor* model. Proceed as follows:
+- We generalize the problem of finding the efficient portfolio for a given $N$ number of assets as:
 
-::: callout-tip
-### Hands-on Exercise
+$$
+\min_{\{w_1,w_2,w_3,w_4,w_5\}} \sigma^2_p = w^T \Sigma w,
+\text{ such that:}
+\\
+\begin{cases}
+\sum_{i=1}^5 w_i=1 \text{ (1)}\\
+0\leq w_i \leq 1, \forall i \text{ (2)}
+\end{cases}
+$$
 
-1.  Download the *Fama-French 5 Factor* portfolios using the download link below (or directly through *eClass®*)
-2.  Merge the dataset with the *Fama French* dataset you have just used. You can use the `left_join` function to join two dataframes
-3.  Repeat the procedures we have used before to estimate and chart the output of an OLS regression of the form for all investment strategies:
 
-How do you interpret your new findings? Does your conclusion hold after including the two additional risk factors?
-:::
+- This is also known as the *Markowtiz Mean-Variance* optimization problem for a long-only portfolio
 
+## The Markowitz Mean-Variance Problem, continued
+
+
+- In other words, you are solving the following problem: find the set of allocation weights $w_1,w_2,w_3,w_4$, and $w_5$ (the % that you allocate in each of the five stocks) that, when used to create a portfolio, are the ones that create the portfolio with the *minimum variance* among all possible combinations
+
+- In order to do that, you have to ensure that the weights add up to 100% (so you're fully investing your capital), which is the first condition. The second conditions states that a stock cannot have *negative* weights nor have a weight that is greater than 100%
+
+
+**Important:** Note that $w^T\Sigma w$ is nothing more than the matrix form of $\sum_{i=1}^{N}w_i\sigma_i^2+ 2\sum_{i=1}^{N}\sum_{j\neq i}w_i w_j\sigma_{i,j}$, which is the variance of a portfolio that consists of $N$ assets
 
 
 ## References
