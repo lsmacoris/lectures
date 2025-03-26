@@ -1,0 +1,82 @@
+---
+title: "Quantitative Methods"
+image: 'quant-mkt/thumbnail.jpg'
+listing:
+ type: table
+ contents: 'quant-mkt/coursework'
+ fields: [title, reading-time]
+ sort: "title"
+
+---
+
+------------------------------------------------------------------------
+
+## **About the course**
+
+This is a graduate-level course in Quantitative Marketing for the *Master's Program in Economics and Finance (MEF)*, organized by the *University of Navarra (UNAV)*. This course aims to provide a hands-on approach to some of the methods widely used to solve practical questions in the advertisement industry, nurturing students with enough methodological background to understand the methods' differences, advantages, and limitations. Students will also be exposed to a series of practical coding sessions, where the instructors will walk through practical applications of the methods discussed in class. 
+
+The first section will focus on choice models, discussing the methodological aspects of the techniques most widely used in practical applications. The second section will be focused on market response models - measuring the effects of marketing efforts on sales metrics -and will discuss methods ranging from experimental design to panel-data estimation. Additional papers and references not covered in Sections 1 and 2 will be organized in the bibliography. Students are expected to apply the methods discussed in Sections 1 and 2 and replicate the codes developed during class. All coding routines will be discussed during class, and a handout will be provided at the end of each class.
+
+The evaluation will grade students based on their ability to develop, analyze, and discuss the results of a quantitative marketing case study. Groups are expected to create a report (code + discussions) applying some techniques discussed in class. The due date is 48 hours. Performance will be evaluated regarding reproducibility, organization, and quality of the discussion.
+
+::: {.callout-note}
+### 1. Getting started
+
+To make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I'll make sure to update this list whenever needed throughout the sessions:
+
+:::
+
+```{r, eval=FALSE,echo=TRUE}
+# Package names
+packages <- c("tidyverse","tidyquant","tidymodels","xts", "glue","scales", "ggthemes","highcharter")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load all packages
+lapply(packages, library, character.only = TRUE)
+
+```
+
+
+::: {.callout-note}
+### 2. Using Quarto
+
+In this course, you'll be assigned with three data cases, where you'll need to manipulate code and write your insights altogether. I want to encourage you to give [Quarto](https://quarto.org/) a try.
+
+To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) link and choose your Operating System. *RStudio* will automatically locate it and make it as an option whenever creating a new file with `Ctrl+N`. Why you should give Quarto a try:
+
+  1. It has multi-language support (*Python*, *R*, *Julia*, *JavaScript*), parses equations and mathematical notations via *pandoc*, and integrates seamlessly with GitHub
+  2. Advanced document formatting and output options: you can choose *pdf*, *html*, *docx*, or even a *reveal.js* presentation (like the ones from this course!)
+  3. It is easy, intuitive, and lets you focus on the most important aspect of your work
+
+:::
+
+::: {.callout-note}
+### 3. Contents
+
+At the end of this page, you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
+
+1. Hit `F` for full-screen mode
+2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`
+
+:::
+::: {.callout-note}
+### 4. Replications
+
+Along with the slides, each lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased. This file, that will also be posted on *eClass®*, can be downloaded and replicated on your side.
+
+To do that, download the file, open it up in RStudio, and render the Quarto document using the Render button (shortcut: `Ctrl+Shift+K`).
+
+You can find the permanent links to the replication files (`.qmd`) below:
+
+1. Bridging Finance with Programming - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L1/L1-Replication.html)
+2. Collecting, Organizing, and Manipulating Financial Data - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L2/L2-Replication.html)
+3. Manipulating Time Series Data - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L3/L3-Replication.html)
+4. Data Visualization - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L4/L4-Replication.html)
+
+:::

@@ -20,6 +20,8 @@ website:
         text: Financial Strategy
       - href: quant-fin.qmd
         text: Quantitative Finance
+      - href: quant-mkt.qmd
+        text: Quantitative Methods
 
     right:
       - icon: github

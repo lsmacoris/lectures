@@ -58,5 +58,13 @@
       "/fin-strat/Lecture 3 - Optimal Portfolio and CAPM/index.html",
       "/fin-strat/Lecture 10 - Payout Policy/index.html"
     ]
+  },
+  {
+    "listing": "/quant-mkt.html",
+    "items": [
+      "/quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html",
+      "/quant-mkt/coursework/Lecture 2 -  Evaluating Logistic Regression Outcomes/index.html",
+      "/quant-mkt/coursework/Lecture 4 -  Market Basket Analysis/index.html"
+    ]
   }
 ]

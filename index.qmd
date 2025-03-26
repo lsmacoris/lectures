@@ -6,6 +6,7 @@
     - "fin-mgmt.qmd"
     - "fin-strat.qmd"
     - "quant-fin.qmd"
+    - "quant-mkt.qmd"
    fields: [title,description,image]
 ---
 

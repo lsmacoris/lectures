@@ -2,7 +2,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Introduction to Corporate Finance'
+    title: 'Choice Models and its Applications'
     theme: [default, '../~ Metadata/custom.scss']
     auto-stretch: false
     author: 'Lucas S. Macoris'
@@ -129,7 +129,7 @@ sns.regplot(data=dat, x='xvar', y='yvar', scatter=False)  # Regression line
 plt.show()
 
 ```
-:::
+::::
 
 ## Course Outline
 
@@ -155,9 +155,13 @@ plt.show()
 
 1.  For a detailed discussion on the methodological approaches undertaken thoughout the lectures, we'll follow:
 
-  a.  *Discrete Choice Methods with Simulation* - @Train
-  b.  *Econometric Analysis* - @Greene
-  c.  *Econometrics* - @Hayashi
+<!-- -->
+
+a.  *Discrete Choice Methods with Simulation* - @Train
+b.  *Econometric Analysis* - @Greene
+c.  *Econometrics* - @Hayashi
+
+<!-- -->
 
 2.  For a broader discussion around the practical applications on Marketing, we'll follow @Chapman
 
@@ -261,7 +265,6 @@ DT::datatable(Data,
 
 ::: panel-tabset
 ### Result
-
 
 ```{python}
 # Read the CSV file into a pandas DataFrame
@@ -611,7 +614,6 @@ Table
 
 
 ```
-
 
 ### Python
 
@@ -1047,6 +1049,7 @@ plt.show()
 
 
 ```
+
 ### Python
 
 ```{python}
@@ -1434,7 +1437,6 @@ plt.legend()
 plt.grid(True)
 plt.show()
 ```
-
 :::
 
 ## Comparison across LPM and Logit estimations (continued)
