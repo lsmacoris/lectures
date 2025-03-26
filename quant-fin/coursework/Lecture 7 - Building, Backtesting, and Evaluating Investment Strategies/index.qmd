@@ -949,7 +949,7 @@ hchart(data,
 
 ## The Markowitz Mean-Variance Problem
 
-- We generalize the problem of finding the efficient portfolio for a given $N$ number of assets as:
+-   We generalize the problem of finding the efficient portfolio for a given $N$ number of assets as:
 
 $$
 \min_{\{w_1,w_2,w_3,w_4,w_5\}} \sigma^2_p = w^T \Sigma w,
@@ -961,18 +961,14 @@ $$
 \end{cases}
 $$
 
-
-- This is also known as the *Markowtiz Mean-Variance* optimization problem for a long-only portfolio
+-   This is also known as the *Markowtiz Mean-Variance* optimization problem for a long-only portfolio
 
 ## The Markowitz Mean-Variance Problem, continued
 
+-   In other words, you are solving the following problem: find the set of allocation weights $w_1,w_2,w_3,w_4$, and $w_5$ (the % that you allocate in each of the five stocks) that, when used to create a portfolio, are the ones that create the portfolio with the *minimum variance* among all possible combinations
 
-- In other words, you are solving the following problem: find the set of allocation weights $w_1,w_2,w_3,w_4$, and $w_5$ (the % that you allocate in each of the five stocks) that, when used to create a portfolio, are the ones that create the portfolio with the *minimum variance* among all possible combinations
-
-- In order to do that, you have to ensure that the weights add up to 100% (so you're fully investing your capital), which is the first condition. The second conditions states that a stock cannot have *negative* weights nor have a weight that is greater than 100%
-
+-   In order to do that, you have to ensure that the weights add up to 100% (so you're fully investing your capital), which is the first condition. The second conditions states that a stock cannot have *negative* weights nor have a weight that is greater than 100%
 
 **Important:** Note that $w^T\Sigma w$ is nothing more than the matrix form of $\sum_{i=1}^{N}w_i\sigma_i^2+ 2\sum_{i=1}^{N}\sum_{j\neq i}w_i w_j\sigma_{i,j}$, which is the variance of a portfolio that consists of $N$ assets
-
 
 ## References
