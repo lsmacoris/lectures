@@ -1,0 +1,15 @@
+{
+  "hash": "6b4bb733d7fc9030bd3b99e1ee6b83fb",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Data Case Prep - Exercises\"\nauthor: \"Student XXXX\"\nformat:\n  html:\n    page-layout: full\neditor: visual\n---\n\n\n\n\n# About this template\n\nTo help you structure your submission, I have provided a Quarto mock template, which is already available for you to use. This template is designed to help you seamlessly integrate your code and analysis, ensuring a clear and organized presentation of your work. Feel free to use it as a starting point to format your responses effectively. You can include your code inside the `R` code chunks. To run a specific code chunk, select all lines that apply and hit `Ctrl+Enter` (alternatively, click on the *Run Current Chunk* button at the top-right corner of the code chunk. Alternatively, to render the Quarto altogether, ckick on the *Render* button (shortcut: `Ctrl+Shift+K`).\n\nYou can copy-paste the code chunk below each time you need to manipulate data. To provide your explanation and interpretation of the results for each question, you can write outside of the `R` coding chunk.\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n### Enter your code here\n```\n:::\n\n\n\n\nEnter your analysis here.\n\n## Tech-setup\n\nBefore you start, make sure that you have your `R` session correctly configured with all the following packages by running the code below:\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Package names\npackages <- c(\"tidyverse\",\"tidyquant\",\"tidymodels\",\"xts\", \"glue\",\"scales\", \"ggthemes\")\n\n# Install packages not yet installed\ninstalled_packages <- packages %in% rownames(installed.packages())\n\nif (any(installed_packages == FALSE)) {\n  install.packages(packages[!installed_packages])\n}\n\n# Load all packages\ninvisible(lapply(packages, library, character.only = TRUE))\n```\n:::\n\n\n\n\nAlternatively, you can simply call:\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#Install if not already available\n  install.packages('tidyverse')\n  install.packages('tidyquant')\n  install.packages('glue')\n  install.packages('scales')\n  install.packages('ggthemes')\n\n#Load\n  library(tidyverse)\n  library(tidyquant)\n  library(tidymodels)\n  library(glue)\n  library(scales)\n  library(ggthemes)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
