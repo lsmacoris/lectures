@@ -1,0 +1,759 @@
+---
+title: "Data Case II - Factor Harvesting and Portfolio Optimization"
+author: "Lucas S. Macoris (FGV-EAESP)"
+format:
+  html:
+    page-layout: full
+editor: visual
+---
+
+# About
+
+This Data Case is part of the *Practical Applications in Quantitative Finance* course, held at FGV-EAESP's undergraduate course in business. Carefully follow the instructions contained in the data case as well as *eClass®* before you make your submission.
+
+## Case Outline
+
+Hedge funds operate in a highly competitive environment where their ability to generate alpha—returns beyond market factors—is constantly scrutinized. Many funds claim to deliver superior returns by exploiting inefficiencies, but how much of their performance is just exposure to well-known risk factors?
+
+As part of the Strategic Investments Division at Sentinel Capital, a multi-billion-dollar *Fund of Funds (FoF)*, your team has been tasked with evaluating the performance of eight hedge funds over the last decade. The ultimate goal? Constructing an optimal portfolio of hedge funds that maximizes returns while managing risk.
+
+To do this, you'll leverage `R`, `tidyverse`, `tidyquant`, and `PortfolioAnalytics` by applying factor models, portfolio optimization techniques, and rolling performance analysis. Your key tool for evaluation will be the *Fama-French Five-Factor Model*, which decomposes returns into market, size, value, profitability, and investment factors.
+
+Your dataset contains monthly returns from *eight* distinct hedge funds, each with a distinct allocation rationale:
+
+1. *AlphaSynthesis Capital* – A long/short equity fund with an emphasis on momentum-driven strategies.
+2. *ArbVantage Partners* – A statistical arbitrage fund specializing in mean-reversion strategies.
+3. *Sentinel Macro Strategies* – A global macro fund that trades based on macroeconomic indicators.
+4. *Quantum Volatility Fund* – A volatility arbitrage fund exploiting implied vs. realized volatility.
+5. *Horizon Event-Driven* – A fund that profits from corporate events such as mergers, spin-offs, and earnings surprises.
+6. *DeepValue Asset Management* – A deep-value fund investing in undervalued securities based on fundamental analysis.
+7. *Nova Growth Strategies* – A growth-oriented hedge fund focusing on technology and high-beta stocks.
+8. *Vega Capital Neutral* – A market-neutral strategy that seeks absolute returns with low beta exposure.
+
+Your task is to analyze these funds, compare them against the *Fama-French* three-factor model, and construct optimal hedge fund portfolios.
+
+::: callout-important
+### Deliverable
+
+Each group is expected to deliver a single assignment. A submission must be either an `.R` script or a `.qmd` (Quarto) file, **ensuring that both code and interpretations of the results are clearly presented**. Whenever applicable, include concise explanations alongside your code to demonstrate your understanding of the analysis. The due date for this submission is specified on *eClass®*, so please check the platform for details. You are required to clearly document your workflow and assumptions, and provide meaningful explanations alongside your outputs.
+
+To help you structure your submission, I have provided a Quarto mock template, which is already available for you to use. This template is designed to help you seamlessly integrate your code and analysis, ensuring a clear and organized presentation of your work. Feel free to use it as a starting point to format your responses effectively. The mock template can be found in the *Data Cases* folder on *eClass®*.
+:::
+
+## Tech-setup
+
+Before you start, make sure that you have your `R` session correctly configured with all the following packages running the code below:
+
+```{r}
+#| warning: false
+#| message: false
+
+# Package names
+packages <- c("tidyverse","tidyquant","tidymodels","xts", "glue","scales","PortfolioAnalytics")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load all packages
+invisible(lapply(packages, library, character.only = TRUE))
+
+
+```
+
+Alternatively, you can simply call:
+
+```{r}
+#| eval: false #I don't want R to evaluate this code; it is just for presentation purposes
+#| echo: true #I want this code chunk to display on the Quarto Document
+
+#Install if not already available
+  install.packages('tidyverse')
+  install.packages('tidyquant')
+  install.packages('glue')
+  install.packages('scales')
+  install.packages('PortfolioAnalytics')
+
+#Load
+  library(tidyverse)
+  library(tidyquant)
+  library(tidymodels)
+  library(glue)
+  library(scales)
+  library(PortfolioAnalytics)
+
+```
+
+
+::: callout-important
+### Callout
+
+Depending upon your `R` version that is currently installed, you may or may not have the right set of optimization routines properly set up in your session. To make sure that you can use the portfolio optimization functions from `PortfolioAnalytics` package, install the `DEoptim` (see details [here](https://cran.r-project.org/web/packages/DEoptim/index.html)) that is used on the backend.
+
+```{r}
+#| eval: false
+
+install.packages('DEoptim')
+
+```
+:::
+
+
+## Exercise 1
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+
+#Setup 
+hf_data=readRDS('Assets/hf_data.RDS')
+
+set.seed(123)
+hf_data[,2]=hf_data[,2]+0.0025*(1+runif(1,min=-0.25,0.25))
+hf_data[,3]=hf_data[,3]+0.005*(1+runif(1,min=-0.5,0.25))
+hf_data[10:60,4]=hf_data[10:60,4]+0.0045*(1+runif(1,min=-0.5,0.5))
+hf_data[1:149,6]=hf_data[1:149,6]+0.0045*(1+runif(1,min=-0.5,0.5))
+hf_data[80:150,6]=hf_data[80:150,6]-0.005*(1+runif(1,min=-0.25,0.25))
+hf_data[150:180,8]=hf_data[150:180,8]+0.008*(1+runif(1,min=0,0.1))
+hf_data[1:90,8]=hf_data[1:90,8]-0.01*(1+runif(1,min=0,0.1))
+
+```
+
+Download the `hf_data.RDS` file on *eClass®*. This dataset covers the period from *January 2010*, to *December 2024* and shows the monthly returns for each hedge fund. Using the functions from the `tidyverse` and `tidyquant` packages, visualize the historical returns of all hedge funds. What trends or anomalies do you observe? Are there periods of exceptional gains or drawdowns? Which fund has shown to be the best performer during the study period?
+
+::: callout-tip
+### Hint
+
+1.  Because `hf_data` is an `data.frame` object, you can pass the `as.xts` to convert it to `xts` and then call `cumprod()` to generate the cumulative returns for all assets. Do not forget to use the `cumprod(1+x)-1` syntax to make sure that you are getting the correct compounded returns over time!
+2.  Now, your resulting output can be converted back to a `data.frame` using `as.data.frame()` and getting the `date` column back using `rownames_to_column('date')`. To go from wide to long format, you can use the `pivot_longer` function, keeping only one column for the returns and another column that refers to each strategy at a given date.
+
+3. You can pipe that into a `ggplot` call, mapping the `date` to the x-axis, the cumulative return column to the y-axis, and the `geom_line()` function to create a bar chart, using the `group` and `color` to color each fund differently. Add as many customizations you think are worth the effort.
+:::
+
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 12
+#| fig-height: 8
+
+(cumprod(1+as.xts(hf_data))-1)%>%
+  as.data.frame()%>%
+  rownames_to_column('date')%>%
+  mutate(date=as.Date(date))%>%
+  pivot_longer(names_to='strategy',values_to = 'cum_return',cols=2:8)%>%
+  ggplot(aes(x=date,y=cum_return,group=strategy,col=strategy))+
+  geom_line(size=1)+
+  scale_x_date(date_breaks = 'years',date_labels='%Y')+
+  scale_y_continuous(labels = label_percent(big.mark = '.'))+
+  labs(title='Comparison of hedge fund  strategies over time',
+       subtitle='Considering daily hedge fund returns.',
+       col='Strategy',
+       x='',
+       y='Cumulative Return')+
+  theme_minimal()+
+  theme(legend.position = 'bottom',
+        axis.text.x = element_text(angle=90,size=12),
+        axis.text.y = element_text(size=12),
+        axis.title = element_text(face='bold',size=15),
+        plot.title = element_text(face='bold',size=20),
+        plot.subtitle  = element_text(size=12))
+  
+```
+
+
+## Exercise 2
+
+Download the `ff5_data.RDS` file on *eClass®*. This file contains the historical monthly returns for the *Fama-French 5 factor model* for the U.S. stock market. Merge this data with your hedge fund dataset, `hf_data`, and run an *Ordinary Least Squares (OLS)* regression for each fund against the *Fama-French* factors using the following specification:
+
+$$
+\small E[R_{i,t}] = \alpha + \beta_s^M \times \underbrace{(E[R_m]− R_f)}_{\text{Market}}  + \beta_s^{SMB} \times \underbrace{E[R_{SMB}]}_{\text{Size}} + \beta_s^{HML} \times \underbrace{E[R_{HML}]}_{\text{Book-to-Market.}} + \beta_s^{RMW} \times \underbrace{E[R_{RMW}]}_{\text{Profitability}} + \beta_s^{CMA} \times \underbrace{E[R_{CMA}]}_{\text{Investment}} + \varepsilon_{i,t}
+$$
+
+Based on the results you found, which funds exhibit significant (at 5% confidence levels) $\alpha$ after controlling for factor exposures? Store the names of the these funds in an object called `positive_alpha_funds`.
+
+::: callout-tip
+### Hint
+
+1.  Because `hf_data` is in wide format, you can use the `pivot_longer` to transform it to a tidy format - assign it to another object (*e.g*, `hf_returns`) for later use.
+2.  After that, merge this newly created that to the `ff5_data` object using the `left_join` function, and use `mutate` to create the excess returns for each fund by subtracting the risk-free column, assigning it to a new object (*e.g*, `merged_df`)
+3. Use the functional programming techniques from the `purrr` package (or do a `for-loop`) to map the `lm` and `tidy` functions to each strategy subset, and collect the results from $\alpha$ (the *Intercept* of the regression).
+4. Collect the results in an object and use `ggplot` to chart your results.
+:::
+
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 12
+#| fig-height: 8
+
+#Read the FF5 Data
+ff5_data=readRDS('Assets/ff5_data.RDS')
+
+#Convert the hf_data to a data.frame object and adjust columns
+hf_returns = hf_data%>%
+  pivot_longer(cols = -date,names_to = 'fund',values_to = 'monthly_return')
+
+ #Merge both datasets by date
+merged_df <- hf_returns%>%
+  #Merge
+  left_join(ff5_data, by = "date")%>%
+  #Pivot the data for each strategy
+  mutate(excess_return = monthly_return - RF)
+
+#Alpha estimation
+FF_results <- merged_df%>%
+  #Group by strategy
+  group_by(fund)%>%
+  #Nest the data
+  nest()%>%
+  #For each nest, map the lm() function and the tidy function
+  mutate(model = map(data, ~ lm(excess_return ~ MKT_MINUS_RF + HML + SMB + CMA + RMW, data = .)),
+         results = map(model, tidy))%>%
+  #Unnest the results
+  unnest(results)%>%
+  #Select the desired columns
+  select(fund, term, estimate, std.error, p.value)
+
+#Chart
+FF_results %>%
+  filter(term=='(Intercept)')%>%
+  mutate(stat_sig=ifelse(p.value<0.05,'Statistically sig. at 1%','Not statistically sig. at 1%'))%>%
+  ggplot(aes(x=reorder(fund,desc(estimate)),y=estimate,fill=stat_sig))+
+  geom_col(size=3)+
+  geom_text(aes(label = percent(estimate,accuracy=0.01),vjust=-1))+
+  #Annotations
+  labs(title='Which strategies did generate positive and statistically significant alphas?',
+       subtitle = 'Using the Fama-French three-factor model with monthly return data.',
+       x = 'Strategy',
+       y = 'Alpha (%)',
+       fill = 'Stat. Sig')+
+  #Scales
+  scale_y_continuous(labels = percent)+
+  #Custom theme minimal
+  theme_minimal()+
+  #Adding further customizations
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=12),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+#Positive alpha funds
+positive_alpha_funds=FF_results%>%filter(term=='(Intercept)',estimate>0)%>%pull(fund)
+
+```
+
+
+## Exercise 4
+
+Using the results from our previous *OLS* regressions, explain how exposed each fund was to each of the factor portfolios contained in the *Fama-French 5 Factor* model. How can this help you explain the over(under)performance of the top(worst) funds?
+
+::: callout-tip
+### Hint
+
+1. Using the estimates from the estimation, collect all the $\beta$s from the regressions by filtering out the *Intercept* using the `filter()` function
+2. Use `ggplot` to chart the weights (factor betas) for each strategy. To display all strategies in one chart, you can map the factors to the `x` axis, the factor betas values to the `y` axis, use `facet_wrap` to facet your chart by each different fund.
+
+:::
+
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 12
+#| fig-height: 8
+
+FF_results %>%
+  filter(term != "(Intercept)")%>%
+  group_by(fund)%>%
+  ggplot(aes(x = reorder(term,desc(estimate)), y = estimate, fill = term)) +
+  geom_col(position = position_dodge())+
+  geom_label(aes(label = round(estimate,2)),col='black',fill='white')+
+  theme_minimal()+
+  facet_wrap(fund~.,ncol=2,nrow=4)+
+  #Annotations
+  labs(title = "Fama-French Factor Loadings by Hedge Fund Strategy",
+       x = "Hedge Fund Strategy",
+       y = "Factor Loading",
+       fill = 'Risk Factor')+
+  #Custom theme minimal
+  theme_minimal()+
+  #Adding further customizations
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_blank(),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+```
+
+
+
+## Exercise 4
+
+Way to go! Your boss was really impressed with how you were able to dissect the returns from individual hedge funds and understand which factors drove performance, and in which cases we were able to find positive returns that were uncorrelated with any of the risk factors. Now, it is time to start building portfolios by allocating money across each fund using the *Markowitz Mean-Variance* optimization rationale.
+
+To do that, start by filtering your sample to consider only the hedge funds that were able to generate $\alpha$ throughout the whole period. Divide your sample using a $50\%/50\%$ split, using information from $2010$ until $2018$ as a *training* set, and $2019$ to $2024$ as a *test* set. Construct a *Minimum-Variance Portfolio* of the following format:
+
+
+$$
+\min_{\{w_1,w_2...,w_n\}} \sigma^2_p = w^T \Sigma w,
+\text{ such that:}
+\\
+\begin{cases}
+\sum_{i=1}^n w_i=1 \text{ (1)}\\
+0.05\leq w_i \leq 0.50, \forall i \text{ (2)}
+\end{cases}
+$$
+
+In other words, you are solving the following problem: find the set of allocation weights $w_1,w_2,w_3,...,w_n$ (the % that you allocate in each of the strategies) that, when used to create a portfolio, are the ones that create the portfolio with the *minimum variance* among all possible combinations. In order to do that, you have to ensure that the weights add up to $100\%$ (so you're fully investing your capital), which is the first condition. The second conditions states that neither stock can have a weight that is lower than $5\%$ nor have a weight that is greater than $50\%$.
+
+Note that $w^T\Sigma w$ is nothing more than the matrix form of $\sum_{i=1}^{N}w_i\sigma_i^2+ 2\sum_{i=1}^{N}\sum_{j\neq i}w_i w_j\sigma_{i,j}$, which is the variance of a portfolio that consists of $N$ assets.
+
+Using the *training* sample and *only the funds* that have shown $\alpha>0$ (regardless of the statistical significance), what is the optimal allocation? Store this into an object called `min_var_allocation`.
+
+::: callout-tip
+### Hint
+
+1. Filter the `hf_data` to contain only the `date` and the columns that refer to the strategies with positive $\alpha$.
+
+2. Use the `as.xts` to transform the object from a `data.frame` to an `xts` object. This is crucial, as the functions from the `PortfolioAnalytics` operate on `xts` objects. With your newly created `xts` object, create two new objects, `training_sample` and `testing_sample` using the `xts` subsetting syntax:
+
+```{r}
+#| eval: false
+
+training_sample=(your_filtered_hf_data%>%as.xts())['2010/2018']
+test_sample=(your_filtered_hf_data%>%as.xts())['2019/2024']
+```
+
+3. Use the `portfolio.spec` and the `optimize.portfolio` functions from the `PortfolioAnalytics` package to define and optimize the portfolio using the syntax we have learned during class. If you are unsure on what to do here, please refer to the `workbook.R` file that we have gone through for a similar replication.
+
+4. Finally, use the `extractWeights` function to output a table with the optimal weights.
+
+:::
+
+```{r}
+#| warning: false
+#| message: false
+
+#Transform into .xts and split the sample
+filtered_hf_data=hf_data%>%select(date,all_of(positive_alpha_funds))
+training_sample=(filtered_hf_data%>%as.xts())['2010/2018']
+test_sample=(filtered_hf_data%>%as.xts())['2019/2024']
+
+
+#Risk Minimization
+min_var_portfolio <- portfolio.spec(assets = positive_alpha_funds)%>% 
+  add.objective(type = "risk", name = "var")%>%
+  add.constraint(type = "full_investment")%>%
+  add.constraint(type = "box", min = 0.05, max = 0.5)
+
+min_var_allocation <- training_sample %>% 
+  optimize.portfolio(
+    portfolio = min_var_portfolio
+  )
+
+#Get the weights
+extractWeights(min_var_allocation)
+
+```
+
+## Exercise 5
+
+Using the *training* sample and *only the funds* that have shown $\alpha>0$, develop a portfolio that maximizes returns instead of minimizing risk. What is the optimal allocation? Store this into an object called `max_return_allocation`.
+
+```{r}
+#| warning: false
+#| message: false
+
+
+#Return Maximization
+max_return_portfolio <- portfolio.spec(assets = positive_alpha_funds)%>% 
+  add.objective(type = "return", name = "mean")%>%
+  add.constraint(type = "full_investment")%>%
+  add.constraint(type = "box", min = 0.05, max = 0.5)
+
+max_return_allocation <- training_sample %>% 
+  optimize.portfolio(
+    portfolio = max_return_portfolio
+    )
+
+#Get the weights
+extractWeights(max_return_allocation)
+
+```
+
+## Exercise 6
+
+Using the *training* sample and *only the funds* that have shown $\alpha>0$, develop a portfolio that maximizes the *Sharpe-Ratio* - *i.e*, maximizes the risk-adjusted returns. What is the optimal allocation? Store this into an object called `max_sharpe_allocation`.
+
+```{r}
+#| warning: false
+#| message: false
+
+#Return Maximization
+max_sharpe_portfolio <- portfolio.spec(assets = positive_alpha_funds)%>% 
+  add.objective(type = "return", name = "mean")%>% 
+  add.objective(type = "risk", name = "StdDev")%>%
+  add.constraint(type = "full_investment")%>%
+  add.constraint(type = "box", min = 0.05, max = 0.5)
+
+max_sharpe_allocation <- training_sample %>% 
+  optimize.portfolio(
+    portfolio = max_sharpe_portfolio,
+    SR= TRUE
+  )
+
+#Get the weights
+extractWeights(max_sharpe_allocation)
+
+```
+
+## Exercise 7
+
+Compare the optimal weights across each strategy and discuss the allocations. Is there any better allocation rule?
+
+::: callout-tip
+### Hint
+
+1. After collecting your optimal weights using the `extractWeights` function and storing them into separate objects, use the `rbind` function to bind them together in a row-wise manner and transform it to a `data.frame` using the `as.data.frame()` function. 
+2. Add a new column that describes which strategy is contained in each row.
+3. Use the `pivot_longer` to transform the data to a tidy format, making it easier for you to pipe the output into a `ggplot` call.
+
+For these steps, you can use the following syntax:
+
+```{r}
+#| eval: false
+rbind(extractWeights(min_var_allocation),
+      extractWeights(max_return_allocation),
+      extractWeights(max_sharpe_allocation))%>%
+  as.data.frame()%>%
+  mutate(objective=c('Minimize Variance','Maximize Returns','Maximize Sharpe'))%>%
+  pivot_longer(1:4,names_to = 'fund',values_to = 'weights')
+
+```
+
+:::
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 12
+#| fig-height: 8
+
+#Chart weights
+rbind(extractWeights(min_var_allocation),
+      extractWeights(max_return_allocation),
+      extractWeights(max_sharpe_allocation))%>%
+  as.data.frame()%>%
+  mutate(objective=c('Minimize Variance','Maximize Returns','Maximize Sharpe'))%>%
+  pivot_longer(1:4,names_to = 'fund',values_to = 'weights')%>%
+  ggplot(aes(x = objective, y = weights, fill = fund)) +
+  geom_col() + 
+  geom_text(aes(label = percent(weights)),
+            position = position_stack(vjust = .6),
+            size = 6) + 
+  scale_x_discrete(labels = c("Maximize Return", "Minimize Risk", "Max Sharpe Ratio")) +
+  scale_y_continuous(labels=scales::percent)+
+  labs(x = "", y = "Allocation (%)",
+       title = "Asset Allocation by Optimization Criteria")+
+  theme_minimal()+
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=12),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+```
+
+## Exercise 8
+
+Compare the historical performance from each fund in the *testing* sample. To do that, use the three sets of optimal weights you have just created (`min_var_allocation`, `max_return_allocation`, and `max_sharpe_allocation`) along with the `tq_portfolio` function to estimate the returns in the *test* sample, rebalancing it monthly. Which strategy did deliver the highest out-of-sample returns? Did they outperform a *naive* portfolio using equal weights to all funds?
+
+
+::: callout-tip
+### Hint
+
+1. Use the `hf_returns` data you have created in the beginning of the exercise (*i.e*, the dataset of hedge fund returns in long format) and apply the `filter` function to keep only the rows where i) the fund is in the list of funds with positive alpha (*i.e*, it is in the `positive_alpha_funds` you have created before) and `year(date)>2018` (*i.e*, belongs to testing sample).
+2. Use the `tq_portfolio` function using the following syntax to calculate the historical returns of the portfolio:
+
+```{r}
+#| eval: false
+
+  tq_portfolio(
+    assets_col = fund, #This is the column that contains the fund names
+    returns_col = monthly_return, #Column that contains the monthly returns
+    weights = extractWeights(min_var_allocation), #The portfolio.spec you have created
+    col_rename = "returns_min_var",
+    rebalance_on = "months"
+  )
+
+```
+
+3. Do this for all three portfolio specifications, assigning their results to separate objects. For the naive portfolio, you can assign a vector of equal weights using the `rep(weight,number_of_replications)` syntax.
+
+:::
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 12
+#| fig-height: 8
+
+#Minimize Risk Portfolio
+
+min_var_performance <- hf_returns%>%
+  filter(fund %in% positive_alpha_funds, year(date)>2018)%>%
+  tq_portfolio(
+    assets_col = fund,
+    returns_col = monthly_return,
+    weights = extractWeights(min_var_allocation),
+    col_rename = "returns_min_var",
+    rebalance_on = "months"
+  )
+
+#Maximize Return Portfolio
+
+max_return_performance <- hf_returns%>%
+  filter(fund %in% positive_alpha_funds, year(date)>2018)%>%
+  tq_portfolio(
+    assets_col = fund,
+    returns_col = monthly_return,
+    weights = extractWeights(max_return_allocation),
+    col_rename = "returns_max_return",
+    rebalance_on = "months"
+  )
+
+#Naive Portfolio
+
+max_sharpe_performance <- hf_returns%>%
+  filter(fund %in% positive_alpha_funds, year(date)>2018)%>%
+  tq_portfolio(
+    assets_col = fund,
+    returns_col = monthly_return,
+    weights = extractWeights(max_sharpe_allocation),
+    col_rename = "returns_max_sharpe",
+    rebalance_on = "months"
+  )
+
+#Naive Portfolio
+
+naive_performance <- hf_returns%>%
+  filter(fund %in% positive_alpha_funds, year(date)>2018)%>%
+  tq_portfolio(
+    assets_col = fund,
+    returns_col = monthly_return,
+    weights = rep(0.25,4),
+    col_rename = "returns_naive",
+    rebalance_on = "months"
+  )
+
+#Chart
+
+naive_performance%>%
+  left_join(min_var_performance)%>%
+  left_join(max_return_performance)%>%
+  left_join(max_sharpe_performance)%>%
+  pivot_longer(cols = "returns_naive":"returns_max_sharpe",
+               names_to = "strategy",
+               values_to = "return") %>% 
+  mutate(strategy = case_when(strategy == "returns_max_return" ~ "Maximize Avg. Return",
+                                strategy == "returns_min_var" ~ "Minimize risk",
+                                strategy == "returns_naive" ~ "Equal Allocation",
+                                strategy == "returns_max_sharpe" ~ "Maximize Sharpe Ratio")) %>% 
+  group_by(strategy) %>% 
+  mutate(cum_return = cumprod(1+return)-1) %>% 
+  ggplot(aes(x = date, y = cum_return, color = strategy)) + 
+  geom_line(size = 1.2)+ 
+  scale_y_continuous(label = scales::percent) +
+  labs(title = "Historical Performance over test sample", y = "Cumulative Return",
+       x = "",
+       color='') + 
+  theme_minimal()+
+  theme(legend.position='bottom',
+      axis.title = element_text(face='bold',size=15),
+      axis.text = element_text(size=12),
+      plot.title = element_text(size=20,face='bold'),
+      plot.subtitle  = element_text(size=15))
+
+#Table
+naive_performance%>%
+  left_join(min_var_performance)%>%
+  left_join(max_return_performance)%>%
+  left_join(max_sharpe_performance)%>%
+  as.xts()%>%
+  Return.cumulative()
+
+```
+
+
+## Exercise 9
+
+Using the `max_return_portfolio` object and the `test_sample` data cut, implement a rolling-window optimization to find the optimal portfolio weights. Use a training period and a rolling window of $12$ months, and rebalance the portfolio monthly. How do these dynamically adjusted weights perform compared to static allocations?
+
+::: callout-tip
+### Hint
+
+1. Using the `test_sample` `xts` object you have created, apply the `optimize.portfolio.rebalancing` function, pointing to the `max_return_portfolio` and the aforementioned parameters for the training period, rolling window, and rebalancing period. You can use the following syntax:
+
+```{r}
+#| eval: false
+
+#Rolling optimization
+rolling_optimization <- test_sample%>%
+  optimize.portfolio.rebalancing(
+    portfolio = max_return_portfolio,
+    rebalance_on = "months",
+    training_period = 12,
+    rolling_window = 12
+  )
+
+```
+
+2. After you have optimized your portfolio, call `extractWeights` and pipe that into `ggplot` to chart your results.
+
+:::
+
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| message: false
+#| results: false
+
+#Rolling optimization
+rolling_optimization <- test_sample%>%
+  optimize.portfolio.rebalancing(
+    portfolio = max_return_portfolio,
+    rebalance_on = "months",
+    training_period = 12,
+    rolling_window = 12
+  )
+
+```
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 12
+#| fig-height: 8
+
+#Chart
+extractWeights(rolling_optimization)%>%
+  as.data.frame()%>%
+  rownames_to_column("date")%>% 
+  mutate(date = as.Date(date)) %>% 
+  pivot_longer(names_to = 'symbol',values_to = 'weights',cols=where(is.numeric)) %>% 
+  ggplot(aes(x = date, y = weights, fill = symbol)) +
+  labs(fill = "", x = "", y = "Asset Weight",
+       title = "Weights under rolling optimization - Maximize Returns") +
+  geom_col() +
+  scale_x_date(date_breaks = "6 months") +
+  scale_y_continuous(labels=scales::percent)+
+  theme_minimal()+
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=12),
+        axis.text.x = element_text(angle=90),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+
+```
+
+## Exercise 10
+
+Looking only at the *test* sample period (*i.e*, from $2019$ to $2024$, chart the historical performance of the dynamically-optimized portfolio *vis-a-vis* the static portfolios you have just created. Are there any gains stemming from dynamically optimizing the portfolio?
+
+
+::: callout-tip
+### Hint
+
+1. Use the `extractWeights()` function on the dynamically optimized portfolio optimization object to collect a time series of weight allocations.
+
+2. With that, use `as_data_frame()` and `rownames_to_column("date")` to transform it to a `data.frame` with a `date` column identifier.
+
+3. Finally, transform it to long format using the `pivot_longer()` function.
+
+4. Do a similar procedure for the `xts` object where you stored the test sample returns (in my example, `test_sample`)
+
+5. Use `left_join` to merge both datasets. You can use a combination of `mutate()` and `summarize()` to calculate the portfolio returns on each date in a step-wise manner:
+
+```{r}
+#| eval: false
+dynamic_performance=left_join(weights,returns)%>% # Your weights and returns data.frames
+  mutate(ind_return=returns*weights)%>% # Calculate individual returns for each fund on each date
+  group_by(date)%>% # Group by date
+  summarize(returns_dynamic=sum(ind_return,na.rm=TRUE)) # Summing up yields a weighted average of returns by each date
+```
+
+6. Join this `data.frame` with the other objects that contain the historical returns from the other allocation strategies and pipe that into `ggplot`.
+
+:::
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 12
+#| fig-height: 8
+
+weights=extractWeights(rolling_optimization)%>%
+  as.data.frame()%>%
+  rownames_to_column("date")%>% 
+  mutate(date = as.Date(date)) %>% 
+  pivot_longer(names_to = 'fund',values_to = 'weights',cols=where(is.numeric))
+
+returns=test_sample%>%
+  as.data.frame()%>%
+  rownames_to_column("date")%>% 
+  mutate(date = as.Date(date)) %>% 
+  pivot_longer(names_to = 'fund',values_to = 'returns',cols=where(is.numeric))
+
+dynamic_performance=left_join(weights,returns)%>%
+  mutate(ind_return=returns*weights)%>%
+  group_by(date)%>%
+  summarize(returns_dynamic=sum(ind_return,na.rm=TRUE))
+
+dynamic_performance%>%
+  left_join(min_var_performance)%>%
+  left_join(max_return_performance)%>%
+  left_join(max_sharpe_performance)%>%
+  left_join(naive_performance)%>%
+  pivot_longer(cols = "returns_dynamic":"returns_naive",
+               names_to = "strategy",
+               values_to = "return")%>% 
+  mutate(strategy = case_when(strategy == "returns_max_return" ~ "Maximize Avg. Return",
+                                strategy == "returns_min_var" ~ "Minimize risk",
+                                strategy == "returns_naive" ~ "Equal Allocation",
+                                strategy == "returns_max_sharpe" ~ "Maximize Sharpe Ratio",
+                                .default = "Dynamic Portfolio")) %>%
+  group_by(strategy) %>% 
+  mutate(cum_return = cumprod(1+return)-1) %>% 
+  ggplot(aes(x = date, y = cum_return, color = strategy)) + 
+  geom_line(size = 1.2)+ 
+  scale_y_continuous(label = scales::percent) +
+  labs(title = "Dynamic vis-a-vis static portfolios", y = "Cumulative Return",
+       x = "",
+       color='') + 
+  theme_minimal()+
+  theme(legend.position='bottom',
+        axis.title = element_text(face='bold',size=15),
+        axis.text = element_text(size=12),
+        plot.title = element_text(size=20,face='bold'),
+        plot.subtitle  = element_text(size=15))
+
+#Table
+dynamic_performance%>%
+  left_join(min_var_performance)%>%
+  left_join(max_return_performance)%>%
+  left_join(max_sharpe_performance)%>%
+  left_join(naive_performance)%>%
+  as.xts()%>%
+  Return.cumulative()
+```

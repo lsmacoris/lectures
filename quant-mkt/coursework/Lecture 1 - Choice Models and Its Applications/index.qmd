@@ -5,7 +5,7 @@ format:
     title: 'Choice Models and its Applications'
     theme: [default, '../~ Metadata/custom.scss']
     auto-stretch: false
-    author: 'Lucas S. Macoris'
+    author: 'Lucas S. Macoris (FGV-EAESP)'
     logo: 'Images/logo.png'
     footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-mkt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
@@ -19,31 +19,15 @@ format:
     width: 1600
     height: 900
     smaller: false
-
 editor: visual
 from: markdown+emoji
 ---
 
-## A brief introduction
+# Welcome to the course!
 
-```{r,echo=FALSE,results='hide'}
-
-source('../~ Metadata/packages.R')
-
+```{r}
+#Use knitr
 ```
-
-1.  **Background**
-
--   Undegraduate + Master's in Finance and Economics [\@ University of São Paulo (USP)](https://www.usp.br/)
--   Ph.D. in Economics (2023) [\@ INSPER - Institute of Education and Research](https://insper.edu.br/en)
-
-2.  **Academic Affiliations**
-
--   Jan/24 - actual: Assistant Professor [\@ Getulio Vargas Foundation (FGV-EAESP), São Paulo, BR](https://eaesp.fgv.br/en)
-
-3.  **Private Affiliations**
-
--   Dec/21 - actual: Consultant and Data Scientist [\@ Circana](https://circana.com/)
 
 ## How to use these slides
 
@@ -61,12 +45,8 @@ source('../~ Metadata/packages.R')
 
 ## An example of a code chunk
 
-:::: panel-tabset
-### Result
-
-::: callout-note
-Use `Show the Code` code tabsets to display the code. You can use the {{< bi clipboard >}} buttom at the top-right to copy it to your session.
-:::
+::: panel-tabset
+### Results
 
 ```{python}
 #| fig.align: 'center'
@@ -74,10 +54,7 @@ Use `Show the Code` code tabsets to display the code. You can use the {{< bi cli
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import statsmodels.api as sm
-import tabulate
 from plotnine import *
 from great_tables import GT, md
 from mizani.formatters import percent_format
@@ -90,28 +67,37 @@ dat = pd.DataFrame({
     'yvar': np.arange(1, 21) + np.random.normal(0, 3, 20)
 })
 
+theme_plots= theme(
+  legend_position='bottom',
+  axis_title=element_text(face='bold',size=10),
+  plot_title=element_text(face='bold',size=15)
+  )
+
 # Plotting
-sns.set(style="whitegrid")  # Set plot style
-plt.figure(figsize=(8, 6))  # Set figure size
-sns.scatterplot(data=dat, x='xvar', y='yvar', hue='cond', marker='o')  # Scatter plot
-sns.regplot(data=dat, x='xvar', y='yvar', scatter=False)  # Regression line
-plt.show()
+Plot=(
+  
+  ggplot(dat,aes(x='xvar',y='yvar',fill='cond',color='cond'))+
+              geom_point()+
+              labs(
+              title = 'An example of charting using the plotnine package',
+              subtitle = 'Randomly generated data',
+              x = 'X Variable',
+              y = 'Y Variable')
+            + scale_y_continuous(breaks = range(-10,25,5))
+            + scale_x_continuous(breaks = range(-10,25,5))
+            + theme_minimal()
+            + theme_plots
+)
+
+Plot.show()
+
 ```
 
 ### Python
 
 ```{python}
-#| echo: true
-#| eval: false
-
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import statsmodels.api as sm
-import tabulate
-from mizani.breaks import *
-from mizani.formatters import *
+#| echo: TRUE
+#| eval: FALSE
 
 # Generating data
 np.random.seed(0)
@@ -121,15 +107,31 @@ dat = pd.DataFrame({
     'yvar': np.arange(1, 21) + np.random.normal(0, 3, 20)
 })
 
-# Plotting
-sns.set(style="whitegrid")  # Set plot style
-plt.figure(figsize=(8, 6))  # Set figure size
-sns.scatterplot(data=dat, x='xvar', y='yvar', hue='cond', marker='o')  # Scatter plot
-sns.regplot(data=dat, x='xvar', y='yvar', scatter=False)  # Regression line
-plt.show()
+theme_plots= theme(
+  legend_position='bottom',
+  axis_title=element_text(face='bold',size=10),
+  plot_title=element_text(face='bold',size=15)
+  )
 
+# Plotting
+Plot=(
+  
+  ggplot(dat,aes(x='xvar',y='yvar',fill='cond',color='cond'))+
+              geom_point()+
+              labs(
+              title = 'An example of charting using the plotnine package',
+              subtitle = 'Randomly generated data',
+              x = 'X Variable',
+              y = 'Y Variable')
+            + scale_y_continuous(breaks = range(-10,25,5))
+            + scale_x_continuous(breaks = range(-10,25,5))
+            + theme_minimal()
+            + theme_plots
+)
+
+Plot.show()
 ```
-::::
+:::
 
 ## Course Outline
 
@@ -153,7 +155,7 @@ plt.show()
 
 -   Our first section of the *Marketing Analytics* course will focus on the main applications from a practical standpoint
 
-1.  For a detailed discussion on the methodological approaches undertaken thoughout the lectures, we'll follow:
+1.  For a detailed discussion on the methodological approaches undertaken throughout the lectures, we'll follow:
 
 <!-- -->
 
@@ -239,24 +241,6 @@ pip install requirements.txt
 
 ```
 
-## A quick outline of the dataset
-
-```{r}
-
-Data=read.csv('Assets/bank-dataset.csv')
-
-DT::datatable(Data,
-              rownames = FALSE,
-              extensions = 'Buttons',
-              options = list(
-    lengthMenu = list(c(5,10, 50, -1), 
-                      c('5', '10', '50', 'All')),
-    paging = T,
-    pageLength = 5,
-    columnDefs = list(list(className = 'dt-center',targets=c(0:11)))))
-
-```
-
 ## Variable Descriptives
 
 -   To begin our investigation, let's do a simple variable description of the variables that we have in our dataset:
@@ -267,9 +251,10 @@ DT::datatable(Data,
 ### Result
 
 ```{python}
+
 # Read the CSV file into a pandas DataFrame
 Data = pd.read_csv('Assets/bank-dataset.csv')
-Summary = Data.drop(axis=1,labels='customer_id').describe().reset_index()
+Summary = Data.drop('customer_id',axis=1).describe().reset_index()
 
 # Print the structure of the DataFrame
 Table = (
@@ -295,7 +280,7 @@ Table
 
 # Read the CSV file into a pandas DataFrame
 Data = pd.read_csv('Assets/bank-dataset.csv')
-Summary = Data.drop(axis=1,labels='customer_id').describe().reset_index()
+Summary = Data.drop('customer_id',axis=1).describe().reset_index()
 
 # Print the structure of the DataFrame
 Table = (
@@ -311,7 +296,6 @@ Table = (
 
 #Output
 Table
-
 ```
 :::
 
@@ -323,8 +307,6 @@ Table
 ```{python}
 #| eval: true
 #| fig-align: 'center'
-#| fig-height: 20
-#| fig-width: 8
 
 # Select numeric columns and calculate correlation with churn
 correlation_df = (
@@ -342,7 +324,7 @@ correlation_df.columns = ['Variable', 'Correlation']
 correlation_df['Sign'] = correlation_df['Correlation'].apply(lambda x: 'Positive' if x > 0 else 'Negative')
 
 #Chart
-plot = (
+Plot = (
   ggplot(correlation_df, aes(x='Variable', y='Correlation', fill='Sign'))+
   geom_col()+
   geom_text(aes(label=correlation_df['Correlation'].round(2)),size=10, color='black',position=position_stack(vjust=0.5))+  # Add annotations
@@ -350,15 +332,14 @@ plot = (
   coord_flip()+
   labs(title='Churn correlation across numeric variables')+
   theme_minimal()+
+  theme_plots +
   theme(
-      legend_position='bottom',
-      title=element_text(size=20, weight='bold'),
       axis_title_x=element_blank(),
       axis_title_y=element_blank())
   )
 
 #Display Output
-plot.show()
+Plot.show()
 
 ```
 
@@ -384,7 +365,7 @@ correlation_df.columns = ['Variable', 'Correlation']
 correlation_df['Sign'] = correlation_df['Correlation'].apply(lambda x: 'Positive' if x > 0 else 'Negative')
 
 #Chart
-plot = (
+Plot = (
   ggplot(correlation_df, aes(x='Variable', y='Correlation', fill='Sign'))+
   geom_col()+
   geom_text(aes(label=correlation_df['Correlation'].round(2)),size=10, color='black',position=position_stack(vjust=0.5))+  # Add annotations
@@ -392,15 +373,14 @@ plot = (
   coord_flip()+
   labs(title='Churn correlation across numeric variables')+
   theme_minimal()+
+  theme_plots +
   theme(
-      legend_position='bottom',
-      title=element_text(size=20, weight='bold'),
       axis_title_x=element_blank(),
       axis_title_y=element_blank())
   )
 
 #Display Output
-plot.show()
+Plot.show()
 ```
 :::
 
@@ -513,8 +493,8 @@ print(model.summary())
 ### Python
 
 ```{python}
-#| echo: true
 #| eval: false
+#| echo: true
 
 # Read the CSV file into a pandas DataFrame
 Data = pd.read_csv('Assets/bank-dataset.csv')
@@ -535,7 +515,6 @@ model = sm.OLS(y, X.astype(float)).fit()
 # Print the regression summary
 print(model.summary())
 
-
 ```
 :::
 
@@ -551,7 +530,7 @@ $$
 
 -   Moving from the $25^{th}$ to the $75^{th}$ percentile of `age` increases the likelihood by $\beta_{Age}\times IQR(Age)=(44-32)\times 0.0113 \approx 14$ or 14%
 
-2.  *Male* customers tend to churn, on average, `python male_estimate*100`% less than *Female* customers:
+2.  *Male* customers tend to churn, on average, $7.7\%$ *less* than *Female* customers:
 
 . . .
 
@@ -704,9 +683,9 @@ $$
 #| echo: FALSE
 #| fig.align: 'center'
 
-Estimates=pd.DataFrame({'Predicted':model.predict()})
+#Create a dataframe with the estimates
+Estimates=pd.DataFrame({'Predicted': model.predict()})
 Estimates['Fit']=Estimates['Predicted'].between(0,1).map({True: 'Within P(Y|x Interval)', False: 'Outside P(Y|x Interval)'})
-
 
 Plot= (
   ggplot(Estimates,aes(x='Predicted',y=after_stat('count'),fill='Fit'))+
@@ -716,9 +695,7 @@ Plot= (
   labs(x='Predicted Probabilities',y='Density',
        title='Predicted Values based on LPM')+
   theme_minimal()+
-  theme(legend_position = 'bottom',
-        axis_text = element_text(size=15),
-        plot_title = element_text(size=20,face='bold'))
+  theme_plots
   )
 
 Plot.show()
@@ -797,6 +774,9 @@ $$
 
 ```{python}
 #| echo: FALSE
+#| eval: TRUE
+#| warning: FALSE
+#| message: FALSE
 
 # Read the CSV file into a pandas DataFrame
 Data = pd.read_csv('Assets/bank-dataset.csv')
@@ -938,19 +918,32 @@ $$
 
 ### Result
 
-```{r,fig.align='center'}
+```{python}
+#| echo: false
+#| eval: true
+#| warning: FALSE
+#| message: FALSE
 
-Data=read.csv('Assets/bank-dataset.csv')%>%mutate(gender=ifelse(gender=='Male',1,0))
+# Calculate Odds Ratio and Change in Odds
+odds_ratio = pd.DataFrame({
+  'OddsRatio': model.params.apply(lambda x: round(np.exp(x), 4)),
+  'Multiplier': [1, 100, 1, 1, 1, 10, 1, 1, 1, 100]
+  })
 
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
+odds_ratio = odds_ratio.reset_index()
+odds_ratio['ChangeOdds'] = ((odds_ratio['OddsRatio'] - 1) * odds_ratio['Multiplier'])
+#Table
+Table = (
+  GT(odds_ratio)
+  .cols_align('center')
+  .tab_stub(rowname_col='index')
+  .fmt_number(columns = 'odds',decimals=0)
+  .fmt_percent(columns=['OddsRatio','ChangeOdds'],decimals=2)
+  .tab_header(title=md("**Summary Statistics**"))
+  .opt_stylize(style=1,color='red')
+)
 
-data.frame(OddsRatio=exp(coefficients(Reg)),
-           Multiplier = c(1,100,1,1,1,10,1,1,1,100))%>%
-  mutate(ChangeOdds=percent((OddsRatio-1)*Multiplier))%>%
-  kable()%>%
-  kable_styling(bootstrap_options = 'responsive',font_size = 30)
+Table
 
 ```
 
@@ -960,29 +953,33 @@ data.frame(OddsRatio=exp(coefficients(Reg)),
 #| echo: true
 #| eval: false
 
-# Read the CSV file into a pandas DataFrame
-Data = pd.read_csv('Assets/bank-dataset.csv')
-
-# Convert 'gender' into dummy variables
-Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
-
-# Define independent and dependent variables
-X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
-y = Data['churn']
-
-# Add a constant to the independent variables matrix for the intercept
-X = sm.add_constant(X)
-
-# Fit the linear regression model
-model = sm.Logit(y, X.astype(float)).fit()
-
 # Calculate Odds Ratio and Change in Odds
-odds_ratio = pd.DataFrame({'OddsRatio': model.params.apply(lambda x: round(pow(2, x), 4)),
-                           'Multiplier': [1, 100, 1, 1, 1, 10, 1, 1, 1, 100]})
+odds_ratio = pd.DataFrame({
+  'OddsRatio': model.params.apply(lambda x: round(np.exp(x), 4)),
+  'Multiplier': [1, 100, 1, 1, 1, 10, 1, 1, 1, 100]
+  })
+
+odds_ratio = odds_ratio.reset_index()  
+  
 odds_ratio['ChangeOdds'] = ((odds_ratio['OddsRatio'] - 1) * odds_ratio['Multiplier']).map(lambda x: f"{x:.2%}")
 
-# Display the results
-print(odds_ratio)
+#Table
+Table = (
+  GT(odds_ratio)
+  .cols_align('center')
+  .tab_stub(rowname_col='index')
+  .cols_label(
+    OddsRatio = 'Odds Ratio',
+    Multiplier = 'Multiplier',
+    ChangeOdds = 'Change in Probality (in p.p)'
+    )
+  .fmt_number(columns = 'odds',decimals=0)
+  .fmt_percent(columns=['OddsRatio','ChangeOdds'],decimals=2)
+  .tab_header(title=md("**Summary Statistics**"))
+  .opt_stylize(style=1,color='red')
+)
+
+Table
 
 ```
 ::::
@@ -1010,8 +1007,8 @@ $$
 
 ```{python}
 #| fig.align: 'center'
-#| fig.width: 10
-#| fig.height: 7
+#| message: FALSE
+#| warning: FALSE
 
 # Load data
 data = pd.read_csv('Assets/bank-dataset.csv')
@@ -1032,21 +1029,29 @@ age_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])
 concatenated_df = pd.concat([new_data, age_df], ignore_index=True,axis=1)
 concatenated_df.columns=[*new_data.columns,'age']
 
-# Predict
-predicted = model.predict(concatenated_df)
+# Predict on the new data
+predicted_df = pd.DataFrame({
+    'Age': age_df['age'],
+    'Predicted': model.predict(concatenated_df)
+    })
 
 # Plot
-plt.figure(figsize=(10, 6))
-plt.plot(concatenated_df[['age']], predicted, marker='o', linestyle='-')
-plt.title('Marginal effects of Age on Churn probabilities')
-plt.xlabel('Age')
-plt.ylabel('Predicted Probabilities')
-plt.axhline(y=0, linestyle='--', color='red')
-plt.axhline(y=1, linestyle='--', color='red')
-plt.gca().yaxis.set_major_formatter(plt.FuncFormatter('{:.0%}'.format))
-plt.grid(True)
-plt.show()
-
+Plot = (
+  ggplot(predicted_df,aes(x='Age',y='Predicted'))+
+  geom_point(color='blue')+
+  geom_hline(yintercept=[0,1],linetype='dashed',color='darkred')+
+  scale_y_continuous(labels = percent_format())+
+  scale_x_continuous(breaks = range(0,100,10))+
+  labs(
+    title ='Marginal effects of Age on Churn probabilities',
+    subtitle = 'Using the estimates from a Logit model.', 
+    x = 'Age',
+    y = 'Predicted Probabilities')+
+  theme_minimal()+
+  theme_plots
+  )
+  
+Plot.show()
 
 ```
 
@@ -1075,21 +1080,29 @@ age_df = pd.DataFrame(pd.Series(range(1, 101)), columns=['age'])
 concatenated_df = pd.concat([new_data, age_df], ignore_index=True,axis=1)
 concatenated_df.columns=[*new_data.columns,'age']
 
-# Predict
-predicted = model.predict(concatenated_df)
+# Predict on the new data
+predicted_df = pd.DataFrame({
+    'Age': age_df['age'],
+    'Predicted': model.predict(concatenated_df)
+    })
 
 # Plot
-plt.figure(figsize=(10, 6))
-plt.plot(concatenated_df[['age']], predicted, marker='o', linestyle='-')
-plt.title('Marginal effects of Age on Churn probabilities')
-plt.xlabel('Age')
-plt.ylabel('Predicted Probabilities')
-plt.axhline(y=0, linestyle='--', color='red')
-plt.axhline(y=1, linestyle='--', color='red')
-plt.gca().yaxis.set_major_formatter(plt.FuncFormatter('{:.0%}'.format))
-plt.grid(True)
-plt.show()
-
+Plot = (
+  ggplot(predicted_df,aes(x='Age',y='Predicted'))+
+  geom_point(color='blue')+
+  geom_hline(yintercept=[0,1],linetype='dashed',color='darkred')+
+  scale_y_continuous(labels = percent_format())+
+  scale_x_continuous(breaks = range(0,100,10))+
+  labs(
+    title ='Marginal effects of Age on Churn probabilities',
+    subtitle = 'Using the estimates from a Logit model.', 
+    x = 'Age',
+    y = 'Predicted Probabilities')+
+  theme_minimal()+
+  theme_plots
+  )
+  
+Plot.show()
 ```
 ::::
 
@@ -1111,8 +1124,6 @@ plt.show()
 ```{python}
 #| echo: FALSE
 #| fig.align: 'center'
-#| fig.height: 7
-#| fig.width: 10
 
 # Load data
 data = pd.read_csv('Assets/bank-dataset.csv')
@@ -1133,24 +1144,31 @@ gender_df = pd.DataFrame(pd.Series(range(0, 2)), columns=['gender'])
 concatenated_df = pd.concat([new_data, gender_df], ignore_index=True,axis=1)
 concatenated_df.columns=[*new_data.columns,'gender']
 
-# Predict
-predicted = model.predict(concatenated_df)
+# Predict on the new data
+predicted_df = pd.DataFrame({
+    'Gender': gender_df['gender'],
+    'Predicted': model.predict(concatenated_df)
+    })
+
+predicted_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
 
 # Plot
-concatenated_df['Predict'] = predicted
-concatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
-
-plt.figure(figsize=(10, 300))
-plt.bar(concatenated_df['Sex'], concatenated_df['Predict'], color=concatenated_df['Sex'].map({'Male': 'blue', 'Female': 'pink'}))
-for i, value in enumerate(concatenated_df['Predict']):
-    plt.text(i, value, f'{value:.2%}', ha='center', va='bottom', fontsize=10)
-plt.title('Marginal effects of gender on Churn probabilities')
-plt.xlabel('Gender')
-plt.ylabel('Predicted Probabilities')
-plt.xticks(fontsize=12)
-plt.yticks(fontsize=12)
-plt.show()
-
+Plot = (
+  ggplot(predicted_df,aes(x='Gender',y='Predicted',fill='Gender'))+
+  geom_col()+
+  geom_text(aes(label='Predicted'),format_string="{:.2f}%")+
+  scale_y_continuous(labels = percent_format())+
+  labs(
+    title ='Marginal effects of Gender on Churn probabilities',
+    subtitle = 'Using the estimates from a Logit model.', 
+    x = 'Gender',
+    y = 'Predicted Probabilities',
+    fill = '')+
+  theme_minimal()+
+  theme_plots
+  )
+  
+Plot.show()
 
 ```
 
@@ -1179,23 +1197,31 @@ gender_df = pd.DataFrame(pd.Series(range(0, 2)), columns=['gender'])
 concatenated_df = pd.concat([new_data, gender_df], ignore_index=True,axis=1)
 concatenated_df.columns=[*new_data.columns,'gender']
 
-# Predict
-predicted = model.predict(concatenated_df)
+# Predict on the new data
+predicted_df = pd.DataFrame({
+    'Gender': gender_df['gender'],
+    'Predicted': model.predict(concatenated_df)
+    })
+
+predicted_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
 
 # Plot
-concatenated_df['Predict'] = predicted
-concatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
-
-plt.figure(figsize=(10, 300))
-plt.bar(concatenated_df['Sex'], concatenated_df['Predict'], color=concatenated_df['Sex'].map({'Male': 'blue', 'Female': 'pink'}))
-for i, value in enumerate(concatenated_df['Predict']):
-    plt.text(i, value, f'{value:.2%}', ha='center', va='bottom', fontsize=10)
-plt.title('Marginal effects of gender on Churn probabilities')
-plt.xlabel('Gender')
-plt.ylabel('Predicted Probabilities')
-plt.xticks(fontsize=12)
-plt.yticks(fontsize=12)
-plt.show()
+Plot = (
+  ggplot(predicted_df,aes(x='Gender',y='Predicted',fill='Gender'))+
+  geom_col()+
+  geom_text(aes(label='Predicted'),format_string="{:.2f}%")+
+  scale_y_continuous(labels = percent_format())+
+  labs(
+    title ='Marginal effects of Gender on Churn probabilities',
+    subtitle = 'Using the estimates from a Logit model.', 
+    x = 'Gender',
+    y = 'Predicted Probabilities',
+    fill = '')+
+  theme_minimal()+
+  theme_plots
+  )
+  
+Plot.show()
 
 ```
 ::::
@@ -1222,8 +1248,6 @@ plt.show()
 ```{python}
 #| echo: FALSE
 #| fig.align: 'center'
-#| fig.height: 7
-#| fig.width: 10
 
 # Load data
 data = pd.read_csv('Assets/bank-dataset.csv')
@@ -1249,21 +1273,26 @@ concatenated_df.columns=[*new_data.columns,'gender','age']
 
 # Predict
 predicted = model.predict(concatenated_df)
+concatenated_df['Predicted'] = predicted
+concatenated_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
 
 # Plot
-concatenated_df['Predict'] = predicted
-concatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
-
-plt.figure(figsize=(10, 6))
-for sex in concatenated_df['Sex'].unique():
-    plt.scatter(concatenated_df[concatenated_df['Sex'] == sex]['age'], concatenated_df[concatenated_df['Sex'] == sex]['Predict'],
-                label=sex, color='blue' if sex == 'Male' else 'pink')
-plt.title('Marginal effects of gender and age on Churn probabilities')
-plt.xlabel('Age')
-plt.ylabel('Predicted Probabilities')
-plt.legend()
-plt.grid(True)
-plt.show()
+Plot = (
+  ggplot(concatenated_df,aes(x='age',y='Predicted',fill='Gender'))+
+  geom_point(stroke=0,size=2)+
+  scale_y_continuous(labels = percent_format())+
+  scale_x_continuous(breaks = range(0,100,10))+
+  labs(
+    title ='Marginal effects of gender and age on Churn probabilities',
+    subtitle = 'Using the estimates from a Logit model.', 
+    x = 'Age',
+    y = 'Predicted Probabilities',
+    fill = 'Gender')+
+  theme_minimal()+
+  theme_plots
+  )
+  
+Plot.show()
 
 ```
 
@@ -1297,21 +1326,26 @@ concatenated_df.columns=[*new_data.columns,'gender','age']
 
 # Predict
 predicted = model.predict(concatenated_df)
+concatenated_df['Predicted'] = predicted
+concatenated_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
 
 # Plot
-concatenated_df['Predict'] = predicted
-concatenated_df['Sex'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
-
-plt.figure(figsize=(10, 6))
-for sex in concatenated_df['Sex'].unique():
-    plt.scatter(concatenated_df[concatenated_df['Sex'] == sex]['age'], concatenated_df[concatenated_df['Sex'] == sex]['Predict'],
-                label=sex, color='blue' if sex == 'Male' else 'pink')
-plt.title('Marginal effects of gender and age on Churn probabilities')
-plt.xlabel('Age')
-plt.ylabel('Predicted Probabilities')
-plt.legend()
-plt.grid(True)
-plt.show()
+Plot = (
+  ggplot(concatenated_df,aes(x='age',y='Predicted',fill='Gender'))+
+  geom_point(stroke=0,size=2)+
+  scale_y_continuous(labels = percent_format())+
+  scale_x_continuous(breaks = range(0,100,10))+
+  labs(
+    title ='Marginal effects of gender and age on Churn probabilities',
+    subtitle = 'Using the estimates from a Logit model.', 
+    x = 'Age',
+    y = 'Predicted Probabilities',
+    fill = 'Gender')+
+  theme_minimal()+
+  theme_plots
+  )
+  
+Plot.show()
 
 ```
 ::::
@@ -1335,8 +1369,6 @@ plt.show()
 ```{python}
 #| echo: FALSE
 #| fig.align: 'center'
-#| fig.height: 7
-#| fig.width: 10
 
 # Read the CSV file into a pandas DataFrame
 Data = pd.read_csv('Assets/bank-dataset.csv')
@@ -1368,21 +1400,31 @@ concatenated_df.columns=[*new_data.columns,'age']
 lm_predicted = lm_model.predict(concatenated_df)
 logit_predicted = logit_model.predict(concatenated_df)
 
+predicted_df = pd.DataFrame({
+  'LPM': lm_predicted,
+  'Logit': logit_predicted,
+  'Age': age_df['age']
+})
+
+
 # Plot
-plt.figure(figsize=(10, 6))
-plt.plot(age_df, lm_predicted, label='LPM', marker='o', linestyle='-')
-plt.plot(age_df, logit_predicted, label='LOGIT', marker='o', linestyle='-')
-
-# Adding labels and title
-plt.xlabel('Age')
-plt.ylabel('Predicted Probabilities')
-plt.title('Comparison of LPM and Logit')
-plt.legend()
-
-# Displaying the plot
-plt.grid(True)
-plt.show()
-
+Plot = (
+  ggplot(predicted_df,aes(x='Age'))+
+  geom_line(aes(y='LPM'),color='blue',size=2)+
+  geom_point(aes(y='Logit'),color='red',stroke=0,size=2)+
+  scale_y_continuous(labels = percent_format())+
+  scale_x_continuous(breaks = range(0,100,10))+
+  labs(
+    title ='Marginal effects of gender and age on Churn probabilities',
+    subtitle = 'Using the estimates from a Logit model and Linear Probability Model (LPM).', 
+    x = 'Age',
+    y = 'Predicted Probabilities',
+    fill = 'Gender')+
+  theme_minimal()+
+  theme_plots
+  )
+  
+Plot.show()
 
 ```
 
@@ -1422,20 +1464,31 @@ concatenated_df.columns=[*new_data.columns,'age']
 lm_predicted = lm_model.predict(concatenated_df)
 logit_predicted = logit_model.predict(concatenated_df)
 
+predicted_df = pd.DataFrame({
+  'LPM': lm_predicted,
+  'Logit': logit_predicted,
+  'Age': age_df['age']
+})
+
+
 # Plot
-plt.figure(figsize=(10, 6))
-plt.plot(age_df, lm_predicted, label='LPM', marker='o', linestyle='-')
-plt.plot(age_df, logit_predicted, label='LOGIT', marker='o', linestyle='-')
-
-# Adding labels and title
-plt.xlabel('Age')
-plt.ylabel('Predicted Probabilities')
-plt.title('Comparison of LPM and Logit')
-plt.legend()
-
-# Displaying the plot
-plt.grid(True)
-plt.show()
+Plot = (
+  ggplot(predicted_df,aes(x='Age'))+
+  geom_line(aes(y='LPM'),color='blue',size=2)+
+  geom_point(aes(y='Logit'),color='red',stroke=0,size=2)+
+  scale_y_continuous(labels = percent_format())+
+  scale_x_continuous(breaks = range(0,100,10))+
+  labs(
+    title ='Marginal effects of gender and age on Churn probabilities',
+    subtitle = 'Using the estimates from a Logit model and Linear Probability Model (LPM).', 
+    x = 'Age',
+    y = 'Predicted Probabilities',
+    fill = 'Gender')+
+  theme_minimal()+
+  theme_plots
+  )
+  
+Plot.show()
 ```
 :::
 

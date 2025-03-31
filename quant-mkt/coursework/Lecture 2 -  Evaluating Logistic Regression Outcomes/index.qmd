@@ -3,16 +3,15 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Lecture 2 - Choice Models and its Applications'
-    theme: [default, custom.scss]
+    title: 'Evaluating Logistic Regresion Outcomes'
+    theme: [default, '../~ Metadata/custom.scss']
     auto-stretch: false
     author: 'Lucas S. Macoris (FGV-EAESP)'
-    logo: logo.png
-    footer: "Presented by Lucas S. Macoris"
+    logo: 'Images/logo.png'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-mkt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
-    cls: abntex2.cls
     incremental: true
-    bibliography: 'Bibliography.bib'
+    bibliography: '../~ Metadata/Bibliography.bib'
     slide-number: true
     show-slide-number: all
     transition: slide
@@ -29,11 +28,29 @@ from: markdown+emoji
 ```{r,echo=FALSE,results='hide'}
 
 #Require
-packages=read.delim('Exercises/r-requirements.txt',header = FALSE)[,1]
+packages=read.delim('Assets/r-requirements.txt',header = FALSE)[,1]
 
 #Require
 lapply(packages,require,character.only=TRUE)
 
+```
+
+## Make sure to load all necessary packages
+
+```{python}
+#| eval: true
+#| echo: true
+
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+from matplotlib import pyplot as plt
+from matplotlib.ticker import FuncFormatter
+from plotnine import *
+from great_tables import GT, md
+from mizani.formatters import percent_format
+from scipy.stats import chi2
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, roc_curve, roc_auc_score
 
 ```
 
@@ -64,7 +81,9 @@ $$ Because we are assuming that all churn observations (i.e, al customer decisio
 
 $$
 \mathcal{L}(\beta,Y,X)=\prod_{i=1}^{N}[\Lambda(x_i\beta)^{y_i}]\times[1-\Lambda(x_i\beta)]^{1-y_i}
-$$ - In words, a maximum-likelihood estimator is trying to find the coefficients [$\beta$]{.focus} that make the sample of churn observations $(y_1,y_2,...,y_n)=Y$ more likely to occur!
+$$
+
+- In words, a maximum-likelihood estimator is trying to find the coefficients [$\beta$]{.focus} that make the sample of churn observations $(y_1,y_2,...,y_n)=Y$ more likely to occur!
 
 ## Evaluating Performance: Statistical Tests (continued)
 
@@ -85,21 +104,23 @@ $$ - In words, a maximum-likelihood estimator is trying to find the coefficients
 
 . . .
 
-```{r,fig.width=15}
+```{r}
+#| fig-align: 'center'
 
 quadr=function(x, a, b, c) {y = a*x^2 + b*x + c}
 
 Plot=data.frame(`log-likelihood`=quadr(a=-0.1,b=10,c=-5,x=seq(0,100,1)),`Coefficient Estimate`=seq(0,100,1),check.names = FALSE)%>%
   ggplot(aes(x=`Coefficient Estimate`,y=`log-likelihood`))+
-  geom_point()+
+  geom_point(color='orange',alpha=0.5)+
+  geom_line(color='black')+
   theme_minimal()+
+  scale_x_continuous(breaks=seq(0,100,10))+
   labs(x='Coefficient estimate',
        y='log-Likelihood',
        title='log-Likelihood for different coefficient values')+
-  theme(axis.text = element_blank(),
-        title = element_text(size=20,face='bold'),
-        axis.title = element_text(size=15))+
-  geom_vline(xintercept = 50,linetype='dashed',size=1,col='darkgreen')
+  theme(title = element_text(size=15,face='bold'),
+        axis.title = element_text(size=12))+
+  geom_vline(xintercept = 50,linetype='dashed',col='darkred')
 
 ggplotly(Plot)
 
@@ -118,81 +139,91 @@ ggplotly(Plot)
 ::: panel-tabset
 ### Result
 
-```{r,echo=FALSE}
-
-Data=read.csv('Exercises/bank-dataset.csv')
-
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-for(i in 1:10){
-
-print(glue('Wald Test for coefficient {i}: {wald.test(b=coef(Reg),Sigma = vcov(Reg),Terms = i)$result$chi[3]}'))
-
-}
-
-```
-
-### R
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| echo: true
-#| eval: false
-
-
-Data=read.csv('Exercises/bank-dataset.csv')
-
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-for(i in 1:10){
-
-message(glue('Wald Test for coefficient {i}: {wald.test(b=coef(Reg),Sigma = vcov(Reg),Terms = i)$result$chi[3]}'))
-
-}
-
-```
-
-### Python
-
 ```{python}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| echo: true
-#| eval: false
+#| echo: false
+#| eval: true
 
-import pandas as pd
-import statsmodels.api as sm
-from scipy.stats import chi2
+# Load data
+data = pd.read_csv('Assets/bank-dataset.csv')
+data['gender'] = np.where(data['gender'] == 'Male', 1, 0)
 
-# Read the CSV file into a DataFrame
-data = pd.read_csv('Exercises/bank-dataset.csv')
-
-# Convert 'gender' to dummy variables
-data = pd.get_dummies(data, columns=['gender'], drop_first=True)
-
-# Define the independent variables and the dependent variable
-X = data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
+# Fit logistic regression model
+X = data[['credit_score', 'gender', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]
+X = sm.add_constant(X)  # Add constant term for intercept
 y = data['churn']
-
-# Add constant term to the independent variables
-X = sm.add_constant(X)
 
 # Fit logistic regression model
 reg = sm.Logit(y, X).fit()
 
 # Wald test for each coefficient
 wald_stat = reg.params / reg.bse
-p_values = 1 - chi2.cdf(wald_stat ** 2, 1)
 
-# Print p-values one per line
-for p_value in p_values:
-    print(p_value)
+statistics = pd.DataFrame({
+  'parameter': X.columns,
+  'wald_stat': wald_stat,
+  'p_values': 1 - chi2.cdf(wald_stat**2, 1)
+})
 
+Table = (
+  GT(statistics)
+  .cols_align('center')
+  .tab_header(title=md("**Summary Statistics**"))
+  .tab_stub('parameter')
+  .fmt_number(decimals = 2)
+  .opt_stylize(style=1,color='red')
+)
+
+#Output
+Table
+
+#Save predictions and export it for later use
+predict=pd.DataFrame({'true_y': y,'predicted_y': reg.predict()})
+predict.to_csv('predicted.csv')
+
+```
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Load data
+data = pd.read_csv('Assets/bank-dataset.csv')
+data['gender'] = np.where(data['gender'] == 'Male', 1, 0)
+
+# Fit logistic regression model
+X = data[['credit_score', 'gender', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary','age']]
+X = sm.add_constant(X)  # Add constant term for intercept
+y = data['churn']
+
+# Fit logistic regression model
+reg = sm.Logit(y, X).fit()
+
+# Wald test for each coefficient
+wald_stat = reg.params / reg.bse
+
+statistics = pd.DataFrame({
+  'parameter': X.columns,
+  'wald_stat': wald_stat,
+  'p_values': 1 - chi2.cdf(wald_stat**2, 1)
+})
+
+Table = (
+  GT(statistics)
+  .cols_align('center')
+  .tab_header(title=md("**Summary Statistics**"))
+  .tab_stub('parameter')
+  .fmt_number(decimals = 2)
+  .opt_stylize(style=1,color='red')
+)
+
+#Output
+Table.show()
+
+#Save predictions and export it for later use
+predict=pd.DataFrame({'true_y': y,'predicted_y': reg.predict()})
+predict.to_csv('predicted.csv')
 
 ```
 :::
@@ -202,102 +233,44 @@ for p_value in p_values:
 ::: panel-tabset
 ### Result
 
-```{python,echo=FALSE}
-
-import pandas as pd
-import statsmodels.api as sm
-
-# Read the CSV file into a DataFrame
-data = pd.read_csv('Exercises/bank-dataset.csv')
-
-# Convert 'gender' to dummy variables
-data = pd.get_dummies(data, columns=['gender'], drop_first=True)
-
-# Define the independent variables and the dependent variable
-X = data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
-y = data['churn']
-
-# Add constant term to the independent variables
-X = sm.add_constant(X)
-
-# Fit logistic regression model
-reg = sm.Logit(y, X.astype('float')).fit()
+```{python}
+#| echo: false
 
 # Perform likelihood ratio test (LRT)
 lr_test = reg.llr
 df = reg.df_model
 p_value = reg.llr_pvalue
 
-print("Likelihood Ratio Test:")
-print("Chi-square:", lr_test)
+print(md("Likelihood Ratio Test:"))
+print("Chi-square:", lr_test.round(0))
 print("Degrees of freedom:", df)
-print("P-value:", p_value)
+print("P-value:", p_value.round(2))
 
 ```
 
-### R
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| echo: true
-#| eval: false
-
-
-Data=read.csv('Exercises/bank-dataset.csv')
-
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-print(anova(Reg,test="LRT"))
-
-```
 
 ### Python
 
 ```{python}
-#| code-fold: true
-#| code-summary: "Show the code"
 #| echo: true
 #| eval: false
-
-import pandas as pd
-import statsmodels.api as sm
-
-# Read the CSV file into a DataFrame
-data = pd.read_csv('Exercises/bank-dataset.csv')
-
-# Convert 'gender' to dummy variables
-data = pd.get_dummies(data, columns=['gender'], drop_first=True)
-
-# Define the independent variables and the dependent variable
-X = data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
-y = data['churn']
-
-# Add constant term to the independent variables
-X = sm.add_constant(X)
-
-# Fit logistic regression model
-reg = sm.Logit(y, X.astype('float')).fit()
 
 # Perform likelihood ratio test (LRT)
 lr_test = reg.llr
 df = reg.df_model
 p_value = reg.llr_pvalue
 
-print("Likelihood Ratio Test:")
-print("Chi-square:", lr_test)
+print(md("Likelihood Ratio Test:"))
+print("Chi-square:", lr_test.round(0))
 print("Degrees of freedom:", df)
-print("P-value:", p_value)
-
+print("P-value:", p_value.round(2))
 
 ```
 :::
 
 ## Evaluating Performance: Pseudo-$R^2$
 
-::: panel-tabset
+:::: panel-tabset
 ### Explanation
 
 ::: nonincremental
@@ -314,64 +287,9 @@ $$
 
 ### Result
 
-```{r,echo=FALSE}
-
-Data=read.csv('Exercises/bank-dataset.csv')
-
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-PseudoR2(Reg)
-
-```
-
-### R
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| echo: true
-#| eval: false
-
-
-Data=read.csv('Exercises/bank-dataset.csv')
-
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-PseudoR2(Reg)
-
-```
-
-### Python
-
 ```{python}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| echo: true
-#| eval: false
-
-import pandas as pd
-import numpy as np
-import statsmodels.api as sm
-
-# Read the CSV file into a DataFrame
-data = pd.read_csv('Exercises/bank-dataset.csv')
-
-# Convert 'gender' to dummy variables
-data = pd.get_dummies(data, columns=['gender'], drop_first=True)
-
-# Define the independent variables and the dependent variable
-X = data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
-y = data['churn']
-
-# Add constant term to the independent variables
-X = sm.add_constant(X)
-
-# Fit logistic regression model
-reg = sm.Logit(y, X).fit()
+#| echo: false
+#| eval: true
 
 # Calculate McFadden's pseudo R-squared
 def pseudoR2(model):
@@ -380,10 +298,28 @@ def pseudoR2(model):
     return 1 - (L1 / L0)
 
 pseudo_r2 = pseudoR2(reg)
-print("McFadden's Pseudo R-squared:", pseudo_r2)
+print("McFadden's Pseudo R-squared:", pseudo_r2.round(2))
 
 ```
-:::
+
+
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Calculate McFadden's pseudo R-squared
+def pseudoR2(model):
+    L1 = model.llf
+    L0 = sm.Logit(y, sm.add_constant(np.ones_like(y))).fit().llf
+    return 1 - (L1 / L0)
+
+pseudo_r2 = pseudoR2(reg)
+print("McFadden's Pseudo R-squared:", pseudo_r2.round(2))
+```
+::::
 
 ## Evaluating Performance: Accuracy
 
@@ -420,7 +356,7 @@ $$
 
 ## Confusion Matrix
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](Figures/F1.png)
 :::
@@ -432,7 +368,7 @@ $$
 -   **Type I** Errors (153) are the [False Positive]{.focus} cases: we wrongly classified customers that did not churn as churned!
 -   **Type II** Errors (1788) are the [False Negative]{.focus} cases: we wrongly classified customers that did churn as not churned!
 :::
-:::
+:::::
 
 ## How should a good estimator look like? Looking at Accuracy
 
@@ -516,87 +452,53 @@ $$
 ::: panel-tabset
 ### Result
 
-```{r results,echo=FALSE}
+```{python}
+#| echo: false
+#| eval: true
 
-Data=read.csv('Exercises/bank-dataset.csv')
+# Predict churn using the trained logistic regression model
+predicted_churn = (
+  (reg.predict() >= y.mean())  # Assuming a threshold of 0.5 for classification
+  .astype(int)
+  )
 
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
+#Estimate the Confusion Matrix
+CM=confusion_matrix(y,predicted_churn)
 
-#Creating a comparison between actual and predicted churn
-Comparison=data.frame(Actual=Data$churn,
-                      Predicted=ifelse(predict(Reg,type='response')>=mean(Data$churn),1,0))
+#cHART 
+ConfusionMatrixDisplay.from_predictions(y, predicted_churn)
 
-#Create the confusion matrix using 1 (churn) as the (1,1) quadrant (full)
-confusionMatrix(data=factor(Comparison$Predicted,levels=c(1,0)),
-                reference=factor(Comparison$Actual,levels=c(1,0)),
-                )
-```
+#Title
+plt.title('Confusion Matrix')
 
-### R
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| echo: true
-#| eval: false
-Data=read.csv('Exercises/bank-dataset.csv')
-
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-#Creating a comparison between actual and predicted churn
-Comparison=data.frame(Actual=Data$churn,
-                      Predicted=ifelse(predict(Reg,type='response')>=mean(Data$churn),1,0))
-
-#Create the confusion matrix using 1 (churn) as the (1,1) quadrant (full)
-confusionMatrix(data=factor(Comparison$Predicted,levels=c(1,0)),
-                reference=factor(Comparison$Actual,levels=c(1,0)),
-                )
+#Show
+plt.show()
 
 ```
+
 
 ### Python
 
 ```{python}
-#| code-fold: true
-#| code-summary: "Show the code"
 #| echo: true
 #| eval: false
 
-import pandas as pd
-import numpy as np
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import ConfusionMatrixDisplay
-from matplotlib import pyplot as plt
-
-
-# Read the CSV file into a pandas DataFrame
-Data = pd.read_csv('Exercises/bank-dataset.csv')
-
-# Convert 'gender' into dummy variables
-Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
-
-# Define independent and dependent variables
-X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
-y = Data['churn']
-
-# Add a constant to the independent variables matrix for the intercept
-X = sm.add_constant(X)
-
-# Fit the linear regression model
-model = sm.Logit(y, X.astype(float)).fit()
-
 # Predict churn using the trained logistic regression model
-predicted_churn = model.predict() >= y.mean()  # Assuming a threshold of 0.5 for classification
+predicted_churn = (
+  (reg.predict() >= y.mean())  # Assuming a threshold of 0.5 for classification
+  .astype(int)
+  )
 
-# Convert predicted churn to binary (1 or 0)
-predicted_churn = predicted_churn.astype(int)
+#Estimate the Confusion Matrix
+CM=confusion_matrix(y,predicted_churn)
 
-# Create confusion matrix
+#cHART 
 ConfusionMatrixDisplay.from_predictions(y, predicted_churn)
+
+#Title
+plt.title('Confusion Matrix')
+
+#Show
 plt.show()
 
 ```
@@ -609,32 +511,43 @@ plt.show()
 
 . . .
 
-```{r, echo=FALSE, fig.align='center'}
+```{python}
+#| eval: true
+#| echo: false
 
-Data=read.csv('Exercises/bank-dataset.csv')
+# Predict churn probabilities
+probs = reg.predict()
 
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
+# Calculate specificity and sensitivity
+fpr, tpr, thresholds = roc_curve(y, probs)
 
-Comparison=Data%>%cbind(data.frame('Predicted'=predict(Reg,type='response')))
-ROC = roc(Comparison$churn ~ Comparison$Predicted)
-coords(ROC)%>%mutate(TPR=sensitivity,FPR=1-specificity)%>%
-  ggplot(aes(x=FPR,y=TPR))+
-  geom_point()+
+#Create a pandas data.frame and plot it
+
+result=pd.DataFrame({
+  'fpr':fpr,
+  'tpr': tpr
+})
+
+Plot=(
+  ggplot(result, aes(x='fpr',y='tpr'))+
+  geom_point(size=0.5,color='darkorange')+
   theme_minimal()+
   labs(x='FPR (1 - Specificity)',
        y='TPR (Sensitivity)',
        title='Different combinations of TPR and FPR according to cut-off')+
-  theme(plot.title = element_text(size=20,face='bold'),
-        axis.text = element_text(size=15),
-        axis.title = element_text(size=15))
+  theme(plot_title = element_text(size=12,face='bold'),
+        axis_text = element_text(size=10),
+        axis_title = element_text(size=10))
+  )
 
+Plot.show()
 ```
+
+
 
 ## Finding the optimal $p^{\star}$
 
-::: panel-tabset
+:::: panel-tabset
 ### Explanation
 
 ::: nonincremental
@@ -649,94 +562,12 @@ coords(ROC)%>%mutate(TPR=sensitivity,FPR=1-specificity)%>%
 
 ### Result
 
-```{r,echo=FALSE}
-
-Data=read.csv('Exercises/bank-dataset.csv')
-
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-#Creating a comparison between actual and predicted churn
-Comparison=data.frame(Actual=Data$churn,
-                      Predicted=ifelse(predict(Reg,type='response')>=mean(Data$churn),1,0))
-
-Coords=coords(ROC,print.thres=TRUE)%>%mutate(metric=sensitivity+specificity)
-Best=pull(coords(ROC,print.thres=TRUE,"best")[1])
-
-Coords%>%
-  ggplot(aes(x=threshold,y=metric))+
-  geom_point()+
-  theme_minimal()+
-  labs(y='Specificity + Sensitivity',x='Threshold for churn assignment',
-       title=paste0('Best value achieved using threshold = ',round(Best,2)))+
-  geom_vline(xintercept = pull(coords(ROC,print.thres=TRUE,"best")[1]),linetype='dashed')+
-  theme(title=element_text(size=20,face='bold'),
-        axis.text = element_text(size=15),
-        axis.title = element_text(size=15))
-
-```
-
-### R
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| echo: true
-#| eval: false
-
-
-Data=read.csv('Exercises/bank-dataset.csv')
-
-Reg=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-#Creating a comparison between actual and predicted churn
-Comparison=data.frame(Actual=Data$churn,
-                      Predicted=ifelse(predict(Reg,type='response')>=mean(Data$churn),1,0))
-
-Coords=coords(ROC,print.thres=TRUE)%>%mutate(metric=sensitivity+specificity)
-Best=pull(coords(ROC,print.thres=TRUE,"best")[1])
-
-Coords%>%
-  ggplot(aes(x=threshold,y=metric))+
-  geom_point()+
-  theme_minimal()+
-  labs(y='Specificity + Sensitivity',x='Threshold for churn assignment',
-       title=paste0('Best value achieved using threshold = ',round(Best,2)))+
-  geom_vline(xintercept = pull(coords(ROC,print.thres=TRUE,"best")[1]),linetype='dashed')+
-  theme(title=element_text(size=20,face='bold'),
-        axis.text = element_text(size=15),
-        axis.title = element_text(size=15))
-```
-
-### Python
-
 ```{python}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| echo: true
-#| eval: false
-
-# Read the CSV file into a pandas DataFrame
-Data = pd.read_csv('Exercises/bank-dataset.csv')
-
-# Convert 'gender' into dummy variables
-Data = pd.get_dummies(Data, columns=['gender'], drop_first=True)
-
-# Define independent and dependent variables
-X = Data[['credit_score', 'gender_Male', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
-y = Data['churn']
-
-# Add a constant to the independent variables matrix for the intercept
-X = sm.add_constant(X)
-
-# Fit the linear regression model
-model = sm.Logit(y, X.astype(float)).fit()
+#| eval: true
+#| echo: false
 
 # Predict churn probabilities
-probs = model.predict()
+probs = reg.predict()
 
 # Calculate specificity and sensitivity
 fpr, tpr, thresholds = roc_curve(y, probs)
@@ -747,29 +578,85 @@ sensitivity = tpr
 best_threshold_index = np.argmax(specificity + sensitivity)
 best_threshold = thresholds[best_threshold_index]
 
-# Visualize the results
-plt.figure(figsize=(10, 6))
-plt.plot(thresholds, sensitivity + specificity, marker='o')
-plt.axvline(x=best_threshold, color='r', linestyle='--', label=f'Best Threshold: {best_threshold:.2f}')
-plt.xlabel('Threshold for churn assignment')
-plt.ylabel('Specificity + Sensitivity')
-plt.title(f'Best value achieved using threshold = {best_threshold:.2f}')
-plt.legend()
-plt.grid(True)
-plt.show()
+#Create a pandas data.frame and plot it
 
+result=pd.DataFrame({
+  'thresholds':thresholds,
+  'sp_se': specificity + sensitivity
+})
+
+Plot=(
+  ggplot(result, aes(x='thresholds',y='sp_se'))+
+  geom_point(size=0.5,color='darkorange')+
+  theme_minimal()+
+  geom_vline(xintercept=best_threshold,linetype='dashed')+
+  labs(x='Threshold',
+       y='Specificifity + Sensitivity',
+       title='Best value achieved around 0.22')+
+  theme(plot_title = element_text(size=15,face='bold'),
+        axis_text = element_text(size=12),
+        axis_title = element_text(size=12))
+  )
+
+Plot.show()
 ```
-:::
+
+### Python
+
+```{python}
+#| eval: false
+#| echo: true
+
+# Predict churn probabilities
+probs = reg.predict()
+
+# Calculate specificity and sensitivity
+fpr, tpr, thresholds = roc_curve(y, probs)
+specificity = 1 - fpr
+sensitivity = tpr
+
+# Find the best threshold value
+best_threshold_index = np.argmax(specificity + sensitivity)
+best_threshold = thresholds[best_threshold_index]
+
+#Create a pandas data.frame and plot it
+
+result=pd.DataFrame({
+  'thresholds':thresholds,
+  'sp_se': specificity + sensitivity
+})
+
+Plot=(
+  ggplot(result, aes(x='thresholds',y='sp_se'))+
+  geom_point(size=0.5,color='darkorange')+
+  theme_minimal()+
+  geom_vline(xintercept=best_threshold,linetype='dashed')+
+  labs(x='Threshold',
+       y='Specificifity + Sensitivity',
+       title='Best value achieved around 0.22')+
+  theme(plot_title = element_text(size=15,face='bold'),
+        axis_text = element_text(size=12),
+        axis_title = element_text(size=12))
+  )
+
+Plot.show()
+```
+
+::::
 
 ## Comparing among different classifiers
 
--   Say that, for some reason, you have ommitted `age` from the analysis. How can you assess how the predictive power of your model is going to deteriorate? One way to do this is to analyze what we call [*Area under the Curve*]{.focus} (or simply [AUC]{.focus}):
+- Say that, for some reason, you have ommitted `age` from the analysis. How can you assess how the predictive power of your model is going to deteriorate?
 
-![](Figures/F2.png){fig-align="center"}
+- One way to do this is to analyze what we call [*Area under the Curve*]{.focus} (or simply [AUC]{.focus}):
+
+. . .
+
+![](Images/F2.png){fig-align="center" width=40%}
 
 ## AUC under different models
 
-::: panel-tabset
+:::: panel-tabset
 ### Explanation
 
 ::: non-incremental
@@ -785,118 +672,9 @@ plt.show()
 
 ### Result
 
-```{r,fig.align='center',fig.width=20,fig.height=8}
-Data=read.csv('Exercises/bank-dataset.csv')
-
-
-Reg_1=glm(churn ~ credit_score + gender  + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-Reg_2=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-
-P_1=Data%>%cbind(data.frame('Predicted'=predict(Reg_1,type='response')))
-P_2=Data%>%cbind(data.frame('Predicted'=predict(Reg_2,type='response')))
-
-ROC_1 = roc(P_1$churn ~ P_1$Predicted)
-ROC_2 = roc(P_2$churn ~ P_2$Predicted)
-
-ROC_1=coords(ROC_1)%>%mutate(TPR=sensitivity,FPR=1-specificity,type='Without Age')
-ROC_2=coords(ROC_2)%>%mutate(TPR=sensitivity,FPR=1-specificity,type='With Age')
-
-rbind(ROC_1,ROC_2)%>%
-  ggplot(aes(x=FPR,y=TPR,col=type))+
-  geom_point()+
-  theme_minimal()+
-  labs(x='FPR (1 - Specificity)',
-       y='TPR (Sensitivity)',
-       title='Model with Age outperforms the other for any threshold!')+
-  theme(plot.title = element_text(size=40,face='bold'),
-        axis.text = element_text(size=30),
-        axis.title = element_text(size=30),
-        legend.position ='bottom')
-
-```
-
-### R
-
-```{r,fig.align='center',fig.width=20,fig.height=8}
-#| code-fold: true
-#| code-summary: "Show the code"
-#| echo: true
-#| eval: false
-
-Data=read.csv('Exercises/bank-dataset.csv')
-
-
-Reg_1=glm(churn ~ credit_score + gender  + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-Reg_2=glm(churn ~ credit_score + gender + age + tenure + balance + products_number + credit_card + active_member + estimated_salary,
-        family = binomial(link = "logit"),
-        data = Data)
-
-
-P_1=Data%>%cbind(data.frame('Predicted'=predict(Reg_1,type='response')))
-P_2=Data%>%cbind(data.frame('Predicted'=predict(Reg_2,type='response')))
-
-ROC_1 = roc(P_1$churn ~ P_1$Predicted)
-ROC_2 = roc(P_2$churn ~ P_2$Predicted)
-
-ROC_1=coords(ROC_1)%>%mutate(TPR=sensitivity,FPR=1-specificity,type='Without Age')
-ROC_2=coords(ROC_2)%>%mutate(TPR=sensitivity,FPR=1-specificity,type='With Age')
-
-rbind(ROC_1,ROC_2)%>%
-  ggplot(aes(x=FPR,y=TPR,col=type))+
-  geom_point()+
-  theme_minimal()+
-  labs(x='FPR (1 - Specificity)',
-       y='TPR (Sensitivity)',
-       title='Model with Age outperforms the other for any threshold!')+
-  theme(plot.title = element_text(size=40,face='bold'),
-        axis.text = element_text(size=30),
-        axis.title = element_text(size=30),
-        legend.position ='bottom')
-
-```
-
-### Python
-
 ```{python}
-#| code-fold: true
-#| code-summary: "Show the code"
 #| echo: true
 #| eval: false
-
-import pandas as pd
-import numpy as np
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import roc_curve, roc_auc_score
-import matplotlib.pyplot as plt
-
-# Read the CSV file into a pandas DataFrame
-Data = pd.read_csv('Exercises/bank-dataset.csv')
-
-# Convert 'gender' into dummy variables
-Data['gender'] = pd.get_dummies(Data['gender'], drop_first=True)
-
-
-# Define independent and dependent variables for Reg_1 (without 'age')
-X1 = Data[['credit_score', 'gender', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
-
-# Define independent and dependent variables for Reg_2 (with 'age')
-X2 = Data[['credit_score', 'gender', 'age', 'tenure', 'balance', 'products_number', 'credit_card', 'active_member', 'estimated_salary']]
-
-# Dependent variable
-y = Data['churn']
-
-# Fit logistic regression models
-reg_1 = model = sm.Logit(y, X1.astype(float)).fit()
-reg_2 = model = sm.Logit(y, X2.astype(float)).fit()
 
 # Predict probabilities for both models
 probs_1 = reg_1.predict()
@@ -911,21 +689,72 @@ auc_1 = roc_auc_score(y, probs_1)
 auc_2 = roc_auc_score(y, probs_2)
 
 # Plot ROC curves
-plt.figure(figsize=(10, 8))
-plt.plot(fpr_1, tpr_1, color='blue', lw=2, label=f'Without Age (AUC = {auc_1:.2f})')
-plt.plot(fpr_2, tpr_2, color='red', lw=2, label=f'With Age (AUC = {auc_2:.2f})')
-plt.plot([0, 1], [0, 1], color='gray', lw=1, linestyle='--')
-plt.xlim([0.0, 1.0])
-plt.ylim([0.0, 1.05])
-plt.xlabel('False Positive Rate (1 - Specificity)')
-plt.ylabel('True Positive Rate (Sensitivity)')
-plt.title('ROC Curve')
-plt.legend(loc="lower right")
-plt.show()
+Data=pd.concat([pd.DataFrame({'Model':'Without Age','FPR':fpr_1,'TPR':tpr_1}),
+          pd.DataFrame({'Model':'With Age','FPR':fpr_2,'TPR':tpr_2})],axis=0)
 
+Plot = (
+  
+  ggplot(Data,aes(x='FPR',y='TPR',fill='Model'))+
+  geom_point(stroke=0)+
+  theme_minimal()+
+  annotate(geom='text',x=0.5,y=0.5,label=('Model 1 (without Age): ' + auc_1.round(2).astype('str')))+
+  annotate(geom='text',x=0.4,y=0.9,label=('Model 2 (with Age): ' + auc_2.round(2).astype('str')))+
+  labs(x='FPR (1 - Specificity)',
+       y='TPR (Sensitivity)',
+       title='Model with Age outperforms the other for any threshold!')+
+  theme(plot_title = element_text(size=20,face='bold'),
+        axis_text = element_text(size=12),
+        axis_title = element_text(size=15),
+        legend_position ='bottom')
+)
+
+Plot.show()
 
 ```
-:::
+
+### Python
+
+```{python}
+#| echo: true
+#| eval: false
+
+# Predict probabilities for both models
+probs_1 = reg_1.predict()
+probs_2 = reg_2.predict()
+
+# Compute ROC curves
+fpr_1, tpr_1, _ = roc_curve(y, probs_1)
+fpr_2, tpr_2, _ = roc_curve(y, probs_2)
+
+# Compute AUC scores
+auc_1 = roc_auc_score(y, probs_1)
+auc_2 = roc_auc_score(y, probs_2)
+
+# Plot ROC curves
+Data=pd.concat([pd.DataFrame({'Model':'Without Age','FPR':fpr_1,'TPR':tpr_1}),
+          pd.DataFrame({'Model':'With Age','FPR':fpr_2,'TPR':tpr_2})],axis=0)
+
+Plot = (
+  
+  ggplot(Data,aes(x='FPR',y='TPR',fill='Model'))+
+  geom_point(stroke=0)+
+  theme_minimal()+
+  annotate(geom='text',x=0.5,y=0.5,label=('Model 1 (without Age): ' + auc_1.round(2).astype('str')))+
+  annotate(geom='text',x=0.4,y=0.9,label=('Model 2 (with Age): ' + auc_2.round(2).astype('str')))+
+  labs(x='FPR (1 - Specificity)',
+       y='TPR (Sensitivity)',
+       title='Model with Age outperforms the other for any threshold!')+
+  theme(plot_title = element_text(size=20,face='bold'),
+        axis_text = element_text(size=12),
+        axis_title = element_text(size=15),
+        legend_position ='bottom')
+)
+
+Plot.show()
+
+```
+
+::::
 
 ## Other topics for further investigation
 
