@@ -60,12 +60,11 @@ from statsmodels.tools.tools import add_constant
 
 ```
 
-
 ## Recap on *Logit* Models
 
-- From previous classes, the idea behind using $\Lambda(X)$ lies on the [latent]{.focus} variable approach: think about an unobserved component, $Y^\star$, which is a continuous variable, such as how much a consumer values a product.
+-   From previous classes, the idea behind using $\Lambda(X)$ lies on the [latent]{.focus} variable approach: think about an unobserved component, $Y^\star$, which is a continuous variable, such as how much a consumer values a product.
 
-- Although we do not observe $Y^\star$, we do observe consumers' [decisions]{.focus} of buying or not buying the product, depending on a given threshold:
+-   Although we do not observe $Y^\star$, we do observe consumers' [decisions]{.focus} of buying or not buying the product, depending on a given threshold:
 
 $$
   Y = \begin{cases}
@@ -74,28 +73,27 @@ $$
   \end{cases}
 $$
 
-- Therefore, we can see that the probability of buying depends on a latent variable, which is not observed by the econometrician:
+-   Therefore, we can see that the probability of buying depends on a latent variable, which is not observed by the econometrician:
 
 $$
   P(Y = 1 | X) = P(Y^* > 0 | X) = P(X \beta + \varepsilon > 0 | X)
 $$
 
-
 ## Logistic Regression (*Logit*) Models
 
-- We saw that *Logit* models are just an example of a case where the transformation function is:
+-   We saw that *Logit* models are just an example of a case where the transformation function is:
 
 $$
   f(Y^*) = \Lambda(Y^*) = \frac{\exp(X\beta)}{1 + \exp(X\beta)}
 $$
 
-- Whenever we’re estimating a *logit* model, our transformation function, $\Lambda(\cdot)$, is actually estimating $\log[p/(1 - p)]$:
+-   Whenever we’re estimating a *logit* model, our transformation function, $\Lambda(\cdot)$, is actually estimating $\log[p/(1 - p)]$:
 
 $$
   \text{logit}(p) = \alpha + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k
 $$
 
-- The term $\frac{p}{1 - p}$ is called *odds-ratio*, and is simply the ratio of the probability of success over the probability of failure
+-   The term $\frac{p}{1 - p}$ is called *odds-ratio*, and is simply the ratio of the probability of success over the probability of failure
 
 ## Hands-On Exercise
 
@@ -127,29 +125,27 @@ read.csv('Assets/transportation-dataset.csv')%>%
 
 $\rightarrow$ *This example has been taken from [@Train]*
 
-
 ## From Discrete to Multiple Choice
 
-- In practice, decisions are, in general, more complicated than a simply binary choice:
-  1. Consumers choose between a product given a finite set of choices;
-  2. Passengers choose which transportation method is the preferred one for their trips;
-  3. Individuals choose which payment method is the best to accommodate their budget constraints.
+-   In practice, decisions are, in general, more complicated than a simply binary choice:
 
-- In more practical cases, the set of choices $k$ is, in general, greater than $2$. In this lecture, we will see that we can accommodate the estimation method used for *Logit* for cases where $k > 2$.
+    1.  Consumers choose between a product given a finite set of choices;
+    2.  Passengers choose which transportation method is the preferred one for their trips;
+    3.  Individuals choose which payment method is the best to accommodate their budget constraints.
 
-- This method is generally called *multinomial logit*, and like *logit*, is just an example of generalized linear models, a broader class of models that generalize the multiple linear regression model
+-   In more practical cases, the set of choices $k$ is, in general, greater than $2$. In this lecture, we will see that we can accommodate the estimation method used for *Logit* for cases where $k > 2$.
 
+-   This method is generally called *multinomial logit*, and like *logit*, is just an example of generalized linear models, a broader class of models that generalize the multiple linear regression model
 
 ## Bridging Binary to Multi-Choice Models (continued)
 
-- Recall that, in a **binary** setting, our probability measure using a *logit* was:
+-   Recall that, in a **binary** setting, our probability measure using a *logit* was:
 
 $$
   P(Y) = \frac{\exp(X\beta)}{1 + \exp(X\beta)}
-$$
-  which we will call by $p$
+$$ which we will call by $p$
 
-- Let’s write the probabilities of each scenario $y=1$ and $y=0$ for a given customer $i$ as:
+-   Let’s write the probabilities of each scenario $y=1$ and $y=0$ for a given customer $i$ as:
 
 $$
 \begin{cases}
@@ -158,28 +154,27 @@ $$
   \end{cases}
 $$
 
-- We can use the intuition on these probabilities to arrive at a general formulation.
+-   We can use the intuition on these probabilities to arrive at a general formulation.
 
 ## Bridging Binary to Multi-Choice Models (continued)
 
-- Suppose that we consider $y = 0$ (in our previous example, non-churned customers) as the baseline reference. Then, the *logit* regression for this customer $i$ is simply the estimation of the log *odds-ratio*:
+-   Suppose that we consider $y = 0$ (in our previous example, non-churned customers) as the baseline reference. Then, the *logit* regression for this customer $i$ is simply the estimation of the log *odds-ratio*:
 
 $$
 \log \left( \frac{p_{i,1}}{1 - p_{i,1}} \right) = \log \left( \frac{p_{i,1}}{p_{i,0}} \right) = X\beta
 $$
 
-- In words, we are estimating the log ratio of probabilities, taking into account that the baseline category is $y = 0$
+-   In words, we are estimating the log ratio of probabilities, taking into account that the baseline category is $y = 0$
 
-- Relating this to the churn example, we are modeling the increase in the probability of churning (relative to non-churning), based on observations $X$.
+-   Relating this to the churn example, we are modeling the increase in the probability of churning (relative to non-churning), based on observations $X$.
 
-- What if we have [more than two]{.focus} categories?
-
+-   What if we have [more than two]{.focus} categories?
 
 ## Bridging Binary to Multi-Choice Models (continued)
 
-- Suppose now that we have $k > 2$. For example, instead of thinking about a churned customer, we can observe its actual bank choice: $\{Santander, KutxaBank, BankInter\}$
+-   Suppose now that we have $k > 2$. For example, instead of thinking about a churned customer, we can observe its actual bank choice: $\{Santander, KutxaBank, BankInter\}$
 
-- Our set has now [three]{.focus} potential choices. We can write the probability of customer $i$ choosing bank $k = z$ as:
+-   Our set has now [three]{.focus} potential choices. We can write the probability of customer $i$ choosing bank $k = z$ as:
 
 $$
 \begin{cases}
@@ -191,9 +186,9 @@ $$
 
 ## Multinomial Logit
 
-- Let’s say that we want to fit a model to understand customer’s preferences around bank services providers. Formally, we have information on covariates $X$. Then, we want to fit a model such that we can recover the probability of choosing alternative $k$ based on $X$.
+-   Let’s say that we want to fit a model to understand customer’s preferences around bank services providers. Formally, we have information on covariates $X$. Then, we want to fit a model such that we can recover the probability of choosing alternative $k$ based on $X$.
 
-- For that, fix $k = 1$ (in our case, [Santander]{.focus}) to be the *baseline* category. Then:
+-   For that, fix $k = 1$ (in our case, [Santander]{.focus}) to be the *baseline* category. Then:
 
 $$
   \log\bigg(\frac{p_{i,2}}{p_{i,1}}\bigg) = \alpha_2 + \beta_{2,1} + \dots + \beta_{2,j}
@@ -203,35 +198,37 @@ $$
   \log\bigg(\frac{p_{i,3}}{p_{i,1}}\bigg) = \alpha_3 + \beta_{3,1} + \dots + \beta_{3,j}
 $$
 
-- In words, for each bank $k$ other than $k = 1$ ([Santander]{.focus}), we will have a separate equation that measures the log *odds-ratio* of preferring bank $k$ over [Santander]{.focus}
+-   In words, for each bank $k$ other than $k = 1$ ([Santander]{.focus}), we will have a separate equation that measures the log *odds-ratio* of preferring bank $k$ over [Santander]{.focus}
 
-- Therefore, if the response variable has $k$ possible categories, there will be $k - 1$ equations.
+-   Therefore, if the response variable has $k$ possible categories, there will be $k - 1$ equations.
 
 ## About the dataset
 
-- We will use a different dataset to understand multi-choice models.
-- This data comes from Greene (2003) and consists of a survey about the preferred travel transportation method ([air]{.focus}, [bus]{.focus}, [car]{.focus}, or [train]{.focus} for a sample of individuals.
+-   We will use a different dataset to understand multi-choice models.
 
-- We observe the following characteristics:
+-   This data comes from Greene (2003) and consists of a survey about the preferred travel transportation method ([air]{.focus}, [bus]{.focus}, [car]{.focus}, or [train]{.focus} for a sample of individuals.
 
-  1. Characteristics of the choice `vehicle cost`, `waiting time`, `travel time`
-  2. Characteristics of the individuals: `income`, `family size`
-  3. The actual choice made by each individual: $\{air, bus, train, car\}$
+-   We observe the following characteristics:
 
-- We want to understand how both offer characteristics as well as individual characteristics drive the decision to use a specific transportation method
+    1.  Characteristics of the choice `vehicle cost`, `waiting time`, `travel time`
+    2.  Characteristics of the individuals: `income`, `family size`
+    3.  The actual choice made by each individual: $\{air, bus, train, car\}$
+
+-   We want to understand how both offer characteristics as well as individual characteristics drive the decision to use a specific transportation method
 
 ## Estimating a *Multinomial Logit*
 
-- A [Multinomial Logit]{.focus} model is estimated by maximizing the likelihood of observing the decisions for each consumer $i$
+-   A [Multinomial Logit]{.focus} model is estimated by maximizing the likelihood of observing the decisions for each consumer $i$
 
-- As before, the estimation of the parameters of this model by maximum likelihood proceeds by maximization of the multinomial likelihood with the probabilities viewed as functions of the parameters
+-   As before, the estimation of the parameters of this model by maximum likelihood proceeds by maximization of the multinomial likelihood with the probabilities viewed as functions of the parameters
 
-- Differently from the binary case, we’ll now have one equation for each $k \neq 1$. Note that it really makes no difference which category we pick as the reference cell, because we can always convert from one formulation to the other—similar case with defining a dummy variable
+-   Differently from the binary case, we’ll now have one equation for each $k \neq 1$. Note that it really makes no difference which category we pick as the reference cell, because we can always convert from one formulation to the other—similar case with defining a dummy variable
 
 ## Estimating a Multinomial Logit
 
 ::: panel-tabset
 ### Result
+
 ```{python}
 #| eval: true
 #| echo: false
@@ -259,6 +256,7 @@ print(multinomial_result.summary())
 ```
 
 ### Python
+
 ```{python}
 #| eval: false
 #| echo: true
@@ -287,26 +285,25 @@ print(multinomial_result.summary())
 
 ## Predicting probabilities
 
-- For each of the estimated categories $k$ (`bus`, `train`, `car`), the probability that individual $i$ has chosen it is:
+-   For each of the estimated categories $k$ (`bus`, `train`, `car`), the probability that individual $i$ has chosen it is:
 
 $$
 p_{k,i} = \frac{\exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
 {1 + \sum_{k=2}^{4} \exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
 $$
 
-- Recall that we've recovered this probability by fixing a [reference]{.focus} category (in this case, `air`).  
-  Therefore, to recover the probabilities of individuals choosing `air`:
+-   Recall that we've recovered this probability by fixing a [reference]{.focus} category (in this case, `air`).\
+    Therefore, to recover the probabilities of individuals choosing `air`:
 
 $$
   p_{1,i} = 1 - \sum_{k=2}^{4} p_{k,i}
 $$
 
-
-
 ## Predicting Probabilities (continued)
 
 ::: panel-tabset
 ### Result
+
 ```{python}
 #| eval: true
 #| echo: false
@@ -350,6 +347,7 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 ```
 
 ### Python
+
 ```{python}
 #| eval: false
 #| echo: true
@@ -392,23 +390,21 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 ```
 :::
 
-
-
 ## Assessing Performance
 
 ::: panel-tabset
-
 ### Explanation
 
-- Because we're using the very same maximization procedure as used in *logit* models, we can use the same *maximum likelihood* statistical tests:
+-   Because we're using the very same maximization procedure as used in *logit* models, we can use the same *maximum likelihood* statistical tests:
 
-  1. The [Wald]{.focus} test
-  2. The [Likelihood-Ratio]{.focus} test
-  3. The [Lagrange Multiplier]{.focus} test
+    1.  The [Wald]{.focus} test
+    2.  The [Likelihood-Ratio]{.focus} test
+    3.  The [Lagrange Multiplier]{.focus} test
 
-- Also, we can tabulate the results in such a way that we'd ideally want all observations to lie at the diagonal cells of our matrix
+-   Also, we can tabulate the results in such a way that we'd ideally want all observations to lie at the diagonal cells of our matrix
 
 ### Result
+
 ```{python}
 #| eval: true
 #| echo: false
@@ -450,6 +446,7 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 ```
 
 ### Python
+
 ```{python}
 #| eval: false
 #| echo: true
@@ -493,32 +490,32 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 
 ## Counterfactual exercises
 
-- As marketers, we're generally interested in understanding how consumers would react [as-if]{.focus} they were exposed to a given situation:
+-   As marketers, we're generally interested in understanding how consumers would react [as-if]{.focus} they were exposed to a given situation:
 
-  1. What happens to the probability of using a plane as the size of the family grows?
-  2. How many customers would upgrade their travel plans to `air` if they have received an increase in income?
-  3. If the price of `air` decreases significantly, how would customers distribute among other transportation modes?
+    1.  What happens to the probability of using a plane as the size of the family grows?
+    2.  How many customers would upgrade their travel plans to `air` if they have received an increase in income?
+    3.  If the price of `air` decreases significantly, how would customers distribute among other transportation modes?
 
-- In what follows, we’ll analyze how these three changes affect the distribution of transportation choices.
+-   In what follows, we’ll analyze how these three changes affect the distribution of transportation choices.
 
 ## Exercise 1: increasing `size`
 
 ::: panel-tabset
-
 ### Explanation
 
-- What happens to the probability of using each mode as the size of the family grows?
+-   What happens to the probability of using each mode as the size of the family grows?
 
-- In order to analyze that, we will:
+-   In order to analyze that, we will:
 
-  1. Make a copy of the original matrix of covariates, $X$
-  2. Use a `loop` iterating different sets of customers, with `size` ranging from $1$ to $4$
-  3. Predict the probabilities for each choice and averaging them out across customers
-  4. Append the results
+    1.  Make a copy of the original matrix of covariates, $X$
+    2.  Use a `loop` iterating different sets of customers, with `size` ranging from $1$ to $4$
+    3.  Predict the probabilities for each choice and averaging them out across customers
+    4.  Append the results
 
 **Result:** Consumers tend to switch over to `cars` more aggressively
 
 ### Result
+
 ```{python}
 #| eval: true
 #| echo: false
@@ -569,6 +566,7 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 ```
 
 ### Python
+
 ```{python}
 #| eval: false
 #| echo: true
@@ -622,19 +620,19 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 ## Exercise 2: increasing `income`
 
 ::: panel-tabset
-
 ### Explanation
 
-- How many customers would upgrade their travel plans to `air` if they receive an increase in `income`?
+-   How many customers would upgrade their travel plans to `air` if they receive an increase in `income`?
 
-- In order to analyze that, we will:
+-   In order to analyze that, we will:
 
-  1. Make a copy of the original matrix of covariates, $X$
-  2. Use a `loop` iterating different sets of customers, with `income` ranging from $0$ to $100$ by increments of $10$
-  3. Predict the probabilities for each choice and averaging them out across customers
-  4. Append the results
+    1.  Make a copy of the original matrix of covariates, $X$
+    2.  Use a `loop` iterating different sets of customers, with `income` ranging from $0$ to $100$ by increments of $10$
+    3.  Predict the probabilities for each choice and averaging them out across customers
+    4.  Append the results
 
 ### Result
+
 ```{python}
 #| eval: true
 #| echo: false
@@ -682,6 +680,7 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 ```
 
 ### Python
+
 ```{python}
 #| eval: false
 #| echo: true
@@ -731,19 +730,19 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 ## Exercise 3: decreasing `travel`
 
 ::: panel-tabset
-
 ### Explanation
 
-- How many customers would upgrade their travel plans to `air` if travel costs decrease?
+-   How many customers would upgrade their travel plans to `air` if travel costs decrease?
 
-- In order to analyze that, we will:
+-   In order to analyze that, we will:
 
-  1. Make a copy of the original matrix of covariates, $X$
-  2. Create a range of different customers, with `travel` costs set to $10\%-90\%$ of the original cost for each customer
-  3. Predict the probabilities for each choice and averaging them out across customers
-  4. Append the results
+    1.  Make a copy of the original matrix of covariates, $X$
+    2.  Create a range of different customers, with `travel` costs set to $10\%-90\%$ of the original cost for each customer
+    3.  Predict the probabilities for each choice and averaging them out across customers
+    4.  Append the results
 
 ### Result
+
 ```{python}
 #| eval: true
 #| echo: false
@@ -795,6 +794,7 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 ```
 
 ### Python
+
 ```{python}
 #| eval: false
 #| echo: true
@@ -848,21 +848,19 @@ Table.tab_options(table_width="100%",table_font_size="25px")
 
 ## Limitations of the Multinomial Logit
 
-- Recall that we estimated our predicted probabilities by looking at:
+-   Recall that we estimated our predicted probabilities by looking at:
 
 $$
   p_{k,i} = \frac{\exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}{1 + \sum_{k=2}^{4} \exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
 $$
 
-- As a consequence, the probabilities of two choices [are the same]{.focus} if they have the same characteristics
-- This creates room for unreasonable substitution patterns. One of the most important properties of the multinomial logit model is the [Independence from Irrelevant Alternatives (IIA)]{.focus
-}
-- The [IIA]{.focus} property states that for any individual, the ratio of probabilities of choosing two alternatives is *independent* of the availability or attributes of any other alternatives
+-   As a consequence, the probabilities of two choices [are the same]{.focus} if they have the same characteristics
+-   This creates room for unreasonable substitution patterns. One of the most important properties of the multinomial logit model is the [Independence from Irrelevant Alternatives (IIA)]{.focus}
+-   The [IIA]{.focus} property states that for any individual, the ratio of probabilities of choosing two alternatives is *independent* of the availability or attributes of any other alternatives
 
 ## Limitations of the Multinomial Logit (continued)
 
-
-- Consider the probability of choosing `mode=bus` $k = 1$ and `mode=train` $k = 2$. According to the multinomial model, the probabilities of choosing each alternative are:
+-   Consider the probability of choosing `mode=bus` $k = 1$ and `mode=train` $k = 2$. According to the multinomial model, the probabilities of choosing each alternative are:
 
 $$
   p_{2,i} = \frac{\exp(\alpha_2 + \beta_{2,1} + \beta_{2,2} + \dots + \beta_{2,j})}{1 + \sum_{k=2}^{4} \exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
@@ -872,63 +870,62 @@ $$
   p_{3,i} = \frac{\exp(\alpha_3 + \beta_{3,1} + \beta_{3,2} + \dots + \beta_{3,j})}{1 + \sum_{k=2}^{4} \exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
 $$
 
-- **Problem:** this ratio is [independent]{.focus} of the availability and attributes of $k = 4$ `car`:
+-   **Problem:** this ratio is [independent]{.focus} of the availability and attributes of $k = 4$ `car`:
 
-  $$
-  \frac{p_{2,i}}{p_{3,i}} = \frac{\exp(\alpha_2 + \beta_{2,1} + \beta_{2,2} + \dots + \beta_{2,j})}{\exp(\alpha_3 + \beta_{3,1} + \beta_{3,2} + \dots + \beta_{3,j})} \equiv \frac{\exp^{bus}}{\exp^{train}}
-  $$ 
+    $$
+    \frac{p_{2,i}}{p_{3,i}} = \frac{\exp(\alpha_2 + \beta_{2,1} + \beta_{2,2} + \dots + \beta_{2,j})}{\exp(\alpha_3 + \beta_{3,1} + \beta_{3,2} + \dots + \beta_{3,j})} \equiv \frac{\exp^{bus}}{\exp^{train}}
+    $$
 
 ## The *Red-Bus/Blue-Bus Paradox*
 
-- The [IIA]{.focus} property limits responses to changes predicted by the multinomial logit model
+-   The [IIA]{.focus} property limits responses to changes predicted by the multinomial logit model
 
-- A well-known paradox illustrating this is the [red-bus/blue-bus paradox]{.focus}:
+-   A well-known paradox illustrating this is the [red-bus/blue-bus paradox]{.focus}:
 
-  1.Suppose you have two alternatives with identical properties: [car]{.focus} and [red bus]{.focus}
-  2. If their observable attributes are exactly the same, we should expect the market share of each alternative to be the [same]{.focus} (*i.e.*, $50\%$ each)
+    1.Suppose you have two alternatives with identical properties: [car]{.focus} and [red bus]{.focus}
 
-- Now, assume a [blue bus]{.focus} category is introduced with the same observable characteristics. You would expect the new probabilities to be:
+    2.  If their observable attributes are exactly the same, we should expect the market share of each alternative to be the [same]{.focus} (*i.e.*, $50\%$ each)
 
-  1. [Car]{.focus}: $50\%$  
-  2. [Red bus]{.focus}: $25\%$
-  3. [Blue bus]{.focus}: $25\%$  
+-   Now, assume a [blue bus]{.focus} category is introduced with the same observable characteristics. You would expect the new probabilities to be:
 
-- [Problem]{.focus}: due to the [IIA]{.focus}, a multinomial logit model would predict that each option has 33%, which is clearly counterintuitive, as it violates rational decision-making - remember, in terms of valued features, [red]{.focus} and [blue]{.focus} buses [are essentially the same]{.focus}!
+    1.  [Car]{.focus}: $50\%$\
+    2.  [Red bus]{.focus}: $25\%$
+    3.  [Blue bus]{.focus}: $25\%$
 
+-   [Problem]{.focus}: due to the [IIA]{.focus}, a multinomial logit model would predict that each option has 33%, which is clearly counterintuitive, as it violates rational decision-making - remember, in terms of valued features, [red]{.focus} and [blue]{.focus} buses [are essentially the same]{.focus}!
 
 ## Limitations of the Multinomial Logit (continued)
 
-- To which extent do the implications of the [IIA]{.focus} affect our problem? In order to see that, suppose that you have an increase of $10\%$ in the cost of using `bus`
+-   To which extent do the implications of the [IIA]{.focus} affect our problem? In order to see that, suppose that you have an increase of $10\%$ in the cost of using `bus`
 
-- If that is the case, individuals who stop using buses due to cost increases are predicted to distribute themselves among the remaining modes [in proportion to the initial probabilities of choosing the remaining modes]{.focus}
+-   If that is the case, individuals who stop using buses due to cost increases are predicted to distribute themselves among the remaining modes [in proportion to the initial probabilities of choosing the remaining modes]{.focus}
 
-- In other words, the ratio of probabilities across the other choices remain intact
+-   In other words, the ratio of probabilities across the other choices remain intact
 
 . . .
 
 [Does this sound reasonable? Likely not!]{.focus} If there’s an increase in bus prices, we would expect air and bus passengers to react differently to these changes:
 
-  1. Since `bus` and `train` are closely related, one would expect marginal `bus` users to move towards `train`
+1.  Since `bus` and `train` are closely related, one would expect marginal `bus` users to move towards `train`
 
-  2. As a consequence, the amount of marginal users moving to `air` should be much less
+2.  As a consequence, the amount of marginal users moving to `air` should be much less
 
 ## Rethinking our use of multinomial logit
 
-- How we can change this? Adding individual preference heterogeneity into the choices:
+-   How we can change this? Adding individual preference heterogeneity into the choices:
 
 $$
 V_{i,k}=  \underbrace{\alpha_k+X\beta_{k}}_{\text{Average utility for choice k}} + \underbrace{\mu_{i,k}}_{\text{Customer-specific utility for k}}
 $$
 
-1. In the *red bus/blue bus* paradox, this would allow $50\%$ of the customers to really prefer cars
+1.  In the *red bus/blue bus* paradox, this would allow $50\%$ of the customers to really prefer cars
 
-2. In our practical example, this would allow air passengers to stick with their choices regardless of the changes in bus fares
+2.  In our practical example, this would allow air passengers to stick with their choices regardless of the changes in bus fares
 
-- Implementations:
+-   Implementations:
 
-  1. Use of *nested logit* models: first, they choose whether they’ll go with high/low cost; after that, they choose the specific transportation method
-  
-  2. BLP estimation - see [pyBLP](https://pyblp.readthedocs.io/en/stable/) for an implementation using `Python`
+    1.  Use of *nested logit* models: first, they choose whether they’ll go with high/low cost; after that, they choose the specific transportation method
 
-  
+    2.  BLP estimation - see [pyBLP](https://pyblp.readthedocs.io/en/stable/) for an implementation using `Python`
+
 ## References

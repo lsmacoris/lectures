@@ -31,8 +31,15 @@ from: markdown+emoji
 packages=read.delim('Assets/r-requirements.txt',header = FALSE)[,1]
 library(downloadthis)
 
-#Require
+#Use knitr
+library(reticulate)
+library(downloadthis)
+library(tidyverse)
 lapply(packages,require,character.only=TRUE)
+
+use_virtualenv("C:/Users/Lucas/Documents/quant-mkt-UNAV", required = TRUE)
+#use py_config() to check
+
 
 ```
 
@@ -157,7 +164,6 @@ $$
 
 ```{r}
 #| fig-align: 'center'
-#| fig-height: 6
 
 quadr=function(x, a, b, c) {y = a*x^2 + b*x + c}
 
@@ -457,11 +463,11 @@ $$
 :::
 
 ::: {.column width="50%"}
-1.  [Green]{.green} cells indicate the [True]{.green} Positive and [True]{.green} Negative cases
-2.  [Red]{.red} cells indicate the [False]{.red} Positive and [False]{.red} Negative cases
+1.  Diagonal cells indicate the [True]{.green} Positive and [True]{.green} Negative cases
+2.  Off-Diagonal cells indicate the [False]{.red} Positive and [False]{.red} Negative cases
 
--   **Type I** Errors ($153$) are the [False Positive]{.focus} cases: we wrongly classified customers that did not churn as churned!
--   **Type II** Errors ($1788$) are the [False Negative]{.focus} cases: we wrongly classified customers that did churn as not churned!
+-   **Type I** Errors ($2,477$) are the [False Positive]{.focus} cases: we wrongly classified customers that did not churn as churned!
+-   **Type II** Errors ($650$) are the [False Negative]{.focus} cases: we wrongly classified customers that did churn as not churned!
 :::
 :::::
 
@@ -612,14 +618,17 @@ result=pd.DataFrame({
 
 Plot=(
   ggplot(result, aes(x='fpr',y='tpr'))+
-  geom_point(size=0.5,color='darkorange')+
+  geom_point(size=1,color='darkorange')+
   theme_minimal()+
   labs(x='FPR (1 - Specificity)',
        y='TPR (Sensitivity)',
        title='Different combinations of TPR and FPR according to cut-off')+
-  theme(plot_title = element_text(size=12,face='bold'),
-        axis_text = element_text(size=10),
-        axis_title = element_text(size=10))
+  scale_y_continuous(labels=percent_format())+
+  scale_x_continuous(labels=percent_format())+
+  theme(plot_title = element_text(size=20,face='bold'),
+        axis_text = element_text(size=12),
+        axis_title = element_text(size=15),
+        figure_size=(15,5))
   )
 
 Plot.show()
@@ -667,15 +676,17 @@ result=pd.DataFrame({
 
 Plot=(
   ggplot(result, aes(x='thresholds',y='sp_se'))+
-  geom_point(size=0.5,color='darkorange')+
+  geom_point(size=1,color='darkorange')+
   theme_minimal()+
   geom_vline(xintercept=best_threshold,linetype='dashed')+
   labs(x='Threshold',
        y='Specificifity + Sensitivity',
-       title='Best value achieved around 0.22')+
-  theme(plot_title = element_text(size=15,face='bold'),
+       title='Best value achieved around 22%')+
+  scale_x_continuous(labels=percent_format())+
+  theme(plot_title = element_text(size=20,face='bold'),
         axis_text = element_text(size=12),
-        axis_title = element_text(size=12))
+        axis_title = element_text(size=15),
+        figure_size=(15,6))
   )
 
 Plot.show()
@@ -716,7 +727,8 @@ Plot=(
        title='Best value achieved around 0.22')+
   theme(plot_title = element_text(size=15,face='bold'),
         axis_text = element_text(size=12),
-        axis_title = element_text(size=12))
+        axis_title = element_text(size=12),
+        figure_size=(15,6))
   )
 
 Plot.show()
@@ -752,6 +764,7 @@ Plot.show()
 ```{python}
 #| echo: false
 #| eval: true
+#| results: false
 
 # Define independent and dependent variables for Reg_1 (without 'age')
 X1 = X.drop('age',axis=1)
@@ -783,20 +796,30 @@ auc_2 = roc_auc_score(y, probs_2)
 Data=pd.concat([pd.DataFrame({'Model':'Without Age','FPR':fpr_1,'TPR':tpr_1}),
           pd.DataFrame({'Model':'With Age','FPR':fpr_2,'TPR':tpr_2})],axis=0)
 
+```
+
+
+```{python}
+#| echo: false
+#| eval: true
+
 Plot = (
   
   ggplot(Data,aes(x='FPR',y='TPR',fill='Model'))+
-  geom_point(stroke=0)+
+  geom_point(stroke=0,size=2)+
   theme_minimal()+
   annotate(geom='text',x=0.5,y=0.5,label=('Model 1 (without Age): ' + auc_1.round(2).astype('str')))+
   annotate(geom='text',x=0.4,y=0.9,label=('Model 2 (with Age): ' + auc_2.round(2).astype('str')))+
   labs(x='FPR (1 - Specificity)',
        y='TPR (Sensitivity)',
        title='Model with Age outperforms the other for any threshold!')+
-  theme(plot_title = element_text(size=12,face='bold'),
-        axis_text = element_text(size=10),
-        axis_title = element_text(size=12),
-        legend_position ='bottom')
+  scale_y_continuous(labels=percent_format())+
+  scale_x_continuous(labels=percent_format())+
+  theme(plot_title = element_text(size=20,face='bold'),
+        axis_text = element_text(size=12),
+        axis_title = element_text(size=15),
+        legend_position ='bottom',
+        figure_size=(15,7))
 )
 
 Plot.show()
@@ -852,7 +875,8 @@ Plot = (
   theme(plot_title = element_text(size=12,face='bold'),
         axis_text = element_text(size=10),
         axis_title = element_text(size=12),
-        legend_position ='bottom')
+        legend_position ='bottom',
+        figure_size=(15,6))
 )
 
 Plot.show()

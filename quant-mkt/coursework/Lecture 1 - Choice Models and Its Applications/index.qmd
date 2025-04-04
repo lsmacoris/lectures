@@ -98,7 +98,14 @@ Plot=(
             + scale_y_continuous(breaks = range(-10,25,5))
             + scale_x_continuous(breaks = range(-10,25,5))
             + theme_minimal()
-            + theme_plots)
+            + theme(
+              legend_position='bottom',
+              axis_title=element_text(face='bold',size=12),
+              axis_text=element_text(size=12),
+              plot_title=element_text(face='bold',size=20),
+              figure_size=(15,7)
+              )
+      )
 
 Plot.show()
 
@@ -140,7 +147,13 @@ Plot=(
             + scale_y_continuous(breaks = range(-10,25,5))
             + scale_x_continuous(breaks = range(-10,25,5))
             + theme_minimal()
-            + theme_plots
+            + theme(
+              legend_position='bottom',
+              axis_title=element_text(face='bold',size=12),
+              axis_text=element_text(size=12),
+              plot_title=element_text(face='bold',size=20),
+              figure_size=(15,7)
+              )
 )
 
 Plot.show()
@@ -382,11 +395,14 @@ Plot = (
   coord_flip()+
   labs(title='Churn correlation across numeric variables')+
   theme_minimal()+
-  theme_plots +
   theme(
-      axis_title_x=element_blank(),
-      axis_title_y=element_blank())
-  )
+    legend_position='bottom',
+    axis_title=element_blank(),
+    axis_text = element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
+    )
+)
 
 #Display Output
 Plot.show()
@@ -423,11 +439,14 @@ Plot = (
   coord_flip()+
   labs(title='Churn correlation across numeric variables')+
   theme_minimal()+
-  theme_plots +
   theme(
-      axis_title_x=element_blank(),
-      axis_title_y=element_blank())
-  )
+    legend_position='bottom',
+    axis_title=element_blank(),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
+    )
+)
 
 #Display Output
 Plot.show()
@@ -709,8 +728,14 @@ Plot= (
   labs(x='Predicted Probabilities',y='Density',
        title='Predicted Values based on LPM')+
   theme_minimal()+
-  theme_plots
+  theme(
+    legend_position='bottom',
+    axis_title=element_text(face='bold',size=12),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
   )
+)
 
 Plot.show()
   
@@ -1011,9 +1036,9 @@ $$
 ### Result
 
 ```{python}
-#| fig.align: 'center'
-#| message: FALSE
-#| warning: FALSE
+#| results: false
+#| eval: true
+#| echo: false
 
 # Load data
 data = pd.read_csv('Assets/bank-dataset.csv')
@@ -1039,11 +1064,18 @@ predicted_df = pd.DataFrame({
     'Age': age_df['age'],
     'Predicted': model.predict(concatenated_df)
     })
+```
+
+```{python}
+#| fig.align: 'center'
+#| message: FALSE
+#| warning: FALSE
+
 
 # Plot
 Plot = (
   ggplot(predicted_df,aes(x='Age',y='Predicted'))+
-  geom_point(color='blue')+
+  geom_point(color='blue',size=2)+
   geom_hline(yintercept=[0,1],linetype='dashed',color='darkred')+
   scale_y_continuous(labels = percent_format())+
   scale_x_continuous(breaks = range(0,100,10))+
@@ -1053,7 +1085,13 @@ Plot = (
     x = 'Age',
     y = 'Predicted Probabilities')+
   theme_minimal()+
-  theme_plots
+  theme(
+    legend_position='bottom',
+    axis_title=element_text(face='bold',size=12),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
+    )
   )
   
 Plot.show()
@@ -1094,7 +1132,7 @@ predicted_df = pd.DataFrame({
 # Plot
 Plot = (
   ggplot(predicted_df,aes(x='Age',y='Predicted'))+
-  geom_point(color='blue')+
+  geom_point(color='blue',size=2)+
   geom_hline(yintercept=[0,1],linetype='dashed',color='darkred')+
   scale_y_continuous(labels = percent_format())+
   scale_x_continuous(breaks = range(0,100,10))+
@@ -1104,7 +1142,13 @@ Plot = (
     x = 'Age',
     y = 'Predicted Probabilities')+
   theme_minimal()+
-  theme_plots
+  theme(
+    legend_position='bottom',
+    axis_title=element_text(face='bold',size=12),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
+    )
   )
   
 Plot.show()
@@ -1127,8 +1171,9 @@ Plot.show()
 ### Result
 
 ```{python}
-#| echo: FALSE
-#| fig.align: 'center'
+#| results: false
+#| eval: true
+#| echo: false
 
 # Load data
 data = pd.read_csv('Assets/bank-dataset.csv')
@@ -1157,11 +1202,18 @@ predicted_df = pd.DataFrame({
 
 predicted_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
 
+
+```
+
+
+```{python}
+#| echo: FALSE
+
 # Plot
 Plot = (
   ggplot(predicted_df,aes(x='Gender',y='Predicted',fill='Gender'))+
   geom_col()+
-  geom_text(aes(label=predicted_df['Predicted']*100),format_string="{:.2f}%")+
+  geom_text(aes(label=predicted_df['Predicted']*100),format_string="{:.2f}%",size=20)+
   scale_y_continuous(labels = percent_format())+
   labs(
     title ='Marginal effects of Gender on Churn probabilities',
@@ -1170,7 +1222,13 @@ Plot = (
     y = 'Predicted Probabilities',
     fill = '')+
   theme_minimal()+
-  theme_plots
+  theme(
+    legend_position='bottom',
+    axis_title=element_text(face='bold',size=12),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,6)
+    )
   )
   
 Plot.show()
@@ -1214,7 +1272,7 @@ predicted_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Femal
 Plot = (
   ggplot(predicted_df,aes(x='Gender',y='Predicted',fill='Gender'))+
   geom_col()+
-  geom_text(aes(label=predicted_df['Predicted']*100),format_string="{:.2f}%")+
+  geom_text(aes(label=predicted_df['Predicted']*100),format_string="{:.2f}%",size=20)+
   scale_y_continuous(labels = percent_format())+
   labs(
     title ='Marginal effects of Gender on Churn probabilities',
@@ -1223,7 +1281,13 @@ Plot = (
     y = 'Predicted Probabilities',
     fill = '')+
   theme_minimal()+
-  theme_plots
+  theme(
+    legend_position='bottom',
+    axis_title=element_text(face='bold',size=12),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,6)
+    )
   )
   
 Plot.show()
@@ -1248,9 +1312,11 @@ Plot.show()
 
 ### Result
 
+
 ```{python}
-#| echo: FALSE
-#| fig.align: 'center'
+#| results: false
+#| eval: true
+#| echo: false
 
 # Load data
 data = pd.read_csv('Assets/bank-dataset.csv')
@@ -1279,10 +1345,16 @@ predicted = model.predict(concatenated_df)
 concatenated_df['Predicted'] = predicted
 concatenated_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Female')
 
+```
+
+```{python}
+#| echo: FALSE
+#| fig.align: 'center'
+
 # Plot
 Plot = (
   ggplot(concatenated_df,aes(x='age',y='Predicted',fill='Gender'))+
-  geom_point(stroke=0,size=2)+
+  geom_point(stroke=0,size=3)+
   scale_y_continuous(labels = percent_format())+
   scale_x_continuous(breaks = range(0,100,10))+
   labs(
@@ -1292,7 +1364,13 @@ Plot = (
     y = 'Predicted Probabilities',
     fill = 'Gender')+
   theme_minimal()+
-  theme_plots
+  theme(
+    legend_position='bottom',
+    axis_title=element_text(face='bold',size=12),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
+    )
   )
   
 Plot.show()
@@ -1335,7 +1413,7 @@ concatenated_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Fe
 # Plot
 Plot = (
   ggplot(concatenated_df,aes(x='age',y='Predicted',fill='Gender'))+
-  geom_point(stroke=0,size=2)+
+  geom_point(stroke=0,size=3)+
   scale_y_continuous(labels = percent_format())+
   scale_x_continuous(breaks = range(0,100,10))+
   labs(
@@ -1345,7 +1423,13 @@ Plot = (
     y = 'Predicted Probabilities',
     fill = 'Gender')+
   theme_minimal()+
-  theme_plots
+  theme(
+    legend_position='bottom',
+    axis_title=element_text(face='bold',size=12),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
+    )
   )
   
 Plot.show()
@@ -1370,9 +1454,9 @@ Plot.show()
 ### Result
 
 ```{python}
-#| echo: FALSE
-#| fig.align: 'center'
-
+#| results: false
+#| eval: true
+#| echo: false
 # Read the CSV file into a pandas DataFrame
 Data = pd.read_csv('Assets/bank-dataset.csv')
 
@@ -1410,11 +1494,17 @@ predicted_df = pd.DataFrame({
 })
 
 
+
+```
+
+```{python}
+#| echo: FALSE
+
 # Plot
 Plot = (
   ggplot(predicted_df,aes(x='Age'))+
   geom_line(aes(y='LPM'),color='blue',size=2)+
-  geom_point(aes(y='Logit'),color='red',stroke=0,size=2)+
+  geom_point(aes(y='Logit'),color='red',stroke=0,size=4)+
   scale_y_continuous(labels = percent_format())+
   scale_x_continuous(breaks = range(0,100,10))+
   labs(
@@ -1424,7 +1514,13 @@ Plot = (
     y = 'Predicted Probabilities',
     fill = 'Gender')+
   theme_minimal()+
-  theme_plots
+  theme(
+    legend_position='bottom',
+    axis_title=element_text(face='bold',size=12),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
+    )
   )
   
 Plot.show()
@@ -1478,7 +1574,7 @@ predicted_df = pd.DataFrame({
 Plot = (
   ggplot(predicted_df,aes(x='Age'))+
   geom_line(aes(y='LPM'),color='blue',size=2)+
-  geom_point(aes(y='Logit'),color='red',stroke=0,size=2)+
+  geom_point(aes(y='Logit'),color='red',stroke=0,size=4)+
   scale_y_continuous(labels = percent_format())+
   scale_x_continuous(breaks = range(0,100,10))+
   labs(
@@ -1488,7 +1584,13 @@ Plot = (
     y = 'Predicted Probabilities',
     fill = 'Gender')+
   theme_minimal()+
-  theme_plots
+  theme(
+    legend_position='bottom',
+    axis_title=element_text(face='bold',size=12),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
+    )
   )
   
 Plot.show()

@@ -505,10 +505,16 @@ Lucas S. Macoris (FGV-EAESP)
 <span id="cb1-28"><a></a>            <span class="op">+</span> scale_y_continuous(breaks <span class="op">=</span> <span class="bu">range</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">25</span>,<span class="dv">5</span>))</span>
 <span id="cb1-29"><a></a>            <span class="op">+</span> scale_x_continuous(breaks <span class="op">=</span> <span class="bu">range</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">25</span>,<span class="dv">5</span>))</span>
 <span id="cb1-30"><a></a>            <span class="op">+</span> theme_minimal()</span>
-<span id="cb1-31"><a></a>            <span class="op">+</span> theme_plots</span>
-<span id="cb1-32"><a></a>)</span>
-<span id="cb1-33"><a></a></span>
-<span id="cb1-34"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-31"><a></a>            <span class="op">+</span> theme(</span>
+<span id="cb1-32"><a></a>              legend_position<span class="op">=</span><span class="st">'bottom'</span>,</span>
+<span id="cb1-33"><a></a>              axis_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb1-34"><a></a>              axis_text<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb1-35"><a></a>              plot_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">20</span>),</span>
+<span id="cb1-36"><a></a>              figure_size<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">7</span>)</span>
+<span id="cb1-37"><a></a>              )</span>
+<span id="cb1-38"><a></a>)</span>
+<span id="cb1-39"><a></a></span>
+<span id="cb1-40"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -717,52 +723,52 @@ Y_i=\begin{cases}
 <div id="tabset-2-1">
 <div class="cell">
 <div class="cell-output-display">
-<div id="qqqvvnrdpk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mjzpnjqkqy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#qqqvvnrdpk table {
+#mjzpnjqkqy table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#qqqvvnrdpk thead, tbody, tfoot, tr, td, th { border-style: none; }
+#mjzpnjqkqy thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#qqqvvnrdpk p { margin: 0; padding: 0; }
- #qqqvvnrdpk .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #qqqvvnrdpk .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #qqqvvnrdpk .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #qqqvvnrdpk .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #qqqvvnrdpk .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qqqvvnrdpk .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
- #qqqvvnrdpk .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qqqvvnrdpk .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #qqqvvnrdpk .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #qqqvvnrdpk .gt_column_spanner_outer:first-child { padding-left: 0; }
- #qqqvvnrdpk .gt_column_spanner_outer:last-child { padding-right: 0; }
- #qqqvvnrdpk .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #qqqvvnrdpk .gt_spanner_row { border-bottom-style: hidden; }
- #qqqvvnrdpk .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #qqqvvnrdpk .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
- #qqqvvnrdpk .gt_from_md> :first-child { margin-top: 0; }
- #qqqvvnrdpk .gt_from_md> :last-child { margin-bottom: 0; }
- #qqqvvnrdpk .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
- #qqqvvnrdpk .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
- #qqqvvnrdpk .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #qqqvvnrdpk .gt_row_group_first td { border-top-width: 2px; }
- #qqqvvnrdpk .gt_row_group_first th { border-top-width: 2px; }
- #qqqvvnrdpk .gt_striped { background-color: #F4F4F4; }
- #qqqvvnrdpk .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
- #qqqvvnrdpk .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #qqqvvnrdpk .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #qqqvvnrdpk .gt_left { text-align: left; }
- #qqqvvnrdpk .gt_center { text-align: center; }
- #qqqvvnrdpk .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #qqqvvnrdpk .gt_font_normal { font-weight: normal; }
- #qqqvvnrdpk .gt_font_bold { font-weight: bold; }
- #qqqvvnrdpk .gt_font_italic { font-style: italic; }
- #qqqvvnrdpk .gt_super { font-size: 65%; }
- #qqqvvnrdpk .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #qqqvvnrdpk .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#mjzpnjqkqy p { margin: 0; padding: 0; }
+ #mjzpnjqkqy .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #mjzpnjqkqy .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #mjzpnjqkqy .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #mjzpnjqkqy .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #mjzpnjqkqy .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #mjzpnjqkqy .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #mjzpnjqkqy .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #mjzpnjqkqy .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #mjzpnjqkqy .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #mjzpnjqkqy .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #mjzpnjqkqy .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #mjzpnjqkqy .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #mjzpnjqkqy .gt_spanner_row { border-bottom-style: hidden; }
+ #mjzpnjqkqy .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #mjzpnjqkqy .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
+ #mjzpnjqkqy .gt_from_md> :first-child { margin-top: 0; }
+ #mjzpnjqkqy .gt_from_md> :last-child { margin-bottom: 0; }
+ #mjzpnjqkqy .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
+ #mjzpnjqkqy .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
+ #mjzpnjqkqy .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #mjzpnjqkqy .gt_row_group_first td { border-top-width: 2px; }
+ #mjzpnjqkqy .gt_row_group_first th { border-top-width: 2px; }
+ #mjzpnjqkqy .gt_striped { background-color: #F4F4F4; }
+ #mjzpnjqkqy .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #mjzpnjqkqy .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #mjzpnjqkqy .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #mjzpnjqkqy .gt_left { text-align: left; }
+ #mjzpnjqkqy .gt_center { text-align: center; }
+ #mjzpnjqkqy .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #mjzpnjqkqy .gt_font_normal { font-weight: normal; }
+ #mjzpnjqkqy .gt_font_bold { font-weight: bold; }
+ #mjzpnjqkqy .gt_font_italic { font-style: italic; }
+ #mjzpnjqkqy .gt_super { font-size: 65%; }
+ #mjzpnjqkqy .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #mjzpnjqkqy .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -957,14 +963,17 @@ Y_i=\begin{cases}
 <span id="cb5-22"><a></a>  coord_flip()<span class="op">+</span></span>
 <span id="cb5-23"><a></a>  labs(title<span class="op">=</span><span class="st">'Churn correlation across numeric variables'</span>)<span class="op">+</span></span>
 <span id="cb5-24"><a></a>  theme_minimal()<span class="op">+</span></span>
-<span id="cb5-25"><a></a>  theme_plots <span class="op">+</span></span>
-<span id="cb5-26"><a></a>  theme(</span>
-<span id="cb5-27"><a></a>      axis_title_x<span class="op">=</span>element_blank(),</span>
-<span id="cb5-28"><a></a>      axis_title_y<span class="op">=</span>element_blank())</span>
-<span id="cb5-29"><a></a>  )</span>
-<span id="cb5-30"><a></a></span>
-<span id="cb5-31"><a></a><span class="co">#Display Output</span></span>
-<span id="cb5-32"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-25"><a></a>  theme(</span>
+<span id="cb5-26"><a></a>    legend_position<span class="op">=</span><span class="st">'bottom'</span>,</span>
+<span id="cb5-27"><a></a>    axis_title<span class="op">=</span>element_blank(),</span>
+<span id="cb5-28"><a></a>    axis_text<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb5-29"><a></a>    plot_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">20</span>),</span>
+<span id="cb5-30"><a></a>    figure_size<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">7</span>)</span>
+<span id="cb5-31"><a></a>    )</span>
+<span id="cb5-32"><a></a>)</span>
+<span id="cb5-33"><a></a></span>
+<span id="cb5-34"><a></a><span class="co">#Display Output</span></span>
+<span id="cb5-35"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1050,8 +1059,8 @@ Y_i= P(Y_i=1|X_i)=\alpha + \beta_1x_1+\beta_2x_2+...+\beta_nx_n+\varepsilon_i
 Dep. Variable:                  churn   R-squared:                       0.136
 Model:                            OLS   Adj. R-squared:                  0.135
 Method:                 Least Squares   F-statistic:                     174.6
-Date:                Thu, 03 Apr 2025   Prob (F-statistic):          8.76e-309
-Time:                        23:36:17   Log-Likelihood:                -4364.5
+Date:                Fri, 04 Apr 2025   Prob (F-statistic):          8.76e-309
+Time:                        13:05:07   Log-Likelihood:                -4364.5
 No. Observations:               10000   AIC:                             8749.
 Df Residuals:                    9990   BIC:                             8821.
 Df Model:                           9                                         
@@ -1137,52 +1146,52 @@ strong multicollinearity or other numerical problems.</code></pre>
 <div id="tabset-5-1">
 <div class="cell">
 <div class="cell-output-display">
-<div id="gujxubrbga" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="crnwzssapq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#gujxubrbga table {
+#crnwzssapq table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#gujxubrbga thead, tbody, tfoot, tr, td, th { border-style: none; }
+#crnwzssapq thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#gujxubrbga p { margin: 0; padding: 0; }
- #gujxubrbga .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #gujxubrbga .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #gujxubrbga .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #gujxubrbga .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #gujxubrbga .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #gujxubrbga .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
- #gujxubrbga .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #gujxubrbga .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #gujxubrbga .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #gujxubrbga .gt_column_spanner_outer:first-child { padding-left: 0; }
- #gujxubrbga .gt_column_spanner_outer:last-child { padding-right: 0; }
- #gujxubrbga .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #gujxubrbga .gt_spanner_row { border-bottom-style: hidden; }
- #gujxubrbga .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #gujxubrbga .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
- #gujxubrbga .gt_from_md> :first-child { margin-top: 0; }
- #gujxubrbga .gt_from_md> :last-child { margin-bottom: 0; }
- #gujxubrbga .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
- #gujxubrbga .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
- #gujxubrbga .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #gujxubrbga .gt_row_group_first td { border-top-width: 2px; }
- #gujxubrbga .gt_row_group_first th { border-top-width: 2px; }
- #gujxubrbga .gt_striped { background-color: #F4F4F4; }
- #gujxubrbga .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
- #gujxubrbga .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #gujxubrbga .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #gujxubrbga .gt_left { text-align: left; }
- #gujxubrbga .gt_center { text-align: center; }
- #gujxubrbga .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #gujxubrbga .gt_font_normal { font-weight: normal; }
- #gujxubrbga .gt_font_bold { font-weight: bold; }
- #gujxubrbga .gt_font_italic { font-style: italic; }
- #gujxubrbga .gt_super { font-size: 65%; }
- #gujxubrbga .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #gujxubrbga .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#crnwzssapq p { margin: 0; padding: 0; }
+ #crnwzssapq .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #crnwzssapq .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #crnwzssapq .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #crnwzssapq .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #crnwzssapq .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #crnwzssapq .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #crnwzssapq .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #crnwzssapq .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #crnwzssapq .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #crnwzssapq .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #crnwzssapq .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #crnwzssapq .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #crnwzssapq .gt_spanner_row { border-bottom-style: hidden; }
+ #crnwzssapq .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #crnwzssapq .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
+ #crnwzssapq .gt_from_md> :first-child { margin-top: 0; }
+ #crnwzssapq .gt_from_md> :last-child { margin-bottom: 0; }
+ #crnwzssapq .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
+ #crnwzssapq .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
+ #crnwzssapq .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #crnwzssapq .gt_row_group_first td { border-top-width: 2px; }
+ #crnwzssapq .gt_row_group_first th { border-top-width: 2px; }
+ #crnwzssapq .gt_striped { background-color: #F4F4F4; }
+ #crnwzssapq .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #crnwzssapq .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #crnwzssapq .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #crnwzssapq .gt_left { text-align: left; }
+ #crnwzssapq .gt_center { text-align: center; }
+ #crnwzssapq .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #crnwzssapq .gt_font_normal { font-weight: normal; }
+ #crnwzssapq .gt_font_bold { font-weight: bold; }
+ #crnwzssapq .gt_font_italic { font-style: italic; }
+ #crnwzssapq .gt_super { font-size: 65%; }
+ #crnwzssapq .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #crnwzssapq .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -1436,8 +1445,8 @@ f(Y^\star)=\Lambda(Y^\star)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)}
 Dep. Variable:                  churn   No. Observations:                10000
 Model:                          Logit   Df Residuals:                     9990
 Method:                           MLE   Df Model:                            9
-Date:                Thu, 03 Apr 2025   Pseudo R-squ.:                  0.1388
-Time:                        23:36:18   Log-Likelihood:                -4353.2
+Date:                Fri, 04 Apr 2025   Pseudo R-squ.:                  0.1388
+Time:                        13:05:08   Log-Likelihood:                -4353.2
 converged:                       True   LL-Null:                       -5054.9
 Covariance Type:            nonrobust   LLR p-value:                1.475e-296
 ====================================================================================
@@ -1564,52 +1573,52 @@ P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
 <div id="tabset-8-2">
 <div class="cell">
 <div class="cell-output-display">
-<div id="alnspagkpg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kqbhosxelu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#alnspagkpg table {
+#kqbhosxelu table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#alnspagkpg thead, tbody, tfoot, tr, td, th { border-style: none; }
+#kqbhosxelu thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#alnspagkpg p { margin: 0; padding: 0; }
- #alnspagkpg .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #alnspagkpg .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #alnspagkpg .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #alnspagkpg .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #alnspagkpg .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #alnspagkpg .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
- #alnspagkpg .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #alnspagkpg .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #alnspagkpg .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #alnspagkpg .gt_column_spanner_outer:first-child { padding-left: 0; }
- #alnspagkpg .gt_column_spanner_outer:last-child { padding-right: 0; }
- #alnspagkpg .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #alnspagkpg .gt_spanner_row { border-bottom-style: hidden; }
- #alnspagkpg .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #alnspagkpg .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
- #alnspagkpg .gt_from_md> :first-child { margin-top: 0; }
- #alnspagkpg .gt_from_md> :last-child { margin-bottom: 0; }
- #alnspagkpg .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
- #alnspagkpg .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
- #alnspagkpg .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #alnspagkpg .gt_row_group_first td { border-top-width: 2px; }
- #alnspagkpg .gt_row_group_first th { border-top-width: 2px; }
- #alnspagkpg .gt_striped { background-color: #F4F4F4; }
- #alnspagkpg .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
- #alnspagkpg .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #alnspagkpg .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #alnspagkpg .gt_left { text-align: left; }
- #alnspagkpg .gt_center { text-align: center; }
- #alnspagkpg .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #alnspagkpg .gt_font_normal { font-weight: normal; }
- #alnspagkpg .gt_font_bold { font-weight: bold; }
- #alnspagkpg .gt_font_italic { font-style: italic; }
- #alnspagkpg .gt_super { font-size: 65%; }
- #alnspagkpg .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #alnspagkpg .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#kqbhosxelu p { margin: 0; padding: 0; }
+ #kqbhosxelu .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #kqbhosxelu .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #kqbhosxelu .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #kqbhosxelu .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #kqbhosxelu .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #kqbhosxelu .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #kqbhosxelu .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #kqbhosxelu .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #kqbhosxelu .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #kqbhosxelu .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #kqbhosxelu .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #kqbhosxelu .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #kqbhosxelu .gt_spanner_row { border-bottom-style: hidden; }
+ #kqbhosxelu .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #kqbhosxelu .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
+ #kqbhosxelu .gt_from_md> :first-child { margin-top: 0; }
+ #kqbhosxelu .gt_from_md> :last-child { margin-bottom: 0; }
+ #kqbhosxelu .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
+ #kqbhosxelu .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
+ #kqbhosxelu .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #kqbhosxelu .gt_row_group_first td { border-top-width: 2px; }
+ #kqbhosxelu .gt_row_group_first th { border-top-width: 2px; }
+ #kqbhosxelu .gt_striped { background-color: #F4F4F4; }
+ #kqbhosxelu .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #kqbhosxelu .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #kqbhosxelu .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #kqbhosxelu .gt_left { text-align: left; }
+ #kqbhosxelu .gt_center { text-align: center; }
+ #kqbhosxelu .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #kqbhosxelu .gt_font_normal { font-weight: normal; }
+ #kqbhosxelu .gt_font_bold { font-weight: bold; }
+ #kqbhosxelu .gt_font_italic { font-style: italic; }
+ #kqbhosxelu .gt_super { font-size: 65%; }
+ #kqbhosxelu .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #kqbhosxelu .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -1751,15 +1760,10 @@ P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
 </div>
 <div id="tabset-9-2">
 <div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>Optimization terminated successfully.
-         Current function value: 0.435323
-         Iterations 6</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-20-5.png" class="quarto-figure quarto-figure-center" width="1440"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-21-5.png" class="quarto-figure quarto-figure-center" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -1767,48 +1771,54 @@ P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
 </div>
 <div id="tabset-9-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Load data</span></span>
-<span id="cb14-2"><a></a>data <span class="op">=</span> pd.read_csv(<span class="st">'Assets/bank-dataset.csv'</span>)</span>
-<span id="cb14-3"><a></a>data[<span class="st">'gender'</span>] <span class="op">=</span> np.where(data[<span class="st">'gender'</span>] <span class="op">==</span> <span class="st">'Male'</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb14-4"><a></a></span>
-<span id="cb14-5"><a></a><span class="co"># Fit logistic regression model</span></span>
-<span id="cb14-6"><a></a>X <span class="op">=</span> data[[<span class="st">'credit_score'</span>, <span class="st">'gender'</span>, <span class="st">'tenure'</span>, <span class="st">'balance'</span>, <span class="st">'products_number'</span>, <span class="st">'credit_card'</span>, <span class="st">'active_member'</span>, <span class="st">'estimated_salary'</span>,<span class="st">'age'</span>]]</span>
-<span id="cb14-7"><a></a>X <span class="op">=</span> sm.add_constant(X)  <span class="co"># Add constant term for intercept</span></span>
-<span id="cb14-8"><a></a>y <span class="op">=</span> data[<span class="st">'churn'</span>]</span>
-<span id="cb14-9"><a></a>model <span class="op">=</span> sm.Logit(y, X).fit()</span>
-<span id="cb14-10"><a></a></span>
-<span id="cb14-11"><a></a><span class="co"># Set all other variables to the mean</span></span>
-<span id="cb14-12"><a></a>new_data <span class="op">=</span> X.drop(columns<span class="op">=</span>[<span class="st">'age'</span>]).mean(numeric_only<span class="op">=</span><span class="va">True</span>).to_frame().transpose()</span>
-<span id="cb14-13"><a></a>new_data <span class="op">=</span> pd.DataFrame(np.repeat(new_data.values, <span class="dv">100</span>, axis<span class="op">=</span><span class="dv">0</span>),columns<span class="op">=</span>new_data.columns)</span>
-<span id="cb14-14"><a></a>age_df <span class="op">=</span> pd.DataFrame(pd.Series(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>)), columns<span class="op">=</span>[<span class="st">'age'</span>])</span>
-<span id="cb14-15"><a></a></span>
-<span id="cb14-16"><a></a><span class="co"># Concatenate with your existing DataFrame</span></span>
-<span id="cb14-17"><a></a>concatenated_df <span class="op">=</span> pd.concat([new_data, age_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb14-18"><a></a>concatenated_df.columns<span class="op">=</span>[<span class="op">*</span>new_data.columns,<span class="st">'age'</span>]</span>
-<span id="cb14-19"><a></a></span>
-<span id="cb14-20"><a></a><span class="co"># Predict on the new data</span></span>
-<span id="cb14-21"><a></a>predicted_df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb14-22"><a></a>    <span class="st">'Age'</span>: age_df[<span class="st">'age'</span>],</span>
-<span id="cb14-23"><a></a>    <span class="st">'Predicted'</span>: model.predict(concatenated_df)</span>
-<span id="cb14-24"><a></a>    })</span>
-<span id="cb14-25"><a></a></span>
-<span id="cb14-26"><a></a><span class="co"># Plot</span></span>
-<span id="cb14-27"><a></a>Plot <span class="op">=</span> (</span>
-<span id="cb14-28"><a></a>  ggplot(predicted_df,aes(x<span class="op">=</span><span class="st">'Age'</span>,y<span class="op">=</span><span class="st">'Predicted'</span>))<span class="op">+</span></span>
-<span id="cb14-29"><a></a>  geom_point(color<span class="op">=</span><span class="st">'blue'</span>)<span class="op">+</span></span>
-<span id="cb14-30"><a></a>  geom_hline(yintercept<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>],linetype<span class="op">=</span><span class="st">'dashed'</span>,color<span class="op">=</span><span class="st">'darkred'</span>)<span class="op">+</span></span>
-<span id="cb14-31"><a></a>  scale_y_continuous(labels <span class="op">=</span> percent_format())<span class="op">+</span></span>
-<span id="cb14-32"><a></a>  scale_x_continuous(breaks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))<span class="op">+</span></span>
-<span id="cb14-33"><a></a>  labs(</span>
-<span id="cb14-34"><a></a>    title <span class="op">=</span><span class="st">'Marginal effects of Age on Churn probabilities'</span>,</span>
-<span id="cb14-35"><a></a>    subtitle <span class="op">=</span> <span class="st">'Using the estimates from a Logit model.'</span>, </span>
-<span id="cb14-36"><a></a>    x <span class="op">=</span> <span class="st">'Age'</span>,</span>
-<span id="cb14-37"><a></a>    y <span class="op">=</span> <span class="st">'Predicted Probabilities'</span>)<span class="op">+</span></span>
-<span id="cb14-38"><a></a>  theme_minimal()<span class="op">+</span></span>
-<span id="cb14-39"><a></a>  theme_plots</span>
-<span id="cb14-40"><a></a>  )</span>
-<span id="cb14-41"><a></a>  </span>
-<span id="cb14-42"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co"># Load data</span></span>
+<span id="cb13-2"><a></a>data <span class="op">=</span> pd.read_csv(<span class="st">'Assets/bank-dataset.csv'</span>)</span>
+<span id="cb13-3"><a></a>data[<span class="st">'gender'</span>] <span class="op">=</span> np.where(data[<span class="st">'gender'</span>] <span class="op">==</span> <span class="st">'Male'</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb13-4"><a></a></span>
+<span id="cb13-5"><a></a><span class="co"># Fit logistic regression model</span></span>
+<span id="cb13-6"><a></a>X <span class="op">=</span> data[[<span class="st">'credit_score'</span>, <span class="st">'gender'</span>, <span class="st">'tenure'</span>, <span class="st">'balance'</span>, <span class="st">'products_number'</span>, <span class="st">'credit_card'</span>, <span class="st">'active_member'</span>, <span class="st">'estimated_salary'</span>,<span class="st">'age'</span>]]</span>
+<span id="cb13-7"><a></a>X <span class="op">=</span> sm.add_constant(X)  <span class="co"># Add constant term for intercept</span></span>
+<span id="cb13-8"><a></a>y <span class="op">=</span> data[<span class="st">'churn'</span>]</span>
+<span id="cb13-9"><a></a>model <span class="op">=</span> sm.Logit(y, X).fit()</span>
+<span id="cb13-10"><a></a></span>
+<span id="cb13-11"><a></a><span class="co"># Set all other variables to the mean</span></span>
+<span id="cb13-12"><a></a>new_data <span class="op">=</span> X.drop(columns<span class="op">=</span>[<span class="st">'age'</span>]).mean(numeric_only<span class="op">=</span><span class="va">True</span>).to_frame().transpose()</span>
+<span id="cb13-13"><a></a>new_data <span class="op">=</span> pd.DataFrame(np.repeat(new_data.values, <span class="dv">100</span>, axis<span class="op">=</span><span class="dv">0</span>),columns<span class="op">=</span>new_data.columns)</span>
+<span id="cb13-14"><a></a>age_df <span class="op">=</span> pd.DataFrame(pd.Series(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>)), columns<span class="op">=</span>[<span class="st">'age'</span>])</span>
+<span id="cb13-15"><a></a></span>
+<span id="cb13-16"><a></a><span class="co"># Concatenate with your existing DataFrame</span></span>
+<span id="cb13-17"><a></a>concatenated_df <span class="op">=</span> pd.concat([new_data, age_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb13-18"><a></a>concatenated_df.columns<span class="op">=</span>[<span class="op">*</span>new_data.columns,<span class="st">'age'</span>]</span>
+<span id="cb13-19"><a></a></span>
+<span id="cb13-20"><a></a><span class="co"># Predict on the new data</span></span>
+<span id="cb13-21"><a></a>predicted_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb13-22"><a></a>    <span class="st">'Age'</span>: age_df[<span class="st">'age'</span>],</span>
+<span id="cb13-23"><a></a>    <span class="st">'Predicted'</span>: model.predict(concatenated_df)</span>
+<span id="cb13-24"><a></a>    })</span>
+<span id="cb13-25"><a></a></span>
+<span id="cb13-26"><a></a><span class="co"># Plot</span></span>
+<span id="cb13-27"><a></a>Plot <span class="op">=</span> (</span>
+<span id="cb13-28"><a></a>  ggplot(predicted_df,aes(x<span class="op">=</span><span class="st">'Age'</span>,y<span class="op">=</span><span class="st">'Predicted'</span>))<span class="op">+</span></span>
+<span id="cb13-29"><a></a>  geom_point(color<span class="op">=</span><span class="st">'blue'</span>,size<span class="op">=</span><span class="dv">2</span>)<span class="op">+</span></span>
+<span id="cb13-30"><a></a>  geom_hline(yintercept<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>],linetype<span class="op">=</span><span class="st">'dashed'</span>,color<span class="op">=</span><span class="st">'darkred'</span>)<span class="op">+</span></span>
+<span id="cb13-31"><a></a>  scale_y_continuous(labels <span class="op">=</span> percent_format())<span class="op">+</span></span>
+<span id="cb13-32"><a></a>  scale_x_continuous(breaks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))<span class="op">+</span></span>
+<span id="cb13-33"><a></a>  labs(</span>
+<span id="cb13-34"><a></a>    title <span class="op">=</span><span class="st">'Marginal effects of Age on Churn probabilities'</span>,</span>
+<span id="cb13-35"><a></a>    subtitle <span class="op">=</span> <span class="st">'Using the estimates from a Logit model.'</span>, </span>
+<span id="cb13-36"><a></a>    x <span class="op">=</span> <span class="st">'Age'</span>,</span>
+<span id="cb13-37"><a></a>    y <span class="op">=</span> <span class="st">'Predicted Probabilities'</span>)<span class="op">+</span></span>
+<span id="cb13-38"><a></a>  theme_minimal()<span class="op">+</span></span>
+<span id="cb13-39"><a></a>  theme(</span>
+<span id="cb13-40"><a></a>    legend_position<span class="op">=</span><span class="st">'bottom'</span>,</span>
+<span id="cb13-41"><a></a>    axis_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb13-42"><a></a>    axis_text<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb13-43"><a></a>    plot_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">20</span>),</span>
+<span id="cb13-44"><a></a>    figure_size<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">7</span>)</span>
+<span id="cb13-45"><a></a>    )</span>
+<span id="cb13-46"><a></a>  )</span>
+<span id="cb13-47"><a></a>  </span>
+<span id="cb13-48"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1829,16 +1839,11 @@ P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
 </div>
 </div>
 <div id="tabset-10-2">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>Optimization terminated successfully.
-         Current function value: 0.435323
-         Iterations 6</code></pre>
-</div>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-22-7.png" class="quarto-figure quarto-figure-center" width="1440"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-24-7.png" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -1846,50 +1851,56 @@ P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
 </div>
 <div id="tabset-10-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co"># Load data</span></span>
-<span id="cb16-2"><a></a>data <span class="op">=</span> pd.read_csv(<span class="st">'Assets/bank-dataset.csv'</span>)</span>
-<span id="cb16-3"><a></a>data[<span class="st">'gender'</span>] <span class="op">=</span> np.where(data[<span class="st">'gender'</span>] <span class="op">==</span> <span class="st">'Male'</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb16-4"><a></a></span>
-<span id="cb16-5"><a></a><span class="co"># Fit logistic regression model</span></span>
-<span id="cb16-6"><a></a>X <span class="op">=</span> data[[<span class="st">'credit_score'</span>, <span class="st">'age'</span>, <span class="st">'tenure'</span>, <span class="st">'balance'</span>, <span class="st">'products_number'</span>, <span class="st">'credit_card'</span>, <span class="st">'active_member'</span>, <span class="st">'estimated_salary'</span>,<span class="st">'gender'</span>]]</span>
-<span id="cb16-7"><a></a>X <span class="op">=</span> sm.add_constant(X)  <span class="co"># Add constant term for intercept</span></span>
-<span id="cb16-8"><a></a>y <span class="op">=</span> data[<span class="st">'churn'</span>]</span>
-<span id="cb16-9"><a></a>model <span class="op">=</span> sm.Logit(y, X).fit()</span>
-<span id="cb16-10"><a></a></span>
-<span id="cb16-11"><a></a><span class="co"># Set all other variables to the mean</span></span>
-<span id="cb16-12"><a></a>new_data <span class="op">=</span> X.drop(columns<span class="op">=</span>[<span class="st">'gender'</span>]).mean(numeric_only<span class="op">=</span><span class="va">True</span>).to_frame().transpose()</span>
-<span id="cb16-13"><a></a>new_data <span class="op">=</span> pd.DataFrame(np.repeat(new_data.values, <span class="dv">2</span>, axis<span class="op">=</span><span class="dv">0</span>),columns<span class="op">=</span>new_data.columns)</span>
-<span id="cb16-14"><a></a>gender_df <span class="op">=</span> pd.DataFrame(pd.Series(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>)), columns<span class="op">=</span>[<span class="st">'gender'</span>])</span>
-<span id="cb16-15"><a></a></span>
-<span id="cb16-16"><a></a><span class="co"># Concatenate with your existing DataFrame</span></span>
-<span id="cb16-17"><a></a>concatenated_df <span class="op">=</span> pd.concat([new_data, gender_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb16-18"><a></a>concatenated_df.columns<span class="op">=</span>[<span class="op">*</span>new_data.columns,<span class="st">'gender'</span>]</span>
-<span id="cb16-19"><a></a></span>
-<span id="cb16-20"><a></a><span class="co"># Predict on the new data</span></span>
-<span id="cb16-21"><a></a>predicted_df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb16-22"><a></a>    <span class="st">'Gender'</span>: gender_df[<span class="st">'gender'</span>],</span>
-<span id="cb16-23"><a></a>    <span class="st">'Predicted'</span>: model.predict(concatenated_df)</span>
-<span id="cb16-24"><a></a>    })</span>
-<span id="cb16-25"><a></a></span>
-<span id="cb16-26"><a></a>predicted_df[<span class="st">'Gender'</span>] <span class="op">=</span> np.where(concatenated_df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">'Male'</span>, <span class="st">'Female'</span>)</span>
-<span id="cb16-27"><a></a></span>
-<span id="cb16-28"><a></a><span class="co"># Plot</span></span>
-<span id="cb16-29"><a></a>Plot <span class="op">=</span> (</span>
-<span id="cb16-30"><a></a>  ggplot(predicted_df,aes(x<span class="op">=</span><span class="st">'Gender'</span>,y<span class="op">=</span><span class="st">'Predicted'</span>,fill<span class="op">=</span><span class="st">'Gender'</span>))<span class="op">+</span></span>
-<span id="cb16-31"><a></a>  geom_col()<span class="op">+</span></span>
-<span id="cb16-32"><a></a>  geom_text(aes(label<span class="op">=</span>predicted_df[<span class="st">'Predicted'</span>]<span class="op">*</span><span class="dv">100</span>),format_string<span class="op">=</span><span class="st">"</span><span class="sc">{:.2f}</span><span class="st">%"</span>)<span class="op">+</span></span>
-<span id="cb16-33"><a></a>  scale_y_continuous(labels <span class="op">=</span> percent_format())<span class="op">+</span></span>
-<span id="cb16-34"><a></a>  labs(</span>
-<span id="cb16-35"><a></a>    title <span class="op">=</span><span class="st">'Marginal effects of Gender on Churn probabilities'</span>,</span>
-<span id="cb16-36"><a></a>    subtitle <span class="op">=</span> <span class="st">'Using the estimates from a Logit model.'</span>, </span>
-<span id="cb16-37"><a></a>    x <span class="op">=</span> <span class="st">'Gender'</span>,</span>
-<span id="cb16-38"><a></a>    y <span class="op">=</span> <span class="st">'Predicted Probabilities'</span>,</span>
-<span id="cb16-39"><a></a>    fill <span class="op">=</span> <span class="st">''</span>)<span class="op">+</span></span>
-<span id="cb16-40"><a></a>  theme_minimal()<span class="op">+</span></span>
-<span id="cb16-41"><a></a>  theme_plots</span>
-<span id="cb16-42"><a></a>  )</span>
-<span id="cb16-43"><a></a>  </span>
-<span id="cb16-44"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Load data</span></span>
+<span id="cb14-2"><a></a>data <span class="op">=</span> pd.read_csv(<span class="st">'Assets/bank-dataset.csv'</span>)</span>
+<span id="cb14-3"><a></a>data[<span class="st">'gender'</span>] <span class="op">=</span> np.where(data[<span class="st">'gender'</span>] <span class="op">==</span> <span class="st">'Male'</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a><span class="co"># Fit logistic regression model</span></span>
+<span id="cb14-6"><a></a>X <span class="op">=</span> data[[<span class="st">'credit_score'</span>, <span class="st">'age'</span>, <span class="st">'tenure'</span>, <span class="st">'balance'</span>, <span class="st">'products_number'</span>, <span class="st">'credit_card'</span>, <span class="st">'active_member'</span>, <span class="st">'estimated_salary'</span>,<span class="st">'gender'</span>]]</span>
+<span id="cb14-7"><a></a>X <span class="op">=</span> sm.add_constant(X)  <span class="co"># Add constant term for intercept</span></span>
+<span id="cb14-8"><a></a>y <span class="op">=</span> data[<span class="st">'churn'</span>]</span>
+<span id="cb14-9"><a></a>model <span class="op">=</span> sm.Logit(y, X).fit()</span>
+<span id="cb14-10"><a></a></span>
+<span id="cb14-11"><a></a><span class="co"># Set all other variables to the mean</span></span>
+<span id="cb14-12"><a></a>new_data <span class="op">=</span> X.drop(columns<span class="op">=</span>[<span class="st">'gender'</span>]).mean(numeric_only<span class="op">=</span><span class="va">True</span>).to_frame().transpose()</span>
+<span id="cb14-13"><a></a>new_data <span class="op">=</span> pd.DataFrame(np.repeat(new_data.values, <span class="dv">2</span>, axis<span class="op">=</span><span class="dv">0</span>),columns<span class="op">=</span>new_data.columns)</span>
+<span id="cb14-14"><a></a>gender_df <span class="op">=</span> pd.DataFrame(pd.Series(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>)), columns<span class="op">=</span>[<span class="st">'gender'</span>])</span>
+<span id="cb14-15"><a></a></span>
+<span id="cb14-16"><a></a><span class="co"># Concatenate with your existing DataFrame</span></span>
+<span id="cb14-17"><a></a>concatenated_df <span class="op">=</span> pd.concat([new_data, gender_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-18"><a></a>concatenated_df.columns<span class="op">=</span>[<span class="op">*</span>new_data.columns,<span class="st">'gender'</span>]</span>
+<span id="cb14-19"><a></a></span>
+<span id="cb14-20"><a></a><span class="co"># Predict on the new data</span></span>
+<span id="cb14-21"><a></a>predicted_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb14-22"><a></a>    <span class="st">'Gender'</span>: gender_df[<span class="st">'gender'</span>],</span>
+<span id="cb14-23"><a></a>    <span class="st">'Predicted'</span>: model.predict(concatenated_df)</span>
+<span id="cb14-24"><a></a>    })</span>
+<span id="cb14-25"><a></a></span>
+<span id="cb14-26"><a></a>predicted_df[<span class="st">'Gender'</span>] <span class="op">=</span> np.where(concatenated_df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">'Male'</span>, <span class="st">'Female'</span>)</span>
+<span id="cb14-27"><a></a></span>
+<span id="cb14-28"><a></a><span class="co"># Plot</span></span>
+<span id="cb14-29"><a></a>Plot <span class="op">=</span> (</span>
+<span id="cb14-30"><a></a>  ggplot(predicted_df,aes(x<span class="op">=</span><span class="st">'Gender'</span>,y<span class="op">=</span><span class="st">'Predicted'</span>,fill<span class="op">=</span><span class="st">'Gender'</span>))<span class="op">+</span></span>
+<span id="cb14-31"><a></a>  geom_col()<span class="op">+</span></span>
+<span id="cb14-32"><a></a>  geom_text(aes(label<span class="op">=</span>predicted_df[<span class="st">'Predicted'</span>]<span class="op">*</span><span class="dv">100</span>),format_string<span class="op">=</span><span class="st">"</span><span class="sc">{:.2f}</span><span class="st">%"</span>,size<span class="op">=</span><span class="dv">20</span>)<span class="op">+</span></span>
+<span id="cb14-33"><a></a>  scale_y_continuous(labels <span class="op">=</span> percent_format())<span class="op">+</span></span>
+<span id="cb14-34"><a></a>  labs(</span>
+<span id="cb14-35"><a></a>    title <span class="op">=</span><span class="st">'Marginal effects of Gender on Churn probabilities'</span>,</span>
+<span id="cb14-36"><a></a>    subtitle <span class="op">=</span> <span class="st">'Using the estimates from a Logit model.'</span>, </span>
+<span id="cb14-37"><a></a>    x <span class="op">=</span> <span class="st">'Gender'</span>,</span>
+<span id="cb14-38"><a></a>    y <span class="op">=</span> <span class="st">'Predicted Probabilities'</span>,</span>
+<span id="cb14-39"><a></a>    fill <span class="op">=</span> <span class="st">''</span>)<span class="op">+</span></span>
+<span id="cb14-40"><a></a>  theme_minimal()<span class="op">+</span></span>
+<span id="cb14-41"><a></a>  theme(</span>
+<span id="cb14-42"><a></a>    legend_position<span class="op">=</span><span class="st">'bottom'</span>,</span>
+<span id="cb14-43"><a></a>    axis_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb14-44"><a></a>    axis_text<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb14-45"><a></a>    plot_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">20</span>),</span>
+<span id="cb14-46"><a></a>    figure_size<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">6</span>)</span>
+<span id="cb14-47"><a></a>    )</span>
+<span id="cb14-48"><a></a>  )</span>
+<span id="cb14-49"><a></a>  </span>
+<span id="cb14-50"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1914,15 +1925,10 @@ P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
 </div>
 <div id="tabset-11-2">
 <div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>Optimization terminated successfully.
-         Current function value: 0.435323
-         Iterations 6</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-24-9.png" class="quarto-figure quarto-figure-center" width="1440"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-27-9.png" class="quarto-figure quarto-figure-center" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -1930,50 +1936,56 @@ P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
 </div>
 <div id="tabset-11-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="co"># Load data</span></span>
-<span id="cb18-2"><a></a>data <span class="op">=</span> pd.read_csv(<span class="st">'Assets/bank-dataset.csv'</span>)</span>
-<span id="cb18-3"><a></a>data[<span class="st">'gender'</span>] <span class="op">=</span> np.where(data[<span class="st">'gender'</span>] <span class="op">==</span> <span class="st">'Male'</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb18-4"><a></a></span>
-<span id="cb18-5"><a></a><span class="co"># Fit logistic regression model</span></span>
-<span id="cb18-6"><a></a>X <span class="op">=</span> data[[<span class="st">'credit_score'</span>, <span class="st">'tenure'</span>, <span class="st">'balance'</span>, <span class="st">'products_number'</span>, <span class="st">'credit_card'</span>, <span class="st">'active_member'</span>, <span class="st">'estimated_salary'</span>,<span class="st">'gender'</span>,<span class="st">'age'</span>]]</span>
-<span id="cb18-7"><a></a>X <span class="op">=</span> sm.add_constant(X)  <span class="co"># Add constant term for intercept</span></span>
-<span id="cb18-8"><a></a>y <span class="op">=</span> data[<span class="st">'churn'</span>]</span>
-<span id="cb18-9"><a></a>model <span class="op">=</span> sm.Logit(y, X).fit()</span>
-<span id="cb18-10"><a></a></span>
-<span id="cb18-11"><a></a><span class="co"># Set all other variables to the mean</span></span>
-<span id="cb18-12"><a></a>new_data <span class="op">=</span> X.drop(columns<span class="op">=</span>[<span class="st">'gender'</span>,<span class="st">'age'</span>]).mean(numeric_only<span class="op">=</span><span class="va">True</span>).to_frame().transpose()</span>
-<span id="cb18-13"><a></a>new_data <span class="op">=</span> pd.DataFrame(np.repeat(new_data.values, <span class="dv">200</span>, axis<span class="op">=</span><span class="dv">0</span>),columns<span class="op">=</span>new_data.columns)</span>
-<span id="cb18-14"><a></a>gender_df <span class="op">=</span> pd.DataFrame([<span class="op">*</span>np.repeat(<span class="dv">1</span>,<span class="dv">100</span>,axis<span class="op">=</span><span class="dv">0</span>),<span class="op">*</span>np.repeat(<span class="dv">0</span>,<span class="dv">100</span>,axis<span class="op">=</span><span class="dv">0</span>)], columns<span class="op">=</span>[<span class="st">'gender'</span>])</span>
-<span id="cb18-15"><a></a>age_df <span class="op">=</span> pd.DataFrame(pd.Series(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>)), columns<span class="op">=</span>[<span class="st">'age'</span>])</span>
-<span id="cb18-16"><a></a>age_df <span class="op">=</span>pd.concat([age_df,age_df],ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb18-17"><a></a></span>
-<span id="cb18-18"><a></a><span class="co"># Concatenate with your existing DataFrame</span></span>
-<span id="cb18-19"><a></a>concatenated_df <span class="op">=</span> pd.concat([gender_df, age_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb18-20"><a></a>concatenated_df <span class="op">=</span> pd.concat([new_data,concatenated_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb18-21"><a></a>concatenated_df.columns<span class="op">=</span>[<span class="op">*</span>new_data.columns,<span class="st">'gender'</span>,<span class="st">'age'</span>]</span>
-<span id="cb18-22"><a></a></span>
-<span id="cb18-23"><a></a><span class="co"># Predict</span></span>
-<span id="cb18-24"><a></a>predicted <span class="op">=</span> model.predict(concatenated_df)</span>
-<span id="cb18-25"><a></a>concatenated_df[<span class="st">'Predicted'</span>] <span class="op">=</span> predicted</span>
-<span id="cb18-26"><a></a>concatenated_df[<span class="st">'Gender'</span>] <span class="op">=</span> np.where(concatenated_df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">'Male'</span>, <span class="st">'Female'</span>)</span>
-<span id="cb18-27"><a></a></span>
-<span id="cb18-28"><a></a><span class="co"># Plot</span></span>
-<span id="cb18-29"><a></a>Plot <span class="op">=</span> (</span>
-<span id="cb18-30"><a></a>  ggplot(concatenated_df,aes(x<span class="op">=</span><span class="st">'age'</span>,y<span class="op">=</span><span class="st">'Predicted'</span>,fill<span class="op">=</span><span class="st">'Gender'</span>))<span class="op">+</span></span>
-<span id="cb18-31"><a></a>  geom_point(stroke<span class="op">=</span><span class="dv">0</span>,size<span class="op">=</span><span class="dv">2</span>)<span class="op">+</span></span>
-<span id="cb18-32"><a></a>  scale_y_continuous(labels <span class="op">=</span> percent_format())<span class="op">+</span></span>
-<span id="cb18-33"><a></a>  scale_x_continuous(breaks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))<span class="op">+</span></span>
-<span id="cb18-34"><a></a>  labs(</span>
-<span id="cb18-35"><a></a>    title <span class="op">=</span><span class="st">'Marginal effects of gender and age on Churn probabilities'</span>,</span>
-<span id="cb18-36"><a></a>    subtitle <span class="op">=</span> <span class="st">'Using the estimates from a Logit model.'</span>, </span>
-<span id="cb18-37"><a></a>    x <span class="op">=</span> <span class="st">'Age'</span>,</span>
-<span id="cb18-38"><a></a>    y <span class="op">=</span> <span class="st">'Predicted Probabilities'</span>,</span>
-<span id="cb18-39"><a></a>    fill <span class="op">=</span> <span class="st">'Gender'</span>)<span class="op">+</span></span>
-<span id="cb18-40"><a></a>  theme_minimal()<span class="op">+</span></span>
-<span id="cb18-41"><a></a>  theme_plots</span>
-<span id="cb18-42"><a></a>  )</span>
-<span id="cb18-43"><a></a>  </span>
-<span id="cb18-44"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Load data</span></span>
+<span id="cb15-2"><a></a>data <span class="op">=</span> pd.read_csv(<span class="st">'Assets/bank-dataset.csv'</span>)</span>
+<span id="cb15-3"><a></a>data[<span class="st">'gender'</span>] <span class="op">=</span> np.where(data[<span class="st">'gender'</span>] <span class="op">==</span> <span class="st">'Male'</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb15-4"><a></a></span>
+<span id="cb15-5"><a></a><span class="co"># Fit logistic regression model</span></span>
+<span id="cb15-6"><a></a>X <span class="op">=</span> data[[<span class="st">'credit_score'</span>, <span class="st">'tenure'</span>, <span class="st">'balance'</span>, <span class="st">'products_number'</span>, <span class="st">'credit_card'</span>, <span class="st">'active_member'</span>, <span class="st">'estimated_salary'</span>,<span class="st">'gender'</span>,<span class="st">'age'</span>]]</span>
+<span id="cb15-7"><a></a>X <span class="op">=</span> sm.add_constant(X)  <span class="co"># Add constant term for intercept</span></span>
+<span id="cb15-8"><a></a>y <span class="op">=</span> data[<span class="st">'churn'</span>]</span>
+<span id="cb15-9"><a></a>model <span class="op">=</span> sm.Logit(y, X).fit()</span>
+<span id="cb15-10"><a></a></span>
+<span id="cb15-11"><a></a><span class="co"># Set all other variables to the mean</span></span>
+<span id="cb15-12"><a></a>new_data <span class="op">=</span> X.drop(columns<span class="op">=</span>[<span class="st">'gender'</span>,<span class="st">'age'</span>]).mean(numeric_only<span class="op">=</span><span class="va">True</span>).to_frame().transpose()</span>
+<span id="cb15-13"><a></a>new_data <span class="op">=</span> pd.DataFrame(np.repeat(new_data.values, <span class="dv">200</span>, axis<span class="op">=</span><span class="dv">0</span>),columns<span class="op">=</span>new_data.columns)</span>
+<span id="cb15-14"><a></a>gender_df <span class="op">=</span> pd.DataFrame([<span class="op">*</span>np.repeat(<span class="dv">1</span>,<span class="dv">100</span>,axis<span class="op">=</span><span class="dv">0</span>),<span class="op">*</span>np.repeat(<span class="dv">0</span>,<span class="dv">100</span>,axis<span class="op">=</span><span class="dv">0</span>)], columns<span class="op">=</span>[<span class="st">'gender'</span>])</span>
+<span id="cb15-15"><a></a>age_df <span class="op">=</span> pd.DataFrame(pd.Series(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>)), columns<span class="op">=</span>[<span class="st">'age'</span>])</span>
+<span id="cb15-16"><a></a>age_df <span class="op">=</span>pd.concat([age_df,age_df],ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb15-17"><a></a></span>
+<span id="cb15-18"><a></a><span class="co"># Concatenate with your existing DataFrame</span></span>
+<span id="cb15-19"><a></a>concatenated_df <span class="op">=</span> pd.concat([gender_df, age_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb15-20"><a></a>concatenated_df <span class="op">=</span> pd.concat([new_data,concatenated_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb15-21"><a></a>concatenated_df.columns<span class="op">=</span>[<span class="op">*</span>new_data.columns,<span class="st">'gender'</span>,<span class="st">'age'</span>]</span>
+<span id="cb15-22"><a></a></span>
+<span id="cb15-23"><a></a><span class="co"># Predict</span></span>
+<span id="cb15-24"><a></a>predicted <span class="op">=</span> model.predict(concatenated_df)</span>
+<span id="cb15-25"><a></a>concatenated_df[<span class="st">'Predicted'</span>] <span class="op">=</span> predicted</span>
+<span id="cb15-26"><a></a>concatenated_df[<span class="st">'Gender'</span>] <span class="op">=</span> np.where(concatenated_df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">'Male'</span>, <span class="st">'Female'</span>)</span>
+<span id="cb15-27"><a></a></span>
+<span id="cb15-28"><a></a><span class="co"># Plot</span></span>
+<span id="cb15-29"><a></a>Plot <span class="op">=</span> (</span>
+<span id="cb15-30"><a></a>  ggplot(concatenated_df,aes(x<span class="op">=</span><span class="st">'age'</span>,y<span class="op">=</span><span class="st">'Predicted'</span>,fill<span class="op">=</span><span class="st">'Gender'</span>))<span class="op">+</span></span>
+<span id="cb15-31"><a></a>  geom_point(stroke<span class="op">=</span><span class="dv">0</span>,size<span class="op">=</span><span class="dv">3</span>)<span class="op">+</span></span>
+<span id="cb15-32"><a></a>  scale_y_continuous(labels <span class="op">=</span> percent_format())<span class="op">+</span></span>
+<span id="cb15-33"><a></a>  scale_x_continuous(breaks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))<span class="op">+</span></span>
+<span id="cb15-34"><a></a>  labs(</span>
+<span id="cb15-35"><a></a>    title <span class="op">=</span><span class="st">'Marginal effects of gender and age on Churn probabilities'</span>,</span>
+<span id="cb15-36"><a></a>    subtitle <span class="op">=</span> <span class="st">'Using the estimates from a Logit model.'</span>, </span>
+<span id="cb15-37"><a></a>    x <span class="op">=</span> <span class="st">'Age'</span>,</span>
+<span id="cb15-38"><a></a>    y <span class="op">=</span> <span class="st">'Predicted Probabilities'</span>,</span>
+<span id="cb15-39"><a></a>    fill <span class="op">=</span> <span class="st">'Gender'</span>)<span class="op">+</span></span>
+<span id="cb15-40"><a></a>  theme_minimal()<span class="op">+</span></span>
+<span id="cb15-41"><a></a>  theme(</span>
+<span id="cb15-42"><a></a>    legend_position<span class="op">=</span><span class="st">'bottom'</span>,</span>
+<span id="cb15-43"><a></a>    axis_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb15-44"><a></a>    axis_text<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb15-45"><a></a>    plot_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">20</span>),</span>
+<span id="cb15-46"><a></a>    figure_size<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">7</span>)</span>
+<span id="cb15-47"><a></a>    )</span>
+<span id="cb15-48"><a></a>  )</span>
+<span id="cb15-49"><a></a>  </span>
+<span id="cb15-50"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1997,16 +2009,11 @@ P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
 <ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Result</a></li><li><a href="#tabset-12-2">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-12-1">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>Optimization terminated successfully.
-         Current function value: 0.435323
-         Iterations 6</code></pre>
-</div>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-26-11.png" class="quarto-figure quarto-figure-center" width="1440"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-30-11.png" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -2014,61 +2021,67 @@ P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
 </div>
 <div id="tabset-12-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="co"># Read the CSV file into a pandas DataFrame</span></span>
-<span id="cb20-2"><a></a>Data <span class="op">=</span> pd.read_csv(<span class="st">'Assets/bank-dataset.csv'</span>)</span>
-<span id="cb20-3"><a></a></span>
-<span id="cb20-4"><a></a><span class="co"># Convert 'gender' into dummy variables</span></span>
-<span id="cb20-5"><a></a>Data <span class="op">=</span> pd.get_dummies(Data, columns<span class="op">=</span>[<span class="st">'gender'</span>], drop_first<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb20-6"><a></a></span>
-<span id="cb20-7"><a></a><span class="co"># Define independent and dependent variables</span></span>
-<span id="cb20-8"><a></a>X <span class="op">=</span> Data[[<span class="st">'credit_score'</span>, <span class="st">'gender_Male'</span>, <span class="st">'tenure'</span>, <span class="st">'balance'</span>, <span class="st">'products_number'</span>, <span class="st">'credit_card'</span>, <span class="st">'active_member'</span>, <span class="st">'estimated_salary'</span>,<span class="st">'age'</span>]]</span>
-<span id="cb20-9"><a></a>y <span class="op">=</span> Data[<span class="st">'churn'</span>]</span>
-<span id="cb20-10"><a></a></span>
-<span id="cb20-11"><a></a><span class="co"># Add a constant to the independent variables matrix for the intercept</span></span>
-<span id="cb20-12"><a></a>X <span class="op">=</span> sm.add_constant(X)</span>
-<span id="cb20-13"><a></a></span>
-<span id="cb20-14"><a></a><span class="co"># Fit the linear regression model and the logit model</span></span>
-<span id="cb20-15"><a></a>lm_model <span class="op">=</span> sm.OLS(y, X.astype(<span class="bu">float</span>)).fit()</span>
-<span id="cb20-16"><a></a>logit_model <span class="op">=</span> sm.Logit(y, X.astype(<span class="bu">float</span>)).fit()</span>
-<span id="cb20-17"><a></a></span>
-<span id="cb20-18"><a></a><span class="co"># Set all other variables to the mean</span></span>
-<span id="cb20-19"><a></a>new_data <span class="op">=</span> X.drop(columns<span class="op">=</span>[<span class="st">'age'</span>]).mean(numeric_only<span class="op">=</span><span class="va">True</span>).to_frame().transpose()</span>
-<span id="cb20-20"><a></a>new_data <span class="op">=</span> pd.DataFrame(np.repeat(new_data.values, <span class="dv">100</span>, axis<span class="op">=</span><span class="dv">0</span>),columns<span class="op">=</span>new_data.columns)</span>
-<span id="cb20-21"><a></a>age_df <span class="op">=</span> pd.DataFrame(pd.Series(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>)), columns<span class="op">=</span>[<span class="st">'age'</span>])</span>
-<span id="cb20-22"><a></a></span>
-<span id="cb20-23"><a></a><span class="co"># Concatenate with your existing DataFrame</span></span>
-<span id="cb20-24"><a></a>concatenated_df <span class="op">=</span> pd.concat([new_data,age_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb20-25"><a></a>concatenated_df.columns<span class="op">=</span>[<span class="op">*</span>new_data.columns,<span class="st">'age'</span>]</span>
-<span id="cb20-26"><a></a></span>
-<span id="cb20-27"><a></a><span class="co"># Predict</span></span>
-<span id="cb20-28"><a></a>lm_predicted <span class="op">=</span> lm_model.predict(concatenated_df)</span>
-<span id="cb20-29"><a></a>logit_predicted <span class="op">=</span> logit_model.predict(concatenated_df)</span>
-<span id="cb20-30"><a></a></span>
-<span id="cb20-31"><a></a>predicted_df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb20-32"><a></a>  <span class="st">'LPM'</span>: lm_predicted,</span>
-<span id="cb20-33"><a></a>  <span class="st">'Logit'</span>: logit_predicted,</span>
-<span id="cb20-34"><a></a>  <span class="st">'Age'</span>: age_df[<span class="st">'age'</span>]</span>
-<span id="cb20-35"><a></a>})</span>
-<span id="cb20-36"><a></a></span>
-<span id="cb20-37"><a></a></span>
-<span id="cb20-38"><a></a><span class="co"># Plot</span></span>
-<span id="cb20-39"><a></a>Plot <span class="op">=</span> (</span>
-<span id="cb20-40"><a></a>  ggplot(predicted_df,aes(x<span class="op">=</span><span class="st">'Age'</span>))<span class="op">+</span></span>
-<span id="cb20-41"><a></a>  geom_line(aes(y<span class="op">=</span><span class="st">'LPM'</span>),color<span class="op">=</span><span class="st">'blue'</span>,size<span class="op">=</span><span class="dv">2</span>)<span class="op">+</span></span>
-<span id="cb20-42"><a></a>  geom_point(aes(y<span class="op">=</span><span class="st">'Logit'</span>),color<span class="op">=</span><span class="st">'red'</span>,stroke<span class="op">=</span><span class="dv">0</span>,size<span class="op">=</span><span class="dv">2</span>)<span class="op">+</span></span>
-<span id="cb20-43"><a></a>  scale_y_continuous(labels <span class="op">=</span> percent_format())<span class="op">+</span></span>
-<span id="cb20-44"><a></a>  scale_x_continuous(breaks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))<span class="op">+</span></span>
-<span id="cb20-45"><a></a>  labs(</span>
-<span id="cb20-46"><a></a>    title <span class="op">=</span><span class="st">'Marginal effects of gender and age on Churn probabilities'</span>,</span>
-<span id="cb20-47"><a></a>    subtitle <span class="op">=</span> <span class="st">'Using the estimates from a Logit model and Linear Probability Model (LPM).'</span>, </span>
-<span id="cb20-48"><a></a>    x <span class="op">=</span> <span class="st">'Age'</span>,</span>
-<span id="cb20-49"><a></a>    y <span class="op">=</span> <span class="st">'Predicted Probabilities'</span>,</span>
-<span id="cb20-50"><a></a>    fill <span class="op">=</span> <span class="st">'Gender'</span>)<span class="op">+</span></span>
-<span id="cb20-51"><a></a>  theme_minimal()<span class="op">+</span></span>
-<span id="cb20-52"><a></a>  theme_plots</span>
-<span id="cb20-53"><a></a>  )</span>
-<span id="cb20-54"><a></a>  </span>
-<span id="cb20-55"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co"># Read the CSV file into a pandas DataFrame</span></span>
+<span id="cb16-2"><a></a>Data <span class="op">=</span> pd.read_csv(<span class="st">'Assets/bank-dataset.csv'</span>)</span>
+<span id="cb16-3"><a></a></span>
+<span id="cb16-4"><a></a><span class="co"># Convert 'gender' into dummy variables</span></span>
+<span id="cb16-5"><a></a>Data <span class="op">=</span> pd.get_dummies(Data, columns<span class="op">=</span>[<span class="st">'gender'</span>], drop_first<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-6"><a></a></span>
+<span id="cb16-7"><a></a><span class="co"># Define independent and dependent variables</span></span>
+<span id="cb16-8"><a></a>X <span class="op">=</span> Data[[<span class="st">'credit_score'</span>, <span class="st">'gender_Male'</span>, <span class="st">'tenure'</span>, <span class="st">'balance'</span>, <span class="st">'products_number'</span>, <span class="st">'credit_card'</span>, <span class="st">'active_member'</span>, <span class="st">'estimated_salary'</span>,<span class="st">'age'</span>]]</span>
+<span id="cb16-9"><a></a>y <span class="op">=</span> Data[<span class="st">'churn'</span>]</span>
+<span id="cb16-10"><a></a></span>
+<span id="cb16-11"><a></a><span class="co"># Add a constant to the independent variables matrix for the intercept</span></span>
+<span id="cb16-12"><a></a>X <span class="op">=</span> sm.add_constant(X)</span>
+<span id="cb16-13"><a></a></span>
+<span id="cb16-14"><a></a><span class="co"># Fit the linear regression model and the logit model</span></span>
+<span id="cb16-15"><a></a>lm_model <span class="op">=</span> sm.OLS(y, X.astype(<span class="bu">float</span>)).fit()</span>
+<span id="cb16-16"><a></a>logit_model <span class="op">=</span> sm.Logit(y, X.astype(<span class="bu">float</span>)).fit()</span>
+<span id="cb16-17"><a></a></span>
+<span id="cb16-18"><a></a><span class="co"># Set all other variables to the mean</span></span>
+<span id="cb16-19"><a></a>new_data <span class="op">=</span> X.drop(columns<span class="op">=</span>[<span class="st">'age'</span>]).mean(numeric_only<span class="op">=</span><span class="va">True</span>).to_frame().transpose()</span>
+<span id="cb16-20"><a></a>new_data <span class="op">=</span> pd.DataFrame(np.repeat(new_data.values, <span class="dv">100</span>, axis<span class="op">=</span><span class="dv">0</span>),columns<span class="op">=</span>new_data.columns)</span>
+<span id="cb16-21"><a></a>age_df <span class="op">=</span> pd.DataFrame(pd.Series(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>)), columns<span class="op">=</span>[<span class="st">'age'</span>])</span>
+<span id="cb16-22"><a></a></span>
+<span id="cb16-23"><a></a><span class="co"># Concatenate with your existing DataFrame</span></span>
+<span id="cb16-24"><a></a>concatenated_df <span class="op">=</span> pd.concat([new_data,age_df], ignore_index<span class="op">=</span><span class="va">True</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb16-25"><a></a>concatenated_df.columns<span class="op">=</span>[<span class="op">*</span>new_data.columns,<span class="st">'age'</span>]</span>
+<span id="cb16-26"><a></a></span>
+<span id="cb16-27"><a></a><span class="co"># Predict</span></span>
+<span id="cb16-28"><a></a>lm_predicted <span class="op">=</span> lm_model.predict(concatenated_df)</span>
+<span id="cb16-29"><a></a>logit_predicted <span class="op">=</span> logit_model.predict(concatenated_df)</span>
+<span id="cb16-30"><a></a></span>
+<span id="cb16-31"><a></a>predicted_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb16-32"><a></a>  <span class="st">'LPM'</span>: lm_predicted,</span>
+<span id="cb16-33"><a></a>  <span class="st">'Logit'</span>: logit_predicted,</span>
+<span id="cb16-34"><a></a>  <span class="st">'Age'</span>: age_df[<span class="st">'age'</span>]</span>
+<span id="cb16-35"><a></a>})</span>
+<span id="cb16-36"><a></a></span>
+<span id="cb16-37"><a></a></span>
+<span id="cb16-38"><a></a><span class="co"># Plot</span></span>
+<span id="cb16-39"><a></a>Plot <span class="op">=</span> (</span>
+<span id="cb16-40"><a></a>  ggplot(predicted_df,aes(x<span class="op">=</span><span class="st">'Age'</span>))<span class="op">+</span></span>
+<span id="cb16-41"><a></a>  geom_line(aes(y<span class="op">=</span><span class="st">'LPM'</span>),color<span class="op">=</span><span class="st">'blue'</span>,size<span class="op">=</span><span class="dv">2</span>)<span class="op">+</span></span>
+<span id="cb16-42"><a></a>  geom_point(aes(y<span class="op">=</span><span class="st">'Logit'</span>),color<span class="op">=</span><span class="st">'red'</span>,stroke<span class="op">=</span><span class="dv">0</span>,size<span class="op">=</span><span class="dv">4</span>)<span class="op">+</span></span>
+<span id="cb16-43"><a></a>  scale_y_continuous(labels <span class="op">=</span> percent_format())<span class="op">+</span></span>
+<span id="cb16-44"><a></a>  scale_x_continuous(breaks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))<span class="op">+</span></span>
+<span id="cb16-45"><a></a>  labs(</span>
+<span id="cb16-46"><a></a>    title <span class="op">=</span><span class="st">'Marginal effects of gender and age on Churn probabilities'</span>,</span>
+<span id="cb16-47"><a></a>    subtitle <span class="op">=</span> <span class="st">'Using the estimates from a Logit model and Linear Probability Model (LPM).'</span>, </span>
+<span id="cb16-48"><a></a>    x <span class="op">=</span> <span class="st">'Age'</span>,</span>
+<span id="cb16-49"><a></a>    y <span class="op">=</span> <span class="st">'Predicted Probabilities'</span>,</span>
+<span id="cb16-50"><a></a>    fill <span class="op">=</span> <span class="st">'Gender'</span>)<span class="op">+</span></span>
+<span id="cb16-51"><a></a>  theme_minimal()<span class="op">+</span></span>
+<span id="cb16-52"><a></a>  theme(</span>
+<span id="cb16-53"><a></a>    legend_position<span class="op">=</span><span class="st">'bottom'</span>,</span>
+<span id="cb16-54"><a></a>    axis_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb16-55"><a></a>    axis_text<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">12</span>),</span>
+<span id="cb16-56"><a></a>    plot_title<span class="op">=</span>element_text(face<span class="op">=</span><span class="st">'bold'</span>,size<span class="op">=</span><span class="dv">20</span>),</span>
+<span id="cb16-57"><a></a>    figure_size<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">7</span>)</span>
+<span id="cb16-58"><a></a>    )</span>
+<span id="cb16-59"><a></a>  )</span>
+<span id="cb16-60"><a></a>  </span>
+<span id="cb16-61"><a></a>Plot.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

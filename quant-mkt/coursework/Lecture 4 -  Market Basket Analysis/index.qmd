@@ -244,14 +244,15 @@ Plot = (
     x='Category',
     y='# of Transactions')+
   theme_minimal()+
-  theme_plots +
   theme(
-      axis_title_x=element_blank(),
-      axis_text_x=element_text(angle=45),
-      axis_title_y=element_blank(),
-      figure_size=(15,6))
+    legend_position='bottom',
+    axis_title=element_blank(),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
     )
-
+  )
+  
 #Display Output
 Plot.show()
 
@@ -283,13 +284,14 @@ Plot = (
     x='Category',
     y='# of Transactions')+
   theme_minimal()+
-  theme_plots +
   theme(
-      axis_title_x=element_blank(),
-      axis_text_x=element_text(angle=45),
-      axis_title_y=element_blank(),
-      figure_size=(15,6))
+    legend_position='bottom',
+    axis_title=element_blank(),
+    axis_text=element_text(size=12),
+    plot_title=element_text(face='bold',size=20),
+    figure_size=(15,7)
     )
+  )
 
 #Display Output
 Plot.show()
@@ -492,9 +494,9 @@ $\rightarrow$ *For an in-depth discussion of other methodologies applied to a ma
 
 **Looking ahead**
 
-1.  Explore different models that seek to provide similar answers (*e.g*, different classification methods)
+1.  Explore different classification models that seek to provide similar answers
 
-2.  Bridge traditional econometrics with tradictional machine learning pipelines used in practice: cross-validation, train/test sets, hyperparameter tuning etc
+2.  Bridge traditional econometrics with the recent machine learning literature: cross-validation, train/test sets, hyperparameter tuning etc
 
 3.  If your interest is on *causality*, we need to think about clever ways to insulate our models from ommited variable bias
 
