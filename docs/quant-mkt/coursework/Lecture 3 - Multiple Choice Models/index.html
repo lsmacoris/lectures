@@ -1,0 +1,2266 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.55">
+
+  <meta name="author" content="Lucas S. Macoris (FGV-EAESP)">
+  <title>Lucas S. Macoris – Multiple Choice Models</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-87FLN5SXEJ"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-87FLN5SXEJ', { 'anonymize_ip': true});
+  </script>
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="../../../site_libs/font-awesome-6.5.2/js/script.js"></script>
+
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Multiple Choice Models</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Lucas S. Macoris (FGV-EAESP) 
+</div>
+</div>
+</div>
+
+</section>
+<section id="tech-setup" class="slide level2">
+<h2>Tech-setup</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tech-setup</strong></p>
+</div>
+<div class="callout-content">
+<p>All coding steps will be done using <code>Python</code>. If you need help on setting up your machine, please refer to <a href="https://lsmacoris.github.io/lectures/quant-mkt.html">this</a> link for help</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Before you start, make sure to import and load all the necessary packages:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-4"><a></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-6"><a></a><span class="im">from</span> great_tables <span class="im">import</span> GT, md</span>
+<span id="cb1-7"><a></a><span class="im">from</span> mizani.formatters <span class="im">import</span> percent_format</span>
+<span id="cb1-8"><a></a><span class="im">from</span> statsmodels.discrete.discrete_model <span class="im">import</span> MNLogit</span>
+<span id="cb1-9"><a></a><span class="im">from</span> statsmodels.tools.tools <span class="im">import</span> add_constant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="recap-on-logit-models" class="slide level2">
+<h2>Recap on <em>Logit</em> Models</h2>
+<ul>
+<li><p>From previous classes, the idea behind using <span class="math inline">\(\Lambda(X)\)</span> lies on the <span class="focus">latent</span> variable approach: think about an unobserved component, <span class="math inline">\(Y^\star\)</span>, which is a continuous variable, such as how much a consumer values a product.</p></li>
+<li><p>Although we do not observe <span class="math inline">\(Y^\star\)</span>, we do observe consumers’ <span class="focus">decisions</span> of buying or not buying the product, depending on a given threshold:</p></li>
+</ul>
+<p><span class="math display">\[
+  Y = \begin{cases}
+      1, &amp; \text{if } Y^* &gt; 0 \\
+      0, &amp; \text{if } Y^* \leq 0
+  \end{cases}
+\]</span></p>
+<ul>
+<li>Therefore, we can see that the probability of buying depends on a latent variable, which is not observed by the econometrician:</li>
+</ul>
+<p><span class="math display">\[
+  P(Y = 1 | X) = P(Y^* &gt; 0 | X) = P(X \beta + \varepsilon &gt; 0 | X)
+\]</span></p>
+</section>
+<section id="logistic-regression-logit-models" class="slide level2">
+<h2>Logistic Regression (<em>Logit</em>) Models</h2>
+<ul>
+<li>We saw that <em>Logit</em> models are just an example of a case where the transformation function is:</li>
+</ul>
+<p><span class="math display">\[
+  f(Y^*) = \Lambda(Y^*) = \frac{\exp(X\beta)}{1 + \exp(X\beta)}
+\]</span></p>
+<ul>
+<li>Whenever we’re estimating a <em>logit</em> model, our transformation function, <span class="math inline">\(\Lambda(\cdot)\)</span>, is actually estimating <span class="math inline">\(\log[p/(1 - p)]\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+  \text{logit}(p) = \alpha + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k
+\]</span></p>
+<ul>
+<li>The term <span class="math inline">\(\frac{p}{1 - p}\)</span> is called <em>odds-ratio</em>, and is simply the ratio of the probability of success over the probability of failure</li>
+</ul>
+</section>
+<section id="hands-on-exercise" class="slide level2">
+<h2>Hands-On Exercise</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Description</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>You were hired as a consultant to work on a research project that aims to understand how individuals travel around Spain. A survey was applied to more than 100 customers seeking to understand their consumption patterns when it comes to travelling around the country using buses, cars, trains, or airplanes. You have been prompted with the following task:</li>
+</ul>
+<ol type="1">
+<li>How customers decide which transportation method to use?</li>
+<li>What would have been the effect of decreasing transportation costs in terms of market-shares for each transportation?</li>
+</ol>
+</div>
+</div>
+</div>
+<ul>
+<li>You can download the <code>transportation-dataset.csv</code> data using the <em>Download</em> button below.</li>
+</ul>
+<p><strong>Note</strong>: the <code>groceries</code> dataset has been adapted to fit the purpose of the lecture. You can find the original dataset <a href="https://www.kaggle.com/datasets/heeraldedhia/groceries-dataset">here</a></p>
+<div class="cell">
+<div class="cell-output-display">
+<button class="btn btn-default" onclick="
+    async function downloadFile(event) {
+      event.preventDefault();
+      try {
+        const response = await fetch('data:text/csv;base64,aW5kaXZpZHVhbDttb2RlO2Nob2ljZTt3YWl0aW5nX3RpbWU7dmVoaWNsZV9jb3N0O3RyYXZlbDtpbmNvbWU7c2l6ZQoxO2Fpcjtubzs2OTs1OTsxMDA7MzU7MQoxO3RyYWluO25vOzM0OzMxOzM3MjszNTsxCjE7YnVzO25vOzM1OzI1OzQxNzszNTsxCjE7Y2FyO3llczswOzEwOzE4MDszNTsxCjI7YWlyO25vOzY0OzU4OzY4OzMwOzIKMjt0cmFpbjtubzs0NDszMTszNTQ7MzA7MgoyO2J1cztubzs1MzsyNTszOTk7MzA7MgoyO2Nhcjt5ZXM7MDsxMTsyNTU7MzA7MgozO2Fpcjtubzs2OTsxMTU7MTI1OzQwOzEKMzt0cmFpbjtubzszNDs5ODs4OTI7NDA7MQozO2J1cztubzszNTs1Mzs4ODI7NDA7MQozO2Nhcjt5ZXM7MDsyMzs3MjA7NDA7MQo0O2Fpcjtubzs2NDs0OTs2ODs3MDszCjQ7dHJhaW47bm87NDQ7MjY7MzU0OzcwOzMKNDtidXM7bm87NTM7MjE7Mzk5OzcwOzMKNDtjYXI7eWVzOzA7NTsxODA7NzA7Mwo1O2Fpcjtubzs2NDs2MDsxNDQ7NDU7Mgo1O3RyYWluO25vOzQ0OzMyOzQwNDs0NTsyCjU7YnVzO25vOzUzOzI2OzQ0OTs0NTsyCjU7Y2FyO3llczswOzg7NjAwOzQ1OzIKNjthaXI7bm87Njk7NTk7MTAwOzIwOzEKNjt0cmFpbjt5ZXM7NDA7MjA7MzQ1OzIwOzEKNjtidXM7bm87MzU7MTM7NDE3OzIwOzEKNjtjYXI7bm87MDsxMjsyODQ7MjA7MQo3O2Fpcjt5ZXM7NDU7MTQ4OzExNTs0NTsxCjc7dHJhaW47bm87MzQ7MTExOzk0NTs0NTsxCjc7YnVzO25vOzM1OzY2OzkzNTs0NTsxCjc7Y2FyO25vOzA7MzY7ODIxOzQ1OzEKODthaXI7bm87Njk7MTIxOzE1MjsxMjsxCjg7dHJhaW47bm87MzQ7NTI7ODg5OzEyOzEKODtidXM7bm87MzU7NTA7ODc5OzEyOzEKODtjYXI7eWVzOzA7NTA7NzgwOzEyOzEKOTthaXI7bm87Njk7NTk7MTAwOzQwOzEKOTt0cmFpbjtubzszNDszMTszNzI7NDA7MQo5O2J1cztubzszNTsyNTs0MTc7NDA7MQo5O2Nhcjt5ZXM7MDsxNzsyMTA7NDA7MQoxMDthaXI7bm87Njk7NTg7Njg7NzA7MgoxMDt0cmFpbjtubzszNDszMTszNTc7NzA7MgoxMDtidXM7bm87MzU7MjU7NDAyOzcwOzIKMTA7Y2FyO3llczswOzc7MjEwOzcwOzIKMTE7YWlyO25vOzY0OzU4OzY4OzE1OzIKMTE7dHJhaW47bm87NDQ7MTY7MzU3OzE1OzIKMTE7YnVzO25vOzUzOzEzOzQwMjsxNTsyCjExO2Nhcjt5ZXM7MDs0OzIxMDsxNTsyCjEyO2Fpcjtubzs2NDs2MjsxMDg7MzU7MgoxMjt0cmFpbjtubzs0NDszNDszNzA7MzU7MgoxMjtidXM7bm87NTM7Mjg7NDE1OzM1OzIKMTI7Y2FyO3llczswOzY7MjUwOzM1OzIKMTM7YWlyO25vOzY0OzQ1OzExNDs1MDs0CjEzO3RyYWluO25vOzQ0OzI0OzM3ODs1MDs0CjEzO2J1cztubzs1MzsxOTs0MjM7NTA7NAoxMztjYXI7eWVzOzA7NTsyNDA7NTA7NAoxNDthaXI7bm87NjQ7NTg7OTQ7NDA7MQoxNDt0cmFpbjtubzs0NDszMTszNjA7NDA7MQoxNDtidXM7bm87NTM7MjU7NDA1OzQwOzEKMTQ7Y2FyO3llczswOzE1OzI4NTs0MDsxCjE1O2Fpcjtubzs2NDs4MzsxNjk7MjY7NAoxNTt0cmFpbjtubzs0NDs3MDs5NDg7MjY7NAoxNTtidXM7bm87NTM7NDc7OTM4OzI2OzQKMTU7Y2FyO3llczswOzE3OzEyMDA7MjY7NAoxNjthaXI7bm87Njk7NjA7MTI3OzI2OzEKMTY7dHJhaW47eWVzOzIwOzE5OzMyNTsyNjsxCjE2O2J1cztubzszNTsyNTs0MzU7MjY7MQoxNjtjYXI7bm87MDsxNDszNTA7MjY7MQoxNzthaXI7bm87Njk7NjE7NzQ7MjY7MQoxNzt0cmFpbjt5ZXM7MTU7Mzg7MjU1OzI2OzEKMTc7YnVzO25vOzM1OzI2OzM4OTsyNjsxCjE3O2NhcjtubzswOzEzOzMxNTsyNjsxCjE4O2Fpcjtubzs2OTs2Nzs4Njs2OzEKMTg7dHJhaW47eWVzOzIwOzIxOzMwMDs2OzEKMTg7YnVzO25vOzM1OzE5OzM5OTs2OzEKMTg7Y2FyO25vOzA7MTc7MzI3OzY7MQoxOTthaXI7bm87Njk7NTk7MTQ4OzIwOzEKMTk7dHJhaW47eWVzOzQ1OzE4OzMwNTsyMDsxCjE5O2J1cztubzszNTsxNDs0NTY7MjA7MQoxOTtjYXI7bm87MDsxNjs0Mjc7MjA7MQoyMDthaXI7bm87NjQ7NTg7OTM7NzI7MgoyMDt0cmFpbjt5ZXM7MTA7Mjg7MzA1OzcyOzIKMjA7YnVzO25vOzUzOzI1OzM0Njs3MjsyCjIwO2NhcjtubzswOzk7MzE2OzcyOzIKMjE7YWlyO25vOzY5OzYxOzczOzY7MQoyMTt0cmFpbjt5ZXM7MjA7MjE7MzA1OzY7MQoyMTtidXM7bm87MzU7MTU7Mzk1OzY7MQoyMTtjYXI7bm87MDsxMzszMTQ7NjsxCjIyO2Fpcjtubzs2NDs2MjsyMzU7MTA7MgoyMjt0cmFpbjt5ZXM7NDU7NDU7NDY1OzEwOzIKMjI7YnVzO25vOzUzOzE3OzYyMzsxMDsyCjIyO2NhcjtubzswOzEzOzU1OTsxMDsyCjIzO2Fpcjt5ZXM7OTA7MTQyOzEwNTs1MDsxCjIzO3RyYWluO25vOzM0OzcxOzU5Njs1MDsxCjIzO2J1cztubzszNTszMjs1OTA7NTA7MQoyMztjYXI7bm87MDszMzs1Nzc7NTA7MQoyNDthaXI7eWVzOzUwOzEyMDsxMTA7NTA7MQoyNDt0cmFpbjtubzszNDs3MDs1OTY7NTA7MQoyNDtidXM7bm87MzU7MzE7NTkwOzUwOzEKMjQ7Y2FyO25vOzA7MzM7NTc3OzUwOzEKMjU7YWlyO3llczsxNTs4NTs2NTsxODsyCjI1O3RyYWluO25vOzM0OzE1OzM2MTsxODsyCjI1O2J1cztubzszNTsxMjs0MDY7MTg7MgoyNTtjYXI7bm87MDs5OzI5NjsxODsyCjI2O2Fpcjt5ZXM7MzA7ODU7MTQwOzYwOzEKMjY7dHJhaW47bm87NDQ7OTA7OTI4OzYwOzEKMjY7YnVzO25vOzUzOzQ1OzkxODs2MDsxCjI2O2NhcjtubzswOzg2OzkwMjs2MDsxCjI3O2Fpcjt5ZXM7ODA7NzU7MTEwOzQ1OzEKMjc7dHJhaW47bm87MzQ7NzA7NjM4OzQ1OzEKMjc7YnVzO25vOzM1OzMxOzYzMjs0NTsxCjI3O2NhcjtubzswOzM5OzU4MTs0NTsxCjI4O2Fpcjt5ZXM7NDU7ODU7MTQwOzE4OzIKMjg7dHJhaW47bm87NDQ7Mzk7NjY0OzE4OzIKMjg7YnVzO25vOzUzOzM1OzY1ODsxODsyCjI4O2NhcjtubzswOzE5OzU5MjsxODsyCjI5O2Fpcjtubzs2NDs3NDsxNzk7ODsyCjI5O3RyYWluO3llczs2MDs0MzszMjA7ODsyCjI5O2J1cztubzs1MzsyMTszNDU7ODsyCjI5O2NhcjtubzswOzk7MzIxOzg7MgozMDthaXI7bm87Njk7NTk7MTAwOzY7MQozMDt0cmFpbjt5ZXM7MjsxMTsyODU7NjsxCjMwO2J1cztubzszNTsxMzs0MTc7NjsxCjMwO2NhcjtubzswOzEzOzI4NDs2OzEKMzE7YWlyO25vOzY5OzU5OzEwMTsyMDsxCjMxO3RyYWluO3llczs1OzE3OzMwMDsyMDsxCjMxO2J1cztubzszNTsyNTs0MjA7MjA7MQozMTtjYXI7bm87MDsxMzsyOTc7MjA7MQozMjthaXI7bm87Njk7NjQ7OTA7NDU7MQozMjt0cmFpbjt5ZXM7MTU7MzI7MzI1OzQ1OzEKMzI7YnVzO25vOzM1OzI5OzQwNTs0NTsxCjMyO2NhcjtubzswOzE4OzMyNzs0NTsxCjMzO2Fpcjtubzs2NDs1OTs3Mzs3MDsyCjMzO3RyYWluO3llczs0NTsyOTsyOTA7NzA7MgozMztidXM7bm87NTM7MjY7Mzk1OzcwOzIKMzM7Y2FyO25vOzA7OTszMTQ7NzA7MgozNDthaXI7bm87Njk7NjI7NjY7NDsxCjM0O3RyYWluO3llczsxMDszMTsyOTU7NDsxCjM0O2J1cztubzszNTsxOTszOTc7NDsxCjM0O2NhcjtubzswOzE3OzMwNzs0OzEKMzU7YWlyO25vOzY5OzYwOzEzMjs0MDsxCjM1O3RyYWluO3llczsxNTsxNTszMzA7NDA7MQozNTtidXM7bm87MzU7MjY7MzczOzQwOzEKMzU7Y2FyO25vOzA7MTI7MzA5OzQwOzEKMzY7YWlyO25vOzY5OzYwOzExNzszNTsxCjM2O3RyYWluO3llczsxMDsyMzszMjU7MzU7MQozNjtidXM7bm87MzU7MjU7NDI1OzM1OzEKMzY7Y2FyO25vOzA7MTc7MzA3OzM1OzEKMzc7YWlyO25vOzY0OzYyOzE4NDs0MDsyCjM3O3RyYWluO3llczs0NTsyNDszNjA7NDA7MgozNztidXM7bm87NTM7Mjg7NDY0OzQwOzIKMzc7Y2FyO25vOzA7MTE7NDI3OzQwOzIKMzg7YWlyO25vOzY0OzUwOzY3OzQ7MwozODt0cmFpbjt5ZXM7MzA7MzE7MjY1OzQ7MwozODtidXM7bm87NTM7MTQ7MzkzOzQ7MwozODtjYXI7bm87MDs2OzMwODs0OzMKMzk7YWlyO25vOzY0OzQ4OzE1NDsxNTs0CjM5O3RyYWluO3llczs1NTsyNTszNjA7MTU7NAozOTtidXM7bm87NTM7MTQ7NDYyOzE1OzQKMzk7Y2FyO25vOzA7NDszNTE7MTU7NAo0MDthaXI7eWVzOzMwOzE0NzsxMDA7MjY7MQo0MDt0cmFpbjtubzszNDs5Njs2Nzg7MjY7MQo0MDtidXM7bm87MzU7NTc7NjcyOzI2OzEKNDA7Y2FyO25vOzA7Mjg7NjI5OzI2OzEKNDE7YWlyO3llczs3NTsxMjU7MTEwOzI2OzEKNDE7dHJhaW47bm87MzQ7NzA7NTk2OzI2OzEKNDE7YnVzO25vOzM1OzMxOzU5MDsyNjsxCjQxO2NhcjtubzswOzI0OzU3NzsyNjsxCjQyO2Fpcjt5ZXM7NDA7MTUyOzk1OzcwOzEKNDI7dHJhaW47bm87MzQ7NzM7NjAwOzcwOzEKNDI7YnVzO25vOzM1OzM0OzU5NDs3MDsxCjQyO2NhcjtubzswOzI0OzU4Nzs3MDsxCjQzO2Fpcjt5ZXM7MzA7MTE2OzE4MDs3MDsxCjQzO3RyYWluO25vOzM0OzcxOzY1Nzs3MDsxCjQzO2J1cztubzszNTszMjs2NTE7NzA7MQo0MztjYXI7bm87MDsyOTs2Mjk7NzA7MQo0NDthaXI7eWVzOzQwOzEwMDsxMDU7NDU7Mgo0NDt0cmFpbjtubzs0NDs3MDs2MjI7NDU7Mgo0NDtidXM7bm87NTM7MzE7NjE2OzQ1OzIKNDQ7Y2FyO25vOzA7MTc7NTc3OzQ1OzIKNDU7YWlyO3llczs0NTsxMDU7MTE1Ozg7Mgo0NTt0cmFpbjtubzs0NDszNTs2MjI7ODsyCjQ1O2J1cztubzs1MzszMTs2MTY7ODsyCjQ1O2NhcjtubzswOzEyOzU3Nzs4OzIKNDY7YWlyO3llczsyMDsxMDY7MTkwOzcwOzEKNDY7dHJhaW47bm87MzQ7NzI7NjU5OzcwOzEKNDY7YnVzO25vOzM1OzMzOzY1Mzs3MDsxCjQ2O2NhcjtubzswOzQ0OzU5Mjs3MDsxCjQ3O2Fpcjt5ZXM7NjA7OTA7MTAwOzI2OzIKNDc7dHJhaW47bm87NDQ7Njk7NTk2OzI2OzIKNDc7YnVzO25vOzUzOzMwOzU5MDsyNjsyCjQ3O2NhcjtubzswOzEzOzU3NzsyNjsyCjQ4O2Fpcjt5ZXM7NDA7NDg7MTE1OzUwOzEKNDg7dHJhaW47bm87MzQ7MzE7MzY1OzUwOzEKNDg7YnVzO25vOzM1OzI1OzQxMDs1MDsxCjQ4O2NhcjtubzswOzE2OzMwODs1MDsxCjQ5O2Fpcjt5ZXM7NTA7Njk7ODU7MTA7Mwo0OTt0cmFpbjtubzs0NDsxNjszNDQ7MTA7Mwo0OTtidXM7bm87NTM7MTM7Mzg5OzEwOzMKNDk7Y2FyO25vOzA7NDszMTU7MTA7Mwo1MDthaXI7eWVzOzc1Ozk5OzEzNTszMDsxCjUwO3RyYWluO25vOzM0Ozk2OzY3ODszMDsxCjUwO2J1cztubzszNTs1Nzs2NzI7MzA7MQo1MDtjYXI7bm87MDsyOTs2Mjk7MzA7MQo1MTthaXI7eWVzOzkwOzY0OzE1NTs2MDsyCjUxO3RyYWluO25vOzQ0Ozc0OzY3ODs2MDsyCjUxO2J1cztubzs1MzszNTs2NzI7NjA7Mgo1MTtjYXI7bm87MDsyMDs2Mjk7NjA7Mgo1MjthaXI7eWVzOzg1OzEwNTs4NTszMDs0CjUyO3RyYWluO25vOzQ0OzU2OzY2NTszMDs0CjUyO2J1cztubzs1MzszNTs2NTk7MzA7NAo1MjtjYXI7bm87MDs4OzU4NzszMDs0CjUzO2Fpcjtubzs2OTs2MDsxMjM7MzA7MQo1Mzt0cmFpbjt5ZXM7MTU7MjQ7MzY1OzMwOzEKNTM7YnVzO25vOzM1OzI1OzQzMDszMDsxCjUzO2NhcjtubzswOzEzOzMzMjszMDsxCjU0O2Fpcjtubzs2NDs1ODs5MDs1MDsyCjU0O3RyYWluO3llczszMDsyMjszNDA7NTA7Mgo1NDtidXM7bm87NTM7MjU7NDE3OzUwOzIKNTQ7Y2FyO25vOzA7OTszMzQ7NTA7Mgo1NTthaXI7bm87NjQ7NDU7NzM7Njs0CjU1O3RyYWluO3llczsxNTsyMjsyOTA7Njs0CjU1O2J1cztubzs1MzsxMzszOTU7Njs0CjU1O2NhcjtubzswOzU7MzE0OzY7NAo1NjthaXI7bm87Njk7MTA4OzE3MDszMDsxCjU2O3RyYWluO3llczszMDszMTs4NzU7MzA7MQo1NjtidXM7bm87MzU7NDQ7ODg3OzMwOzEKNTY7Y2FyO25vOzA7NTA7ODg0OzMwOzEKNTc7YWlyO25vOzY5OzExMDsyNDk7MTI7MQo1Nzt0cmFpbjt5ZXM7NDU7MjI7ODkwOzEyOzEKNTc7YnVzO25vOzM1OzQ3Ozk1NTsxMjsxCjU3O2NhcjtubzswOzM4Ozk5MDsxMjsxCjU4O2Fpcjtubzs2NDsxMTU7MTM4OzM2OzIKNTg7dHJhaW47eWVzOzEwOzQ0OzgzMDszNjsyCjU4O2J1cztubzs1Mzs1MDs4Njk7MzY7Mgo1ODtjYXI7bm87MDsxODs4NjI7MzY7Mgo1OTthaXI7bm87Njk7MTE3OzE0NzszMDsxCjU5O3RyYWluO3llczs0MDs1OTs3OTA7MzA7MQo1OTtidXM7bm87MzU7NDg7ODg1OzMwOzEKNTk7Y2FyO25vOzA7Mzg7ODgzOzMwOzEKNjA7YWlyO25vOzY0Ozg4OzExOTszNTszCjYwO3RyYWluO3llczs1MDs3ODs3NzU7MzU7Mwo2MDtidXM7bm87NTM7NDM7ODQwOzM1OzMKNjA7Y2FyO25vOzA7MTY7ODU1OzM1OzMKNjE7YWlyO25vOzY5OzEwNTsxOTY7NjsxCjYxO3RyYWluO3llczs0MDs0Mzs4OTU7NjsxCjYxO2J1cztubzszNTs0NDs5MTk7NjsxCjYxO2NhcjtubzswOzUwOzkzNTs2OzEKNjI7YWlyO25vOzY0OzEyMDszMzM7NjsxCjYyO3RyYWluO3llczsyNTsyODs4NzA7NjsxCjYyO2J1cztubzs1Mzs1Mjs4OTA7NjsxCjYyO2NhcjtubzswOzM4OzkyMTs2OzEKNjM7YWlyO25vOzY0OzEwMzsxNDY7ODsyCjYzO3RyYWluO3llczsyNTszNjs4NzU7ODsyCjYzO2J1cztubzs1Mzs0Mzs5NDM7ODsyCjYzO2NhcjtubzswOzE5Ozg4Nzs4OzIKNjQ7YWlyO25vOzY5OzEwMzsxMzg7NjsxCjY0O3RyYWluO3llczs1OzIyOzgwMDs2OzEKNjQ7YnVzO25vOzM1OzQzOzgyMTs2OzEKNjQ7Y2FyO25vOzA7MzY7ODQ2OzY7MQo2NTthaXI7bm87NjQ7MTE2OzE2NDsxMjsyCjY1O3RyYWluO3llczs3NTs4OTs2ODU7MTI7Mgo2NTtidXM7bm87NTM7NDc7ODc1OzEyOzIKNjU7Y2FyO25vOzA7MTk7ODc0OzEyOzIKNjY7YWlyO25vOzY5OzEwMzsxMjk7MzA7MQo2Njt0cmFpbjtubzszNDs4ODs5MjU7MzA7MQo2NjtidXM7eWVzOzEwOzMwOzc5MDszMDsxCjY2O2NhcjtubzswOzUwOzg4NzszMDsxCjY3O2Fpcjtubzs2NDsxMDk7MjMwOzM1OzIKNjc7dHJhaW47bm87NDQ7MTAxOzExMDQ7MzU7Mgo2NztidXM7bm87NTM7NTY7MTA5NDszNTsyCjY3O2Nhcjt5ZXM7MDsyNjs5NjA7MzU7Mgo2ODthaXI7bm87Njk7MTA4OzE3NzszNTsxCjY4O3RyYWluO25vOzM0OzkyOzkwNzszNTsxCjY4O2J1czt5ZXM7NDU7Mzk7ODUwOzM1OzEKNjg7Y2FyO25vOzA7NTI7ODY1OzM1OzEKNjk7YWlyO25vOzY0OzkyOzE2MTs2MDszCjY5O3RyYWluO3llczs0MDs3Mzs3OTI7NjA7Mwo2OTtidXM7bm87NTM7NDY7OTIwOzYwOzMKNjk7Y2FyO25vOzA7MTY7ODg3OzYwOzMKNzA7YWlyO25vOzY0OzExOTsxNjE7NjA7Mgo3MDt0cmFpbjt5ZXM7NDU7NzU7NzY1OzYwOzIKNzA7YnVzO25vOzUzOzUxOzg2OTs2MDsyCjcwO2NhcjtubzswOzE5Ozg5ODs2MDsyCjcxO2Fpcjtubzs2NDsxMDk7MTkwOzEyOzIKNzE7dHJhaW47eWVzOzQwOzI0OzM5OTsxMjsyCjcxO2J1cztubzs1Mzs0Njs5NTE7MTI7Mgo3MTtjYXI7bm87MDsyNzs4OTc7MTI7Mgo3MjthaXI7bm87Njk7MTExOzEwODsxMDsxCjcyO3RyYWluO3llczszMDszMDs3NjA7MTA7MQo3MjtidXM7bm87MzU7NTA7ODY3OzEwOzEKNzI7Y2FyO25vOzA7NDc7ODQ0OzEwOzEKNzM7YWlyO25vOzY5OzEwNDsyNDY7MTA7MQo3Mzt0cmFpbjt5ZXM7MjU7MjM7ODMwOzEwOzEKNzM7YnVzO25vOzM1OzQ1OzEwNjg7MTA7MQo3MztjYXI7bm87MDs0MTs5Nzg7MTA7MQo3NDthaXI7bm87Njk7MTA0OzIwMDsxNTsxCjc0O3RyYWluO3llczs3NTsyMzs4MzU7MTU7MQo3NDtidXM7bm87MzU7NDM7ODQ2OzE1OzEKNzQ7Y2FyO25vOzA7NDA7OTI3OzE1OzEKNzU7YWlyO25vOzY0OzEyNDsxNjA7MTA7Mgo3NTt0cmFpbjt5ZXM7MzA7ODI7ODUwOzEwOzIKNzU7YnVzO25vOzUzOzU0Ozg5MzsxMDsyCjc1O2NhcjtubzswOzE5Ozg4NjsxMDsyCjc2O2Fpcjtubzs2NDsxMDM7MTQ1Ozg7MQo3Njt0cmFpbjt5ZXM7NTA7NzM7ODQwOzg7MQo3NjtidXM7bm87NTM7NDM7ODkyOzg7MQo3NjtjYXI7bm87MDs1MDs4OTQ7ODsxCjc3O2Fpcjtubzs2OTsxMDM7MTI1OzMwOzEKNzc7dHJhaW47eWVzOzMwOzgwOzgwMDszMDsxCjc3O2J1cztubzszNTs0Mjs4NDQ7MzA7MQo3NztjYXI7bm87MDszODs4NjE7MzA7MQo3ODthaXI7bm87NjQ7MTEzOzE2MzsyMDsyCjc4O3RyYWluO25vOzQ0OzUxOzk0ODsyMDsyCjc4O2J1cztubzs1Mzs0OTs5Mzg7MjA7Mgo3ODtjYXI7eWVzOzA7MjY7NzIwOzIwOzIKNzk7YWlyO25vOzY0Ozc2OzE0Nzs3MDs1Cjc5O3RyYWluO25vOzQ0OzYzOzkxODs3MDs1Cjc5O2J1cztubzs1Mzs0NDs5MDg7NzA7NQo3OTtjYXI7eWVzOzA7MTA7MTQ0MDs3MDs1CjgwO2Fpcjtubzs2OTsxMDg7MTYzOzIwOzEKODA7dHJhaW47bm87MzQ7ODk7OTA1OzIwOzEKODA7YnVzO3llczszMDs0Mzs3ODU7MjA7MQo4MDtjYXI7bm87MDszNTs4Nzk7MjA7MQo4MTthaXI7bm87Njk7MTI3OzE5Mzs2MDsxCjgxO3RyYWluO25vOzM0OzEwOTs4ODg7NjA7MQo4MTtidXM7eWVzOzYwOzUyOzEwMjU7NjA7MQo4MTtjYXI7bm87MDs1MDs4OTI7NjA7MQo4MjthaXI7bm87NjQ7NDQ7MTAwOzcwOzQKODI7dHJhaW47bm87NDQ7MjU7MzUxOzcwOzQKODI7YnVzO25vOzUzOzIwOzM2MTs3MDs0CjgyO2Nhcjt5ZXM7MDs1OzE4MDs3MDs0CjgzO2Fpcjtubzs2OTs1OTs5ODs4OzEKODM7dHJhaW47eWVzOzE7MTE7MzIwOzg7MQo4MztidXM7bm87MzU7MTM7NDEzOzg7MQo4MztjYXI7bm87MDsxNzszMzI7ODsxCjg0O2Fpcjtubzs2OTs1OTsxMTQ7MzA7MQo4NDt0cmFpbjt5ZXM7MjU7NjA7MzM3OzMwOzEKODQ7YnVzO25vOzM1OzI1OzQyMzszMDsxCjg0O2NhcjtubzswOzg7MzM1OzMwOzEKODU7YWlyO3llczsyNTs2NTsxNDA7NzA7Mgo4NTt0cmFpbjtubzs0NDs2OTs1OTY7NzA7Mgo4NTtidXM7bm87NTM7MzA7NTkwOzcwOzIKODU7Y2FyO25vOzA7MTY7NTc3OzcwOzIKODY7YWlyO25vOzY5OzYwOzY3OzYwOzEKODY7dHJhaW47eWVzOzEwOzM3OzI4NTs2MDsxCjg2O2J1cztubzszNTsyODs0MDA7NjA7MQo4NjtjYXI7bm87MDsxNDszMjA7NjA7MQo4NzthaXI7bm87NjQ7NTk7MTE4OzIwOzIKODc7dHJhaW47bm87NDQ7MTc7MzQ5OzIwOzIKODc7YnVzO25vOzUzOzE0OzM1OTsyMDsyCjg3O2Nhcjt5ZXM7MDs1OzI0MDsyMDsyCjg4O2Fpcjtubzs2OTs2MTs3MjsxNTsxCjg4O3RyYWluO3llczsxMDsxODszMDU7MTU7MQo4ODtidXM7bm87MzU7Mjc7Mzk2OzE1OzEKODg7Y2FyO25vOzA7MTI7MzMyOzE1OzEKODk7YWlyO25vOzY0OzU5OzExODszMDsyCjg5O3RyYWluO25vOzQ0OzMyOzM0OTszMDsyCjg5O2J1cztubzs1MzsyNjszNTk7MzA7Mgo4OTtjYXI7eWVzOzA7NjsyNjU7MzA7Mgo5MDthaXI7bm87NjQ7NjA7NzQ7MjY7Mgo5MDt0cmFpbjt5ZXM7MjA7NDA7MjYyOzI2OzIKOTA7YnVzO25vOzUzOzI2OzM4OTsyNjsyCjkwO2NhcjtubzswOzEwOzMxNTsyNjsyCjkxO2Fpcjtubzs2NDs0NDs5MzszNTs0CjkxO3RyYWluO3llczsyMDszMDsyOTE7MzU7NAo5MTtidXM7bm87NTM7MTk7MzQ2OzM1OzQKOTE7Y2FyO25vOzA7NDszMTY7MzU7NAo5MjthaXI7bm87Njk7NTg7MTI0OzEyOzEKOTI7dHJhaW47eWVzOzEwOzMwOzM0MDsxMjsxCjkyO2J1cztubzszNTsyNTs0Mjc7MTI7MQo5MjtjYXI7bm87MDsxNDszNjQ7MTI7MQo5MzthaXI7bm87NjQ7ODQ7MTA4OzcwOzIKOTM7dHJhaW47bm87NDQ7NzA7NTk2OzcwOzIKOTM7YnVzO25vOzUzOzMxOzU5MDs3MDsyCjkzO2Nhcjt5ZXM7MDsxNTszNjA7NzA7Mgo5NDthaXI7eWVzOzMwOzE0NTs5MDs1MDsxCjk0O3RyYWluO25vOzQ0OzMxOzM0Mzs1MDsxCjk0O2J1cztubzs1MzsyNTszODg7NTA7MQo5NDtjYXI7bm87MDsxMzsyOTY7NTA7MQo5NTthaXI7eWVzOzQ1OzEyMTsxMDA7NDA7Mgo5NTt0cmFpbjtubzs0NDs5Mjs5MjY7NDA7Mgo5NTtidXM7bm87NTM7NDc7OTE2OzQwOzIKOTU7Y2FyO25vOzA7MjA7ODg1OzQwOzIKOTY7YWlyO3llczszMDs4NDsxODA7NzA7MQo5Njt0cmFpbjtubzszNDs3Mjs3MDc7NzA7MQo5NjtidXM7bm87MzU7MzM7NzAxOzcwOzEKOTY7Y2FyO25vOzA7MjY7NjI2OzcwOzEKOTc7YWlyO25vOzY5OzYxOzE0NjsxMDsxCjk3O3RyYWluO25vOzM0OzE3OzQwOTsxMDsxCjk3O2J1czt5ZXM7NTszMTszMDA7MTA7MQo5NztjYXI7bm87MDsxMzszNTA7MTA7MQo5ODthaXI7eWVzOzQ1OzE4MDsxNjA7MjY7MQo5ODt0cmFpbjtubzszNDs4OTs5ODU7MjY7MQo5ODtidXM7bm87MzU7NDQ7OTc1OzI2OzEKOTg7Y2FyO25vOzA7Mzk7ODk2OzI2OzEKOTk7YWlyO25vOzY0Ozk0OzIzMTs1MDszCjk5O3RyYWluO25vOzQ0Ozc5Ozk0OTs1MDszCjk5O2J1czt5ZXM7NDA7MzI7MTExMDs1MDszCjk5O2NhcjtubzswOzEzOzk0Mjs1MDszCjEwMDthaXI7bm87NjQ7OTI7MjAzOzcwOzMKMTAwO3RyYWluO25vOzQ0Ozc3Ozk2MTs3MDszCjEwMDtidXM7bm87NTM7NDY7OTUxOzcwOzMKMTAwO2Nhcjt5ZXM7MDsxNzs3ODA7NzA7MwoxMDE7YWlyO25vOzY5OzU5OzExMTszMDsxCjEwMTt0cmFpbjtubzszNDszMTszNzY7MzA7MQoxMDE7YnVzO3llczsxNTsyNTszNjA7MzA7MQoxMDE7Y2FyO25vOzA7MjM7MzUxOzMwOzEKMTAyO2Fpcjtubzs2NDs3NTsxNTM7NTA7NQoxMDI7dHJhaW47bm87NDQ7NjQ7OTAwOzUwOzUKMTAyO2J1cztubzs1Mzs0NTs4OTA7NTA7NQoxMDI7Y2FyO3llczswOzEzOzcyMDs1MDs1CjEwMzthaXI7bm87Njk7NTg7OTk7MjA7MQoxMDM7dHJhaW47bm87MzQ7MTY7MzY2OzIwOzEKMTAzO2J1cztubzszNTsxMzs0MTE7MjA7MQoxMDM7Y2FyO3llczswOzEzOzMwMDsyMDsxCjEwNDthaXI7bm87NjQ7MTEwOzE1MzszMjsyCjEwNDt0cmFpbjtubzs0NDs5MTs4NzQ7MzI7MgoxMDQ7YnVzO25vOzUzOzQ2Ozg2NDszMjsyCjEwNDtjYXI7eWVzOzA7MjE7OTYwOzMyOzIKMTA1O2Fpcjtubzs2NDsxMDg7MTg3OzI3OzIKMTA1O3RyYWluO25vOzQ0OzkwOzkzMjsyNzsyCjEwNTtidXM7bm87NTM7NDU7OTIyOzI3OzIKMTA1O2Nhcjt5ZXM7MDsyMDsxNDQwOzI3OzIKMTA2O2Fpcjtubzs2OTsxMDQ7MTc5OzMwOzEKMTA2O3RyYWluO25vOzM0Ozg5Ozk3ODszMDsxCjEwNjtidXM7eWVzOzMwOzI4Ozc5NTszMDsxCjEwNjtjYXI7bm87MDs0MDs5MDQ7MzA7MQoxMDc7YWlyO25vOzY5OzEwODsxODA7MzU7MQoxMDc7dHJhaW47bm87MzQ7ODk7OTAxOzM1OzEKMTA3O2J1cztubzszNTs0NDs4OTE7MzU7MQoxMDc7Y2FyO3llczswOzM0OzcyMDszNTsxCjEwODthaXI7bm87NjQ7Nzg7MTQ2OzQwOzQKMTA4O3RyYWluO25vOzQ0OzY2OzkwMzs0MDs0CjEwODtidXM7bm87NTM7NDM7ODkzOzQwOzQKMTA4O2Nhcjt5ZXM7MDsxMTs4NzA7NDA7NAoxMDk7YWlyO25vOzY0OzYwOzE0NDs2MDsyCjEwOTt0cmFpbjtubzs0NDszMjs0MDQ7NjA7MgoxMDk7YnVzO25vOzUzOzI2OzQ0OTs2MDsyCjEwOTtjYXI7eWVzOzA7ODsyNzA7NjA7MgoxMTA7YWlyO25vOzY0Ozc4OzE3NTs0MDs0CjExMDt0cmFpbjtubzs0NDs2Nzs5MzI7NDA7NAoxMTA7YnVzO25vOzUzOzQ0OzkyMjs0MDs0CjExMDtjYXI7eWVzOzA7MTI7NzIwOzQwOzQKMTExO2Fpcjtubzs2OTs2NzsxMDg7NzA7MQoxMTE7dHJhaW47bm87MzQ7Mzg7MzcwOzcwOzEKMTExO2J1cztubzszNTszMjs0MTU7NzA7MQoxMTE7Y2FyO3llczswOzEyOzI0MDs3MDsxCjExMjthaXI7bm87NjQ7MTA4OzIwMDs3MDsyCjExMjt0cmFpbjtubzs0NDs5MDs5NDQ7NzA7MgoxMTI7YnVzO25vOzUzOzQ1OzkzNDs3MDsyCjExMjtjYXI7eWVzOzA7MTk7NzIwOzcwOzIKMTEzO2Fpcjt5ZXM7NjA7MTA4OzgwOzMwOzIKMTEzO3RyYWluO25vOzQ0OzMyOzM0NDszMDsyCjExMztidXM7bm87NTM7MjY7Mzg5OzMwOzIKMTEzO2NhcjtubzswOzc7MzE1OzMwOzIKMTE0O2Fpcjt5ZXM7MzA7NTg7OTA7MzU7MgoxMTQ7dHJhaW47bm87NDQ7MzI7NTA2OzM1OzIKMTE0O2J1cztubzs1MzsyNjs1NTE7MzU7MgoxMTQ7Y2FyO25vOzA7ODs0MDI7MzU7MgoxMTU7YWlyO3llczs1NTs2OTsxMTU7NjA7MQoxMTU7dHJhaW47bm87MzQ7NDM7MzkyOzYwOzEKMTE1O2J1cztubzszNTszNzs0Mzc7NjA7MQoxMTU7Y2FyO25vOzA7MTM7MjY4OzYwOzEKMTE2O2Fpcjt5ZXM7NDA7NjY7MTA1OzQ1OzEKMTE2O3RyYWluO25vOzM0OzMxOzM3Mjs0NTsxCjExNjtidXM7bm87MzU7MjU7NDE3OzQ1OzEKMTE2O2NhcjtubzswOzE4OzMyNzs0NTsxCjExNzthaXI7bm87Njk7NTc7Njc7NDU7MQoxMTc7dHJhaW47bm87MzQ7MzE7MzU1OzQ1OzEKMTE3O2J1czt5ZXM7NDA7MTg7MjQ1OzQ1OzEKMTE3O2NhcjtubzswOzEzOzMyMDs0NTsxCjExODthaXI7bm87Njk7MTI5OzE4NTs2OzEKMTE4O3RyYWluO25vOzM0OzY3OzkzMzs2OzEKMTE4O2J1czt5ZXM7MjA7NTQ7ODIwOzY7MQoxMTg7Y2FyO25vOzA7Mzg7ODk0OzY7MQoxMTk7YWlyO3llczs5MDsxNTE7OTU7MzY7MQoxMTk7dHJhaW47bm87MzQ7OTY7ODk1OzM2OzEKMTE5O2J1cztubzszNTs1MTs4ODU7MzY7MQoxMTk7Y2FyO25vOzA7MzU7ODQ0OzM2OzEKMTIwO2Fpcjt5ZXM7MTA7NzA7ODU7MjA7MQoxMjA7dHJhaW47bm87MzQ7MzQ7MzUxOzIwOzEKMTIwO2J1cztubzszNTsyODszOTY7MjA7MQoxMjA7Y2FyO25vOzA7MjI7MzA3OzIwOzEKMTIxO2Fpcjt5ZXM7MjU7NzU7MTAwOzIwOzIKMTIxO3RyYWluO25vOzQ0OzE1OzM0ODsyMDsyCjEyMTtidXM7bm87NTM7MTI7MzkzOzIwOzIKMTIxO2NhcjtubzswOzc7MjkwOzIwOzIKMTIyO2Fpcjt5ZXM7OTk7MTEwOzI2MDsyNjsxCjEyMjt0cmFpbjtubzszNDs5Mjs5MzQ7MjY7MQoxMjI7YnVzO25vOzM1OzQ3OzkyNDsyNjsxCjEyMjtjYXI7bm87MDs0NTs4MTY7MjY7MQoxMjM7YWlyO3llczszMDs5NDsxOTU7Mjk7MQoxMjM7dHJhaW47bm87MzQ7ODk7OTQzOzI5OzEKMTIzO2J1cztubzszNTs0NDs5MzM7Mjk7MQoxMjM7Y2FyO25vOzA7NTg7OTEyOzI5OzEKMTI0O2Fpcjt5ZXM7MzU7OTU7MTU1Ozg7MgoxMjQ7dHJhaW47bm87NDQ7NDU7OTMwOzg7MgoxMjQ7YnVzO25vOzUzOzQzOzkyMDs4OzIKMTI0O2NhcjtubzswOzIzOzg2MDs4OzIKMTI1O2Fpcjtubzs2OTsxMDQ7MTc4OzMyOzEKMTI1O3RyYWluO25vOzM0Ozg5Ozk5MjszMjsxCjEyNTtidXM7eWVzOzE1OzM4OzY3NTszMjsxCjEyNTtjYXI7bm87MDszOTs5MDA7MzI7MQoxMjY7YWlyO25vOzY0OzEwMzsxNzA7NDU7MgoxMjY7dHJhaW47bm87NDQ7ODg7ODg5OzQ1OzIKMTI2O2J1czt5ZXM7MzA7MzU7NzcwOzQ1OzIKMTI2O2NhcjtubzswOzE4OzkwNTs0NTsyCjEyNzthaXI7bm87NjQ7ODY7MTY3OzQ1OzMKMTI3O3RyYWluO25vOzQ0Ozc1Ozk3Mjs0NTszCjEyNztidXM7bm87NTM7NDQ7OTYyOzQ1OzMKMTI3O2Nhcjt5ZXM7MDsxMzs4NzA7NDU7MwoxMjg7YWlyO25vOzY0OzEwODsxMzk7MjY7MgoxMjg7dHJhaW47bm87NDQ7OTA7ODYyOzI2OzIKMTI4O2J1czt5ZXM7MzA7MzY7NzgwOzI2OzIKMTI4O2NhcjtubzswOzE4Ozg3NTsyNjsyCjEyOTthaXI7bm87Njk7NTk7MTA2OzYwOzEKMTI5O3RyYWluO25vOzM0OzMxOzM3Mjs2MDsxCjEyOTtidXM7bm87MzU7MjU7NDE3OzYwOzEKMTI5O2Nhcjt5ZXM7MDsxMzszMDA7NjA7MQoxMzA7YWlyO25vOzY0OzU4OzEyNDsxMDsyCjEzMDt0cmFpbjt5ZXM7MTA7MzU7MzgwOzEwOzIKMTMwO2J1cztubzs1MzsxMzs0Mjc7MTA7MgoxMzA7Y2FyO25vOzA7ODszNjQ7MTA7MgoxMzE7YWlyO25vOzY0OzEwNzsxNTM7NDU7MgoxMzE7dHJhaW47bm87NDQ7ODk7ODgwOzQ1OzIKMTMxO2J1cztubzs1Mzs0NDs4NzA7NDU7MgoxMzE7Y2FyO3llczswOzI7NjYwOzQ1OzIKMTMyO2Fpcjtubzs2NDs4NjsxNDM7NjA7MwoxMzI7dHJhaW47bm87NDQ7NzQ7ODgwOzYwOzMKMTMyO2J1cztubzs1Mzs0Mzs4NzA7NjA7MwoxMzI7Y2FyO3llczswOzE2OzY2MDs2MDszCjEzMzthaXI7bm87Njk7MTA4OzE5Njs2MDsxCjEzMzt0cmFpbjtubzszNDs5MTs5Njc7NjA7MQoxMzM7YnVzO3llczsxNTszNTs5MzU7NjA7MQoxMzM7Y2FyO25vOzA7Mzg7OTAzOzYwOzEKMTM0O2Fpcjtubzs2OTsxMDM7MTQ5Ozg7MQoxMzQ7dHJhaW47bm87MzQ7NDU7ODkyOzg7MQoxMzQ7YnVzO3llczsyNTsyNTs3MzA7ODsxCjEzNDtjYXI7bm87MDszNzs4ODI7ODsxCjEzNTthaXI7bm87NjQ7MTAzOzE2MDs2MDsyCjEzNTt0cmFpbjtubzs0NDs4OTs5ODc7NjA7MgoxMzU7YnVzO25vOzUzOzQ0Ozk3Nzs2MDsyCjEzNTtjYXI7eWVzOzA7MzQ7NjYwOzYwOzIKMTM2O2Fpcjtubzs2NDsxMTQ7MTYxOzEyOzIKMTM2O3RyYWluO25vOzQ0OzYwOzEwMzE7MTI7MgoxMzY7YnVzO25vOzUzOzU4OzEwMjE7MTI7MgoxMzY7Y2FyO3llczswOzE5OzcyMDsxMjsyCjEzNzthaXI7bm87Njk7MTA3OzE1MDs0NTsxCjEzNzt0cmFpbjtubzszNDs5MTs5MTQ7NDU7MQoxMzc7YnVzO25vOzM1OzQ2OzkwNDs0NTsxCjEzNztjYXI7eWVzOzA7MzY7NzUwOzQ1OzEKMTM4O2Fpcjtubzs2OTsxMTg7MTM3OzUwOzEKMTM4O3RyYWluO25vOzM0Ozk2OzkwNDs1MDsxCjEzODtidXM7eWVzOzU7NjU7ODUwOzUwOzEKMTM4O2NhcjtubzswOzY0Ozg1OTs1MDsxCjEzOTthaXI7bm87Njk7MTAyOzEwMTsyNjsxCjEzOTt0cmFpbjtubzszNDs4Nzs4NzA7MjY7MQoxMzk7YnVzO3llczs0NTszNTs4MDA7MjY7MQoxMzk7Y2FyO25vOzA7MzU7ODI1OzI2OzEKMTQwO2Fpcjtubzs2NDs4NTsxMDE7MzU7MwoxNDA7dHJhaW47bm87NDQ7NzM7ODcwOzM1OzMKMTQwO2J1cztubzs1Mzs0Mjs4NjA7MzU7MwoxNDA7Y2FyO3llczswOzEyOzYwMDszNTszCjE0MTthaXI7bm87Njk7MTA3OzE1ODsxMjsxCjE0MTt0cmFpbjt5ZXM7MzA7NjE7NzgwOzEyOzEKMTQxO2J1cztubzszNTs0NTs5MDE7MTI7MQoxNDE7Y2FyO25vOzA7NTQ7ODUzOzEyOzEKMTQyO2Fpcjtubzs2OTsxMTM7MjQ0OzE1OzEKMTQyO3RyYWluO3llczszMDs2Nzs4NDU7MTU7MQoxNDI7YnVzO25vOzM1OzQ5Ozg5MzsxNTsxCjE0MjtjYXI7bm87MDs0Nzs4Njg7MTU7MQoxNDM7YWlyO25vOzY0Ozg0OzIxNTsxMjs0CjE0Mzt0cmFpbjt5ZXM7OTk7Mzc7ODg1OzEyOzQKMTQzO2J1cztubzs1Mzs0Njs5NjY7MTI7NAoxNDM7Y2FyO25vOzA7MTA7OTIxOzEyOzQKMTQ0O2Fpcjtubzs2NDs5NDsxNjM7MzU7MwoxNDQ7dHJhaW47eWVzOzI1OzY4Ozc1NTszNTszCjE0NDtidXM7bm87NTM7NDc7ODk1OzM1OzMKMTQ0O2NhcjtubzswOzE2Ozg3OTszNTszCjE0NTthaXI7bm87Njk7MTEyOzE2MTsyNjsxCjE0NTt0cmFpbjt5ZXM7MTU7MjE7Nzk3OzI2OzEKMTQ1O2J1cztubzszNTs0NTs4NzY7MjY7MQoxNDU7Y2FyO25vOzA7NDc7ODUyOzI2OzEKMTQ2O2Fpcjtubzs2OTsxMDM7MTY2OzY7MQoxNDY7dHJhaW47eWVzOzQ1OzIwOzgyMDs2OzEKMTQ2O2J1cztubzszNTs0Mzs4MzY7NjsxCjE0NjtjYXI7bm87MDszNTs4ODY7NjsxCjE0NzthaXI7bm87Njk7MTA3OzE1Mjs0OzEKMTQ3O3RyYWluO3llczszMDszMzs3NTU7NDsxCjE0NztidXM7bm87MzU7NDQ7ODgyOzQ7MQoxNDc7Y2FyO25vOzA7NDg7ODQ1OzQ7MQoxNDg7YWlyO25vOzY0OzEwMzsxNjQ7NDA7MgoxNDg7dHJhaW47eWVzOzEwOzQxOzczMDs0MDsyCjE0ODtidXM7bm87NTM7NDM7OTI1OzQwOzIKMTQ4O2NhcjtubzswOzE5Ozg5ODs0MDsyCjE0OTthaXI7bm87NjQ7MTQzOzE2Njs0MDsxCjE0OTt0cmFpbjt5ZXM7MTA7ODM7ODI1OzQwOzEKMTQ5O2J1cztubzs1Mzs3MDs4OTY7NDA7MQoxNDk7Y2FyO25vOzA7NTA7OTExOzQwOzEKMTUwO2Fpcjt5ZXM7NDU7OTQ7MjcwOzYwOzEKMTUwO3RyYWluO25vOzM0OzkxOzkxNjs2MDsxCjE1MDtidXM7bm87MzU7NDY7OTA2OzYwOzEKMTUwO2NhcjtubzswOzQ5Ozg3Mjs2MDsxCjE1MTthaXI7eWVzOzQ1OzEzODsxMTU7NDsxCjE1MTt0cmFpbjtubzszNDs2MDs4ODA7NDsxCjE1MTtidXM7bm87MzU7NTg7ODcwOzQ7MQoxNTE7Y2FyO25vOzA7NDc7ODg4OzQ7MQoxNTI7YWlyO3llczs2MDsxMDI7MjUwOzUwOzEKMTUyO3RyYWluO25vOzM0OzExMjs5OTc7NTA7MQoxNTI7YnVzO25vOzM1OzY3Ozk1Mjs1MDsxCjE1MjtjYXI7bm87MDs0Mzs5NzE7NTA7MQoxNTM7YWlyO3llczs2MDsxNTE7MjU1OzYwOzIKMTUzO3RyYWluO25vOzQ0OzkxOzk0MTs2MDsyCjE1MztidXM7bm87NTM7NDY7OTMxOzYwOzIKMTUzO2NhcjtubzswOzIxOzk1OTs2MDsyCjE1NDthaXI7eWVzOzYwOzExMTsyMDU7NzA7MQoxNTQ7dHJhaW47bm87MzQ7OTc7ODg4OzcwOzEKMTU0O2J1cztubzszNTs1Mjs4Nzg7NzA7MQoxNTQ7Y2FyO25vOzA7NDk7ODU1OzcwOzEKMTU1O2Fpcjt5ZXM7NjA7NzA7OTU7NDA7MgoxNTU7dHJhaW47bm87NDQ7MzE7MzYwOzQwOzIKMTU1O2J1cztubzs1MzsyNTs0MDU7NDA7MgoxNTU7Y2FyO25vOzA7NzszMzU7NDA7MgoxNTY7YWlyO3llczs0NTs3NDs3MDszNTszCjE1Njt0cmFpbjtubzs0NDsyNjszNjE7MzU7MwoxNTY7YnVzO25vOzUzOzIxOzQwNjszNTszCjE1NjtjYXI7bm87MDs0OzMxNTszNTszCjE1NzthaXI7eWVzOzc1OzE2NTsxODA7NjA7MgoxNTc7dHJhaW47bm87NDQ7OTg7OTY3OzYwOzIKMTU3O2J1cztubzs1Mzs1Mzs5MjI7NjA7MgoxNTc7Y2FyO25vOzA7MjY7OTQ3OzYwOzIKMTU4O2Fpcjt5ZXM7MzA7OTM7MTc1OzYwOzEKMTU4O3RyYWluO25vOzM0Ozk2OzEwMzA7NjA7MQoxNTg7YnVzO25vOzM1OzUxOzEwMjA7NjA7MQoxNTg7Y2FyO25vOzA7NTQ7OTY3OzYwOzEKMTU5O2Fpcjt5ZXM7OTA7NzE7MTE1OzUwOzIKMTU5O3RyYWluO25vOzQ0OzMxOzM4NTs1MDsyCjE1OTtidXM7bm87NTM7MjU7NDMwOzUwOzIKMTU5O2NhcjtubzswOzc7MzMyOzUwOzIKMTYwO2Fpcjt5ZXM7NDU7NzU7NzU7NDA7MwoxNjA7dHJhaW47bm87NDQ7MzM7NDE4OzQwOzMKMTYwO2J1cztubzs1MzsyODs0NjM7NDA7MwoxNjA7Y2FyO25vOzA7NTsyOTE7NDA7MwoxNjE7YWlyO3llczs2MDs4MTs3MDs2MDsxCjE2MTt0cmFpbjtubzszNDszMjszNDE7NjA7MQoxNjE7YnVzO25vOzM1OzI2OzM4Njs2MDsxCjE2MTtjYXI7bm87MDsxMzszMDc7NjA7MQoxNjI7YWlyO3llczs3NTs5NDs5NTsyMDsxCjE2Mjt0cmFpbjtubzszNDszMzszNjc7MjA7MQoxNjI7YnVzO25vOzM1OzI3OzQxMjsyMDsxCjE2MjtjYXI7bm87MDsxNDszMTQ7MjA7MQoxNjM7YWlyO25vOzY0OzcwOzE1ODs1MDszCjE2Mzt0cmFpbjtubzs0NDs2MTs3Nzg7NTA7MwoxNjM7YnVzO25vOzUzOzM0Ozc3Mjs1MDszCjE2MztjYXI7eWVzOzA7MTE7NDcwOzUwOzMKMTY0O2Fpcjtubzs2NDs2NTsxNDU7NzA7NAoxNjQ7dHJhaW47bm87NDQ7NTQ7Njc0OzcwOzQKMTY0O2J1cztubzs1MzszMzs2Njg7NzA7NAoxNjQ7Y2FyO3llczswOzg7NTYwOzcwOzQKMTY1O2Fpcjtubzs2NDs3MTsxMzM7NTA7MwoxNjU7dHJhaW47bm87NDQ7NTk7NjI1OzUwOzMKMTY1O2J1cztubzs1MzszMjs2MTk7NTA7MwoxNjU7Y2FyO3llczswOzg7NTEwOzUwOzMKMTY2O2Fpcjtubzs2OTs4MTsxMzk7MjY7MQoxNjY7dHJhaW47bm87MzQ7NzE7Njk4OzI2OzEKMTY2O2J1cztubzszNTszMjs2OTI7MjY7MQoxNjY7Y2FyO3llczswOzMzOzYwMDsyNjsxCjE2NzthaXI7bm87NjQ7NjU7MTU0OzQ1OzQKMTY3O3RyYWluO25vOzQ0OzUzOzYyMTs0NTs0CjE2NztidXM7bm87NTM7MzI7NjE1OzQ1OzQKMTY3O2Nhcjt5ZXM7MDs5OzUzNTs0NTs0CjE2ODthaXI7bm87NjQ7NTg7MTQ4OzQ1OzYKMTY4O3RyYWluO25vOzQ0OzQ4OzY0Njs0NTs2CjE2ODtidXM7bm87NTM7MzI7NjQwOzQ1OzYKMTY4O2Nhcjt5ZXM7MDs1OzQ3MDs0NTs2CjE2OTthaXI7bm87Njk7ODE7OTU7MzA7MQoxNjk7dHJhaW47bm87MzQ7NzA7NjEwOzMwOzEKMTY5O2J1cztubzszNTszMTs2MDQ7MzA7MQoxNjk7Y2FyO3llczswOzMwOzQ0MDszMDsxCjE3MDthaXI7bm87NjQ7NzE7MTQ1OzQwOzMKMTcwO3RyYWluO25vOzQ0OzU5OzY1ODs0MDszCjE3MDtidXM7bm87NTM7MzI7NjUyOzQwOzMKMTcwO2Nhcjt5ZXM7MDsxMDs1OTA7NDA7MwoxNzE7YWlyO25vOzY0OzgyOzE1OTs1MDsyCjE3MTt0cmFpbjtubzs0NDs3MTs3NjU7NTA7MgoxNzE7YnVzO25vOzUzOzMyOzc1OTs1MDsyCjE3MTtjYXI7eWVzOzA7MTM7NDkwOzUwOzIKMTcyO2Fpcjtubzs2OTs2MTs3MzszNTsxCjE3Mjt0cmFpbjtubzszNDszMzszNTA7MzU7MQoxNzI7YnVzO3llczs1MDsyNjsyMjc7MzU7MQoxNzI7Y2FyO25vOzA7MTQ7MzE0OzM1OzEKMTczO2Fpcjtubzs2OTs2MDsxMzM7MzQ7MQoxNzM7dHJhaW47bm87MzQ7MzE7Mzk3OzM0OzEKMTczO2J1czt5ZXM7MTU7MjE7MjQwOzM0OzEKMTczO2NhcjtubzswOzE0OzM1MTszNDsxCjE3NDthaXI7bm87NjQ7ODE7MTI5Ozg7MgoxNzQ7dHJhaW47bm87NDQ7MzU7Njc3Ozg7MgoxNzQ7YnVzO3llczsxNTszMTs1NjU7ODsyCjE3NDtjYXI7bm87MDsxMjs1ODg7ODsyCjE3NTthaXI7bm87Njk7NTk7MTE3OzMwOzEKMTc1O3RyYWluO25vOzM0OzMyOzM5NzszMDsxCjE3NTtidXM7bm87MzU7MjY7NDQyOzMwOzEKMTc1O2Nhcjt5ZXM7MDsxNzsxODA7MzA7MQoxNzY7YWlyO25vOzY5OzExMTsyNzY7MzI7MQoxNzY7dHJhaW47bm87MzQ7OTM7MTA0NzszMjsxCjE3NjtidXM7eWVzOzMwOzM1Ozg2MDszMjsxCjE3NjtjYXI7bm87MDs0MjsxMDA4OzMyOzEKMTc3O2Fpcjtubzs2OTs1OTs4ODsyNjsxCjE3Nzt0cmFpbjtubzszNDszMDszNjE7MjY7MQoxNzc7YnVzO3llczsxNTsyMTsyOTU7MjY7MQoxNzc7Y2FyO25vOzA7MTM7Mjk5OzI2OzEKMTc4O2Fpcjtubzs2OTs1OTsxMTQ7NDI7MQoxNzg7dHJhaW47bm87MzQ7MzE7Mzg5OzQyOzEKMTc4O2J1czt5ZXM7MTU7MjE7MjQzOzQyOzEKMTc4O2NhcjtubzswOzEzOzMzNDs0MjsxCjE3OTthaXI7eWVzOzkwOzU1OzExNTs1MDsxCjE3OTt0cmFpbjtubzs0NDs3Mjs2MDI7NTA7MQoxNzk7YnVzO25vOzUzOzMzOzU5Njs1MDsxCjE3OTtjYXI7bm87MDsyNDs1ODk7NTA7MQoxODA7YWlyO3llczsxNTs4NzsxMTA7NzA7MgoxODA7dHJhaW47bm87NDQ7MzE7MzQ4OzcwOzIKMTgwO2J1cztubzs1MzsyNTszOTM7NzA7MgoxODA7Y2FyO25vOzA7NzszMjA7NzA7MgoxODE7YWlyO25vOzY5OzYyOzc2OzMwOzEKMTgxO3RyYWluO25vOzM0OzM5OzM3NzszMDsxCjE4MTtidXM7bm87MzU7MzM7NDIyOzMwOzEKMTgxO2Nhcjt5ZXM7MDsxMjszMDA7MzA7MQoxODI7YWlyO25vOzY5OzU5OzEyMTsyNjsxCjE4Mjt0cmFpbjtubzszNDszMTszODY7MjY7MQoxODI7YnVzO25vOzM1OzI1OzQzMTsyNjsxCjE4MjtjYXI7eWVzOzA7MTQ7MjcwOzI2OzEKMTgzO2Fpcjtubzs2NDs1MTs5MDsyNjszCjE4Mzt0cmFpbjt5ZXM7MjA7NjE7MzUwOzI2OzMKMTgzO2J1cztubzs1MzsyMjs0MDU7MjY7MwoxODM7Y2FyO25vOzA7NjszMjc7MjY7MwoxODQ7YWlyO25vOzY0OzY0OzIxNTsxODsyCjE4NDt0cmFpbjt5ZXM7NTA7NDE7NDIwOzE4OzIKMTg0O2J1cztubzs1MzsxNTszODU7MTg7MgoxODQ7Y2FyO25vOzA7OTszMjE7MTg7MgoxODU7YWlyO25vOzY0OzU4Ozc0OzM1OzIKMTg1O3RyYWluO3llczszMDsyMTsyOTU7MzU7MgoxODU7YnVzO25vOzUzOzI0OzM4OTszNTsyCjE4NTtjYXI7bm87MDs3OzMxNTszNTsyCjE4NjthaXI7bm87NjQ7NzE7MTE5OzUwOzMKMTg2O3RyYWluO25vOzQ0OzU4OzYxNzs1MDszCjE4NjtidXM7eWVzOzE1OzM1OzYxNTs1MDszCjE4NjtjYXI7bm87MDsxMTs1ODY7NTA7MwoxODc7YWlyO3llczsxNTs1MDs3NTs0OzEKMTg3O3RyYWluO25vOzM0OzE1OzM2MTs0OzEKMTg3O2J1cztubzszNTsxMjs0MDY7NDsxCjE4NztjYXI7bm87MDsxMzszMTU7NDsxCjE4ODthaXI7eWVzOzEwOzYxOzgwOzMwOzQKMTg4O3RyYWluO25vOzQ0OzI0OzM1MDszMDs0CjE4ODtidXM7bm87NTM7MTk7Mzk1OzMwOzQKMTg4O2NhcjtubzswOzQ7MzE0OzMwOzQKMTg5O2Fpcjtubzs2OTs1OTsxMDA7NDU7MQoxODk7dHJhaW47bm87MzQ7MzE7MzcyOzQ1OzEKMTg5O2J1cztubzszNTsyNTs0MTc7NDU7MQoxODk7Y2FyO3llczswOzEzOzIxMDs0NTsxCjE5MDthaXI7bm87Njk7NTg7NzM7NjA7MQoxOTA7dHJhaW47bm87MzQ7MzE7MzI0OzYwOzEKMTkwO2J1cztubzszNTsyNTszMzQ7NjA7MQoxOTA7Y2FyO3llczswOzE4OzI0MDs2MDsxCjE5MTthaXI7bm87Njk7NjI7MTg0OzQ7MQoxOTE7dHJhaW47bm87MzQ7MTk7NDU0OzQ7MQoxOTE7YnVzO25vOzM1OzE2OzQ2NDs0OzEKMTkxO2Nhcjt5ZXM7MDsxODsyMjU7NDsxCjE5MjthaXI7eWVzOzMwOzkzOzg1OzMwOzEKMTkyO3RyYWluO25vOzM0OzMzOzM2NTszMDsxCjE5MjtidXM7bm87MzU7Mjc7NDEwOzMwOzEKMTkyO2NhcjtubzswOzEzOzMwODszMDsxCjE5MzthaXI7eWVzOzIwOzc2Ozk1OzYwOzEKMTkzO3RyYWluO25vOzM0OzMzOzM0NDs2MDsxCjE5MztidXM7bm87MzU7Mjc7Mzg5OzYwOzEKMTkzO2NhcjtubzswOzEzOzMxNTs2MDsxCjE5NDthaXI7bm87NjQ7MTAwOzE5MDs0OzIKMTk0O3RyYWluO25vOzQ0OzQ5OzY3ODs0OzIKMTk0O2J1czt5ZXM7MzA7NDg7NDMwOzQ7MgoxOTQ7Y2FyO25vOzA7MTQ7NjI5OzQ7MgoxOTU7YWlyO25vOzY0OzQ4OzYzOzE4OzMKMTk1O3RyYWluO3llczsxMDsyMTsyNTU7MTg7MwoxOTU7YnVzO25vOzUzOzEzOzM5NzsxODszCjE5NTtjYXI7bm87MDs0OzMyNDsxODszCjE5NjthaXI7bm87NjQ7NTg7OTM7MTU7MgoxOTY7dHJhaW47eWVzOzEwOzMwOzMxNTsxNTsyCjE5NjtidXM7bm87NTM7MTM7MzQ2OzE1OzIKMTk2O2NhcjtubzswOzY7MzE2OzE1OzIKMTk3O2Fpcjtubzs2OTs1OTs5NDsyNjsxCjE5Nzt0cmFpbjtubzszNDszMDszNjE7MjY7MQoxOTc7YnVzO25vOzM1OzI0OzQwNjsyNjsxCjE5NztjYXI7eWVzOzA7MTA7MjcwOzI2OzEKMTk4O2Fpcjt5ZXM7MzA7MTExOzEwNTs0MDsxCjE5ODt0cmFpbjtubzszNDs3MTs1OTY7NDA7MQoxOTg7YnVzO25vOzM1OzMyOzU5MDs0MDsxCjE5ODtjYXI7bm87MDsyNzs1Nzc7NDA7MQoxOTk7YWlyO3llczs1OzY0OzgwOzcwOzIKMTk5O3RyYWluO25vOzQ0OzMwOzM0ODs3MDsyCjE5OTtidXM7bm87NTM7MjQ7MzkzOzcwOzIKMTk5O2NhcjtubzswOzc7MjkxOzcwOzIKMjAwO2Fpcjt5ZXM7NTs2MDs4NTs0NTs0CjIwMDt0cmFpbjtubzs0NDsyNDszNzk7NDU7NAoyMDA7YnVzO25vOzUzOzE5OzQyNDs0NTs0CjIwMDtjYXI7bm87MDszOzMzNzs0NTs0CjIwMTthaXI7bm87NjQ7OTc7MTg4OzI2OzMKMjAxO3RyYWluO25vOzQ0Ozc2OzgyNTsyNjszCjIwMTtidXM7eWVzOzE2OzM4OzgxMDsyNjszCjIwMTtjYXI7bm87MDsxNTs4MDM7MjY7MwoyMDI7YWlyO25vOzY5OzkxOzExNzszNTsxCjIwMjt0cmFpbjtubzszNDs3Nzs2MzA7MzU7MQoyMDI7YnVzO25vOzM1OzM4OzYyNDszNTsxCjIwMjtjYXI7eWVzOzA7Mjk7NTQwOzM1OzEKMjAzO2Fpcjtubzs2OTs1OTsxMTQ7NDsxCjIwMzt0cmFpbjtubzszNDsxNjszNzg7NDsxCjIwMztidXM7eWVzOzU7MTQ7MzcwOzQ7MQoyMDM7Y2FyO25vOzA7MTc7MzM1OzQ7MQoyMDQ7YWlyO25vOzY5OzYwOzY2OzIwOzEKMjA0O3RyYWluO25vOzM0OzM0OzM1MjsyMDsxCjIwNDtidXM7eWVzOzEwOzM3OzI1MDsyMDsxCjIwNDtjYXI7bm87MDsxMzszMDc7MjA7MQoyMDU7YWlyO25vOzY5OzEwNzsxNDQ7NDU7MQoyMDU7dHJhaW47bm87MzQ7ODk7ODc5OzQ1OzEKMjA1O2J1czt5ZXM7MzA7MzU7Nzc1OzQ1OzEKMjA1O2NhcjtubzswOzM3Ozg2ODs0NTsxCjIwNjthaXI7bm87Njk7ODE7MTI0OzQwOzEKMjA2O3RyYWluO25vOzM0OzY5OzYwNTs0MDsxCjIwNjtidXM7bm87MzU7MzA7NTk5OzQwOzEKMjA2O2Nhcjt5ZXM7MDszMDs3MjA7NDA7MQoyMDc7YWlyO3llczs0NTsxMjY7MTM1OzQwOzEKMjA3O3RyYWluO25vOzM0OzcwOzU5Njs0MDsxCjIwNztidXM7bm87MzU7MzE7NTkwOzQwOzEKMjA3O2NhcjtubzswOzMyOzU3Nzs0MDsxCjIwODthaXI7bm87Njk7NTk7ODY7MjsxCjIwODt0cmFpbjtubzszNDsxNTszNjA7MjsxCjIwODtidXM7eWVzOzUwOzI5OzI2NTsyOzEKMjA4O2NhcjtubzswOzEzOzMwMDsyOzEKMjA5O2Fpcjtubzs2OTs4MTsxMjQ7MjA7MQoyMDk7dHJhaW47bm87MzQ7MzU7NjA1OzIwOzEKMjA5O2J1cztubzszNTszMTs1OTk7MjA7MQoyMDk7Y2FyO3llczswOzI3OzUxMDsyMDsxCjIxMDthaXI7bm87NjQ7NjY7MTQwOzcwOzQKMjEwO3RyYWluO25vOzQ0OzU0OzY3MDs3MDs0CjIxMDtidXM7bm87NTM7MzM7NjY0OzcwOzQKMjEwO2Nhcjt5ZXM7MDsxMjs1NDA7NzA7NAo=');
+        if (!response.ok) throw new Error('Network response failed');
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'transportation-dataset.csv';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.dispatchEvent(new MouseEvent('click'));
+        document.body.removeChild(a);
+        setTimeout(() => {
+          window.URL.revokeObjectURL(blobUrl);
+        }, 100);
+        return false;
+      } catch (error) {
+        console.error('Download failed:', error);
+        alert('Download failed. Please try again.');
+      }
+    }
+    downloadFile(event);
+  " has_icon="TRUE"><i class="fa fa-save"></i> Download Raw data</button>
+</div>
+</div>
+<p><span class="math inline">\(\rightarrow\)</span> <em>This example has been taken from <span class="citation" data-cites="Train">(<a href="#/references" role="doc-biblioref" onclick="">Train 2009</a>)</span></em></p>
+</section>
+<section id="from-discrete-to-multiple-choice" class="slide level2">
+<h2>From Discrete to Multiple Choice</h2>
+<ul>
+<li><p>In practice, decisions are, in general, more complicated than a simply binary choice:</p>
+<ol type="1">
+<li>Consumers choose between a product given a finite set of choices;</li>
+<li>Passengers choose which transportation method is the preferred one for their trips;</li>
+<li>Individuals choose which payment method is the best to accommodate their budget constraints.</li>
+</ol></li>
+<li><p>In more practical cases, the set of choices <span class="math inline">\(k\)</span> is, in general, greater than <span class="math inline">\(2\)</span>. In this lecture, we will see that we can accommodate the estimation method used for <em>Logit</em> for cases where <span class="math inline">\(k &gt; 2\)</span>.</p></li>
+<li><p>This method is generally called <em>multinomial logit</em>, and like <em>logit</em>, is just an example of generalized linear models, a broader class of models that generalize the multiple linear regression model</p></li>
+</ul>
+</section>
+<section id="bridging-binary-to-multi-choice-models-continued" class="slide level2">
+<h2>Bridging Binary to Multi-Choice Models (continued)</h2>
+<ul>
+<li>Recall that, in a <strong>binary</strong> setting, our probability measure using a <em>logit</em> was:</li>
+</ul>
+<p><span class="math display">\[
+  P(Y) = \frac{\exp(X\beta)}{1 + \exp(X\beta)}
+\]</span> which we will call by <span class="math inline">\(p\)</span></p>
+<ul>
+<li>Let’s write the probabilities of each scenario <span class="math inline">\(y=1\)</span> and <span class="math inline">\(y=0\)</span> for a given customer <span class="math inline">\(i\)</span> as:</li>
+</ul>
+<p><span class="math display">\[
+\begin{cases}
+  P(y_i = 1 \mid x_i) = p_{i,1} \\
+  P(y_i = 0 \mid x_i) = p_{i,0}
+  \end{cases}
+\]</span></p>
+<ul>
+<li>We can use the intuition on these probabilities to arrive at a general formulation.</li>
+</ul>
+</section>
+<section id="bridging-binary-to-multi-choice-models-continued-1" class="slide level2">
+<h2>Bridging Binary to Multi-Choice Models (continued)</h2>
+<ul>
+<li>Suppose that we consider <span class="math inline">\(y = 0\)</span> (in our previous example, non-churned customers) as the baseline reference. Then, the <em>logit</em> regression for this customer <span class="math inline">\(i\)</span> is simply the estimation of the log <em>odds-ratio</em>:</li>
+</ul>
+<p><span class="math display">\[
+\log \left( \frac{p_{i,1}}{1 - p_{i,1}} \right) = \log \left( \frac{p_{i,1}}{p_{i,0}} \right) = X\beta
+\]</span></p>
+<ul>
+<li><p>In words, we are estimating the log ratio of probabilities, taking into account that the baseline category is <span class="math inline">\(y = 0\)</span></p></li>
+<li><p>Relating this to the churn example, we are modeling the increase in the probability of churning (relative to non-churning), based on observations <span class="math inline">\(X\)</span>.</p></li>
+<li><p>What if we have <span class="focus">more than two</span> categories?</p></li>
+</ul>
+</section>
+<section id="bridging-binary-to-multi-choice-models-continued-2" class="slide level2">
+<h2>Bridging Binary to Multi-Choice Models (continued)</h2>
+<ul>
+<li><p>Suppose now that we have <span class="math inline">\(k &gt; 2\)</span>. For example, instead of thinking about a churned customer, we can observe its actual bank choice: <span class="math inline">\(\{Santander, KutxaBank, BankInter\}\)</span></p></li>
+<li><p>Our set has now <span class="focus">three</span> potential choices. We can write the probability of customer <span class="math inline">\(i\)</span> choosing bank <span class="math inline">\(k = z\)</span> as:</p></li>
+</ul>
+<p><span class="math display">\[
+\begin{cases}
+  P(y_i = 1 | x_i) = p_{i,1} \\
+  P(y_i = 2 | x_i) = p_{i,2}, \text{ such that} \quad \sum_{k=1}^{3} p_{i,k} = 1 \\
+  P(y_i = 3 | x_i) = p_{i,3}
+  \end{cases}
+\]</span></p>
+</section>
+<section id="multinomial-logit" class="slide level2">
+<h2>Multinomial Logit</h2>
+<ul>
+<li><p>Let’s say that we want to fit a model to understand customer’s preferences around bank services providers. Formally, we have information on covariates <span class="math inline">\(X\)</span>. Then, we want to fit a model such that we can recover the probability of choosing alternative <span class="math inline">\(k\)</span> based on <span class="math inline">\(X\)</span>.</p></li>
+<li><p>For that, fix <span class="math inline">\(k = 1\)</span> (in our case, <span class="focus">Santander</span>) to be the <em>baseline</em> category. Then:</p></li>
+</ul>
+<p><span class="math display">\[
+  \log\bigg(\frac{p_{i,2}}{p_{i,1}}\bigg) = \alpha_2 + \beta_{2,1} + \dots + \beta_{2,j}
+\]</span></p>
+<p><span class="math display">\[
+  \log\bigg(\frac{p_{i,3}}{p_{i,1}}\bigg) = \alpha_3 + \beta_{3,1} + \dots + \beta_{3,j}
+\]</span></p>
+<ul>
+<li><p>In words, for each bank <span class="math inline">\(k\)</span> other than <span class="math inline">\(k = 1\)</span> (<span class="focus">Santander</span>), we will have a separate equation that measures the log <em>odds-ratio</em> of preferring bank <span class="math inline">\(k\)</span> over <span class="focus">Santander</span></p></li>
+<li><p>Therefore, if the response variable has <span class="math inline">\(k\)</span> possible categories, there will be <span class="math inline">\(k - 1\)</span> equations.</p></li>
+</ul>
+</section>
+<section id="about-the-dataset" class="slide level2">
+<h2>About the dataset</h2>
+<ul>
+<li><p>We will use a different dataset to understand multi-choice models.</p></li>
+<li><p>This data comes from Greene (2003) and consists of a survey about the preferred travel transportation method (<span class="focus">air</span>, <span class="focus">bus</span>, <span class="focus">car</span>, or <span class="focus">train</span> for a sample of individuals.</p></li>
+<li><p>We observe the following characteristics:</p>
+<ol type="1">
+<li>Characteristics of the choice <code>vehicle cost</code>, <code>waiting time</code>, <code>travel time</code></li>
+<li>Characteristics of the individuals: <code>income</code>, <code>family size</code></li>
+<li>The actual choice made by each individual: <span class="math inline">\(\{air, bus, train, car\}\)</span></li>
+</ol></li>
+<li><p>We want to understand how both offer characteristics as well as individual characteristics drive the decision to use a specific transportation method</p></li>
+</ul>
+</section>
+<section id="estimating-a-multinomial-logit" class="slide level2">
+<h2>Estimating a <em>Multinomial Logit</em></h2>
+<ul>
+<li><p>A <span class="focus">Multinomial Logit</span> model is estimated by maximizing the likelihood of observing the decisions for each consumer <span class="math inline">\(i\)</span></p></li>
+<li><p>As before, the estimation of the parameters of this model by maximum likelihood proceeds by maximization of the multinomial likelihood with the probabilities viewed as functions of the parameters</p></li>
+<li><p>Differently from the binary case, we’ll now have one equation for each <span class="math inline">\(k \neq 1\)</span>. Note that it really makes no difference which category we pick as the reference cell, because we can always convert from one formulation to the other—similar case with defining a dummy variable</p></li>
+</ul>
+</section>
+<section id="estimating-a-multinomial-logit-1" class="slide level2">
+<h2>Estimating a Multinomial Logit</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Result</a></li><li><a href="#tabset-1-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully.
+         Current function value: 0.753382
+         Iterations 11</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          MNLogit Regression Results                          
+==============================================================================
+Dep. Variable:                   mode   No. Observations:                  210
+Model:                        MNLogit   Df Residuals:                      198
+Method:                           MLE   Df Model:                            9
+Date:                Thu, 03 Apr 2025   Pseudo R-squ.:                  0.4424
+Time:                        22:30:07   Log-Likelihood:                -158.21
+converged:                       True   LL-Null:                       -283.76
+Covariance Type:            nonrobust   LLR p-value:                 5.853e-49
+==============================================================================
+  mode=bus       coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -10.6695      2.381     -4.482      0.000     -15.336      -6.003
+size           0.1787      0.623      0.287      0.774      -1.042       1.399
+income        -0.0317      0.023     -1.366      0.172      -0.077       0.014
+travel         0.0481      0.009      5.308      0.000       0.030       0.066
+------------------------------------------------------------------------------
+  mode=car       coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -11.5148      2.325     -4.953      0.000     -16.071      -6.958
+size           1.1665      0.545      2.140      0.032       0.098       2.235
+income        -0.0071      0.021     -0.343      0.732      -0.048       0.034
+travel         0.0463      0.009      5.124      0.000       0.029       0.064
+------------------------------------------------------------------------------
+mode=train       coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -9.3876      2.318     -4.049      0.000     -13.932      -4.844
+size           0.9217      0.562      1.640      0.101      -0.180       2.023
+income        -0.0633      0.022     -2.869      0.004      -0.107      -0.020
+travel         0.0467      0.009      5.166      0.000       0.029       0.064
+==============================================================================</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># Read the CSV file into a Pandas DataFrame</span></span>
+<span id="cb4-2"><a></a>Data <span class="op">=</span> pd.read_csv(<span class="st">'Assets/transportation-dataset.csv'</span>)</span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a><span class="co"># Filter rows where choice is 'yes' and reset index</span></span>
+<span id="cb4-5"><a></a>Data <span class="op">=</span> Data[Data[<span class="st">'choice'</span>] <span class="op">==</span> <span class="st">'yes'</span>].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-6"><a></a></span>
+<span id="cb4-7"><a></a><span class="co"># Define features and target variable</span></span>
+<span id="cb4-8"><a></a>X <span class="op">=</span> Data[[<span class="st">'size'</span>, <span class="st">'income'</span>, <span class="st">'travel'</span>]]</span>
+<span id="cb4-9"><a></a>y <span class="op">=</span> Data[<span class="st">'mode'</span>]</span>
+<span id="cb4-10"><a></a></span>
+<span id="cb4-11"><a></a><span class="co"># Add a constant term</span></span>
+<span id="cb4-12"><a></a>X <span class="op">=</span> add_constant(X)</span>
+<span id="cb4-13"><a></a></span>
+<span id="cb4-14"><a></a><span class="co"># Fit multinomial logistic regression model</span></span>
+<span id="cb4-15"><a></a>multinomial_model <span class="op">=</span> MNLogit(y, X)</span>
+<span id="cb4-16"><a></a>multinomial_result <span class="op">=</span> multinomial_model.fit()</span>
+<span id="cb4-17"><a></a></span>
+<span id="cb4-18"><a></a><span class="co"># Display summary statistics</span></span>
+<span id="cb4-19"><a></a><span class="bu">print</span>(multinomial_result.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="predicting-probabilities" class="slide level2">
+<h2>Predicting probabilities</h2>
+<ul>
+<li>For each of the estimated categories <span class="math inline">\(k\)</span> (<code>bus</code>, <code>train</code>, <code>car</code>), the probability that individual <span class="math inline">\(i\)</span> has chosen it is:</li>
+</ul>
+<p><span class="math display">\[
+p_{k,i} = \frac{\exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
+{1 + \sum_{k=2}^{4} \exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
+\]</span></p>
+<ul>
+<li>Recall that we’ve recovered this probability by fixing a <span class="focus">reference</span> category (in this case, <code>air</code>).<br>
+Therefore, to recover the probabilities of individuals choosing <code>air</code>:</li>
+</ul>
+<p><span class="math display">\[
+  p_{1,i} = 1 - \sum_{k=2}^{4} p_{k,i}
+\]</span></p>
+</section>
+<section id="predicting-probabilities-continued" class="slide level2">
+<h2>Predicting Probabilities (continued)</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Result</a></li><li><a href="#tabset-2-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell">
+<div class="cell-output-display">
+<div id="jhfbilzxce" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#jhfbilzxce table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#jhfbilzxce thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#jhfbilzxce p { margin: 0; padding: 0; }
+ #jhfbilzxce .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #jhfbilzxce .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #jhfbilzxce .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #jhfbilzxce .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #jhfbilzxce .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #jhfbilzxce .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #jhfbilzxce .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #jhfbilzxce .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #jhfbilzxce .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #jhfbilzxce .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #jhfbilzxce .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #jhfbilzxce .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #jhfbilzxce .gt_spanner_row { border-bottom-style: hidden; }
+ #jhfbilzxce .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #jhfbilzxce .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
+ #jhfbilzxce .gt_from_md> :first-child { margin-top: 0; }
+ #jhfbilzxce .gt_from_md> :last-child { margin-bottom: 0; }
+ #jhfbilzxce .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
+ #jhfbilzxce .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
+ #jhfbilzxce .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #jhfbilzxce .gt_row_group_first td { border-top-width: 2px; }
+ #jhfbilzxce .gt_row_group_first th { border-top-width: 2px; }
+ #jhfbilzxce .gt_striped { background-color: #F4F4F4; }
+ #jhfbilzxce .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #jhfbilzxce .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #jhfbilzxce .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #jhfbilzxce .gt_left { text-align: left; }
+ #jhfbilzxce .gt_center { text-align: center; }
+ #jhfbilzxce .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #jhfbilzxce .gt_font_normal { font-weight: normal; }
+ #jhfbilzxce .gt_font_bold { font-weight: bold; }
+ #jhfbilzxce .gt_font_italic { font-style: italic; }
+ #jhfbilzxce .gt_super { font-size: 65%; }
+ #jhfbilzxce .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #jhfbilzxce .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="6" class="gt_heading gt_title gt_font_normal"><strong>Summary Statistics</strong></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="value_mean" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Mean</th>
+<th id="value_std" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Standard Deviation</th>
+<th id="value_median" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Median</th>
+<th id="value_min" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Minimum</th>
+<th id="value_max" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Maximum</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">air</td>
+<td class="gt_row gt_center">27.62%</td>
+<td class="gt_row gt_center">41.31%</td>
+<td class="gt_row gt_center">0.36%</td>
+<td class="gt_row gt_center">0.00%</td>
+<td class="gt_row gt_center">99.92%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">bus</td>
+<td class="gt_row gt_center gt_striped">14.29%</td>
+<td class="gt_row gt_center gt_striped">13.07%</td>
+<td class="gt_row gt_center gt_striped">10.92%</td>
+<td class="gt_row gt_center gt_striped">0.01%</td>
+<td class="gt_row gt_center gt_striped">48.02%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">car</td>
+<td class="gt_row gt_center">28.10%</td>
+<td class="gt_row gt_center">24.37%</td>
+<td class="gt_row gt_center">22.88%</td>
+<td class="gt_row gt_center">0.05%</td>
+<td class="gt_row gt_center">91.16%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">train</td>
+<td class="gt_row gt_center gt_striped">30.00%</td>
+<td class="gt_row gt_center gt_striped">23.87%</td>
+<td class="gt_row gt_center gt_striped">28.82%</td>
+<td class="gt_row gt_center gt_striped">0.01%</td>
+<td class="gt_row gt_center gt_striped">74.96%</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>probabilities <span class="op">=</span> multinomial_result.predict()</span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="co"># Convert to tibble (DataFrame in pandas)</span></span>
+<span id="cb5-4"><a></a>probabilities_df <span class="op">=</span> pd.DataFrame(probabilities,columns<span class="op">=</span>[<span class="st">'air'</span>,<span class="st">'bus'</span>,<span class="st">'car'</span>,<span class="st">'train'</span>])</span>
+<span id="cb5-5"><a></a></span>
+<span id="cb5-6"><a></a><span class="co"># Reshape DataFrame to long format</span></span>
+<span id="cb5-7"><a></a>probabilities_df <span class="op">=</span> probabilities_df.stack().reset_index()</span>
+<span id="cb5-8"><a></a>probabilities_df.columns <span class="op">=</span> [<span class="st">'obs_num'</span>, <span class="st">'mode'</span>, <span class="st">'value'</span>]</span>
+<span id="cb5-9"><a></a></span>
+<span id="cb5-10"><a></a><span class="co"># Group by 'mode' and summarize statistics</span></span>
+<span id="cb5-11"><a></a>summary_df <span class="op">=</span> probabilities_df.groupby(<span class="st">'mode'</span>).agg({<span class="st">'value'</span>: [<span class="st">'mean'</span>, <span class="st">'std'</span>, <span class="st">'median'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>]})</span>
+<span id="cb5-12"><a></a>summary_df.columns <span class="op">=</span> [<span class="st">'_'</span>.join(col).strip() <span class="cf">for</span> col <span class="kw">in</span> summary_df.columns.values]</span>
+<span id="cb5-13"><a></a></span>
+<span id="cb5-14"><a></a><span class="co"># Display the summary DataFrame</span></span>
+<span id="cb5-15"><a></a></span>
+<span id="cb5-16"><a></a><span class="co">#Table</span></span>
+<span id="cb5-17"><a></a>Table<span class="op">=</span> (</span>
+<span id="cb5-18"><a></a>  GT(summary_df.reset_index())</span>
+<span id="cb5-19"><a></a>  .cols_align(<span class="st">'center'</span>)</span>
+<span id="cb5-20"><a></a>  .tab_stub(rowname_col<span class="op">=</span><span class="st">'mode'</span>)</span>
+<span id="cb5-21"><a></a>  .fmt_percent()</span>
+<span id="cb5-22"><a></a>  .cols_label(</span>
+<span id="cb5-23"><a></a>    value_mean <span class="op">=</span> <span class="st">'Mean'</span>,</span>
+<span id="cb5-24"><a></a>    value_std <span class="op">=</span> <span class="st">'Standard Deviation'</span>,</span>
+<span id="cb5-25"><a></a>    value_median <span class="op">=</span> <span class="st">'Median'</span>,</span>
+<span id="cb5-26"><a></a>    value_min <span class="op">=</span> <span class="st">'Minimum'</span>,</span>
+<span id="cb5-27"><a></a>    value_max <span class="op">=</span> <span class="st">'Maximum'</span></span>
+<span id="cb5-28"><a></a>    )</span>
+<span id="cb5-29"><a></a>  .tab_header(title<span class="op">=</span>md(<span class="st">"**Summary Statistics**"</span>))</span>
+<span id="cb5-30"><a></a>  .opt_stylize(style<span class="op">=</span><span class="dv">1</span>,color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb5-31"><a></a>)</span>
+<span id="cb5-32"><a></a></span>
+<span id="cb5-33"><a></a>Table.tab_options(table_width<span class="op">=</span><span class="st">"100%"</span>,table_font_size<span class="op">=</span><span class="st">"25px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="assessing-performance" class="slide level2">
+<h2>Assessing Performance</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Explanation</a></li><li><a href="#tabset-3-2">Result</a></li><li><a href="#tabset-3-3">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<ul>
+<li><p>Because we’re using the very same maximization procedure as used in <em>logit</em> models, we can use the same <em>maximum likelihood</em> statistical tests:</p>
+<ol type="1">
+<li>The <span class="focus">Wald</span> test</li>
+<li>The <span class="focus">Likelihood-Ratio</span> test</li>
+<li>The <span class="focus">Lagrange Multiplier</span> test</li>
+</ol></li>
+<li><p>Also, we can tabulate the results in such a way that we’d ideally want all observations to lie at the diagonal cells of our matrix</p></li>
+</ul>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="cell-output-display">
+<div id="favzzydxlr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#favzzydxlr table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#favzzydxlr thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#favzzydxlr p { margin: 0; padding: 0; }
+ #favzzydxlr .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #favzzydxlr .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #favzzydxlr .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #favzzydxlr .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #favzzydxlr .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #favzzydxlr .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #favzzydxlr .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #favzzydxlr .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #favzzydxlr .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #favzzydxlr .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #favzzydxlr .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #favzzydxlr .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #favzzydxlr .gt_spanner_row { border-bottom-style: hidden; }
+ #favzzydxlr .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #favzzydxlr .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
+ #favzzydxlr .gt_from_md> :first-child { margin-top: 0; }
+ #favzzydxlr .gt_from_md> :last-child { margin-bottom: 0; }
+ #favzzydxlr .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
+ #favzzydxlr .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
+ #favzzydxlr .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #favzzydxlr .gt_row_group_first td { border-top-width: 2px; }
+ #favzzydxlr .gt_row_group_first th { border-top-width: 2px; }
+ #favzzydxlr .gt_striped { background-color: #F4F4F4; }
+ #favzzydxlr .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #favzzydxlr .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #favzzydxlr .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #favzzydxlr .gt_left { text-align: left; }
+ #favzzydxlr .gt_center { text-align: center; }
+ #favzzydxlr .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #favzzydxlr .gt_font_normal { font-weight: normal; }
+ #favzzydxlr .gt_font_bold { font-weight: bold; }
+ #favzzydxlr .gt_font_italic { font-style: italic; }
+ #favzzydxlr .gt_super { font-size: 65%; }
+ #favzzydxlr .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #favzzydxlr .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="5" class="gt_heading gt_title gt_font_normal">Accuracy of the model is 64.76%</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="air" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Air</th>
+<th id="bus" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Bus</th>
+<th id="car" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Car</th>
+<th id="train" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Train</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">air</td>
+<td class="gt_row gt_center">54</td>
+<td class="gt_row gt_center">0</td>
+<td class="gt_row gt_center">3</td>
+<td class="gt_row gt_center">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">bus</td>
+<td class="gt_row gt_center gt_striped">1</td>
+<td class="gt_row gt_center gt_striped">8</td>
+<td class="gt_row gt_center gt_striped">5</td>
+<td class="gt_row gt_center gt_striped">16</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">car</td>
+<td class="gt_row gt_center">5</td>
+<td class="gt_row gt_center">5</td>
+<td class="gt_row gt_center">30</td>
+<td class="gt_row gt_center">19</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">train</td>
+<td class="gt_row gt_center gt_striped">0</td>
+<td class="gt_row gt_center gt_striped">4</td>
+<td class="gt_row gt_center gt_striped">15</td>
+<td class="gt_row gt_center gt_striped">44</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
+</div>
+<div id="tabset-3-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="co"># Define class labels mapping</span></span>
+<span id="cb6-2"><a></a>class_mapping <span class="op">=</span> {<span class="dv">0</span>: <span class="st">'air'</span>, <span class="dv">1</span>: <span class="st">'bus'</span>, <span class="dv">2</span>: <span class="st">'car'</span>, <span class="dv">3</span>: <span class="st">'train'</span>}</span>
+<span id="cb6-3"><a></a></span>
+<span id="cb6-4"><a></a><span class="co"># Predict class labels</span></span>
+<span id="cb6-5"><a></a>predicted_labels <span class="op">=</span> multinomial_result.predict(X).idxmax(axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">map</span>(class_mapping)</span>
+<span id="cb6-6"><a></a>actual_labels <span class="op">=</span> y</span>
+<span id="cb6-7"><a></a></span>
+<span id="cb6-8"><a></a><span class="co"># Combine predicted labels with original data</span></span>
+<span id="cb6-9"><a></a>Data[<span class="st">'Predicted'</span>] <span class="op">=</span> predicted_labels</span>
+<span id="cb6-10"><a></a>Data[<span class="st">'Actual'</span>] <span class="op">=</span> actual_labels</span>
+<span id="cb6-11"><a></a></span>
+<span id="cb6-12"><a></a><span class="co"># Create contingency table</span></span>
+<span id="cb6-13"><a></a>contingency_table <span class="op">=</span> pd.crosstab(index<span class="op">=</span>Data[<span class="st">'Actual'</span>], columns<span class="op">=</span>Data[<span class="st">'Predicted'</span>]).reset_index()</span>
+<span id="cb6-14"><a></a></span>
+<span id="cb6-15"><a></a><span class="co"># Calculate accuracy</span></span>
+<span id="cb6-16"><a></a>accuracy <span class="op">=</span> <span class="st">"</span><span class="sc">{:.2%}</span><span class="st">"</span>.<span class="bu">format</span>((Data[<span class="st">'Actual'</span>] <span class="op">==</span> Data[<span class="st">'Predicted'</span>]).mean())</span>
+<span id="cb6-17"><a></a></span>
+<span id="cb6-18"><a></a><span class="co"># Display the contingency table and accuracy</span></span>
+<span id="cb6-19"><a></a>Table<span class="op">=</span> (</span>
+<span id="cb6-20"><a></a>  GT(contingency_table)</span>
+<span id="cb6-21"><a></a>  .cols_align(<span class="st">'center'</span>)</span>
+<span id="cb6-22"><a></a>  .tab_stub(rowname_col<span class="op">=</span><span class="st">'Actual'</span>)</span>
+<span id="cb6-23"><a></a>  .cols_label(</span>
+<span id="cb6-24"><a></a>    air <span class="op">=</span> <span class="st">'Air'</span>,</span>
+<span id="cb6-25"><a></a>    bus <span class="op">=</span> <span class="st">'Bus'</span>,</span>
+<span id="cb6-26"><a></a>    car <span class="op">=</span> <span class="st">'Car'</span>,</span>
+<span id="cb6-27"><a></a>    train <span class="op">=</span> <span class="st">'Train'</span>,</span>
+<span id="cb6-28"><a></a>    )</span>
+<span id="cb6-29"><a></a>  .tab_header(title<span class="op">=</span><span class="st">"Accuracy of the model is "</span> <span class="op">+</span> accuracy)</span>
+<span id="cb6-30"><a></a>  .opt_stylize(style<span class="op">=</span><span class="dv">1</span>,color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb6-31"><a></a>)</span>
+<span id="cb6-32"><a></a></span>
+<span id="cb6-33"><a></a>Table.tab_options(table_width<span class="op">=</span><span class="st">"100%"</span>,table_font_size<span class="op">=</span><span class="st">"25px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="counterfactual-exercises" class="slide level2">
+<h2>Counterfactual exercises</h2>
+<ul>
+<li><p>As marketers, we’re generally interested in understanding how consumers would react <span class="focus">as-if</span> they were exposed to a given situation:</p>
+<ol type="1">
+<li>What happens to the probability of using a plane as the size of the family grows?</li>
+<li>How many customers would upgrade their travel plans to <code>air</code> if they have received an increase in income?</li>
+<li>If the price of <code>air</code> decreases significantly, how would customers distribute among other transportation modes?</li>
+</ol></li>
+<li><p>In what follows, we’ll analyze how these three changes affect the distribution of transportation choices.</p></li>
+</ul>
+</section>
+<section id="exercise-1-increasing-size" class="slide level2">
+<h2>Exercise 1: increasing <code>size</code></h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Explanation</a></li><li><a href="#tabset-4-2">Result</a></li><li><a href="#tabset-4-3">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<ul>
+<li><p>What happens to the probability of using each mode as the size of the family grows?</p></li>
+<li><p>In order to analyze that, we will:</p>
+<ol type="1">
+<li>Make a copy of the original matrix of covariates, <span class="math inline">\(X\)</span></li>
+<li>Use a <code>loop</code> iterating different sets of customers, with <code>size</code> ranging from <span class="math inline">\(1\)</span> to <span class="math inline">\(4\)</span></li>
+<li>Predict the probabilities for each choice and averaging them out across customers</li>
+<li>Append the results</li>
+</ol></li>
+</ul>
+<p><strong>Result:</strong> Consumers tend to switch over to <code>cars</code> more aggressively</p>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="cell-output-display">
+<div id="nykekoxrip" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#nykekoxrip table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#nykekoxrip thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#nykekoxrip p { margin: 0; padding: 0; }
+ #nykekoxrip .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #nykekoxrip .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #nykekoxrip .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #nykekoxrip .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #nykekoxrip .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #nykekoxrip .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #nykekoxrip .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #nykekoxrip .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #nykekoxrip .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #nykekoxrip .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #nykekoxrip .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #nykekoxrip .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #nykekoxrip .gt_spanner_row { border-bottom-style: hidden; }
+ #nykekoxrip .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #nykekoxrip .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
+ #nykekoxrip .gt_from_md> :first-child { margin-top: 0; }
+ #nykekoxrip .gt_from_md> :last-child { margin-bottom: 0; }
+ #nykekoxrip .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
+ #nykekoxrip .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
+ #nykekoxrip .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #nykekoxrip .gt_row_group_first td { border-top-width: 2px; }
+ #nykekoxrip .gt_row_group_first th { border-top-width: 2px; }
+ #nykekoxrip .gt_striped { background-color: #F4F4F4; }
+ #nykekoxrip .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #nykekoxrip .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #nykekoxrip .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #nykekoxrip .gt_left { text-align: left; }
+ #nykekoxrip .gt_center { text-align: center; }
+ #nykekoxrip .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #nykekoxrip .gt_font_normal { font-weight: normal; }
+ #nykekoxrip .gt_font_bold { font-weight: bold; }
+ #nykekoxrip .gt_font_italic { font-style: italic; }
+ #nykekoxrip .gt_super { font-size: 65%; }
+ #nykekoxrip .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #nykekoxrip .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="5" class="gt_heading gt_title gt_font_normal"><strong>Counterfactual Exercise 1 - Probabilities</strong></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="air" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Air</th>
+<th id="bus" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Bus</th>
+<th id="car" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Car</th>
+<th id="train" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Train</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">1</td>
+<td class="gt_row gt_center">29.10%</td>
+<td class="gt_row gt_center">20.71%</td>
+<td class="gt_row gt_center">21.31%</td>
+<td class="gt_row gt_center">28.88%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">2</td>
+<td class="gt_row gt_center gt_striped">26.34%</td>
+<td class="gt_row gt_center gt_striped">11.12%</td>
+<td class="gt_row gt_center gt_striped">30.24%</td>
+<td class="gt_row gt_center gt_striped">32.30%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">3</td>
+<td class="gt_row gt_center">23.19%</td>
+<td class="gt_row gt_center">5.33%</td>
+<td class="gt_row gt_center">38.63%</td>
+<td class="gt_row gt_center">32.85%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">4</td>
+<td class="gt_row gt_center gt_striped">19.58%</td>
+<td class="gt_row gt_center gt_striped">2.38%</td>
+<td class="gt_row gt_center gt_striped">46.42%</td>
+<td class="gt_row gt_center gt_striped">31.62%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">5</td>
+<td class="gt_row gt_center">15.24%</td>
+<td class="gt_row gt_center">1.03%</td>
+<td class="gt_row gt_center">54.15%</td>
+<td class="gt_row gt_center">29.58%</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Define class labels mapping</span></span>
+<span id="cb7-2"><a></a>class_mapping <span class="op">=</span> {<span class="dv">0</span>: <span class="st">'air'</span>, <span class="dv">1</span>: <span class="st">'bus'</span>, <span class="dv">2</span>: <span class="st">'car'</span>, <span class="dv">3</span>: <span class="st">'train'</span>}</span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a><span class="co">#Define size buckets</span></span>
+<span id="cb7-5"><a></a>size_buckets <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">1</span>)</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a><span class="co">#Store the results</span></span>
+<span id="cb7-8"><a></a>results<span class="op">=</span>pd.DataFrame()</span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a><span class="cf">for</span> i <span class="kw">in</span> size_buckets:</span>
+<span id="cb7-11"><a></a></span>
+<span id="cb7-12"><a></a>  <span class="co"># Create counterfactual DataFrame with current values of X except for and different sizes</span></span>
+<span id="cb7-13"><a></a>  X_Temp<span class="op">=</span>X.copy()</span>
+<span id="cb7-14"><a></a>  X_Temp[<span class="st">'size'</span>]<span class="op">=</span>i</span>
+<span id="cb7-15"><a></a></span>
+<span id="cb7-16"><a></a>  <span class="co"># Predict probabilities for counterfactual data</span></span>
+<span id="cb7-17"><a></a>  counterfactual_probs <span class="op">=</span> pd.DataFrame({<span class="st">'estimate'</span>: multinomial_result.predict(X_Temp).mean(axis<span class="op">=</span><span class="dv">0</span>)}).T</span>
+<span id="cb7-18"><a></a>  counterfactual_probs.columns<span class="op">=</span>counterfactual_probs.columns.<span class="bu">map</span>(class_mapping)</span>
+<span id="cb7-19"><a></a>  counterfactual_probs[<span class="st">'size'</span>]<span class="op">=</span>i</span>
+<span id="cb7-20"><a></a>  counterfactual_probs<span class="op">=</span>counterfactual_probs.reindex(columns<span class="op">=</span>[<span class="st">'size'</span>,<span class="st">'air'</span>,<span class="st">'bus'</span>,<span class="st">'car'</span>,<span class="st">'train'</span>])</span>
+<span id="cb7-21"><a></a>  </span>
+<span id="cb7-22"><a></a>  <span class="co">#Append</span></span>
+<span id="cb7-23"><a></a>  results<span class="op">=</span>pd.concat([results,counterfactual_probs],axis<span class="op">=</span><span class="dv">0</span>,ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-24"><a></a></span>
+<span id="cb7-25"><a></a><span class="co"># Display the contingency table and accuracy</span></span>
+<span id="cb7-26"><a></a>Table<span class="op">=</span> (</span>
+<span id="cb7-27"><a></a>  GT(results)</span>
+<span id="cb7-28"><a></a>  .cols_align(<span class="st">'center'</span>)</span>
+<span id="cb7-29"><a></a>  .tab_stub(rowname_col<span class="op">=</span><span class="st">'size'</span>)</span>
+<span id="cb7-30"><a></a>  .fmt_percent()</span>
+<span id="cb7-31"><a></a>  .cols_label(</span>
+<span id="cb7-32"><a></a>    size<span class="op">=</span> <span class="st">'Size'</span>,</span>
+<span id="cb7-33"><a></a>    air <span class="op">=</span> <span class="st">'Air'</span>,</span>
+<span id="cb7-34"><a></a>    bus <span class="op">=</span> <span class="st">'Bus'</span>,</span>
+<span id="cb7-35"><a></a>    car <span class="op">=</span> <span class="st">'Car'</span>,</span>
+<span id="cb7-36"><a></a>    train <span class="op">=</span> <span class="st">'Train'</span>,</span>
+<span id="cb7-37"><a></a>    )</span>
+<span id="cb7-38"><a></a>  .tab_header(title<span class="op">=</span>md(<span class="st">"**Counterfactual Exercise 1 - Probabilities**"</span>))</span>
+<span id="cb7-39"><a></a>  .opt_stylize(style<span class="op">=</span><span class="dv">1</span>,color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb7-40"><a></a>)</span>
+<span id="cb7-41"><a></a></span>
+<span id="cb7-42"><a></a>Table.tab_options(table_width<span class="op">=</span><span class="st">"100%"</span>,table_font_size<span class="op">=</span><span class="st">"25px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2-increasing-income" class="slide level2">
+<h2>Exercise 2: increasing <code>income</code></h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Explanation</a></li><li><a href="#tabset-5-2">Result</a></li><li><a href="#tabset-5-3">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<ul>
+<li><p>How many customers would upgrade their travel plans to <code>air</code> if they receive an increase in <code>income</code>?</p></li>
+<li><p>In order to analyze that, we will:</p>
+<ol type="1">
+<li>Make a copy of the original matrix of covariates, <span class="math inline">\(X\)</span></li>
+<li>Use a <code>loop</code> iterating different sets of customers, with <code>income</code> ranging from <span class="math inline">\(0\)</span> to <span class="math inline">\(100\)</span> by increments of <span class="math inline">\(10\)</span></li>
+<li>Predict the probabilities for each choice and averaging them out across customers</li>
+<li>Append the results</li>
+</ol></li>
+</ul>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="cell-output-display">
+<div id="wvrkanvjle" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#wvrkanvjle table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#wvrkanvjle thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#wvrkanvjle p { margin: 0; padding: 0; }
+ #wvrkanvjle .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #wvrkanvjle .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #wvrkanvjle .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #wvrkanvjle .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #wvrkanvjle .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wvrkanvjle .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #wvrkanvjle .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wvrkanvjle .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #wvrkanvjle .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #wvrkanvjle .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #wvrkanvjle .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #wvrkanvjle .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #wvrkanvjle .gt_spanner_row { border-bottom-style: hidden; }
+ #wvrkanvjle .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #wvrkanvjle .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
+ #wvrkanvjle .gt_from_md> :first-child { margin-top: 0; }
+ #wvrkanvjle .gt_from_md> :last-child { margin-bottom: 0; }
+ #wvrkanvjle .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
+ #wvrkanvjle .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
+ #wvrkanvjle .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #wvrkanvjle .gt_row_group_first td { border-top-width: 2px; }
+ #wvrkanvjle .gt_row_group_first th { border-top-width: 2px; }
+ #wvrkanvjle .gt_striped { background-color: #F4F4F4; }
+ #wvrkanvjle .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #wvrkanvjle .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #wvrkanvjle .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #wvrkanvjle .gt_left { text-align: left; }
+ #wvrkanvjle .gt_center { text-align: center; }
+ #wvrkanvjle .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #wvrkanvjle .gt_font_normal { font-weight: normal; }
+ #wvrkanvjle .gt_font_bold { font-weight: bold; }
+ #wvrkanvjle .gt_font_italic { font-style: italic; }
+ #wvrkanvjle .gt_super { font-size: 65%; }
+ #wvrkanvjle .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #wvrkanvjle .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="5" class="gt_heading gt_title gt_font_normal"><strong>Counterfactual Exercise 2 - Probabilities</strong></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="air" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Air</th>
+<th id="bus" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Bus</th>
+<th id="car" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Car</th>
+<th id="train" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Train</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">0</td>
+<td class="gt_row gt_center">22.47%</td>
+<td class="gt_row gt_center">11.01%</td>
+<td class="gt_row gt_center">9.11%</td>
+<td class="gt_row gt_center">57.41%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">10</td>
+<td class="gt_row gt_center gt_striped">24.07%</td>
+<td class="gt_row gt_center gt_striped">13.01%</td>
+<td class="gt_row gt_center gt_striped">13.67%</td>
+<td class="gt_row gt_center gt_striped">49.25%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">20</td>
+<td class="gt_row gt_center">25.46%</td>
+<td class="gt_row gt_center">14.72%</td>
+<td class="gt_row gt_center">19.53%</td>
+<td class="gt_row gt_center">40.29%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">30</td>
+<td class="gt_row gt_center gt_striped">26.67%</td>
+<td class="gt_row gt_center gt_striped">15.82%</td>
+<td class="gt_row gt_center gt_striped">26.33%</td>
+<td class="gt_row gt_center gt_striped">31.17%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">40</td>
+<td class="gt_row gt_center">27.70%</td>
+<td class="gt_row gt_center">16.11%</td>
+<td class="gt_row gt_center">33.44%</td>
+<td class="gt_row gt_center">22.75%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">50</td>
+<td class="gt_row gt_center gt_striped">28.56%</td>
+<td class="gt_row gt_center gt_striped">15.57%</td>
+<td class="gt_row gt_center gt_striped">40.15%</td>
+<td class="gt_row gt_center gt_striped">15.71%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">60</td>
+<td class="gt_row gt_center">29.27%</td>
+<td class="gt_row gt_center">14.38%</td>
+<td class="gt_row gt_center">45.99%</td>
+<td class="gt_row gt_center">10.35%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">70</td>
+<td class="gt_row gt_center gt_striped">29.86%</td>
+<td class="gt_row gt_center gt_striped">12.79%</td>
+<td class="gt_row gt_center gt_striped">50.78%</td>
+<td class="gt_row gt_center gt_striped">6.57%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">80</td>
+<td class="gt_row gt_center">30.35%</td>
+<td class="gt_row gt_center">11.04%</td>
+<td class="gt_row gt_center">54.55%</td>
+<td class="gt_row gt_center">4.06%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">90</td>
+<td class="gt_row gt_center gt_striped">30.78%</td>
+<td class="gt_row gt_center gt_striped">9.31%</td>
+<td class="gt_row gt_center gt_striped">57.46%</td>
+<td class="gt_row gt_center gt_striped">2.45%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">100</td>
+<td class="gt_row gt_center">31.16%</td>
+<td class="gt_row gt_center">7.72%</td>
+<td class="gt_row gt_center">59.66%</td>
+<td class="gt_row gt_center">1.46%</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co">#Define income buckets</span></span>
+<span id="cb8-2"><a></a>income_buckets <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">110</span>,<span class="dv">10</span>)</span>
+<span id="cb8-3"><a></a></span>
+<span id="cb8-4"><a></a><span class="co">#Store the results</span></span>
+<span id="cb8-5"><a></a>results<span class="op">=</span>pd.DataFrame()</span>
+<span id="cb8-6"><a></a></span>
+<span id="cb8-7"><a></a><span class="cf">for</span> i <span class="kw">in</span> income_buckets:</span>
+<span id="cb8-8"><a></a></span>
+<span id="cb8-9"><a></a>  <span class="co"># Create counterfactual DataFrame with current values of X except for and different sizes</span></span>
+<span id="cb8-10"><a></a>  X_Temp<span class="op">=</span>X.copy()</span>
+<span id="cb8-11"><a></a>  X_Temp[<span class="st">'income'</span>]<span class="op">=</span>i</span>
+<span id="cb8-12"><a></a></span>
+<span id="cb8-13"><a></a>  <span class="co"># Predict probabilities for counterfactual data</span></span>
+<span id="cb8-14"><a></a>  counterfactual_probs <span class="op">=</span> pd.DataFrame({<span class="st">'estimate'</span>: multinomial_result.predict(X_Temp).mean(axis<span class="op">=</span><span class="dv">0</span>)}).T</span>
+<span id="cb8-15"><a></a>  counterfactual_probs.columns<span class="op">=</span>counterfactual_probs.columns.<span class="bu">map</span>(class_mapping)</span>
+<span id="cb8-16"><a></a>  counterfactual_probs[<span class="st">'income'</span>]<span class="op">=</span>i</span>
+<span id="cb8-17"><a></a>  counterfactual_probs<span class="op">=</span>counterfactual_probs.reindex(columns<span class="op">=</span>[<span class="st">'income'</span>,<span class="st">'air'</span>,<span class="st">'bus'</span>,<span class="st">'car'</span>,<span class="st">'train'</span>])</span>
+<span id="cb8-18"><a></a>  </span>
+<span id="cb8-19"><a></a>  <span class="co">#Append</span></span>
+<span id="cb8-20"><a></a>  results<span class="op">=</span>pd.concat([results,counterfactual_probs],axis<span class="op">=</span><span class="dv">0</span>,ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-21"><a></a></span>
+<span id="cb8-22"><a></a><span class="co"># Display the contingency table and accuracy</span></span>
+<span id="cb8-23"><a></a>Table<span class="op">=</span> (</span>
+<span id="cb8-24"><a></a>  GT(results)</span>
+<span id="cb8-25"><a></a>  .cols_align(<span class="st">'center'</span>)</span>
+<span id="cb8-26"><a></a>  .tab_stub(rowname_col<span class="op">=</span><span class="st">'income'</span>)</span>
+<span id="cb8-27"><a></a>  .fmt_percent()</span>
+<span id="cb8-28"><a></a>  .cols_label(</span>
+<span id="cb8-29"><a></a>    income<span class="op">=</span> <span class="st">'Income Level'</span>,</span>
+<span id="cb8-30"><a></a>    air <span class="op">=</span> <span class="st">'Air'</span>,</span>
+<span id="cb8-31"><a></a>    bus <span class="op">=</span> <span class="st">'Bus'</span>,</span>
+<span id="cb8-32"><a></a>    car <span class="op">=</span> <span class="st">'Car'</span>,</span>
+<span id="cb8-33"><a></a>    train <span class="op">=</span> <span class="st">'Train'</span>,</span>
+<span id="cb8-34"><a></a>    )</span>
+<span id="cb8-35"><a></a>  .tab_header(title<span class="op">=</span>md(<span class="st">"**Counterfactual Exercise 2 - Probabilities**"</span>))</span>
+<span id="cb8-36"><a></a>  .opt_stylize(style<span class="op">=</span><span class="dv">1</span>,color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb8-37"><a></a>)</span>
+<span id="cb8-38"><a></a></span>
+<span id="cb8-39"><a></a>Table.tab_options(table_width<span class="op">=</span><span class="st">"100%"</span>,table_font_size<span class="op">=</span><span class="st">"25px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3-decreasing-travel" class="slide level2">
+<h2>Exercise 3: decreasing <code>travel</code></h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Explanation</a></li><li><a href="#tabset-6-2">Result</a></li><li><a href="#tabset-6-3">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<ul>
+<li><p>How many customers would upgrade their travel plans to <code>air</code> if travel costs decrease?</p></li>
+<li><p>In order to analyze that, we will:</p>
+<ol type="1">
+<li>Make a copy of the original matrix of covariates, <span class="math inline">\(X\)</span></li>
+<li>Create a range of different customers, with <code>travel</code> costs set to <span class="math inline">\(10\%-90\%\)</span> of the original cost for each customer</li>
+<li>Predict the probabilities for each choice and averaging them out across customers</li>
+<li>Append the results</li>
+</ol></li>
+</ul>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="cell-output-display">
+<div id="letpxpfpfo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#letpxpfpfo table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#letpxpfpfo thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#letpxpfpfo p { margin: 0; padding: 0; }
+ #letpxpfpfo .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 25px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 100%; border-top-style: solid; border-top-width: 2px; border-top-color: #A81600; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A81600; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #letpxpfpfo .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #letpxpfpfo .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #letpxpfpfo .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #letpxpfpfo .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #letpxpfpfo .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #letpxpfpfo .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #letpxpfpfo .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #letpxpfpfo .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #letpxpfpfo .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #letpxpfpfo .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #letpxpfpfo .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #letpxpfpfo .gt_spanner_row { border-bottom-style: hidden; }
+ #letpxpfpfo .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #letpxpfpfo .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; vertical-align: middle; }
+ #letpxpfpfo .gt_from_md> :first-child { margin-top: 0; }
+ #letpxpfpfo .gt_from_md> :last-child { margin-bottom: 0; }
+ #letpxpfpfo .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #FFCCC7; border-left-style: none; border-left-width: 1px; border-left-color: #FFCCC7; border-right-style: none; border-right-width: 1px; border-right-color: #FFCCC7; vertical-align: middle; overflow-x: hidden; }
+ #letpxpfpfo .gt_stub { color: #FFFFFF; background-color: #E4220C; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #E4220C; padding-left: 5px; padding-right: 5px; }
+ #letpxpfpfo .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #letpxpfpfo .gt_row_group_first td { border-top-width: 2px; }
+ #letpxpfpfo .gt_row_group_first th { border-top-width: 2px; }
+ #letpxpfpfo .gt_striped { background-color: #F4F4F4; }
+ #letpxpfpfo .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #E4220C; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #E4220C; }
+ #letpxpfpfo .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #letpxpfpfo .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #letpxpfpfo .gt_left { text-align: left; }
+ #letpxpfpfo .gt_center { text-align: center; }
+ #letpxpfpfo .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #letpxpfpfo .gt_font_normal { font-weight: normal; }
+ #letpxpfpfo .gt_font_bold { font-weight: bold; }
+ #letpxpfpfo .gt_font_italic { font-style: italic; }
+ #letpxpfpfo .gt_super { font-size: 65%; }
+ #letpxpfpfo .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #letpxpfpfo .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="5" class="gt_heading gt_title gt_font_normal"><strong>Counterfactual Exercise 3 - Probabilities</strong></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="air" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Air</th>
+<th id="bus" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Bus</th>
+<th id="car" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Car</th>
+<th id="train" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Train</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">0%</td>
+<td class="gt_row gt_center">99.97%</td>
+<td class="gt_row gt_center">0.00%</td>
+<td class="gt_row gt_center">0.02%</td>
+<td class="gt_row gt_center">0.01%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">10%</td>
+<td class="gt_row gt_center gt_striped">99.03%</td>
+<td class="gt_row gt_center gt_striped">0.03%</td>
+<td class="gt_row gt_center gt_striped">0.64%</td>
+<td class="gt_row gt_center gt_striped">0.30%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">20%</td>
+<td class="gt_row gt_center">90.16%</td>
+<td class="gt_row gt_center">0.81%</td>
+<td class="gt_row gt_center">4.80%</td>
+<td class="gt_row gt_center">4.23%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">30%</td>
+<td class="gt_row gt_center gt_striped">69.24%</td>
+<td class="gt_row gt_center gt_striped">3.70%</td>
+<td class="gt_row gt_center gt_striped">13.76%</td>
+<td class="gt_row gt_center gt_striped">13.29%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">40%</td>
+<td class="gt_row gt_center">60.21%</td>
+<td class="gt_row gt_center">5.23%</td>
+<td class="gt_row gt_center">17.65%</td>
+<td class="gt_row gt_center">16.91%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">50%</td>
+<td class="gt_row gt_center gt_striped">54.74%</td>
+<td class="gt_row gt_center gt_striped">6.39%</td>
+<td class="gt_row gt_center gt_striped">19.33%</td>
+<td class="gt_row gt_center gt_striped">19.54%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">60%</td>
+<td class="gt_row gt_center">48.35%</td>
+<td class="gt_row gt_center">7.84%</td>
+<td class="gt_row gt_center">21.23%</td>
+<td class="gt_row gt_center">22.57%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">70%</td>
+<td class="gt_row gt_center gt_striped">41.30%</td>
+<td class="gt_row gt_center gt_striped">9.57%</td>
+<td class="gt_row gt_center gt_striped">23.50%</td>
+<td class="gt_row gt_center gt_striped">25.63%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">80%</td>
+<td class="gt_row gt_center">35.30%</td>
+<td class="gt_row gt_center">11.28%</td>
+<td class="gt_row gt_center">25.54%</td>
+<td class="gt_row gt_center">27.88%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">90%</td>
+<td class="gt_row gt_center gt_striped">30.86%</td>
+<td class="gt_row gt_center gt_striped">12.84%</td>
+<td class="gt_row gt_center gt_striped">27.05%</td>
+<td class="gt_row gt_center gt_striped">29.24%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">100%</td>
+<td class="gt_row gt_center">27.62%</td>
+<td class="gt_row gt_center">14.29%</td>
+<td class="gt_row gt_center">28.10%</td>
+<td class="gt_row gt_center">30.00%</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
+</div>
+<div id="tabset-6-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co">#Define travel buckets</span></span>
+<span id="cb9-2"><a></a>travel_buckets <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="fl">1.1</span>, <span class="fl">0.1</span>)</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a><span class="co">#Store the results</span></span>
+<span id="cb9-5"><a></a>results<span class="op">=</span>pd.DataFrame()</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="cf">for</span> i <span class="kw">in</span> travel_buckets:</span>
+<span id="cb9-8"><a></a></span>
+<span id="cb9-9"><a></a>  <span class="co"># Create counterfactual DataFrame with current values of X except for and different sizes</span></span>
+<span id="cb9-10"><a></a>  X_Temp<span class="op">=</span>X.copy()</span>
+<span id="cb9-11"><a></a>  X_Temp[<span class="st">'travel'</span>]<span class="op">=</span>X_Temp[<span class="st">'travel'</span>]<span class="op">*</span>i</span>
+<span id="cb9-12"><a></a></span>
+<span id="cb9-13"><a></a>  <span class="co"># Predict probabilities for counterfactual data</span></span>
+<span id="cb9-14"><a></a>  counterfactual_probs <span class="op">=</span> pd.DataFrame({<span class="st">'estimate'</span>: multinomial_result.predict(X_Temp).mean(axis<span class="op">=</span><span class="dv">0</span>)}).T</span>
+<span id="cb9-15"><a></a>  counterfactual_probs.columns<span class="op">=</span>counterfactual_probs.columns.<span class="bu">map</span>(class_mapping)</span>
+<span id="cb9-16"><a></a>  counterfactual_probs[<span class="st">'travel'</span>]<span class="op">=</span> <span class="st">"</span><span class="sc">{:.0%}</span><span class="st">"</span>.<span class="bu">format</span>(i)</span>
+<span id="cb9-17"><a></a>  counterfactual_probs<span class="op">=</span>counterfactual_probs.reindex(columns<span class="op">=</span>[<span class="st">'travel'</span>,<span class="st">'air'</span>,<span class="st">'bus'</span>,<span class="st">'car'</span>,<span class="st">'train'</span>])</span>
+<span id="cb9-18"><a></a>  </span>
+<span id="cb9-19"><a></a>  <span class="co">#Append</span></span>
+<span id="cb9-20"><a></a>  results<span class="op">=</span>pd.concat([results,counterfactual_probs],axis<span class="op">=</span><span class="dv">0</span>,ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-21"><a></a></span>
+<span id="cb9-22"><a></a><span class="co"># Display the predicted probabilities DataFrame</span></span>
+<span id="cb9-23"><a></a>results<span class="op">=</span>results.reindex(columns<span class="op">=</span>[<span class="st">'travel'</span>,<span class="st">'air'</span>,<span class="st">'bus'</span>,<span class="st">'car'</span>,<span class="st">'train'</span>])</span>
+<span id="cb9-24"><a></a></span>
+<span id="cb9-25"><a></a></span>
+<span id="cb9-26"><a></a><span class="co"># Display the contingency table and accuracy</span></span>
+<span id="cb9-27"><a></a>Table<span class="op">=</span> (</span>
+<span id="cb9-28"><a></a>  GT(results)</span>
+<span id="cb9-29"><a></a>  .cols_align(<span class="st">'center'</span>)</span>
+<span id="cb9-30"><a></a>  .tab_stub(rowname_col<span class="op">=</span><span class="st">'travel'</span>)</span>
+<span id="cb9-31"><a></a>  .fmt_percent()</span>
+<span id="cb9-32"><a></a>  .cols_label(</span>
+<span id="cb9-33"><a></a>    travel<span class="op">=</span> <span class="st">'</span><span class="sc">% o</span><span class="st">f Original Travel Cost'</span>,</span>
+<span id="cb9-34"><a></a>    air <span class="op">=</span> <span class="st">'Air'</span>,</span>
+<span id="cb9-35"><a></a>    bus <span class="op">=</span> <span class="st">'Bus'</span>,</span>
+<span id="cb9-36"><a></a>    car <span class="op">=</span> <span class="st">'Car'</span>,</span>
+<span id="cb9-37"><a></a>    train <span class="op">=</span> <span class="st">'Train'</span>,</span>
+<span id="cb9-38"><a></a>    )</span>
+<span id="cb9-39"><a></a>  .tab_header(title<span class="op">=</span>md(<span class="st">"**Counterfactual Exercise 3 - Probabilities**"</span>))</span>
+<span id="cb9-40"><a></a>  .opt_stylize(style<span class="op">=</span><span class="dv">1</span>,color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb9-41"><a></a>)</span>
+<span id="cb9-42"><a></a></span>
+<span id="cb9-43"><a></a>Table.tab_options(table_width<span class="op">=</span><span class="st">"100%"</span>,table_font_size<span class="op">=</span><span class="st">"25px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="limitations-of-the-multinomial-logit" class="slide level2">
+<h2>Limitations of the Multinomial Logit</h2>
+<ul>
+<li>Recall that we estimated our predicted probabilities by looking at:</li>
+</ul>
+<p><span class="math display">\[
+  p_{k,i} = \frac{\exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}{1 + \sum_{k=2}^{4} \exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
+\]</span></p>
+<ul>
+<li>As a consequence, the probabilities of two choices <span class="focus">are the same</span> if they have the same characteristics</li>
+<li>This creates room for unreasonable substitution patterns. One of the most important properties of the multinomial logit model is the <span class="focus">Independence from Irrelevant Alternatives (IIA)</span></li>
+<li>The <span class="focus">IIA</span> property states that for any individual, the ratio of probabilities of choosing two alternatives is <em>independent</em> of the availability or attributes of any other alternatives</li>
+</ul>
+</section>
+<section id="limitations-of-the-multinomial-logit-continued" class="slide level2">
+<h2>Limitations of the Multinomial Logit (continued)</h2>
+<ul>
+<li>Consider the probability of choosing <code>mode=bus</code> <span class="math inline">\(k = 1\)</span> and <code>mode=train</code> <span class="math inline">\(k = 2\)</span>. According to the multinomial model, the probabilities of choosing each alternative are:</li>
+</ul>
+<p><span class="math display">\[
+  p_{2,i} = \frac{\exp(\alpha_2 + \beta_{2,1} + \beta_{2,2} + \dots + \beta_{2,j})}{1 + \sum_{k=2}^{4} \exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
+\]</span></p>
+<p><span class="math display">\[
+  p_{3,i} = \frac{\exp(\alpha_3 + \beta_{3,1} + \beta_{3,2} + \dots + \beta_{3,j})}{1 + \sum_{k=2}^{4} \exp(\alpha_k + \beta_{k,1} + \beta_{k,2} + \dots + \beta_{k,j})}
+\]</span></p>
+<ul>
+<li><p><strong>Problem:</strong> this ratio is <span class="focus">independent</span> of the availability and attributes of <span class="math inline">\(k = 4\)</span> <code>car</code>:</p>
+<p><span class="math display">\[
+\frac{p_{2,i}}{p_{3,i}} = \frac{\exp(\alpha_2 + \beta_{2,1} + \beta_{2,2} + \dots + \beta_{2,j})}{\exp(\alpha_3 + \beta_{3,1} + \beta_{3,2} + \dots + \beta_{3,j})} \equiv \frac{\exp^{bus}}{\exp^{train}}
+\]</span></p></li>
+</ul>
+</section>
+<section id="the-red-busblue-bus-paradox" class="slide level2">
+<h2>The <em>Red-Bus/Blue-Bus Paradox</em></h2>
+<ul>
+<li><p>The <span class="focus">IIA</span> property limits responses to changes predicted by the multinomial logit model</p></li>
+<li><p>A well-known paradox illustrating this is the <span class="focus">red-bus/blue-bus paradox</span>:</p>
+<p>1.Suppose you have two alternatives with identical properties: <span class="focus">car</span> and <span class="focus">red bus</span></p>
+<ol start="2" type="1">
+<li>If their observable attributes are exactly the same, we should expect the market share of each alternative to be the <span class="focus">same</span> (<em>i.e.</em>, <span class="math inline">\(50\%\)</span> each)</li>
+</ol></li>
+<li><p>Now, assume a <span class="focus">blue bus</span> category is introduced with the same observable characteristics. You would expect the new probabilities to be:</p>
+<ol type="1">
+<li><span class="focus">Car</span>: <span class="math inline">\(50\%\)</span><br>
+</li>
+<li><span class="focus">Red bus</span>: <span class="math inline">\(25\%\)</span></li>
+<li><span class="focus">Blue bus</span>: <span class="math inline">\(25\%\)</span></li>
+</ol></li>
+<li><p><span class="focus">Problem</span>: due to the <span class="focus">IIA</span>, a multinomial logit model would predict that each option has 33%, which is clearly counterintuitive, as it violates rational decision-making - remember, in terms of valued features, <span class="focus">red</span> and <span class="focus">blue</span> buses <span class="focus">are essentially the same</span>!</p></li>
+</ul>
+</section>
+<section id="limitations-of-the-multinomial-logit-continued-1" class="slide level2">
+<h2>Limitations of the Multinomial Logit (continued)</h2>
+<ul>
+<li><p>To which extent do the implications of the <span class="focus">IIA</span> affect our problem? In order to see that, suppose that you have an increase of <span class="math inline">\(10\%\)</span> in the cost of using <code>bus</code></p></li>
+<li><p>If that is the case, individuals who stop using buses due to cost increases are predicted to distribute themselves among the remaining modes <span class="focus">in proportion to the initial probabilities of choosing the remaining modes</span></p></li>
+<li><p>In other words, the ratio of probabilities across the other choices remain intact</p></li>
+</ul>
+<div class="fragment">
+<p><span class="focus">Does this sound reasonable? Likely not!</span> If there’s an increase in bus prices, we would expect air and bus passengers to react differently to these changes:</p>
+<ol type="1">
+<li><p>Since <code>bus</code> and <code>train</code> are closely related, one would expect marginal <code>bus</code> users to move towards <code>train</code></p></li>
+<li><p>As a consequence, the amount of marginal users moving to <code>air</code> should be much less</p></li>
+</ol>
+</div>
+</section>
+<section id="rethinking-our-use-of-multinomial-logit" class="slide level2">
+<h2>Rethinking our use of multinomial logit</h2>
+<ul>
+<li>How we can change this? Adding individual preference heterogeneity into the choices:</li>
+</ul>
+<p><span class="math display">\[
+V_{i,k}=  \underbrace{\alpha_k+X\beta_{k}}_{\text{Average utility for choice k}} + \underbrace{\mu_{i,k}}_{\text{Customer-specific utility for k}}
+\]</span></p>
+<ol type="1">
+<li><p>In the <em>red bus/blue bus</em> paradox, this would allow <span class="math inline">\(50\%\)</span> of the customers to really prefer cars</p></li>
+<li><p>In our practical example, this would allow air passengers to stick with their choices regardless of the changes in bus fares</p></li>
+</ol>
+<ul>
+<li><p>Implementations:</p>
+<ol type="1">
+<li><p>Use of <em>nested logit</em> models: first, they choose whether they’ll go with high/low cost; after that, they choose the specific transportation method</p></li>
+<li><p>BLP estimation - see <a href="https://pyblp.readthedocs.io/en/stable/">pyBLP</a> for an implementation using <code>Python</code></p></li>
+</ol></li>
+</ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+<div class="quarto-auto-generated-content">
+<p><img src="Images/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://lsmacoris.github.io/">@ Website</a> | <a href="https://lsmacoris.github.io/lectures/quant-mkt.html">@ Slides</a> | <a href="https://calendly.com/lucas-macoris-fgv/appointment-lsm">@ Office-hour appointments</a></p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Train" class="csl-entry" role="listitem">
+Train, Kenneth E. 2009. <em>Discrete Choice Methods with Simulation</em>. 2nd ed. Cambridge, England: Cambridge University Press.
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/lsmacoris\.github\.io\/lectures");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

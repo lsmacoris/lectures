@@ -276,36 +276,54 @@ window.Quarto = {
 <hr>
 <section id="about-the-course" class="level2">
 <h2 class="anchored" data-anchor-id="about-the-course"><strong>About the course</strong></h2>
-<p>This is a graduate-level course in Quantitative Marketing for the <em>Master’s Program in Economics and Finance (MEF)</em>, organized by the <em>University of Navarra (UNAV)</em>. This course aims to provide a hands-on approach to some of the methods widely used to solve practical questions in the advertisement industry, nurturing students with enough methodological background to understand the methods’ differences, advantages, and limitations. Students will also be exposed to a series of practical coding sessions, where the instructors will walk through practical applications of the methods discussed in class.</p>
-<p>The first section will focus on choice models, discussing the methodological aspects of the techniques most widely used in practical applications. The second section will be focused on market response models - measuring the effects of marketing efforts on sales metrics -and will discuss methods ranging from experimental design to panel-data estimation. Additional papers and references not covered in Sections 1 and 2 will be organized in the bibliography. Students are expected to apply the methods discussed in Sections 1 and 2 and replicate the codes developed during class. All coding routines will be discussed during class, and a handout will be provided at the end of each class.</p>
-<p>The evaluation will grade students based on their ability to develop, analyze, and discuss the results of a quantitative marketing case study. Groups are expected to create a report (code + discussions) applying some techniques discussed in class. The due date is 48 hours. Performance will be evaluated regarding reproducibility, organization, and quality of the discussion.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-1. Getting started
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I’ll make sure to update this list whenever needed throughout the sessions:</p>
-</div>
-</div>
+<p>This is a graduate-level course in <em>Quantitative Methods in Marketing</em> for the <a href="https://www.unav.edu/web/master-en-economia-y-finanzas"><em>Master’s Program in Economics and Finance (MEF)</em></a>, organized by the <em>University of Navarra (UNAV)</em>. This course aims to provide a hands-on approach to some of the methods widely used to solve practical questions in the advertisement industry, nurturing students with enough methodological background to understand the methods’ differences, advantages and limitations, and ultimately apply them with enough technical rigor to solve business-oriented questions.</p>
+<p>This course will be divided into <em>two</em> distinct sections:</p>
+<ol type="1">
+<li><p>The <strong>first section</strong> will focus on choice models, where students will be exposed to a series of techniques used in practical applications to estimate consumer’s choices over a defined set of possibilities, either that being a binary choice (<em>i.e</em>, opt-out of a subscription or renew) or a multinomial choice (<em>i.e</em>, choosing which product to buy from a set of possibilities).</p></li>
+<li><p>The <strong>second section</strong> will be focused on market response models - measuring the effects of marketing efforts on sales metrics - and will discuss methods ranging from experimental design to panel-data estimation. This part of the course will be covered by <a href="https://sites.google.com/site/xavividalberastain/home?authuser=0">Prof.&nbsp;Xavi Vidal-Berastain</a>.</p></li>
+</ol>
+<p>Additional papers and references not covered will be organized and outlined in the course’s official bibliography. Students are expected to apply the methods discussed in Sections 1 and 2 and replicate the codes developed during class. All coding routines will be discussed during class, and a handout notebook will be provided at the end of each class.</p>
+<p>The evaluation will grade students based on their ability to develop, analyze, and discuss the results of a quantitative marketing case study. Students are expected to work in groups and create a report (code + discussions) applying some techniques discussed in class in a data case. The due date is 48 hours. Performance will be evaluated regarding reproducibility, organization, and quality of the discussion.</p>
+</section>
+<section id="tech-setup-setting-up-your-environment" class="level2">
+<h2 class="anchored" data-anchor-id="tech-setup-setting-up-your-environment">Tech-setup: setting up your environment</h2>
+<p>Throughout the course, students will also be exposed to a series of practical coding sessions, where the instructors will walk through practical applications of the methods discussed in class. All coding sessions will be developed using <code>Python</code>. Using the correct <code>Python</code> version ensures compatibility with dependencies, preventing installation failures and runtime errors. Some packages require specific versions for stability or features, while newer releases may break existing code.</p>
+<p>To make sure you are fully able to perform all analyses, I recommend using the latest Python version (<code>3.13.2</code>), which you can download using <a href="https://www.python.org/downloads/release/python-3110/">this</a> link.</p>
+<p>After you are done with your <code>Python</code> installation, it is time to install all package dependencies that will be used throughout the lectures. To that point, ensure to call <code>pip install your_package</code> on your terminal all Python packages that we’ll be using. If you are using <code>Python</code> for other applications, is always recommended to create a separate virtual environment (<code>venv</code>) using your terminal. Virtual environments help isolate projects with different Python versions, avoiding conflicts and making sure that the outputs are reproducible.</p>
+<p>For Windows users, use the Windows button + R and type <code>cmd</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Package names</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>,<span class="st">"tidyquant"</span>,<span class="st">"tidymodels"</span>,<span class="st">"xts"</span>, <span class="st">"glue"</span>,<span class="st">"scales"</span>, <span class="st">"ggthemes"</span>,<span class="st">"highcharter"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages not yet installed</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>installed_packages <span class="ot">&lt;-</span> packages <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(installed_packages <span class="sc">==</span> <span class="cn">FALSE</span>)) {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(packages[<span class="sc">!</span>installed_packages])</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load all packages</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m venv <span class="op">/</span>path<span class="op">/</span>to<span class="op">/</span>new<span class="op">/</span>virtual<span class="op">/</span>environment<span class="op">-</span>name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Note that <code>environment-name</code> can be any name of your choice. After you do this, ensure that your machine points to the environment by running:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cd <span class="op">/</span>path<span class="op">/</span>to<span class="op">/</span>new<span class="op">/</span>virtual<span class="op">/</span>environment</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, activate your environment so that <code>Python</code> knows that we’ll be using it:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>python activate environment<span class="op">/</span>Scripts<span class="op">/</span>activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you have followed all the steps, you should see your <code>enviroment-name</code> surround by parenthesis. You’re now ready to install the packages that we’ll need! In order to do that, I’ve already stored it for you inside a notepad:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>matplotlib</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pandas</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>numpy</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>statsmodels</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>jupyter</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>scikit<span class="op">-</span>learn</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plotnine</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>great_tables</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>pyarrow</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>mlxtend</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, create a <code>.txt</code> file called <code>requirements.txt</code> and copy-paste the contents outlined above. These are the python packages that we’ll require in order to get things moving. After you’ve done this, place the <code>requirements.txt</code> file inside your enviroment. Before you install any packages, you can check the packages that are currently installed in your environment and store in a <code>.txt</code> file by calling:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pip freeze <span class="op">&gt;&gt;</span> installed_packages.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Not surprisingly, you’ll noticed that this action has created an empty file. In other words, there are still no packages installed in your newly created environment. Now, to install the packages inside <code>requirements.txt</code>, do:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pip install <span class="op">-</span>r requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This can take some time, depending on the packages and your current computer settings. After you’re done with this part, you can use <code>pip freeze installed.packages.txt</code> again and see that there are new dependencies installed!</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -316,13 +334,14 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In this course, you’ll be assigned with three data cases, where you’ll need to manipulate code and write your insights altogether. I want to encourage you to give <a href="https://quarto.org/">Quarto</a> a try.</p>
+<p>In the first section of this course, you’ll be assigned with a data case, where you’ll need to manipulate code and write your insights altogether. I want to encourage you to give <a href="https://quarto.org/">Quarto</a> a try.</p>
 <p>To install <span class="blue">Quarto</span>, follow <a href="https://quarto.org/docs/get-started/">this</a> link and choose your Operating System. <em>RStudio</em> will automatically locate it and make it as an option whenever creating a new file with <code>Ctrl+N</code>. Why you should give Quarto a try:</p>
 <ol type="1">
 <li>It has multi-language support (<em>Python</em>, <em>R</em>, <em>Julia</em>, <em>JavaScript</em>), parses equations and mathematical notations via <em>pandoc</em>, and integrates seamlessly with GitHub</li>
 <li>Advanced document formatting and output options: you can choose <em>pdf</em>, <em>html</em>, <em>docx</em>, or even a <em>reveal.js</em> presentation (like the ones from this course!)</li>
 <li>It is easy, intuitive, and lets you focus on the most important aspect of your work</li>
 </ol>
+<p>There are several <em>IDEs</em> that integrate well with Quarto. In special, I’d recommend <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, <a href="https://code.visualstudio.com/">VSCode</a>, and <a href="https://positron.posit.co/">Positron</a>. While the former is more suited for <code>R</code> programming, it does work quite well for rendering Quarto documents using both <code>R</code> and <code>Python</code>. <em>VSCode</em> and <em>Positron</em> (which is built on top of the open-source <em>VSCode</em>), on the other hand, provide support for Quarto through the <em>Extensions</em> panel.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -352,14 +371,13 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Along with the slides, each lecture will also contain a replication file, in <code>.qmd</code> format, containing a thorough discussion for all examples that have been showcased. This file, that will also be posted on <em>eClass®</em>, can be downloaded and replicated on your side.</p>
-<p>To do that, download the file, open it up in RStudio, and render the Quarto document using the Render button (shortcut: <code>Ctrl+Shift+K</code>).</p>
-<p>You can find the permanent links to the replication files (<code>.qmd</code>) below:</p>
+<p>Along with the slides, each lecture will also contain a replication file, in <code>.qmd</code> format, containing a thorough discussion for all examples that have been showcased during the in-class meeting. In this way, you can follow along and replicate all contents from the lectures on your end.</p>
+<p>To do that, download the file, open it up in your preferred IDE, and render the Quarto document using the Render button (shortcut: <code>Ctrl+Shift+K</code>). You can find the permanent links to the replication files (<code>.qmd</code>) below:</p>
 <ol type="1">
-<li>Bridging Finance with Programming - access <a href="https://lsmacoris.github.io/lectures/quant-fin/replications/L1/L1-Replication.html">here</a></li>
-<li>Collecting, Organizing, and Manipulating Financial Data - access <a href="https://lsmacoris.github.io/lectures/quant-fin/replications/L2/L2-Replication.html">here</a></li>
-<li>Manipulating Time Series Data - access <a href="https://lsmacoris.github.io/lectures/quant-fin/replications/L3/L3-Replication.html">here</a></li>
-<li>Data Visualization - access <a href="https://lsmacoris.github.io/lectures/quant-fin/replications/L4/L4-Replication.html">here</a></li>
+<li>Binary Models and its Applications - access <a href="">here</a></li>
+<li>Evaluating Logistic Regression Outcomes - access <a href="">here</a></li>
+<li>Multinomial Choice Models and its applications - access <a href="">here</a></li>
+<li>Market Basket Analysis - access <a href="">here</a></li>
 </ol>
 </div>
 </div>
@@ -397,28 +415,36 @@ Reading Time
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1743158981724" data-listing-reading-time-sort="29" data-listing-word-count-sort="5672" data-listing-title-sort="Choice Models and its Applications" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1743734171159" data-listing-reading-time-sort="30" data-listing-word-count-sort="5952" data-listing-title-sort="Choice Models and its Applications" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./quant-mkt/coursework/Lecture 1 - Choice Models and Its Applications/index.html" class="title listing-title">Choice Models and its Applications</a>
 </td>
 <td>
-<span class="listing-reading-time">29 min</span>
+<span class="listing-reading-time">30 min</span>
 </td>
 </tr>
-<tr data-index="1" data-listing-file-modified-sort="1743165447650" data-listing-reading-time-sort="15" data-listing-word-count-sort="2869" data-listing-title-sort="Evaluating Logistic Regresion Outcomes" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-listing-file-modified-sort="1743730351300" data-listing-reading-time-sort="18" data-listing-word-count-sort="3502" data-listing-title-sort="Evaluating Logistic Regresion Outcomes" data-listing-filename-sort="index.qmd">
 <td>
-<a href="./quant-mkt/coursework/Lecture 2 -  Evaluating Logistic Regression Outcomes/index.html" class="title listing-title">Evaluating Logistic Regresion Outcomes</a>
+<a href="./quant-mkt/coursework/Lecture 2 - Evaluating Logistic Regression Outcomes/index.html" class="title listing-title">Evaluating Logistic Regresion Outcomes</a>
 </td>
 <td>
-<span class="listing-reading-time">15 min</span>
+<span class="listing-reading-time">18 min</span>
 </td>
 </tr>
-<tr data-index="2" data-listing-file-modified-sort="1713258529000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703" data-listing-title-sort="Lecture 4 - Multiple Choice Models" data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-listing-file-modified-sort="1743730646721" data-listing-reading-time-sort="12" data-listing-word-count-sort="2247" data-listing-title-sort="Market Basket Analysis" data-listing-filename-sort="index.qmd">
 <td>
-<a href="./quant-mkt/coursework/Lecture 4 -  Market Basket Analysis/index.html" class="title listing-title">Lecture 4 - Multiple Choice Models</a>
+<a href="./quant-mkt/coursework/Lecture 4 -  Market Basket Analysis/index.html" class="title listing-title">Market Basket Analysis</a>
 </td>
 <td>
-<span class="listing-reading-time">9 min</span>
+<span class="listing-reading-time">12 min</span>
+</td>
+</tr>
+<tr data-index="3" data-listing-file-modified-sort="1743730202108" data-listing-reading-time-sort="18" data-listing-word-count-sort="3573" data-listing-title-sort="Multiple Choice Models" data-listing-filename-sort="index.qmd">
+<td>
+<a href="./quant-mkt/coursework/Lecture 3 - Multiple Choice Models/index.html" class="title listing-title">Multiple Choice Models</a>
+</td>
+<td>
+<span class="listing-reading-time">18 min</span>
 </td>
 </tr>
 </tbody>

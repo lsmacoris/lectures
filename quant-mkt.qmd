@@ -13,46 +13,105 @@ listing:
 
 ## **About the course**
 
-This is a graduate-level course in Quantitative Marketing for the *Master's Program in Economics and Finance (MEF)*, organized by the *University of Navarra (UNAV)*. This course aims to provide a hands-on approach to some of the methods widely used to solve practical questions in the advertisement industry, nurturing students with enough methodological background to understand the methods' differences, advantages, and limitations. Students will also be exposed to a series of practical coding sessions, where the instructors will walk through practical applications of the methods discussed in class. 
+```{r}
+#| eval: false
+#| echo: false
 
-The first section will focus on choice models, discussing the methodological aspects of the techniques most widely used in practical applications. The second section will be focused on market response models - measuring the effects of marketing efforts on sales metrics -and will discuss methods ranging from experimental design to panel-data estimation. Additional papers and references not covered in Sections 1 and 2 will be organized in the bibliography. Students are expected to apply the methods discussed in Sections 1 and 2 and replicate the codes developed during class. All coding routines will be discussed during class, and a handout will be provided at the end of each class.
+#Use Knitr
 
-The evaluation will grade students based on their ability to develop, analyze, and discuss the results of a quantitative marketing case study. Groups are expected to create a report (code + discussions) applying some techniques discussed in class. The due date is 48 hours. Performance will be evaluated regarding reproducibility, organization, and quality of the discussion.
-
-::: {.callout-note}
-### 1. Getting started
-
-To make things easier, ensure to install these packages in your computer and load it at the beginning of every session - I'll make sure to update this list whenever needed throughout the sessions:
-
-:::
-
-```{r, eval=FALSE,echo=TRUE}
-# Package names
-packages <- c("tidyverse","tidyquant","tidymodels","xts", "glue","scales", "ggthemes","highcharter")
-
-# Install packages not yet installed
-installed_packages <- packages %in% rownames(installed.packages())
-
-if (any(installed_packages == FALSE)) {
-  install.packages(packages[!installed_packages])
-}
-
-# Load all packages
-lapply(packages, library, character.only = TRUE)
 
 ```
 
 
+This is a graduate-level course in *Quantitative Methods in Marketing* for the [*Master's Program in Economics and Finance (MEF)*](https://www.unav.edu/web/master-en-economia-y-finanzas), organized by the *University of Navarra (UNAV)*. This course aims to provide a hands-on approach to some of the methods widely used to solve practical questions in the advertisement industry, nurturing students with enough methodological background to understand the methods' differences, advantages and limitations, and ultimately apply them with enough technical rigor to solve business-oriented questions. 
+
+This course will be divided into *two* distinct sections:
+
+  1. The **first section** will focus on choice models, where students will be exposed to a series of techniques used in practical applications to estimate consumer's choices over a defined set of possibilities, either that being  a binary choice (*i.e*, opt-out of a subscription or renew) or a multinomial choice (*i.e*, choosing which product to buy from a set of possibilities).
+
+  2. The **second section** will be focused on market response models - measuring the effects of marketing efforts on sales metrics - and will discuss methods ranging from experimental design to panel-data estimation. This part of the course will be covered by [Prof. Xavi Vidal-Berastain](https://sites.google.com/site/xavividalberastain/home?authuser=0).
+  
+  
+Additional papers and references not covered will be organized and outlined in the course's official bibliography. Students are expected to apply the methods discussed in Sections 1 and 2 and replicate the codes developed during class. All coding routines will be discussed during class, and a handout notebook will be provided at the end of each class.
+
+The evaluation will grade students based on their ability to develop, analyze, and discuss the results of a quantitative marketing case study. Students are expected to work in groups and create a report (code + discussions) applying some techniques discussed in class in a data case. The due date is 48 hours. Performance will be evaluated regarding reproducibility, organization, and quality of the discussion.
+
+## Tech-setup: setting up your environment
+
+Throughout the course, students will also be exposed to a series of practical coding sessions, where the instructors will walk through practical applications of the methods discussed in class. All coding sessions will be developed using `Python`. Using the correct `Python` version ensures compatibility with dependencies, preventing installation failures and runtime errors. Some packages require specific versions for stability or features, while newer releases may break existing code. 
+
+To make sure you are fully able to perform all analyses, I recommend using the latest Python version (`3.13.2`), which you can download using [this](https://www.python.org/downloads/release/python-3110/) link.
+
+
+After you are done with your `Python` installation, it is time to install all package dependencies that will be used throughout the lectures. To that point, ensure to call `pip install your_package` on your terminal all Python packages that we'll be using. If you are using `Python` for other applications, is always recommended to create a separate virtual environment (`venv`) using your terminal. Virtual environments help isolate projects with different Python versions, avoiding conflicts and making sure that the outputs are reproducible.
+
+For Windows users, use the Windows button + R and type `cmd`:
+
+
+```{python}
+#| eval: false
+python -m venv /path/to/new/virtual/environment-name
+```
+
+Note that `environment-name` can be any name of your choice. After you do this, ensure that your machine points to the environment by running:
+
+```{python}
+#| eval: false
+cd /path/to/new/virtual/environment
+```
+
+Finally, activate your environment so that `Python` knows that we'll be using it:
+
+```{python}
+#| eval: false
+python activate environment/Scripts/activate
+```
+
+If you have followed all the steps, you should see your `enviroment-name` surround by parenthesis. You're now ready to install the packages that we'll need! In order to do that, I've already stored it for you inside a notepad:
+
+```{python}
+#| eval: false
+matplotlib
+pandas
+numpy
+statsmodels
+jupyter
+scikit-learn
+plotnine
+great_tables
+pyarrow
+mlxtend
+```
+
+Now, create a `.txt` file called `requirements.txt` and copy-paste the contents outlined above. These are the python packages that we'll require in order to get things moving. After you've done this, place the `requirements.txt` file inside your enviroment. Before you install any packages, you can check the packages that are currently installed in your environment and store in a `.txt` file by calling:
+
+```{python}
+#| eval: false
+pip freeze >> installed_packages.txt
+```
+
+Not surprisingly, you'll noticed that this action has created an empty file. In other words, there are still no packages installed in your newly created environment. Now, to install the packages inside `requirements.txt`, do:
+
+```{python}
+#| eval: false
+pip install -r requirements.txt
+```
+
+This can take some time, depending on the packages and your current computer settings. After you're done with this part, you can use `pip freeze installed.packages.txt` again and see that there are new dependencies installed!
+
 ::: {.callout-note}
 ### 2. Using Quarto
 
-In this course, you'll be assigned with three data cases, where you'll need to manipulate code and write your insights altogether. I want to encourage you to give [Quarto](https://quarto.org/) a try.
+In the first section of this course, you'll be assigned with a data case, where you'll need to manipulate code and write your insights altogether. I want to encourage you to give [Quarto](https://quarto.org/) a try.
 
 To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) link and choose your Operating System. *RStudio* will automatically locate it and make it as an option whenever creating a new file with `Ctrl+N`. Why you should give Quarto a try:
 
   1. It has multi-language support (*Python*, *R*, *Julia*, *JavaScript*), parses equations and mathematical notations via *pandoc*, and integrates seamlessly with GitHub
   2. Advanced document formatting and output options: you can choose *pdf*, *html*, *docx*, or even a *reveal.js* presentation (like the ones from this course!)
   3. It is easy, intuitive, and lets you focus on the most important aspect of your work
+
+There are several *IDEs* that integrate well with Quarto. In special, I'd recommend [RStudio](https://posit.co/download/rstudio-desktop/), [VSCode](https://code.visualstudio.com/), and [Positron](https://positron.posit.co/). While the former is more suited for `R` programming, it does work quite well for rendering Quarto documents using both `R` and `Python`. *VSCode* and *Positron* (which is built on top of the open-source *VSCode*), on the other hand, provide support for Quarto through the *Extensions* panel. 
+
 
 :::
 
@@ -68,15 +127,14 @@ At the end of this page, you find the persistent links to all lectures of the co
 ::: {.callout-note}
 ### 4. Replications
 
-Along with the slides, each lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased. This file, that will also be posted on *eClass®*, can be downloaded and replicated on your side.
+Along with the slides, each lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased during the in-class meeting. In this way, you can follow along and replicate all contents from the lectures on your end. 
 
-To do that, download the file, open it up in RStudio, and render the Quarto document using the Render button (shortcut: `Ctrl+Shift+K`).
+To do that, download the file, open it up in your preferred IDE, and render the Quarto document using the Render button (shortcut: `Ctrl+Shift+K`). You can find the permanent links to the replication files (`.qmd`) below:
 
-You can find the permanent links to the replication files (`.qmd`) below:
-
-1. Bridging Finance with Programming - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L1/L1-Replication.html)
-2. Collecting, Organizing, and Manipulating Financial Data - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L2/L2-Replication.html)
-3. Manipulating Time Series Data - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L3/L3-Replication.html)
-4. Data Visualization - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L4/L4-Replication.html)
+1. Binary Models and its Applications - access [here]()
+2. Evaluating Logistic Regression Outcomes - access [here]()
+3. Multinomial Choice Models and its applications - access [here]()
+3. Market Basket Analysis - access [here]()
 
 :::
+

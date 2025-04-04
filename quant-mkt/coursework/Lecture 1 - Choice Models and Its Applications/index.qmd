@@ -9,7 +9,7 @@ format:
     logo: 'Images/logo.png'
     footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-mkt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
-    incremental: true
+    incremental: false
     bibliography: '../~ Metadata/Bibliography.bib'
     slide-number: true
     show-slide-number: all
@@ -26,7 +26,18 @@ from: markdown+emoji
 # Welcome to the course!
 
 ```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+
 #Use knitr
+library(reticulate)
+library(downloadthis)
+library(tidyverse)
+use_virtualenv("C:/Users/Lucas/Documents/quant-mkt-UNAV", required = TRUE)
+#use py_config() to check
+
 ```
 
 ## How to use these slides
@@ -61,6 +72,7 @@ from mizani.formatters import percent_format
 
 # Generating data
 np.random.seed(0)
+
 dat = pd.DataFrame({
     'cond': np.repeat(['A', 'B'], 10),
     'xvar': np.arange(1, 21) + np.random.normal(0, 3, 20),
@@ -70,14 +82,14 @@ dat = pd.DataFrame({
 theme_plots= theme(
   legend_position='bottom',
   axis_title=element_text(face='bold',size=10),
-  plot_title=element_text(face='bold',size=15)
-  )
+  plot_title=element_text(face='bold',size=15),
+  figure_size=(15,6))
 
 # Plotting
 Plot=(
   
   ggplot(dat,aes(x='xvar',y='yvar',fill='cond',color='cond'))+
-              geom_point()+
+              geom_point(size=3)+
               labs(
               title = 'An example of charting using the plotnine package',
               subtitle = 'Randomly generated data',
@@ -86,8 +98,7 @@ Plot=(
             + scale_y_continuous(breaks = range(-10,25,5))
             + scale_x_continuous(breaks = range(-10,25,5))
             + theme_minimal()
-            + theme_plots
-)
+            + theme_plots)
 
 Plot.show()
 
@@ -101,11 +112,14 @@ Plot.show()
 
 # Generating data
 np.random.seed(0)
+
 dat = pd.DataFrame({
     'cond': np.repeat(['A', 'B'], 10),
     'xvar': np.arange(1, 21) + np.random.normal(0, 3, 20),
     'yvar': np.arange(1, 21) + np.random.normal(0, 3, 20)
 })
+
+dat=tp.as_tibble(dat)
 
 theme_plots= theme(
   legend_position='bottom',
@@ -130,44 +144,42 @@ Plot=(
 )
 
 Plot.show()
+
 ```
 :::
 
 ## Course Outline
 
--   We'll cover the [first section]{.focus} of course, which contemplates [choice models]{.focus}:
+-   The [first section]{.focus} of the *Quantitative Marketing* course will cover [choice models]{.focus}:
 
     1.  Binary Response Models: *Logit*/*Probit*
     2.  Multi-choice Models: *Multinomial Logit*
     3.  Economic Implications of multi-choice models
-    4.  Market-basket Analysis
+    4.  Market-basket Analysis and further topics on choice models
 
--   We'll keep a [hands-on]{.focus} approach to be best of our capabilities, with handout exercises (code + analysis) and focus on practical applications
+-   To the best of our capabilities, we will stick to a [hands-on]{.focus} approach, focusing on practical applications and using the economic/econometric tools and concepts you've learned so far to interpret our findings
 
--   Evaluation (first section) will consist of:
+::: callout-important
+### Handouts
 
-    1.  Code coursework ([DataCamp](https://datacamp.com))
-    2.  Handout Exercise (deadline TBD)
+To maintain reproducibility, at the end of each class, a handout containing all the coding steps with detailed explanations will be provided. As such, students can download the file and replicate all the contents from each lecture on their end.
+:::
 
--   You can download a notebook covering this first lecture using [this](https://drive.google.com/file/d/1czHPRZ6t5_jBcLKHJrv5eO8F4CjT4oVY/view?usp=drive_link) link and the dataset using [here](https://drive.google.com/file/d/12pKTORubx5win6TCGw7sww2tr9XLdUj0/view?usp=drive_link)
+## Bibliography and References
 
-## References
+-   Although emphasis will be given to the practical aspects (*i.e*, coding) around the subjects, it is expected that students are well-versed in statistics/econometrics
 
--   Our first section of the *Marketing Analytics* course will focus on the main applications from a practical standpoint
+-   For a detailed discussion around the methodological approaches discussed throughout the lectures, you can refer to the following textbooks (graduate-level):
 
-1.  For a detailed discussion on the methodological approaches undertaken throughout the lectures, we'll follow:
+    a.  *Discrete Choice Methods with Simulation* - [@Train]
+    b.  *Econometric Analysis* - [@Greene]
+    c.  *Econometrics* - [@Hayashi]
 
-<!-- -->
+-   For a broader discussion around the practical applications on *Marketing* topics, we'll follow [@Chapman]
 
-a.  *Discrete Choice Methods with Simulation* - @Train
-b.  *Econometric Analysis* - @Greene
-c.  *Econometrics* - @Hayashi
+$\rightarrow$ *For those that want to extend their knowledge beyond the topics covered in the lectures, the professor will provide a range of academic papers, as well as policy/whitepapers that cover further topics on Quantitative Marketing*
 
-<!-- -->
-
-2.  For a broader discussion around the practical applications on Marketing, we'll follow @Chapman
-
-## Discrete Choice Models
+## Introduction to Discrete Choice Models
 
 -   Marketing practitioners are often concerned about consumers decisions around a *defined* set of choices:
 
@@ -175,7 +187,7 @@ c.  *Econometrics* - @Hayashi
 
     2.  Faced with a defined set of products, make a decision around [which]{.focus} products to buy
 
-    3.  After experiencing a flow of consumption from a product or service up to time $t$, decide whether to [continue]{.green} consumption at $t+1$ or [churn]{.red}
+    3.  After experiencing a flow of consumption from a product or service up to time $t$, decide whether to [continue]{.green} consumption at $\small t+1$ or [churn]{.red}
 
 -   Eliciting knowledge about individual choices shed light on consumer preferences and help marketers to understand how consumers value certain product attributes
 
@@ -184,8 +196,6 @@ c.  *Econometrics* - @Hayashi
 ## Binary Choice Models
 
 -   Motivation: among a *defined* set of *two* mutually exclusive alternatives, consumers make a decision by [choosing]{.focus} one alternative in spite of the other:
-
-. . .
 
 $$
 \small
@@ -197,41 +207,62 @@ $$
 
 -   These models implicitly tell about consumer's preferences regarding several consumption decisions. Say that we know that a set $X$ of characteristics (which may be consumer-specific, environmental, or product) affect $i$'s decision. We can then model such decision by:
 
-. . .
-
 $$
 \small Y_i=f(X_i)
 $$
 
 -   Our starting point will be to define what $f(X)$ should look like. Depending on the shape of this function, the interpretation becomes a *probabilistic* measurement
 
-## Binary Choice Models - Application
+## Binary Choice Models - Churn
 
--   One of the most widely applicable areas of binary choice modeling refers to [churn]{.focus} modeling: the the percentage of customers who [discontinue]{.red} their use of a business's products or services over a certain time period
+-   One of the most widely applicable areas of binary choice modeling refers to [churn]{.focus} modeling:
 
--   This concept is important for businesses because it affects their revenue and offers insights into customer satisfaction and loyalty:
+::: callout-important
+### Definition
 
-    1.  A high churn rate may suggest there are issues with the product, service, or overall customer experience
+[Churn]{.focus} refers to the the % of customers who [discontinue]{.red} their use of a business's products or services over a certain time period. This concept is important for businesses because it affects their revenue and offers insights into customer satisfaction and loyalty:
 
-    2.  A low churn rate may suggest the existence of customer loyalty, high switching costs, or valuable attributes from the offer
+1.  A [high churn]{.red} rate may suggest there are issues with the product, service, or overall customer experience
+
+2.  A [low churn]{.green} rate may suggest the existence of customer loyalty, high switching costs, or valuable attributes from the offer
+:::
 
 -   Churn modeling offers valuable insights to marketers as it is possible to derive actions *ex-ante* its occurrence and [prevent]{.green} customers from churning
 
 -   This issue becomes more relevant when customer acquisition costs increase
 
-## Practical Application Outline
+## Hands-On Exercise
 
--   You will use a bank Customer Relationship Manager (CRM) data set comprising of 10,000 bank customers and its actual engagement status (whether or not he/she has [churned]{.red})
+::: callout-important
+### Description
 
--   This data set will be primarily based on [this](https://www.kaggle.com/code/fekihmea/customer-churn-analysis-pace-strategy/notebook) *Kaggle* notebook, although some adaptations have been made for teaching purposes
+-   You work as a quantitative analyst at a big regional bank and just got access to the bank's Customer Relationship Manager (CRM) data, comprising a sample of 10,000 bank customers and its actual engagement status (whether or not he/she has [churned]{.red}) over the study period. Your manager wants you to use this data and investigate the following points:
+
+1.  What is the percentage of customers that are churning during the study period?
+2.  What are the key aspects that drove historical churn?
+3.  Which action plans would you recommend so as to preemptively identify and avoid future churn from customers?
+:::
+
+-   You can download the `bank-dataset.csv` data using the *Download* button below
+
+**Note**: this dataset is be primarily based on [this](https://www.kaggle.com/code/fekihmea/customer-churn-analysis-pace-strategy/notebook) *Kaggle* notebook, although some adaptations have been made for teaching purposes
+
+```{r}
+#| echo: false
+
+read.csv('Assets/bank-dataset.csv')%>%
+  download_this(
+    output_name = "bank-dataset",
+    output_extension = ".csv",
+    button_label = "Download Raw data",
+    has_icon = TRUE,
+    icon = "fa fa-save")
+
+```
 
 ## Before we start: tech-setup
 
--   We'll be running code both using `Python` All outputs will be shown in the first tabset, with their corresponding code in the subsequent tabsets.
-
--   Before you start, ensure you have installed all the necessary packages: to install all necessary `Python` libraries, use the terminal to install and then `import` all packages inside a notebook:
-
-. . .
+1.  To install all necessary `Python` libraries, use the terminal to install and then `import` all packages inside a notebook. First, [install]{.focus} all dependencies by downloading the `requirements.txt` file and running the following script on your terminal:
 
 ```{python}
 #| eval: false
@@ -241,11 +272,30 @@ pip install requirements.txt
 
 ```
 
+2.  After you have everything properly installed, it is time to [load]{.focus} the packages in your session - make sure to load this at the beginning of your script/notebook:
+
+```{python}
+#| eval: false
+#| echo: true
+
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+from plotnine import *
+from great_tables import GT, md
+from mizani.formatters import percent_format
+
+```
+
+::: callout-important
+### Tech-setup
+
+In the official page (link [here](www.lsmacoris.github.io/https://lsmacoris.github.io/lectures/quant-mkt.html)) of our course, I have outlined a few steps for you to get started using `Python` and install all dependencies that we will be using.
+:::
+
 ## Variable Descriptives
 
 -   To begin our investigation, let's do a simple variable description of the variables that we have in our dataset:
-
-. . .
 
 ::: panel-tabset
 ### Result
@@ -269,7 +319,7 @@ Table = (
 )
 
 #Output
-Table
+Table.tab_options(table_width="100%",table_font_size="25px")
 ```
 
 ### Python
@@ -295,11 +345,11 @@ Table = (
 )
 
 #Output
-Table
+Table.tab_options(table_width="100%",table_font_size="25px")
 ```
 :::
 
-## Analyzing churn distribution
+## Analyzing churn correlation with customer characteristics
 
 ::: panel-tabset
 ### Result
@@ -388,8 +438,6 @@ Plot.show()
 
 -   Say that we are interested in modeling the *occurrence* of `churn`, which is a discrete variable for each customer $i$:
 
-. . .
-
 $$
 Y_i=
 \begin{cases}
@@ -399,8 +447,6 @@ Y_i=
 $$
 
 -   If we have a set of covariates, $X_i$, then we can define the relationship:
-
-. . .
 
 $$
 Y_i=f(X_i)
@@ -413,8 +459,6 @@ $$
 
 -   The simplest approach that we can take is to assume that $Y$ is linear on the set of characteristics $X$. In other words, $f(X)$ is a [linear]{.focus} model:
 
-. . .
-
 $$
 Y_i= P(Y_i=1|X_i)=\alpha + \beta_1x_1+\beta_2x_2+...+\beta_nx_n+\varepsilon_i
 $$
@@ -423,17 +467,13 @@ $$
 
 -   Because the relationship between $Y$ and $X$ is assumed to be linear, the changes in the probability (or likelihood) of `churn` are linear on the parameters $\beta$. For example, for $x_1$:
 
-. . .
-
 $$
 \dfrac{\partial Y}{\partial x_1}=\beta_1
 $$
 
 ## Is the LPM a *biased* estimator?
 
--   If we believe that the *OLS* assumptions are valid, $\beta$ is still a consistent estimator of the population average relationship between $Y$ and $X$, regardless of the type of dependent:
-
-. . .
+-   If the *OLS* assumptions are valid, $\beta_{OLS}$ is still a consistent estimator of the population average relationship between $Y$ and $X$, regardless of the type of dependent variable:
 
 $$
 \begin{align}
@@ -445,8 +485,6 @@ $$
 
 -   If we assume that $X\perp\epsilon$ - i.e, no *ommited variables*-, we see that $\beta_{OLS}$ is an unbiased estimator of the *average* effect of $X$ on $Y$:
 
-. . .
-
 $$
 \text{if } X\perp\epsilon \rightarrow \beta_{OLS}=\beta + (X'X)^{-1}\underbrace{X'\epsilon}_{=0}\rightarrow \beta_{OLS}=\beta
 $$
@@ -454,8 +492,6 @@ $$
 ## Modeling churn via LPM
 
 -   Suppose we want to understand the determinants of customer's churn over time. For that, we'll consider the following variables:
-
-. . .
 
 $$
 \text{if } X=\begin{bmatrix} CreditScore \\ D(Gender) \\ Age \\ Tenure \\ Balance \\ \#Products \\ D(CreditCard) \\ D(Active) \\ Salary \end{bmatrix} \rightarrow Y \sim X'\beta+\epsilon
@@ -522,8 +558,6 @@ print(model.summary())
 
 1.  All else equal, an additional year increases the likelihood of churning by:
 
-. . .
-
 $$
 \partial Y/\partial Age=\beta_{Age}\approx 0.0113
 $$
@@ -531,8 +565,6 @@ $$
 -   Moving from the $25^{th}$ to the $75^{th}$ percentile of `age` increases the likelihood by $\beta_{Age}\times IQR(Age)=(44-32)\times 0.0113 \approx 14$ or 14%
 
 2.  *Male* customers tend to churn, on average, $7.7\%$ *less* than *Female* customers:
-
-. . .
 
 $$
 \partial Y/\partial D(genderMale)=\beta_{genderMale}\approx =-0.078
@@ -589,9 +621,7 @@ Table= (
   .opt_stylize(style=1,color='red')
 )
 
-Table
-
-
+Table.tab_options(table_width="100%",table_font_size="25px")
 ```
 
 ### Python
@@ -641,7 +671,7 @@ Table= (
   .opt_stylize(style=1,color='red')
 )
 
-Table
+Table.tab_options(table_width="100%",table_font_size="25px")
 
 ```
 :::
@@ -660,23 +690,7 @@ Table
 
 ## Limitations of the *LPM*
 
-::::: panel-tabset
-### Heteroskedasticity
-
-::: nonincremental
--   Even though we can achieve consistent estimators, we'll have [heteroskedasticity]{.focus} in our estimates by construction. To see that, recall that the conditional expectation of Y given X is given by:
-
-$$
-\small E(Y|X)=\underbrace{[P(Y=1|X]}_{X\beta\times 1} + \underbrace{[1-P(Y=1|X)]\times 0}_{=0} = X\beta
-$$
-
--   Given that the variance of a Bernoulli Distribution is given by $p \times (1-p)$, then:
-
-$$
-V(Y|X)=P(Y|X)\times[1-P(Y|X)]=X\beta\times(1-X\beta) \text{, which clearly depends on } X
-$$
-:::
-
+::: panel-tabset
 ### Poor Fit
 
 ```{python}
@@ -702,14 +716,27 @@ Plot.show()
   
 ```
 
+### Heteroskedasticity
+
+-   Even though we can achieve consistent estimators, we'll have [heteroskedasticity]{.focus} in our estimates by construction. To see that, recall that the conditional expectation of Y given X is given by:
+
+$$
+\small E(Y|X)=\underbrace{[P(Y=1|X]}_{X\beta\times 1} + \underbrace{[1-P(Y=1|X)]\times 0}_{=0} = X\beta
+$$
+
+-   Given that the variance of a Bernoulli Distribution is given by $p \times (1-p)$, then:
+
+$$
+V(Y|X)=P(Y|X)\times[1-P(Y|X)]=X\beta\times(1-X\beta) \text{, which clearly depends on } X
+$$
+
 ### $R^2$
 
-::: nonincremental
--   In most linear probability models, $R^2$ has no meaningful interpretation
+-   In most linear probability models, $R^2$ has no meaningful interpretation:
 
--   Since the regression line can never fit the data perfectly if the dependent variable is binary and the regressors are continuous
+1.  Regression line can never fit the data perfectly if the dependent variable is binary and the regressors are continuous
+2.  Since *LPM* predicts *probabilities*, the dependent variable is binary ($0$ or $1$), making the interpretation of $R^2$ problematic. The model often produces predicted values outside the $[0,1]$ range, leading to unreliable goodness-of-fit assessments
 :::
-:::::
 
 ## Introducing non-linear binary models
 
@@ -729,8 +756,6 @@ Plot.show()
 
 -   Although we do not observe $Y^\star$, we do observe the consumer's decision of buying or not buying the product, depending on a given threshold:
 
-. . .
-
 $$
 Y=
 \begin{cases}
@@ -741,8 +766,6 @@ $$
 
 -   Therefore, we can see that the probability of buying depends on a latent variable, which is not observed by the econometrician:
 
-. . .
-
 $$
 P(Y=1|X)=P(Y^\star>0|X)=P(\underbrace{X\beta+\varepsilon}_{Y^{\star}}>0|X)
 $$
@@ -751,15 +774,11 @@ $$
 
 -   We can rearrange terms and find that:
 
-. . .
-
 $$
 P(Y=1|X)=P(\underbrace{X\beta+\varepsilon}_{Y^{\star}}>0|X)\rightarrow \underbrace{P(\varepsilon>-X\beta|X)\equiv P(\varepsilon<X\beta|X)}_{\text{Under Simmetry}}
 $$
 
 -   Therefore, this framework can be used to think about any cumulative density function which has the simmetry property. For the case of Logistic Regression, our transformation function that maps $Y^\star$ (how much consumer values a good) to $Y$ (decision to buy or not buy) is:
-
-. . .
 
 $$
 f(Y^\star)=\Lambda(Y^\star)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)}
@@ -833,15 +852,11 @@ print(model.summary())
 
 1.  When $X\rightarrow\infty$, the probability of buying in our example tends to 1:
 
-. . .
-
 $$
 \Lambda(Y)=\dfrac{\exp(Y)}{1+\exp(Y)}=\dfrac{\exp(X\beta)}{1+\exp(X\beta)}\rightarrow1
 $$
 
 2.  On the other hand, when $X\rightarrow -\infty$, the probability of buying in our example tends to 0:
-
-. . .
 
 $$
 \Lambda(Y)=\dfrac{\exp(Y)}{1+\exp(Y)}=\dfrac{\exp(X\beta)}{1+\exp(X\beta)}\rightarrow \dfrac{0}{1}=0
@@ -851,8 +866,6 @@ $$
 
 -   Recall that the *logit* estimation for $\small P(Y|X)$ is given by:
 
-. . .
-
 $$
 \small
 P(Y)=\dfrac{\exp(X\beta)}{1+\exp(X\beta)},\text{ which we will call by } p
@@ -860,16 +873,12 @@ $$
 
 -   Looking at the inverse, $1/p$, we can see that:
 
-. . .
-
 $$
 \small
 \dfrac{1}{p}=\dfrac{1+\exp(X\beta)}{\exp(X\beta)}=1+\dfrac{1}{\exp{X\beta}}\rightarrow \dfrac{1-p}{p}=\dfrac{1}{\exp{X\beta}}
 $$
 
 -   Inverting and taking logs on both sides, we'll have:
-
-. . .
 
 $$
 \small \log{\bigg(\dfrac{p}{1-p}}\bigg)=X\beta=\alpha+\beta_1x_1+\beta_2x_2+...\beta_kx_k
@@ -879,8 +888,6 @@ $$
 
 -   Therefore, whenever we're estimating a *logit* model, our transformation function, $\Lambda(\cdot)$ is actually estimating $\small \dfrac{p}{1-p}$:
 
-. . .
-
 $$
 \small logit(p)=\alpha+\beta_1x_1+\beta_2x_2+...\beta_kx_k
 $$
@@ -888,8 +895,6 @@ $$
 -   The term $\small \dfrac{p}{1-p}$ is called *odds-ratio*, and is simply the ratio of the probability of success over the probability of failure
 
 -   Hence, if we want to recover the impacts of any change in the odds-ratio due to our covariates, we can exponentiate our coefficients:
-
-. . .
 
 $$
 \small \text{if } \log\bigg(\dfrac{p}{1-p}\bigg)=\alpha+\beta_1x_1+\beta_2x_2+...\beta_kx_k\rightarrow \dfrac{p}{1-p}=\exp(\alpha+\beta_1x_1+\beta_2x_2+...\beta_kx_k)
@@ -907,9 +912,9 @@ $$
 \small \dfrac{p}{1-p}=\exp(\beta_2)=\exp(-0.54)\approx0.58
 $$
 
--   Put another way, the chances of being a churned client are $\small 0.58-1=-0.42$ or 42% less likely for men!
+-   Put another way, the chances of being a churned client are $\small 0.58-1=-0.42$ or 42% [less likely]{.focus} for men!
 
--   Similarly, if we look at `Age` ($\beta_3=0.07$), an increase of 1 year increases the churn probability by:
+-   Similarly, if we look at `Age` ($\beta_3=0.07$), one additional year increases churn probability by:
 
 $$
 \exp(\beta_1)=[\exp(0.0728688)-1]\approx 0.07 \text{ or } 7.55\%
@@ -943,7 +948,7 @@ Table = (
   .opt_stylize(style=1,color='red')
 )
 
-Table
+Table.tab_options(table_width="100%",table_font_size="25px")
 
 ```
 
@@ -979,7 +984,7 @@ Table = (
   .opt_stylize(style=1,color='red')
 )
 
-Table
+Table.tab_options(table_width="100%",table_font_size="25px")
 
 ```
 ::::
@@ -1156,7 +1161,7 @@ predicted_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Femal
 Plot = (
   ggplot(predicted_df,aes(x='Gender',y='Predicted',fill='Gender'))+
   geom_col()+
-  geom_text(aes(label='Predicted'),format_string="{:.2f}%")+
+  geom_text(aes(label=predicted_df['Predicted']*100),format_string="{:.2f}%")+
   scale_y_continuous(labels = percent_format())+
   labs(
     title ='Marginal effects of Gender on Churn probabilities',
@@ -1209,7 +1214,7 @@ predicted_df['Gender'] = np.where(concatenated_df['gender'] == 1, 'Male', 'Femal
 Plot = (
   ggplot(predicted_df,aes(x='Gender',y='Predicted',fill='Gender'))+
   geom_col()+
-  geom_text(aes(label='Predicted'),format_string="{:.2f}%")+
+  geom_text(aes(label=predicted_df['Predicted']*100),format_string="{:.2f}%")+
   scale_y_continuous(labels = percent_format())+
   labs(
     title ='Marginal effects of Gender on Churn probabilities',
@@ -1228,10 +1233,9 @@ Plot.show()
 
 ## Putting all together
 
-:::: panel-tabset
+::: panel-tabset
 ### Explanation
 
-::: nonincremental
 -   We saw that women tend to churn, approximately, $8$ percentage points more than men
 
 -   Is this true across [all]{.focus} levels of age? As age levels increase, the gap between men and women may become wider due to personal traits. On the other hand, it may be that gender differences are invariant to age
@@ -1241,7 +1245,6 @@ Plot.show()
 1.  Set all continuous variables, with the exception of `age`, to their means
 2.  Compare the estimated probabilities for `gender=1` (male) and `gender=0` (female)
 3.  You should have $200$ rows in your data frame
-:::
 
 ### Result
 
@@ -1348,7 +1351,7 @@ Plot = (
 Plot.show()
 
 ```
-::::
+:::
 
 ## Comparison across LPM and Logit estimations
 
@@ -1498,35 +1501,37 @@ Plot.show()
 
 -   On the other hand, the changes when looking at the *Logit* model vary depending on the reference point for `Age`:
 
-    1.  For values \$\[0,20\], it increases modestly
-    2.  Around \[21,60\], the changes are exponential
-    3.  Between \[60,80\], the changes start to become constant
+    1.  For values $[0,20]$, it increases modestly
+    2.  Around $[21,60]$, the changes are exponential
+    3.  Between $[60,80]$, the changes start to become constant
     4.  After 80, we see diminishing effects
 
--   Do these differences matter in practice? [It depends on what you're looking...]{.focus}
+-   Do these differences matter in practice? [It depends on what you're looking...]{.focus} (more on the next slide)
 
 ## Comparison across LPM and Logit estimations (continued)
 
--   On the one hand, we clearly the weaknesses of the *LPM* when estimating probabilities for ages between $[0,20]$.
+1.  On the one hand, we clearly the weaknesses of the *LPM* when estimating probabilities for ages between $[0,20]$.
 
--   On the other hand, *LPM* and *Logit* will be almost identical between $[30,60]$
+2.  On the other hand, *LPM* and *Logit* will be almost identical between $[30,60]$
 
-1.  If you tabulate the distribution of `Age` in your dataset, you'll see that although *LPM* does a poor job in predicting probabilities for cases \<20, the sample proportion of these cases is less than 1%
+-   If you tabulate the distribution of `Age` in your dataset, you'll see that although *LPM* does a poor job in predicting probabilities for cases $<20$, the sample proportion of these cases is less than $1\%$
 
-2.  On the other hand, its results are approximately the same as of *Logit* between $[30,60]$, which constitutes approximately 80% of the sample
+-   On the other hand, its results are approximately the same as of *Logit* between $[30,60]$, which constitutes approximately $80\%$ of the sample, which indicates that for the specific sample you are looking at, a *LPM* is not a terrible idea
 
--   Ok, do does it matter or not? Again, [it depends...]{.focus}
+## Wrapping-up
 
-## Comparison across LPM and Logit estimations (continued)
-
--   Logit or LPM?
+**Logit or LPM?**
 
 1.  If your interest is to use the model results to [predict]{.focus} probabilities for different age brackets, then yes, you should use *Logit* (or any model with the similar properties)
 
-2.  If, on the other hand, you're just interest in knowing the effects for the average person in your sample, you can use *LPM*
+2.  If, on the other hand, you're just interest in knowing the effects for the average person in your sample (or extrapolating a causal effect if applicable), you can use *LPM*
+
+**Strengths and weaknesses**
 
 -   *LPM* is simpler, and we know very well the properties to analyze cases potential issues such as *ommited variable bias*
 
 -   In the *Logit* world, there is no $R^2$, but there are other ways to check the predictive ability and fit of models
+
+$\rightarrow$ *In our next lecture, we will understand how to evaluate Logit models using metrics that are more suitable for the task!*
 
 ## References
