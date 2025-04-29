@@ -757,7 +757,7 @@ Chart%>%ggplotly()%>%layout(legend = list(orientation = 'h', x = 0.45, y = -.07)
 -   For example, consider the following projects:
 
 1.  Invest $\small \$100$ today, earn $\small\$150$ in one year
-2.  Invest $\small$\$100$ today, earn $\small (1.5^5)\times100=759.4$ in $\small 5$ years
+2.  Invest $\small$\$100\$ today, earn $\small (1.5^5)\times100=759.4$ in $\small 5$ years
 
 -   The *IRR* for both cases is $\small 50\%$, but the second one has a much higher monetary value because of its capacity to generate a $\small 50\%$ over a higher horizon!
 
