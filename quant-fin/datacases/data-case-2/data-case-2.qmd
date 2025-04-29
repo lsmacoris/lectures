@@ -13,7 +13,7 @@ This Data Case is part of the *Practical Applications in Quantitative Finance* c
 
 ## Case Outline
 
-Hedge funds operate in a highly competitive environment where their ability to generate alpha—returns beyond market factors—is constantly scrutinized. Many funds claim to deliver superior returns by exploiting inefficiencies, but how much of their performance is just exposure to well-known risk factors?
+Hedge funds operate in a highly competitive environment where their ability to generate alpha---returns beyond market factors---is constantly scrutinized. Many funds claim to deliver superior returns by exploiting inefficiencies, but how much of their performance is just exposure to well-known risk factors?
 
 As part of the Strategic Investments Division at Sentinel Capital, a multi-billion-dollar *Fund of Funds (FoF)*, your team has been tasked with evaluating the performance of eight hedge funds over the last decade. The ultimate goal? Constructing an optimal portfolio of hedge funds that maximizes returns while managing risk.
 
@@ -21,14 +21,14 @@ To do this, you'll leverage `R`, `tidyverse`, `tidyquant`, and `PortfolioAnalyti
 
 Your dataset contains monthly returns from *eight* distinct hedge funds, each with a distinct allocation rationale:
 
-1.  *AlphaSynthesis Capital* – A long/short equity fund with an emphasis on momentum-driven strategies.
-2.  *ArbVantage Partners* – A statistical arbitrage fund specializing in mean-reversion strategies.
-3.  *Sentinel Macro Strategies* – A global macro fund that trades based on macroeconomic indicators.
-4.  *Quantum Volatility Fund* – A volatility arbitrage fund exploiting implied vs. realized volatility.
-5.  *Horizon Event-Driven* – A fund that profits from corporate events such as mergers, spin-offs, and earnings surprises.
-6.  *DeepValue Asset Management* – A deep-value fund investing in undervalued securities based on fundamental analysis.
-7.  *Nova Growth Strategies* – A growth-oriented hedge fund focusing on technology and high-beta stocks.
-8.  *Vega Capital Neutral* – A market-neutral strategy that seeks absolute returns with low beta exposure.
+1.  *AlphaSynthesis Capital* -- A long/short equity fund with an emphasis on momentum-driven strategies.
+2.  *ArbVantage Partners* -- A statistical arbitrage fund specializing in mean-reversion strategies.
+3.  *Sentinel Macro Strategies* -- A global macro fund that trades based on macroeconomic indicators.
+4.  *Quantum Volatility Fund* -- A volatility arbitrage fund exploiting implied vs. realized volatility.
+5.  *Horizon Event-Driven* -- A fund that profits from corporate events such as mergers, spin-offs, and earnings surprises.
+6.  *DeepValue Asset Management* -- A deep-value fund investing in undervalued securities based on fundamental analysis.
+7.  *Nova Growth Strategies* -- A growth-oriented hedge fund focusing on technology and high-beta stocks.
+8.  *Vega Capital Neutral* -- A market-neutral strategy that seeks absolute returns with low beta exposure.
 
 Your task is to analyze these funds, compare them against the *Fama-French* three-factor model, and construct optimal hedge fund portfolios.
 
@@ -108,16 +108,7 @@ install.packages('DEoptim')
 #| echo: false
 
 #Setup 
-hf_data=readRDS('Assets/hf_data.RDS')
-
-set.seed(123)
-hf_data[,2]=hf_data[,2]+0.0025*(1+runif(1,min=-0.25,0.25))
-hf_data[,3]=hf_data[,3]+0.005*(1+runif(1,min=-0.5,0.25))
-hf_data[10:60,4]=hf_data[10:60,4]+0.0045*(1+runif(1,min=-0.5,0.5))
-hf_data[1:149,6]=hf_data[1:149,6]+0.0045*(1+runif(1,min=-0.5,0.5))
-hf_data[80:150,6]=hf_data[80:150,6]-0.005*(1+runif(1,min=-0.25,0.25))
-hf_data[150:180,8]=hf_data[150:180,8]+0.008*(1+runif(1,min=0,0.1))
-hf_data[1:90,8]=hf_data[1:90,8]-0.01*(1+runif(1,min=0,0.1))
+hf_data=readRDS('Assets/exercise_hf_data.RDS')
 
 ```
 
@@ -162,7 +153,6 @@ Using the results from our previous *OLS* regressions, explain how exposed each 
 1.  Using the estimates from the estimation, collect all the $\beta$s from the regressions by filtering out the *Intercept* using the `filter()` function
 2.  Use `ggplot` to chart the weights (factor betas) for each strategy. To display all strategies in one chart, you can map the factors to the `x` axis, the factor betas values to the `y` axis, use `facet_wrap` to facet your chart by each different fund.
 :::
-
 
 ## Exercise 4
 
