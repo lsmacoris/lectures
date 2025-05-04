@@ -56,16 +56,7 @@ To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) 
 :::
 
 ::: {.callout-note}
-### 3. Contents
-
-At the end of this page, you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
-
-1. Hit `F` for full-screen mode
-2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`
-
-:::
-::: {.callout-note}
-### 4. Replications
+### 3. Replications
 
 Along with the slides, each lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased. This file, that will also be posted on *eClass®*, can be downloaded and replicated on your side.
 
@@ -79,3 +70,15 @@ You can find the permanent links to the replication files (`.qmd`) below:
 4. Data Visualization - access [here](https://lsmacoris.github.io/lectures/quant-fin/replications/L4/L4-Replication.html)
 
 :::
+
+## Contents
+
+Below you can find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
+
+::: {.callout-note}
+
+1. Hit `F` for full-screen mode
+2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`
+
+:::
+

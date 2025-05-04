@@ -1,0 +1,1045 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Equity Valuation and Simulation'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris (FGV-EAESP)'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: false
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+    1.  *Tidy Finance* [@tidyfinance]
+    2.  *R for Data Science* [@r4ds]
+
+::: callout-note
+### Coding Replications
+
+For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
+
+1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
+2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+:::
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+source('../~ Metadata/packages.R')
+
+```
+
+## Disclaimer
+
+::: callout-important
+### Disclaimer
+
+The information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.
+
+All code used in this lecture is publicly available and is also shared on my [GitHub](https://github.com/lsmacoris) page. Participants are encouraged to review, modify, and use the code for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.
+
+For any questions or concerns, please feel free to reach out via email at [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+:::
+
+## Dealing with Uncertainty in Valuation Models
+
+-   Traditional valuation methods (*e.g.*, [Discounted Cash Flow]{.blue}) rely on [single-point estimates]{.blue}:
+    1.  We assume a given level of revenue growth...
+    2.  We also fix the appropriate discount rates, $r$, over time...
+    3.  Finally, we come up with assumptions regarding the firm's [Terminal Value]{.blue} (*i.e*, the perpetuity value)!
+-   Note, however, that these estimates are subject to [significant uncertainty]{.blue}:
+    1.  Market conditions
+    2.  Competition
+    3.  Regulation
+    4.  Macroeconomic and exogenous shocks, such as COVID-19
+
+. . .
+
+**Question:** how can get take into account the role of uncertainty in valuation models?
+
+## Dealing with Uncertainty in Valuation Models, continued
+
+-   Suppose we have the following *Discounted Cash Flow* estimate:
+
+$$
+\text{Firm Value} = \sum_{t=1}^{T} \frac{FCF_t}{(1 + r)^t}
+$$
+
+1.  $FCF_t$ depends on a variety of firm-level factors, such as sales growth, gross margins, taxes, among others
+
+2.  Similarly, $r$, the discount rate, if modeled using the [CAPM]{.blue}, depends upon factors such as the sensitivity to market risk ($\beta$), the risk-free rate, $r_f$, and the market risk premium
+
+-   Changes in those variables can severely affect the outcomes of our valuation: for example, if the *realized* $FCF$'s are [lower]{.red} than what we assumed, we might be [overestimating]{.red} the firm's value!
+
+## Sensitivity Analysis
+
+-   A first way in which we can take uncertainty into account is through [Sensitivity Analysis]{.blue}:
+
+::: callout-tip
+### Definition
+
+-   Sensitivity analysis tests how [changes in a single input]{.blue} affect the valuation output, while all other variables are held constant. It is useful to identify [key value drivers]{.blue} and assess their impact.
+:::
+
+1.  Fix the main drivers of your outcome variable (*e.g*, growth rate of COGS, growth rate of Sales, Cost of Capital, etc)
+
+2.  For each driver, create scenarios in where you vary the input of interest within a given range
+
+3.  For that specific scenario, collect the new outcome variable calculated when everything is fixed, but the specific driver has changed
+
+4.  Repeat this across all scenarios and drivers
+
+## Sensitivity Analysis, Example
+
+-   To illustrate the use of [Sensitivity Analysis]{.blue}, we can vary $r$, the discount rate, and observe the change in the firm's value for each distinct $r$:
+
+| **Discount Rate (**$r$) | **Firm Value (in millions)** |
+|:-----------------------:|:----------------------------:|
+|          $6\%$          |           $\$125$            |
+|          $8\%$          |           $\$110$            |
+|         $10\%$          |            $\$98$            |
+
+**Key Points on Sensitivity Analysis**
+
+-   On the one hand, it helps to answer *how sensitive* is the valuation to some of the assumptions that were used in the model
+-   On the other hand, there is a clear limitation: the fact that we are varying [one variable at a time]{.blue} doesn't capture interactions between variables!
+
+## Scenario Analysis
+
+-   As described before, a clear limitation of [Sensitivity Analysis]{.blue} is the fact that *only one* input is evaluated at a time
+
+-   What if we wanted to see the *combined* effect of *multiple* variables changing at the same time?
+
+::: callout-tip
+### Definition
+
+-   A [Scenario Analysis]{.blue} evaluates the effect of *multiple* variables changing [at the same time]{.blue}
+
+1.  It is used to create alternative scenarios (*e.g*, [Best]{.green}, [Base]{.yellow}, and [Worst]{.red} Case Scenarios) based on business logic
+
+2.  It is more realistic than sensitivity analysis, but still limited to a *few discrete outcomes*
+
+-   It is very reasonable to assume that more than one driver is going to change at a time. To do that, we can create a *grid* of values and simulate changes in inputs at the same time
+:::
+
+## Scenario Analysis, continued
+
+| **Scenario** | **Revenue Growth** | **Discount Rate** | **Terminal Value** | **Firm Value** |
+|--------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| [Best Case]{.green} | $8\%$ | $6\%$ | High | $\$140M$ |
+| [Base Case]{.yellow} | $5\%$ | $8\%$ | Medium | $\$110M$ |
+| [Worst Case]{.red} | $2\%$ | $10\%$ | Low | $\$85M$ |
+
+**Key Points on Scenario Analysis**
+
+-   It highlights a [range]{.blue} of possible outcomes under plausible assumptions
+-   However, it still lacks a probability component: we still don't know *how likely* each of those scenarios are:
+
+1.  [Best]{.green}, [Base]{.yellow}, and [Worst]{.red} cases are limited in the way that they can produce scenarios because we assume that [all]{.blue} variables will go into the same direction
+
+2.  Furthermore, our realized outcome fallS under a [combination]{.blue} of those scenarios
+
+## From Scenarios to Simulations
+
+-   What if we could extend the logit of scenario simulation to $N>>3$ scenarios? To do that, we can use *simulation* techniques, such as the *Monte Carlo* simulation:
+
+::: callout-tip
+### Definition:
+
+A [Monte Carlo Simulation]{.blue} is a computational technique that uses random sampling to model the distribution of outcomes for a given random variable:
+
+1.  We define the parameters of our simulation as probability distributions (*e.g*., normal, lognormal).
+2.  Generate a large number of random scenarios for these variables
+3.  Compute the outcome (*e.g.*, firm value) for each scenario
+4.  Analyze the distribution of the desired results (*e.g.*, mean, percentiles, risk of loss)
+:::
+
+-   With [Monte Carlo]{.blue} simulations, instead of getting a *range* of potential outcomes for the firm's value, we actually get an empirical *distribution* of values!
+
+## Monte Carlo Implementation
+
+-   To see how we can apply [Monte Carlo Simulation]{.blue} to assess the distribution of Firm Value, let's assume that both the free cash flow and the discount rate are random variables:
+
+    1.  $FCF_t \sim \mathcal{N}(\mu_t, \sigma_t^2)$
+    2.  $r \sim \mathcal{N}(\mu_r, \sigma_r^2)$
+
+-   If we know the distribution of those random variables, we can draw $N$ observations for each random variable and use it to calculate the desired outcome (*i.e*, the firm's value). For draw $i$, the estimated value of the firm is simply:
+
+$$
+\text{Firm Value}^{(i)} = \sum_{t=1}^{T} \frac{FCF_t^{(i)}}{(1 + r^{(i)})^t}
+$$
+
+1.  Repeat for $i = 1,2,..., N$ simulations
+2.  Get a *distribution* of firm values, not just a point estimate
+
+## Monte Carlo implementation
+
+-   Suppose we are using the *Gordon's Growth Model*, where the value of a firm is given by the infinite stream of dividends:
+
+$$
+V_t= \dfrac{D_1}{r-g}
+$$
+
+where $D1$ s the dividend next year, $r$ is the discount rate, and $g$ is the perpetual growth rate. If we assume the following distributions:
+
+1.  Since $D1$ is the next period's dividend, and it is fixed to $\$2$
+2.  $r \sim \mathcal{N}(0.08,0.01^2)$
+3.  $g \sim \mathcal{N}(0.03,0.005^2)$
+
+-   In what follows, we will simulate $10,000$ distinct scenarios for draws of $r$ and $g$ and see how the $V_t$ distributes over all potential combinations
+
+## Monte Carlo Implementation, continued
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+#Set seed for reproducibility
+set.seed(123)
+
+# Parameters
+n_sim <- 10000
+D1 <- 2
+
+# Simulate r and g
+r <- rnorm(n_sim, mean = 0.08, sd = 0.01)
+g <- rnorm(n_sim, mean = 0.03, sd = 0.005)
+
+# Compute values
+value <- D1 / (r - g)
+
+# Filter for valid values where r > g
+value <- value[is.finite(value) & (r > g)]
+
+# Plot
+library(ggplot2)
+library(scales)
+
+ggplot(data.frame(Value = value), aes(x = Value)) +
+  geom_histogram(bins = 60, fill = "#2c7fb8", color = "white", alpha = 0.8) +
+  scale_x_continuous(labels=scales::dollar)+
+  labs(
+    title = "Monte Carlo Valuation Distribution (Gordon Growth Model)",
+    x = "Firm Value",
+    y = "Frequency"
+  ) +
+  theme_minimal(base_size=20)
+
+
+```
+
+### Output
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-width: 14
+#| fig-height: 6
+
+#Set seed for reproducibility
+set.seed(123)
+
+# Parameters
+n_sim <- 10000
+D1 <- 2
+
+# Simulate r and g
+r <- rnorm(n_sim, mean = 0.08, sd = 0.01)
+g <- rnorm(n_sim, mean = 0.03, sd = 0.005)
+
+# Compute values
+value <- D1 / (r - g)
+
+# Filter for valid values where r > g
+value <- value[is.finite(value) & (r > g)]
+
+# Plot
+library(ggplot2)
+library(scales)
+
+ggplot(data.frame(Value = value), aes(x = Value)) +
+  geom_histogram(bins = 60, fill = "#2c7fb8", color = "white", alpha = 0.8) +
+  scale_x_continuous(labels=scales::dollar)+
+  labs(
+    title = "Monte Carlo Valuation Distribution (Gordon Growth Model)",
+    x = "Firm Value",
+    y = "Frequency"
+  ) +
+  theme_minimal(base_size = 20)
+
+```
+:::
+
+## Hands-On Exercise
+
+-   Refer back to *NetScape* valuation model that you have worked on prior classes. Using Monte Carlo simulations, you were asked to *stress-test* such model by analyzing what would have happened to the base scenario *as-if* some inputs were changed
+
+::: callout-tip
+### Instructions
+
+1.  We will be using the *NetScape* case we have worked on previous classes
+2.  Your first task is to translate the valuation model in such a way that you can seamlessly replicate the baseline results
+3.  After that, you will be prompted with a series of questions that will require you to simulate $N$ scenarios and analyze the effects on *NetScape's* value
+:::
+
+**Given that the baseline price, at the time of the valuation, was \$28.46, what would be your recommendation for this stock?**
+
+## Step 1: Hardcoding the assumptions
+
+-   Recall that our Free Cash Flow estimation in peiod $t$, $FCF_t$, is given by:
+
+$$
+FCF_t = EBIT\times (1-\tau) \pm \text{Depreciation} \pm \text{CAPEX} \pm \Delta NWC
+$$ Where $\tau$ is the marginal tax-rate, *CAPEX* is *Capital Expenditures*, and *NWC* is *Net Working Capital*
+
+-   In what follows, we will simulate the value of Netscape using a [10-year discounted cash flow (DCF)]{.blue} model with structured assumptions on top of the historical revenue levels from 1995
+
+## Step 1: Hardcoding the assumptions, continued
+
+```{r}
+#| echo: true
+
+#Number of years
+n_years=10
+
+# Assumptions (copied and simplified)
+netscape_assumptions <- list(
+  revenue_growth = rep(0.65,n_years),
+  cost_of_sales_pct = rep(0.1044,n_years),
+  rd_pct = rep(0.3676,n_years),
+  tax_rate = rep(0.34,n_years),
+  other_op_exp_pct = c(0.80,0.65,0.55,0.45,0.35,0.25,rep(0.2,4)),
+  capex_pct = c(0.45,0.4,0.3,0.2,rep(0.1,6)),
+  nwc_pct = rep(0,n_years),
+  depreciation_pct = rep(0.055,n_years),
+  beta=rep(1.5,n_years),
+  rf=rep(0.0671,n_years),
+  mrp=rep(0.075,n_years),
+  shares_outstanding = 38000,
+  terminal_growth = 0.04,
+  terminal_r=0.1796
+)
+
+# Base year (1995)
+netscape_base_rev <- 33250
+
+```
+
+## Step 2: Getting the forecasted *Free Cash Flow*
+
+-   After we got our assumptions in place, it is time to put them together and generate the *Free Cash Flow* values for $t=1,2,...,10$
+
+-   For that, we will create a function, `get_projections`, that has two arguments:
+
+    1.  `assumptions`: a named list containing vectors of financial assumptions (growth rates, margins, etc) for each year
+    2.  `base`: the base year revenue (e.g., from 1995).
+
+-   We initialize an empty data frame projection with columns for each financial metric over the 10-year period, and fill out the results using the *Free Cash Flow* definition
+
+-   With this function, you should be able to replicate the *Free Cash Flows* from the base scenario by calling `get_projection(netscape_assumptions,netscape_base_rev)`
+
+## Step 2: Getting the forecasted *Free Cash Flow*, continued
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Projection over 10 years
+get_projection <- function(assumptions,base){
+  
+  projection=data.frame(
+      Year = 1:n_years,
+      Revenue = NA,
+      EBIT = NA,
+      Taxes = NA,
+      NOPAT = NA,
+      Depreciation = NA,
+      CAPEX = NA,
+      NWC = NA,
+      Delta_NWC = NA,
+      Discount_Rate=NA)
+
+  # Fill in projections for revenue
+  for (t in 1:n_years) {
+    if (t == 1) {
+      projection$Revenue[t] <- base * (1 + assumptions$revenue_growth[t])
+    } else {
+      projection$Revenue[t] <- projection$Revenue[t - 1] * (1 + assumptions$revenue_growth[t])
+    }
+  }
+  
+  #Fill in FCF terms
+  projection$EBIT <- projection$Revenue * (1 - assumptions$cost_of_sales_pct - assumptions$rd_pct - assumptions$other_op_exp_pct - assumptions$depreciation_pct)
+  projection$Taxes <- projection$EBIT * assumptions$tax_rate
+  projection$NOPAT <- projection$EBIT - projection$Taxes
+  projection$Depreciation <- projection$Revenue * assumptions$depreciation_pct
+  projection$CAPEX <- projection$Revenue * assumptions$capex_pct
+  projection$NWC <- projection$Revenue*assumptions$nwc_pct
+  projection$Delta_NWC <- 0
+  projection$Discount_Rate <- 1/(1+(assumptions$rf+assumptions$mrp*assumptions$beta))^projection$Year
+  
+  return(projection)
+}
+
+
+```
+
+## Valuing the company using FCF
+
+-   We will now create two additional functions:
+
+    1.  The `get_dcf()` function will calculate the *Discounted Cash Flow* for the whole period, based on the projections we have just created. It returns a scalar value representing the present value of projected *Free Cash Flows*
+
+    2.  The `get_terminal_value()` will calculate an estimate of the present value of the perpetuity (in Year 0) based on the projections and the assumptions regarding the long-term `r` and `g`. ItcComputes the terminal value of the firm beyond the projection horizon using a growing perpetuity
+
+-   Adding up these two values yields the total value of the firm, $V$, which is embedded in the `get_EV()` function:
+
+```{r}
+#| eval: false
+#| echo: true
+
+get_EV(netscape_assumptions,
+       netscape_base_rev,
+       netscape_assumptions$terminal_r,
+       netscape_assumptions$terminal_growth)
+```
+
+## Valuing the company using FCF, continued
+
+```{r}
+#| eval: true
+#| echo: true
+
+get_dcf <- function(projection){
+  
+  dcf=projection%>%
+    mutate(FCF = NOPAT + Depreciation - CAPEX - Delta_NWC)%>%
+    reframe(DCF=FCF*Discount_Rate)%>%
+    pull(DCF)%>%
+    sum()
+  
+  return(dcf)
+  
+}
+
+get_terminal_value <- function(projection,r,g){
+
+  last_fcf=projection%>%
+    mutate(FCF = NOPAT + Depreciation - CAPEX - Delta_NWC)%>%
+    pull(FCF)%>%
+    tail(1)
+  
+  return(last_fcf*(1+g)/(r-g)/(1+r)^(n_years+1))
+}
+
+get_EV <-function(assumptions,base,r,g){
+
+  PV_FCF = get_projection(assumptions,base)%>%get_dcf()
+  PV_Terminal = get_projection(assumptions,base)%>%get_terminal_value(r,g)
+  
+  return(PV_FCF+PV_Terminal)
+
+  }
+
+```
+
+## Exercise 1: changing revenue growth
+
+::: panel-tabset
+### Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+  #Set seed for reproducibility
+  set.seed(123)
+
+  # Initialize an empty dataframe
+  results <- numeric(0)
+  sim_assumptions <- netscape_assumptions
+  n_sim=10000
+  
+  #Run the simulation
+  for (i in 1:n_sim){
+
+    # Simulate revenue growth for 10 years from a normal distribution
+    rev_growth <- rnorm(n_years, mean = 0.65, sd = 0.1)
+    
+    # Modify assumptions with simulated growth
+    sim_assumptions$revenue_growth <- rev_growth
+    
+    # Compute EV for this simulation
+    ev <- get_EV(sim_assumptions,
+                 netscape_base_rev,
+                 sim_assumptions$terminal_r,
+                 sim_assumptions$terminal_growth)
+    
+    results[i] <- ev
+  }
+  
+
+  #Create a ggplot histogram
+  results%>%
+    as.tibble()%>%
+    ggplot(aes(x = value)) +
+    geom_histogram(fill = "skyblue", color = "white", bins = 50)+
+    scale_x_continuous(labels = scales::dollar) +
+    labs(
+      title = "Monte Carlo Simulation of Enterprise Value",
+      subtitle = paste0('Drawing ',comma(n_sim), ' simulations of Revenue Growth.'), 
+      x = "Enterprise Value (USD, Thousands)",
+      y = "Frequency"
+    ) +
+    theme_minimal(base_size = 14)
+
+```
+
+### Output
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-width: 16
+#| fig-height: 7
+
+  #Set seed for reproducibility
+  set.seed(123)
+
+  # Initialize an empty dataframe
+  results <- numeric(0)
+  sim_assumptions <- netscape_assumptions
+  n_sim=10000
+  
+  #Run the simulation
+  for (i in 1:n_sim){
+
+    # Simulate revenue growth for 10 years from a normal distribution
+    rev_growth <- rnorm(n_years, mean = 0.65, sd = 0.1)
+    
+    # Modify assumptions with simulated growth
+    sim_assumptions$revenue_growth <- rev_growth
+    
+    # Compute EV for this simulation
+    ev <- get_EV(sim_assumptions,
+                 netscape_base_rev,
+                 sim_assumptions$terminal_r,
+                 sim_assumptions$terminal_growth)
+    
+    results[i] <- ev
+  }
+  
+
+  #Create a ggplot histogram
+  results%>%
+    as.tibble()%>%
+    ggplot(aes(x = value)) +
+    geom_histogram(fill = "skyblue", color = "white", bins = 50)+
+    scale_x_continuous(labels = scales::dollar) +
+    labs(
+      title = "Monte Carlo Simulation of Enterprise Value",
+      subtitle = paste0('Drawing ',comma(n_sim), ' simulations of Revenue Growth.'), 
+      x = "Enterprise Value (USD, Thousands)",
+      y = "Frequency"
+    ) +
+    theme_minimal(base_size = 20)
+```
+:::
+
+## Exercise 2: Changing Revenue Growth and COGS
+
+::: panel-tabset
+### Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+  #Set seed for reproducibility
+  set.seed(123)
+
+  # Initialize an empty dataframe
+  results <- numeric(0)
+  sim_assumptions <- netscape_assumptions
+  n_sim=10000
+
+#Run the simulation
+for (i in 1:n_sim){
+  
+  # Simulate revenue growth for 10 years from a normal distribution
+  rev_growth <- rnorm(n_years, mean = 0.65, sd = 0.1)
+  cogs_perc <- rnorm(n_years, mean = 0.10, sd = 0.025)
+  
+  # Modify assumptions with simulated growth
+  sim_assumptions$revenue_growth <- rev_growth
+  sim_assumptions$cost_of_sales_pct <- cogs_perc
+  
+  # Compute EV for this simulation
+  ev <- get_EV(sim_assumptions,
+               netscape_base_rev,
+               sim_assumptions$terminal_r,
+               sim_assumptions$terminal_growth)
+  
+  results[i] <- ev
+}
+
+#Create a ggplot histogram
+results%>%
+  as.tibble()%>%
+  ggplot(aes(x = value)) +
+  geom_histogram(fill = "skyblue", color = "white", bins = 50)+
+  scale_x_continuous(labels = scales::dollar) +
+  labs(
+    title = "Monte Carlo Simulation of Enterprise Value",
+    subtitle = paste0('Drawing ',comma(n_sim), ' simulations of Revenue Growth and % COGS.'), 
+    x = "Enterprise Value (USD, Thousands)",
+    y = "Frequency"
+  ) +
+  theme_minimal(base_size = 20)
+
+```
+
+### Output
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-width: 16
+#| fig-height: 7
+
+  #Set seed for reproducibility
+  set.seed(123)
+
+  # Initialize an empty dataframe
+  results <- numeric(0)
+  sim_assumptions <- netscape_assumptions
+  n_sim=10000
+
+#Run the simulation
+for (i in 1:n_sim){
+  
+  # Simulate revenue growth for 10 years from a normal distribution
+  rev_growth <- rnorm(n_years, mean = 0.65, sd = 0.1)
+  cogs_perc <- rnorm(n_years, mean = 0.10, sd = 0.025)
+  
+  # Modify assumptions with simulated growth
+  sim_assumptions$revenue_growth <- rev_growth
+  sim_assumptions$cost_of_sales_pct <- cogs_perc
+  
+  # Compute EV for this simulation
+  ev <- get_EV(sim_assumptions,
+               netscape_base_rev,
+               sim_assumptions$terminal_r,
+               sim_assumptions$terminal_growth)
+  
+  results[i] <- ev
+}
+
+#Create a ggplot histogram
+results%>%
+  as.tibble()%>%
+  ggplot(aes(x = value)) +
+  geom_histogram(fill = "skyblue", color = "white", bins = 50)+
+  scale_x_continuous(labels = scales::dollar) +
+  labs(
+    title = "Monte Carlo Simulation of Enterprise Value",
+    subtitle = paste0('Drawing ',comma(n_sim), ' simulations of Revenue Growth and % COGS.'), 
+    x = "Enterprise Value (USD, Thousands)",
+    y = "Frequency"
+  ) +
+  theme_minimal(base_size = 20)
+
+
+
+```
+:::
+
+## Exercise 3: Changing Revenue Growth, COGS, and CAPEX
+
+::: panel-tabset
+### Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+#Set seed for reproducibility
+set.seed(123)
+
+# Initialize an empty dataframe
+results <- numeric(0)
+sim_assumptions <- netscape_assumptions
+n_sim=10000
+
+#Run the simulation
+for (i in 1:n_sim){
+  
+  # Simulate revenue growth for 10 years from a normal distribution
+  rev_growth <- rnorm(n_years, mean = 0.65, sd = 0.1)
+  cogs_perc <- rnorm(n_years, mean = 0.10, sd = 0.025)
+  capex_perc <- seq(rnorm(1, mean = 0.45, sd = 0.1),to=0.1,length.out = 10)
+  
+  # Modify assumptions with simulated growth
+  sim_assumptions$revenue_growth <- rev_growth
+  sim_assumptions$cost_of_sales_pct <- cogs_perc
+  sim_assumptions$capex_pct <- capex_perc
+  
+  # Compute EV for this simulation
+  ev <- get_EV(sim_assumptions,
+               netscape_base_rev,
+               sim_assumptions$terminal_r,
+               sim_assumptions$terminal_growth)
+  
+  results[i] <- ev
+}
+
+#Create a ggplot histogram
+results%>%
+  as.tibble()%>%
+  ggplot(aes(x = value)) +
+  geom_histogram(fill = "skyblue", color = "white", bins = 50)+
+  scale_x_continuous(labels = scales::dollar) +
+  labs(
+    title = "Monte Carlo Simulation of Enterprise Value",
+    subtitle = paste0('Drawing ',comma(n_sim), ' simulations of Revenue Growth, % COGS, and % CAPEX.'), 
+    x = "Enterprise Value (USD, Thousands)",
+    y = "Frequency"
+  ) +
+  theme_minimal(base_size = 20)
+
+final_results=results
+
+
+```
+
+### Output
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-width: 16
+#| fig-height: 7
+
+#Set seed for reproducibility
+set.seed(123)
+
+# Initialize an empty dataframe
+results <- numeric(0)
+sim_assumptions <- netscape_assumptions
+n_sim=10000
+
+#Run the simulation
+for (i in 1:n_sim){
+  
+  # Simulate revenue growth for 10 years from a normal distribution
+  rev_growth <- rnorm(n_years, mean = 0.65, sd = 0.1)
+  cogs_perc <- rnorm(n_years, mean = 0.10, sd = 0.025)
+  capex_perc <- seq(rnorm(1, mean = 0.45, sd = 0.1),to=0.1,length.out = 10)
+  
+  # Modify assumptions with simulated growth
+  sim_assumptions$revenue_growth <- rev_growth
+  sim_assumptions$cost_of_sales_pct <- cogs_perc
+  sim_assumptions$capex_pct <- capex_perc
+  
+  # Compute EV for this simulation
+  ev <- get_EV(sim_assumptions,
+               netscape_base_rev,
+               sim_assumptions$terminal_r,
+               sim_assumptions$terminal_growth)
+  
+  results[i] <- ev
+}
+
+
+#Create a ggplot histogram
+results%>%
+  as.tibble()%>%
+  ggplot(aes(x = value)) +
+  geom_histogram(fill = "skyblue", color = "white", bins = 50)+
+  scale_x_continuous(labels = scales::dollar) +
+  labs(
+    title = "Monte Carlo Simulation of Enterprise Value",
+    subtitle = paste0('Drawing ',comma(n_sim), ' simulations of Revenue Growth, % COGS, and % CAPEX.'), 
+    x = "Enterprise Value (USD, Thousands)",
+    y = "Frequency"
+  ) +
+  theme_minimal(base_size = 20)
+
+final_results=results
+
+
+```
+:::
+
+## Exercise 4: Different levels for terminal $r$ and $g$
+
+::: panel-tabset
+### Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+#Set seed for reproducibility
+set.seed(123)
+
+# Initialize an empty dataframe
+results <- numeric(0)
+new_data <- data.frame()
+sim_assumptions <- netscape_assumptions
+n_sim=1000
+g_sequence <- seq(0.05,0.03,length.out=10)
+r_sequence <- seq(0.15,0.225,length.out=10)
+
+for(s in 1:10){
+  
+  #Run the simulation
+  for (i in 1:n_sim){
+    
+    # Simulate revenue growth for 10 years from a normal distribution
+    rev_growth <- rnorm(n_years, mean = 0.65, sd = 0.1)
+    cogs_perc <- rnorm(n_years, mean = 0.10, sd = 0.025)
+    capex_perc <- seq(rnorm(1, mean = 0.45, sd = 0.1),to=0.1,length.out = 10)
+    
+    # Modify assumptions with simulated growth
+    sim_assumptions$revenue_growth <- rev_growth
+    sim_assumptions$cost_of_sales_pct <- cogs_perc
+    sim_assumptions$capex_pct <- capex_perc
+    sim_assumptions$terminal_growth = g_sequence[s]
+    sim_assumptions$terminal_r = r_sequence[s]
+    
+    # Compute EV for this simulation
+    ev <- get_EV(sim_assumptions,
+                 netscape_base_rev,
+                 sim_assumptions$terminal_r,
+                 sim_assumptions$terminal_growth)
+    
+    results[i] <- ev
+  }
+  
+  #Store the Pairs
+  new_data=new_data%>%
+    rbind(data.frame(Scenario = paste0('Scenario ', s),
+                     EV=results))
+          
+  message(paste0('Finished simulation for pair number ',s,'.'))
+}
+
+
+#install.packages('ggridges')
+library(ggridges)
+
+#Create a ggplot histogram
+new_data%>%
+  mutate(Scenario = factor(Scenario,levels=paste0('Scenario ',10:1)))%>%
+  ggplot(aes(x = EV,
+             y = Scenario,
+             fill=..x..)) +
+  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01)+
+  scale_x_continuous(labels = scales::dollar) +
+  scale_fill_viridis_c(name = "Enterprise Value", option = "plasma",labels=scales::dollar)+
+  labs(
+    title = "Monte Carlo Simulation of Enterprise Value",
+    subtitle = paste0('Drawing ',comma(n_sim), ' simulations, best-to-worse scenarios.'), 
+    x = "",
+    y = "Frequency",
+    fill = "Enterprise Value (USD, Thousands)")+
+  theme_minimal(base_size = 14)+
+  theme(legend.position = 'bottom',
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12),
+        legend.key.height = unit(0.6, "cm"),
+        legend.key.width = unit(2.5, "cm"))
+
+
+```
+
+### Output
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-width: 16
+#| fig-height: 7
+
+#Set seed for reproducibility
+set.seed(123)
+
+# Initialize an empty dataframe
+results <- numeric(0)
+new_data <- data.frame()
+sim_assumptions <- netscape_assumptions
+n_sim=1000
+g_sequence <- seq(0.05,0.03,length.out=10)
+r_sequence <- seq(0.15,0.225,length.out=10)
+
+for(s in 1:10){
+  
+  #Run the simulation
+  for (i in 1:n_sim){
+    
+    # Simulate revenue growth for 10 years from a normal distribution
+    rev_growth <- rnorm(n_years, mean = 0.65, sd = 0.1)
+    cogs_perc <- rnorm(n_years, mean = 0.10, sd = 0.025)
+    capex_perc <- seq(rnorm(1, mean = 0.45, sd = 0.1),to=0.1,length.out = 10)
+    
+    # Modify assumptions with simulated growth
+    sim_assumptions$revenue_growth <- rev_growth
+    sim_assumptions$cost_of_sales_pct <- cogs_perc
+    sim_assumptions$capex_pct <- capex_perc
+    sim_assumptions$terminal_growth = g_sequence[s]
+    sim_assumptions$terminal_r = r_sequence[s]
+    
+    # Compute EV for this simulation
+    ev <- get_EV(sim_assumptions,
+                 netscape_base_rev,
+                 sim_assumptions$terminal_r,
+                 sim_assumptions$terminal_growth)
+    
+    results[i] <- ev
+  }
+  
+  #Store the Pairs
+  new_data=new_data%>%
+    rbind(data.frame(Scenario = paste0('Scenario ', s),
+                     EV=results))
+          
+  message(paste0('Finished simulation for pair number ',s,'.'))
+}
+
+
+#install.packages('ggridges')
+library(ggridges)
+
+#Create a ggplot histogram
+new_data%>%
+  mutate(Scenario = factor(Scenario,levels=paste0('Scenario ',10:1)))%>%
+  ggplot(aes(x = EV,
+             y = Scenario,
+             fill=..x..)) +
+  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01)+
+  scale_x_continuous(labels = scales::dollar) +
+  scale_fill_viridis_c(name = "Enterprise Value", option = "plasma",labels=scales::dollar)+
+  labs(
+    title = "Monte Carlo Simulation of Enterprise Value",
+    subtitle = paste0('Drawing ',comma(n_sim), ' simulations, best-to-worse scenarios.'), 
+    x = "",
+    y = "Frequency",
+    fill = "Enterprise Value (USD, Thousands)")+
+  theme_minimal(base_size = 15)+
+  theme(legend.position = 'bottom',
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12),
+        legend.key.height = unit(0.6, "cm"),
+        legend.key.width = unit(2.5, "cm"))
+
+
+```
+:::
+
+## Final Question: should we invest?
+
+::: panel-tabset
+### Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+#Create a ggplot histogram
+prices=final_results%>%
+  as.tibble()%>%
+  mutate(Price=value/netscape_assumptions$shares_outstanding)%>%
+  mutate(Situation=ifelse(Price>=28.37,'Undervalued','Overvalued'))
+
+prices%>%
+  ggplot(aes(x = Price)) +
+  geom_histogram(aes(fill = Situation), bins = 50)+
+  scale_x_continuous(labels = scales::dollar)+
+  scale_fill_manual(values=c('darkgreen','darkred'))+
+  geom_vline(xintercept=28.37,linetype='dashed',size=1)+
+  annotate(geom='text',x=40,y=500,label= paste0('True Price is higher than \nbaseline price only in ',
+                                                percent(mean(prices$Price>=28.37)),
+                                                ' of the cases!'))+
+  labs(
+    title = "Monte Carlo Simulation of Share Price",
+    subtitle = paste0('Drawing 10,000 simulations'), 
+    x = "Enterprise Value (USD, Thousands)",
+    y = "Frequency"
+  ) +
+  theme_minimal(base_size = 20)+
+  theme(legend.position='bottom')
+```
+
+### Output
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-width: 15
+#| fig-height: 7
+
+#Create a ggplot histogram
+prices=final_results%>%
+  as.tibble()%>%
+  mutate(Price=value/netscape_assumptions$shares_outstanding)%>%
+  mutate(Situation=ifelse(Price>=28.37,'Undervalued','Overvalued'))
+
+prices%>%
+  ggplot(aes(x = Price)) +
+  geom_histogram(aes(fill = Situation), bins = 50)+
+  scale_x_continuous(labels = scales::dollar)+
+  scale_fill_manual(values=c('darkgreen','darkred'))+
+  geom_vline(xintercept=28.37,linetype='dashed',size=1)+
+  annotate(geom='text',x=40,y=500,label= paste0('True Price is higher than \nbaseline price only in ',
+                                                percent(mean(prices$Price>=28.37)),
+                                                ' of the cases!'))+
+  labs(
+    title = "Monte Carlo Simulation of Share Price",
+    subtitle = paste0('Drawing 10,000 simulations'), 
+    x = "Enterprise Value (USD, Thousands)",
+    y = "Frequency"
+  ) +
+  theme_minimal(base_size = 20)+
+  theme(legend.position='bottom')
+
+```
+:::
+
+## Final Thoughts
+
+- Monte Carlo Simulation is a powerful technique to handle model uncertainty:
+  1. It helps managers think beyond the point estimate of the valuation model and handle *what-if* questions
+  2. It also helps *stress-testing* the valuation model
+
+- It should be used along with business logic to help tailor the simulation exercise:
+
+  1. We don't want to create overly complex simulations
+  2. We can incorporate more structure to create meaningful scenarios - for example, imposing a correlation structure between the variables 
+
+
+## References

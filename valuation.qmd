@@ -1,0 +1,30 @@
+---
+title: "Valuation"
+image: 'valuation/thumbnail.jpg'
+listing:
+ type: table
+ contents: valuation
+ fields: [title, reading-time]
+ sort: "title"
+---
+
+------------------------------------------------------------------------
+
+## **About the course**
+
+This is a hands-on, applied course on Valuation designed for professional master’s students in management. The course bridges theory and practice, equipping students with the essential tools to assess company value in a variety of settings. Students will explore the core concepts and methodologies used in valuation, developing the ability to critically analyze corporate performance, investment opportunities, and strategic decisions.
+
+The course will be structured around topics that are highly relevant to management professionals, including: introduction to valuation principles, relative valuation, discounted cash flow (DCF) analysis, the role of leverage in valuation, managing project uncertainty, equity valuation techniques, and valuation in mergers and acquisitions. As a final deliverable, students will complete a capstone project applying one or more of these valuation methods to a real-world company or transaction.
+
+
+::: {.callout-note}
+### For students
+
+Below you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
+
+These slides leverage [Quarto](https://quarto.org/), an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:
+
+1. Hit `F` for full-screen mode
+2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`
+
+:::

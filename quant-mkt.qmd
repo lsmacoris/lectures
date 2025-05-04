@@ -102,13 +102,13 @@ This can take some time, depending on the packages and your current computer set
 ::: {.callout-note}
 ### 2. Using Quarto
 
-In the first section of this course, you'll be assigned with a data case, where you'll need to manipulate code and write your insights altogether. I want to encourage you to give [Quarto](https://quarto.org/) a try.
-
-To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) link and choose your Operating System. *RStudio* will automatically locate it and make it as an option whenever creating a new file with `Ctrl+N`. Why you should give Quarto a try:
+In the first section of this course, you'll be assigned with a data case, where you'll need to manipulate code and write your insights altogether. I want to encourage you to give [Quarto](https://quarto.org/) a try:
 
   1. It has multi-language support (*Python*, *R*, *Julia*, *JavaScript*), parses equations and mathematical notations via *pandoc*, and integrates seamlessly with GitHub
   2. Advanced document formatting and output options: you can choose *pdf*, *html*, *docx*, or even a *reveal.js* presentation (like the ones from this course!)
   3. It is easy, intuitive, and lets you focus on the most important aspect of your work
+
+To install [Quarto]{.blue}, follow [this](https://quarto.org/docs/get-started/) link and choose your Operating System. *RStudio* will automatically locate it and make it as an option whenever creating a new file with `Ctrl+N`.
 
 There are several *IDEs* that integrate well with Quarto. In special, I'd recommend [RStudio](https://posit.co/download/rstudio-desktop/), [VSCode](https://code.visualstudio.com/), and [Positron](https://positron.posit.co/). While the former is more suited for `R` programming, it does work quite well for rendering Quarto documents using both `R` and `Python`. *VSCode* and *Positron* (which is built on top of the open-source *VSCode*), on the other hand, provide support for Quarto through the *Extensions* panel. 
 
@@ -116,25 +116,34 @@ There are several *IDEs* that integrate well with Quarto. In special, I'd recomm
 :::
 
 ::: {.callout-note}
-### 3. Contents
+### 3. Replications
 
-At the end of this page, you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
+Along with the slides, each lecture will also contain a replication file with all examples that have been showcased during the in-class meeting. In this way, you can follow along and replicate all contents from the lectures on your end.
+
+To ensure everyone can easily follow and replicate the code used in our lectures, we will be using *Google Colab*. Colab is a free, cloud-based platform that allows you to run `Python` code directly in your browser without any installation. It supports real-time collaboration and comes pre-installed with most of the libraries we’ll need.
+
+To make sure you are able to replicate those notebooks, please follow, for each lecture, the instructions present on *ADI*. You can simply download all necessary files, drag and drop them to the *Collab* notebook, and run the code.
+
+For each lecture, please refer to the following links:
+
+1. Binary Models and its Applications - access [here](https://colab.research.google.com/drive/1jk7DKEkW7wYGVnG1DPalXzWYwnA3UA2J?usp=drive_link)
+2. Evaluating Logistic Regression Outcomes - access [here](https://colab.research.google.com/drive/1m4Ywi2rNlL2a85zsvVvwQYGSAUjaJpEO?usp=drive_link)
+3. Multinomial Choice Models and its applications - access [here](https://colab.research.google.com/drive/1ff9eNKOv3lbYlcamQpxKMHhopFmEjkSr?usp=sharing)
+3. Market Basket Analysis - access [here](https://colab.research.google.com/drive/11OaE1pdAumId726xLCGQ6UigjlsshnJW?usp=drive_link)
+
+:::
+
+
+## Contents
+
+Below you can find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
+
+
+::: {.callout-note}
 
 1. Hit `F` for full-screen mode
 2. If you are interest in getting a `.pdf` version of the slides, hit `E` to switch to print mode and then `Ctrl + P`
 
 :::
-::: {.callout-note}
-### 4. Replications
 
-Along with the slides, each lecture will also contain a replication file, in `.qmd` format, containing a thorough discussion for all examples that have been showcased during the in-class meeting. In this way, you can follow along and replicate all contents from the lectures on your end. 
-
-To do that, download the file, open it up in your preferred IDE, and render the Quarto document using the Render button (shortcut: `Ctrl+Shift+K`). You can find the permanent links to the replication files (`.qmd`) below:
-
-1. Binary Models and its Applications - access [here]()
-2. Evaluating Logistic Regression Outcomes - access [here]()
-3. Multinomial Choice Models and its applications - access [here]()
-3. Market Basket Analysis - access [here]()
-
-:::
 

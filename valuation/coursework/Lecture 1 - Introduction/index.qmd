@@ -1,0 +1,114 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Introduction'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris (FGV-EAESP)'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: false
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Disclaimer
+
+::: callout-important
+### Disclaimer
+
+The information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.
+
+All publicly available content used in this lecture is available and also shared on my [GitHub](https://github.com/lsmacoris) page. Participants are encouraged to review, modify, and use it for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.
+
+For any questions or concerns, please feel free to reach out via email at [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+:::
+
+## Welcome to the Course
+
+::: nonincremental
+1.  Overview and Course Organization
+2.  Grading and Evaluations
+3.  Navigating through the syllabus
+4.  How you can get the best of this course
+5.  Overall Q&A
+6.  Introduction to Corporate Finance
+:::
+
+## Overview and course organization
+
+::: nonincremental
+-   **Basic text-book**
+
+    1.  We will follow *Corporate Finance* [@BDM], as our text-book
+    2.  Throughout the syllabus, it will be referred as **[BDM]**
+
+-   **Supplementary Reading**
+
+    1.  *Harvard Business Review* (selected cases) - access granted on e-Class®
+    2.  Selected academic papers
+:::
+
+## Grading and Evaluations
+
+. . .
+
+**Grading will be composed of the following activities:**
+
+1. Practical Work (Data Cases) (**40%**)
+2. Project Presentation (**40%**)
+3. Active Participation (**20%**)
+
+
+-   You can find the details of any of these activities in the official syllabus (available on *eClass*)
+-   In case of any questions, feel free to reach out to [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+
+. . .
+
+::: callout-tip
+### Office-hours
+
+I also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I'll be more than happy to help you with anything you need from this course. Use the *Office-hour Appointments* link at the bottom of this slide to schedule some time (or click [here](https://calendly.com/lucas-macoris-fgv/appointment-lsm)).
+:::
+
+## Getting the best of this course
+
+![](Images/what-a-week.jpeg){width="50%," fig-align="center"}
+
+## Getting the best of this course
+
+. . .
+
+**How you can get the best of this course**
+
+1.  Follow FGV-EAESP code of conduct
+2.  Be organized: pay attention to pre-readings and deliverables!
+3.  Be proactive: ask questions and participate in discussions, proactively study the mandatory reading
+4.  Take the lead on your learning: you are the ultimate responsible for your success!
+
+. . .
+
+**How the professor can facilitate you getting the best of this course**
+
+1.  All mandatory content will be provided ahead of time
+2.  Provide a safe and open space for questions, both in-person and remote
+3.  Motivate students, both from the academic and practitioner standpoints
+4.  Provide opportunities to extend knowledge beyond the mandatory readings
+
+
+
+## References
