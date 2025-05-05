@@ -1,5 +1,5 @@
 # Package names
-packages <- c("tidyverse","tidyquant","tidymodels","xts","glue","scales","downloadthis","ggthemes","highcharter","PerformanceAnalytics","PortfolioAnalytics","DT","DEoptim")
+packages <- c("tidyverse","tidyquant","tidymodels","xts","glue","scales","downloadthis","ggthemes","highcharter","PerformanceAnalytics","PortfolioAnalytics","DT","DEoptim","MASS")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
