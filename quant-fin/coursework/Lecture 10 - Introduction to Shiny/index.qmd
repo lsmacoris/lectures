@@ -1,0 +1,447 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Introduction to Shiny'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris (FGV-EAESP)'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: false
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Outline
+
+-   This lecture is mainly based the following textbooks:
+    1.  *Mastering Shiny* [@shiny]
+    2.  *R for Data Science* [@r4ds]
+
+::: callout-note
+### Coding Replications
+
+For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/quant-fin.html) page or hover on the specific slides with containing coding chunks.
+
+1.  Ensure that you have your [{{<fa brands r-project>}}]{.blue} session properly set-up according to the instructions outlined in the course webpage
+2.  In the webpage, you can also find a detailed discussion of the examples covered in this lecture
+:::
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+source('../~ Metadata/packages.R')
+
+```
+
+## Disclaimer
+
+::: callout-important
+### Disclaimer
+
+The information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.
+
+All code used in this lecture is publicly available and is also shared on my [GitHub](https://github.com/lsmacoris) page. Participants are encouraged to review, modify, and use the code for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.
+
+For any questions or concerns, please feel free to reach out via email at [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+:::
+
+
+## What else? 
+
+- During this semester, you have been exposed to a series of practical applications in topics related to finance:
+  1. Collecting and manipulating data
+  2. Backtesting Investment Strategies
+  3. Evaluating Mutual Fund performance
+  4. Stress-testing Equity Valuation Models
+  5. Analyzing M&A announcements and marketing sentiment around news
+
+
+. . .
+
+**What's left for us to do?**
+
+. . .
+
+*It is time to ship your insights to a broader audience - I introduce you [Shiny]{.blue}!*
+
+## Introduction to Shiny
+
+::: callout-important
+### Definition
+
+[Shiny](https://shiny.posit.co/) is an `R` package that makes it easy to build interactive web applications directly from your session. It was developed by [Posit](https://posit.co/) (previously *RStudio*) to bridge the gap between data analysis and web interfaces.
+
+:::
+
+- It allows for real-time data visualization and analysis using a web browser, updating outputs *automatically* when inputs change
+
+- Recently, its usage has been extended to `Python` users, offering similar reactive programming
+
+. . .
+
+**Key Features**
+
+1. Easy integration with `ggplot2`, `dplyr`, and other `tidyverse` tools, with customizable UI layouts using built-in layout functions, or plain `HTML` and `CSS` 
+
+2. Supports user input through sliders, dropdowns, buttons, and more
+
+3. Easy to *deploy*, *host*, and *ship* your application to the internet!
+
+## Typical Use Cases
+
+. . .
+
+
+**[Shiny]{.blue} can be used in a variety of contexts, including but not limited to:**
+
+. . .
+
+1. [Interactive Dashboards and Reports]{.blue}: whether you have inputs that change over time, or need, [Shiny]{.blue} can leverage user interaction by asking inputs and also providing interactivity, such as downloading results
+
+2. [Prototyping Data Science products]{.blue}: creating a *minimum-viable-product* using Shiny is one way of testing an idea before allocating a substantial amount of resources into it. Shiny Apps are simple yet powerful, and can be customized using the best resources on `HTML`, `JavaScript`, and `CSS` 
+
+3. [Tools for non-technical stakeholders]{.blue}: [Shiny]{.blue} helpds to bridge the gap between `R` and `Python` users with non-technical audiences, allowing different agents to draw insights from the data without the need for extensive coding
+
+
+
+## Example #1
+
+<iframe src="https://gallery.shinyapps.io/001-hello/"
+        width="100%"
+        height="800"
+        frameborder="0">
+</iframe>
+
+## Example #2
+
+<iframe src="https://gallery.shinyapps.io/051-movie-explorer/"
+        width="100%"
+        height="800"
+        frameborder="0">
+</iframe>
+
+
+## Example #3
+
+<iframe src="https://brindexes.shinyapps.io/backtester-app/"
+        width="100%"
+        height="800"
+        frameborder="0">
+</iframe>
+
+
+## Shiny App Structure (getting started)
+
+- A general purpose [Shiny]{.blue} app has the following structure:
+  
+  1. The `ui`: defines the layout and appearance of the app (*i.e*, the *frontend*)
+  2. The `server`: Defines the logic and behavior of the app (*i.e*, the *backend*)
+  3. Finally, the `shinyApp` function creates  app objects from an explicit UI/server pair:
+
+```{r}
+#| eval: false
+#| echo: true
+
+shinyApp(ui, server)
+
+```
+
+- Every [Shiny]{.blue} app has the same structure: an `app.R` file that contains `ui` and `server`
+
+- You can create a [Shiny]{.blue} app by making a new directory and saving an `app.R` file inside it. It is recommended that each app will live in its own unique directory.
+
+
+## A minimal working example (in finance)
+
+- You boss got impressed with the analysis you did as a buy-side analyst at *Pierpoint Capital*. Unfortunately, he did not take the *Practical Applications in Quantitative Finance* course, so he really can't replicate your findings. Your task is to help him ship your analysis to the whole organization
+
+1.  Create stunning visuals that allow interactivity
+2.  Allow users to change parameters of your analysis
+3.  Finally, provide users with the ability to download their findings
+
+::: callout-important
+### Specific Instructions
+
+1.  We will be extensively using several contents from [@shiny]. For the sake of brevity, we will not dive into the nitty-gritty details, but rather explore some functions that can be used inside a [Shiny]{.blue} context
+
+2. We will leverage [ShinyAI](https://gallery.shinyapps.io/assistant/), an *LLM* specifically desined to help developing a web framework for data driven apps. You can ask questions about how to use Shiny, to explain how certain things work, or even ask to build a Shiny app for you!
+
+:::
+
+
+## My first Shiny app
+
+::: panel-tabset
+### Outline
+
+- In what follows, we will begin by creating a very simply app that provides a summary performance of selected stocks over time, constructed using the following *UI/UX* structure:
+
+  1. Users provide a *start* and *end* date for the analysis of the *Magnificent 7* stocks
+  
+  2. The expected outcome should be a chart that compares the cumulative returns of all selected assets over time
+
+- Each section will contain [three]{.blue} tabs:
+
+  1. The [Outline]{.blue} section will provide a very quick explanation of what we need to add to the app
+  
+  2. The [Prompt]{.blue} section described the prompt we will be asking *ShinyAI* to help us with
+  
+  3. Finally, the [Code]{.blue} section will contain the updated code generated by *ShinyAI*, which can be fed into your `R` section
+
+
+### Prompt
+
+```{r}
+#| eval: false
+#| echo: true
+
+Create a Shiny app that visualizes the cumulative returns of the 'Magnificent 7' tech stocks (Apple, Microsoft, Amazon, NVIDIA, Alphabet/Google, Meta/Facebook, and Tesla). The app should have the following features:
+
+The only user input should be a date range selector in the sidebar, with a default range of the past year and a minimum selectable date of January 1, 2015
+
+Display a line chart showing the cumulative returns of all Magnificent 7 stocks over the selected time period, with company names shown in the legend instead of ticker symbols
+
+Include a data table below the chart that summarizes key performance metrics for each stock: company name, start date, end date, total return, annualized return, and volatility
+
+Use the tidyquant package to download stock price data from Yahoo Finance and calculate the returns
+
+Use the tidyverse for data manipulation and ggplot2 for visualization
+
+```
+
+### Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(shiny)
+library(tidyverse)
+library(tidyquant)
+library(bslib)
+library(scales)
+
+# Define the Magnificent 7 stocks
+magnificent_7 <- c(
+  "AAPL", # Apple
+  "MSFT", # Microsoft
+  "AMZN", # Amazon
+  "NVDA", # NVIDIA
+  "GOOGL", # Alphabet (Google)
+  "META", # Meta (Facebook)
+  "TSLA"  # Tesla
+)
+
+ui <- page_sidebar(
+  title = "Magnificent 7 Return Comparison",
+  
+  sidebar = sidebar(
+    title = "Date Range",
+    
+    dateRangeInput(
+      "date_range",
+      "Select date range:",
+      start = Sys.Date() - 365,
+      end = Sys.Date(),
+      min = "2015-01-01",
+      max = Sys.Date()
+    )
+  ),
+  
+  card(
+    full_screen = TRUE,
+    card_header("Cumulative Returns of Magnificent 7 Stocks"),
+    plotOutput("returns_plot", height = "500px")
+  ),
+  
+  card(
+    card_header("Performance Summary"),
+    dataTableOutput("data_summary")
+  )
+)
+
+server <- function(input, output, session) {
+  
+  # Reactive expression to get and process stock data
+  stock_data <- reactive({
+    # Validate that we have dates
+    req(input$date_range)
+    
+      # Download data
+      tq_data <- tq_get(
+        magnificent_7,
+        from = input$date_range[1],
+        to = input$date_range[2],
+        get = "stock.prices"
+      )
+      
+      # Check if we got data
+      req(nrow(tq_data) > 0)
+      
+      # Calculate daily returns
+      returns_data <- tq_data %>%
+        group_by(symbol) %>%
+        tq_transmute(
+          select = adjusted,
+          mutate_fun = periodReturn,
+          period = "daily",
+          col_rename = "daily_return"
+        )
+      
+      # Calculate cumulative returns
+      cum_returns <- returns_data %>%
+        group_by(symbol) %>%
+        mutate(cumulative_return = cumprod(1 + daily_return) - 1) %>%
+        ungroup()
+      
+      list(
+        raw_data = tq_data,
+        cum_returns = cum_returns
+      )
+    })
+
+  # Generate returns plot
+  output$returns_plot <- renderPlot({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    
+    # Create a named vector for better labels
+    stock_names <- c(
+      "AAPL" = "Apple",
+      "MSFT" = "Microsoft",
+      "AMZN" = "Amazon",
+      "NVDA" = "NVIDIA",
+      "GOOGL" = "Alphabet",
+      "META" = "Meta",
+      "TSLA" = "Tesla"
+    )
+    
+    ggplot(cum_returns, aes(x = date, y = cumulative_return, color = symbol)) +
+      geom_line(linewidth = 1) +
+      scale_y_continuous(labels = percent) +
+      scale_color_discrete(labels = stock_names) +
+      labs(
+        title = "Cumulative Returns of Magnificent 7 Tech Stocks",
+        x = "Date",
+        y = "Cumulative Return",
+        color = "Company"
+      ) +
+      theme_minimal() +
+      theme(
+        legend.position = "bottom",
+        legend.box = "horizontal",
+        plot.title = element_text(hjust = 0.5, face = "bold", size = 16),
+        axis.title = element_text(face = "bold"),
+        legend.title = element_text(face = "bold")
+      )
+  })
+  
+  # Generate data summary
+  output$data_summary <- renderDataTable({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    
+    # Stock display names for the summary table
+    stock_names <- c(
+      "AAPL" = "Apple",
+      "MSFT" = "Microsoft",
+      "AMZN" = "Amazon",
+      "NVDA" = "NVIDIA",
+      "GOOGL" = "Alphabet",
+      "META" = "Meta",
+      "TSLA" = "Tesla"
+    )
+    
+    # Summary statistics for each asset
+    summary_data <- cum_returns %>%
+      group_by(symbol) %>%
+      summarize(
+        Start_Date = min(date),
+        End_Date = max(date),
+        Total_Return = last(cumulative_return) %>% round(4),
+        Annualized_Return = ((1 + last(cumulative_return))^(252 / n())) - 1 %>% round(4),
+        Volatility = sd(daily_return, na.rm = TRUE) * sqrt(252) %>% round(4)
+      ) %>%
+      mutate(
+        Company = stock_names[symbol],
+        Total_Return = percent(Total_Return, accuracy = 0.01),
+        Annualized_Return = percent(Annualized_Return, accuracy = 0.01),
+        Volatility = percent(Volatility, accuracy = 0.01)
+      ) %>%
+      select(Company, Start_Date, End_Date, Total_Return, Annualized_Return, Volatility)
+  })
+}
+
+shinyApp(ui, server)
+
+```
+
+:::
+
+
+## Example
+
+::: panel-tabset
+### Outline
+
+### Prompt
+```{r}
+#| eval: false
+#| echo: true
+
+```
+
+### Code
+```{r}
+#| eval: false
+#| echo: true
+
+```
+:::
+
+
+
+
+## Hosting Shiny Applications
+
+- **[Way to go]{.blue}: you just did your very first app!**
+
+- Now, the question is... [how can you share that with your audience?]{.blue} Luckily, there are several ways in which you can host your application^[For detailed content, please refer to a discussion regarding hosting options [here](https://shiny.posit.co/r/deploy.html).]:
+
+
+1. **shinyapps.io** (by *Posit*): by and large, this is the easiest option for hosting Shiny apps for beginners. Fully managed, no server setup required
+
+2. **Posit Connect**: enterprise-grade publishing platform, supports Shiny (`R` and `Python`), Quarto, Dash, Flask, and more. It offers authentication, scheduled reports, and usage analytics. Suitable for internal tools and collaborative data products
+
+3. **Docker**: containerize Shiny apps for portability and reproducibility. Useful for deployment in Kubernetes or cloud-native environments. Can be combined with CI/CD workflows
+
+
+## Extensions and Tools
+
+- `shinydashboard` for admin-style dashboards
+- `shinyjs` and `shinyWidgets` for enhanced UI/UX
+- `shinytest` and `shinyloadtest` for testing and performance
+
+
+## References
+
+

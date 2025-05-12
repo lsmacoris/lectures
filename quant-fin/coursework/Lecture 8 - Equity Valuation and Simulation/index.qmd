@@ -146,7 +146,7 @@ $$
 ## Scenario Analysis, continued
 
 | **Scenario** | **Revenue Growth** | **Discount Rate** | **Terminal Value** | **Firm Value** |
-|--------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+|---:|:--:|:--:|:--:|:--:|
 | [Best Case]{.green} | $8\%$ | $6\%$ | High | $\$140M$ |
 | [Base Case]{.yellow} | $5\%$ | $8\%$ | Medium | $\$110M$ |
 | [Worst Case]{.red} | $2\%$ | $10\%$ | Low | $\$85M$ |
@@ -1030,7 +1030,6 @@ prices%>%
 ```
 :::
 
-
 ## Overall thoughts on Monte Carlo Simulation
 
 -   [Monte Carlo Simulation]{.blue} is a powerful technique to handle model uncertainty:
@@ -1043,45 +1042,42 @@ prices%>%
     1.  We don't want to create overly complex simulations
     2.  We can incorporate more structure to create meaningful scenarios - for example, imposing a correlation structure between the variables
 
-- By setting up proper simulation parameters (number of simulations, the distributions and its parameters, etc), we can leverage the role of uncertainty in valuation models in a much more pronounced way and guide decision-making! 
+-   By setting up proper simulation parameters (number of simulations, the distributions and its parameters, etc), we can leverage the role of uncertainty in valuation models in a much more pronounced way and guide decision-making!
 
 ## Extensions
 
-**Question**: how can we improve our simulation exercise? 
+**Question**: how can we improve our simulation exercise?
 
-
-- In what follows, we'll take a look at several ways by which you could extend your simulation coding exercise to cope with real-world features. To illustrate, we will adopt a simple valuation approach of the following form:
+-   In what follows, we'll take a look at several ways by which you could extend your simulation coding exercise to cope with real-world features. To illustrate, we will adopt a simple valuation approach of the following form:
 
 $$
 \small V_i = \sum_{t=1}^{t=5}\dfrac{FCF_t}{(1+r)^t}+ PV_0\bigg(\dfrac{FCF_5\times(1+g)}{r-g}\bigg)
 $$
 
-- In words, we are breaking down the firms value into:
+-   In words, we are breaking down the firms value into:
 
-  1. A 1-5 year horizon
-  2. A growing perpetuity, discounted back to [Year 0]{.blue}
+    1.  A 1-5 year horizon
+    2.  A growing perpetuity, discounted back to [Year 0]{.blue}
 
-- From that, we can extend the simulation routines to allow for important features that are present in real-world data 
+-   From that, we can extend the simulation routines to allow for important features that are present in real-world data
 
-
-## Base Case Simulation 
+## Base Case Simulation
 
 ::: panel-tabset
-
 ### Outline
 
-- The base case denotes the [Free Cash Flow]{.blue} in period $t$ as:
+-   The base case denotes the [Free Cash Flow]{.blue} in period $t$ as:
 
 $$
 FCF_t = Sales_t\times(1-COGS) \pm CAPEX \pm \Delta NWC
 $$
 
-  1. Initial Sales levels are $\$100$
-  2. The percent of [Cost of Goods Sold (COGS)]{.blue} is $60\%$
-  3. [Capital Expenditures (CAPEX)]{.blue} is $15\%$ of Sales
-  4. [Net Working Capital]{.blue} investment is $5%$ of sales 
+1.  Initial Sales levels are $\$100$
+2.  The percent of [Cost of Goods Sold (COGS)]{.blue} is $60\%$
+3.  [Capital Expenditures (CAPEX)]{.blue} is $15\%$ of Sales
+4.  [Net Working Capital]{.blue} investment is $5%$ of sales
 
-### Code 
+### Code
 
 ```{r}
 #| echo: true
@@ -1160,7 +1156,7 @@ ggplot(base_norm, aes(x = Value)) +
 
 ```
 
-### Output 
+### Output
 
 ```{r}
 #| echo: false
@@ -1238,27 +1234,22 @@ ggplot(base_norm, aes(x = Value)) +
 
 
 ```
-
 :::
 
-
-
-## Extension 1: Alternative Distributions 
+## Extension 1: Alternative Distributions
 
 ::: panel-tabset
-
 ### Outline
 
-- **Key Point:** Monte Carlo doesn’t assume normality — [any distribution]{.blue} that fits the problem can be used!
+-   **Key Point:** Monte Carlo doesn’t assume normality — [any distribution]{.blue} that fits the problem can be used!
 
-  1. While normal distributions are common, other distributions (*e.g.*, uniform, log-normal, etc.) can also be used:
+    1.  While normal distributions are common, other distributions (*e.g.*, uniform, log-normal, etc.) can also be used:
 
-  2. For example, if $r \sim \text{Uniform}(0.05, 0.10)$, the growth rate could be chosen randomly from a uniform distribution between $5\%$ and $10\%$
-  
+    2.  For example, if $r \sim \text{Uniform}(0.05, 0.10)$, the growth rate could be chosen randomly from a uniform distribution between $5\%$ and $10\%$
 
-- Distributions like the **log-normal** may be more appropriate for modeling returns, as they respect the non-negativity constraint - $r \geq 0 $. Therefore, for a given variable $X$, it could be sampled from any distribution
+-   Distributions like the **log-normal** may be more appropriate for modeling returns, as they respect the non-negativity constraint - \$r \geq 0 \$. Therefore, for a given variable $X$, it could be sampled from any distribution
 
-- In what follows, we'll simulate results drawing from an [Uniform]{.blue} distribution for $r$ and a [Beta]{.blue} for $g$
+-   In what follows, we'll simulate results drawing from an [Uniform]{.blue} distribution for $r$ and a [Beta]{.blue} for $g$
 
 ### Code
 
@@ -1341,25 +1332,21 @@ ggplot(df_all, aes(x = Value, fill = Scenario, color = Scenario)) +
   theme(legend.position = 'bottom')
 
 ```
-
 :::
 
-
-
-## Extension 2: Correlated Variables 
+## Extension 2: Correlated Variables
 
 ::: panel-tabset
-
 ### Outline
 
-- In the baseline case, we have each random variable sampled [independently]{.blue} from a normal distribution (*i.e*, *i.i.d* sampling). This can lead to higher variability and wider spread in the results that are unlikely to happen
+-   In the baseline case, we have each random variable sampled [independently]{.blue} from a normal distribution (*i.e*, *i.i.d* sampling). This can lead to higher variability and wider spread in the results that are unlikely to happen
 
-- By introducing a [correlation structure]{.blue} between variables, we can constrain the possible outcomes, narrowing the distribution, leading to more [realistic]{.blue} and [stable]{.blue} simulations where changes in one variable influence the others
+-   By introducing a [correlation structure]{.blue} between variables, we can constrain the possible outcomes, narrowing the distribution, leading to more [realistic]{.blue} and [stable]{.blue} simulations where changes in one variable influence the others
 
-- In what follows, we will keep $r$ and $g$ mean and standard deviation, but will now assume that the correlation between these two variables is $\rho=0.9$:
+-   In what follows, we will keep $r$ and $g$ mean and standard deviation, but will now assume that the correlation between these two variables is $\rho=0.9$:
 
-  1. Whenever $g$ is high, it might be because the firm is in its earlier stages, so $r$ should be higher
-  2. Whenever $g$ is low, firm may have reached its market peak, so $r$ should be lower
+    1.  Whenever $g$ is high, it might be because the firm is in its earlier stages, so $r$ should be higher
+    2.  Whenever $g$ is low, firm may have reached its market peak, so $r$ should be lower
 
 ### Code
 
@@ -1455,24 +1442,20 @@ ggplot(df_all, aes(x = Value, fill = Scenario, color = Scenario)) +
   theme(legend.position = 'bottom')
 
 ```
-
 :::
-
 
 ## Extension 3: Varying the Sample Size
 
 ::: panel-tabset
-
 ### Outline
 
-- In short, your Monte Carlo simulation outcome will depend on the number of simulations: the more simulations we run, the more stable and reliable the estimates become.
+-   In short, your Monte Carlo simulation outcome will depend on the number of simulations: the more simulations we run, the more stable and reliable the estimates become.
 
-  1. With smaller samples, (*e.g.*, $n<100$ or $n<1,000$, results show high variability and may not capture the true distribution.
-  
-  2. With larger samples, as $n$ (*e.g.*, $100,000$ or $1,000,000$), the estimates converge toward the expected value
-  
+    1.  With smaller samples, (*e.g.*, $n<100$ or $n<1,000$, results show high variability and may not capture the true distribution.
 
-- All in all, increasing sample size reduces [random noise]{.blue}, improving the [precision]{.blue} and the [stability]{.blue} of simulation results
+    2.  With larger samples, as $n$ (*e.g.*, $100,000$ or $1,000,000$), the estimates converge toward the expected value
+
+-   All in all, increasing sample size reduces [random noise]{.blue}, improving the [precision]{.blue} and the [stability]{.blue} of simulation results
 
 ### Code
 
@@ -1562,24 +1545,21 @@ ggplot(all_results, aes(x = Value, fill = Scenario)) +
 
 
 ```
-
 :::
-
 
 ## Extension 4: Bootstrapping
 
 ::: panel-tabset
-
 ### Outline
 
-- [Bootstrapping]{.blue} is a *resampling technique* that draws samples *with replacement* from observed data
+-   [Bootstrapping]{.blue} is a *resampling technique* that draws samples *with replacement* from observed data
 
-  1. It is useful to incorporate [empirical variability]{.blue} without assuming a specific parametric distribution
-  2. Helps capture the uncertainty present in historical or observed data
+    1.  It is useful to incorporate [empirical variability]{.blue} without assuming a specific parametric distribution
+    2.  Helps capture the uncertainty present in historical or observed data
 
--  Given a sample $x_1, x_2, \dots, x_N$, draw $B$ bootstrap samples, you draw a given number of samples with replacement and compute the statistic of interest (*e.g.*, mean, median) on each bootstrap sample
-  
-- Bootstrapping can be used, for example, if we have a very limited series of historical values for our random values (*e.g*, $n=20$) but want to incorporate variability into the analysis
+-   Given a sample $x_1, x_2, \dots, x_N$, draw $B$ bootstrap samples, you draw a given number of samples with replacement and compute the statistic of interest (*e.g.*, mean, median) on each bootstrap sample
+
+-   Bootstrapping can be used, for example, if we have a very limited series of historical values for our random values (*e.g*, $n=20$) but want to incorporate variability into the analysis
 
 ### Code
 
@@ -1739,9 +1719,6 @@ ggplot() +
   theme(legend.position = "bottom")
 
 ```
-
 :::
-
-
 
 ## References

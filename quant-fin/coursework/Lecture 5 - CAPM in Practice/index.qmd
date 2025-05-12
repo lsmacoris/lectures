@@ -837,26 +837,24 @@ CAPM_Estimation%>%
 
 ## It is now your turn...
 
-- In our *Manipulating Time Series Data* lecture, we recreated the at the [*Deadlift ETF*](https://finance.yahoo.com/news/deadlift-etf-world-latest-headscratcher-140000992.html) and compared it to the returns from the *S&P 500* index
+-   In our *Manipulating Time Series Data* lecture, we recreated the at the [*Deadlift ETF*](https://finance.yahoo.com/news/deadlift-etf-world-latest-headscratcher-140000992.html) and compared it to the returns from the *S&P 500* index
 
-- Now, assuming that the *CAPM* correctly prices all assets, you are equipped to use the model and evaluate whether such strategy yielded *true* skill returns, or $\small \alpha$
+-   Now, assuming that the *CAPM* correctly prices all assets, you are equipped to use the model and evaluate whether such strategy yielded *true* skill returns, or $\small \alpha$
 
-::: {.callout-tip}
+::: callout-tip
 ### Hands-on Exercise
 
-1. Adapt the code we have used in the *Manipulating Time Series Data* to generate the *weekly* returns during 2024 for the *Deadlift ETF*
-2. Merge the dataset with the *Fama French* dataset you have just used. You can use the `left_join` function with the  `by` argument to join two dataframes with different column names
-3. Use `mutate` to create a column that calculates the weekly excess return of the *Deadlift ETF* relative to the risk-free rate
-4. Estimate an OLS regression of the form:
+1.  Adapt the code we have used in the *Manipulating Time Series Data* to generate the *weekly* returns during 2024 for the *Deadlift ETF*
+2.  Merge the dataset with the *Fama French* dataset you have just used. You can use the `left_join` function with the `by` argument to join two dataframes with different column names
+3.  Use `mutate` to create a column that calculates the weekly excess return of the *Deadlift ETF* relative to the risk-free rate
+4.  Estimate an OLS regression of the form:
 
 $$
 R_{i,t}=\alpha+\beta \times(R_{m,t}-R_{f,t})+\varepsilon_{i,t}
 $$
 
 How do you interpret these findings? Does investing *Deadlift ETF* provide true skill returns? Explain your rationale.
-
 :::
-
 
 ## Code snippet from previous classes
 
@@ -908,6 +906,5 @@ SP500_Performance%>%
   setNames(c('Year','S&P 500','DeadLift ETF'))
 
 ```
-
 
 ## References

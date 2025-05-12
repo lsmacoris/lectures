@@ -12934,5 +12934,355 @@
     "title": "Equity Valuation and Simulation",
     "section": "Extension 4: Bootstrapping",
     "text": "Extension 4: Bootstrapping\n\nOutlineCodeOutput\n\n\n\nBootstrapping is a resampling technique that draws samples with replacement from observed data\n\nIt is useful to incorporate empirical variability without assuming a specific parametric distribution\nHelps capture the uncertainty present in historical or observed data\n\nGiven a sample \\(x_1, x_2, \\dots, x_N\\), draw \\(B\\) bootstrap samples, you draw a given number of samples with replacement and compute the statistic of interest (e.g., mean, median) on each bootstrap sample\nBootstrapping can be used, for example, if we have a very limited series of historical values for our random values (e.g, \\(n=20\\)) but want to incorporate variability into the analysis\n\n\n\n\n#Number of simulations\nn_sim=10000\n\n# Historical series\nhistorical_cogs &lt;- c(0.58, 0.6, 0.62, 0.59, 0.61,0.75,0.54,0.66,0.29,0.78)\nhistorical_capex &lt;- c(0.48, 0.5, 0.52, 0.49, 0.51,0.40,0.52,0.59,0.58,0.81)\n\n# For each simulation, bootstrap 10 values and take the mean → length n_sim vector\nboot_cogs_pct &lt;- replicate(n_sim, mean(sample(historical_cogs, 10, replace = TRUE)))\nboot_capex_pct &lt;- replicate(n_sim, mean(sample(historical_capex, 10, replace = TRUE)))\n\nsimulate_values &lt;- function(r, g, cogs_pct, capex_pct, label = 'Simulation') {\n  firm_value &lt;- numeric(n_sim)\n  \n  for (i in 1:n_sim) {\n    sales &lt;- initial_sales\n    nwc_last &lt;- sales * nwc_pct\n    fa_last &lt;- sales * capex_pct[i]\n    fcf &lt;- numeric(5)\n    \n    for (t in 1:5) {\n      sales &lt;- sales * (1 + g[i])\n      nwc_current &lt;- sales * nwc_pct\n      fa_current &lt;- sales * capex_pct[i]\n      \n      delta_nwc &lt;- nwc_current - nwc_last\n      delta_capex &lt;- fa_current - fa_last\n      \n      nwc_last &lt;- nwc_current\n      fa_last &lt;- fa_current\n      \n      fcf[t] &lt;- sales * (1 - cogs_pct[i]) - delta_capex - delta_nwc\n    }\n    \n    fcf_terminal &lt;- fcf[5] * (1 + g[i])\n    perp_value &lt;- fcf_terminal / (r[i] - g[i])\n    \n    discounted_fcf &lt;- sum(fcf / (1 + r[i])^(1:5))\n    discounted_perp &lt;- perp_value / (1 + r[i])^5\n    \n    firm_value[i] &lt;- discounted_fcf + discounted_perp\n  }\n  \n  firm_value &lt;- firm_value[is.finite(firm_value) & (r &gt; g)]\n  \n  data.frame(Value = firm_value, Scenario = label)\n}\n\n\n# Normal scenario (fixed percentages for COGS and CAPEX)\ndf_norm &lt;- simulate_values(r_norm, g_norm, cogs_pct = rep(0.6,n_sim), capex_pct = rep(0.5,n_sim), label = \"Normal\")\n\n# Bootstrap scenario (bootstrapped mean percentages)\ndf_bootstrap &lt;- simulate_values(r_norm, g_norm, cogs_pct = boot_cogs_pct, capex_pct = boot_capex_pct, label = \"Bootstrap\")\n\n#Plot\nggplot() +\n  geom_density(data = df_norm, aes(x = Value, fill = \"Normal\"), alpha = 0.5) +\n  geom_density(data = df_bootstrap, aes(x = Value, fill = \"Bootstrap\"), alpha = 0.5) +\n  scale_x_continuous(labels = dollar)+\n  labs(\n    title = \"Monte Carlo Valuation Distribution: Normal vs. Bootstrap\",\n    x = \"Firm Value\",\n    y = \"Frequency\",\n    fill = 'Approach',\n    color = \"Scenario\"\n  ) +\n  theme_minimal(base_size = 20) +\n  theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#outline",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#outline",
+    "title": "Introduction to Shiny",
+    "section": "Outline",
+    "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\nMastering Shiny (Wickham 2021)\nR for Data Science (Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023)\n\n\n\n\n\n\n\n\nCoding Replications\n\n\nFor coding replications, whenever applicable, please follow this page or hover on the specific slides with containing coding chunks.\n\nEnsure that you have your  session properly set-up according to the instructions outlined in the course webpage\nIn the webpage, you can also find a detailed discussion of the examples covered in this lecture"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#disclaimer",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#disclaimer",
+    "title": "Introduction to Shiny",
+    "section": "Disclaimer",
+    "text": "Disclaimer\n\n\n\n\n\n\nDisclaimer\n\n\nThe information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.\nAll code used in this lecture is publicly available and is also shared on my GitHub page. Participants are encouraged to review, modify, and use the code for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.\nFor any questions or concerns, please feel free to reach out via email at lucas.macoris@fgv.br"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#what-else",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#what-else",
+    "title": "Introduction to Shiny",
+    "section": "What else?",
+    "text": "What else?\n\nDuring this semester, you have been exposed to a series of practical applications in topics related to finance:\n\nCollecting and manipulating data\nBacktesting Investment Strategies\nEvaluating Mutual Fund performance\nStress-testing Equity Valuation Models\nAnalyzing M&A announcements and marketing sentiment around news\n\n\n\nWhat’s left for us to do?\n\n\nIt is time to ship your insights to a broader audience - I introduce you Shiny!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#references",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#references",
+    "title": "Introduction to Shiny",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nWickham, Hadley. 2021. Mastering Shiny. O’Reilly Media. https://mastering-shiny.org/.\n\n\nWickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. O’Reilly Media. https://r4ds.had.co.nz/."
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#introduction-to-shiny",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#introduction-to-shiny",
+    "title": "Introduction to Shiny",
+    "section": "Introduction to Shiny",
+    "text": "Introduction to Shiny\n\n\n\n\n\n\nDefinition\n\n\nShiny is an R package that makes it easy to build interactive web applications directly from your session. It was developed by Posit (previously RStudio) to bridge the gap between data analysis and web interfaces.\n\n\n\n\nIt allows for real-time data visualization and analysis using a web browser, updating outputs automatically when inputs change\nRecently, its usage has been extended to Python users, offering similar reactive programming\n\n\nKey Features\n\nEasy integration with ggplot2, dplyr, and other tidyverse tools, with customizable UI layouts using built-in layout functions, or plain HTML and CSS\nSupports user input through sliders, dropdowns, buttons, and more\nEasy to deploy, host, and ship your application to the internet!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#key-features",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#key-features",
+    "title": "Introduction to Shiny",
+    "section": "Key Features",
+    "text": "Key Features\n\nIt is a reactive programming model: updates outputs automatically when inputs change\nEasy integration with ggplot2, dplyr, and other tidyverse tools\nCustomizable UI layouts using built-in layout functions, or plain HTML and CSS\nSupports user input through sliders, dropdowns, buttons, and more\nEasy to deploy, host, and ship your application to the internet!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#typical-use-cases",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#typical-use-cases",
+    "title": "Introduction to Shiny",
+    "section": "Typical Use Cases",
+    "text": "Typical Use Cases\n\nShiny can be used in a variety of contexts, including but not limited to:\n\n\n\nInteractive Dashboards and Reports: whether you have inputs that change over time, or need, Shiny can leverage user interaction by asking inputs and also providing interactivity, such as downloading results\nPrototyping Data Science products: creating a minimum-viable-product using Shiny is one way of testing an idea before allocating a substantial amount of resources into it. Shiny Apps are simple yet powerful, and can be customized using the best resources on HTML, JavaScript, and CSS\nTools for non-technical stakeholders: Shiny helpds to bridge the gap between R and Python users with non-technical audiences, allowing different agents to draw insights from the data without the need for extensive coding"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#shiny-app-structure",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#shiny-app-structure",
+    "title": "Introduction to Shiny",
+    "section": "Shiny App Structure",
+    "text": "Shiny App Structure\n\nA general purpose Shiny app has the following structure\n\nThe ui: defines the layout and appearance of the app (i.e, the frontend)\nThe server: Defines the logic and behavior of the app (i.e, the backend)\nFinally, you can combine both to launch the app\n\n\n\nshinyApp(ui, server)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#extensions-and-tools",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#extensions-and-tools",
+    "title": "Introduction to Shiny",
+    "section": "Extensions and Tools",
+    "text": "Extensions and Tools\n\nshinydashboard for admin-style dashboards\nshinyjs and shinyWidgets for enhanced UI/UX\nshinytest and shinyloadtest for testing and performance"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#example-1",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#example-1",
+    "title": "Introduction to Shiny",
+    "section": "Example #1",
+    "text": "Example #1"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#example-2",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#example-2",
+    "title": "Introduction to Shiny",
+    "section": "Example #2",
+    "text": "Example #2"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#example-3",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#example-3",
+    "title": "Introduction to Shiny",
+    "section": "Example #3",
+    "text": "Example #3"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#hosting-shiny-applications",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#hosting-shiny-applications",
+    "title": "Introduction to Shiny",
+    "section": "Hosting Shiny Applications",
+    "text": "Hosting Shiny Applications\n\nWay to go: you just did your very first app!\nNow, the question is… how can you share that with your audience? Luckily, there are several ways in which you can host your application1:\n\n\nshinyapps.io (by Posit): by and large, this is the easiest option for hosting Shiny apps for beginners. Fully managed, no server setup required\nPosit Connect: enterprise-grade publishing platform, supports Shiny (R and Python), Quarto, Dash, Flask, and more. It offers authentication, scheduled reports, and usage analytics. Suitable for internal tools and collaborative data products\nDocker: containerize Shiny apps for portability and reproducibility. Useful for deployment in Kubernetes or cloud-native environments. Can be combined with CI/CD workflows\n\nFor detailed content, please refer to a discussion regarding hosting options here."
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#shiny-app-structure-getting-started",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#shiny-app-structure-getting-started",
+    "title": "Introduction to Shiny",
+    "section": "Shiny App Structure (getting started)",
+    "text": "Shiny App Structure (getting started)\n\nA general purpose Shiny app has the following structure:\n\nThe ui: defines the layout and appearance of the app (i.e, the frontend)\nThe server: Defines the logic and behavior of the app (i.e, the backend)\nFinally, the shinyApp function creates app objects from an explicit UI/server pair:\n\n\n\nshinyApp(ui, server)\n\n\nEvery Shiny app has the same structure: an app.R file that contains ui and server\nYou can create a Shiny app by making a new directory and saving an app.R file inside it. It is recommended that each app will live in its own unique directory."
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#a-minimal-working-example-in-finance",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#a-minimal-working-example-in-finance",
+    "title": "Introduction to Shiny",
+    "section": "A minimal working example (in finance)",
+    "text": "A minimal working example (in finance)\n\nYou boss got impressed with the analysis you did as a buy-side analyst at Pierpoint Capital. Unfortunately, he did not take the Practical Applications in Quantitative Finance course, so he really can’t replicate your findings. Your task is to help him ship your analysis to the whole organization\n\n\nCreate stunning visuals that allow interactivity\nAllow users to change parameters of your analysis\nFinally, provide users with the ability to download their findings\n\n\n\n\n\n\n\nSpecific Instructions\n\n\n\nWe will be extensively using several contents from (Wickham 2021). For the sake of brevity, we will not dive into the nitty-gritty details, but rather explore some functions that can be used inside a Shiny context\nWe will leverage ShinyAI, an LLM specifically desined to help developing a web framework for data driven apps. You can ask questions about how to use Shiny, to explain how certain things work, or even ask to build a Shiny app for you!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#a-basic-shiny-app",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#a-basic-shiny-app",
+    "title": "Introduction to Shiny",
+    "section": "A basic Shiny app",
+    "text": "A basic Shiny app\n\nIn what follows, we will begin by creating a very simply app that provides a summary performance of selected stocks over time, constructed using the following UI/UX structure:\n\nUsers start by selecting a group of stocks from a list and create a portfolio\nAfter that, they provide a start and end date for the analysis\nThe expected outcome should be a chart that compares the cumulative returns of all selected assets over time\n\nEach section will contain three tabs:\n\nThe Outline section will provide a very quick explanation of what we need to add to the app\nThe Prompt section described the prompt we will be asking ShinyAI to help us with\nFinally, the Code section will contain the updated code generated by ShinyAI, which can be fed into your R section"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#my-first-shiny-app",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#my-first-shiny-app",
+    "title": "Introduction to Shiny",
+    "section": "My first Shiny app",
+    "text": "My first Shiny app\n\nOutlinePromptCode\n\n\n\nIn what follows, we will begin by creating a very simply app that provides a summary performance of selected stocks over time, constructed using the following UI/UX structure:\n\nUsers provide a start and end date for the analysis of the Magnificent 7 stocks\nThe expected outcome should be a chart that compares the cumulative returns of all selected assets over time\n\nEach section will contain three tabs:\n\nThe Outline section will provide a very quick explanation of what we need to add to the app\nThe Prompt section described the prompt we will be asking ShinyAI to help us with\nFinally, the Code section will contain the updated code generated by ShinyAI, which can be fed into your R section\n\n\n\n\n\nCreate a Shiny app that visualizes the cumulative returns of the 'Magnificent 7' tech stocks (Apple, Microsoft, Amazon, NVIDIA, Alphabet/Google, Meta/Facebook, and Tesla). The app should have the following features:\n\nThe only user input should be a date range selector in the sidebar, with a default range of the past year and a minimum selectable date of January 1, 2015\n\nDisplay a line chart showing the cumulative returns of all Magnificent 7 stocks over the selected time period, with company names shown in the legend instead of ticker symbols\n\nInclude a data table below the chart that summarizes key performance metrics for each stock: company name, start date, end date, total return, annualized return, and volatility\n\nUse the tidyquant package to download stock price data from Yahoo Finance and calculate the returns\n\nUse the tidyverse for data manipulation and ggplot2 for visualization\n\n\n\n\nlibrary(shiny)\nlibrary(tidyverse)\nlibrary(tidyquant)\nlibrary(bslib)\nlibrary(scales)\n\n# Define the Magnificent 7 stocks\nmagnificent_7 &lt;- c(\n  \"AAPL\", # Apple\n  \"MSFT\", # Microsoft\n  \"AMZN\", # Amazon\n  \"NVDA\", # NVIDIA\n  \"GOOGL\", # Alphabet (Google)\n  \"META\", # Meta (Facebook)\n  \"TSLA\"  # Tesla\n)\n\nui &lt;- page_sidebar(\n  title = \"Magnificent 7 Return Comparison\",\n  \n  sidebar = sidebar(\n    title = \"Date Range\",\n    \n    dateRangeInput(\n      \"date_range\",\n      \"Select date range:\",\n      start = Sys.Date() - 365,\n      end = Sys.Date(),\n      min = \"2015-01-01\",\n      max = Sys.Date()\n    )\n  ),\n  \n  card(\n    full_screen = TRUE,\n    card_header(\"Cumulative Returns of Magnificent 7 Stocks\"),\n    plotOutput(\"returns_plot\", height = \"500px\")\n  ),\n  \n  card(\n    card_header(\"Performance Summary\"),\n    dataTableOutput(\"data_summary\")\n  )\n)\n\nserver &lt;- function(input, output, session) {\n  \n  # Reactive expression to get and process stock data\n  stock_data &lt;- reactive({\n    # Validate that we have dates\n    req(input$date_range)\n    \n      # Download data\n      tq_data &lt;- tq_get(\n        magnificent_7,\n        from = input$date_range[1],\n        to = input$date_range[2],\n        get = \"stock.prices\"\n      )\n      \n      # Check if we got data\n      req(nrow(tq_data) &gt; 0)\n      \n      # Calculate daily returns\n      returns_data &lt;- tq_data %&gt;%\n        group_by(symbol) %&gt;%\n        tq_transmute(\n          select = adjusted,\n          mutate_fun = periodReturn,\n          period = \"daily\",\n          col_rename = \"daily_return\"\n        )\n      \n      # Calculate cumulative returns\n      cum_returns &lt;- returns_data %&gt;%\n        group_by(symbol) %&gt;%\n        mutate(cumulative_return = cumprod(1 + daily_return) - 1) %&gt;%\n        ungroup()\n      \n      list(\n        raw_data = tq_data,\n        cum_returns = cum_returns\n      )\n    })\n\n  # Generate returns plot\n  output$returns_plot &lt;- renderPlot({\n    req(stock_data())\n    \n    cum_returns &lt;- stock_data()$cum_returns\n    \n    # Create a named vector for better labels\n    stock_names &lt;- c(\n      \"AAPL\" = \"Apple\",\n      \"MSFT\" = \"Microsoft\",\n      \"AMZN\" = \"Amazon\",\n      \"NVDA\" = \"NVIDIA\",\n      \"GOOGL\" = \"Alphabet\",\n      \"META\" = \"Meta\",\n      \"TSLA\" = \"Tesla\"\n    )\n    \n    ggplot(cum_returns, aes(x = date, y = cumulative_return, color = symbol)) +\n      geom_line(linewidth = 1) +\n      scale_y_continuous(labels = percent) +\n      scale_color_discrete(labels = stock_names) +\n      labs(\n        title = \"Cumulative Returns of Magnificent 7 Tech Stocks\",\n        x = \"Date\",\n        y = \"Cumulative Return\",\n        color = \"Company\"\n      ) +\n      theme_minimal() +\n      theme(\n        legend.position = \"bottom\",\n        legend.box = \"horizontal\",\n        plot.title = element_text(hjust = 0.5, face = \"bold\", size = 16),\n        axis.title = element_text(face = \"bold\"),\n        legend.title = element_text(face = \"bold\")\n      )\n  })\n  \n  # Generate data summary\n  output$data_summary &lt;- renderDataTable({\n    req(stock_data())\n    \n    cum_returns &lt;- stock_data()$cum_returns\n    \n    # Stock display names for the summary table\n    stock_names &lt;- c(\n      \"AAPL\" = \"Apple\",\n      \"MSFT\" = \"Microsoft\",\n      \"AMZN\" = \"Amazon\",\n      \"NVDA\" = \"NVIDIA\",\n      \"GOOGL\" = \"Alphabet\",\n      \"META\" = \"Meta\",\n      \"TSLA\" = \"Tesla\"\n    )\n    \n    # Summary statistics for each asset\n    summary_data &lt;- cum_returns %&gt;%\n      group_by(symbol) %&gt;%\n      summarize(\n        Start_Date = min(date),\n        End_Date = max(date),\n        Total_Return = last(cumulative_return) %&gt;% round(4),\n        Annualized_Return = ((1 + last(cumulative_return))^(252 / n())) - 1 %&gt;% round(4),\n        Volatility = sd(daily_return, na.rm = TRUE) * sqrt(252) %&gt;% round(4)\n      ) %&gt;%\n      mutate(\n        Company = stock_names[symbol],\n        Total_Return = percent(Total_Return, accuracy = 0.01),\n        Annualized_Return = percent(Annualized_Return, accuracy = 0.01),\n        Volatility = percent(Volatility, accuracy = 0.01)\n      ) %&gt;%\n      select(Company, Start_Date, End_Date, Total_Return, Annualized_Return, Volatility)\n  })\n}\n\nshinyApp(ui, server)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#example",
+    "href": "quant-fin/coursework/Lecture 10 - Introduction to Shiny/index.html#example",
+    "title": "Introduction to Shiny",
+    "section": "Example",
+    "text": "Example\n\nOutlinePromptCode"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#outline",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#outline",
+    "title": "Equity Valuation and Simulation",
+    "section": "Outline",
+    "text": "Outline\n\nThis lecture is mainly based the following textbooks:\n\nTidy Finance (Scheuch, Voigt, and Weiss 2023)\nR for Data Science (Wickham, Mine Cetinkaya-Rundel, and Grolemund 2023)\n\n\n\n\n\n\n\n\nCoding Replications\n\n\nFor coding replications, whenever applicable, please follow this page or hover on the specific slides with containing coding chunks.\n\nEnsure that you have your  session properly set-up according to the instructions outlined in the course webpage\nIn the webpage, you can also find a detailed discussion of the examples covered in this lecture"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#disclaimer",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#disclaimer",
+    "title": "Equity Valuation and Simulation",
+    "section": "Disclaimer",
+    "text": "Disclaimer\n\n\n\n\n\n\nDisclaimer\n\n\nThe information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.\nAll code used in this lecture is publicly available and is also shared on my GitHub page. Participants are encouraged to review, modify, and use the code for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.\nFor any questions or concerns, please feel free to reach out via email at lucas.macoris@fgv.br"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#dealing-with-uncertainty-in-valuation-models",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#dealing-with-uncertainty-in-valuation-models",
+    "title": "Equity Valuation and Simulation",
+    "section": "Dealing with Uncertainty in Valuation Models",
+    "text": "Dealing with Uncertainty in Valuation Models\n\nTraditional valuation methods (e.g., Discounted Cash Flow) rely on single-point estimates:\n\nWe assume a given level of revenue growth…\nWe also fix the appropriate discount rates, \\(r\\), over time…\nFinally, we come up with assumptions regarding the firm’s Terminal Value (i.e, the perpetuity value)!\n\nNote, however, that these estimates are subject to significant uncertainty:\n\nMarket conditions\nCompetition\nRegulation\nMacroeconomic and exogenous shocks, such as COVID-19\n\n\n\nQuestion: how can get take into account the role of uncertainty in valuation models?"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#dealing-with-uncertainty-in-valuation-models-continued",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#dealing-with-uncertainty-in-valuation-models-continued",
+    "title": "Equity Valuation and Simulation",
+    "section": "Dealing with Uncertainty in Valuation Models, continued",
+    "text": "Dealing with Uncertainty in Valuation Models, continued\n\nSuppose we have the following Discounted Cash Flow estimate:\n\n\\[\n\\text{Firm Value} = \\sum_{t=1}^{T} \\frac{FCF_t}{(1 + r)^t}\n\\]\n\n\\(FCF_t\\) depends on a variety of firm-level factors, such as sales growth, gross margins, taxes, among others\nSimilarly, \\(r\\), the discount rate, if modeled using the CAPM, depends upon factors such as the sensitivity to market risk (\\(\\beta\\)), the risk-free rate, \\(r_f\\), and the market risk premium\n\n\nChanges in those variables can severely affect the outcomes of our valuation: for example, if the realized \\(FCF\\)’s are lower than what we assumed, we might be overestimating the firm’s value!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#sensitivity-analysis",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#sensitivity-analysis",
+    "title": "Equity Valuation and Simulation",
+    "section": "Sensitivity Analysis",
+    "text": "Sensitivity Analysis\n\nA first way in which we can take uncertainty into account is through Sensitivity Analysis:\n\n\n\n\n\n\n\nDefinition\n\n\n\nSensitivity analysis tests how changes in a single input affect the valuation output, while all other variables are held constant. It is useful to identify key value drivers and assess their impact.\n\n\n\n\n\nFix the main drivers of your outcome variable (e.g, growth rate of COGS, growth rate of Sales, Cost of Capital, etc)\nFor each driver, create scenarios in where you vary the input of interest within a given range\nFor that specific scenario, collect the new outcome variable calculated when everything is fixed, but the specific driver has changed\nRepeat this across all scenarios and drivers"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#sensitivity-analysis-example",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#sensitivity-analysis-example",
+    "title": "Equity Valuation and Simulation",
+    "section": "Sensitivity Analysis, Example",
+    "text": "Sensitivity Analysis, Example\n\nTo illustrate the use of Sensitivity Analysis, we can vary \\(r\\), the discount rate, and observe the change in the firm’s value for each distinct \\(r\\):\n\n\n\n\nDiscount Rate (\\(r\\))\nFirm Value (in millions)\n\n\n\n\n\\(6\\%\\)\n\\(\\$125\\)\n\n\n\\(8\\%\\)\n\\(\\$110\\)\n\n\n\\(10\\%\\)\n\\(\\$98\\)\n\n\n\nKey Points on Sensitivity Analysis\n\nOn the one hand, it helps to answer how sensitive is the valuation to some of the assumptions that were used in the model\nOn the other hand, there is a clear limitation: the fact that we are varying one variable at a time doesn’t capture interactions between variables!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#scenario-analysis",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#scenario-analysis",
+    "title": "Equity Valuation and Simulation",
+    "section": "Scenario Analysis",
+    "text": "Scenario Analysis\n\nAs described before, a clear limitation of Sensitivity Analysis is the fact that only one input is evaluated at a time\nWhat if we wanted to see the combined effect of multiple variables changing at the same time?\n\n\n\n\n\n\n\nDefinition\n\n\n\nA Scenario Analysis evaluates the effect of multiple variables changing at the same time\n\n\nIt is used to create alternative scenarios (e.g, Best, Base, and Worst Case Scenarios) based on business logic\nIt is more realistic than sensitivity analysis, but still limited to a few discrete outcomes\n\n\nIt is very reasonable to assume that more than one driver is going to change at a time. To do that, we can create a grid of values and simulate changes in inputs at the same time"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#scenario-analysis-continued",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#scenario-analysis-continued",
+    "title": "Equity Valuation and Simulation",
+    "section": "Scenario Analysis, continued",
+    "text": "Scenario Analysis, continued\n\n\n\n\n\n\n\n\n\n\nScenario\nRevenue Growth\nDiscount Rate\nTerminal Value\nFirm Value\n\n\n\n\nBest Case\n\\(8\\%\\)\n\\(6\\%\\)\nHigh\n\\(\\$140M\\)\n\n\nBase Case\n\\(5\\%\\)\n\\(8\\%\\)\nMedium\n\\(\\$110M\\)\n\n\nWorst Case\n\\(2\\%\\)\n\\(10\\%\\)\nLow\n\\(\\$85M\\)\n\n\n\nKey Points on Scenario Analysis\n\nIt highlights a range of possible outcomes under plausible assumptions\nHowever, it still lacks a probability component: we still don’t know how likely each of those scenarios are:\n\n\nBest, Base, and Worst cases are limited in the way that they can produce scenarios because we assume that all variables will go into the same direction\nFurthermore, our realized outcome fallS under a combination of those scenarios"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#from-scenarios-to-simulations",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#from-scenarios-to-simulations",
+    "title": "Equity Valuation and Simulation",
+    "section": "From Scenarios to Simulations",
+    "text": "From Scenarios to Simulations\n\nWhat if we could extend the logit of scenario simulation to \\(N&gt;&gt;3\\) scenarios? To do that, we can use simulation techniques, such as the Monte Carlo simulation:\n\n\n\n\n\n\n\nDefinition:\n\n\nA Monte Carlo Simulation is a computational technique that uses random sampling to model the distribution of outcomes for a given random variable:\n\nWe define the parameters of our simulation as probability distributions (e.g., normal, lognormal).\nGenerate a large number of random scenarios for these variables\nCompute the outcome (e.g., firm value) for each scenario\nAnalyze the distribution of the desired results (e.g., mean, percentiles, risk of loss)\n\n\n\n\n\nWith Monte Carlo simulations, instead of getting a range of potential outcomes for the firm’s value, we actually get an empirical distribution of values!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#monte-carlo-implementation",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#monte-carlo-implementation",
+    "title": "Equity Valuation and Simulation",
+    "section": "Monte Carlo Implementation",
+    "text": "Monte Carlo Implementation\n\nTo see how we can apply Monte Carlo Simulation to assess the distribution of Firm Value, let’s assume that both the free cash flow and the discount rate are random variables:\n\n\\(FCF_t \\sim \\mathcal{N}(\\mu_t, \\sigma_t^2)\\)\n\\(r \\sim \\mathcal{N}(\\mu_r, \\sigma_r^2)\\)\n\nIf we know the distribution of those random variables, we can draw \\(N\\) observations for each random variable and use it to calculate the desired outcome (i.e, the firm’s value). For draw \\(i\\), the estimated value of the firm is simply:\n\n\\[\n\\text{Firm Value}^{(i)} = \\sum_{t=1}^{T} \\frac{FCF_t^{(i)}}{(1 + r^{(i)})^t}\n\\]\n\nRepeat for \\(i = 1,2,..., N\\) simulations\nGet a distribution of firm values, not just a point estimate"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#monte-carlo-implementation-1",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#monte-carlo-implementation-1",
+    "title": "Equity Valuation and Simulation",
+    "section": "Monte Carlo implementation",
+    "text": "Monte Carlo implementation\n\nSuppose we are using the Gordon’s Growth Model, where the value of a firm is given by the infinite stream of dividends:\n\n\\[\nV_t= \\dfrac{D_1}{r-g}\n\\]\nwhere \\(D1\\) s the dividend next year, \\(r\\) is the discount rate, and \\(g\\) is the perpetual growth rate. If we assume the following distributions:\n\nSince \\(D1\\) is the next period’s dividend, and it is fixed to \\(\\$2\\)\n\\(r \\sim \\mathcal{N}(0.08,0.01^2)\\)\n\\(g \\sim \\mathcal{N}(0.03,0.005^2)\\)\n\n\nIn what follows, we will simulate \\(10,000\\) distinct scenarios for draws of \\(r\\) and \\(g\\) and see how the \\(V_t\\) distributes over all potential combinations"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#monte-carlo-implementation-continued",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#monte-carlo-implementation-continued",
+    "title": "Equity Valuation and Simulation",
+    "section": "Monte Carlo Implementation, continued",
+    "text": "Monte Carlo Implementation, continued\n\nCodeOutput\n\n\n\n#Set seed for reproducibility\nset.seed(123)\n\n# Parameters\nn_sim &lt;- 10000\nD1 &lt;- 2\n\n# Simulate r and g\nr &lt;- rnorm(n_sim, mean = 0.08, sd = 0.01)\ng &lt;- rnorm(n_sim, mean = 0.03, sd = 0.005)\n\n# Compute values\nvalue &lt;- D1 / (r - g)\n\n# Filter for valid values where r &gt; g\nvalue &lt;- value[is.finite(value) & (r &gt; g)]\n\n# Plot\nlibrary(ggplot2)\nlibrary(scales)\n\nggplot(data.frame(Value = value), aes(x = Value)) +\n  geom_histogram(bins = 60, fill = \"#2c7fb8\", color = \"white\", alpha = 0.8) +\n  scale_x_continuous(labels=scales::dollar)+\n  labs(\n    title = \"Monte Carlo Valuation Distribution (Gordon Growth Model)\",\n    x = \"Firm Value\",\n    y = \"Frequency\"\n  ) +\n  theme_minimal(base_size=20)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#hands-on-exercise",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#hands-on-exercise",
+    "title": "Equity Valuation and Simulation",
+    "section": "Hands-On Exercise",
+    "text": "Hands-On Exercise\n\nRefer back to NetScape valuation model that you have worked on prior classes. Using Monte Carlo simulations, you were asked to stress-test such model by analyzing what would have happened to the base scenario as-if some inputs were changed\n\n\n\n\n\n\n\nInstructions\n\n\n\nWe will be using the NetScape case we have worked on previous classes\nYour first task is to translate the valuation model in such a way that you can seamlessly replicate the baseline results\nAfter that, you will be prompted with a series of questions that will require you to simulate \\(N\\) scenarios and analyze the effects on NetScape’s value\n\n\n\n\nGiven that the baseline price, at the time of the valuation, was $28.46, what would be your recommendation for this stock?"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#step-1-hardcoding-the-assumptions",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#step-1-hardcoding-the-assumptions",
+    "title": "Equity Valuation and Simulation",
+    "section": "Step 1: Hardcoding the assumptions",
+    "text": "Step 1: Hardcoding the assumptions\n\nRecall that our Free Cash Flow estimation in peiod \\(t\\), \\(FCF_t\\), is given by:\n\n\\[\nFCF_t = EBIT\\times (1-\\tau) \\pm \\text{Depreciation} \\pm \\text{CAPEX} \\pm \\Delta NWC\n\\] Where \\(\\tau\\) is the marginal tax-rate, CAPEX is Capital Expenditures, and NWC is Net Working Capital\n\nIn what follows, we will simulate the value of Netscape using a 10-year discounted cash flow (DCF) model with structured assumptions on top of the historical revenue levels from 1995"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#step-1-hardcoding-the-assumptions-continued",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#step-1-hardcoding-the-assumptions-continued",
+    "title": "Equity Valuation and Simulation",
+    "section": "Step 1: Hardcoding the assumptions, continued",
+    "text": "Step 1: Hardcoding the assumptions, continued\n\n#Number of years\nn_years=10\n\n# Assumptions (copied and simplified)\nnetscape_assumptions &lt;- list(\n  revenue_growth = rep(0.65,n_years),\n  cost_of_sales_pct = rep(0.1044,n_years),\n  rd_pct = rep(0.3676,n_years),\n  tax_rate = rep(0.34,n_years),\n  other_op_exp_pct = c(0.80,0.65,0.55,0.45,0.35,0.25,rep(0.2,4)),\n  capex_pct = c(0.45,0.4,0.3,0.2,rep(0.1,6)),\n  nwc_pct = rep(0,n_years),\n  depreciation_pct = rep(0.055,n_years),\n  beta=rep(1.5,n_years),\n  rf=rep(0.0671,n_years),\n  mrp=rep(0.075,n_years),\n  shares_outstanding = 38000,\n  terminal_growth = 0.04,\n  terminal_r=0.1796\n)\n\n# Base year (1995)\nnetscape_base_rev &lt;- 33250"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#step-2-getting-the-forecasted-free-cash-flow",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#step-2-getting-the-forecasted-free-cash-flow",
+    "title": "Equity Valuation and Simulation",
+    "section": "Step 2: Getting the forecasted Free Cash Flow",
+    "text": "Step 2: Getting the forecasted Free Cash Flow\n\nAfter we got our assumptions in place, it is time to put them together and generate the Free Cash Flow values for \\(t=1,2,...,10\\)\nFor that, we will create a function, get_projections, that has two arguments:\n\nassumptions: a named list containing vectors of financial assumptions (growth rates, margins, etc) for each year\nbase: the base year revenue (e.g., from 1995).\n\nWe initialize an empty data frame projection with columns for each financial metric over the 10-year period, and fill out the results using the Free Cash Flow definition\nWith this function, you should be able to replicate the Free Cash Flows from the base scenario by calling get_projection(netscape_assumptions,netscape_base_rev)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#step-2-getting-the-forecasted-free-cash-flow-continued",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#step-2-getting-the-forecasted-free-cash-flow-continued",
+    "title": "Equity Valuation and Simulation",
+    "section": "Step 2: Getting the forecasted Free Cash Flow, continued",
+    "text": "Step 2: Getting the forecasted Free Cash Flow, continued\n\n# Projection over 10 years\nget_projection &lt;- function(assumptions,base){\n  \n  projection=data.frame(\n      Year = 1:n_years,\n      Revenue = NA,\n      EBIT = NA,\n      Taxes = NA,\n      NOPAT = NA,\n      Depreciation = NA,\n      CAPEX = NA,\n      NWC = NA,\n      Delta_NWC = NA,\n      Discount_Rate=NA)\n\n  # Fill in projections for revenue\n  for (t in 1:n_years) {\n    if (t == 1) {\n      projection$Revenue[t] &lt;- base * (1 + assumptions$revenue_growth[t])\n    } else {\n      projection$Revenue[t] &lt;- projection$Revenue[t - 1] * (1 + assumptions$revenue_growth[t])\n    }\n  }\n  \n  #Fill in FCF terms\n  projection$EBIT &lt;- projection$Revenue * (1 - assumptions$cost_of_sales_pct - assumptions$rd_pct - assumptions$other_op_exp_pct - assumptions$depreciation_pct)\n  projection$Taxes &lt;- projection$EBIT * assumptions$tax_rate\n  projection$NOPAT &lt;- projection$EBIT - projection$Taxes\n  projection$Depreciation &lt;- projection$Revenue * assumptions$depreciation_pct\n  projection$CAPEX &lt;- projection$Revenue * assumptions$capex_pct\n  projection$NWC &lt;- projection$Revenue*assumptions$nwc_pct\n  projection$Delta_NWC &lt;- 0\n  projection$Discount_Rate &lt;- 1/(1+(assumptions$rf+assumptions$mrp*assumptions$beta))^projection$Year\n  \n  return(projection)\n}"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#valuing-the-company-using-fcf",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#valuing-the-company-using-fcf",
+    "title": "Equity Valuation and Simulation",
+    "section": "Valuing the company using FCF",
+    "text": "Valuing the company using FCF\n\nWe will now create two additional functions:\n\nThe get_dcf() function will calculate the Discounted Cash Flow for the whole period, based on the projections we have just created. It returns a scalar value representing the present value of projected Free Cash Flows\nThe get_terminal_value() will calculate an estimate of the present value of the perpetuity (in Year 0) based on the projections and the assumptions regarding the long-term r and g. ItcComputes the terminal value of the firm beyond the projection horizon using a growing perpetuity\n\nAdding up these two values yields the total value of the firm, \\(V\\), which is embedded in the get_EV() function:\n\n\nget_EV(netscape_assumptions,\n       netscape_base_rev,\n       netscape_assumptions$terminal_r,\n       netscape_assumptions$terminal_growth)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#valuing-the-company-using-fcf-continued",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#valuing-the-company-using-fcf-continued",
+    "title": "Equity Valuation and Simulation",
+    "section": "Valuing the company using FCF, continued",
+    "text": "Valuing the company using FCF, continued\n\nget_dcf &lt;- function(projection){\n  \n  dcf=projection%&gt;%\n    mutate(FCF = NOPAT + Depreciation - CAPEX - Delta_NWC)%&gt;%\n    reframe(DCF=FCF*Discount_Rate)%&gt;%\n    pull(DCF)%&gt;%\n    sum()\n  \n  return(dcf)\n  \n}\n\nget_terminal_value &lt;- function(projection,r,g){\n\n  last_fcf=projection%&gt;%\n    mutate(FCF = NOPAT + Depreciation - CAPEX - Delta_NWC)%&gt;%\n    pull(FCF)%&gt;%\n    tail(1)\n  \n  return(last_fcf*(1+g)/(r-g)/(1+r)^(n_years+1))\n}\n\nget_EV &lt;-function(assumptions,base,r,g){\n\n  PV_FCF = get_projection(assumptions,base)%&gt;%get_dcf()\n  PV_Terminal = get_projection(assumptions,base)%&gt;%get_terminal_value(r,g)\n  \n  return(PV_FCF+PV_Terminal)\n\n  }"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#exercise-1-changing-revenue-growth",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#exercise-1-changing-revenue-growth",
+    "title": "Equity Valuation and Simulation",
+    "section": "Exercise 1: changing revenue growth",
+    "text": "Exercise 1: changing revenue growth\n\nCodeOutput\n\n\n\n  #Set seed for reproducibility\n  set.seed(123)\n\n  # Initialize an empty dataframe\n  results &lt;- numeric(0)\n  sim_assumptions &lt;- netscape_assumptions\n  n_sim=10000\n  \n  #Run the simulation\n  for (i in 1:n_sim){\n\n    # Simulate revenue growth for 10 years from a normal distribution\n    rev_growth &lt;- rnorm(n_years, mean = 0.65, sd = 0.1)\n    \n    # Modify assumptions with simulated growth\n    sim_assumptions$revenue_growth &lt;- rev_growth\n    \n    # Compute EV for this simulation\n    ev &lt;- get_EV(sim_assumptions,\n                 netscape_base_rev,\n                 sim_assumptions$terminal_r,\n                 sim_assumptions$terminal_growth)\n    \n    results[i] &lt;- ev\n  }\n  \n\n  #Create a ggplot histogram\n  results%&gt;%\n    as.tibble()%&gt;%\n    ggplot(aes(x = value)) +\n    geom_histogram(fill = \"skyblue\", color = \"white\", bins = 50)+\n    scale_x_continuous(labels = scales::dollar) +\n    labs(\n      title = \"Monte Carlo Simulation of Enterprise Value\",\n      subtitle = paste0('Drawing ',comma(n_sim), ' simulations of Revenue Growth.'), \n      x = \"Enterprise Value (USD, Thousands)\",\n      y = \"Frequency\"\n    ) +\n    theme_minimal(base_size = 14)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#exercise-2-changing-revenue-growth-and-cogs",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#exercise-2-changing-revenue-growth-and-cogs",
+    "title": "Equity Valuation and Simulation",
+    "section": "Exercise 2: Changing Revenue Growth and COGS",
+    "text": "Exercise 2: Changing Revenue Growth and COGS\n\nCodeOutput\n\n\n\n  #Set seed for reproducibility\n  set.seed(123)\n\n  # Initialize an empty dataframe\n  results &lt;- numeric(0)\n  sim_assumptions &lt;- netscape_assumptions\n  n_sim=10000\n\n#Run the simulation\nfor (i in 1:n_sim){\n  \n  # Simulate revenue growth for 10 years from a normal distribution\n  rev_growth &lt;- rnorm(n_years, mean = 0.65, sd = 0.1)\n  cogs_perc &lt;- rnorm(n_years, mean = 0.10, sd = 0.025)\n  \n  # Modify assumptions with simulated growth\n  sim_assumptions$revenue_growth &lt;- rev_growth\n  sim_assumptions$cost_of_sales_pct &lt;- cogs_perc\n  \n  # Compute EV for this simulation\n  ev &lt;- get_EV(sim_assumptions,\n               netscape_base_rev,\n               sim_assumptions$terminal_r,\n               sim_assumptions$terminal_growth)\n  \n  results[i] &lt;- ev\n}\n\n#Create a ggplot histogram\nresults%&gt;%\n  as.tibble()%&gt;%\n  ggplot(aes(x = value)) +\n  geom_histogram(fill = \"skyblue\", color = \"white\", bins = 50)+\n  scale_x_continuous(labels = scales::dollar) +\n  labs(\n    title = \"Monte Carlo Simulation of Enterprise Value\",\n    subtitle = paste0('Drawing ',comma(n_sim), ' simulations of Revenue Growth and % COGS.'), \n    x = \"Enterprise Value (USD, Thousands)\",\n    y = \"Frequency\"\n  ) +\n  theme_minimal(base_size = 20)"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#exercise-3-changing-revenue-growth-cogs-and-capex",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#exercise-3-changing-revenue-growth-cogs-and-capex",
+    "title": "Equity Valuation and Simulation",
+    "section": "Exercise 3: Changing Revenue Growth, COGS, and CAPEX",
+    "text": "Exercise 3: Changing Revenue Growth, COGS, and CAPEX\n\nCodeOutput\n\n\n\n#Set seed for reproducibility\nset.seed(123)\n\n# Initialize an empty dataframe\nresults &lt;- numeric(0)\nsim_assumptions &lt;- netscape_assumptions\nn_sim=10000\n\n#Run the simulation\nfor (i in 1:n_sim){\n  \n  # Simulate revenue growth for 10 years from a normal distribution\n  rev_growth &lt;- rnorm(n_years, mean = 0.65, sd = 0.1)\n  cogs_perc &lt;- rnorm(n_years, mean = 0.10, sd = 0.025)\n  capex_perc &lt;- seq(rnorm(1, mean = 0.45, sd = 0.1),to=0.1,length.out = 10)\n  \n  # Modify assumptions with simulated growth\n  sim_assumptions$revenue_growth &lt;- rev_growth\n  sim_assumptions$cost_of_sales_pct &lt;- cogs_perc\n  sim_assumptions$capex_pct &lt;- capex_perc\n  \n  # Compute EV for this simulation\n  ev &lt;- get_EV(sim_assumptions,\n               netscape_base_rev,\n               sim_assumptions$terminal_r,\n               sim_assumptions$terminal_growth)\n  \n  results[i] &lt;- ev\n}\n\n#Create a ggplot histogram\nresults%&gt;%\n  as.tibble()%&gt;%\n  ggplot(aes(x = value)) +\n  geom_histogram(fill = \"skyblue\", color = \"white\", bins = 50)+\n  scale_x_continuous(labels = scales::dollar) +\n  labs(\n    title = \"Monte Carlo Simulation of Enterprise Value\",\n    subtitle = paste0('Drawing ',comma(n_sim), ' simulations of Revenue Growth, % COGS, and % CAPEX.'), \n    x = \"Enterprise Value (USD, Thousands)\",\n    y = \"Frequency\"\n  ) +\n  theme_minimal(base_size = 20)\n\nfinal_results=results"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#exercise-4-different-levels-for-terminal-r-and-g",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#exercise-4-different-levels-for-terminal-r-and-g",
+    "title": "Equity Valuation and Simulation",
+    "section": "Exercise 4: Different levels for terminal \\(r\\) and \\(g\\)",
+    "text": "Exercise 4: Different levels for terminal \\(r\\) and \\(g\\)\n\nCodeOutput\n\n\n\n#Set seed for reproducibility\nset.seed(123)\n\n# Initialize an empty dataframe\nresults &lt;- numeric(0)\nnew_data &lt;- data.frame()\nsim_assumptions &lt;- netscape_assumptions\nn_sim=1000\ng_sequence &lt;- seq(0.05,0.03,length.out=10)\nr_sequence &lt;- seq(0.15,0.225,length.out=10)\n\nfor(s in 1:10){\n  \n  #Run the simulation\n  for (i in 1:n_sim){\n    \n    # Simulate revenue growth for 10 years from a normal distribution\n    rev_growth &lt;- rnorm(n_years, mean = 0.65, sd = 0.1)\n    cogs_perc &lt;- rnorm(n_years, mean = 0.10, sd = 0.025)\n    capex_perc &lt;- seq(rnorm(1, mean = 0.45, sd = 0.1),to=0.1,length.out = 10)\n    \n    # Modify assumptions with simulated growth\n    sim_assumptions$revenue_growth &lt;- rev_growth\n    sim_assumptions$cost_of_sales_pct &lt;- cogs_perc\n    sim_assumptions$capex_pct &lt;- capex_perc\n    sim_assumptions$terminal_growth = g_sequence[s]\n    sim_assumptions$terminal_r = r_sequence[s]\n    \n    # Compute EV for this simulation\n    ev &lt;- get_EV(sim_assumptions,\n                 netscape_base_rev,\n                 sim_assumptions$terminal_r,\n                 sim_assumptions$terminal_growth)\n    \n    results[i] &lt;- ev\n  }\n  \n  #Store the Pairs\n  new_data=new_data%&gt;%\n    rbind(data.frame(Scenario = paste0('Scenario ', s),\n                     EV=results))\n          \n  message(paste0('Finished simulation for pair number ',s,'.'))\n}\n\n\n#install.packages('ggridges')\nlibrary(ggridges)\n\n#Create a ggplot histogram\nnew_data%&gt;%\n  mutate(Scenario = factor(Scenario,levels=paste0('Scenario ',10:1)))%&gt;%\n  ggplot(aes(x = EV,\n             y = Scenario,\n             fill=..x..)) +\n  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01)+\n  scale_x_continuous(labels = scales::dollar) +\n  scale_fill_viridis_c(name = \"Enterprise Value\", option = \"plasma\",labels=scales::dollar)+\n  labs(\n    title = \"Monte Carlo Simulation of Enterprise Value\",\n    subtitle = paste0('Drawing ',comma(n_sim), ' simulations, best-to-worse scenarios.'), \n    x = \"\",\n    y = \"Frequency\",\n    fill = \"Enterprise Value (USD, Thousands)\")+\n  theme_minimal(base_size = 14)+\n  theme(legend.position = 'bottom',\n        legend.title = element_text(size = 14),\n        legend.text = element_text(size = 12),\n        legend.key.height = unit(0.6, \"cm\"),\n        legend.key.width = unit(2.5, \"cm\"))"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#final-question-should-we-invest",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#final-question-should-we-invest",
+    "title": "Equity Valuation and Simulation",
+    "section": "Final Question: should we invest?",
+    "text": "Final Question: should we invest?\n\nCodeOutput\n\n\n\n#Create a ggplot histogram\nprices=final_results%&gt;%\n  as.tibble()%&gt;%\n  mutate(Price=value/netscape_assumptions$shares_outstanding)%&gt;%\n  mutate(Situation=ifelse(Price&gt;=28.37,'Undervalued','Overvalued'))\n\nprices%&gt;%\n  ggplot(aes(x = Price)) +\n  geom_histogram(aes(fill = Situation), bins = 50)+\n  scale_x_continuous(labels = scales::dollar)+\n  scale_fill_manual(values=c('darkgreen','darkred'))+\n  geom_vline(xintercept=28.37,linetype='dashed',size=1)+\n  annotate(geom='text',x=40,y=500,label= paste0('True Price is higher than \\nbaseline price only in ',\n                                                percent(mean(prices$Price&gt;=28.37)),\n                                                ' of the cases!'))+\n  labs(\n    title = \"Monte Carlo Simulation of Share Price\",\n    subtitle = paste0('Drawing 10,000 simulations'), \n    x = \"Enterprise Value (USD, Thousands)\",\n    y = \"Frequency\"\n  ) +\n  theme_minimal(base_size = 20)+\n  theme(legend.position='bottom')"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#overall-thoughts-on-monte-carlo-simulation",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#overall-thoughts-on-monte-carlo-simulation",
+    "title": "Equity Valuation and Simulation",
+    "section": "Overall thoughts on Monte Carlo Simulation",
+    "text": "Overall thoughts on Monte Carlo Simulation\n\nMonte Carlo Simulation is a powerful technique to handle model uncertainty:\n\nIt helps managers think beyond the point estimate of the valuation model and handle what-if questions\nIt also helps stress-testing the valuation model\n\nIt should be used along with business logic to help tailor the simulation exercise:\n\nWe don’t want to create overly complex simulations\nWe can incorporate more structure to create meaningful scenarios - for example, imposing a correlation structure between the variables\n\nBy setting up proper simulation parameters (number of simulations, the distributions and its parameters, etc), we can leverage the role of uncertainty in valuation models in a much more pronounced way and guide decision-making!"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extensions",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extensions",
+    "title": "Equity Valuation and Simulation",
+    "section": "Extensions",
+    "text": "Extensions\nQuestion: how can we improve our simulation exercise?\n\nIn what follows, we’ll take a look at several ways by which you could extend your simulation coding exercise to cope with real-world features. To illustrate, we will adopt a simple valuation approach of the following form:\n\n\\[\n\\small V_i = \\sum_{t=1}^{t=5}\\dfrac{FCF_t}{(1+r)^t}+ PV_0\\bigg(\\dfrac{FCF_5\\times(1+g)}{r-g}\\bigg)\n\\]\n\nIn words, we are breaking down the firms value into:\n\nA 1-5 year horizon\nA growing perpetuity, discounted back to Year 0\n\nFrom that, we can extend the simulation routines to allow for important features that are present in real-world data"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#base-case-simulation",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#base-case-simulation",
+    "title": "Equity Valuation and Simulation",
+    "section": "Base Case Simulation",
+    "text": "Base Case Simulation\n\nOutlineCodeOutput\n\n\n\nThe base case denotes the Free Cash Flow in period \\(t\\) as:\n\n\\[\nFCF_t = Sales_t\\times(1-COGS) \\pm CAPEX \\pm \\Delta NWC\n\\]\n\nInitial Sales levels are \\(\\$100\\)\nThe percent of Cost of Goods Sold (COGS) is \\(60\\%\\)\nCapital Expenditures (CAPEX) is \\(15\\%\\) of Sales\nNet Working Capital investment is \\(5%\\) of sales\n\n\n\n\nlibrary(glue)\nlibrary(MASS)\n\nset.seed(123)\nn_sim &lt;- 10000\n\n# Parameters\ninitial_sales &lt;- 1000\ncogs_pct &lt;- 0.6\ncapex_pct &lt;- 0.15\nnwc_pct &lt;- 0.05\n\nsimulate_values &lt;- function(r, g, label='All') {\n  firm_value &lt;- numeric(n_sim)\n  \n  for (i in 1:n_sim) {\n    sales &lt;- initial_sales\n    nwc_last &lt;- sales * nwc_pct\n    fa_last &lt;- sales * capex_pct\n    fcf &lt;- numeric(5)\n    \n    for (t in 1:5) {\n      sales &lt;- sales * (1 + g[i])\n      nwc_current &lt;- sales * nwc_pct\n      fa_current &lt;- sales * capex_pct\n      \n      delta_nwc &lt;- nwc_current - nwc_last\n      delta_capex &lt;- fa_current - fa_last\n      \n      nwc_last &lt;- nwc_current\n      fa_last &lt;- fa_current\n      \n      fcf[t] &lt;- sales * (1 - cogs_pct) - delta_capex - delta_nwc\n    }\n    \n    fcf_terminal &lt;- fcf[5] * (1 + g[i])\n    perp_value &lt;- fcf_terminal / (r[i] - g[i])\n    \n    discounted_fcf &lt;- sum(fcf / (1 + r[i])^(1:5))\n    discounted_perp &lt;- perp_value / (1 + r[i])^5\n    \n    firm_value[i] &lt;- discounted_fcf + discounted_perp\n  }\n  \n  firm_value &lt;- firm_value[is.finite(firm_value) & (r &gt; g)]\n  \n  data.frame(Value = firm_value, Scenario = label)\n}\n\n# Normal distributions\nr_norm &lt;- rnorm(n_sim, mean = 0.08, sd = 0.01)\ng_norm &lt;- rnorm(n_sim, mean = 0.03, sd = 0.005)\ndf_norm &lt;- simulate_values(r_norm, g_norm, \"Normal\")\n\nbase_norm &lt;- simulate_values(r_norm, g_norm, \"Normal\")\n\nggplot(base_norm, aes(x = Value)) +\n  geom_histogram(bins = 60, fill = \"#2c7fb8\", color = \"white\", alpha = 0.8)+\n  scale_x_continuous(labels = dollar) +\n  labs(\n    title = \"Monte Carlo Valuation Distribution Normal vs. Alternative Distributions\",\n    subtitle = glue('Based on {comma(n_sim)} simulations.'),\n    x = \"Firm Value\",\n    y = \"Frequency\",\n    fill = \"Scenario\",\n    color = \"Scenario\"\n  ) +\n  theme_minimal(base_size = 20)+\n  theme(legend.position = 'bottom')"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extension-1-alternative-distributions",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extension-1-alternative-distributions",
+    "title": "Equity Valuation and Simulation",
+    "section": "Extension 1: Alternative Distributions",
+    "text": "Extension 1: Alternative Distributions\n\nOutlineCodeOutput\n\n\n\nKey Point: Monte Carlo doesn’t assume normality — any distribution that fits the problem can be used!\n\nWhile normal distributions are common, other distributions (e.g., uniform, log-normal, etc.) can also be used:\nFor example, if \\(r \\sim \\text{Uniform}(0.05, 0.10)\\), the growth rate could be chosen randomly from a uniform distribution between \\(5\\%\\) and \\(10\\%\\)\n\nDistributions like the log-normal may be more appropriate for modeling returns, as they respect the non-negativity constraint - $r $. Therefore, for a given variable \\(X\\), it could be sampled from any distribution\nIn what follows, we’ll simulate results drawing from an Uniform distribution for \\(r\\) and a Beta for \\(g\\)\n\n\n\n\n# Baseline case\nr_norm &lt;- rnorm(n_sim, mean = 0.08, sd = 0.01)\ng_norm &lt;- rnorm(n_sim, mean = 0.03, sd = 0.005)\ndf_norm &lt;- simulate_values(r_norm, g_norm, \"Normal\")\n\n\n# Alternative distributions\nr_unif &lt;- runif(n_sim, min = 0.06, max = 0.10)\ng_beta &lt;- 0.06 * rbeta(n_sim, 2, 5)\ndf_alt &lt;- simulate_values(r_unif, g_beta, \"Alternative\")\n\n# Combine results\ndf_all &lt;- rbind(df_norm, df_alt)\n\n# Plot combined chart\n\nggplot(df_all, aes(x = Value, fill = Scenario, color = Scenario)) +\n  geom_density(alpha = 0.5, size = 1) +\n  scale_x_continuous(labels = dollar) +\n  scale_fill_manual(values = c(\"Normal\" = \"#2c7fb8\", \"Alternative\" = \"#f03b20\")) +\n  scale_color_manual(values = c(\"Normal\" = \"#2c7fb8\", \"Alternative\" = \"#f03b20\")) +\n  labs(\n    title = \"Monte Carlo Valuation Distribution Normal vs. Alternative Distributions\",\n    subtitle = glue('Based on {comma(n_sim)} simulations.'),\n    x = \"Firm Value\",\n    y = \"Density\",\n    fill = \"Scenario\",\n    color = \"Scenario\"\n  ) +\n  theme_minimal(base_size = 20)+\n  theme(legend.position = 'bottom')"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extension-2-correlated-variables",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extension-2-correlated-variables",
+    "title": "Equity Valuation and Simulation",
+    "section": "Extension 2: Correlated Variables",
+    "text": "Extension 2: Correlated Variables\n\nOutlineCodeOutput\n\n\n\nIn the baseline case, we have each random variable sampled independently from a normal distribution (i.e, i.i.d sampling). This can lead to higher variability and wider spread in the results that are unlikely to happen\nBy introducing a correlation structure between variables, we can constrain the possible outcomes, narrowing the distribution, leading to more realistic and stable simulations where changes in one variable influence the others\nIn what follows, we will keep \\(r\\) and \\(g\\) mean and standard deviation, but will now assume that the correlation between these two variables is \\(\\rho=0.9\\):\n\nWhenever \\(g\\) is high, it might be because the firm is in its earlier stages, so \\(r\\) should be higher\nWhenever \\(g\\) is low, firm may have reached its market peak, so \\(r\\) should be lower\n\n\n\n\n\nr_norm &lt;- rnorm(n_sim, mean = 0.08, sd = 0.01)\ng_norm &lt;- rnorm(n_sim, mean = 0.03, sd = 0.005)\ndf_norm &lt;- simulate_values(r_norm, g_norm, \"Uncorrelated\")\n\n# Simulate r and g with negative correlation\nmu_r &lt;- 0.08\nmu_g &lt;- 0.03\nsigma_r &lt;- 0.01\nsigma_g &lt;- 0.005\ncorr_rg &lt;- 0.9\n\n# Covariance matrix\ncov_matrix &lt;- matrix(c(sigma_r^2, corr_rg * sigma_r * sigma_g, corr_rg * sigma_r * sigma_g, sigma_g^2), \n                     nrow = 2, ncol = 2)\n\n# Simulate r and g from the bivariate normal distribution\nr_g_correlated &lt;- mvrnorm(n_sim, mu = c(mu_r, mu_g), Sigma = cov_matrix)\nr_corr &lt;- r_g_correlated[, 1]\ng_corr &lt;- r_g_correlated[, 2]\ndf_corr &lt;- simulate_values(r_corr, g_corr, \"Correlated\")\n\n# Combine results\ndf_all &lt;- rbind(df_norm, df_corr)\n\nggplot(df_all, aes(x = Value, fill = Scenario, color = Scenario)) +\n  geom_density(alpha = 0.6, size = 1.5) +\n  scale_x_continuous(labels = dollar, limits = c(0, 20000)) +  # Set x-axis limits\n  scale_fill_manual(values = c(\"Uncorrelated\" = \"#2c7fb8\", \"Correlated\" = \"#f03b20\")) +\n  scale_color_manual(values = c(\"Uncorrelated\" = \"#2c7fb8\", \"Correlated\" = \"#f03b20\")) +\n  labs(\n    title = \"Monte Carlo Valuation Distribution Uncorrelated vs. Strong Correlation\",\n    x = \"Firm Value\",\n    y = \"Density\",\n    fill = \"Scenario\",\n    color = \"Scenario\"\n  ) +\n  theme_minimal(base_size = 20)+\n  theme(legend.position = 'bottom')"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extension-3-varying-the-sample-size",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extension-3-varying-the-sample-size",
+    "title": "Equity Valuation and Simulation",
+    "section": "Extension 3: Varying the Sample Size",
+    "text": "Extension 3: Varying the Sample Size\n\nOutlineCodeOutput\n\n\n\nIn short, your Monte Carlo simulation outcome will depend on the number of simulations: the more simulations we run, the more stable and reliable the estimates become.\n\nWith smaller samples, (e.g., \\(n&lt;100\\) or \\(n&lt;1,000\\), results show high variability and may not capture the true distribution.\nWith larger samples, as \\(n\\) (e.g., \\(100,000\\) or \\(1,000,000\\)), the estimates converge toward the expected value\n\nAll in all, increasing sample size reduces random noise, improving the precision and the stability of simulation results\n\n\n\n\n# Simulation sizes\nn_sim_values &lt;- c(100, 1000, 5000, 10000, 100000, 1000000)\n\n# Store all results\nall_results &lt;- data.frame()\n\n# Run simulations\n\nfor (n in n_sim_values) {\n  r_norm &lt;- rnorm(n, mean = 0.08, sd = 0.01)\n  g_norm &lt;- rnorm(n, mean = 0.03, sd = 0.005)\n  \n  df &lt;- simulate_values(r_norm, g_norm, comma(n))\n  all_results &lt;- bind_rows(all_results, df)\n}\n\nall_results$Scenario &lt;-factor(all_results$Scenario,levels=comma(n_sim_values))\n\n# Plot histograms overlaid in one chart\nggplot(all_results, aes(x = Value, fill = Scenario)) +\n  geom_histogram(aes(y=..density..),bins = 60, color = \"white\") +\n  geom_density(size=0.5,fill=NA)+\n  scale_x_continuous(labels = scales::dollar,limits=c(0,25000)) +\n  facet_wrap(Scenario~.,scales='free')+\n  labs(\n    title = \"Monte Carlo Valuation Distribution by Number of Simulations\",\n    subtitle = \"Varying the sample size for draws\",\n    x = \"Firm Value\",\n    y = \"Density\",\n    fill = \"Simulation Size\"\n  ) +\n  theme_minimal(base_size = 15) +\n  theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extension-4-bootstrapping",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#extension-4-bootstrapping",
+    "title": "Equity Valuation and Simulation",
+    "section": "Extension 4: Bootstrapping",
+    "text": "Extension 4: Bootstrapping\n\nOutlineCodeOutput\n\n\n\nBootstrapping is a resampling technique that draws samples with replacement from observed data\n\nIt is useful to incorporate empirical variability without assuming a specific parametric distribution\nHelps capture the uncertainty present in historical or observed data\n\nGiven a sample \\(x_1, x_2, \\dots, x_N\\), draw \\(B\\) bootstrap samples, you draw a given number of samples with replacement and compute the statistic of interest (e.g., mean, median) on each bootstrap sample\nBootstrapping can be used, for example, if we have a very limited series of historical values for our random values (e.g, \\(n=20\\)) but want to incorporate variability into the analysis\n\n\n\n\n#Number of simulations\nn_sim=10000\n\n# Historical series\nhistorical_cogs &lt;- c(0.58, 0.6, 0.62, 0.59, 0.61,0.75,0.54,0.66,0.29,0.78)\nhistorical_capex &lt;- c(0.48, 0.5, 0.52, 0.49, 0.51,0.40,0.52,0.59,0.58,0.81)\n\n# For each simulation, bootstrap 10 values and take the mean → length n_sim vector\nboot_cogs_pct &lt;- replicate(n_sim, mean(sample(historical_cogs, 10, replace = TRUE)))\nboot_capex_pct &lt;- replicate(n_sim, mean(sample(historical_capex, 10, replace = TRUE)))\n\nsimulate_values &lt;- function(r, g, cogs_pct, capex_pct, label = 'Simulation') {\n  firm_value &lt;- numeric(n_sim)\n  \n  for (i in 1:n_sim) {\n    sales &lt;- initial_sales\n    nwc_last &lt;- sales * nwc_pct\n    fa_last &lt;- sales * capex_pct[i]\n    fcf &lt;- numeric(5)\n    \n    for (t in 1:5) {\n      sales &lt;- sales * (1 + g[i])\n      nwc_current &lt;- sales * nwc_pct\n      fa_current &lt;- sales * capex_pct[i]\n      \n      delta_nwc &lt;- nwc_current - nwc_last\n      delta_capex &lt;- fa_current - fa_last\n      \n      nwc_last &lt;- nwc_current\n      fa_last &lt;- fa_current\n      \n      fcf[t] &lt;- sales * (1 - cogs_pct[i]) - delta_capex - delta_nwc\n    }\n    \n    fcf_terminal &lt;- fcf[5] * (1 + g[i])\n    perp_value &lt;- fcf_terminal / (r[i] - g[i])\n    \n    discounted_fcf &lt;- sum(fcf / (1 + r[i])^(1:5))\n    discounted_perp &lt;- perp_value / (1 + r[i])^5\n    \n    firm_value[i] &lt;- discounted_fcf + discounted_perp\n  }\n  \n  firm_value &lt;- firm_value[is.finite(firm_value) & (r &gt; g)]\n  \n  data.frame(Value = firm_value, Scenario = label)\n}\n\n\n# Normal scenario (fixed percentages for COGS and CAPEX)\ndf_norm &lt;- simulate_values(r_norm, g_norm, cogs_pct = rep(0.6,n_sim), capex_pct = rep(0.5,n_sim), label = \"Normal\")\n\n# Bootstrap scenario (bootstrapped mean percentages)\ndf_bootstrap &lt;- simulate_values(r_norm, g_norm, cogs_pct = boot_cogs_pct, capex_pct = boot_capex_pct, label = \"Bootstrap\")\n\n#Plot\nggplot() +\n  geom_density(data = df_norm, aes(x = Value, fill = \"Normal\"), alpha = 0.5) +\n  geom_density(data = df_bootstrap, aes(x = Value, fill = \"Bootstrap\"), alpha = 0.5) +\n  scale_x_continuous(labels = dollar)+\n  labs(\n    title = \"Monte Carlo Valuation Distribution: Normal vs. Bootstrap\",\n    x = \"Firm Value\",\n    y = \"Frequency\",\n    fill = 'Approach',\n    color = \"Scenario\"\n  ) +\n  theme_minimal(base_size = 20) +\n  theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#references",
+    "href": "quant-fin/coursework/Lecture 8 - Equity Valuation and Simulation/index.html#references",
+    "title": "Equity Valuation and Simulation",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nScheuch, Christoph, Stefan Voigt, and Patrick Weiss. 2023. Tidy Finance with R. Chapman & Hall/CRC. https://www.tidy-finance.org/r/.\n\n\nWickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. O’Reilly Media. https://r4ds.had.co.nz/."
   }
 ]
