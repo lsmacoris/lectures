@@ -62,22 +62,16 @@ All code used in this lecture is publicly available and is also shared on my [Gi
 For any questions or concerns, please feel free to reach out via email at [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
 :::
 
+## What else?
 
-## What else? 
-
-- During this semester, you have been exposed to a series of practical applications in topics related to finance:
-  1. Collecting and manipulating data
-  2. Backtesting Investment Strategies
-  3. Evaluating Mutual Fund performance
-  4. Stress-testing Equity Valuation Models
-  5. Analyzing M&A announcements and marketing sentiment around news
-
-
-. . .
+-   During this semester, you have been exposed to a series of practical applications in topics related to finance:
+    1.  Collecting and manipulating data
+    2.  Backtesting Investment Strategies
+    3.  Evaluating Mutual Fund performance
+    4.  Stress-testing Equity Valuation Models
+    5.  Analyzing M&A announcements and marketing sentiment around news
 
 **What's left for us to do?**
-
-. . .
 
 *It is time to ship your insights to a broader audience - I introduce you [Shiny]{.blue}!*
 
@@ -87,73 +81,61 @@ For any questions or concerns, please feel free to reach out via email at [lucas
 ### Definition
 
 [Shiny](https://shiny.posit.co/) is an `R` package that makes it easy to build interactive web applications directly from your session. It was developed by [Posit](https://posit.co/) (previously *RStudio*) to bridge the gap between data analysis and web interfaces.
-
 :::
 
-- It allows for real-time data visualization and analysis using a web browser, updating outputs *automatically* when inputs change
+-   It allows for real-time data visualization and analysis using a web browser, updating outputs *automatically* when inputs change
 
-- Recently, its usage has been extended to `Python` users, offering similar reactive programming
+-   Recently, its usage has been extended to `Python` users, offering similar reactive programming
 
 . . .
 
 **Key Features**
 
-1. Easy integration with `ggplot2`, `dplyr`, and other `tidyverse` tools, with customizable UI layouts using built-in layout functions, or plain `HTML` and `CSS` 
+1.  Easy integration with `ggplot2`, `dplyr`, and other `tidyverse` tools, with customizable UI layouts using built-in layout functions, or plain `HTML` and `CSS`
 
-2. Supports user input through sliders, dropdowns, buttons, and more
+2.  Supports user input through sliders, dropdowns, buttons, and more
 
-3. Easy to *deploy*, *host*, and *ship* your application to the internet!
+3.  Easy to *deploy*, *host*, and *ship* your application to the internet!
 
 ## Typical Use Cases
 
 . . .
 
-
-**[Shiny]{.blue} can be used in a variety of contexts, including but not limited to:**
+[**Shiny**]{.blue} **can be used in a variety of contexts, including but not limited to:**
 
 . . .
 
-1. [Interactive Dashboards and Reports]{.blue}: whether you have inputs that change over time, or need, [Shiny]{.blue} can leverage user interaction by asking inputs and also providing interactivity, such as downloading results
+1.  [Interactive Dashboards and Reports]{.blue}: whether you have inputs that change over time, or need, [Shiny]{.blue} can leverage user interaction by asking inputs and also providing interactivity, such as downloading results
 
-2. [Prototyping Data Science products]{.blue}: creating a *minimum-viable-product* using Shiny is one way of testing an idea before allocating a substantial amount of resources into it. Shiny Apps are simple yet powerful, and can be customized using the best resources on `HTML`, `JavaScript`, and `CSS` 
+2.  [Prototyping Data Science products]{.blue}: creating a *minimum-viable-product* using Shiny is one way of testing an idea before allocating a substantial amount of resources into it. Shiny Apps are simple yet powerful, and can be customized using the best resources on `HTML`, `JavaScript`, and `CSS`
 
-3. [Tools for non-technical stakeholders]{.blue}: [Shiny]{.blue} helpds to bridge the gap between `R` and `Python` users with non-technical audiences, allowing different agents to draw insights from the data without the need for extensive coding
+3.  [Tools for non-technical stakeholders]{.blue}: [Shiny]{.blue} helps to bridge the gap between `R` and `Python` users with non-technical audiences, allowing different agents to draw insights from the data without the need for extensive coding
 
+## Example #1: a geographical deep-dive through the U.S
 
+<iframe src="https://gallery.shinyapps.io/063-superzip-example/" width="100%" height="800" frameborder="0">
 
-## Example #1
-
-<iframe src="https://gallery.shinyapps.io/001-hello/"
-        width="100%"
-        height="800"
-        frameborder="0">
 </iframe>
 
-## Example #2
+## Example #2: a historical movie explorer
 
-<iframe src="https://gallery.shinyapps.io/051-movie-explorer/"
-        width="100%"
-        height="800"
-        frameborder="0">
+<iframe src="https://gallery.shinyapps.io/051-movie-explorer/" width="100%" height="800" frameborder="0">
+
 </iframe>
 
+## Example #3: a momentum-based backtester
 
-## Example #3
+<iframe src="https://brindexes.shinyapps.io/backtester-app/" width="100%" height="800" frameborder="0">
 
-<iframe src="https://brindexes.shinyapps.io/backtester-app/"
-        width="100%"
-        height="800"
-        frameborder="0">
 </iframe>
-
 
 ## Shiny App Structure (getting started)
 
-- A general purpose [Shiny]{.blue} app has the following structure:
-  
-  1. The `ui`: defines the layout and appearance of the app (*i.e*, the *frontend*)
-  2. The `server`: Defines the logic and behavior of the app (*i.e*, the *backend*)
-  3. Finally, the `shinyApp` function creates  app objects from an explicit UI/server pair:
+-   A general purpose [Shiny]{.blue} app has the following structure:
+
+    1.  The `ui`: defines the layout and appearance of the app (*i.e*, the *frontend*)
+    2.  The `server`: Defines the logic and behavior of the app (*i.e*, the *backend*)
+    3.  Finally, the `shinyApp` function creates app objects from an explicit UI/server pair:
 
 ```{r}
 #| eval: false
@@ -163,14 +145,23 @@ shinyApp(ui, server)
 
 ```
 
-- Every [Shiny]{.blue} app has the same structure: an `app.R` file that contains `ui` and `server`
+-   This function uses the `ui` and `server` definition and launches a local app in your browser for quick visualization and troubleshooting
 
-- You can create a [Shiny]{.blue} app by making a new directory and saving an `app.R` file inside it. It is recommended that each app will live in its own unique directory.
+**How it works**
 
+-   Every [Shiny]{.blue} app has the same structure: an `app.R` file that contains `ui` and `server`
+
+-   You can create a [Shiny]{.blue} app by making a new directory and saving an `app.R` file inside it. It is recommended that each app will live in its own unique directory
+
+## My very first app
+
+<iframe src="https://gallery.shinyapps.io/001-hello/" width="100%" height="800" frameborder="0">
+
+</iframe>
 
 ## A minimal working example (in finance)
 
-- You boss got impressed with the analysis you did as a buy-side analyst at *Pierpoint Capital*. Unfortunately, he did not take the *Practical Applications in Quantitative Finance* course, so he really can't replicate your findings. Your task is to help him ship your analysis to the whole organization
+-   You boss got impressed with the analysis you did as a buy-side analyst at *Pierpoint Capital*. Unfortunately, he did not take the *Practical Applications in Quantitative Finance* course, so he really can't replicate your findings. Your task is to help him ship your analysis to the whole organization
 
 1.  Create stunning visuals that allow interactivity
 2.  Allow users to change parameters of your analysis
@@ -179,32 +170,29 @@ shinyApp(ui, server)
 ::: callout-important
 ### Specific Instructions
 
-1.  We will be extensively using several contents from [@shiny]. For the sake of brevity, we will not dive into the nitty-gritty details, but rather explore some functions that can be used inside a [Shiny]{.blue} context
+1.  We will be extensively using several contents from [@shiny]. For the sake of brevity, we will not dive into the nitty-gritty details, but rather explore some functions that can be used within a [Shiny]{.blue} context
 
-2. We will leverage [ShinyAI](https://gallery.shinyapps.io/assistant/), an *LLM* specifically desined to help developing a web framework for data driven apps. You can ask questions about how to use Shiny, to explain how certain things work, or even ask to build a Shiny app for you!
-
+2.  We will leverage [ShinyAI](https://gallery.shinyapps.io/assistant/), an *LLM* specifically desined to help developing a web framework for data driven apps. You can ask questions about how to use Shiny, to explain how certain things work, or even ask to build a Shiny app for you.
 :::
-
 
 ## My first Shiny app
 
 ::: panel-tabset
 ### Outline
 
-- In what follows, we will begin by creating a very simply app that provides a summary performance of selected stocks over time, constructed using the following *UI/UX* structure:
+-   In what follows, we will begin by creating a very simply app that provides a summary performance of selected stocks over time, constructed using the following *UI/UX* structure:
 
-  1. Users provide a *start* and *end* date for the analysis of the *Magnificent 7* stocks
-  
-  2. The expected outcome should be a chart that compares the cumulative returns of all selected assets over time
+    1.  Users provide a *start* and *end* date for the analysis of the *Magnificent 7* stocks
 
-- Each section will contain [three]{.blue} tabs:
+    2.  The expected outcome should be a chart that compares the cumulative returns of all selected assets over time
 
-  1. The [Outline]{.blue} section will provide a very quick explanation of what we need to add to the app
-  
-  2. The [Prompt]{.blue} section described the prompt we will be asking *ShinyAI* to help us with
-  
-  3. Finally, the [Code]{.blue} section will contain the updated code generated by *ShinyAI*, which can be fed into your `R` section
+-   Each section will contain [three]{.blue} tabs:
 
+    1.  The [Outline]{.blue} section will provide a very quick explanation of what we need to add to the app
+
+    2.  The [Prompt]{.blue} section describes what we will be asking *ShinyAI* to help us with - as expected, this should be a trial-and-error process between prompts
+
+    3.  Finally, the [Code]{.blue} section will contain the updated code generated by *ShinyAI*, which can be fed into your `R` section
 
 ### Prompt
 
@@ -394,54 +382,1205 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 
 ```
-
 :::
 
-
-## Example
+## #1: Adding a stock selector
 
 ::: panel-tabset
 ### Outline
 
+-   You are off to a good start - however, there are some important points to consider:
+
+1.  Users may want to select stocks *other* than the *Magnificent Seven*
+2.  Notwithstanding, asking users to write down the list of assets is too cumbersome, let alone the fact that this is highly prone to human error
+3.  Because of that, you could ask them to select from a predefined drop-down list that contains a list of valid tickers
+
+-   In what follows, we will add a drop-down menu that contains all *S&P* ticker constituents that can be retrieved from the `tq_index` function, allowing users to select the set of stocks that will be part of the analysis
+
 ### Prompt
+
 ```{r}
 #| eval: false
 #| echo: true
+
+This is great! Now, I need to add a stock selector. Use the tq_index() function to retrieve all tickers from S&P500. Add the following structure to the app:
+
+1. Remove the Magnificent Seven. The default selector should have zero stocks.
+2. Add a drop-down menu with all the stocks from the `tq_index('SP500')` function. Allow for a "Select All" button.
 
 ```
 
 ### Code
+
 ```{r}
 #| eval: false
 #| echo: true
 
+library(shiny)
+library(tidyverse)
+library(tidyquant)
+library(bslib)
+library(scales)
+library(shinyWidgets) # Added for pickerInput
+
+# Get S&P 500 tickers and industry information
+sp500_stocks <- tq_index("SP500") %>%
+  select(symbol, company, sector) %>%
+  arrange(sector, company)
+
+ui <- page_sidebar(
+  title = "S&P 500 Return Comparison",
+  
+  sidebar = sidebar(
+    title = "Settings",
+    
+    dateRangeInput(
+      "date_range",
+      "Select date range:",
+      start = Sys.Date() - 365,
+      end = Sys.Date(),
+      min = "2015-01-01",
+      max = Sys.Date()
+    ),
+    
+    hr(),
+    
+    # Stock selector with search functionality
+    pickerInput(
+      inputId = "stock_selector",
+      label = "Select Stocks:",
+      choices = setNames(sp500_stocks$symbol, paste0(sp500_stocks$symbol, " - ", sp500_stocks$company)),
+      selected = NULL, # Default to no selection
+      multiple = TRUE,
+      options = list(
+        `actions-box` = TRUE,
+        `live-search` = TRUE,
+        `selected-text-format` = "count > 3",
+        `count-selected-text` = "{0} stocks selected"
+      )
+    )
+  ),
+  
+  card(
+    full_screen = TRUE,
+    card_header("Cumulative Returns Comparison"),
+    plotOutput("returns_plot", height = "500px")
+  ),
+  
+  card(
+    card_header("Performance Summary"),
+    dataTableOutput("data_summary")
+  )
+)
+
+server <- function(input, output, session) {
+  
+  # Reactive to store current stock selection
+  selected_stocks <- reactiveVal(NULL) # Start with no stocks selected
+  
+  # Update selected_stocks when stock_selector changes
+  observeEvent(input$stock_selector, {
+    selected_stocks(input$stock_selector)
+  })
+  
+  # Get full list of stocks to retrieve
+  stocks_to_get <- reactive({
+    stocks <- selected_stocks()
+    
+    # Ensure we have at least one stock to display
+    if (length(stocks) == 0) {
+      return(NULL)
+    }
+    
+    return(stocks)
+  })
+  
+  # Reactive expression to get and process stock data
+  stock_data <- reactive({
+    # Validate that we have dates and stocks
+    req(input$date_range)
+    req(length(stocks_to_get()) > 0)
+    
+    # Download data
+    tq_data <- tq_get(
+      stocks_to_get(),
+      from = input$date_range[1],
+      to = input$date_range[2],
+      get = "stock.prices"
+    )
+    
+    # Check if we got data
+    req(nrow(tq_data) > 0)
+    
+    # Calculate daily returns
+    returns_data <- tq_data %>%
+      group_by(symbol) %>%
+      tq_transmute(
+        select = adjusted,
+        mutate_fun = periodReturn,
+        period = "daily",
+        col_rename = "daily_return"
+      )
+    
+    # Calculate cumulative returns
+    cum_returns <- returns_data %>%
+      group_by(symbol) %>%
+      mutate(cumulative_return = cumprod(1 + daily_return) - 1) %>%
+      ungroup()
+    
+    list(
+      raw_data = tq_data,
+      cum_returns = cum_returns
+    )
+  })
+  
+  # Get company names for better labels
+  stock_names <- reactive({
+    
+    # Create lookup from sp500 stocks
+    name_lookup <- setNames(sp500_stocks$company, sp500_stocks$symbol)
+    
+  })
+  
+  # Generate returns plot
+  output$returns_plot <- renderPlot({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    names_lookup <- stock_names()
+    
+    # Limit the number of stocks shown for better visualization
+    if(nrow(cum_returns) > 0) {
+      ggplot(cum_returns, aes(x = date, y = cumulative_return, color = symbol)) +
+        geom_line(linewidth = 1) +
+        scale_y_continuous(labels = percent) +
+        scale_color_discrete(labels = function(x) ifelse(x %in% names(names_lookup), names_lookup[x], x)) +
+        labs(
+          title = "Cumulative Returns Comparison",
+          x = "Date",
+          y = "Cumulative Return",
+          color = "Company"
+        ) +
+        theme_minimal() +
+        theme(
+          legend.position = "bottom",
+          legend.box = "horizontal",
+          plot.title = element_text(hjust = 0.5, face = "bold", size = 16),
+          axis.title = element_text(face = "bold"),
+          legend.title = element_text(face = "bold")
+        )
+    }
+  })
+  
+  # Generate data summary
+  output$data_summary <- renderDataTable({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    names_lookup <- stock_names()
+    
+    # Summary statistics for each asset
+    summary_data <- cum_returns %>%
+      group_by(symbol) %>%
+      summarize(
+        Start_Date = min(date),
+        End_Date = max(date),
+        Total_Return = last(cumulative_return) %>% round(4),
+        Annualized_Return = ((1 + last(cumulative_return))^(252 / n())) - 1 %>% round(4),
+        Volatility = sd(daily_return, na.rm = TRUE) * sqrt(252) %>% round(4)
+      ) %>%
+      mutate(
+        Company = ifelse(symbol %in% names(names_lookup), names_lookup[symbol], symbol),
+        Total_Return = percent(Total_Return, accuracy = 0.01),
+        Annualized_Return = percent(Annualized_Return, accuracy = 0.01),
+        Volatility = percent(Volatility, accuracy = 0.01)
+      ) %>%
+      select(symbol, Company, Start_Date, End_Date, Total_Return, Annualized_Return, Volatility)
+  })
+}
+
+shinyApp(ui, server)
+
+
 ```
 :::
 
+## #2: Adding Interactivity
+
+::: panel-tabset
+### Outline
+
+-   *Hooray*! You have a minimal working solution for all *S&P 500* stocks covered in *Yahoo! Finance*. It is now time to look at the *aesthetics*:
+
+    1.  As you increase the number of stocks, understanding the line chart becomes increasingly difficult
+    2.  One way to enhance the user experience is to add *interactivity* to your chart, allowing users to hover on specific data points, filtering the date ranges directly in the chart, and zoom in/out on a specific region
+
+-   In what follows, we will change the charting engine from `ggplot2` to `highcharter`, a solution that allows for interactive time-series visualization
+
+### Prompt
+
+```{r}
+#| eval: false
+#| echo: true
+
+This is great! Now, I need to change the way that the chart aesthetics are looking. Please considers the instructions below:
+
+  1. Change the plotting engine from ggplot2 to highcharter, using the `hchart` function to create a line chart
+  2. Allow for time range selectors and, when users hover on a specific data point, use the tooltip to show the cumulative return up to that point, and the stock name. The tooltip and the y-axis must show the cumulative returns with the following format: '0.X%"
+  
+```
+
+### Code
+
+```{r}
+#| eval: false
+#| echo: true
 
 
+library(shiny)
+library(tidyverse)
+library(tidyquant)
+library(bslib)
+library(scales)
+library(shinyWidgets) # For pickerInput
+library(highcharter) # For interactive charts
+
+# Get S&P 500 tickers and industry information
+sp500_stocks <- tq_index("SP500") %>%
+  select(symbol, company, sector) %>%
+  arrange(sector, company)
+
+ui <- page_sidebar(
+  title = "S&P 500 Return Comparison",
+  
+  sidebar = sidebar(
+    title = "Settings",
+    
+    dateRangeInput(
+      "date_range",
+      "Select date range:",
+      start = Sys.Date() - 365,
+      end = Sys.Date(),
+      min = "2015-01-01",
+      max = Sys.Date()
+    ),
+    
+    hr(),
+    
+    # Stock selector with search functionality
+    pickerInput(
+      inputId = "stock_selector",
+      label = "Select Stocks:",
+      choices = setNames(sp500_stocks$symbol, paste0(sp500_stocks$symbol, " - ", sp500_stocks$company)),
+      selected = NULL, # Default to no selection
+      multiple = TRUE,
+      options = list(
+        `actions-box` = TRUE,
+        `live-search` = TRUE,
+        `selected-text-format` = "count > 3",
+        `count-selected-text` = "{0} stocks selected"
+      )
+    )
+  ),
+  
+  card(
+    full_screen = TRUE,
+    card_header("Cumulative Returns Comparison"),
+    highchartOutput("returns_plot", height = "500px")
+  ),
+  
+  card(
+    card_header("Performance Summary"),
+    dataTableOutput("data_summary")
+  )
+)
+
+server <- function(input, output, session) {
+  
+  # Reactive to store current stock selection
+  selected_stocks <- reactiveVal(NULL) # Start with no stocks selected
+  
+  # Update selected_stocks when stock_selector changes
+  observeEvent(input$stock_selector, {
+    selected_stocks(input$stock_selector)
+  })
+  
+  # Get full list of stocks to retrieve
+  stocks_to_get <- reactive({
+    stocks <- selected_stocks()
+    
+    # Ensure we have at least one stock to display
+    if (length(stocks) == 0) {
+      return(NULL)
+    }
+    
+    return(stocks)
+  })
+  
+  # Reactive expression to get and process stock data
+  stock_data <- reactive({
+    # Validate that we have dates and stocks
+    req(input$date_range)
+    req(length(stocks_to_get()) > 0)
+    
+    # Download data
+    tq_data <- tq_get(
+      stocks_to_get(),
+      from = input$date_range[1],
+      to = input$date_range[2],
+      get = "stock.prices"
+    )
+    
+    # Check if we got data
+    req(nrow(tq_data) > 0)
+    
+    # Calculate returns
+    returns_data <- tq_data %>%
+      group_by(symbol) %>%
+      arrange(date) %>%
+      # Calculate daily returns
+      tq_transmute(
+        select = adjusted,
+        mutate_fun = periodReturn,
+        period = "daily",
+        col_rename = "daily_return"
+      ) 
+    
+    # Join the returns data with original price data
+    returns_with_prices <- returns_data %>%
+      left_join(
+        tq_data %>% select(symbol, date, adjusted),
+        by = c("symbol", "date")
+      )
+    
+    # Calculate cumulative returns from the first date of the period
+    cum_returns <- returns_with_prices %>%
+      group_by(symbol) %>%
+      arrange(date) %>%
+      mutate(
+        # For each stock, calculate the cumulative return starting from the first date
+        cumulative_return = cumprod(1 + daily_return) - 1
+      ) %>%
+      ungroup()
+    
+    list(
+      raw_data = tq_data,
+      cum_returns = cum_returns
+    )
+  })
+  
+  # Get company names for better labels
+  stock_names <- reactive({
+    # Create lookup from sp500 stocks
+    name_lookup <- setNames(sp500_stocks$company, sp500_stocks$symbol)
+    
+    # Return
+    name_lookup
+  })
+  
+  # Generate returns plot with highcharter
+  output$returns_plot <- renderHighchart({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    names_lookup <- stock_names()
+    
+    # Convert to format suitable for highcharter
+    if(nrow(cum_returns) > 0) {
+      # Create highchart
+      hc <- highchart(type = "stock") %>%
+        hc_title(text = "Cumulative Returns Comparison") %>%
+        hc_xAxis(type = "datetime", 
+                 title = list(text = "Date"),
+                 dateTimeLabelFormats = list(
+                   day = '%e of %b',
+                   month = '%b %Y',
+                   year = '%Y'
+                 )) %>%
+        hc_yAxis(
+          title = list(text = "Cumulative Return"),
+          labels = list(formatter = JS("function() { return (this.value * 100).toFixed(2) + '%'; }"))
+        ) %>%
+        hc_tooltip(
+          headerFormat = '<span style="font-size: 10px">{point.key}</span><br/>',
+          pointFormatter = JS("function() { return '<span style=\"color:' + this.color + '\">●</span> <b>' + this.series.name + '</b>: <b>' + (this.y * 100).toFixed(2) + '%</b><br/>'; }"),
+          shared = TRUE,
+          crosshairs = TRUE
+        ) %>%
+        hc_plotOptions(series = list(
+          marker = list(enabled = FALSE),
+          states = list(hover = list(lineWidthPlus = 0))
+        )) %>%
+        hc_legend(enabled = TRUE)
+      
+      # Add data for each stock
+      for(stock in unique(cum_returns$symbol)) {
+        stock_data <- cum_returns %>%
+          filter(symbol == stock) %>%
+          select(date, cumulative_return)
+        
+        # Get proper company name
+        company_name <- ifelse(stock %in% names(names_lookup), 
+                               names_lookup[stock], 
+                               stock)
+        
+        # Format data for highcharter - simplified approach
+        hc_data <- stock_data %>%
+          mutate(
+            x = datetime_to_timestamp(date),
+            y = cumulative_return  # Keep as decimal for proper calculations
+          ) %>%
+          select(x, y) %>%
+          list_parse2()
+        
+        # Add series to chart
+        hc <- hc %>%
+          hc_add_series(
+            data = hc_data,
+            name = paste0(stock, " - ", company_name),
+            type = "line"
+          )
+      }
+      
+      # Return the chart
+      hc
+    }
+  })
+  
+  # Generate data summary
+  output$data_summary <- renderDataTable({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    names_lookup <- stock_names()
+    
+    # Summary statistics for each asset
+    summary_data <- cum_returns %>%
+      group_by(symbol) %>%
+      summarize(
+        Start_Date = min(date),
+        End_Date = max(date),
+        Total_Return = last(cumulative_return) %>% round(4),
+        Annualized_Return = ((1 + last(cumulative_return))^(252 / n())) - 1 %>% round(4),
+        Volatility = sd(daily_return, na.rm = TRUE) * sqrt(252) %>% round(4)
+      ) %>%
+      mutate(
+        Company = ifelse(symbol %in% names(names_lookup), names_lookup[symbol], symbol),
+        Total_Return = percent(Total_Return, accuracy = 0.01),
+        Annualized_Return = percent(Annualized_Return, accuracy = 0.01),
+        Volatility = percent(Volatility, accuracy = 0.01)
+      ) %>%
+      select(symbol, Company, Start_Date, End_Date, Total_Return, Annualized_Return, Volatility)
+  })
+}
+
+shinyApp(ui, server)
+
+```
+:::
+
+## #3: Aesthetic Adjustments
+
+::: panel-tabset
+### Outline
+
+-   [You're on a streak!]{.blue} You app is looking *neat*: you should consider showcasing that!
+
+-   Before you do that, let's make sure users can get the most of your app while interacting:
+
+    1.  The [width]{.blue} of the sidebar needs to be increased a little bit to allow for text to be displayed
+    2.  The dropdown menu section needs to be more organized
+    3.  Finally, you can also make the charts and the table to look nicer by changing the size of the line charts and renaming the column names to be displayed in *Title Format*
+
+-   In what follows, we will ask for these changes with simple instructions to tweak the current code
+
+### Prompt
+
+```{r}
+#| eval: false
+#| echo: true
+
+Ok, this is looking neat! Now, I need you to change a few points:
+
+  1. Increase the width of the sidebar by 25%
+
+  2. Use the pickerInput() from the shinyWidgets package to select the stocks. It should be a combination of the form "ticker (Company)"
+
+  3. Increase the size of the lines in the hchart() call
+  
+  4. Rename the column names in the table and make it in proper format (e.g, remove underlines and ensure Title Format)
+  
+```
+
+### Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(shiny)
+library(tidyverse)
+library(tidyquant)
+library(bslib)
+library(scales)
+library(shinyWidgets) # For pickerInput and dropdownButton
+library(highcharter) # For interactive charts
+
+# Get S&P 500 tickers and industry information
+sp500_stocks <- tq_index("SP500") %>%
+  select(symbol, company, sector) %>%
+  arrange(sector, company)
+
+# Create choices with company name as supplementary info in front of ticker
+# Format: "Company Name (TICKER)"
+ticker_labels <- paste0(sp500_stocks$company, " (", sp500_stocks$symbol, ")")
+ticker_choices <- setNames(sp500_stocks$symbol, ticker_labels)
+
+ui <- page_sidebar(
+  title = "S&P 500 Return Comparison",
+  
+  sidebar = sidebar(
+    title = "Settings",
+    width = 440, # Increased width 
+    
+    dateRangeInput(
+      "date_range",
+      "Select date range:",
+      start = Sys.Date() - 365,
+      end = Sys.Date(),
+      min = "2015-01-01",
+      max = Sys.Date()
+    ),
+    
+    hr(),
+    
+    # Use dropdownButton for stock selection
+    dropdownButton(
+      inputId = "dropdown_stocks",
+      label = "Select Stocks", 
+      icon = icon("filter"),
+      status = "primary",
+      width = "100%",
+      circle = FALSE,
+      
+      # Stock selector with search functionality
+      pickerInput(
+        inputId = "stock_selector",
+        label = "Select Stocks:",
+        choices = ticker_choices,
+        options = list(
+          `actions-box` = TRUE,
+          `live-search` = TRUE,
+          `selected-text-format` = "count > 3",
+          `count-selected-text` = "{0} stocks selected"
+        ),
+        selected = NULL, # Default to no selection
+        multiple = TRUE,
+        width = "100%"
+      )
+    )
+  ),
+  
+  card(
+    full_screen = TRUE,
+    card_header("Cumulative Returns Comparison"),
+    highchartOutput("returns_plot", height = "500px")
+  ),
+  
+  card(
+    card_header("Performance Summary"),
+    dataTableOutput("data_summary")
+  )
+)
+
+server <- function(input, output, session) {
+  
+  # Reactive to store current stock selection
+  selected_stocks <- reactiveVal(NULL) # Start with no stocks selected
+  
+  # Update selected_stocks when stock_selector changes
+  observeEvent(input$stock_selector, {
+    selected_stocks(input$stock_selector)
+  })
+  
+  # Get full list of stocks to retrieve
+  stocks_to_get <- reactive({
+    stocks <- selected_stocks()
+    
+    # Ensure we have at least one stock to display
+    if (length(stocks) == 0) {
+      return(NULL)
+    }
+    
+    return(stocks)
+  })
+  
+  # Reactive expression to get and process stock data
+  stock_data <- reactive({
+    # Validate that we have dates and stocks
+    req(input$date_range)
+    req(length(stocks_to_get()) > 0)
+    
+    # Download data
+    tq_data <- tq_get(
+      stocks_to_get(),
+      from = input$date_range[1],
+      to = input$date_range[2],
+      get = "stock.prices"
+    )
+    
+    # Check if we got data
+    req(nrow(tq_data) > 0)
+    
+    # Calculate returns
+    returns_data <- tq_data %>%
+      group_by(symbol) %>%
+      arrange(date) %>%
+      # Calculate daily returns
+      tq_transmute(
+        select = adjusted,
+        mutate_fun = periodReturn,
+        period = "daily",
+        col_rename = "daily_return"
+      ) 
+    
+    # Join the returns data with original price data
+    returns_with_prices <- returns_data %>%
+      left_join(
+        tq_data %>% select(symbol, date, adjusted),
+        by = c("symbol", "date")
+      )
+    
+    # Calculate cumulative returns from the first date of the period
+    cum_returns <- returns_with_prices %>%
+      group_by(symbol) %>%
+      arrange(date) %>%
+      mutate(
+        # For each stock, calculate the cumulative return starting from the first date
+        cumulative_return = cumprod(1 + daily_return) - 1
+      ) %>%
+      ungroup()
+    
+    list(
+      raw_data = tq_data,
+      cum_returns = cum_returns
+    )
+  })
+  
+  # Get company names for better labels
+  stock_names <- reactive({
+    # Create lookup from sp500 stocks
+    name_lookup <- setNames(sp500_stocks$company, sp500_stocks$symbol)
+    
+    # Return
+    name_lookup
+  })
+  
+  # Generate returns plot with highcharter
+  output$returns_plot <- renderHighchart({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    names_lookup <- stock_names()
+    
+    # Convert to format suitable for highcharter
+    if(nrow(cum_returns) > 0) {
+      # Create highchart
+      hc <- highchart(type = "stock") %>%
+        hc_title(text = "Cumulative Returns Comparison") %>%
+        hc_xAxis(type = "datetime", 
+                 title = list(text = "Date"),
+                 dateTimeLabelFormats = list(
+                   day = '%e of %b',
+                   month = '%b %Y',
+                   year = '%Y'
+                 )) %>%
+        hc_yAxis(
+          title = list(text = "Cumulative Return"),
+          labels = list(formatter = JS("function() { return (this.value * 100).toFixed(2) + '%'; }"))
+        ) %>%
+        hc_tooltip(
+          headerFormat = '<span style="font-size: 10px">{point.key}</span><br/>',
+          pointFormatter = JS("function() { return '<span style=\"color:' + this.color + '\">●</span> <b>' + this.series.name + '</b>: <b>' + (this.y * 100).toFixed(2) + '%</b><br/>'; }"),
+          shared = TRUE,
+          crosshairs = TRUE
+        ) %>%
+        hc_plotOptions(series = list(
+          marker = list(enabled = FALSE),
+          states = list(hover = list(lineWidthPlus = 0)),
+          lineWidth = 3  # Increased line thickness
+        )) %>%
+        hc_legend(enabled = TRUE)
+      
+      # Add data for each stock
+      for(stock in unique(cum_returns$symbol)) {
+        stock_data <- cum_returns %>%
+          filter(symbol == stock) %>%
+          select(date, cumulative_return)
+        
+        # Format data for highcharter - simplified approach
+        hc_data <- stock_data %>%
+          mutate(
+            x = datetime_to_timestamp(date),
+            y = cumulative_return  # Keep as decimal for proper calculations
+          ) %>%
+          select(x, y) %>%
+          list_parse2()
+        
+        # Add series to chart - only use the ticker symbol in the name
+        hc <- hc %>%
+          hc_add_series(
+            data = hc_data,
+            name = stock,
+            type = "line"
+          )
+      }
+      
+      # Return the chart
+      hc
+    }
+  })
+  
+  # Generate data summary
+  output$data_summary <- renderDataTable({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    names_lookup <- stock_names()
+    
+    # Summary statistics for each asset
+    summary_data <- cum_returns %>%
+      group_by(symbol) %>%
+      summarize(
+        Start_Date = min(date),
+        End_Date = max(date),
+        Total_Return = last(cumulative_return) %>% round(4),
+        Annualized_Return = ((1 + last(cumulative_return))^(252 / n())) - 1 %>% round(4),
+        Volatility = sd(daily_return, na.rm = TRUE) * sqrt(252) %>% round(4)
+      ) %>%
+      mutate(
+        Company = ifelse(symbol %in% names(names_lookup), names_lookup[symbol], symbol),
+        Total_Return = percent(Total_Return, accuracy = 0.01),
+        Annualized_Return = percent(Annualized_Return, accuracy = 0.01),
+        Volatility = percent(Volatility, accuracy = 0.01)
+      ) %>%
+      select(
+        Symbol = symbol, 
+        Company, 
+        `Start Date` = Start_Date, 
+        `End Date` = End_Date, 
+        `Total Return` = Total_Return, 
+        `Annualized Return` = Annualized_Return, 
+        Volatility
+      )
+  })
+}
+
+shinyApp(ui, server) 
+
+
+```
+:::
+
+## #4: Final Adjustments
+
+::: panel-tabset
+### Outline
+
+-   [Like a pro!]{.blue} Your app is now looking like it's something you would pay for!
+
+-   Before you showcase that to our boss, remember: you should make sure the app is not crashing due to user interaction:
+
+    1.  For example, if a user selects *"All Stocks"*, `tq_get()` will automatically start downloading a lot of data - which might break the server
+
+    2.  Furthermore, users should have the ability to confirm their selections and, eventually, *download* a summary of their findings. The submit button should send an alert saying that the list has been submitted and results will appear soon.
+
+-   In what follows, we will create some selection handling procedures and insert a *Download Button* that creates a downloadable `.csv` file
+
+### Prompt
+
+```{r}
+#| eval: false
+#| echo: true
+
+Way to go! Now, here's a list of final adjustments to be made:
+
+1. Create a "Submit List" button that, when triggered, will update the charts and tables. The app shouldn't update without that.
+
+2. Allow for dark mode using a switch button in the header
+
+3. Create a download button that, when triggered, saves a .csv file with the contents from the top panel (time series of cumulative returns for each stock). The submit button should send an alert saying that the list has been submitted and results will appear soon using the sendSweetAlert() function.
+
+4. Add icons in the title, Settings, and Submit configuration buttons  
+
+```
+
+### Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(shiny)
+library(tidyverse)
+library(tidyquant)
+library(bslib)
+library(scales)
+library(shinyWidgets) # For pickerInput, dropdownButton, and sweetAlert
+library(highcharter) # For interactive charts
+
+# Get S&P 500 tickers and industry information
+sp500_stocks <- tq_index("SP500") %>%
+  select(symbol, company, sector) %>%
+  arrange(sector, company)
+
+# Create choices with company name as supplementary info in front of ticker
+# Format: "Company Name (TICKER)"
+ticker_labels <- paste0(sp500_stocks$company, " (", sp500_stocks$symbol, ")")
+ticker_choices <- setNames(sp500_stocks$symbol, ticker_labels)
+
+ui <- page_sidebar(
+  title = span(icon("chart-line"), "S&P 500 Return Comparison"),
+  theme = bs_theme(version = 5, preset = "default"),
+  
+  header = tags$div(
+    style = "display: flex; justify-content: flex-end; padding: 5px;",
+    materialSwitch(
+      inputId = "dark_mode",
+      label = span(icon("moon"), "Dark Mode"),
+      status = "primary",
+      right = TRUE
+    )
+  ),
+  
+  sidebar = sidebar(
+    title = span(icon("gear"), "Settings"),
+    width = 440, # Increased width 
+    
+    dateRangeInput(
+      "date_range",
+      "Select date range:",
+      start = Sys.Date() - 365,
+      end = Sys.Date(),
+      min = "2015-01-01",
+      max = Sys.Date()
+    ),
+    
+    hr(),
+    
+    # Use dropdownButton for stock selection
+    dropdownButton(
+      inputId = "dropdown_stocks",
+      label = span(icon("filter"), "Select Stocks"), 
+      status = "primary",
+      width = "100%",
+      circle = FALSE,
+      
+      # Stock selector with search functionality
+      pickerInput(
+        inputId = "stock_selector",
+        label = "Select Stocks:",
+        choices = ticker_choices,
+        options = list(
+          `actions-box` = TRUE,
+          `live-search` = TRUE,
+          `selected-text-format` = "count > 3",
+          `count-selected-text` = "{0} stocks selected"
+        ),
+        selected = NULL, # Default to no selection
+        multiple = TRUE,
+        width = "100%"
+      )
+    ),
+    
+    hr(),
+    
+    # Submit button that triggers the data update
+    actionButton(
+      "submit_btn", 
+      span(icon("paper-plane"), "Submit List"),
+      width = "100%",
+      class = "btn-primary"
+    )
+  ),
+  
+  card(
+    full_screen = TRUE,
+    card_header(
+      div(
+        style = "display: flex; justify-content: space-between; align-items: center;",
+        span("Cumulative Returns Comparison"),
+        downloadButton("download_data", "Download Data", class = "btn-sm btn-outline-primary")
+      )
+    ),
+    highchartOutput("returns_plot", height = "500px")
+  ),
+  
+  card(
+    card_header("Performance Summary"),
+    dataTableOutput("data_summary")
+  )
+)
+
+server <- function(input, output, session) {
+  # Toggle dark mode when the switch is clicked
+  observeEvent(input$dark_mode, {
+    if (input$dark_mode) {
+      session$setCurrentTheme(bs_theme(version = 5, preset = "darkly"))
+    } else {
+      session$setCurrentTheme(bs_theme(version = 5, preset = "default"))
+    }
+  })
+  
+  # Reactive values to store selected stocks
+  selected_stocks <- reactiveVal(NULL)
+  
+  # Only update the stocks to fetch when the submit button is clicked
+  observeEvent(input$submit_btn, {
+    # Show a SweetAlert notification
+    sendSweetAlert(
+      session = session,
+      title = "List Submitted", 
+      text = "Your stock list has been submitted. Results will appear soon.",
+      type = "success",
+      timer = 3000,
+      showConfirmButton = FALSE
+    )
+    
+    # Update the selected stocks
+    selected_stocks(input$stock_selector)
+  })
+  
+  # Get full list of stocks to retrieve
+  stocks_to_get <- reactive({
+    stocks <- selected_stocks()
+    
+    # Ensure we have at least one stock to display
+    if (length(stocks) == 0) {
+      return(NULL)
+    }
+    
+    return(stocks)
+  })
+  
+  # Reactive expression to get and process stock data
+  stock_data <- reactive({
+    # Validate that we have dates and stocks
+    req(input$date_range)
+    req(length(stocks_to_get()) > 0)
+    
+    # Download data
+    tq_data <- tq_get(
+      stocks_to_get(),
+      from = input$date_range[1],
+      to = input$date_range[2],
+      get = "stock.prices"
+    )
+    
+    # Check if we got data
+    req(nrow(tq_data) > 0)
+    
+    # Calculate returns
+    returns_data <- tq_data %>%
+      group_by(symbol) %>%
+      arrange(date) %>%
+      # Calculate daily returns
+      tq_transmute(
+        select = adjusted,
+        mutate_fun = periodReturn,
+        period = "daily",
+        col_rename = "daily_return"
+      ) 
+    
+    # Join the returns data with original price data
+    returns_with_prices <- returns_data %>%
+      left_join(
+        tq_data %>% select(symbol, date, adjusted),
+        by = c("symbol", "date")
+      )
+    
+    # Calculate cumulative returns from the first date of the period
+    cum_returns <- returns_with_prices %>%
+      group_by(symbol) %>%
+      arrange(date) %>%
+      mutate(
+        # For each stock, calculate the cumulative return starting from the first date
+        cumulative_return = cumprod(1 + daily_return) - 1
+      ) %>%
+      ungroup()
+    
+    list(
+      raw_data = tq_data,
+      cum_returns = cum_returns
+    )
+  })
+  
+  # Create downloadable data
+  downloadable_data <- reactive({
+    req(stock_data())
+    
+    # Format the cumulative returns data for download
+    download_data <- stock_data()$cum_returns %>%
+      select(symbol, date, cumulative_return) %>%
+      pivot_wider(
+        names_from = symbol,
+        values_from = cumulative_return,
+        names_prefix = "return_"
+      ) %>%
+      arrange(date)
+    
+    return(download_data)
+  })
+  
+  # Get company names for better labels
+  stock_names <- reactive({
+    # Create lookup from sp500 stocks
+    name_lookup <- setNames(sp500_stocks$company, sp500_stocks$symbol)
+    
+    # Return
+    name_lookup
+  })
+  
+  # Generate returns plot with highcharter
+  output$returns_plot <- renderHighchart({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    names_lookup <- stock_names()
+    
+    # Convert to format suitable for highcharter
+    if(nrow(cum_returns) > 0) {
+      # Create highchart
+      hc <- highchart(type = "stock") %>%
+        hc_title(text = "Cumulative Returns Comparison") %>%
+        hc_xAxis(type = "datetime", 
+                 title = list(text = "Date"),
+                 dateTimeLabelFormats = list(
+                   day = '%e of %b',
+                   month = '%b %Y',
+                   year = '%Y'
+                 )) %>%
+        hc_yAxis(
+          title = list(text = "Cumulative Return"),
+          labels = list(formatter = JS("function() { return (this.value * 100).toFixed(2) + '%'; }"))
+        ) %>%
+        hc_tooltip(
+          headerFormat = '<span style="font-size: 10px">{point.key}</span><br/>',
+          pointFormatter = JS("function() { return '<span style=\"color:' + this.color + '\">●</span> <b>' + this.series.name + '</b>: <b>' + (this.y * 100).toFixed(2) + '%</b><br/>'; }"),
+          shared = TRUE,
+          crosshairs = TRUE
+        ) %>%
+        hc_plotOptions(series = list(
+          marker = list(enabled = FALSE),
+          states = list(hover = list(lineWidthPlus = 0)),
+          lineWidth = 3  # Increased line thickness
+        )) %>%
+        hc_legend(enabled = TRUE)
+      
+      # Add data for each stock
+      for(stock in unique(cum_returns$symbol)) {
+        stock_data <- cum_returns %>%
+          filter(symbol == stock) %>%
+          select(date, cumulative_return)
+        
+        # Format data for highcharter - simplified approach
+        hc_data <- stock_data %>%
+          mutate(
+            x = datetime_to_timestamp(date),
+            y = cumulative_return  # Keep as decimal for proper calculations
+          ) %>%
+          select(x, y) %>%
+          list_parse2()
+        
+        # Add series to chart - only use the ticker symbol in the name
+        hc <- hc %>%
+          hc_add_series(
+            data = hc_data,
+            name = stock,
+            type = "line"
+          )
+      }
+      
+      # Return the chart
+      hc
+    }
+  })
+  
+  # Generate data summary
+  output$data_summary <- renderDataTable({
+    req(stock_data())
+    
+    cum_returns <- stock_data()$cum_returns
+    names_lookup <- stock_names()
+    
+    # Summary statistics for each asset
+    summary_data <- cum_returns %>%
+      group_by(symbol) %>%
+      summarize(
+        Start_Date = min(date),
+        End_Date = max(date),
+        Total_Return = last(cumulative_return) %>% round(4),
+        Annualized_Return = ((1 + last(cumulative_return))^(252 / n())) - 1 %>% round(4),
+        Volatility = sd(daily_return, na.rm = TRUE) * sqrt(252) %>% round(4)
+      ) %>%
+      mutate(
+        Company = ifelse(symbol %in% names(names_lookup), names_lookup[symbol], symbol),
+        Total_Return = percent(Total_Return, accuracy = 0.01),
+        Annualized_Return = percent(Annualized_Return, accuracy = 0.01),
+        Volatility = percent(Volatility, accuracy = 0.01)
+      ) %>%
+      select(
+        Symbol = symbol, 
+        Company, 
+        `Start Date` = Start_Date, 
+        `End Date` = End_Date, 
+        `Total Return` = Total_Return, 
+        `Annualized Return` = Annualized_Return, 
+        Volatility
+      )
+  })
+  
+  # Download handler for CSV export
+  output$download_data <- downloadHandler(
+    filename = function() {
+      paste("sp500_returns_", format(Sys.Date(), "%Y%m%d"), ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(downloadable_data(), file, row.names = FALSE)
+    }
+  )
+
+}
+  
+shinyApp(ui, server)
+
+```
+:::
 
 ## Hosting Shiny Applications
 
-- **[Way to go]{.blue}: you just did your very first app!**
+-   [**Way to go**]{.blue}**: you just did your very first app!**
 
-- Now, the question is... [how can you share that with your audience?]{.blue} Luckily, there are several ways in which you can host your application^[For detailed content, please refer to a discussion regarding hosting options [here](https://shiny.posit.co/r/deploy.html).]:
+-   Now, the question is... [how can you share that with your audience?]{.blue} Luckily, there are several ways in which you can host your application[^1]:
 
+[^1]: For detailed content, please refer to a discussion regarding hosting options [here](https://shiny.posit.co/r/deploy.html).
 
-1. **shinyapps.io** (by *Posit*): by and large, this is the easiest option for hosting Shiny apps for beginners. Fully managed, no server setup required
+1.  **shinyapps.io** (by *Posit*): by and large, this is the easiest option for hosting Shiny apps for beginners. Fully managed, no server setup required
 
-2. **Posit Connect**: enterprise-grade publishing platform, supports Shiny (`R` and `Python`), Quarto, Dash, Flask, and more. It offers authentication, scheduled reports, and usage analytics. Suitable for internal tools and collaborative data products
+2.  **Posit Connect**: enterprise-grade publishing platform, supports Shiny (`R` and `Python`), Quarto, Dash, Flask, and more. It offers authentication, scheduled reports, and usage analytics. Suitable for internal tools and collaborative data products
 
-3. **Docker**: containerize Shiny apps for portability and reproducibility. Useful for deployment in Kubernetes or cloud-native environments. Can be combined with CI/CD workflows
+3.  **Docker**: containerize Shiny apps for portability and reproducibility. Useful for deployment in Kubernetes or cloud-native environments. Can be combined with CI/CD workflows
 
+## Hosting our application
 
-## Extensions and Tools
+- Using the [first]{.blue} option for deployment, inside your *RStudio* session, hit [Publish]{.blue} and then select *shinyapps.io*. This option prompts a screen where you can log into your account. You can create a free account and host a limited number of applications in a free-tier option
 
-- `shinydashboard` for admin-style dashboards
-- `shinyjs` and `shinyWidgets` for enhanced UI/UX
-- `shinytest` and `shinyloadtest` for testing and performance
+- After following the instructions, you should see your app going live on the internet straight from *RStudio*'s command line:
 
+. . .
+
+![](Images/F1.png){fig-align='center' width=35%}
+
+- **Curious to see the outcome?** Check the live app [here](https://lsmacoris.shinyapps.io/my_test_app/)
 
 ## References
-
-

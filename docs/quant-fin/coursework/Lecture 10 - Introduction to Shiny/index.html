@@ -492,12 +492,8 @@ Lucas S. Macoris (FGV-EAESP)
 <li>Analyzing M&amp;A announcements and marketing sentiment around news</li>
 </ol></li>
 </ul>
-<div class="fragment">
 <p><strong>What’s left for us to do?</strong></p>
-</div>
-<div class="fragment">
 <p><em>It is time to ship your insights to a broader audience - I introduce you <span class="blue">Shiny</span>!</em></p>
-</div>
 </section>
 <section id="introduction-to-shiny" class="slide level2">
 <h2>Introduction to Shiny</h2>
@@ -530,28 +526,28 @@ Lucas S. Macoris (FGV-EAESP)
 <section id="typical-use-cases" class="slide level2">
 <h2>Typical Use Cases</h2>
 <div class="fragment">
-<p><strong><span class="blue">Shiny</span> can be used in a variety of contexts, including but not limited to:</strong></p>
+<p><span class="blue"><strong>Shiny</strong></span> <strong>can be used in a variety of contexts, including but not limited to:</strong></p>
 </div>
 <div class="fragment">
 <ol type="1">
 <li><p><span class="blue">Interactive Dashboards and Reports</span>: whether you have inputs that change over time, or need, <span class="blue">Shiny</span> can leverage user interaction by asking inputs and also providing interactivity, such as downloading results</p></li>
 <li><p><span class="blue">Prototyping Data Science products</span>: creating a <em>minimum-viable-product</em> using Shiny is one way of testing an idea before allocating a substantial amount of resources into it. Shiny Apps are simple yet powerful, and can be customized using the best resources on <code>HTML</code>, <code>JavaScript</code>, and <code>CSS</code></p></li>
-<li><p><span class="blue">Tools for non-technical stakeholders</span>: <span class="blue">Shiny</span> helpds to bridge the gap between <code>R</code> and <code>Python</code> users with non-technical audiences, allowing different agents to draw insights from the data without the need for extensive coding</p></li>
+<li><p><span class="blue">Tools for non-technical stakeholders</span>: <span class="blue">Shiny</span> helps to bridge the gap between <code>R</code> and <code>Python</code> users with non-technical audiences, allowing different agents to draw insights from the data without the need for extensive coding</p></li>
 </ol>
 </div>
 </section>
-<section id="example-1" class="slide level2">
-<h2>Example #1</h2>
-<iframe src="https://gallery.shinyapps.io/001-hello/" width="100%" height="800" frameborder="0">
+<section id="example-1-a-geographical-deep-dive-through-the-u.s" class="slide level2">
+<h2>Example #1: a geographical deep-dive through the U.S</h2>
+<iframe src="https://gallery.shinyapps.io/063-superzip-example/" width="100%" height="800" frameborder="0">
 </iframe>
 </section>
-<section id="example-2" class="slide level2">
-<h2>Example #2</h2>
+<section id="example-2-a-historical-movie-explorer" class="slide level2">
+<h2>Example #2: a historical movie explorer</h2>
 <iframe src="https://gallery.shinyapps.io/051-movie-explorer/" width="100%" height="800" frameborder="0">
 </iframe>
 </section>
-<section id="example-3" class="slide level2">
-<h2>Example #3</h2>
+<section id="example-3-a-momentum-based-backtester" class="slide level2">
+<h2>Example #3: a momentum-based backtester</h2>
 <iframe src="https://brindexes.shinyapps.io/backtester-app/" width="100%" height="800" frameborder="0">
 </iframe>
 </section>
@@ -569,9 +565,18 @@ Lucas S. Macoris (FGV-EAESP)
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><p>Every <span class="blue">Shiny</span> app has the same structure: an <code>app.R</code> file that contains <code>ui</code> and <code>server</code></p></li>
-<li><p>You can create a <span class="blue">Shiny</span> app by making a new directory and saving an <code>app.R</code> file inside it. It is recommended that each app will live in its own unique directory.</p></li>
+<li>This function uses the <code>ui</code> and <code>server</code> definition and launches a local app in your browser for quick visualization and troubleshooting</li>
 </ul>
+<p><strong>How it works</strong></p>
+<ul>
+<li><p>Every <span class="blue">Shiny</span> app has the same structure: an <code>app.R</code> file that contains <code>ui</code> and <code>server</code></p></li>
+<li><p>You can create a <span class="blue">Shiny</span> app by making a new directory and saving an <code>app.R</code> file inside it. It is recommended that each app will live in its own unique directory</p></li>
+</ul>
+</section>
+<section id="my-very-first-app" class="slide level2">
+<h2>My very first app</h2>
+<iframe src="https://gallery.shinyapps.io/001-hello/" width="100%" height="800" frameborder="0">
+</iframe>
 </section>
 <section id="a-minimal-working-example-in-finance" class="slide level2">
 <h2>A minimal working example (in finance)</h2>
@@ -593,8 +598,8 @@ Lucas S. Macoris (FGV-EAESP)
 </div>
 <div class="callout-content">
 <ol type="1">
-<li><p>We will be extensively using several contents from <span class="citation" data-cites="shiny">(<a href="#/references" role="doc-biblioref" onclick="">Wickham 2021</a>)</span>. For the sake of brevity, we will not dive into the nitty-gritty details, but rather explore some functions that can be used inside a <span class="blue">Shiny</span> context</p></li>
-<li><p>We will leverage <a href="https://gallery.shinyapps.io/assistant/">ShinyAI</a>, an <em>LLM</em> specifically desined to help developing a web framework for data driven apps. You can ask questions about how to use Shiny, to explain how certain things work, or even ask to build a Shiny app for you!</p></li>
+<li><p>We will be extensively using several contents from <span class="citation" data-cites="shiny">(<a href="#/references" role="doc-biblioref" onclick="">Wickham 2021</a>)</span>. For the sake of brevity, we will not dive into the nitty-gritty details, but rather explore some functions that can be used within a <span class="blue">Shiny</span> context</p></li>
+<li><p>We will leverage <a href="https://gallery.shinyapps.io/assistant/">ShinyAI</a>, an <em>LLM</em> specifically desined to help developing a web framework for data driven apps. You can ask questions about how to use Shiny, to explain how certain things work, or even ask to build a Shiny app for you.</p></li>
 </ol>
 </div>
 </div>
@@ -615,7 +620,7 @@ Lucas S. Macoris (FGV-EAESP)
 <li><p>Each section will contain <span class="blue">three</span> tabs:</p>
 <ol type="1">
 <li><p>The <span class="blue">Outline</span> section will provide a very quick explanation of what we need to add to the app</p></li>
-<li><p>The <span class="blue">Prompt</span> section described the prompt we will be asking <em>ShinyAI</em> to help us with</p></li>
+<li><p>The <span class="blue">Prompt</span> section describes what we will be asking <em>ShinyAI</em> to help us with - as expected, this should be a trial-and-error process between prompts</p></li>
 <li><p>Finally, the <span class="blue">Code</span> section will contain the updated code generated by <em>ShinyAI</em>, which can be fed into your <code>R</code> section</p></li>
 </ol></li>
 </ul>
@@ -802,19 +807,1151 @@ Lucas S. Macoris (FGV-EAESP)
 </div>
 </div>
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
+<section id="adding-a-stock-selector" class="slide level2">
+<h2>#1: Adding a stock selector</h2>
 <div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Outline</a></li><li><a href="#tabset-2-2">Prompt</a></li><li><a href="#tabset-2-3">Code</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-
+<ul>
+<li>You are off to a good start - however, there are some important points to consider:</li>
+</ul>
+<ol type="1">
+<li>Users may want to select stocks <em>other</em> than the <em>Magnificent Seven</em></li>
+<li>Notwithstanding, asking users to write down the list of assets is too cumbersome, let alone the fact that this is highly prone to human error</li>
+<li>Because of that, you could ask them to select from a predefined drop-down list that contains a list of valid tickers</li>
+</ol>
+<ul>
+<li>In what follows, we will add a drop-down menu that contains all <em>S&amp;P</em> ticker constituents that can be retrieved from the <code>tq_index</code> function, allowing users to select the set of stocks that will be part of the analysis</li>
+</ul>
 </div>
 <div id="tabset-2-2">
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>This is great<span class="sc">!</span> Now, I need to add a stock selector. Use the <span class="fu">tq_index</span>() <span class="cf">function</span> to retrieve all tickers from S<span class="sc">&amp;</span>P500. Add the following structure to the app<span class="sc">:</span></span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="fl">1.</span> Remove the Magnificent Seven. The default selector should have zero stocks.</span>
+<span id="cb4-4"><a></a><span class="fl">2.</span> Add a drop<span class="sc">-</span>down menu with all the stocks from the <span class="st">`</span><span class="at">tq_index('SP500')</span><span class="st">`</span> function. Allow <span class="cf">for</span> a <span class="st">"Select All"</span> button.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <div id="tabset-2-3">
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb5-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-3"><a></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb5-4"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb5-5"><a></a><span class="fu">library</span>(scales)</span>
+<span id="cb5-6"><a></a><span class="fu">library</span>(shinyWidgets) <span class="co"># Added for pickerInput</span></span>
+<span id="cb5-7"><a></a></span>
+<span id="cb5-8"><a></a><span class="co"># Get S&amp;P 500 tickers and industry information</span></span>
+<span id="cb5-9"><a></a>sp500_stocks <span class="ot">&lt;-</span> <span class="fu">tq_index</span>(<span class="st">"SP500"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a></a>  <span class="fu">select</span>(symbol, company, sector) <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a></a>  <span class="fu">arrange</span>(sector, company)</span>
+<span id="cb5-12"><a></a></span>
+<span id="cb5-13"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_sidebar</span>(</span>
+<span id="cb5-14"><a></a>  <span class="at">title =</span> <span class="st">"S&amp;P 500 Return Comparison"</span>,</span>
+<span id="cb5-15"><a></a>  </span>
+<span id="cb5-16"><a></a>  <span class="at">sidebar =</span> <span class="fu">sidebar</span>(</span>
+<span id="cb5-17"><a></a>    <span class="at">title =</span> <span class="st">"Settings"</span>,</span>
+<span id="cb5-18"><a></a>    </span>
+<span id="cb5-19"><a></a>    <span class="fu">dateRangeInput</span>(</span>
+<span id="cb5-20"><a></a>      <span class="st">"date_range"</span>,</span>
+<span id="cb5-21"><a></a>      <span class="st">"Select date range:"</span>,</span>
+<span id="cb5-22"><a></a>      <span class="at">start =</span> <span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="dv">365</span>,</span>
+<span id="cb5-23"><a></a>      <span class="at">end =</span> <span class="fu">Sys.Date</span>(),</span>
+<span id="cb5-24"><a></a>      <span class="at">min =</span> <span class="st">"2015-01-01"</span>,</span>
+<span id="cb5-25"><a></a>      <span class="at">max =</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb5-26"><a></a>    ),</span>
+<span id="cb5-27"><a></a>    </span>
+<span id="cb5-28"><a></a>    <span class="fu">hr</span>(),</span>
+<span id="cb5-29"><a></a>    </span>
+<span id="cb5-30"><a></a>    <span class="co"># Stock selector with search functionality</span></span>
+<span id="cb5-31"><a></a>    <span class="fu">pickerInput</span>(</span>
+<span id="cb5-32"><a></a>      <span class="at">inputId =</span> <span class="st">"stock_selector"</span>,</span>
+<span id="cb5-33"><a></a>      <span class="at">label =</span> <span class="st">"Select Stocks:"</span>,</span>
+<span id="cb5-34"><a></a>      <span class="at">choices =</span> <span class="fu">setNames</span>(sp500_stocks<span class="sc">$</span>symbol, <span class="fu">paste0</span>(sp500_stocks<span class="sc">$</span>symbol, <span class="st">" - "</span>, sp500_stocks<span class="sc">$</span>company)),</span>
+<span id="cb5-35"><a></a>      <span class="at">selected =</span> <span class="cn">NULL</span>, <span class="co"># Default to no selection</span></span>
+<span id="cb5-36"><a></a>      <span class="at">multiple =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-37"><a></a>      <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb5-38"><a></a>        <span class="st">`</span><span class="at">actions-box</span><span class="st">`</span> <span class="ot">=</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-39"><a></a>        <span class="st">`</span><span class="at">live-search</span><span class="st">`</span> <span class="ot">=</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-40"><a></a>        <span class="st">`</span><span class="at">selected-text-format</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"count &gt; 3"</span>,</span>
+<span id="cb5-41"><a></a>        <span class="st">`</span><span class="at">count-selected-text</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"{0} stocks selected"</span></span>
+<span id="cb5-42"><a></a>      )</span>
+<span id="cb5-43"><a></a>    )</span>
+<span id="cb5-44"><a></a>  ),</span>
+<span id="cb5-45"><a></a>  </span>
+<span id="cb5-46"><a></a>  <span class="fu">card</span>(</span>
+<span id="cb5-47"><a></a>    <span class="at">full_screen =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-48"><a></a>    <span class="fu">card_header</span>(<span class="st">"Cumulative Returns Comparison"</span>),</span>
+<span id="cb5-49"><a></a>    <span class="fu">plotOutput</span>(<span class="st">"returns_plot"</span>, <span class="at">height =</span> <span class="st">"500px"</span>)</span>
+<span id="cb5-50"><a></a>  ),</span>
+<span id="cb5-51"><a></a>  </span>
+<span id="cb5-52"><a></a>  <span class="fu">card</span>(</span>
+<span id="cb5-53"><a></a>    <span class="fu">card_header</span>(<span class="st">"Performance Summary"</span>),</span>
+<span id="cb5-54"><a></a>    <span class="fu">dataTableOutput</span>(<span class="st">"data_summary"</span>)</span>
+<span id="cb5-55"><a></a>  )</span>
+<span id="cb5-56"><a></a>)</span>
+<span id="cb5-57"><a></a></span>
+<span id="cb5-58"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb5-59"><a></a>  </span>
+<span id="cb5-60"><a></a>  <span class="co"># Reactive to store current stock selection</span></span>
+<span id="cb5-61"><a></a>  selected_stocks <span class="ot">&lt;-</span> <span class="fu">reactiveVal</span>(<span class="cn">NULL</span>) <span class="co"># Start with no stocks selected</span></span>
+<span id="cb5-62"><a></a>  </span>
+<span id="cb5-63"><a></a>  <span class="co"># Update selected_stocks when stock_selector changes</span></span>
+<span id="cb5-64"><a></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>stock_selector, {</span>
+<span id="cb5-65"><a></a>    <span class="fu">selected_stocks</span>(input<span class="sc">$</span>stock_selector)</span>
+<span id="cb5-66"><a></a>  })</span>
+<span id="cb5-67"><a></a>  </span>
+<span id="cb5-68"><a></a>  <span class="co"># Get full list of stocks to retrieve</span></span>
+<span id="cb5-69"><a></a>  stocks_to_get <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb5-70"><a></a>    stocks <span class="ot">&lt;-</span> <span class="fu">selected_stocks</span>()</span>
+<span id="cb5-71"><a></a>    </span>
+<span id="cb5-72"><a></a>    <span class="co"># Ensure we have at least one stock to display</span></span>
+<span id="cb5-73"><a></a>    <span class="cf">if</span> (<span class="fu">length</span>(stocks) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb5-74"><a></a>      <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb5-75"><a></a>    }</span>
+<span id="cb5-76"><a></a>    </span>
+<span id="cb5-77"><a></a>    <span class="fu">return</span>(stocks)</span>
+<span id="cb5-78"><a></a>  })</span>
+<span id="cb5-79"><a></a>  </span>
+<span id="cb5-80"><a></a>  <span class="co"># Reactive expression to get and process stock data</span></span>
+<span id="cb5-81"><a></a>  stock_data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb5-82"><a></a>    <span class="co"># Validate that we have dates and stocks</span></span>
+<span id="cb5-83"><a></a>    <span class="fu">req</span>(input<span class="sc">$</span>date_range)</span>
+<span id="cb5-84"><a></a>    <span class="fu">req</span>(<span class="fu">length</span>(<span class="fu">stocks_to_get</span>()) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb5-85"><a></a>    </span>
+<span id="cb5-86"><a></a>    <span class="co"># Download data</span></span>
+<span id="cb5-87"><a></a>    tq_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(</span>
+<span id="cb5-88"><a></a>      <span class="fu">stocks_to_get</span>(),</span>
+<span id="cb5-89"><a></a>      <span class="at">from =</span> input<span class="sc">$</span>date_range[<span class="dv">1</span>],</span>
+<span id="cb5-90"><a></a>      <span class="at">to =</span> input<span class="sc">$</span>date_range[<span class="dv">2</span>],</span>
+<span id="cb5-91"><a></a>      <span class="at">get =</span> <span class="st">"stock.prices"</span></span>
+<span id="cb5-92"><a></a>    )</span>
+<span id="cb5-93"><a></a>    </span>
+<span id="cb5-94"><a></a>    <span class="co"># Check if we got data</span></span>
+<span id="cb5-95"><a></a>    <span class="fu">req</span>(<span class="fu">nrow</span>(tq_data) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb5-96"><a></a>    </span>
+<span id="cb5-97"><a></a>    <span class="co"># Calculate daily returns</span></span>
+<span id="cb5-98"><a></a>    returns_data <span class="ot">&lt;-</span> tq_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-99"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb5-100"><a></a>      <span class="fu">tq_transmute</span>(</span>
+<span id="cb5-101"><a></a>        <span class="at">select =</span> adjusted,</span>
+<span id="cb5-102"><a></a>        <span class="at">mutate_fun =</span> periodReturn,</span>
+<span id="cb5-103"><a></a>        <span class="at">period =</span> <span class="st">"daily"</span>,</span>
+<span id="cb5-104"><a></a>        <span class="at">col_rename =</span> <span class="st">"daily_return"</span></span>
+<span id="cb5-105"><a></a>      )</span>
+<span id="cb5-106"><a></a>    </span>
+<span id="cb5-107"><a></a>    <span class="co"># Calculate cumulative returns</span></span>
+<span id="cb5-108"><a></a>    cum_returns <span class="ot">&lt;-</span> returns_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-109"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb5-110"><a></a>      <span class="fu">mutate</span>(<span class="at">cumulative_return =</span> <span class="fu">cumprod</span>(<span class="dv">1</span> <span class="sc">+</span> daily_return) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-111"><a></a>      <span class="fu">ungroup</span>()</span>
+<span id="cb5-112"><a></a>    </span>
+<span id="cb5-113"><a></a>    <span class="fu">list</span>(</span>
+<span id="cb5-114"><a></a>      <span class="at">raw_data =</span> tq_data,</span>
+<span id="cb5-115"><a></a>      <span class="at">cum_returns =</span> cum_returns</span>
+<span id="cb5-116"><a></a>    )</span>
+<span id="cb5-117"><a></a>  })</span>
+<span id="cb5-118"><a></a>  </span>
+<span id="cb5-119"><a></a>  <span class="co"># Get company names for better labels</span></span>
+<span id="cb5-120"><a></a>  stock_names <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb5-121"><a></a>    </span>
+<span id="cb5-122"><a></a>    <span class="co"># Create lookup from sp500 stocks</span></span>
+<span id="cb5-123"><a></a>    name_lookup <span class="ot">&lt;-</span> <span class="fu">setNames</span>(sp500_stocks<span class="sc">$</span>company, sp500_stocks<span class="sc">$</span>symbol)</span>
+<span id="cb5-124"><a></a>    </span>
+<span id="cb5-125"><a></a>  })</span>
+<span id="cb5-126"><a></a>  </span>
+<span id="cb5-127"><a></a>  <span class="co"># Generate returns plot</span></span>
+<span id="cb5-128"><a></a>  output<span class="sc">$</span>returns_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb5-129"><a></a>    <span class="fu">req</span>(<span class="fu">stock_data</span>())</span>
+<span id="cb5-130"><a></a>    </span>
+<span id="cb5-131"><a></a>    cum_returns <span class="ot">&lt;-</span> <span class="fu">stock_data</span>()<span class="sc">$</span>cum_returns</span>
+<span id="cb5-132"><a></a>    names_lookup <span class="ot">&lt;-</span> <span class="fu">stock_names</span>()</span>
+<span id="cb5-133"><a></a>    </span>
+<span id="cb5-134"><a></a>    <span class="co"># Limit the number of stocks shown for better visualization</span></span>
+<span id="cb5-135"><a></a>    <span class="cf">if</span>(<span class="fu">nrow</span>(cum_returns) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb5-136"><a></a>      <span class="fu">ggplot</span>(cum_returns, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> cumulative_return, <span class="at">color =</span> symbol)) <span class="sc">+</span></span>
+<span id="cb5-137"><a></a>        <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-138"><a></a>        <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent) <span class="sc">+</span></span>
+<span id="cb5-139"><a></a>        <span class="fu">scale_color_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">ifelse</span>(x <span class="sc">%in%</span> <span class="fu">names</span>(names_lookup), names_lookup[x], x)) <span class="sc">+</span></span>
+<span id="cb5-140"><a></a>        <span class="fu">labs</span>(</span>
+<span id="cb5-141"><a></a>          <span class="at">title =</span> <span class="st">"Cumulative Returns Comparison"</span>,</span>
+<span id="cb5-142"><a></a>          <span class="at">x =</span> <span class="st">"Date"</span>,</span>
+<span id="cb5-143"><a></a>          <span class="at">y =</span> <span class="st">"Cumulative Return"</span>,</span>
+<span id="cb5-144"><a></a>          <span class="at">color =</span> <span class="st">"Company"</span></span>
+<span id="cb5-145"><a></a>        ) <span class="sc">+</span></span>
+<span id="cb5-146"><a></a>        <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-147"><a></a>        <span class="fu">theme</span>(</span>
+<span id="cb5-148"><a></a>          <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb5-149"><a></a>          <span class="at">legend.box =</span> <span class="st">"horizontal"</span>,</span>
+<span id="cb5-150"><a></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb5-151"><a></a>          <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb5-152"><a></a>          <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb5-153"><a></a>        )</span>
+<span id="cb5-154"><a></a>    }</span>
+<span id="cb5-155"><a></a>  })</span>
+<span id="cb5-156"><a></a>  </span>
+<span id="cb5-157"><a></a>  <span class="co"># Generate data summary</span></span>
+<span id="cb5-158"><a></a>  output<span class="sc">$</span>data_summary <span class="ot">&lt;-</span> <span class="fu">renderDataTable</span>({</span>
+<span id="cb5-159"><a></a>    <span class="fu">req</span>(<span class="fu">stock_data</span>())</span>
+<span id="cb5-160"><a></a>    </span>
+<span id="cb5-161"><a></a>    cum_returns <span class="ot">&lt;-</span> <span class="fu">stock_data</span>()<span class="sc">$</span>cum_returns</span>
+<span id="cb5-162"><a></a>    names_lookup <span class="ot">&lt;-</span> <span class="fu">stock_names</span>()</span>
+<span id="cb5-163"><a></a>    </span>
+<span id="cb5-164"><a></a>    <span class="co"># Summary statistics for each asset</span></span>
+<span id="cb5-165"><a></a>    summary_data <span class="ot">&lt;-</span> cum_returns <span class="sc">%&gt;%</span></span>
+<span id="cb5-166"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb5-167"><a></a>      <span class="fu">summarize</span>(</span>
+<span id="cb5-168"><a></a>        <span class="at">Start_Date =</span> <span class="fu">min</span>(date),</span>
+<span id="cb5-169"><a></a>        <span class="at">End_Date =</span> <span class="fu">max</span>(date),</span>
+<span id="cb5-170"><a></a>        <span class="at">Total_Return =</span> <span class="fu">last</span>(cumulative_return) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb5-171"><a></a>        <span class="at">Annualized_Return =</span> ((<span class="dv">1</span> <span class="sc">+</span> <span class="fu">last</span>(cumulative_return))<span class="sc">^</span>(<span class="dv">252</span> <span class="sc">/</span> <span class="fu">n</span>())) <span class="sc">-</span> <span class="dv">1</span> <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb5-172"><a></a>        <span class="at">Volatility =</span> <span class="fu">sd</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">252</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb5-173"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-174"><a></a>      <span class="fu">mutate</span>(</span>
+<span id="cb5-175"><a></a>        <span class="at">Company =</span> <span class="fu">ifelse</span>(symbol <span class="sc">%in%</span> <span class="fu">names</span>(names_lookup), names_lookup[symbol], symbol),</span>
+<span id="cb5-176"><a></a>        <span class="at">Total_Return =</span> <span class="fu">percent</span>(Total_Return, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb5-177"><a></a>        <span class="at">Annualized_Return =</span> <span class="fu">percent</span>(Annualized_Return, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb5-178"><a></a>        <span class="at">Volatility =</span> <span class="fu">percent</span>(Volatility, <span class="at">accuracy =</span> <span class="fl">0.01</span>)</span>
+<span id="cb5-179"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-180"><a></a>      <span class="fu">select</span>(symbol, Company, Start_Date, End_Date, Total_Return, Annualized_Return, Volatility)</span>
+<span id="cb5-181"><a></a>  })</span>
+<span id="cb5-182"><a></a>}</span>
+<span id="cb5-183"><a></a></span>
+<span id="cb5-184"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-interactivity" class="slide level2">
+<h2>#2: Adding Interactivity</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Outline</a></li><li><a href="#tabset-3-2">Prompt</a></li><li><a href="#tabset-3-3">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<ul>
+<li><p><em>Hooray</em>! You have a minimal working solution for all <em>S&amp;P 500</em> stocks covered in <em>Yahoo! Finance</em>. It is now time to look at the <em>aesthetics</em>:</p>
+<ol type="1">
+<li>As you increase the number of stocks, understanding the line chart becomes increasingly difficult</li>
+<li>One way to enhance the user experience is to add <em>interactivity</em> to your chart, allowing users to hover on specific data points, filtering the date ranges directly in the chart, and zoom in/out on a specific region</li>
+</ol></li>
+<li><p>In what follows, we will change the charting engine from <code>ggplot2</code> to <code>highcharter</code>, a solution that allows for interactive time-series visualization</p></li>
+</ul>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>This is great<span class="sc">!</span> Now, I need to change the way that the chart aesthetics are looking. Please considers the instructions below<span class="sc">:</span></span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a>  <span class="fl">1.</span> Change the plotting engine from ggplot2 to highcharter, using the <span class="st">`</span><span class="at">hchart</span><span class="st">`</span> <span class="cf">function</span> to create a line chart</span>
+<span id="cb6-4"><a></a>  <span class="fl">2.</span> Allow <span class="cf">for</span> time range selectors and, when users hover on a specific data point, use the tooltip to show the cumulative return up to that point, and the stock name. The tooltip and the y<span class="sc">-</span>axis must show the cumulative returns with the following format<span class="sc">:</span> <span class="st">'0.X%"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb7-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-3"><a></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb7-4"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb7-5"><a></a><span class="fu">library</span>(scales)</span>
+<span id="cb7-6"><a></a><span class="fu">library</span>(shinyWidgets) <span class="co"># For pickerInput</span></span>
+<span id="cb7-7"><a></a><span class="fu">library</span>(highcharter) <span class="co"># For interactive charts</span></span>
+<span id="cb7-8"><a></a></span>
+<span id="cb7-9"><a></a><span class="co"># Get S&amp;P 500 tickers and industry information</span></span>
+<span id="cb7-10"><a></a>sp500_stocks <span class="ot">&lt;-</span> <span class="fu">tq_index</span>(<span class="st">"SP500"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a></a>  <span class="fu">select</span>(symbol, company, sector) <span class="sc">%&gt;%</span></span>
+<span id="cb7-12"><a></a>  <span class="fu">arrange</span>(sector, company)</span>
+<span id="cb7-13"><a></a></span>
+<span id="cb7-14"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_sidebar</span>(</span>
+<span id="cb7-15"><a></a>  <span class="at">title =</span> <span class="st">"S&amp;P 500 Return Comparison"</span>,</span>
+<span id="cb7-16"><a></a>  </span>
+<span id="cb7-17"><a></a>  <span class="at">sidebar =</span> <span class="fu">sidebar</span>(</span>
+<span id="cb7-18"><a></a>    <span class="at">title =</span> <span class="st">"Settings"</span>,</span>
+<span id="cb7-19"><a></a>    </span>
+<span id="cb7-20"><a></a>    <span class="fu">dateRangeInput</span>(</span>
+<span id="cb7-21"><a></a>      <span class="st">"date_range"</span>,</span>
+<span id="cb7-22"><a></a>      <span class="st">"Select date range:"</span>,</span>
+<span id="cb7-23"><a></a>      <span class="at">start =</span> <span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="dv">365</span>,</span>
+<span id="cb7-24"><a></a>      <span class="at">end =</span> <span class="fu">Sys.Date</span>(),</span>
+<span id="cb7-25"><a></a>      <span class="at">min =</span> <span class="st">"2015-01-01"</span>,</span>
+<span id="cb7-26"><a></a>      <span class="at">max =</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb7-27"><a></a>    ),</span>
+<span id="cb7-28"><a></a>    </span>
+<span id="cb7-29"><a></a>    <span class="fu">hr</span>(),</span>
+<span id="cb7-30"><a></a>    </span>
+<span id="cb7-31"><a></a>    <span class="co"># Stock selector with search functionality</span></span>
+<span id="cb7-32"><a></a>    <span class="fu">pickerInput</span>(</span>
+<span id="cb7-33"><a></a>      <span class="at">inputId =</span> <span class="st">"stock_selector"</span>,</span>
+<span id="cb7-34"><a></a>      <span class="at">label =</span> <span class="st">"Select Stocks:"</span>,</span>
+<span id="cb7-35"><a></a>      <span class="at">choices =</span> <span class="fu">setNames</span>(sp500_stocks<span class="sc">$</span>symbol, <span class="fu">paste0</span>(sp500_stocks<span class="sc">$</span>symbol, <span class="st">" - "</span>, sp500_stocks<span class="sc">$</span>company)),</span>
+<span id="cb7-36"><a></a>      <span class="at">selected =</span> <span class="cn">NULL</span>, <span class="co"># Default to no selection</span></span>
+<span id="cb7-37"><a></a>      <span class="at">multiple =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-38"><a></a>      <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb7-39"><a></a>        <span class="st">`</span><span class="at">actions-box</span><span class="st">`</span> <span class="ot">=</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-40"><a></a>        <span class="st">`</span><span class="at">live-search</span><span class="st">`</span> <span class="ot">=</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-41"><a></a>        <span class="st">`</span><span class="at">selected-text-format</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"count &gt; 3"</span>,</span>
+<span id="cb7-42"><a></a>        <span class="st">`</span><span class="at">count-selected-text</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"{0} stocks selected"</span></span>
+<span id="cb7-43"><a></a>      )</span>
+<span id="cb7-44"><a></a>    )</span>
+<span id="cb7-45"><a></a>  ),</span>
+<span id="cb7-46"><a></a>  </span>
+<span id="cb7-47"><a></a>  <span class="fu">card</span>(</span>
+<span id="cb7-48"><a></a>    <span class="at">full_screen =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-49"><a></a>    <span class="fu">card_header</span>(<span class="st">"Cumulative Returns Comparison"</span>),</span>
+<span id="cb7-50"><a></a>    <span class="fu">highchartOutput</span>(<span class="st">"returns_plot"</span>, <span class="at">height =</span> <span class="st">"500px"</span>)</span>
+<span id="cb7-51"><a></a>  ),</span>
+<span id="cb7-52"><a></a>  </span>
+<span id="cb7-53"><a></a>  <span class="fu">card</span>(</span>
+<span id="cb7-54"><a></a>    <span class="fu">card_header</span>(<span class="st">"Performance Summary"</span>),</span>
+<span id="cb7-55"><a></a>    <span class="fu">dataTableOutput</span>(<span class="st">"data_summary"</span>)</span>
+<span id="cb7-56"><a></a>  )</span>
+<span id="cb7-57"><a></a>)</span>
+<span id="cb7-58"><a></a></span>
+<span id="cb7-59"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb7-60"><a></a>  </span>
+<span id="cb7-61"><a></a>  <span class="co"># Reactive to store current stock selection</span></span>
+<span id="cb7-62"><a></a>  selected_stocks <span class="ot">&lt;-</span> <span class="fu">reactiveVal</span>(<span class="cn">NULL</span>) <span class="co"># Start with no stocks selected</span></span>
+<span id="cb7-63"><a></a>  </span>
+<span id="cb7-64"><a></a>  <span class="co"># Update selected_stocks when stock_selector changes</span></span>
+<span id="cb7-65"><a></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>stock_selector, {</span>
+<span id="cb7-66"><a></a>    <span class="fu">selected_stocks</span>(input<span class="sc">$</span>stock_selector)</span>
+<span id="cb7-67"><a></a>  })</span>
+<span id="cb7-68"><a></a>  </span>
+<span id="cb7-69"><a></a>  <span class="co"># Get full list of stocks to retrieve</span></span>
+<span id="cb7-70"><a></a>  stocks_to_get <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb7-71"><a></a>    stocks <span class="ot">&lt;-</span> <span class="fu">selected_stocks</span>()</span>
+<span id="cb7-72"><a></a>    </span>
+<span id="cb7-73"><a></a>    <span class="co"># Ensure we have at least one stock to display</span></span>
+<span id="cb7-74"><a></a>    <span class="cf">if</span> (<span class="fu">length</span>(stocks) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb7-75"><a></a>      <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb7-76"><a></a>    }</span>
+<span id="cb7-77"><a></a>    </span>
+<span id="cb7-78"><a></a>    <span class="fu">return</span>(stocks)</span>
+<span id="cb7-79"><a></a>  })</span>
+<span id="cb7-80"><a></a>  </span>
+<span id="cb7-81"><a></a>  <span class="co"># Reactive expression to get and process stock data</span></span>
+<span id="cb7-82"><a></a>  stock_data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb7-83"><a></a>    <span class="co"># Validate that we have dates and stocks</span></span>
+<span id="cb7-84"><a></a>    <span class="fu">req</span>(input<span class="sc">$</span>date_range)</span>
+<span id="cb7-85"><a></a>    <span class="fu">req</span>(<span class="fu">length</span>(<span class="fu">stocks_to_get</span>()) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb7-86"><a></a>    </span>
+<span id="cb7-87"><a></a>    <span class="co"># Download data</span></span>
+<span id="cb7-88"><a></a>    tq_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(</span>
+<span id="cb7-89"><a></a>      <span class="fu">stocks_to_get</span>(),</span>
+<span id="cb7-90"><a></a>      <span class="at">from =</span> input<span class="sc">$</span>date_range[<span class="dv">1</span>],</span>
+<span id="cb7-91"><a></a>      <span class="at">to =</span> input<span class="sc">$</span>date_range[<span class="dv">2</span>],</span>
+<span id="cb7-92"><a></a>      <span class="at">get =</span> <span class="st">"stock.prices"</span></span>
+<span id="cb7-93"><a></a>    )</span>
+<span id="cb7-94"><a></a>    </span>
+<span id="cb7-95"><a></a>    <span class="co"># Check if we got data</span></span>
+<span id="cb7-96"><a></a>    <span class="fu">req</span>(<span class="fu">nrow</span>(tq_data) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb7-97"><a></a>    </span>
+<span id="cb7-98"><a></a>    <span class="co"># Calculate returns</span></span>
+<span id="cb7-99"><a></a>    returns_data <span class="ot">&lt;-</span> tq_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-100"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb7-101"><a></a>      <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb7-102"><a></a>      <span class="co"># Calculate daily returns</span></span>
+<span id="cb7-103"><a></a>      <span class="fu">tq_transmute</span>(</span>
+<span id="cb7-104"><a></a>        <span class="at">select =</span> adjusted,</span>
+<span id="cb7-105"><a></a>        <span class="at">mutate_fun =</span> periodReturn,</span>
+<span id="cb7-106"><a></a>        <span class="at">period =</span> <span class="st">"daily"</span>,</span>
+<span id="cb7-107"><a></a>        <span class="at">col_rename =</span> <span class="st">"daily_return"</span></span>
+<span id="cb7-108"><a></a>      ) </span>
+<span id="cb7-109"><a></a>    </span>
+<span id="cb7-110"><a></a>    <span class="co"># Join the returns data with original price data</span></span>
+<span id="cb7-111"><a></a>    returns_with_prices <span class="ot">&lt;-</span> returns_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-112"><a></a>      <span class="fu">left_join</span>(</span>
+<span id="cb7-113"><a></a>        tq_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(symbol, date, adjusted),</span>
+<span id="cb7-114"><a></a>        <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"symbol"</span>, <span class="st">"date"</span>)</span>
+<span id="cb7-115"><a></a>      )</span>
+<span id="cb7-116"><a></a>    </span>
+<span id="cb7-117"><a></a>    <span class="co"># Calculate cumulative returns from the first date of the period</span></span>
+<span id="cb7-118"><a></a>    cum_returns <span class="ot">&lt;-</span> returns_with_prices <span class="sc">%&gt;%</span></span>
+<span id="cb7-119"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb7-120"><a></a>      <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb7-121"><a></a>      <span class="fu">mutate</span>(</span>
+<span id="cb7-122"><a></a>        <span class="co"># For each stock, calculate the cumulative return starting from the first date</span></span>
+<span id="cb7-123"><a></a>        <span class="at">cumulative_return =</span> <span class="fu">cumprod</span>(<span class="dv">1</span> <span class="sc">+</span> daily_return) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb7-124"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-125"><a></a>      <span class="fu">ungroup</span>()</span>
+<span id="cb7-126"><a></a>    </span>
+<span id="cb7-127"><a></a>    <span class="fu">list</span>(</span>
+<span id="cb7-128"><a></a>      <span class="at">raw_data =</span> tq_data,</span>
+<span id="cb7-129"><a></a>      <span class="at">cum_returns =</span> cum_returns</span>
+<span id="cb7-130"><a></a>    )</span>
+<span id="cb7-131"><a></a>  })</span>
+<span id="cb7-132"><a></a>  </span>
+<span id="cb7-133"><a></a>  <span class="co"># Get company names for better labels</span></span>
+<span id="cb7-134"><a></a>  stock_names <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb7-135"><a></a>    <span class="co"># Create lookup from sp500 stocks</span></span>
+<span id="cb7-136"><a></a>    name_lookup <span class="ot">&lt;-</span> <span class="fu">setNames</span>(sp500_stocks<span class="sc">$</span>company, sp500_stocks<span class="sc">$</span>symbol)</span>
+<span id="cb7-137"><a></a>    </span>
+<span id="cb7-138"><a></a>    <span class="co"># Return</span></span>
+<span id="cb7-139"><a></a>    name_lookup</span>
+<span id="cb7-140"><a></a>  })</span>
+<span id="cb7-141"><a></a>  </span>
+<span id="cb7-142"><a></a>  <span class="co"># Generate returns plot with highcharter</span></span>
+<span id="cb7-143"><a></a>  output<span class="sc">$</span>returns_plot <span class="ot">&lt;-</span> <span class="fu">renderHighchart</span>({</span>
+<span id="cb7-144"><a></a>    <span class="fu">req</span>(<span class="fu">stock_data</span>())</span>
+<span id="cb7-145"><a></a>    </span>
+<span id="cb7-146"><a></a>    cum_returns <span class="ot">&lt;-</span> <span class="fu">stock_data</span>()<span class="sc">$</span>cum_returns</span>
+<span id="cb7-147"><a></a>    names_lookup <span class="ot">&lt;-</span> <span class="fu">stock_names</span>()</span>
+<span id="cb7-148"><a></a>    </span>
+<span id="cb7-149"><a></a>    <span class="co"># Convert to format suitable for highcharter</span></span>
+<span id="cb7-150"><a></a>    <span class="cf">if</span>(<span class="fu">nrow</span>(cum_returns) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb7-151"><a></a>      <span class="co"># Create highchart</span></span>
+<span id="cb7-152"><a></a>      hc <span class="ot">&lt;-</span> <span class="fu">highchart</span>(<span class="at">type =</span> <span class="st">"stock"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-153"><a></a>        <span class="fu">hc_title</span>(<span class="at">text =</span> <span class="st">"Cumulative Returns Comparison"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-154"><a></a>        <span class="fu">hc_xAxis</span>(<span class="at">type =</span> <span class="st">"datetime"</span>, </span>
+<span id="cb7-155"><a></a>                 <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Date"</span>),</span>
+<span id="cb7-156"><a></a>                 <span class="at">dateTimeLabelFormats =</span> <span class="fu">list</span>(</span>
+<span id="cb7-157"><a></a>                   <span class="at">day =</span> <span class="st">'%e of %b'</span>,</span>
+<span id="cb7-158"><a></a>                   <span class="at">month =</span> <span class="st">'%b %Y'</span>,</span>
+<span id="cb7-159"><a></a>                   <span class="at">year =</span> <span class="st">'%Y'</span></span>
+<span id="cb7-160"><a></a>                 )) <span class="sc">%&gt;%</span></span>
+<span id="cb7-161"><a></a>        <span class="fu">hc_yAxis</span>(</span>
+<span id="cb7-162"><a></a>          <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Cumulative Return"</span>),</span>
+<span id="cb7-163"><a></a>          <span class="at">labels =</span> <span class="fu">list</span>(<span class="at">formatter =</span> <span class="fu">JS</span>(<span class="st">"function() { return (this.value * 100).toFixed(2) + '%'; }"</span>))</span>
+<span id="cb7-164"><a></a>        ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-165"><a></a>        <span class="fu">hc_tooltip</span>(</span>
+<span id="cb7-166"><a></a>          <span class="at">headerFormat =</span> <span class="st">'&lt;span style="font-size: 10px"&gt;{point.key}&lt;/span&gt;&lt;br/&gt;'</span>,</span>
+<span id="cb7-167"><a></a>          <span class="at">pointFormatter =</span> <span class="fu">JS</span>(<span class="st">"function() { return '&lt;span style=</span><span class="sc">\"</span><span class="st">color:' + this.color + '</span><span class="sc">\"</span><span class="st">&gt;●&lt;/span&gt; &lt;b&gt;' + this.series.name + '&lt;/b&gt;: &lt;b&gt;' + (this.y * 100).toFixed(2) + '%&lt;/b&gt;&lt;br/&gt;'; }"</span>),</span>
+<span id="cb7-168"><a></a>          <span class="at">shared =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-169"><a></a>          <span class="at">crosshairs =</span> <span class="cn">TRUE</span></span>
+<span id="cb7-170"><a></a>        ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-171"><a></a>        <span class="fu">hc_plotOptions</span>(<span class="at">series =</span> <span class="fu">list</span>(</span>
+<span id="cb7-172"><a></a>          <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">enabled =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb7-173"><a></a>          <span class="at">states =</span> <span class="fu">list</span>(<span class="at">hover =</span> <span class="fu">list</span>(<span class="at">lineWidthPlus =</span> <span class="dv">0</span>))</span>
+<span id="cb7-174"><a></a>        )) <span class="sc">%&gt;%</span></span>
+<span id="cb7-175"><a></a>        <span class="fu">hc_legend</span>(<span class="at">enabled =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-176"><a></a>      </span>
+<span id="cb7-177"><a></a>      <span class="co"># Add data for each stock</span></span>
+<span id="cb7-178"><a></a>      <span class="cf">for</span>(stock <span class="cf">in</span> <span class="fu">unique</span>(cum_returns<span class="sc">$</span>symbol)) {</span>
+<span id="cb7-179"><a></a>        stock_data <span class="ot">&lt;-</span> cum_returns <span class="sc">%&gt;%</span></span>
+<span id="cb7-180"><a></a>          <span class="fu">filter</span>(symbol <span class="sc">==</span> stock) <span class="sc">%&gt;%</span></span>
+<span id="cb7-181"><a></a>          <span class="fu">select</span>(date, cumulative_return)</span>
+<span id="cb7-182"><a></a>        </span>
+<span id="cb7-183"><a></a>        <span class="co"># Get proper company name</span></span>
+<span id="cb7-184"><a></a>        company_name <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(stock <span class="sc">%in%</span> <span class="fu">names</span>(names_lookup), </span>
+<span id="cb7-185"><a></a>                               names_lookup[stock], </span>
+<span id="cb7-186"><a></a>                               stock)</span>
+<span id="cb7-187"><a></a>        </span>
+<span id="cb7-188"><a></a>        <span class="co"># Format data for highcharter - simplified approach</span></span>
+<span id="cb7-189"><a></a>        hc_data <span class="ot">&lt;-</span> stock_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-190"><a></a>          <span class="fu">mutate</span>(</span>
+<span id="cb7-191"><a></a>            <span class="at">x =</span> <span class="fu">datetime_to_timestamp</span>(date),</span>
+<span id="cb7-192"><a></a>            <span class="at">y =</span> cumulative_return  <span class="co"># Keep as decimal for proper calculations</span></span>
+<span id="cb7-193"><a></a>          ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-194"><a></a>          <span class="fu">select</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb7-195"><a></a>          <span class="fu">list_parse2</span>()</span>
+<span id="cb7-196"><a></a>        </span>
+<span id="cb7-197"><a></a>        <span class="co"># Add series to chart</span></span>
+<span id="cb7-198"><a></a>        hc <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
+<span id="cb7-199"><a></a>          <span class="fu">hc_add_series</span>(</span>
+<span id="cb7-200"><a></a>            <span class="at">data =</span> hc_data,</span>
+<span id="cb7-201"><a></a>            <span class="at">name =</span> <span class="fu">paste0</span>(stock, <span class="st">" - "</span>, company_name),</span>
+<span id="cb7-202"><a></a>            <span class="at">type =</span> <span class="st">"line"</span></span>
+<span id="cb7-203"><a></a>          )</span>
+<span id="cb7-204"><a></a>      }</span>
+<span id="cb7-205"><a></a>      </span>
+<span id="cb7-206"><a></a>      <span class="co"># Return the chart</span></span>
+<span id="cb7-207"><a></a>      hc</span>
+<span id="cb7-208"><a></a>    }</span>
+<span id="cb7-209"><a></a>  })</span>
+<span id="cb7-210"><a></a>  </span>
+<span id="cb7-211"><a></a>  <span class="co"># Generate data summary</span></span>
+<span id="cb7-212"><a></a>  output<span class="sc">$</span>data_summary <span class="ot">&lt;-</span> <span class="fu">renderDataTable</span>({</span>
+<span id="cb7-213"><a></a>    <span class="fu">req</span>(<span class="fu">stock_data</span>())</span>
+<span id="cb7-214"><a></a>    </span>
+<span id="cb7-215"><a></a>    cum_returns <span class="ot">&lt;-</span> <span class="fu">stock_data</span>()<span class="sc">$</span>cum_returns</span>
+<span id="cb7-216"><a></a>    names_lookup <span class="ot">&lt;-</span> <span class="fu">stock_names</span>()</span>
+<span id="cb7-217"><a></a>    </span>
+<span id="cb7-218"><a></a>    <span class="co"># Summary statistics for each asset</span></span>
+<span id="cb7-219"><a></a>    summary_data <span class="ot">&lt;-</span> cum_returns <span class="sc">%&gt;%</span></span>
+<span id="cb7-220"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb7-221"><a></a>      <span class="fu">summarize</span>(</span>
+<span id="cb7-222"><a></a>        <span class="at">Start_Date =</span> <span class="fu">min</span>(date),</span>
+<span id="cb7-223"><a></a>        <span class="at">End_Date =</span> <span class="fu">max</span>(date),</span>
+<span id="cb7-224"><a></a>        <span class="at">Total_Return =</span> <span class="fu">last</span>(cumulative_return) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb7-225"><a></a>        <span class="at">Annualized_Return =</span> ((<span class="dv">1</span> <span class="sc">+</span> <span class="fu">last</span>(cumulative_return))<span class="sc">^</span>(<span class="dv">252</span> <span class="sc">/</span> <span class="fu">n</span>())) <span class="sc">-</span> <span class="dv">1</span> <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb7-226"><a></a>        <span class="at">Volatility =</span> <span class="fu">sd</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">252</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb7-227"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-228"><a></a>      <span class="fu">mutate</span>(</span>
+<span id="cb7-229"><a></a>        <span class="at">Company =</span> <span class="fu">ifelse</span>(symbol <span class="sc">%in%</span> <span class="fu">names</span>(names_lookup), names_lookup[symbol], symbol),</span>
+<span id="cb7-230"><a></a>        <span class="at">Total_Return =</span> <span class="fu">percent</span>(Total_Return, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb7-231"><a></a>        <span class="at">Annualized_Return =</span> <span class="fu">percent</span>(Annualized_Return, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb7-232"><a></a>        <span class="at">Volatility =</span> <span class="fu">percent</span>(Volatility, <span class="at">accuracy =</span> <span class="fl">0.01</span>)</span>
+<span id="cb7-233"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-234"><a></a>      <span class="fu">select</span>(symbol, Company, Start_Date, End_Date, Total_Return, Annualized_Return, Volatility)</span>
+<span id="cb7-235"><a></a>  })</span>
+<span id="cb7-236"><a></a>}</span>
+<span id="cb7-237"><a></a></span>
+<span id="cb7-238"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="aesthetic-adjustments" class="slide level2">
+<h2>#3: Aesthetic Adjustments</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Outline</a></li><li><a href="#tabset-4-2">Prompt</a></li><li><a href="#tabset-4-3">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<ul>
+<li><p><span class="blue">You’re on a streak!</span> You app is looking <em>neat</em>: you should consider showcasing that!</p></li>
+<li><p>Before you do that, let’s make sure users can get the most of your app while interacting:</p>
+<ol type="1">
+<li>The <span class="blue">width</span> of the sidebar needs to be increased a little bit to allow for text to be displayed</li>
+<li>The dropdown menu section needs to be more organized</li>
+<li>Finally, you can also make the charts and the table to look nicer by changing the size of the line charts and renaming the column names to be displayed in <em>Title Format</em></li>
+</ol></li>
+<li><p>In what follows, we will ask for these changes with simple instructions to tweak the current code</p></li>
+</ul>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>Ok, this is looking neat<span class="sc">!</span> Now, I need you to change a few points<span class="sc">:</span></span>
+<span id="cb8-2"><a></a></span>
+<span id="cb8-3"><a></a>  <span class="fl">1.</span> Increase the width of the sidebar by <span class="dv">25</span>%</span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a>  <span class="fl">2.</span> Use the <span class="fu">pickerInput</span>() from the shinyWidgets package to select the stocks. It should be a combination of the form <span class="st">"ticker (Company)"</span></span>
+<span id="cb8-6"><a></a></span>
+<span id="cb8-7"><a></a>  <span class="fl">3.</span> Increase the size of the lines <span class="cf">in</span> the <span class="fu">hchart</span>() call</span>
+<span id="cb8-8"><a></a>  </span>
+<span id="cb8-9"><a></a>  <span class="fl">4.</span> Rename the column names <span class="cf">in</span> the table and make it <span class="cf">in</span> proper <span class="fu">format</span> (e.g, remove underlines and ensure Title Format)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb9-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-3"><a></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb9-4"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb9-5"><a></a><span class="fu">library</span>(scales)</span>
+<span id="cb9-6"><a></a><span class="fu">library</span>(shinyWidgets) <span class="co"># For pickerInput and dropdownButton</span></span>
+<span id="cb9-7"><a></a><span class="fu">library</span>(highcharter) <span class="co"># For interactive charts</span></span>
+<span id="cb9-8"><a></a></span>
+<span id="cb9-9"><a></a><span class="co"># Get S&amp;P 500 tickers and industry information</span></span>
+<span id="cb9-10"><a></a>sp500_stocks <span class="ot">&lt;-</span> <span class="fu">tq_index</span>(<span class="st">"SP500"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a></a>  <span class="fu">select</span>(symbol, company, sector) <span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a></a>  <span class="fu">arrange</span>(sector, company)</span>
+<span id="cb9-13"><a></a></span>
+<span id="cb9-14"><a></a><span class="co"># Create choices with company name as supplementary info in front of ticker</span></span>
+<span id="cb9-15"><a></a><span class="co"># Format: "Company Name (TICKER)"</span></span>
+<span id="cb9-16"><a></a>ticker_labels <span class="ot">&lt;-</span> <span class="fu">paste0</span>(sp500_stocks<span class="sc">$</span>company, <span class="st">" ("</span>, sp500_stocks<span class="sc">$</span>symbol, <span class="st">")"</span>)</span>
+<span id="cb9-17"><a></a>ticker_choices <span class="ot">&lt;-</span> <span class="fu">setNames</span>(sp500_stocks<span class="sc">$</span>symbol, ticker_labels)</span>
+<span id="cb9-18"><a></a></span>
+<span id="cb9-19"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_sidebar</span>(</span>
+<span id="cb9-20"><a></a>  <span class="at">title =</span> <span class="st">"S&amp;P 500 Return Comparison"</span>,</span>
+<span id="cb9-21"><a></a>  </span>
+<span id="cb9-22"><a></a>  <span class="at">sidebar =</span> <span class="fu">sidebar</span>(</span>
+<span id="cb9-23"><a></a>    <span class="at">title =</span> <span class="st">"Settings"</span>,</span>
+<span id="cb9-24"><a></a>    <span class="at">width =</span> <span class="dv">440</span>, <span class="co"># Increased width </span></span>
+<span id="cb9-25"><a></a>    </span>
+<span id="cb9-26"><a></a>    <span class="fu">dateRangeInput</span>(</span>
+<span id="cb9-27"><a></a>      <span class="st">"date_range"</span>,</span>
+<span id="cb9-28"><a></a>      <span class="st">"Select date range:"</span>,</span>
+<span id="cb9-29"><a></a>      <span class="at">start =</span> <span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="dv">365</span>,</span>
+<span id="cb9-30"><a></a>      <span class="at">end =</span> <span class="fu">Sys.Date</span>(),</span>
+<span id="cb9-31"><a></a>      <span class="at">min =</span> <span class="st">"2015-01-01"</span>,</span>
+<span id="cb9-32"><a></a>      <span class="at">max =</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb9-33"><a></a>    ),</span>
+<span id="cb9-34"><a></a>    </span>
+<span id="cb9-35"><a></a>    <span class="fu">hr</span>(),</span>
+<span id="cb9-36"><a></a>    </span>
+<span id="cb9-37"><a></a>    <span class="co"># Use dropdownButton for stock selection</span></span>
+<span id="cb9-38"><a></a>    <span class="fu">dropdownButton</span>(</span>
+<span id="cb9-39"><a></a>      <span class="at">inputId =</span> <span class="st">"dropdown_stocks"</span>,</span>
+<span id="cb9-40"><a></a>      <span class="at">label =</span> <span class="st">"Select Stocks"</span>, </span>
+<span id="cb9-41"><a></a>      <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">"filter"</span>),</span>
+<span id="cb9-42"><a></a>      <span class="at">status =</span> <span class="st">"primary"</span>,</span>
+<span id="cb9-43"><a></a>      <span class="at">width =</span> <span class="st">"100%"</span>,</span>
+<span id="cb9-44"><a></a>      <span class="at">circle =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-45"><a></a>      </span>
+<span id="cb9-46"><a></a>      <span class="co"># Stock selector with search functionality</span></span>
+<span id="cb9-47"><a></a>      <span class="fu">pickerInput</span>(</span>
+<span id="cb9-48"><a></a>        <span class="at">inputId =</span> <span class="st">"stock_selector"</span>,</span>
+<span id="cb9-49"><a></a>        <span class="at">label =</span> <span class="st">"Select Stocks:"</span>,</span>
+<span id="cb9-50"><a></a>        <span class="at">choices =</span> ticker_choices,</span>
+<span id="cb9-51"><a></a>        <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb9-52"><a></a>          <span class="st">`</span><span class="at">actions-box</span><span class="st">`</span> <span class="ot">=</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-53"><a></a>          <span class="st">`</span><span class="at">live-search</span><span class="st">`</span> <span class="ot">=</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-54"><a></a>          <span class="st">`</span><span class="at">selected-text-format</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"count &gt; 3"</span>,</span>
+<span id="cb9-55"><a></a>          <span class="st">`</span><span class="at">count-selected-text</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"{0} stocks selected"</span></span>
+<span id="cb9-56"><a></a>        ),</span>
+<span id="cb9-57"><a></a>        <span class="at">selected =</span> <span class="cn">NULL</span>, <span class="co"># Default to no selection</span></span>
+<span id="cb9-58"><a></a>        <span class="at">multiple =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-59"><a></a>        <span class="at">width =</span> <span class="st">"100%"</span></span>
+<span id="cb9-60"><a></a>      )</span>
+<span id="cb9-61"><a></a>    )</span>
+<span id="cb9-62"><a></a>  ),</span>
+<span id="cb9-63"><a></a>  </span>
+<span id="cb9-64"><a></a>  <span class="fu">card</span>(</span>
+<span id="cb9-65"><a></a>    <span class="at">full_screen =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-66"><a></a>    <span class="fu">card_header</span>(<span class="st">"Cumulative Returns Comparison"</span>),</span>
+<span id="cb9-67"><a></a>    <span class="fu">highchartOutput</span>(<span class="st">"returns_plot"</span>, <span class="at">height =</span> <span class="st">"500px"</span>)</span>
+<span id="cb9-68"><a></a>  ),</span>
+<span id="cb9-69"><a></a>  </span>
+<span id="cb9-70"><a></a>  <span class="fu">card</span>(</span>
+<span id="cb9-71"><a></a>    <span class="fu">card_header</span>(<span class="st">"Performance Summary"</span>),</span>
+<span id="cb9-72"><a></a>    <span class="fu">dataTableOutput</span>(<span class="st">"data_summary"</span>)</span>
+<span id="cb9-73"><a></a>  )</span>
+<span id="cb9-74"><a></a>)</span>
+<span id="cb9-75"><a></a></span>
+<span id="cb9-76"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb9-77"><a></a>  </span>
+<span id="cb9-78"><a></a>  <span class="co"># Reactive to store current stock selection</span></span>
+<span id="cb9-79"><a></a>  selected_stocks <span class="ot">&lt;-</span> <span class="fu">reactiveVal</span>(<span class="cn">NULL</span>) <span class="co"># Start with no stocks selected</span></span>
+<span id="cb9-80"><a></a>  </span>
+<span id="cb9-81"><a></a>  <span class="co"># Update selected_stocks when stock_selector changes</span></span>
+<span id="cb9-82"><a></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>stock_selector, {</span>
+<span id="cb9-83"><a></a>    <span class="fu">selected_stocks</span>(input<span class="sc">$</span>stock_selector)</span>
+<span id="cb9-84"><a></a>  })</span>
+<span id="cb9-85"><a></a>  </span>
+<span id="cb9-86"><a></a>  <span class="co"># Get full list of stocks to retrieve</span></span>
+<span id="cb9-87"><a></a>  stocks_to_get <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb9-88"><a></a>    stocks <span class="ot">&lt;-</span> <span class="fu">selected_stocks</span>()</span>
+<span id="cb9-89"><a></a>    </span>
+<span id="cb9-90"><a></a>    <span class="co"># Ensure we have at least one stock to display</span></span>
+<span id="cb9-91"><a></a>    <span class="cf">if</span> (<span class="fu">length</span>(stocks) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb9-92"><a></a>      <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb9-93"><a></a>    }</span>
+<span id="cb9-94"><a></a>    </span>
+<span id="cb9-95"><a></a>    <span class="fu">return</span>(stocks)</span>
+<span id="cb9-96"><a></a>  })</span>
+<span id="cb9-97"><a></a>  </span>
+<span id="cb9-98"><a></a>  <span class="co"># Reactive expression to get and process stock data</span></span>
+<span id="cb9-99"><a></a>  stock_data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb9-100"><a></a>    <span class="co"># Validate that we have dates and stocks</span></span>
+<span id="cb9-101"><a></a>    <span class="fu">req</span>(input<span class="sc">$</span>date_range)</span>
+<span id="cb9-102"><a></a>    <span class="fu">req</span>(<span class="fu">length</span>(<span class="fu">stocks_to_get</span>()) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb9-103"><a></a>    </span>
+<span id="cb9-104"><a></a>    <span class="co"># Download data</span></span>
+<span id="cb9-105"><a></a>    tq_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(</span>
+<span id="cb9-106"><a></a>      <span class="fu">stocks_to_get</span>(),</span>
+<span id="cb9-107"><a></a>      <span class="at">from =</span> input<span class="sc">$</span>date_range[<span class="dv">1</span>],</span>
+<span id="cb9-108"><a></a>      <span class="at">to =</span> input<span class="sc">$</span>date_range[<span class="dv">2</span>],</span>
+<span id="cb9-109"><a></a>      <span class="at">get =</span> <span class="st">"stock.prices"</span></span>
+<span id="cb9-110"><a></a>    )</span>
+<span id="cb9-111"><a></a>    </span>
+<span id="cb9-112"><a></a>    <span class="co"># Check if we got data</span></span>
+<span id="cb9-113"><a></a>    <span class="fu">req</span>(<span class="fu">nrow</span>(tq_data) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb9-114"><a></a>    </span>
+<span id="cb9-115"><a></a>    <span class="co"># Calculate returns</span></span>
+<span id="cb9-116"><a></a>    returns_data <span class="ot">&lt;-</span> tq_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-117"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb9-118"><a></a>      <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb9-119"><a></a>      <span class="co"># Calculate daily returns</span></span>
+<span id="cb9-120"><a></a>      <span class="fu">tq_transmute</span>(</span>
+<span id="cb9-121"><a></a>        <span class="at">select =</span> adjusted,</span>
+<span id="cb9-122"><a></a>        <span class="at">mutate_fun =</span> periodReturn,</span>
+<span id="cb9-123"><a></a>        <span class="at">period =</span> <span class="st">"daily"</span>,</span>
+<span id="cb9-124"><a></a>        <span class="at">col_rename =</span> <span class="st">"daily_return"</span></span>
+<span id="cb9-125"><a></a>      ) </span>
+<span id="cb9-126"><a></a>    </span>
+<span id="cb9-127"><a></a>    <span class="co"># Join the returns data with original price data</span></span>
+<span id="cb9-128"><a></a>    returns_with_prices <span class="ot">&lt;-</span> returns_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-129"><a></a>      <span class="fu">left_join</span>(</span>
+<span id="cb9-130"><a></a>        tq_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(symbol, date, adjusted),</span>
+<span id="cb9-131"><a></a>        <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"symbol"</span>, <span class="st">"date"</span>)</span>
+<span id="cb9-132"><a></a>      )</span>
+<span id="cb9-133"><a></a>    </span>
+<span id="cb9-134"><a></a>    <span class="co"># Calculate cumulative returns from the first date of the period</span></span>
+<span id="cb9-135"><a></a>    cum_returns <span class="ot">&lt;-</span> returns_with_prices <span class="sc">%&gt;%</span></span>
+<span id="cb9-136"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb9-137"><a></a>      <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb9-138"><a></a>      <span class="fu">mutate</span>(</span>
+<span id="cb9-139"><a></a>        <span class="co"># For each stock, calculate the cumulative return starting from the first date</span></span>
+<span id="cb9-140"><a></a>        <span class="at">cumulative_return =</span> <span class="fu">cumprod</span>(<span class="dv">1</span> <span class="sc">+</span> daily_return) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb9-141"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-142"><a></a>      <span class="fu">ungroup</span>()</span>
+<span id="cb9-143"><a></a>    </span>
+<span id="cb9-144"><a></a>    <span class="fu">list</span>(</span>
+<span id="cb9-145"><a></a>      <span class="at">raw_data =</span> tq_data,</span>
+<span id="cb9-146"><a></a>      <span class="at">cum_returns =</span> cum_returns</span>
+<span id="cb9-147"><a></a>    )</span>
+<span id="cb9-148"><a></a>  })</span>
+<span id="cb9-149"><a></a>  </span>
+<span id="cb9-150"><a></a>  <span class="co"># Get company names for better labels</span></span>
+<span id="cb9-151"><a></a>  stock_names <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb9-152"><a></a>    <span class="co"># Create lookup from sp500 stocks</span></span>
+<span id="cb9-153"><a></a>    name_lookup <span class="ot">&lt;-</span> <span class="fu">setNames</span>(sp500_stocks<span class="sc">$</span>company, sp500_stocks<span class="sc">$</span>symbol)</span>
+<span id="cb9-154"><a></a>    </span>
+<span id="cb9-155"><a></a>    <span class="co"># Return</span></span>
+<span id="cb9-156"><a></a>    name_lookup</span>
+<span id="cb9-157"><a></a>  })</span>
+<span id="cb9-158"><a></a>  </span>
+<span id="cb9-159"><a></a>  <span class="co"># Generate returns plot with highcharter</span></span>
+<span id="cb9-160"><a></a>  output<span class="sc">$</span>returns_plot <span class="ot">&lt;-</span> <span class="fu">renderHighchart</span>({</span>
+<span id="cb9-161"><a></a>    <span class="fu">req</span>(<span class="fu">stock_data</span>())</span>
+<span id="cb9-162"><a></a>    </span>
+<span id="cb9-163"><a></a>    cum_returns <span class="ot">&lt;-</span> <span class="fu">stock_data</span>()<span class="sc">$</span>cum_returns</span>
+<span id="cb9-164"><a></a>    names_lookup <span class="ot">&lt;-</span> <span class="fu">stock_names</span>()</span>
+<span id="cb9-165"><a></a>    </span>
+<span id="cb9-166"><a></a>    <span class="co"># Convert to format suitable for highcharter</span></span>
+<span id="cb9-167"><a></a>    <span class="cf">if</span>(<span class="fu">nrow</span>(cum_returns) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb9-168"><a></a>      <span class="co"># Create highchart</span></span>
+<span id="cb9-169"><a></a>      hc <span class="ot">&lt;-</span> <span class="fu">highchart</span>(<span class="at">type =</span> <span class="st">"stock"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-170"><a></a>        <span class="fu">hc_title</span>(<span class="at">text =</span> <span class="st">"Cumulative Returns Comparison"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-171"><a></a>        <span class="fu">hc_xAxis</span>(<span class="at">type =</span> <span class="st">"datetime"</span>, </span>
+<span id="cb9-172"><a></a>                 <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Date"</span>),</span>
+<span id="cb9-173"><a></a>                 <span class="at">dateTimeLabelFormats =</span> <span class="fu">list</span>(</span>
+<span id="cb9-174"><a></a>                   <span class="at">day =</span> <span class="st">'%e of %b'</span>,</span>
+<span id="cb9-175"><a></a>                   <span class="at">month =</span> <span class="st">'%b %Y'</span>,</span>
+<span id="cb9-176"><a></a>                   <span class="at">year =</span> <span class="st">'%Y'</span></span>
+<span id="cb9-177"><a></a>                 )) <span class="sc">%&gt;%</span></span>
+<span id="cb9-178"><a></a>        <span class="fu">hc_yAxis</span>(</span>
+<span id="cb9-179"><a></a>          <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Cumulative Return"</span>),</span>
+<span id="cb9-180"><a></a>          <span class="at">labels =</span> <span class="fu">list</span>(<span class="at">formatter =</span> <span class="fu">JS</span>(<span class="st">"function() { return (this.value * 100).toFixed(2) + '%'; }"</span>))</span>
+<span id="cb9-181"><a></a>        ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-182"><a></a>        <span class="fu">hc_tooltip</span>(</span>
+<span id="cb9-183"><a></a>          <span class="at">headerFormat =</span> <span class="st">'&lt;span style="font-size: 10px"&gt;{point.key}&lt;/span&gt;&lt;br/&gt;'</span>,</span>
+<span id="cb9-184"><a></a>          <span class="at">pointFormatter =</span> <span class="fu">JS</span>(<span class="st">"function() { return '&lt;span style=</span><span class="sc">\"</span><span class="st">color:' + this.color + '</span><span class="sc">\"</span><span class="st">&gt;●&lt;/span&gt; &lt;b&gt;' + this.series.name + '&lt;/b&gt;: &lt;b&gt;' + (this.y * 100).toFixed(2) + '%&lt;/b&gt;&lt;br/&gt;'; }"</span>),</span>
+<span id="cb9-185"><a></a>          <span class="at">shared =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-186"><a></a>          <span class="at">crosshairs =</span> <span class="cn">TRUE</span></span>
+<span id="cb9-187"><a></a>        ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-188"><a></a>        <span class="fu">hc_plotOptions</span>(<span class="at">series =</span> <span class="fu">list</span>(</span>
+<span id="cb9-189"><a></a>          <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">enabled =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb9-190"><a></a>          <span class="at">states =</span> <span class="fu">list</span>(<span class="at">hover =</span> <span class="fu">list</span>(<span class="at">lineWidthPlus =</span> <span class="dv">0</span>)),</span>
+<span id="cb9-191"><a></a>          <span class="at">lineWidth =</span> <span class="dv">3</span>  <span class="co"># Increased line thickness</span></span>
+<span id="cb9-192"><a></a>        )) <span class="sc">%&gt;%</span></span>
+<span id="cb9-193"><a></a>        <span class="fu">hc_legend</span>(<span class="at">enabled =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-194"><a></a>      </span>
+<span id="cb9-195"><a></a>      <span class="co"># Add data for each stock</span></span>
+<span id="cb9-196"><a></a>      <span class="cf">for</span>(stock <span class="cf">in</span> <span class="fu">unique</span>(cum_returns<span class="sc">$</span>symbol)) {</span>
+<span id="cb9-197"><a></a>        stock_data <span class="ot">&lt;-</span> cum_returns <span class="sc">%&gt;%</span></span>
+<span id="cb9-198"><a></a>          <span class="fu">filter</span>(symbol <span class="sc">==</span> stock) <span class="sc">%&gt;%</span></span>
+<span id="cb9-199"><a></a>          <span class="fu">select</span>(date, cumulative_return)</span>
+<span id="cb9-200"><a></a>        </span>
+<span id="cb9-201"><a></a>        <span class="co"># Format data for highcharter - simplified approach</span></span>
+<span id="cb9-202"><a></a>        hc_data <span class="ot">&lt;-</span> stock_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-203"><a></a>          <span class="fu">mutate</span>(</span>
+<span id="cb9-204"><a></a>            <span class="at">x =</span> <span class="fu">datetime_to_timestamp</span>(date),</span>
+<span id="cb9-205"><a></a>            <span class="at">y =</span> cumulative_return  <span class="co"># Keep as decimal for proper calculations</span></span>
+<span id="cb9-206"><a></a>          ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-207"><a></a>          <span class="fu">select</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb9-208"><a></a>          <span class="fu">list_parse2</span>()</span>
+<span id="cb9-209"><a></a>        </span>
+<span id="cb9-210"><a></a>        <span class="co"># Add series to chart - only use the ticker symbol in the name</span></span>
+<span id="cb9-211"><a></a>        hc <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
+<span id="cb9-212"><a></a>          <span class="fu">hc_add_series</span>(</span>
+<span id="cb9-213"><a></a>            <span class="at">data =</span> hc_data,</span>
+<span id="cb9-214"><a></a>            <span class="at">name =</span> stock,</span>
+<span id="cb9-215"><a></a>            <span class="at">type =</span> <span class="st">"line"</span></span>
+<span id="cb9-216"><a></a>          )</span>
+<span id="cb9-217"><a></a>      }</span>
+<span id="cb9-218"><a></a>      </span>
+<span id="cb9-219"><a></a>      <span class="co"># Return the chart</span></span>
+<span id="cb9-220"><a></a>      hc</span>
+<span id="cb9-221"><a></a>    }</span>
+<span id="cb9-222"><a></a>  })</span>
+<span id="cb9-223"><a></a>  </span>
+<span id="cb9-224"><a></a>  <span class="co"># Generate data summary</span></span>
+<span id="cb9-225"><a></a>  output<span class="sc">$</span>data_summary <span class="ot">&lt;-</span> <span class="fu">renderDataTable</span>({</span>
+<span id="cb9-226"><a></a>    <span class="fu">req</span>(<span class="fu">stock_data</span>())</span>
+<span id="cb9-227"><a></a>    </span>
+<span id="cb9-228"><a></a>    cum_returns <span class="ot">&lt;-</span> <span class="fu">stock_data</span>()<span class="sc">$</span>cum_returns</span>
+<span id="cb9-229"><a></a>    names_lookup <span class="ot">&lt;-</span> <span class="fu">stock_names</span>()</span>
+<span id="cb9-230"><a></a>    </span>
+<span id="cb9-231"><a></a>    <span class="co"># Summary statistics for each asset</span></span>
+<span id="cb9-232"><a></a>    summary_data <span class="ot">&lt;-</span> cum_returns <span class="sc">%&gt;%</span></span>
+<span id="cb9-233"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb9-234"><a></a>      <span class="fu">summarize</span>(</span>
+<span id="cb9-235"><a></a>        <span class="at">Start_Date =</span> <span class="fu">min</span>(date),</span>
+<span id="cb9-236"><a></a>        <span class="at">End_Date =</span> <span class="fu">max</span>(date),</span>
+<span id="cb9-237"><a></a>        <span class="at">Total_Return =</span> <span class="fu">last</span>(cumulative_return) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb9-238"><a></a>        <span class="at">Annualized_Return =</span> ((<span class="dv">1</span> <span class="sc">+</span> <span class="fu">last</span>(cumulative_return))<span class="sc">^</span>(<span class="dv">252</span> <span class="sc">/</span> <span class="fu">n</span>())) <span class="sc">-</span> <span class="dv">1</span> <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb9-239"><a></a>        <span class="at">Volatility =</span> <span class="fu">sd</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">252</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb9-240"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-241"><a></a>      <span class="fu">mutate</span>(</span>
+<span id="cb9-242"><a></a>        <span class="at">Company =</span> <span class="fu">ifelse</span>(symbol <span class="sc">%in%</span> <span class="fu">names</span>(names_lookup), names_lookup[symbol], symbol),</span>
+<span id="cb9-243"><a></a>        <span class="at">Total_Return =</span> <span class="fu">percent</span>(Total_Return, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb9-244"><a></a>        <span class="at">Annualized_Return =</span> <span class="fu">percent</span>(Annualized_Return, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb9-245"><a></a>        <span class="at">Volatility =</span> <span class="fu">percent</span>(Volatility, <span class="at">accuracy =</span> <span class="fl">0.01</span>)</span>
+<span id="cb9-246"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-247"><a></a>      <span class="fu">select</span>(</span>
+<span id="cb9-248"><a></a>        <span class="at">Symbol =</span> symbol, </span>
+<span id="cb9-249"><a></a>        Company, </span>
+<span id="cb9-250"><a></a>        <span class="st">`</span><span class="at">Start Date</span><span class="st">`</span> <span class="ot">=</span> Start_Date, </span>
+<span id="cb9-251"><a></a>        <span class="st">`</span><span class="at">End Date</span><span class="st">`</span> <span class="ot">=</span> End_Date, </span>
+<span id="cb9-252"><a></a>        <span class="st">`</span><span class="at">Total Return</span><span class="st">`</span> <span class="ot">=</span> Total_Return, </span>
+<span id="cb9-253"><a></a>        <span class="st">`</span><span class="at">Annualized Return</span><span class="st">`</span> <span class="ot">=</span> Annualized_Return, </span>
+<span id="cb9-254"><a></a>        Volatility</span>
+<span id="cb9-255"><a></a>      )</span>
+<span id="cb9-256"><a></a>  })</span>
+<span id="cb9-257"><a></a>}</span>
+<span id="cb9-258"><a></a></span>
+<span id="cb9-259"><a></a><span class="fu">shinyApp</span>(ui, server) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="final-adjustments" class="slide level2">
+<h2>#4: Final Adjustments</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Outline</a></li><li><a href="#tabset-5-2">Prompt</a></li><li><a href="#tabset-5-3">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<ul>
+<li><p><span class="blue">Like a pro!</span> Your app is now looking like it’s something you would pay for!</p></li>
+<li><p>Before you showcase that to our boss, remember: you should make sure the app is not crashing due to user interaction:</p>
+<ol type="1">
+<li><p>For example, if a user selects <em>“All Stocks”</em>, <code>tq_get()</code> will automatically start downloading a lot of data - which might break the server</p></li>
+<li><p>Furthermore, users should have the ability to confirm their selections and, eventually, <em>download</em> a summary of their findings. The submit button should send an alert saying that the list has been submitted and results will appear soon.</p></li>
+</ol></li>
+<li><p>In what follows, we will create some selection handling procedures and insert a <em>Download Button</em> that creates a downloadable <code>.csv</code> file</p></li>
+</ul>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>Way to go<span class="sc">!</span> Now, here<span class="st">'s a list of final adjustments to be made:</span></span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a><span class="st">1. Create a "Submit List" button that, when triggered, will update the charts and tables. The app shouldn'</span>t update without that.</span>
+<span id="cb10-4"><a></a></span>
+<span id="cb10-5"><a></a><span class="fl">2.</span> Allow <span class="cf">for</span> dark mode using a <span class="cf">switch</span> button <span class="cf">in</span> the header</span>
+<span id="cb10-6"><a></a></span>
+<span id="cb10-7"><a></a><span class="fl">3.</span> Create a download button that, when triggered, saves a .csv file with the contents from the top <span class="fu">panel</span> (time series of cumulative returns <span class="cf">for</span> each stock). The submit button should send an alert saying that the list has been submitted and results will appear soon using the <span class="fu">sendSweetAlert</span>() function.</span>
+<span id="cb10-8"><a></a></span>
+<span id="cb10-9"><a></a><span class="fl">4.</span> Add icons <span class="cf">in</span> the title, Settings, and Submit configuration buttons  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb11-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb11-3"><a></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb11-4"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb11-5"><a></a><span class="fu">library</span>(scales)</span>
+<span id="cb11-6"><a></a><span class="fu">library</span>(shinyWidgets) <span class="co"># For pickerInput, dropdownButton, and sweetAlert</span></span>
+<span id="cb11-7"><a></a><span class="fu">library</span>(highcharter) <span class="co"># For interactive charts</span></span>
+<span id="cb11-8"><a></a></span>
+<span id="cb11-9"><a></a><span class="co"># Get S&amp;P 500 tickers and industry information</span></span>
+<span id="cb11-10"><a></a>sp500_stocks <span class="ot">&lt;-</span> <span class="fu">tq_index</span>(<span class="st">"SP500"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-11"><a></a>  <span class="fu">select</span>(symbol, company, sector) <span class="sc">%&gt;%</span></span>
+<span id="cb11-12"><a></a>  <span class="fu">arrange</span>(sector, company)</span>
+<span id="cb11-13"><a></a></span>
+<span id="cb11-14"><a></a><span class="co"># Create choices with company name as supplementary info in front of ticker</span></span>
+<span id="cb11-15"><a></a><span class="co"># Format: "Company Name (TICKER)"</span></span>
+<span id="cb11-16"><a></a>ticker_labels <span class="ot">&lt;-</span> <span class="fu">paste0</span>(sp500_stocks<span class="sc">$</span>company, <span class="st">" ("</span>, sp500_stocks<span class="sc">$</span>symbol, <span class="st">")"</span>)</span>
+<span id="cb11-17"><a></a>ticker_choices <span class="ot">&lt;-</span> <span class="fu">setNames</span>(sp500_stocks<span class="sc">$</span>symbol, ticker_labels)</span>
+<span id="cb11-18"><a></a></span>
+<span id="cb11-19"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_sidebar</span>(</span>
+<span id="cb11-20"><a></a>  <span class="at">title =</span> <span class="fu">span</span>(<span class="fu">icon</span>(<span class="st">"chart-line"</span>), <span class="st">"S&amp;P 500 Return Comparison"</span>),</span>
+<span id="cb11-21"><a></a>  <span class="at">theme =</span> <span class="fu">bs_theme</span>(<span class="at">version =</span> <span class="dv">5</span>, <span class="at">preset =</span> <span class="st">"default"</span>),</span>
+<span id="cb11-22"><a></a>  </span>
+<span id="cb11-23"><a></a>  <span class="at">header =</span> tags<span class="sc">$</span><span class="fu">div</span>(</span>
+<span id="cb11-24"><a></a>    <span class="at">style =</span> <span class="st">"display: flex; justify-content: flex-end; padding: 5px;"</span>,</span>
+<span id="cb11-25"><a></a>    <span class="fu">materialSwitch</span>(</span>
+<span id="cb11-26"><a></a>      <span class="at">inputId =</span> <span class="st">"dark_mode"</span>,</span>
+<span id="cb11-27"><a></a>      <span class="at">label =</span> <span class="fu">span</span>(<span class="fu">icon</span>(<span class="st">"moon"</span>), <span class="st">"Dark Mode"</span>),</span>
+<span id="cb11-28"><a></a>      <span class="at">status =</span> <span class="st">"primary"</span>,</span>
+<span id="cb11-29"><a></a>      <span class="at">right =</span> <span class="cn">TRUE</span></span>
+<span id="cb11-30"><a></a>    )</span>
+<span id="cb11-31"><a></a>  ),</span>
+<span id="cb11-32"><a></a>  </span>
+<span id="cb11-33"><a></a>  <span class="at">sidebar =</span> <span class="fu">sidebar</span>(</span>
+<span id="cb11-34"><a></a>    <span class="at">title =</span> <span class="fu">span</span>(<span class="fu">icon</span>(<span class="st">"gear"</span>), <span class="st">"Settings"</span>),</span>
+<span id="cb11-35"><a></a>    <span class="at">width =</span> <span class="dv">440</span>, <span class="co"># Increased width </span></span>
+<span id="cb11-36"><a></a>    </span>
+<span id="cb11-37"><a></a>    <span class="fu">dateRangeInput</span>(</span>
+<span id="cb11-38"><a></a>      <span class="st">"date_range"</span>,</span>
+<span id="cb11-39"><a></a>      <span class="st">"Select date range:"</span>,</span>
+<span id="cb11-40"><a></a>      <span class="at">start =</span> <span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="dv">365</span>,</span>
+<span id="cb11-41"><a></a>      <span class="at">end =</span> <span class="fu">Sys.Date</span>(),</span>
+<span id="cb11-42"><a></a>      <span class="at">min =</span> <span class="st">"2015-01-01"</span>,</span>
+<span id="cb11-43"><a></a>      <span class="at">max =</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb11-44"><a></a>    ),</span>
+<span id="cb11-45"><a></a>    </span>
+<span id="cb11-46"><a></a>    <span class="fu">hr</span>(),</span>
+<span id="cb11-47"><a></a>    </span>
+<span id="cb11-48"><a></a>    <span class="co"># Use dropdownButton for stock selection</span></span>
+<span id="cb11-49"><a></a>    <span class="fu">dropdownButton</span>(</span>
+<span id="cb11-50"><a></a>      <span class="at">inputId =</span> <span class="st">"dropdown_stocks"</span>,</span>
+<span id="cb11-51"><a></a>      <span class="at">label =</span> <span class="fu">span</span>(<span class="fu">icon</span>(<span class="st">"filter"</span>), <span class="st">"Select Stocks"</span>), </span>
+<span id="cb11-52"><a></a>      <span class="at">status =</span> <span class="st">"primary"</span>,</span>
+<span id="cb11-53"><a></a>      <span class="at">width =</span> <span class="st">"100%"</span>,</span>
+<span id="cb11-54"><a></a>      <span class="at">circle =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-55"><a></a>      </span>
+<span id="cb11-56"><a></a>      <span class="co"># Stock selector with search functionality</span></span>
+<span id="cb11-57"><a></a>      <span class="fu">pickerInput</span>(</span>
+<span id="cb11-58"><a></a>        <span class="at">inputId =</span> <span class="st">"stock_selector"</span>,</span>
+<span id="cb11-59"><a></a>        <span class="at">label =</span> <span class="st">"Select Stocks:"</span>,</span>
+<span id="cb11-60"><a></a>        <span class="at">choices =</span> ticker_choices,</span>
+<span id="cb11-61"><a></a>        <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb11-62"><a></a>          <span class="st">`</span><span class="at">actions-box</span><span class="st">`</span> <span class="ot">=</span> <span class="cn">TRUE</span>,</span>
+<span id="cb11-63"><a></a>          <span class="st">`</span><span class="at">live-search</span><span class="st">`</span> <span class="ot">=</span> <span class="cn">TRUE</span>,</span>
+<span id="cb11-64"><a></a>          <span class="st">`</span><span class="at">selected-text-format</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"count &gt; 3"</span>,</span>
+<span id="cb11-65"><a></a>          <span class="st">`</span><span class="at">count-selected-text</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"{0} stocks selected"</span></span>
+<span id="cb11-66"><a></a>        ),</span>
+<span id="cb11-67"><a></a>        <span class="at">selected =</span> <span class="cn">NULL</span>, <span class="co"># Default to no selection</span></span>
+<span id="cb11-68"><a></a>        <span class="at">multiple =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb11-69"><a></a>        <span class="at">width =</span> <span class="st">"100%"</span></span>
+<span id="cb11-70"><a></a>      )</span>
+<span id="cb11-71"><a></a>    ),</span>
+<span id="cb11-72"><a></a>    </span>
+<span id="cb11-73"><a></a>    <span class="fu">hr</span>(),</span>
+<span id="cb11-74"><a></a>    </span>
+<span id="cb11-75"><a></a>    <span class="co"># Submit button that triggers the data update</span></span>
+<span id="cb11-76"><a></a>    <span class="fu">actionButton</span>(</span>
+<span id="cb11-77"><a></a>      <span class="st">"submit_btn"</span>, </span>
+<span id="cb11-78"><a></a>      <span class="fu">span</span>(<span class="fu">icon</span>(<span class="st">"paper-plane"</span>), <span class="st">"Submit List"</span>),</span>
+<span id="cb11-79"><a></a>      <span class="at">width =</span> <span class="st">"100%"</span>,</span>
+<span id="cb11-80"><a></a>      <span class="at">class =</span> <span class="st">"btn-primary"</span></span>
+<span id="cb11-81"><a></a>    )</span>
+<span id="cb11-82"><a></a>  ),</span>
+<span id="cb11-83"><a></a>  </span>
+<span id="cb11-84"><a></a>  <span class="fu">card</span>(</span>
+<span id="cb11-85"><a></a>    <span class="at">full_screen =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb11-86"><a></a>    <span class="fu">card_header</span>(</span>
+<span id="cb11-87"><a></a>      <span class="fu">div</span>(</span>
+<span id="cb11-88"><a></a>        <span class="at">style =</span> <span class="st">"display: flex; justify-content: space-between; align-items: center;"</span>,</span>
+<span id="cb11-89"><a></a>        <span class="fu">span</span>(<span class="st">"Cumulative Returns Comparison"</span>),</span>
+<span id="cb11-90"><a></a>        <span class="fu">downloadButton</span>(<span class="st">"download_data"</span>, <span class="st">"Download Data"</span>, <span class="at">class =</span> <span class="st">"btn-sm btn-outline-primary"</span>)</span>
+<span id="cb11-91"><a></a>      )</span>
+<span id="cb11-92"><a></a>    ),</span>
+<span id="cb11-93"><a></a>    <span class="fu">highchartOutput</span>(<span class="st">"returns_plot"</span>, <span class="at">height =</span> <span class="st">"500px"</span>)</span>
+<span id="cb11-94"><a></a>  ),</span>
+<span id="cb11-95"><a></a>  </span>
+<span id="cb11-96"><a></a>  <span class="fu">card</span>(</span>
+<span id="cb11-97"><a></a>    <span class="fu">card_header</span>(<span class="st">"Performance Summary"</span>),</span>
+<span id="cb11-98"><a></a>    <span class="fu">dataTableOutput</span>(<span class="st">"data_summary"</span>)</span>
+<span id="cb11-99"><a></a>  )</span>
+<span id="cb11-100"><a></a>)</span>
+<span id="cb11-101"><a></a></span>
+<span id="cb11-102"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb11-103"><a></a>  <span class="co"># Toggle dark mode when the switch is clicked</span></span>
+<span id="cb11-104"><a></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>dark_mode, {</span>
+<span id="cb11-105"><a></a>    <span class="cf">if</span> (input<span class="sc">$</span>dark_mode) {</span>
+<span id="cb11-106"><a></a>      session<span class="sc">$</span><span class="fu">setCurrentTheme</span>(<span class="fu">bs_theme</span>(<span class="at">version =</span> <span class="dv">5</span>, <span class="at">preset =</span> <span class="st">"darkly"</span>))</span>
+<span id="cb11-107"><a></a>    } <span class="cf">else</span> {</span>
+<span id="cb11-108"><a></a>      session<span class="sc">$</span><span class="fu">setCurrentTheme</span>(<span class="fu">bs_theme</span>(<span class="at">version =</span> <span class="dv">5</span>, <span class="at">preset =</span> <span class="st">"default"</span>))</span>
+<span id="cb11-109"><a></a>    }</span>
+<span id="cb11-110"><a></a>  })</span>
+<span id="cb11-111"><a></a>  </span>
+<span id="cb11-112"><a></a>  <span class="co"># Reactive values to store selected stocks</span></span>
+<span id="cb11-113"><a></a>  selected_stocks <span class="ot">&lt;-</span> <span class="fu">reactiveVal</span>(<span class="cn">NULL</span>)</span>
+<span id="cb11-114"><a></a>  </span>
+<span id="cb11-115"><a></a>  <span class="co"># Only update the stocks to fetch when the submit button is clicked</span></span>
+<span id="cb11-116"><a></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>submit_btn, {</span>
+<span id="cb11-117"><a></a>    <span class="co"># Show a SweetAlert notification</span></span>
+<span id="cb11-118"><a></a>    <span class="fu">sendSweetAlert</span>(</span>
+<span id="cb11-119"><a></a>      <span class="at">session =</span> session,</span>
+<span id="cb11-120"><a></a>      <span class="at">title =</span> <span class="st">"List Submitted"</span>, </span>
+<span id="cb11-121"><a></a>      <span class="at">text =</span> <span class="st">"Your stock list has been submitted. Results will appear soon."</span>,</span>
+<span id="cb11-122"><a></a>      <span class="at">type =</span> <span class="st">"success"</span>,</span>
+<span id="cb11-123"><a></a>      <span class="at">timer =</span> <span class="dv">3000</span>,</span>
+<span id="cb11-124"><a></a>      <span class="at">showConfirmButton =</span> <span class="cn">FALSE</span></span>
+<span id="cb11-125"><a></a>    )</span>
+<span id="cb11-126"><a></a>    </span>
+<span id="cb11-127"><a></a>    <span class="co"># Update the selected stocks</span></span>
+<span id="cb11-128"><a></a>    <span class="fu">selected_stocks</span>(input<span class="sc">$</span>stock_selector)</span>
+<span id="cb11-129"><a></a>  })</span>
+<span id="cb11-130"><a></a>  </span>
+<span id="cb11-131"><a></a>  <span class="co"># Get full list of stocks to retrieve</span></span>
+<span id="cb11-132"><a></a>  stocks_to_get <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb11-133"><a></a>    stocks <span class="ot">&lt;-</span> <span class="fu">selected_stocks</span>()</span>
+<span id="cb11-134"><a></a>    </span>
+<span id="cb11-135"><a></a>    <span class="co"># Ensure we have at least one stock to display</span></span>
+<span id="cb11-136"><a></a>    <span class="cf">if</span> (<span class="fu">length</span>(stocks) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb11-137"><a></a>      <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb11-138"><a></a>    }</span>
+<span id="cb11-139"><a></a>    </span>
+<span id="cb11-140"><a></a>    <span class="fu">return</span>(stocks)</span>
+<span id="cb11-141"><a></a>  })</span>
+<span id="cb11-142"><a></a>  </span>
+<span id="cb11-143"><a></a>  <span class="co"># Reactive expression to get and process stock data</span></span>
+<span id="cb11-144"><a></a>  stock_data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb11-145"><a></a>    <span class="co"># Validate that we have dates and stocks</span></span>
+<span id="cb11-146"><a></a>    <span class="fu">req</span>(input<span class="sc">$</span>date_range)</span>
+<span id="cb11-147"><a></a>    <span class="fu">req</span>(<span class="fu">length</span>(<span class="fu">stocks_to_get</span>()) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb11-148"><a></a>    </span>
+<span id="cb11-149"><a></a>    <span class="co"># Download data</span></span>
+<span id="cb11-150"><a></a>    tq_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(</span>
+<span id="cb11-151"><a></a>      <span class="fu">stocks_to_get</span>(),</span>
+<span id="cb11-152"><a></a>      <span class="at">from =</span> input<span class="sc">$</span>date_range[<span class="dv">1</span>],</span>
+<span id="cb11-153"><a></a>      <span class="at">to =</span> input<span class="sc">$</span>date_range[<span class="dv">2</span>],</span>
+<span id="cb11-154"><a></a>      <span class="at">get =</span> <span class="st">"stock.prices"</span></span>
+<span id="cb11-155"><a></a>    )</span>
+<span id="cb11-156"><a></a>    </span>
+<span id="cb11-157"><a></a>    <span class="co"># Check if we got data</span></span>
+<span id="cb11-158"><a></a>    <span class="fu">req</span>(<span class="fu">nrow</span>(tq_data) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb11-159"><a></a>    </span>
+<span id="cb11-160"><a></a>    <span class="co"># Calculate returns</span></span>
+<span id="cb11-161"><a></a>    returns_data <span class="ot">&lt;-</span> tq_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-162"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb11-163"><a></a>      <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb11-164"><a></a>      <span class="co"># Calculate daily returns</span></span>
+<span id="cb11-165"><a></a>      <span class="fu">tq_transmute</span>(</span>
+<span id="cb11-166"><a></a>        <span class="at">select =</span> adjusted,</span>
+<span id="cb11-167"><a></a>        <span class="at">mutate_fun =</span> periodReturn,</span>
+<span id="cb11-168"><a></a>        <span class="at">period =</span> <span class="st">"daily"</span>,</span>
+<span id="cb11-169"><a></a>        <span class="at">col_rename =</span> <span class="st">"daily_return"</span></span>
+<span id="cb11-170"><a></a>      ) </span>
+<span id="cb11-171"><a></a>    </span>
+<span id="cb11-172"><a></a>    <span class="co"># Join the returns data with original price data</span></span>
+<span id="cb11-173"><a></a>    returns_with_prices <span class="ot">&lt;-</span> returns_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-174"><a></a>      <span class="fu">left_join</span>(</span>
+<span id="cb11-175"><a></a>        tq_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(symbol, date, adjusted),</span>
+<span id="cb11-176"><a></a>        <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"symbol"</span>, <span class="st">"date"</span>)</span>
+<span id="cb11-177"><a></a>      )</span>
+<span id="cb11-178"><a></a>    </span>
+<span id="cb11-179"><a></a>    <span class="co"># Calculate cumulative returns from the first date of the period</span></span>
+<span id="cb11-180"><a></a>    cum_returns <span class="ot">&lt;-</span> returns_with_prices <span class="sc">%&gt;%</span></span>
+<span id="cb11-181"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb11-182"><a></a>      <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb11-183"><a></a>      <span class="fu">mutate</span>(</span>
+<span id="cb11-184"><a></a>        <span class="co"># For each stock, calculate the cumulative return starting from the first date</span></span>
+<span id="cb11-185"><a></a>        <span class="at">cumulative_return =</span> <span class="fu">cumprod</span>(<span class="dv">1</span> <span class="sc">+</span> daily_return) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb11-186"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-187"><a></a>      <span class="fu">ungroup</span>()</span>
+<span id="cb11-188"><a></a>    </span>
+<span id="cb11-189"><a></a>    <span class="fu">list</span>(</span>
+<span id="cb11-190"><a></a>      <span class="at">raw_data =</span> tq_data,</span>
+<span id="cb11-191"><a></a>      <span class="at">cum_returns =</span> cum_returns</span>
+<span id="cb11-192"><a></a>    )</span>
+<span id="cb11-193"><a></a>  })</span>
+<span id="cb11-194"><a></a>  </span>
+<span id="cb11-195"><a></a>  <span class="co"># Create downloadable data</span></span>
+<span id="cb11-196"><a></a>  downloadable_data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb11-197"><a></a>    <span class="fu">req</span>(<span class="fu">stock_data</span>())</span>
+<span id="cb11-198"><a></a>    </span>
+<span id="cb11-199"><a></a>    <span class="co"># Format the cumulative returns data for download</span></span>
+<span id="cb11-200"><a></a>    download_data <span class="ot">&lt;-</span> <span class="fu">stock_data</span>()<span class="sc">$</span>cum_returns <span class="sc">%&gt;%</span></span>
+<span id="cb11-201"><a></a>      <span class="fu">select</span>(symbol, date, cumulative_return) <span class="sc">%&gt;%</span></span>
+<span id="cb11-202"><a></a>      <span class="fu">pivot_wider</span>(</span>
+<span id="cb11-203"><a></a>        <span class="at">names_from =</span> symbol,</span>
+<span id="cb11-204"><a></a>        <span class="at">values_from =</span> cumulative_return,</span>
+<span id="cb11-205"><a></a>        <span class="at">names_prefix =</span> <span class="st">"return_"</span></span>
+<span id="cb11-206"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-207"><a></a>      <span class="fu">arrange</span>(date)</span>
+<span id="cb11-208"><a></a>    </span>
+<span id="cb11-209"><a></a>    <span class="fu">return</span>(download_data)</span>
+<span id="cb11-210"><a></a>  })</span>
+<span id="cb11-211"><a></a>  </span>
+<span id="cb11-212"><a></a>  <span class="co"># Get company names for better labels</span></span>
+<span id="cb11-213"><a></a>  stock_names <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb11-214"><a></a>    <span class="co"># Create lookup from sp500 stocks</span></span>
+<span id="cb11-215"><a></a>    name_lookup <span class="ot">&lt;-</span> <span class="fu">setNames</span>(sp500_stocks<span class="sc">$</span>company, sp500_stocks<span class="sc">$</span>symbol)</span>
+<span id="cb11-216"><a></a>    </span>
+<span id="cb11-217"><a></a>    <span class="co"># Return</span></span>
+<span id="cb11-218"><a></a>    name_lookup</span>
+<span id="cb11-219"><a></a>  })</span>
+<span id="cb11-220"><a></a>  </span>
+<span id="cb11-221"><a></a>  <span class="co"># Generate returns plot with highcharter</span></span>
+<span id="cb11-222"><a></a>  output<span class="sc">$</span>returns_plot <span class="ot">&lt;-</span> <span class="fu">renderHighchart</span>({</span>
+<span id="cb11-223"><a></a>    <span class="fu">req</span>(<span class="fu">stock_data</span>())</span>
+<span id="cb11-224"><a></a>    </span>
+<span id="cb11-225"><a></a>    cum_returns <span class="ot">&lt;-</span> <span class="fu">stock_data</span>()<span class="sc">$</span>cum_returns</span>
+<span id="cb11-226"><a></a>    names_lookup <span class="ot">&lt;-</span> <span class="fu">stock_names</span>()</span>
+<span id="cb11-227"><a></a>    </span>
+<span id="cb11-228"><a></a>    <span class="co"># Convert to format suitable for highcharter</span></span>
+<span id="cb11-229"><a></a>    <span class="cf">if</span>(<span class="fu">nrow</span>(cum_returns) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb11-230"><a></a>      <span class="co"># Create highchart</span></span>
+<span id="cb11-231"><a></a>      hc <span class="ot">&lt;-</span> <span class="fu">highchart</span>(<span class="at">type =</span> <span class="st">"stock"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-232"><a></a>        <span class="fu">hc_title</span>(<span class="at">text =</span> <span class="st">"Cumulative Returns Comparison"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-233"><a></a>        <span class="fu">hc_xAxis</span>(<span class="at">type =</span> <span class="st">"datetime"</span>, </span>
+<span id="cb11-234"><a></a>                 <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Date"</span>),</span>
+<span id="cb11-235"><a></a>                 <span class="at">dateTimeLabelFormats =</span> <span class="fu">list</span>(</span>
+<span id="cb11-236"><a></a>                   <span class="at">day =</span> <span class="st">'%e of %b'</span>,</span>
+<span id="cb11-237"><a></a>                   <span class="at">month =</span> <span class="st">'%b %Y'</span>,</span>
+<span id="cb11-238"><a></a>                   <span class="at">year =</span> <span class="st">'%Y'</span></span>
+<span id="cb11-239"><a></a>                 )) <span class="sc">%&gt;%</span></span>
+<span id="cb11-240"><a></a>        <span class="fu">hc_yAxis</span>(</span>
+<span id="cb11-241"><a></a>          <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Cumulative Return"</span>),</span>
+<span id="cb11-242"><a></a>          <span class="at">labels =</span> <span class="fu">list</span>(<span class="at">formatter =</span> <span class="fu">JS</span>(<span class="st">"function() { return (this.value * 100).toFixed(2) + '%'; }"</span>))</span>
+<span id="cb11-243"><a></a>        ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-244"><a></a>        <span class="fu">hc_tooltip</span>(</span>
+<span id="cb11-245"><a></a>          <span class="at">headerFormat =</span> <span class="st">'&lt;span style="font-size: 10px"&gt;{point.key}&lt;/span&gt;&lt;br/&gt;'</span>,</span>
+<span id="cb11-246"><a></a>          <span class="at">pointFormatter =</span> <span class="fu">JS</span>(<span class="st">"function() { return '&lt;span style=</span><span class="sc">\"</span><span class="st">color:' + this.color + '</span><span class="sc">\"</span><span class="st">&gt;●&lt;/span&gt; &lt;b&gt;' + this.series.name + '&lt;/b&gt;: &lt;b&gt;' + (this.y * 100).toFixed(2) + '%&lt;/b&gt;&lt;br/&gt;'; }"</span>),</span>
+<span id="cb11-247"><a></a>          <span class="at">shared =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb11-248"><a></a>          <span class="at">crosshairs =</span> <span class="cn">TRUE</span></span>
+<span id="cb11-249"><a></a>        ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-250"><a></a>        <span class="fu">hc_plotOptions</span>(<span class="at">series =</span> <span class="fu">list</span>(</span>
+<span id="cb11-251"><a></a>          <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">enabled =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb11-252"><a></a>          <span class="at">states =</span> <span class="fu">list</span>(<span class="at">hover =</span> <span class="fu">list</span>(<span class="at">lineWidthPlus =</span> <span class="dv">0</span>)),</span>
+<span id="cb11-253"><a></a>          <span class="at">lineWidth =</span> <span class="dv">3</span>  <span class="co"># Increased line thickness</span></span>
+<span id="cb11-254"><a></a>        )) <span class="sc">%&gt;%</span></span>
+<span id="cb11-255"><a></a>        <span class="fu">hc_legend</span>(<span class="at">enabled =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-256"><a></a>      </span>
+<span id="cb11-257"><a></a>      <span class="co"># Add data for each stock</span></span>
+<span id="cb11-258"><a></a>      <span class="cf">for</span>(stock <span class="cf">in</span> <span class="fu">unique</span>(cum_returns<span class="sc">$</span>symbol)) {</span>
+<span id="cb11-259"><a></a>        stock_data <span class="ot">&lt;-</span> cum_returns <span class="sc">%&gt;%</span></span>
+<span id="cb11-260"><a></a>          <span class="fu">filter</span>(symbol <span class="sc">==</span> stock) <span class="sc">%&gt;%</span></span>
+<span id="cb11-261"><a></a>          <span class="fu">select</span>(date, cumulative_return)</span>
+<span id="cb11-262"><a></a>        </span>
+<span id="cb11-263"><a></a>        <span class="co"># Format data for highcharter - simplified approach</span></span>
+<span id="cb11-264"><a></a>        hc_data <span class="ot">&lt;-</span> stock_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-265"><a></a>          <span class="fu">mutate</span>(</span>
+<span id="cb11-266"><a></a>            <span class="at">x =</span> <span class="fu">datetime_to_timestamp</span>(date),</span>
+<span id="cb11-267"><a></a>            <span class="at">y =</span> cumulative_return  <span class="co"># Keep as decimal for proper calculations</span></span>
+<span id="cb11-268"><a></a>          ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-269"><a></a>          <span class="fu">select</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb11-270"><a></a>          <span class="fu">list_parse2</span>()</span>
+<span id="cb11-271"><a></a>        </span>
+<span id="cb11-272"><a></a>        <span class="co"># Add series to chart - only use the ticker symbol in the name</span></span>
+<span id="cb11-273"><a></a>        hc <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
+<span id="cb11-274"><a></a>          <span class="fu">hc_add_series</span>(</span>
+<span id="cb11-275"><a></a>            <span class="at">data =</span> hc_data,</span>
+<span id="cb11-276"><a></a>            <span class="at">name =</span> stock,</span>
+<span id="cb11-277"><a></a>            <span class="at">type =</span> <span class="st">"line"</span></span>
+<span id="cb11-278"><a></a>          )</span>
+<span id="cb11-279"><a></a>      }</span>
+<span id="cb11-280"><a></a>      </span>
+<span id="cb11-281"><a></a>      <span class="co"># Return the chart</span></span>
+<span id="cb11-282"><a></a>      hc</span>
+<span id="cb11-283"><a></a>    }</span>
+<span id="cb11-284"><a></a>  })</span>
+<span id="cb11-285"><a></a>  </span>
+<span id="cb11-286"><a></a>  <span class="co"># Generate data summary</span></span>
+<span id="cb11-287"><a></a>  output<span class="sc">$</span>data_summary <span class="ot">&lt;-</span> <span class="fu">renderDataTable</span>({</span>
+<span id="cb11-288"><a></a>    <span class="fu">req</span>(<span class="fu">stock_data</span>())</span>
+<span id="cb11-289"><a></a>    </span>
+<span id="cb11-290"><a></a>    cum_returns <span class="ot">&lt;-</span> <span class="fu">stock_data</span>()<span class="sc">$</span>cum_returns</span>
+<span id="cb11-291"><a></a>    names_lookup <span class="ot">&lt;-</span> <span class="fu">stock_names</span>()</span>
+<span id="cb11-292"><a></a>    </span>
+<span id="cb11-293"><a></a>    <span class="co"># Summary statistics for each asset</span></span>
+<span id="cb11-294"><a></a>    summary_data <span class="ot">&lt;-</span> cum_returns <span class="sc">%&gt;%</span></span>
+<span id="cb11-295"><a></a>      <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
+<span id="cb11-296"><a></a>      <span class="fu">summarize</span>(</span>
+<span id="cb11-297"><a></a>        <span class="at">Start_Date =</span> <span class="fu">min</span>(date),</span>
+<span id="cb11-298"><a></a>        <span class="at">End_Date =</span> <span class="fu">max</span>(date),</span>
+<span id="cb11-299"><a></a>        <span class="at">Total_Return =</span> <span class="fu">last</span>(cumulative_return) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb11-300"><a></a>        <span class="at">Annualized_Return =</span> ((<span class="dv">1</span> <span class="sc">+</span> <span class="fu">last</span>(cumulative_return))<span class="sc">^</span>(<span class="dv">252</span> <span class="sc">/</span> <span class="fu">n</span>())) <span class="sc">-</span> <span class="dv">1</span> <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>),</span>
+<span id="cb11-301"><a></a>        <span class="at">Volatility =</span> <span class="fu">sd</span>(daily_return, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">252</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb11-302"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-303"><a></a>      <span class="fu">mutate</span>(</span>
+<span id="cb11-304"><a></a>        <span class="at">Company =</span> <span class="fu">ifelse</span>(symbol <span class="sc">%in%</span> <span class="fu">names</span>(names_lookup), names_lookup[symbol], symbol),</span>
+<span id="cb11-305"><a></a>        <span class="at">Total_Return =</span> <span class="fu">percent</span>(Total_Return, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb11-306"><a></a>        <span class="at">Annualized_Return =</span> <span class="fu">percent</span>(Annualized_Return, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb11-307"><a></a>        <span class="at">Volatility =</span> <span class="fu">percent</span>(Volatility, <span class="at">accuracy =</span> <span class="fl">0.01</span>)</span>
+<span id="cb11-308"><a></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-309"><a></a>      <span class="fu">select</span>(</span>
+<span id="cb11-310"><a></a>        <span class="at">Symbol =</span> symbol, </span>
+<span id="cb11-311"><a></a>        Company, </span>
+<span id="cb11-312"><a></a>        <span class="st">`</span><span class="at">Start Date</span><span class="st">`</span> <span class="ot">=</span> Start_Date, </span>
+<span id="cb11-313"><a></a>        <span class="st">`</span><span class="at">End Date</span><span class="st">`</span> <span class="ot">=</span> End_Date, </span>
+<span id="cb11-314"><a></a>        <span class="st">`</span><span class="at">Total Return</span><span class="st">`</span> <span class="ot">=</span> Total_Return, </span>
+<span id="cb11-315"><a></a>        <span class="st">`</span><span class="at">Annualized Return</span><span class="st">`</span> <span class="ot">=</span> Annualized_Return, </span>
+<span id="cb11-316"><a></a>        Volatility</span>
+<span id="cb11-317"><a></a>      )</span>
+<span id="cb11-318"><a></a>  })</span>
+<span id="cb11-319"><a></a>  </span>
+<span id="cb11-320"><a></a>  <span class="co"># Download handler for CSV export</span></span>
+<span id="cb11-321"><a></a>  output<span class="sc">$</span>download_data <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
+<span id="cb11-322"><a></a>    <span class="at">filename =</span> <span class="cf">function</span>() {</span>
+<span id="cb11-323"><a></a>      <span class="fu">paste</span>(<span class="st">"sp500_returns_"</span>, <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y%m%d"</span>), <span class="st">".csv"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb11-324"><a></a>    },</span>
+<span id="cb11-325"><a></a>    <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
+<span id="cb11-326"><a></a>      <span class="fu">write.csv</span>(<span class="fu">downloadable_data</span>(), file, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb11-327"><a></a>    }</span>
+<span id="cb11-328"><a></a>  )</span>
+<span id="cb11-329"><a></a></span>
+<span id="cb11-330"><a></a>}</span>
+<span id="cb11-331"><a></a>  </span>
+<span id="cb11-332"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -822,7 +1959,7 @@ Lucas S. Macoris (FGV-EAESP)
 <section id="hosting-shiny-applications" class="slide level2">
 <h2>Hosting Shiny Applications</h2>
 <ul>
-<li><p><strong><span class="blue">Way to go</span>: you just did your very first app!</strong></p></li>
+<li><p><span class="blue"><strong>Way to go</strong></span><strong>: you just did your very first app!</strong></p></li>
 <li><p>Now, the question is… <span class="blue">how can you share that with your audience?</span> Luckily, there are several ways in which you can host your application<sup>1</sup>:</p></li>
 </ul>
 <ol type="1">
@@ -831,13 +1968,22 @@ Lucas S. Macoris (FGV-EAESP)
 <li><p><strong>Docker</strong>: containerize Shiny apps for portability and reproducibility. Useful for deployment in Kubernetes or cloud-native environments. Can be combined with CI/CD workflows</p></li>
 </ol>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>For detailed content, please refer to a discussion regarding hosting options <a href="https://shiny.posit.co/r/deploy.html">here</a>.</p></li></ol></aside></section>
-<section id="extensions-and-tools" class="slide level2">
-<h2>Extensions and Tools</h2>
+<section id="hosting-our-application" class="slide level2">
+<h2>Hosting our application</h2>
 <ul>
-<li><code>shinydashboard</code> for admin-style dashboards</li>
-<li><code>shinyjs</code> and <code>shinyWidgets</code> for enhanced UI/UX</li>
-<li><code>shinytest</code> and <code>shinyloadtest</code> for testing and performance</li>
+<li><p>Using the <span class="blue">first</span> option for deployment, inside your <em>RStudio</em> session, hit <span class="blue">Publish</span> and then select <em>shinyapps.io</em>. This option prompts a screen where you can log into your account. You can create a free account and host a limited number of applications in a free-tier option</p></li>
+<li><p>After following the instructions, you should see your app going live on the internet straight from <em>RStudio</em>’s command line:</p></li>
 </ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/F1.png" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Curious to see the outcome?</strong> Check the live app <a href="https://lsmacoris.shinyapps.io/my_test_app/">here</a></li>
+</ul>
+</div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
