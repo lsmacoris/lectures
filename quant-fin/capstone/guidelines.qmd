@@ -25,12 +25,15 @@ More specifically, the expected output must be structured as one of the followin
 2.  A *Quarto* document containing a dynamic report with code, analysis, and visualizations; or
 3.  A *Shiny* application file
 
+
+In addition to your code, groups are expected to create a 10-minutes presentation (in *PowerPoint*, *Quarto*, or even through a *Shiny* app) outlining the main points from their capstone project. All students are expected to present, and should be prepared for technical questions regarding the underlying code.
+
 ::: callout-tip
 ### Using Shiny
 
 For groups that are willing to showcase their work using *Shiny*, the professor will provide full support for hosting the application online, ensuring accessibility for external review and future professional showcasing.
 
-For a reference of what can be considered a capstone project for the course, access this link to check a web application that replicates a momentum strategy in the U.S. financial markets. Kindly note that capstone projects are expected to be much simpler than this example, as the goal is to provide students with a first hands-on finance experience on tools for data analysis and reporting in finance.
+For a reference of what can be considered a capstone project for the course, access [this](https://brindexes.shinyapps.io/backtester-app/) link to check a web application that replicates a momentum strategy in the U.S. financial markets. Kindly note that capstone projects are expected to be much simpler than this example, as the goal is to provide students with a first hands-on finance experience on tools for data analysis and reporting in finance.
 :::
 
 ## Evaluation Criteria
