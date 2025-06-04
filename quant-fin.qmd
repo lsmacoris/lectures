@@ -75,6 +75,8 @@ You can find the permanent links to the replication files (`.qmd`) below:
 
 Below you can find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.
 
+To access the slides from our guest-lecture ([Renato Lerípio](https://rleripio.com/), *Kapitalo Investimentos*, May 2025), click [here](https://eaesp2025.rleripio.com/#/title-slide).
+
 ::: {.callout-note}
 
 1. Hit `F` for full-screen mode

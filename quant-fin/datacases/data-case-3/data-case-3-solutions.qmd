@@ -83,7 +83,6 @@ Suppose that $D_1=\$2.00$. Assume the growth rate is fixed at $g=3\%$. Simulate 
 Make sure to set a seed (`set.seed(123)`) for reproducibility and ensure that $r>g$ for each simulation.
 :::
 
-
 ```{r}
 #| warning: false
 #| message: false
