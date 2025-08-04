@@ -3,12 +3,12 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Introduction'
+    title: 'Course Introduction'
     theme: [default, ../~ Metadata/custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris (FGV-EAESP)'
     logo: 'Images/logo.jpg'
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/quant-fin) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/valuation) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
     toc: false
     cls: ../~ Metadata/abntex2.cls
     incremental: false
@@ -40,28 +40,48 @@ For any questions or concerns, please feel free to reach out via email at [lucas
 
 ## Welcome to the Course
 
-::: nonincremental
 1.  Overview and Course Organization
 2.  Grading and Evaluations
 3.  Navigating through the syllabus
 4.  How you can get the best of this course
 5.  Overall Q&A
 6.  Introduction to Corporate Finance
-:::
 
 ## Overview and course organization
 
-::: nonincremental
+- This is a hands-on, applied course on Valuation designed for professional master’s students in management. Throughout the course, students will: 
+
+  1. Explore the core concepts and methodologies used in valuation
+  2. Develop the ability to critically analyze corporate performance, investment opportunities, and strategic decisions
+
 -   **Basic text-book**
 
     1.  We will follow *Corporate Finance* [@BDM], as our text-book
-    2.  Throughout the syllabus, it will be referred as **[BDM]**
-
+    2.  *Harvard Business Review* (selected cases) - access granted on e-Class®
+    
 -   **Supplementary Reading**
 
-    1.  *Harvard Business Review* (selected cases) - access granted on e-Class®
     2.  Selected academic papers
+
+## Course Organization, selected topics
+
+- Although some topics may vary as we move along the course, we aim to cover the following areas:
+
+  1. Valuation - rationale and basic concepts
+  2. Relative Valuation
+  3. The *Free Cash Flow* in practice
+  4. Valuation with different leverage policies
+  5. Incorporating Uncertainty in Valuation Models
+  5. Equity Valuation
+  6. Mergers and Acquisitions
+
+:::{.callout-tip}
+### Complementary Content
+
+Students are encouraged to bring in new topics and/or in-depth discussions of the covered topics that are of the interest of a broader audience. Whenever applicable, the professor will provide supplementary content in the form of whitepapers, policy papers, and academic papers to foster the discussion.
+
 :::
+
 
 ## Grading and Evaluations
 
@@ -69,10 +89,10 @@ For any questions or concerns, please feel free to reach out via email at [lucas
 
 **Grading will be composed of the following activities:**
 
-1. Practical Work (Data Cases) (**40%**)
-2. Project Presentation (**40%**)
-3. Active Participation (**20%**)
-
+1. Capstone Project (*Excel* format) (**50%**)
+2. Capstone Project Presentation (*PowerPoint* format) (**40%**)
+3. Take-home Deliverables (**10%**)
+3. Active In-class Participation (**10%**)
 
 -   You can find the details of any of these activities in the official syllabus (available on *eClass*)
 -   In case of any questions, feel free to reach out to [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
@@ -109,6 +129,126 @@ I also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessio
 3.  Motivate students, both from the academic and practitioner standpoints
 4.  Provide opportunities to extend knowledge beyond the mandatory readings
 
+## What is a Valuation About?
+
+::: callout-tip
+### Definition
+
+Valuation is the process of estimating what something is worth today, based on its expected future benefits. In corporate finance, this typically involves discounting future cash flows using an appropriate discount rate that reflects the risk of those cash flows [@BDM] 
+
+:::
+
+- **Valuation ≠ Price Forecasting**: it estimates *fundamental* value, not short-term market movements.
+
+- **Purposes of Valuation**: Investment decisions, fundraising, M&A, taxation, strategic planning.
+
+- **A Blend of Science and Judgment**: Relies on models *and* assumptions—cash flows, risk, growth, reinvestment.
+
+. . .
+
+$\rightarrow$ **Example:** *WeWork*'s $47B pre-IPO valuation collapsed after governance and business model scrutiny, revealing an inflated narrative disconnected from fundamentals
+
+
+## What is the Value of a Firm?
+
+::: incremental
+
+1. **Market Value**: reflects what investors are currently willing to pay
+  - Changes in real time—driven by expectations, sentiment, and news 
+  - *Example:* Tesla’s market cap surged past $1 trillion despite profits trailing legacy automakers
+
+2. **Accounting (Book) Value**: based on historical costs and accounting rules
+  - Often underestimates firms with intangible assets  
+  - *Example:* Amazon’s book value was far below its market cap during its growth years
+
+3. **Intrinsic Value**: theoretical value based on expected future cash flows, risk, and growth
+  - May differ from market value—basis for investment decisions.  
+  - *Example:* *Warren Buffett* invests when market price is below its (estimated) intrinsic value
+
+:::
+
+## Valuation Methodologies
+
+- The fastest way to assess the value of a firm is to compare and contrast it to *similar* firms in which we *assume* to know the value upfront
+
+- This is what we call [Relative Valuation]{.blue}:
+
+1. Compares a firm’s value to that of similar companies using market-based ratios
+2. Common multiples include **P/E**, **EV/EBITDA**, **P/B**, and **EV/Sales**
+3. Assumes that comparable firms are correctly priced by the market
+4. Simpler and faster than DCF, but less grounded in fundamentals and sensitive to choice of peers and potential market mispricing
+
+. . .
+  
+$\rightarrow$ **Example:** *SaaS* startups valued at 10x–20x revenue during bull markets
+
+## Valuation Methodologies, continued
+
+- The [Discounted Cash Flow (DCF)]{.blue} is based on expected free cash flows discounted at the firm’s cost of capital:
+
+$$
+V=\sum_{t=0}^{\infty}\dfrac{FCF}{(1+r)^t}
+$$
+
+
+- Requires detailed assumptions about growth, margins, reinvestment, and risk
+- Grounded in fundamentals, making it robust for long-term valuation
+- Sensitive to small changes in assumptions, especially terminal value and discount rate
+
+$\rightarrow$ **Example:** valuing the introduction of a new project within a given company requires estimates around (expected) future cash flows and its associated risk, as well as the investment needed 
+
+## Valuation Methodologies, continued
+
+- The [Liquidation (or Salvage) Value]{.blue}: an *Asset-Based* view of the firm by the sum of tangible assets minus liabilities  
+
+1. Estimates the value of a firm's assets if sold separately in a distressed or orderly sale (*"fire sale"*)
+2. Because it ignores the firm's ability to generate future cash flows, it is typically lower than going-concern value due to forced-sale discounts
+3. Useful for valuing distressed firms or setting a valuation floor
+4. Often used in [bankruptcy]{.blue}, [restructuring]{.blue}, or [lender recovery]{.blue} scenarios
+
+$\rightarrow$ **Example:** the liquidation value of Lehman Brothers post-crisis
+
+## Impact of New Information on Valuation
+
+- Valuation is not *static* - [new information]{.blue} constantly reshapes assumptions about expected returns and risk:
+
+. . .
+
+::: .incremental
+  1. Rising interest rates [lower]{.red} the present value of future earnings
+  2. New patents or tech  [boosts]{.green} future cash flow expectations
+  3. Regulatory risks raise discount rates or reduce expected margins, plummeting stock prices
+
+:::
+
+. . .
+
+- As such, as new information arrives publicly, investors reassess expectations regarding expected cash-flows, risk, and future growth, and the expected value of a firm changes
+
+. . .
+
+$\rightarrow$ **Example:** *Meta* lost $200B in market cap in 2022 after weak earnings and guidance—market revised growth expectations sharply
+
+---
+
+## The Dark Side of Valuation
+
+*“Every valuation tells a story. The danger lies when the story is fiction.” – Aswath Damodaran*
+
+- What happens when standard valuation models don’t work to frame a specific valuation target?
+
+- There are common real-world examples that pose difficulties for the standard valuation methods:
+
+  1. **Startups**: no earnings, high uncertainty. In this case, the use of scenario-based or option pricing approaches are more suitable for the task
+
+
+  $\rightarrow$ **Example:** *Uber* pre-IPO required projecting market share in unproven markets
+
+
+  2. **SPACs and Shells**: High valuation based on expectations alone
+
+
+  $\rightarrow$ **Example:** *Nikola* surged on hydrogen truck hype—collapsed after short-seller revelations
 
 
 ## References

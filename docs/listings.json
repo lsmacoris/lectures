@@ -20,7 +20,8 @@
       "/fin-mgmt.html",
       "/fin-strat.html",
       "/quant-fin.html",
-      "/quant-mkt.html"
+      "/quant-mkt.html",
+      "/valuation.html"
     ]
   },
   {
@@ -69,6 +70,12 @@
       "/quant-mkt/coursework/Lecture 2 - Evaluating Logistic Regression Outcomes/index.html",
       "/quant-mkt/coursework/Lecture 4 -  Market Basket Analysis/index.html",
       "/quant-mkt/coursework/Lecture 3 - Multiple Choice Models/index.html"
+    ]
+  },
+  {
+    "listing": "/valuation.html",
+    "items": [
+      "/valuation/coursework/Lecture 1 - Introduction/index.html"
     ]
   }
 ]

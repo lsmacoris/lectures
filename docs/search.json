@@ -620,7 +620,7 @@
     "href": "index.html",
     "title": "Lecture Notes and Handouts",
     "section": "",
-    "text": "Within this section, you’ll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. These resources extensively leverage Quarto, an open-source scientific and technical publishing system that supports R, Python, Julia, and Observable. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by Reveal JS.\nFor comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official reference material.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Management\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Strategy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPractical Applications in Quantitative Finance\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuantitative Methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Within this section, you’ll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. These resources extensively leverage Quarto, an open-source scientific and technical publishing system that supports R, Python, Julia, and Observable. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by Reveal JS.\nFor comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official reference material.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Management\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial Strategy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPractical Applications in Quantitative Finance\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuantitative Methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nValuation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "fin-strat/Lecture 9 - Financial Distress, Managerial Incentives, and Information/index.html#outline",
@@ -2328,7 +2328,7 @@
     "href": "fin-strat/Introduction/index.html#grading-and-evaluations",
     "title": "Introduction and Course Overview",
     "section": "Grading and Evaluations",
-    "text": "Grading and Evaluations\n\nGrading will be composed of the following activities:\n\nMid-term Examination (40%)\nFinal Examination (40%)\n2x Quizzes throughout the semester (10%)\nPractical work (10%)\n\n\n\n\nYou can find the details of any of these activities in the official syllabus (available on eClass®)\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br\n\n\n\n\n\n\n\n\n\nOffice-hours\n\n\nI also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I’ll be more than happy to help you with anything you need from this course. Use the Office-hour Appointments link at the bottom of this slide to schedule some time (or click here)."
+    "text": "Grading and Evaluations\n\nGrading will be composed of the following activities:\n\nMid-term Examination (40%)\nFinal Examination (40%)\n4x Quizzes throughout the semester (15%)\nHandout Exercises (5%)\n\n\n\n\nYou can find the details of any of these activities in the official syllabus (available on eClass®)\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br\n\n\n\n\n\n\n\n\n\nOffice-hours\n\n\nI also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I’ll be more than happy to help you with anything you need from this course. Use the Office-hour Appointments link at the bottom of this slide to schedule some time (or click here)."
   },
   {
     "objectID": "fin-strat/Introduction/index.html#getting-the-best-of-this-course",
@@ -2349,7 +2349,7 @@
     "href": "fin-strat/Introduction/index.html#getting-the-best-of-this-course-continued",
     "title": "Introduction and Course Overview",
     "section": "Getting the best of this course, continued",
-    "text": "Getting the best of this course, continued\n\nStudying for examinations\n\nI highly recommend using Prof. Henrique Martins (FGV-EAESP) materiais. In his website, there are suggested exercises for each lecture of our course.\n\n\n\n\\(\\rightarrow\\) To access, click here - I’ll also refer to the specific links for each part of the content at the beginning of each lecture\n\nIn the Syllabus, you can find a list of recommended exercises from our main text-book, (Berk and DeMarzo 2023). Note that these are not mandatory but rather serve as a way for your to practice\nUse the handout as an opportunity to motivate your studies through real-world examples. These handouts will focus not only on providing you with a sense of how useful this is in a real-world application, but also can definitely help you better understand the mechanics behind everytine that we’ll study throughout the course!"
+    "text": "Getting the best of this course, continued\n\nStudying for examinations\n\nI highly recommend using Prof. Henrique Martins (FGV-EAESP) materiais. In his website, there are suggested exercises for each lecture of our course.\n\n\n\n\\(\\rightarrow\\) To access, click here - I’ll also refer to the specific links for each part of the content at the beginning of each lecture\n\nIn the Syllabus, you can find a list of recommended exercises from our main text-book, (Berk and DeMarzo 2023). Note that these are not mandatory but rather serve as a way for your to practice\nUse the handout as an opportunity to motivate your studies through real-world examples. These handouts will focus not only on providing you with a sense of how useful this is in a real-world application, but also can definitely help you better understand the mechanics behind all concepts we will study throughout the course."
   },
   {
     "objectID": "fin-strat/Introduction/index.html#references",
@@ -12826,49 +12826,49 @@
   {
     "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#disclaimer",
     "href": "valuation/coursework/Lecture 1 - Introduction/index.html#disclaimer",
-    "title": "Introduction",
+    "title": "Course Introduction",
     "section": "Disclaimer",
     "text": "Disclaimer\n\n\n\n\n\n\nDisclaimer\n\n\nThe information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.\nAll publicly available content used in this lecture is available and also shared on my GitHub page. Participants are encouraged to review, modify, and use it for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.\nFor any questions or concerns, please feel free to reach out via email at lucas.macoris@fgv.br"
   },
   {
     "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#references",
     "href": "valuation/coursework/Lecture 1 - Introduction/index.html#references",
-    "title": "Introduction",
+    "title": "Course Introduction",
     "section": "References",
     "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2023. Corporate Finance, Global Edition. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ."
   },
   {
     "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#welcome-to-the-course",
     "href": "valuation/coursework/Lecture 1 - Introduction/index.html#welcome-to-the-course",
-    "title": "Introduction",
+    "title": "Course Introduction",
     "section": "Welcome to the Course",
-    "text": "Welcome to the Course\n\n\nOverview and Course Organization\nGrading and Evaluations\nNavigating through the syllabus\nHow you can get the best of this course\nOverall Q&A\nIntroduction to Corporate Finance"
+    "text": "Welcome to the Course\n\nOverview and Course Organization\nGrading and Evaluations\nNavigating through the syllabus\nHow you can get the best of this course\nOverall Q&A\nIntroduction to Corporate Finance"
   },
   {
     "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#overview-and-course-organization",
     "href": "valuation/coursework/Lecture 1 - Introduction/index.html#overview-and-course-organization",
-    "title": "Introduction",
+    "title": "Course Introduction",
     "section": "Overview and course organization",
-    "text": "Overview and course organization\n\n\nBasic text-book\n\nWe will follow Corporate Finance (Berk and DeMarzo 2023), as our text-book\nThroughout the syllabus, it will be referred as [BDM]\n\nSupplementary Reading\n\nHarvard Business Review (selected cases) - access granted on e-Class®\nSelected academic papers"
+    "text": "Overview and course organization\n\nThis is a hands-on, applied course on Valuation designed for professional master’s students in management. Throughout the course, students will:\n\nExplore the core concepts and methodologies used in valuation\nDevelop the ability to critically analyze corporate performance, investment opportunities, and strategic decisions\n\nBasic text-book\n\nWe will follow Corporate Finance (Berk and DeMarzo 2023), as our text-book\nHarvard Business Review (selected cases) - access granted on e-Class®\n\nSupplementary Reading\n\nSelected academic papers"
   },
   {
     "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#grading-and-evaluations",
     "href": "valuation/coursework/Lecture 1 - Introduction/index.html#grading-and-evaluations",
-    "title": "Introduction",
+    "title": "Course Introduction",
     "section": "Grading and Evaluations",
-    "text": "Grading and Evaluations\n\nGrading will be composed of the following activities:\n\nPractical Work (Data Cases) (40%)\nProject Presentation (40%)\nActive Participation (20%)\n\n\nYou can find the details of any of these activities in the official syllabus (available on eClass)\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br\n\n\n\n\n\n\n\n\n\nOffice-hours\n\n\nI also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I’ll be more than happy to help you with anything you need from this course. Use the Office-hour Appointments link at the bottom of this slide to schedule some time (or click here)."
+    "text": "Grading and Evaluations\n\nGrading will be composed of the following activities:\n\nCapstone Project (Excel format) (50%)\nCapstone Project Presentation (PowerPoint format) (40%)\nTake-home Deliverables (10%)\nActive In-class Participation (10%)\n\n\nYou can find the details of any of these activities in the official syllabus (available on eClass)\nIn case of any questions, feel free to reach out to lucas.macoris@fgv.br\n\n\n\n\n\n\n\n\n\nOffice-hours\n\n\nI also host office-hours (by appointment) on Thursdays, 5PM-6PM. In these sessions, I’ll be more than happy to help you with anything you need from this course. Use the Office-hour Appointments link at the bottom of this slide to schedule some time (or click here)."
   },
   {
     "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#getting-the-best-of-this-course",
     "href": "valuation/coursework/Lecture 1 - Introduction/index.html#getting-the-best-of-this-course",
-    "title": "Introduction",
+    "title": "Course Introduction",
     "section": "Getting the best of this course",
     "text": "Getting the best of this course"
   },
   {
     "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#getting-the-best-of-this-course-1",
     "href": "valuation/coursework/Lecture 1 - Introduction/index.html#getting-the-best-of-this-course-1",
-    "title": "Introduction",
+    "title": "Course Introduction",
     "section": "Getting the best of this course",
     "text": "Getting the best of this course\n\nHow you can get the best of this course\n\nFollow FGV-EAESP code of conduct\nBe organized: pay attention to pre-readings and deliverables!\nBe proactive: ask questions and participate in discussions, proactively study the mandatory reading\nTake the lead on your learning: you are the ultimate responsible for your success!\n\n\n\nHow the professor can facilitate you getting the best of this course\n\nAll mandatory content will be provided ahead of time\nProvide a safe and open space for questions, both in-person and remote\nMotivate students, both from the academic and practitioner standpoints\nProvide opportunities to extend knowledge beyond the mandatory readings"
   },
@@ -13466,5 +13466,82 @@
     "title": "Data Case III - Monte Carlo Simulation",
     "section": "",
     "text": "Suppose that the baseline price for the firm is \\(\\$40.35\\). Based on our findings from Exercise 4, what is the % of scenarios where you would see an undervalued investment opportunity and, therefore, would signal a buying opportunity?"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#course-organization-selected-topics",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#course-organization-selected-topics",
+    "title": "Course Introduction",
+    "section": "Course Organization, selected topics",
+    "text": "Course Organization, selected topics\n\nAlthough some topics may vary as we move along the course, we aim to cover the following areas:\n\nValuation - rationale and basic concepts\nRelative Valuation\nThe Free Cash Flow in practice\nValuation with different leverage policies\nIncorporating Uncertainty in Valuation Models\nEquity Valuation\nMergers and Acquisitions\n\n\n\n\n\n\n\n\nComplementary Content\n\n\nStudents are encouraged to bring in new topics and/or in-depth discussions of the covered topics that are of the interest of a broader audience. Whenever applicable, the professor will provide supplementary content in the form of whitepapers, policy papers, and academic papers to foster the discussion."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#what-is-the-value-of-a-firm",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#what-is-the-value-of-a-firm",
+    "title": "Course Introduction",
+    "section": "What is the Value of a Firm?",
+    "text": "What is the Value of a Firm?\n\n\nMarket Value: reflects what investors are currently willing to pay\n\n\nChanges in real time—driven by expectations, sentiment, and news\nExample: Tesla’s market cap surged past $1 trillion despite profits trailing legacy automakers\n\n\nAccounting (Book) Value: based on historical costs and accounting rules\n\n\nOften underestimates firms with intangible assets\n\nExample: Amazon’s book value was far below its market cap during its growth years\n\n\nIntrinsic Value: theoretical value based on expected future cash flows, risk, and growth\n\n\nMay differ from market value—basis for investment decisions.\n\nExample: Warren Buffett invests when market price is below its (estimated) intrinsic value"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#what-is-a-valuation-about",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#what-is-a-valuation-about",
+    "title": "Course Introduction",
+    "section": "What is a Valuation About?",
+    "text": "What is a Valuation About?\n\n\n\n\n\n\nDefinition\n\n\nValuation is the process of estimating what something is worth today, based on its expected future benefits. In corporate finance, this typically involves discounting future cash flows using an appropriate discount rate that reflects the risk of those cash flows (Berk and DeMarzo 2023)\n\n\n\n\nValuation ≠ Price Forecasting: it estimates fundamental value, not short-term market movements.\nPurposes of Valuation: Investment decisions, fundraising, M&A, taxation, strategic planning.\nA Blend of Science and Judgment: Relies on models and assumptions—cash flows, risk, growth, reinvestment.\n\n\n\\(\\rightarrow\\) Example: WeWork’s $47B pre-IPO valuation collapsed after governance and business model scrutiny, revealing an inflated narrative disconnected from fundamentals"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#valuation-methodologies",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#valuation-methodologies",
+    "title": "Course Introduction",
+    "section": "Valuation Methodologies",
+    "text": "Valuation Methodologies\n\nThe fastest way to assess the value of a firm is to compare and contrast it to similar firms in which we assume to know the value upfront\nThis is what we call Relative Valuation:\n\n\nCompares a firm’s value to that of similar companies using market-based ratios\nCommon multiples include P/E, EV/EBITDA, P/B, and EV/Sales\nAssumes that comparable firms are correctly priced by the market\nSimpler and faster than DCF, but less grounded in fundamentals and sensitive to choice of peers and potential market mispricing\n\n\n\\(\\rightarrow\\) Example: SaaS startups valued at 10x–20x revenue during bull markets"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#impacts-on-valuation",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#impacts-on-valuation",
+    "title": "Course Introduction",
+    "section": "Impacts on Valuation",
+    "text": "Impacts on Valuation\n\nValuation is not static—new information constantly reshapes assumptions.\nExamples:\n\nRising interest rates → lower present value of future earnings.\nNew patents or tech → boosts future cash flow expectations.\nRegulatory risks → raise discount rates or reduce expected margins.\n\nCase: Meta (Facebook) lost $200B in market cap in 2022 after weak earnings and guidance—market revised growth expectations sharply."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#the-dark-side-of-valuation",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#the-dark-side-of-valuation",
+    "title": "Course Introduction",
+    "section": "The Dark Side of Valuation",
+    "text": "The Dark Side of Valuation\n“Every valuation tells a story. The danger lies when the story is fiction.” – Aswath Damodaran\n\nWhat happens when standard valuation models don’t work to frame a specific valuation target?\nThere are common real-world examples that pose difficulties for the standard valuation methods:\n\nStartups: no earnings, high uncertainty. In this case, the use of scenario-based or option pricing approaches are more suitable for the task\n\n\\(\\rightarrow\\) Example: Uber pre-IPO required projecting market share in unproven markets\n\nSPACs and Shells: High valuation based on expectations alone\n\n\\(\\rightarrow\\) Example: Nikola surged on hydrogen truck hype—collapsed after short-seller revelations"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#valuation-methodologies-continued",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#valuation-methodologies-continued",
+    "title": "Course Introduction",
+    "section": "Valuation Methodologies, continued",
+    "text": "Valuation Methodologies, continued\n\nThe Discounted Cash Flow (DCF) is based on expected free cash flows discounted at the firm’s cost of capital:\n\n\\[\nV=\\sum_{t=0}^{\\infty}\\dfrac{FCF}{(1+r)^t}\n\\]\n\nRequires detailed assumptions about growth, margins, reinvestment, and risk\nGrounded in fundamentals, making it robust for long-term valuation\nSensitive to small changes in assumptions, especially terminal value and discount rate\n\n\\(\\rightarrow\\) Example: valuing the introduction of a new project within a given company requires estimates around (expected) future cash flows and its associated risk, as well as the investment needed"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#valuation-methodologies-continued-1",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#valuation-methodologies-continued-1",
+    "title": "Course Introduction",
+    "section": "Valuation Methodologies, continued",
+    "text": "Valuation Methodologies, continued\n\nThe Liquidation (or Salvage) Value: an Asset-Based view of the firm by the sum of tangible assets minus liabilities\n\n\nEstimates the value of a firm’s assets if sold separately in a distressed or orderly sale (“fire sale”)\nBecause it ignores the firm’s ability to generate future cash flows, it is typically lower than going-concern value due to forced-sale discounts\nUseful for valuing distressed firms or setting a valuation floor\nOften used in bankruptcy, restructuring, or lender recovery scenarios\n\n\\(\\rightarrow\\) Example: the liquidation value of Lehman Brothers post-crisis"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#valuation-methodologies-continued-2",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#valuation-methodologies-continued-2",
+    "title": "Course Introduction",
+    "section": "Valuation Methodologies, continued",
+    "text": "Valuation Methodologies, continued\nLiquidation (or Salvage) Value: an Asset-Based view of the firm by the sum of tangible assets minus liabilities.\n\nExample: Liquidation value of Lehman Brothers post-crisis."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 1 - Introduction/index.html#impact-of-new-information-on-valuation",
+    "href": "valuation/coursework/Lecture 1 - Introduction/index.html#impact-of-new-information-on-valuation",
+    "title": "Course Introduction",
+    "section": "Impact of New Information on Valuation",
+    "text": "Impact of New Information on Valuation\n\nValuation is not static - new information constantly reshapes assumptions about expected returns and risk:\n\n\n\n\nRising interest rates lower the present value of future earnings\nNew patents or tech boosts future cash flow expectations\nRegulatory risks raise discount rates or reduce expected margins, plummeting stock prices\n\n\n\n\n\nAs such, as new information arrives publicly, investors reassess expectations regarding expected cash-flows, risk, and future growth, and the expected value of a firm changes\n\n\n\n\\(\\rightarrow\\) Example: Meta lost $200B in market cap in 2022 after weak earnings and guidance—market revised growth expectations sharply"
+  },
+  {
+    "objectID": "valuation.html#about-the-course",
+    "href": "valuation.html#about-the-course",
+    "title": "Valuation",
+    "section": "About the course",
+    "text": "About the course\nThis is a hands-on, applied course on Valuation designed for professional master’s students in management. The course bridges theory and practice, equipping students with the essential tools to assess company value in a variety of settings. Students will explore the core concepts and methodologies used in valuation, developing the ability to critically analyze corporate performance, investment opportunities, and strategic decisions.\nThe course will be structured around topics that are highly relevant to management professionals, including: introduction to valuation principles, relative valuation, discounted cash flow (DCF) analysis, the role of leverage in valuation, managing project uncertainty, equity valuation techniques, and valuation in mergers and acquisitions. As a final deliverable, students will complete a capstone project applying one or more of these valuation methods to a real-world company or transaction.\n\n\n\n\n\n\nFor students\n\n\n\nBelow you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.\nThese slides leverage Quarto, an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:\n\nHit F for full-screen mode\nIf you are interest in getting a .pdf version of the slides, hit E to switch to print mode and then Ctrl + P"
   }
 ]

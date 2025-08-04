@@ -1,9 +1,9 @@
 ---
 title: "Valuation"
-image: 'valuation/thumbnail.jpg'
+image: 'valuation/thumbnail.jpeg'
 listing:
  type: table
- contents: valuation
+ contents: valuation/coursework
  fields: [title, reading-time]
  sort: "title"
 ---

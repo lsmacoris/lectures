@@ -22,6 +22,8 @@ website:
         text: Quantitative Finance
       - href: quant-mkt.qmd
         text: Quantitative Methods
+      - href: valuation.qmd
+        text: Valuation
 
     right:
       - icon: github

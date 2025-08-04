@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture Notes and Handouts – Lucas S. Macoris</title>
+<title>Valuation – Lucas S. Macoris</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -163,7 +163,7 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
@@ -183,7 +183,7 @@ window.Quarto = {
 <span class="menu-text">Quantitative Methods</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./valuation.html"> 
+    <a class="nav-link active" href="./valuation.html" aria-current="page"> 
 <span class="menu-text">Valuation</span></a>
   </li>  
 </ul>
@@ -226,7 +226,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>Lecture Notes and Handouts</strong></h1>
+<h1 class="title">Valuation</h1>
 </div>
 
 
@@ -243,134 +243,73 @@ window.Quarto = {
 </header>
 
 
-<div class="cell">
-<style type="text/css">
-.justify {
-  text-align: justify !important
-}
-</style>
+<hr>
+<section id="about-the-course" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-course"><strong>About the course</strong></h2>
+<p>This is a hands-on, applied course on Valuation designed for professional master’s students in management. The course bridges theory and practice, equipping students with the essential tools to assess company value in a variety of settings. Students will explore the core concepts and methodologies used in valuation, developing the ability to critically analyze corporate performance, investment opportunities, and strategic decisions.</p>
+<p>The course will be structured around topics that are highly relevant to management professionals, including: introduction to valuation principles, relative valuation, discounted cash flow (DCF) analysis, the role of leverage in valuation, managing project uncertainty, equity valuation techniques, and valuation in mergers and acquisitions. As a final deliverable, students will complete a capstone project applying one or more of these valuation methods to a real-world company or transaction.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="justify">
-<p>Within this section, you’ll find an organized repository containing my lecture notes from FGV-EAESP, technical handouts, and illustrative code samples. These resources extensively leverage <a href="www.quarto.org">Quarto</a>, an open-source scientific and technical publishing system that supports <em>R</em>, <em>Python</em>, <em>Julia</em>, and <em>Observable</em>. Quarto offers a seamless and scalable solution for sharing technical content, encompassing a blend of plain text and executable code, being applicable to static document formats like .pdf files and dynamic, interactive presentations facilitated by <a href="https://revealjs.com/">Reveal JS</a>.</p>
-<p>For comprehensive guidance on harnessing Quarto for presentations and technical content in a standardized and comprehensive manner, please refer to the official <a href="https://quarto.org/docs/reference/">reference</a> material.</p>
+<div class="callout-title-container flex-fill">
+For students
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Below you find the persistent links to all lectures of the course. As they are continuously updated with fixes and new implementations, you might expect some changes from time to time in the contents of each file.</p>
+<p>These slides leverage <a href="https://quarto.org/">Quarto</a>, an open-source scientific and technical publishing system. They contain both static and dynamic content that will be displayed in your internet browser. Some useful tips for using these slides:</p>
+<ol type="1">
+<li>Hit <code>F</code> for full-screen mode</li>
+<li>If you are interest in getting a <code>.pdf</code> version of the slides, hit <code>E</code> to switch to print mode and then <code>Ctrl + P</code></li>
+</ol>
+</div>
 </div>
 
 
 
+</section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1739754425023" data-listing-reading-time-sort="1" data-listing-word-count-sort="195">
-<div class="thumbnail">
-<p><a href="./fin-mgmt.html" class="no-external"></a></p><a href="./fin-mgmt.html" class="no-external">
-<p><img loading="lazy" src="./fin-mgmt/thumbnail.jpg" class="thumbnail-image"></p>
-</a><p><a href="./fin-mgmt.html" class="no-external"></a></p>
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title-sort" data-direction="asc">
+          Title
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./fin-mgmt.html" class="no-external">Financial Management</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./fin-mgmt.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./fin-mgmt.html" class="no-external">The Financial Administration course is the second training program in the financial field within the EAESP Business Administration undergraduate track.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./fin-mgmt.html" class="no-external"></a></p><a href="./fin-mgmt.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1745891402687" data-listing-reading-time-sort="1" data-listing-word-count-sort="154">
-<div class="thumbnail">
-<p><a href="./fin-strat.html" class="no-external"></a></p><a href="./fin-strat.html" class="no-external">
-<p><img loading="lazy" src="./fin-strat/thumbnail.jpg" class="thumbnail-image"></p>
-</a><p><a href="./fin-strat.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./fin-strat.html" class="no-external">Financial Strategy</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./fin-strat.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./fin-strat.html" class="no-external">Familiarize students with concepts and techniques for analyzing and making strategic investment and financing decisions in terms of risk <span class="math inline">\(\times\)</span> return.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./fin-strat.html" class="no-external"></a></p><a href="./fin-strat.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1747860178248" data-listing-reading-time-sort="3" data-listing-word-count-sort="572">
-<div class="thumbnail">
-<p><a href="./quant-fin.html" class="no-external"></a></p><a href="./quant-fin.html" class="no-external">
-<p><img loading="lazy" src="./quant-fin/thumbnail.jpg" class="thumbnail-image"></p>
-</a><p><a href="./quant-fin.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./quant-fin.html" class="no-external">Practical Applications in Quantitative Finance</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./quant-fin.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./quant-fin.html" class="no-external">This is a hands-on, practical course on Quantitative Finance with applications using <code>R</code> and <code>Python</code>, two of the most widely used open-source software for data analysis. This…<em></em></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./quant-fin.html" class="no-external"></a></p><a href="./quant-fin.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1745924274983" data-listing-reading-time-sort="6" data-listing-word-count-sort="1171">
-<div class="thumbnail">
-<p><a href="./quant-mkt.html" class="no-external"></a></p><a href="./quant-mkt.html" class="no-external">
-<p><img loading="lazy" src="./quant-mkt/thumbnail.jpg" class="thumbnail-image"></p>
-</a><p><a href="./quant-mkt.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./quant-mkt.html" class="no-external">Quantitative Methods</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./quant-mkt.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./quant-mkt.html" class="no-external">This is a graduate-level course in <em>Quantitative Methods in Marketing</em> for the <em>Master’s Program in Economics and Finance (MEF)</em>, organized by the <em>University of Navarra (UNAV)</em>.…</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./quant-mkt.html" class="no-external"></a></p><a href="./quant-mkt.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1754307218030" data-listing-reading-time-sort="2" data-listing-word-count-sort="227">
-<div class="thumbnail">
-<p><a href="./valuation.html" class="no-external"></a></p><a href="./valuation.html" class="no-external">
-<p><img loading="lazy" src="./valuation/thumbnail.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./valuation.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./valuation.html" class="no-external">Valuation</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./valuation.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./valuation.html" class="no-external">This is a hands-on, applied course on Valuation designed for professional master’s students in management. The course bridges theory and practice, equipping students with…</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./valuation.html" class="no-external"></a></p><a href="./valuation.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+<th>
+Reading Time
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-file-modified-sort="1754306722684" data-listing-reading-time-sort="7" data-listing-word-count-sort="1331" data-listing-title-sort="Course Introduction" data-listing-filename-sort="index.qmd">
+<td>
+<a href="./valuation/coursework/Lecture 1 - Introduction/index.html" class="title listing-title">Course Introduction</a>
+</td>
+<td>
+<span class="listing-reading-time">7 min</span>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -947,7 +886,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/lsmacoris/lectures/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lsmacoris/lectures/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/lsmacoris/lectures/edit/main/valuation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lsmacoris/lectures/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

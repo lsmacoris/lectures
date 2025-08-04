@@ -78,8 +78,8 @@ from: markdown+emoji
 
 1.  Mid-term Examination (**40%**)
 2.  Final Examination (**40%**)
-3.  2x Quizzes throughout the semester (**10%**)
-4.  Practical work (**10%**)
+3.  4x Quizzes throughout the semester (**15%**)
+4.  Handout Exercises (**5%**)
 
 . . .
 
@@ -132,6 +132,6 @@ $\rightarrow$ *To access, click [here](https://henriquemartins.net/teaching/fina
 
 2.  In the *Syllabus*, you can find a list of recommended exercises from our main text-book, [@BDM]. Note that these are not mandatory but rather serve as a way for your to practice
 
-3.  Use the handout as an opportunity to motivate your studies through real-world examples. These handouts will focus not only on providing you with a sense of how useful this is in a real-world application, but also can definitely help you better understand the mechanics behind everytine that we'll study throughout the course!
+3.  Use the handout as an opportunity to motivate your studies through real-world examples. These handouts will focus not only on providing you with a sense of how useful this is in a real-world application, but also can definitely help you better understand the mechanics behind all concepts we will study throughout the course.
 
 ## References
