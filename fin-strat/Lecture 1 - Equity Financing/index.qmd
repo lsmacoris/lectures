@@ -33,11 +33,12 @@ from: markdown+emoji
     1.  [@BDM]
     2.  [@BMA]
 
--   Study review and practice: I strongly recommend using [Prof. Henrique Castro](https://henriquemartins.net/) (FGV-EAESP) materials. Below you can find the links to the corresponding exercises related to this lecture:
+-   Study review and practice: I strongly recommend using [Prof. Henrique Castro](https://henriquemartins.net/) (FGV-EAESP) materials. Use [this](https://henriquemartins.net/teaching/financial_strategy/) link to the corresponding exercises related to this lecture:
 
-    1.  Multiple Choice Exercises - click [here](https://henriquemartins.net/teaching/financial_strategy/p1tf.html)
-    2.  Numeric Exercises - click [here](https://henriquemartins.net/teaching/financial_strategy/p1num.html)
-
+    1. Multiple Choice Exercises
+    2. Numeric Exercises
+    3. Open-ended Exercises
+    
 . . .
 
 $\rightarrow$ *For coding replications, whenever applicable, please follow [this](https://lsmacoris.github.io/lectures/fin-strat.html) page or hover on the specific slides with coding chunks.*
@@ -77,7 +78,7 @@ $\rightarrow$ *For coding replications, whenever applicable, please follow [this
 ::: callout-tip
 ## Definition
 
-[[Equity Financing]{.blue} is the money that helps firms to grow through equity participation (*i.e*, acquiring a share of the company). Although the [initial capital]{.blue} that is required to start a business is usually provided by the entrepreneur, this source of funding can also come from external investors]{.big}
+[Equity Financing]{.blue} is the money that helps firms to grow through equity participation (*i.e*, acquiring a share of the company). Although the [initial capital]{.blue} that is required to start a business is usually provided by the entrepreneur, this source of funding can also come from external investors
 :::
 
 -   There are several ways in which [Equity Financing]{.blue} can be done, each with specific characteristics, such the funding amount (in \$) and the firms' stage in the business life cycle
@@ -126,10 +127,10 @@ $\rightarrow$ *Examples: [Angelist](https://www.angellist.com/), [Kickstarter](h
 ::: callout-tip
 ### Definition
 
-[A limited partnership that specializes in raising money to invest in the private equity of [young]{.blue} firms. One of the general partners who work for and run a venture capital firm]{.big}.
+[A limited partnership that specializes in raising money to invest in the private equity of *young* firms. One of the general partners who work for and run a venture capital firm.]{.big}
 :::
 
--   Venture Capital firms offer limited partners advantages over investing directly in start-ups themselves as angel investors:
+-   Venture Capital firms offer limited partners advantages over investing directly in startups themselves as angel investors:
     1.  Limited partners are more diversified
     2.  They also benefit from the expertise of the general partners
     3.  General partners usually charge substantial fees: in general, these funds receive return over the profits the firm make (carried interest) plus a an annual management fee of about 2% of the fund's committed capital
@@ -156,7 +157,7 @@ $\rightarrow$ *Examples: [Angelist](https://www.angellist.com/), [Kickstarter](h
 
 ![](Images/F2.png){width="75%" fig-align="center"}
 
--   Examples of Brazilian Private Equity funds: [*Kinea*](https://www.kinea.com.br/fundos/private-equity/), [*Vinci Partners*](https://www.vincipartners.com/negocios/privateEquity), [*Opportunity*](https://www.opportunity.com.br/QuemSomos/PrivateEquity), [Pátria](https://www.patria.com/pt-BR/private-equity-pt/), among others
+-   Examples of Brazilian Private Equity funds: [*Kinea*](https://www.kinea.com.br/fundos/private-equity/), [*Vinci Partners*](https://www.vincipartners.com/negocios/privateEquity), [*Opportunity*](https://www.opportunity.com.br/QuemSomos/PrivateEquity), [Pátria](https://www.patria.com/pt-BR/private-equity-pt/)
 
 ## Institutional Investors
 
@@ -190,7 +191,7 @@ $\rightarrow$ *Examples: [Angelist](https://www.angellist.com/), [Kickstarter](h
 [While some of these investors are considered active, there could be cases where we can find passive institutional investors. For example, *Exchange Traded Funds (ETFs)*, which are funds that aim to match an index, like the *S&P500* or the *Ibovespa* indices, are generally thought of as passive, because they'll need to hold a specific portfolio of assets in any situation.]{.big}
 :::
 
-- Institutional Investors are often in the scrutiny of regulatory agencies due to their relevance across many assets and industries
+-   Institutional Investors are often in the scrutiny of regulatory agencies due to their relevance across many assets and industries
 
 ## Corporate Investors
 
@@ -213,14 +214,14 @@ $\rightarrow$ *Examples: [Angelist](https://www.angellist.com/), [Kickstarter](h
 
 ## Venture Capital investing
 
--   Suppose that you have an investment opportunity and you are seeking for [external]{.blue} funding - *i.e*, you are looking to bringing new shareholders to your company
-
 -   When a company founder decides to sell equity to outside investors for the first time, **it is common practice for private companies to issue preferred stock rather than common stock to raise capital**:
 
     1.  For mature companies, it usually has a preferential dividend and seniority in any liquidation and, sometimes, has special voting rights
     2.  For young companies, it has seniority in any liquidation but typically does not pay regular cash dividends and often contains a right to convert to common stock
-    
-- **Why**? If the company goes [bad]{.red}, the preferred stockholders have a senior claim on the assets of the firm relative to any common stockholders (who are often the employees of the firm). If things go [well]{.green}, then these investors will convert their preferred stock and receive all the rights and benefits of common stockholders
+
+-  If the company goes [bad]{.red}, the preferred stockholders have a senior claim on the assets of the firm relative to any common stockholders (who are often the employees of the firm)
+
+- If things go [well]{.green}, then these investors will convert their preferred stock and receive all the rights and benefits of common stockholders
 
 ## Financing Rounds
 
@@ -228,19 +229,19 @@ $\rightarrow$ *Examples: [Angelist](https://www.angellist.com/), [Kickstarter](h
 
 -   After a potential initial *"seed round"*, it is common to name the securities alphabetically, starting with [Series A]{.blue}, [Series B]{.blue}, and so on
 
-- These rounds mount up to the total shares outstanding of the firm
+-   These rounds mount up to the total shares outstanding of the firm
 
-- In what follows, we'll see an example of how different funding rounds interact to generate the final shares outstanding 
+-   In what follows, we'll see an example of how different funding rounds interact to generate the final shares outstanding
 
 ## Example: *Real Networks*
 
--   *Real Networks*, which was founded by Robert Glaser in 1993, with an investment of approximately 1 million by Glaser
+-   *Real Networks*, which was founded by Robert Glaser in 1993, with an investment of approximately 1 million by *Glaser*
 
--   In April 1995, Glaser's 1 million initial investment represented [13,713,439]{.blue} shares of [Series A]{.blue} preferred stock, implying an initial price of $\approx$ [\$0.07]{.blue} per share
+-   In April 1995, *Glaser*'s 1 million initial investment represented [13,713,439]{.blue} shares of [Series A]{.blue} preferred stock, implying an initial price of $\approx$ [\$0.07]{.blue} per share
 
 -   The company's first round of outside equity funding was a [Series B]{.blue} preferred stock. *Real Networks* sold [2,686,567]{.blue} shares of Series B preferred stock at [\$0.67]{.blue} per share
 
--   At the price the new shares were sold for, Glaser's shares were worth 9.2 million and represented 83.6% of the outstanding shares:
+-   At the price the new shares were sold for, *Glaser*'s shares were worth 9.2 million and represented [83.6%]{.blue} of the outstanding shares:
 
 . . .
 
@@ -253,12 +254,12 @@ $\rightarrow$ *Examples: [Angelist](https://www.angellist.com/), [Kickstarter](h
     1.  **Pre-Money Valuation**
 
     -   At the issuance of new equity, the value of the firm's [prior]{.blue} shares outstanding [at the price in the funding round]{.blue}
-    -   In the Real Netkworks example, 9.2 million
+    -   In the Real Netkworks example, $\small \$9.2$ million
 
     2.  **Post-Money Valuation**
 
     -   At the issue of new equity, the value of the whole firm (old plus new shares) at the price at which the new equity sold
-    -   In the Real Netkworks example, 11 million
+    -   In the Real Netkworks example, $\small \$11$ million
 
 ## Adding new funding series
 
@@ -272,60 +273,60 @@ $\rightarrow$ *Examples: [Angelist](https://www.angellist.com/), [Kickstarter](h
 
 ## *Exercise*: Equity Financing Dynamics
 
--   You founded your own firm two years ago. Initially, you contributed 100,000 of your money and, in return, received 1,500,000 shares of stock
+-   You founded your own firm two years ago. Initially, you contributed $\small \$100,000$ of your money and, in return, received $\small 1,500,000$ shares of stock
 
--   Since then, you have sold an additional 500,000 shares to angel investors
+-   Since then, you have sold an additional $\small 500,000$ shares to angel investors
 
--   You are now considering raising even more capital from a venture capitalist. The venture capitalist has agreed to invest 6 million with a post-money valuation of \$10 million for the firm
+-   You are now considering raising even more capital from a venture capitalist. The venture capitalist has agreed to invest $\small \$6$ million with a *post-money* valuation of $\small\$10$ million for the firm
 
 . . .
 
-Assuming that this is the venture capitalist's first investment in your company, **what percentage of the firm will she end up owning? What percentage will you own? What is the value of your shares?**
+**Question**: Assuming that this is the venture capitalist's first investment in your company, what percentage of the firm will she end up owning? What percentage will you own? What is the value of your shares?
 
 ## *Exercise*: Equity Financing Dynamics - Solution
 
--   Because the Venture Capitalist will invest 6 million out of the 10 million post-money valuation, her ownership percentage is 60%
+1. Because the Venture Capitalist will invest $\small \$6$ million out of the $\small \$10$ million *post-money* valuation, her ownership percentage is $\small 6/10=60\%$
 
--   Consequently, the pre-money valuation is 10 − 6 = 4 million. As there are 2 million pre-money shares outstanding, this implies a share price of $\frac{\$4,000,000}{2,000,000}= \small \$2 \text{ per share}$
+2. Consequently, the *pre-money* valuation is $\small \$10 − \$6 = \$4$ million. As there are $\small 2$ million *pre-money* shares outstanding, this implies a share price of $\frac{\$4,000,000}{2,000,000}= \small \$2 \text{ per share}$
 
--   Thus, the Venture Capitalist will receive $\small \frac{\$6,000,000}{\$2}=3$ million shares for her investment, and after this funding round, there will be a total of 5,000,000 shares outstanding.
+3. Thus, the Venture Capitalist will receive $\small \frac{\$6,000,000}{\$2}=3$ million shares for her investment, and after this funding round, there will be a total of $\small 5,000,000$ shares outstanding
 
 . . .
 
--   You will own $\frac{1,500,000}{5,000,000} = \small 30\%$ of the firm and the post-transaction valuation of your shares is \$3 million.
+$\rightarrow$ You will own $\frac{1,500,000}{5,000,000} = \small 30\%$ of the firm and your *post-money* valuation is $\small\$3$ million
 
 ## Venture Capital Financing Terms
 
-- We saw that outside investors generally receive preferred stock that is convertible at a later stage. When things go [well]{.green}, these securities will ultimately convert to common stock and so all investors are treated equally. But what happens when they [don't]{.red}? There are a handful of contract terms that can help mitigating this risk:
+-   We saw that outside investors generally receive preferred stock that is convertible at a later stage. When things go [well]{.green}, these securities will ultimately convert to common stock and so all investors are treated equally. But what happens when they [don't]{.red}? There are a handful of contract terms that can help mitigating this risk:
 
-  1.  *Liquidation Preference*: specifies a *minimum amount* that must be paid to these security holders before any payments to *common* stockholders in the event of a liquidation, sale, or merger of the company
-  
-  2.  *Seniority*: investors in later rounds can demand [seniority]{.blue} over investors in earlier rounds to ensure that they are repaid first
-  
-  3.  *Anti-Dilution Protection*: if things are not going well and the firm raises new funding at a lower price than in a prior round, this protection lowers the price at which  early investors can convert their shares to common, increasing their ownership percentage
-  
-  5.  *Board seats*: appoint members to secure control rights
+    1.  *Liquidation Preference*: specifies a *minimum amount* that must be paid to these security holders before any payments to *common* stockholders in the event of a liquidation, sale, or merger of the company
+
+    2.  *Seniority*: investors in later rounds can demand [seniority]{.blue} over investors in earlier rounds to ensure that they are repaid first
+
+    3.  *Anti-Dilution Protection*: if things are not going well and the firm raises new funding at a lower price than in a prior round, this protection lowers the price at which early investors can convert their shares to common, increasing their ownership percentage
+
+    4.  *Board seats*: appoint members to secure control rights
 
 ## Exit strategies
 
-- Let's get back to the *Real Networks* case. As investors in *Series E* were willing to pay \$8.99 for a share of preferred stock, the valuation of *existing* preferred stock (earlier rounds) had increased significantly $\rightarrow$ early investors had substantial [capital gains]{.green}
- 
-- Because *Real Networks* was still a private company, however, [investors could not liquidate their investment by selling their stock in the public stock markets]{.blue}!
+-   Let's get back to the *Real Networks* case. As investors in *Series E* were willing to pay \$8.99 for a share of preferred stock, the valuation of *existing* preferred stock (earlier rounds) had increased significantly $\rightarrow$ early investors had substantial [capital gains]{.green}
 
-- How can investors realize the return from their investment in terms of an [exit strategy]{.blue}? This happens mainly through:
-  1. *Acquisitions*: often, large corporations acquire startups by purchasing the outstanding stock of the private company, allowing all investors to *cash out* their investment and gains
-  
-  2. *Going public*: a firm can also become a public traded company through a [Initial Public Offering]{.blue}, allowing shareholders to publicly negotiate their shares
-  
-- In the next session, we'll focus on the latter exit strategy
+-   Because *Real Networks* was still a private company, however, [investors could not liquidate their investment by selling their stock in the public stock markets]{.blue}!
 
+-   How can investors realize the return from their investment in terms of an [exit strategy]{.blue}? This happens mainly through:
+
+    1.  *Acquisitions*: often, large corporations acquire startups by purchasing the outstanding stock of the private company, allowing all investors to *cash out* their investment and gains
+
+    2.  *Going public*: a firm can also become a public traded company through a [Initial Public Offering]{.blue}, allowing shareholders to publicly negotiate their shares
+
+-   In the next session, we'll focus on the latter exit strategy
 
 ## The Initial Public Offering (IPO)
 
 ::: callout-tip
 ### Definition
 
-[The process of selling stock to the public [for the first time]{.blue}]{.big}
+[The process of selling stock to the public [for the first time.]{.blue}]{.big}
 :::
 
 -   Why going public? It allows [greater liquidity]{.blue} and [better access to capital]{.blue} at the cost of [more external monitoring]{.blue} and [more demand for transparency]{.blue}
@@ -405,13 +406,13 @@ $\rightarrow$ *In the former, there is [new money]{.blue} on the table; in the l
 [The *spread* is the fee a company pays to its underwriters, expressed in a percentage of the issue price of a share of stock.]{.big}
 :::
 
--   Consider the final offer price is \$12.50 per share. If the company paid the underwriters a spread of \$0.875 per share, or exactly 7% of the issue price, the underwriters bought the stock for \$11.625 per share and then resold it to their customers for \$12.50 per share
+-   Consider the final offer price is $\small \$12.50$ per share. If the company paid the underwriters a spread of $\small\$0.875$ per share, or exactly $\small 7\%$ of the issue price, the underwriters bought the stock for $\small\$11.625$ per share and then resold it to their customers for $\small\$12.50$ per share
 
 -   When an underwriter provides a **firm commitment**, it is potentially exposing itself to the risk that the banking firm might have to sell the shares at [less than the offer price]{.blue} and take a loss
 
 . . .
 
-$\rightarrow$ *Research shows that about 75% of IPOs experience an increase in share price on the first day (only 9% experience a decrease)*
+$\rightarrow$ *Research shows that about $\small75\%$ of IPOs experience an increase in share price on the first day (only $\small9\%$ experience a decrease)*
 
 ## The Initial Public (IPO) Offering - additional terms and conditions
 
@@ -421,20 +422,20 @@ $\rightarrow$ *Research shows that about 75% of IPOs experience an increase in s
 
 . . .
 
-$\rightarrow$ *Specific terms and conditions can be found in the IPO filings (Preliminary/Final Prospectus) outlining all the rules that the specific IPO will folow* 
+$\rightarrow$ *Specific terms and conditions can be found in the IPO filings (Preliminary/Final Prospectus) outlining all the rules that the specific IPO will folow*
 
 ## *Exercise* - The Initial Public Offering (IPO)
 
--   *RAX House* is a private company considering going public. It has assets of 585 million and liabilities of 415 million. The firm's cash flow from operations was 137 million for the previous year. After the IPO, *RAX House* will have 118 million shares outstanding
+-   *RAX House* is a private company considering going public. It has assets of $\small 585$ million and liabilities of $\small 415$ million. The firm's cash flow from operations was $\small 137$ million for the previous year. After the IPO, *RAX House* will have $\small 118$ million shares outstanding
 -   The industry average cash flow per share multiple is [3.0]{.blue}, and the average book value per share is [2.3]{.blue}. Based on these multiples, **estimate the IPO price.**
 
 . . .
 
 **Solution**
 
-1.   *RAX House*'s book value of equity is $\small 585 - 415 = 170$ million. With 118 million shares outstanding, the book value per share is $\frac{170}{118} = \small 1.44$ per share. Given the industry average of 2.3, the estimated IPO price would be $\small 1.44 \times 2.3 = \small \$3.31$
+1.  The firm's book value of equity is $\small 585 - 415 = 170$ million. With $\small 118$ million shares outstanding, the book value per share is $\frac{170}{118} = \small 1.44$ per share. Given the industry average of $\small 2.3$, the estimated IPO price would be $\small 1.44 \times 2.3 = \small \$3.31$
 
-2.   The firm's cash flow from operations was 137 million, thus cash flow per share is $\frac{137}{118} =\small 1.16$. Given the industry average multiple of 3.0, the estimated IPO price would be $\small 1.16 \times 3.0 = \$3.48$
+2.  The firm's cash flow from operations was $\small 137$ million, thus cash flow per share is $\frac{137}{118} =\small \$1.16$ Given the industry average multiple of $\small 3.0$, the estimated IPO price would be $\small 1.16 \times 3.0 = \$3.48$
 
 # IPO Puzzles
 
@@ -454,7 +455,7 @@ $\rightarrow$ *Specific terms and conditions can be found in the IPO filings (Pr
 
 ## IPO Puzzles - Underpricing
 
--   Research has found that about 75% of first-day returns are [positive]{.green}: the average first-day return in the United States is [17%]{.green}
+-   Research has found that about $\small 75\%$ of first-day returns are [positive]{.green}: the average first-day return in the United States is [17%]{.green}
 -   The underwriters benefit from the under pricing because it allows them to manage their risk:
 
 1.  If the stock is underpriced and there's market correction upwards $\rightarrow$ stock goes [up]{.green}, there's positive momentum on the market, and the underwriter may sell shares at profit
@@ -492,8 +493,7 @@ $\rightarrow$ *The typical investor will have their investment in [good]{.green}
 
 . . .
 
-
-![](Images/F5.png){width=60% fig-align='center'}
+![](Images/F5.png){width="60%" fig-align="center"}
 
 ## IPO Puzzles - Costs of an IPO
 
@@ -503,25 +503,25 @@ $\rightarrow$ *The typical investor will have their investment in [good]{.green}
 
 . . .
 
-![](Images/F6.png){width=45% fig-align='center'}
-
+![](Images/F6.png){width="45%" fig-align="center"}
 
 ## IPO Puzzles - Long-Run Underperformance
 
 -   Although shares of IPOs generally perform very well immediately following the public offering, it has been shown that newly listed firms subsequently appear to perform relatively [poorly]{.red} over the following three to five years after their IPOs
 
-- An important note is that underperformance is not unique to an initial public issuance of equity:
-  1. Underperformance is also found in subsequent issuances as well (*"seasoned offerings"*)
-  2. This raises the possibility that this phenomenum might not result from the issue of equity itself, but rather from the
-conditions that motivated the equity issuance in the first place
+-   An important note is that underperformance is not unique to an initial public issuance of equity:
 
-- Recent studies also cast doubt on the interpretation of this long-run underperformance: is it really due to the IPO, or is the underperformance relative to the characteristics of the firm that has chosen to go public?
+    1.  Underperformance is also found in subsequent issuances as well (*"seasoned offerings"*)
+    2.  This raises the possibility that this phenomenum might not result from the issue of equity itself, but rather from the conditions that motivated the equity issuance in the first place
+
+-   Recent studies also cast doubt on the interpretation of this long-run underperformance: is it really due to the IPO, or is the underperformance relative to the characteristics of the firm that has chosen to go public?
 
 ## The Seasoned Equity Offering (SEO)
 
 ::: callout-tip
 ### Definition
-[When a public company offers [new]{.blue} shares for sale - also known as *follow-on* offer in Brazil.]{.big}
+
+[When a public company offers new shares for sale - also known as *follow-on* offer in Brazil.]{.big}
 :::
 
 -   Public firms use SEOs to raise [additional]{.blue} equity
@@ -539,72 +539,52 @@ conditions that motivated the equity issuance in the first place
 
 ## Rights Offer and Underpricing
 
-Suppose a firm holds 100 in cash and has 50 shares out. Each share is worth \$2.
+Suppose a firm holds $\small \$ 100$ in cash and has $\small 50$ shares outstanding. Each share is worth $\small\$2$.
 
 . . .
 
-**Option 1: it announces a [cash offer]{.blue} for 50 shares at \$1 per share**
+**Option 1: it announces a [cash offer]{.blue} for $\small 50$ shares at $\small\$1$ per share**
 
--   Once this offer is complete, the company will have 150 in cash and 100 shares outstanding
--   The price per share is now \$1.50
--   The new shareholders therefore receive a \$0.50 benefit [at the expense of the old shareholders]{.red}
+-   Once this offer is complete, the company will have $\small 150$ in cash and $\small 100$ shares outstanding
+-   The price per share is now $\small\$1.50$
+-   The new shareholders therefore receive a $\small \$0.50$ benefit [at the expense of the old shareholders]{.red}
 
 . . .
 
 **Option 2: it announces a [rights offer]{.blue}, where shareholders have the right to purchase an additional share for \$1**
 
--   If all shareholders chose to exercise their rights, then after the sale, the value of the firm is 150 with 100 shares outstanding and a price of 1.50 per share
--   In this case, however, the \$0.50 benefit accrues to existing shareholders, which exactly offsets the drop in the stock price
+-   If all shareholders chose to exercise their rights, then after the sale, the value of the firm is $\small \$150$ with $ $\small 100$ shares outstanding and a price of $\small \$1.50$ per share
+-   In this case, however, the $\small \$0.50$ benefit accrues to existing shareholders, which exactly offsets the drop in the stock price
 -   The firm can continue to issue equity without imposing a loss on its current shareholders!
 
 ## The Seasoned Equity Offering (SEO) price reaction
 
 -   Researchers have found that, on average, the market greets the news of an SEO with a price decline. This is consistent with an *Adverse Selection* argument:
 
-  1. A company concerned about protecting its existing shareholders will tend to sell only at a price that correctly values or overvalues the firm, investors infer from the decision to sell that the company is likely to be overvalued
-  2. As a consequence, the price drops with the announcement of the SEO
+1.  A company concerned about protecting its existing shareholders will tend to sell only at a price that correctly values or overvalues the firm, investors infer from the decision to sell that the company is likely to be overvalued
+2.  As a consequence, the price drops with the announcement of the SEO
 
 -   Although not as costly as IPOs, seasoned offerings are still expensive. Underwriting fees amount to 5% of the proceeds of the issue - rights offers have lower costs than cash offers
 
 . . .
 
-$\rightarrow$  *Can SEOs go bad? Definitely! The recent case of [Via Varejo/Casas Bahia]{.blue} shows how prior shareholders were severely diluted and had substantial losses in the first-trading day after the offer - click [here](https://investnews.com.br/negocios/casas-bahia-fracassa-em-follow-on-e-levanta-r622-milhoes-com-venda-de-acoes/) and [here](https://braziljournal.com/via-lanca-follow-on-de-r-1-bi-diluicao-e-de-quase-50/) to access relevant news*
+$\rightarrow$ *Can SEOs go bad? Definitely! The recent case of [Via Varejo/Casas Bahia]{.blue} shows how prior shareholders were severely diluted and had substantial losses in the first-trading day after the offer - click [here](https://investnews.com.br/negocios/casas-bahia-fracassa-em-follow-on-e-levanta-r622-milhoes-com-venda-de-acoes/) and [here](https://braziljournal.com/via-lanca-follow-on-de-r-1-bi-diluicao-e-de-quase-50/) to access relevant news*
 
+# Appendix 
 
 ## SPACs: a new way to go public
 
-- In recent years, an alternative process by which a private company can initially raise capital in public markets gained traction, called *Special Purpose Acquisition Company* (or [SPAC]{.blue})
+-   In recent years, an alternative process by which a private company can initially raise capital in public markets gained traction, called *Special Purpose Acquisition Company* (or [SPAC]{.blue})
 
-  1. A SPAC is a shell company created solely for the purpose of finding a target private firm and taking it public by merging it with the SPAC
-  
-  2. After the merger transaction, referred to as a deSPAC, the SPAC shell company is renamed to match the target
-  
-- The result is that the target receives cash from the SPAC and has shares that are publicly traded. In other words, the outcome for the target is the same as an IPO, but without the SEC’s rigorous listing requirements or the long IPO sales process!
+    1.  A SPAC is a shell company created solely for the purpose of finding a target private firm and taking it public by merging it with the SPAC
+
+    2.  After the merger transaction, referred to as a deSPAC, the SPAC shell company is renamed to match the target
+
+-   The result is that the target receives cash from the SPAC and has shares that are publicly traded. In other words, the outcome for the target is the same as an IPO, but without the SEC’s rigorous listing requirements or the long IPO sales process!
 
 . . .
 
 $\rightarrow$ *Lower requirements are not always desirable: see [here](https://www.nasdaq.com/articles/electric-vehicle-startup-nikola-set-to-begin-trading-under-symbol-nkla-following-spac) the fraudulent case of the electic vehicle startup Nikola involved in a SPAC merger*
 
-
-## Practice
-
-- Take a look at an example of an IPO Prospectus for *Raízen S.A*, made in 2021 by a syndicated group of underwriters, where *BTG Pactual* was the lead underwriter - access on *eClass®*
-
-. . .
-
-
-::: callout-important
-
-:::{.nonincremental}
-
-[Practice using the following links:]{.big}
-
-1.  [Multiple-choice Questions](https://henriquemartins.net/teaching/financial_strategy/p1tf.html){preview-link="true"}
-2.  [Numeric Questions](https://henriquemartins.net/teaching/financial_strategy/p1num.html){preview-link="true"}
-
-:::
-:::
-
-
-
 ## References
+
