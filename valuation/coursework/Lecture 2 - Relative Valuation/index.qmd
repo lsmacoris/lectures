@@ -3,7 +3,7 @@
 author: "Lucas S. Macoris"
 format:
   revealjs:
-    title: 'Relative Vluation'
+    title: 'Relative Valuation'
     theme: [default, ../~ Metadata/custom.scss]
     auto-stretch: false
     author: 'Lucas S. Macoris (FGV-EAESP)'
@@ -189,6 +189,5 @@ $\rightarrow$ *In what follows, we'll discuss each pitfall in detail*
 - Sector cyclicality can distort comparisons if companies are at different cycle stages
 - Adjust for normalized earnings in highly cyclical sectors
 - Monitor interest rates, inflation, and currency trends impacting valuations
-
 
 ## References
