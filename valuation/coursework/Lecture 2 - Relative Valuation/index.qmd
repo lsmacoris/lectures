@@ -1,0 +1,194 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Relative Vluation'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris (FGV-EAESP)'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/valuation) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: false
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Disclaimer
+
+::: callout-important
+### Disclaimer
+
+The information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.
+
+All publicly available content used in this lecture is available and also shared on my [GitHub](https://github.com/lsmacoris) page. Participants are encouraged to review, modify, and use it for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.
+
+For any questions or concerns, please feel free to reach out via email at [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+:::
+
+
+## What is Relative Valuation:
+
+:::{.callout-important}
+### Definition
+
+Multiples analysis (or relative valuation) is the process of comparing a company's value metrics to those of similar companies:
+
+  1. It relies on market-derived multiples rather than intrinsic forecasts
+  2. It is often faster and easier than DCF, but more dependent on market sentiment
+
+Notwithstanding, a relative valuation comparison is always made [under the assumption]{.blue} that similar assets should trade at similar prices - the extent to which such assumption holds true in practice affects the quality of the analysis being carried out
+
+:::
+
+- Relative valuation can be adopted as the *"gut-check"* on the valuation process:
+
+  1. Quickly estimate valuation in M&A and IPO pricing
+  2. Cross-check results from intrinsic valuation methods
+  3. Benchmark a company against industry peers
+  4. Value firms in n industries with short product cycles or limited cash flow predictability
+  5. Estimate the value of private companies using public companies
+
+## Market-valuation Ratios - the *M/B Ratio*
+
+The first valuation multiple that we can think of contrasts *market* and *book* measurements:
+
+. . .
+
+::: callout-tip
+### Definition
+
+The [*Market-to-Book Ratio* (or simply *M/B Ratio*)]{.blue} highlights the differences in fundamental firm characteristics as well as the value added by management:
+
+$$
+\text{M/B Ratio}=\dfrac{\text{Market Value of Equity}}{\text{Book Value of Equity}}
+$$
+
+Where market capitalization is defined as before, and the *Book Value of Equity* is the accounting value of the firm's equity (*i.e*, *Assets* - *Liabilities*).
+:::
+
+-   Some common patterns on *M/B* Ratios:
+
+    1.  A successful firm's *Market-to-Book* ratio typically [exceeds]{.green} 1.
+    2.  [Low]{.red} *Market-to-Book* ratios $\rightarrow$ also known as [*value*]{.blue} stocks
+    3.  [High]{.green} *Market-to-Book* ratios $\rightarrow$ also known as [*growth*]{.blue} stocks
+
+## Market-valuation Ratios - the *P/E Ratio*
+
+::: callout-tip
+### Definition
+
+The [*Price-Earnings Ratio* (or simply *P/E Ratio*)]{.blue} is a simple measure that is used to assess whether a stock is [over]{.red}- or [under]{.green}-valued based on the idea that the value of a stock should be *proportional* to the level of earnings it can generate for its shareholders
+
+$$
+\text{P/E Ratio} = \dfrac{\text{Market Capitalization}}{\text{Net Income}}\equiv \dfrac{\text{Share Price}}{\text{Earnings per Share}}
+$$
+:::
+
+1.  This indicator tends to be highest for industries with high expected growth rates
+2.  Because the *P/E Ratio* considers the value of the firm's equity, it is sensitive to the firm's choice of leverage
+3.  We can avoid this limitation by instead assessing the market value of the underlying business using valuation ratios based on the firm's enterprise value[^3]
+
+[^3]: See [@BDM] Comment on *mismatched ratios*, p. 77
+
+
+## Multiples Mostly Used in Practice
+
+- [Price-based multiples]{.blue}:
+  1. Price-to-Earnings (P/E)
+  2. Price-to-Book (P/B)
+  3 Price-to-Sales (P/S)
+- [Enterprise value–based multiples (firm side)]{.blue}:
+  1. EV/EBITDA
+  2. EV/EBIT
+  3. EV/Sales
+- [Sector-specific multiples]{.blue}:
+  1. EV/Subscriber (telecom, SaaS)
+  2. EV/Barrel of Oil Equivalent (energy)
+  3. Price per Square Meter (real estate)
+
+## Common Pitfalls
+
+- Although widespread in practice, employing a valuation analysis using multiples needs to take into account a series of potential limitations:
+
+  1. Poor choice of comparables
+  2. Ignoring accounting differences
+  3. Market mispricing
+  4. One-size-fits-all multiple use
+  5. Failure to adjust for control premiums or illiquidity
+  6. Overlooking cyclical factors and macroeconomic context
+
+. . .
+
+$\rightarrow$ *In what follows, we'll discuss each pitfall in detail*
+
+## Pitfall 1: Poor Choice of Comparables
+
+- When creating a relative valuation analysis, we start from the assumption that all firms under consideration are thought of *good* comparables (*e.g*, have similar growth rates, margins, and risk profiles)
+
+- Notwithstanding, there are a couple of dimensions by which firms can differ that may have a significant impact on its intrinsic value:
+
+  1. Size differences
+  2. Geographic exposure and competitive positioning matter
+  3. Different life-cycle stages
+
+
+## Pitfall 2: Ignoring Accounting Differences
+
+- Accounting differences across firms can lead to calculations that are not an *apples-to-apples* comparison
+
+- For example, firms may use different accounting policies for:
+  1. Depreciation methods
+  2. Lease capitalization
+  3. Revenue recognition
+
+- *IFRS* vs. *USGAAP* differences can change ratios
+
+- As a rule-of-thumb, always normalize financial statements before comparing!
+
+
+## Pitfall 3: Market Mispricing
+
+- If an industry is [overvalued]{.green} or [undervalued]{.red}, relative valuation will reflect that [bias]{.blue}:
+
+  1. Herd mentality can inflate or depress multiples
+  2. Consider cross-checking with intrinsic valuation to detect anomalies
+  3. Macro shocks (*e.g.*, interest rate hikes) can quickly change sector pricing
+
+
+## Pitfall 4: One-Size-Fits-All Multiple Use
+
+- Different industries have different value drivers
+- Using P/E for early-stage, loss-making firms is meaningless
+- Capital-intensive businesses often better valued with EV/EBITDA or EV/EBIT
+- Match the multiple to the sector’s key performance metric
+
+
+## Pitfall 5: Failure to Adjust for Control Premiums or Illiquidity
+
+- Transaction values often include a control premium (15–30%)
+- Minority stakes trade at discounts
+- Illiquid assets or markets may require valuation haircuts
+- Ignoring these adjustments can overstate or understate true value
+
+## Pitfall 6: Overlooking Cyclical Factors and Macroeconomic Context
+
+- Multiples expand in booms and contract in recessions
+- Sector cyclicality can distort comparisons if companies are at different cycle stages
+- Adjust for normalized earnings in highly cyclical sectors
+- Monitor interest rates, inflation, and currency trends impacting valuations
+
+
+## References

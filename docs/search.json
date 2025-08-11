@@ -13550,5 +13550,180 @@
     "title": "Equity Financing",
     "section": "IPO and SEOs in Practice",
     "text": "IPO and SEOs in Practice\n\nTake a look at an example of an IPO Prospectus for Raízen S.A, made in 2021 by a syndicated group of underwriters, where BTG Pactual was the lead underwriter - access on eClass®"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html",
+    "title": "Lucas S. Macoris",
+    "section": "",
+    "text": "#title: “Risk and Return” author: “Lucas S. Macoris” format: revealjs: title: ‘Relative Vluation’ theme: [default, ../~ Metadata/custom.scss] auto-stretch: false author: ‘Lucas S. Macoris (FGV-EAESP)’ logo: ‘Images/logo.jpg’ footer: “@ Website | @ Slides | @ Office-hour appointments” toc: false cls: ../~ Metadata/abntex2.cls incremental: false bibliography: ‘../~ Metadata/Bibliography.bib’ slide-number: true show-slide-number: all transition: slide background-transition: fade chalkboard: true width: 1600 height: 900 smaller: false\neditor: visual from: markdown+emoji"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#disclaimer",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#disclaimer",
+    "title": "Relative Vluation",
+    "section": "Disclaimer",
+    "text": "Disclaimer\n\n\n\n\n\n\nDisclaimer\n\n\nThe information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.\nAll publicly available content used in this lecture is available and also shared on my GitHub page. Participants are encouraged to review, modify, and use it for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.\nFor any questions or concerns, please feel free to reach out via email at lucas.macoris@fgv.br"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#what-is-relative-valuation",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#what-is-relative-valuation",
+    "title": "Relative Vluation",
+    "section": "What is Relative Valuation:",
+    "text": "What is Relative Valuation:\n\n\n\n\n\n\nDefinition\n\n\nMultiples analysis (or relative valuation) is the process of comparing a company’s value metrics to those of similar companies:\n\nIt relies on market-derived multiples rather than intrinsic forecasts\nIt is often faster and easier than DCF, but more dependent on market sentiment\n\nNotwithstanding, a relative valuation comparison is always made under the assumption that similar assets should trade at similar prices - the extent to which such assumption holds true in practice affects the quality of the analysis being carried out\n\n\n\n\nRelative valuation can be adopted as the “gut-check” on the valuation process:\n\nQuickly estimate valuation in M&A and IPO pricing\nCross-check results from intrinsic valuation methods\nBenchmark a company against industry peers\nValue firms in n industries with short product cycles or limited cash flow predictability\nEstimate the value of private companies using public companies"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#market-valuation-ratios---the-mb-ratio",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#market-valuation-ratios---the-mb-ratio",
+    "title": "Relative Vluation",
+    "section": "Market-valuation Ratios - the M/B Ratio",
+    "text": "Market-valuation Ratios - the M/B Ratio\nThe first valuation multiple that we can think of contrasts market and book measurements:\n\n\n\n\n\n\n\nDefinition\n\n\nThe Market-to-Book Ratio (or simply M/B Ratio) highlights the differences in fundamental firm characteristics as well as the value added by management:\n\\[\n\\text{M/B Ratio}=\\dfrac{\\text{Market Value of Equity}}{\\text{Book Value of Equity}}\n\\]\nWhere market capitalization is defined as before, and the Book Value of Equity is the accounting value of the firm’s equity (i.e, Assets - Liabilities).\n\n\n\n\nSome common patterns on M/B Ratios:\n\nA successful firm’s Market-to-Book ratio typically exceeds 1.\nLow Market-to-Book ratios \\(\\rightarrow\\) also known as value stocks\nHigh Market-to-Book ratios \\(\\rightarrow\\) also known as growth stocks"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#market-valuation-ratios---the-pe-ratio",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#market-valuation-ratios---the-pe-ratio",
+    "title": "Relative Vluation",
+    "section": "Market-valuation Ratios - the P/E Ratio",
+    "text": "Market-valuation Ratios - the P/E Ratio\n\n\n\n\n\n\nDefinition\n\n\nThe Price-Earnings Ratio (or simply P/E Ratio) is a simple measure that is used to assess whether a stock is over- or under-valued based on the idea that the value of a stock should be proportional to the level of earnings it can generate for its shareholders\n\\[\n\\text{P/E Ratio} = \\dfrac{\\text{Market Capitalization}}{\\text{Net Income}}\\equiv \\dfrac{\\text{Share Price}}{\\text{Earnings per Share}}\n\\]\n\n\n\n\nThis indicator tends to be highest for industries with high expected growth rates\nBecause the P/E Ratio considers the value of the firm’s equity, it is sensitive to the firm’s choice of leverage\nWe can avoid this limitation by instead assessing the market value of the underlying business using valuation ratios based on the firm’s enterprise value1\n\nSee (Berk and DeMarzo 2023) Comment on mismatched ratios, p. 77"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#multiples-mostly-used-in-practice",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#multiples-mostly-used-in-practice",
+    "title": "Relative Vluation",
+    "section": "Multiples Mostly Used in Practice",
+    "text": "Multiples Mostly Used in Practice\n\nPrice-based multiples:\n\nPrice-to-Earnings (P/E)\nPrice-to-Book (P/B) 3 Price-to-Sales (P/S)\n\nEnterprise value–based multiples (firm side):\n\nEV/EBITDA\nEV/EBIT\nEV/Sales\n\nSector-specific multiples:\n\nEV/Subscriber (telecom, SaaS)\nEV/Barrel of Oil Equivalent (energy)\nPrice per Square Meter (real estate)"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#common-pitfalls",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#common-pitfalls",
+    "title": "Relative Vluation",
+    "section": "Common Pitfalls",
+    "text": "Common Pitfalls\n\nAlthough widespread in practice, employing a valuation analysis using multiples needs to take into account a series of potential limitations:\n\nPoor choice of comparables\nIgnoring accounting differences\nMarket mispricing\nOne-size-fits-all multiple use\nFailure to adjust for control premiums or illiquidity\nOverlooking cyclical factors and macroeconomic context\n\n\n\n\\(\\rightarrow\\) In what follows, we’ll discuss each pitfall in detail"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-1-poor-choice-of-comparables",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-1-poor-choice-of-comparables",
+    "title": "Relative Vluation",
+    "section": "Pitfall 1: Poor Choice of Comparables",
+    "text": "Pitfall 1: Poor Choice of Comparables\n\nWhen creating a relative valuation analysis, we start from the assumption that all firms under consideration are thought of good comparables (e.g, have similar growth rates, margins, and risk profiles)\nNotwithstanding, there are a couple of dimensions by which firms can differ that may have a significant impact on its intrinsic value:\n\nSize differences\nGeographic exposure and competitive positioning matter\nDifferent life-cycle stages"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-2-ignoring-accounting-differences",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-2-ignoring-accounting-differences",
+    "title": "Relative Vluation",
+    "section": "Pitfall 2: Ignoring Accounting Differences",
+    "text": "Pitfall 2: Ignoring Accounting Differences\n\nAccounting differences across firms can lead to calculations that are not an apples-to-apples comparison\nFor example, firms may use different accounting policies for:\n\nDepreciation methods\nLease capitalization\nRevenue recognition\n\nIFRS vs. USGAAP differences can change ratios\nAs a rule-of-thumb, always normalize financial statements before comparing!"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-3-market-mispricing",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-3-market-mispricing",
+    "title": "Relative Vluation",
+    "section": "Pitfall 3: Market Mispricing",
+    "text": "Pitfall 3: Market Mispricing\n\nIf an industry is overvalued or undervalued, relative valuation will reflect that bias:\n\nHerd mentality can inflate or depress multiples\nConsider cross-checking with intrinsic valuation to detect anomalies\nMacro shocks (e.g., interest rate hikes) can quickly change sector pricing"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-4-one-size-fits-all-multiple-use",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-4-one-size-fits-all-multiple-use",
+    "title": "Relative Vluation",
+    "section": "Pitfall 4: One-Size-Fits-All Multiple Use",
+    "text": "Pitfall 4: One-Size-Fits-All Multiple Use\n\nDifferent industries have different value drivers\nUsing P/E for early-stage, loss-making firms is meaningless\nCapital-intensive businesses often better valued with EV/EBITDA or EV/EBIT\nMatch the multiple to the sector’s key performance metric"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-5-failure-to-adjust-for-control-premiums-or-illiquidity",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-5-failure-to-adjust-for-control-premiums-or-illiquidity",
+    "title": "Relative Vluation",
+    "section": "Pitfall 5: Failure to Adjust for Control Premiums or Illiquidity",
+    "text": "Pitfall 5: Failure to Adjust for Control Premiums or Illiquidity\n\nTransaction values often include a control premium (15–30%)\nMinority stakes trade at discounts\nIlliquid assets or markets may require valuation haircuts\nIgnoring these adjustments can overstate or understate true value"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-6-overlooking-cyclical-factors-and-macroeconomic-context",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#pitfall-6-overlooking-cyclical-factors-and-macroeconomic-context",
+    "title": "Relative Vluation",
+    "section": "Pitfall 6: Overlooking Cyclical Factors and Macroeconomic Context",
+    "text": "Pitfall 6: Overlooking Cyclical Factors and Macroeconomic Context\n\nMultiples expand in booms and contract in recessions\nSector cyclicality can distort comparisons if companies are at different cycle stages\nAdjust for normalized earnings in highly cyclical sectors\nMonitor interest rates, inflation, and currency trends impacting valuations"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#exercise-valuing-using-multiples",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#exercise-valuing-using-multiples",
+    "title": "Relative Vluation",
+    "section": "Exercise: Valuing Using Multiples",
+    "text": "Exercise: Valuing Using Multiples\nSuppose that you are valuing TechCo, a mid-sized SaaS company. You have identified three public comparables with similar growth, margins, and business models:\nCompany | EV (USDM) | Revenue (USDM) | EBITDA (USD M) | Net Income (USD M) |\n||–:|-:|:|-:| | Alpha | 1,200 | 240 | 60 | 30 | | Beta | 2,000 | 400 | 100 | 45 | | Gamma | 1,500 | 300 | 80 | 40 |\nTechCo’s Financials: - Revenue: USD 280M - EBITDA: USD 70M - Net Income: USD 32M"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#exercise-instructions",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#exercise-instructions",
+    "title": "Relative Vluation",
+    "section": "Exercise Instructions",
+    "text": "Exercise Instructions\n\nStep 1 — Compute multiples for comparables\n\nEV/Revenue\n\nEV/EBITDA\n\nP/E (assume equity value ≈ EV – Debt + Cash; no debt or cash for simplicity)\n\nStep 2 — Take the average multiple for each metric.\nStep 3 — Apply each average multiple to TechCo’s metrics to estimate:\n\nImplied Enterprise Value (EV) using EV/Revenue and EV/EBITDA\nImplied Equity Value using P/E\n\nStep 4 — Compare results\n\nWhich metric gives the highest implied value?\nWhich is most relevant for SaaS companies and why?"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#discussion-prompts",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#discussion-prompts",
+    "title": "Relative Vluation",
+    "section": "Discussion Prompts",
+    "text": "Discussion Prompts\n\nHow sensitive is TechCo’s valuation to the choice of multiple?\nHow would results change if the comparables were in a different stage of the business cycle?\nWhat adjustments would you make if TechCo had significant debt or excess cash?"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#step-1-compute-company-multiples-equity-firm-side",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#step-1-compute-company-multiples-equity-firm-side",
+    "title": "Relative Vluation",
+    "section": "Step 1 — Compute company multiples (equity / firm side)",
+    "text": "Step 1 — Compute company multiples (equity / firm side)\nEV / Revenue\n\nAlpha: 1200 ÷ 240 = 5.00\n\nBeta: 2000 ÷ 400 = 5.00\n\nGamma: 1500 ÷ 300 = 5.00\n\nEV / EBITDA\n\nAlpha: 1200 ÷ 60 = 20.00\n\nBeta: 2000 ÷ 100 = 20.00\n\nGamma: 1500 ÷ 80 = 18.75\n\nP / E (here equity ≈ EV given no debt / cash)\n\nAlpha: 1200 ÷ 30 = 40.00\n\nBeta: 2000 ÷ 45 = 44.444444… → 44.44\n\nGamma: 1500 ÷ 40 = 37.50"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#step-2-average-multiples-simple-mean",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#step-2-average-multiples-simple-mean",
+    "title": "Relative Vluation",
+    "section": "Step 2 — Average multiples (simple mean)",
+    "text": "Step 2 — Average multiples (simple mean)\n\nAverage EV / Revenue = (5.00 + 5.00 + 5.00) ÷ 3 = 5.00\nAverage EV / EBITDA = (20.00 + 20.00 + 18.75) ÷ 3\n= 58.75 ÷ 3 = 19.583333… → 19.58 (rounded)\nAverage P / E = (40.00 + 44.444444… + 37.50) ÷ 3\n= 121.944444… ÷ 3 = 40.648148… → 40.65 (rounded)"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#step-3-apply-averages-to-techco-implied-values",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#step-3-apply-averages-to-techco-implied-values",
+    "title": "Relative Vluation",
+    "section": "Step 3 — Apply averages to TechCo (implied values)",
+    "text": "Step 3 — Apply averages to TechCo (implied values)\nImplied Enterprise Value (EV) — EV / Revenue approach\n\nEV = Avg(EV/Revenue) × TechCo Revenue\n\nEV = 5.00 × 280 = 1,400.00 (USD M)\n\nImplied Enterprise Value (EV) — EV / EBITDA approach\n\nEV = Avg(EV/EBITDA) × TechCo EBITDA\n\nEV = 19.583333… × 70 = 1,370.833333…\n\nRounded: 1,370.83 (USD M)\n\nImplied Equity Value — P / E approach\n(Recall: we assumed equity ≈ EV for comparables; here we follow the same simplifying assumption.)\n\nEquity ≈ Avg(P/E) × TechCo Net Income\n\nEquity = 40.648148… × 32 = 1,300.740740…\n\nRounded: 1,300.74 (USD M)"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#summary-table-implied-values",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#summary-table-implied-values",
+    "title": "Relative Vluation",
+    "section": "Summary Table — Implied Values",
+    "text": "Summary Table — Implied Values\nMethod | Average Multiple | TechCo Metric | Implied Value (USD M) |\n|–|:|–:|-:| | EV / Revenue | 5.00 | Revenue = 280 | 1,400.00 | | EV / EBITDA | 19.58 | EBITDA = 70 | 1,370.83 | | P / E (equity) | 40.65 | Net Income = 32 | 1,300.74 |\n(All numbers rounded to 2 decimals where shown.)"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#interpretation-which-metric-is-most-relevant",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#interpretation-which-metric-is-most-relevant",
+    "title": "Relative Vluation",
+    "section": "Interpretation — Which metric is most relevant?",
+    "text": "Interpretation — Which metric is most relevant?\n\nHighest implied value: EV / Revenue → 1,400 M\nEV/Revenue gives the highest implied value, but the differences versus EV/EBITDA are small (~29 M, ~2% of EV).\nP/E implied value (1,300.74 M) is lower — note it is expressed as an equity value; because we assumed no debt/cash, it’s comparable to EV in this simplified exercise. In real life you must convert EV ⇄ Equity by adding net debt.\nFor SaaS companies:\n\nEV/Revenue is commonly used for high-growth or early-stage SaaS (where earnings/EBITDA may be low or negative).\n\nEV/EBITDA (or EV/EBIT) is preferred for profitable, mature SaaS firms.\n\nP/E only meaningful if comparable firms have stable, positive net income and similar capital structure and tax rates."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#sensitivity-adjustments-short",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#sensitivity-adjustments-short",
+    "title": "Relative Vluation",
+    "section": "Sensitivity & Adjustments (short)",
+    "text": "Sensitivity & Adjustments (short)\n\nDebt / Cash: If TechCo had debt or excess cash, convert implied EV → equity:\nEquity = EV − Net Debt (or Equity = EV + Cash − Debt).\n\nUse of medians vs means: If multiples are skewed, the median is often more robust than the mean.\n\nRange of outcomes: Show min / max implied values from the peer set to highlight valuation dispersion.\n\nEV/EBITDA range here: min = 18.75, max = 20 → implies EV using 18.75×70 = 1,312.5 M and 20×70 = 1,400 M.\n\n\nAdjust for non-recurring items, accounting differences, or growth differences before applying multiples."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#takeaway-slide-to-show-after-students-attempt",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#takeaway-slide-to-show-after-students-attempt",
+    "title": "Relative Vluation",
+    "section": "Takeaway Slide (to show after students attempt)",
+    "text": "Takeaway Slide (to show after students attempt)\n\nAlways check comparability (growth, margins, capital structure).\n\nMatch the multiple to the industry and the company’s profitability.\n\nPresent a range (low/median/high) and explain why different multiples give different values.\n\nCross-check relative results with an intrinsic method (DCF) to detect sector-wide mispricing."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#references",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#references",
+    "title": "Relative Vluation",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2023. Corporate Finance, Global Edition. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#footnotes",
+    "href": "valuation/coursework/Lecture 2 - Relative Valuation/index.html#footnotes",
+    "title": "Lucas S. Macoris",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSee [@BDM] Comment on mismatched ratios, p. 77↩︎"
   }
 ]
