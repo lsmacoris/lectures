@@ -1,5 +1,5 @@
 ---
-title: "Capstone Project - Practical Applications in Quantitative Finance"
+title: "Capstone Project - Valuation"
 author: "Lucas S. Macoris (FGV-EAESP)"
 format: html
 editor: visual
@@ -7,42 +7,56 @@ editor: visual
 
 ## Objective
 
-As the final evaluation for the *Practical Applications in Quantitative Finance* course, students will develop a *Capstone Project* demonstrating their ability to apply quantitative finance concepts using `R`. The project should showcase at least one of the topics covered in the course or another finance-related topic, leveraging the tools and techniques introduced throughout the semester.
+As the final evaluation for the *Valation* course, students will develop a *Capstone Project* demonstrating their ability to apply the methods discussed in class to evaluate a publicly-traded Brazilian company.  Students will work in groups to conduct a comprehensive valuation, integrating both **relative valuation** and **discounted cash flow (DCF)** approaches, to come up with a final investment recommendation.
 
 Please take some time to review the specific guidelines that should be the basis of your project.
 
-## Group Formation
+## Project Scope Group Formation
 
-Students must work in teams of up to **five members**, maximum. Each team is responsible for defining roles and organizing their workflow effectively to ensure timely completion.
+Students must work in teams of up to **five members**, maximum. Each team is responsible for defining roles and organizing their workflow effectively to ensure timely completion. The expected output must be structured containing the following deliverables:
 
-## Project Scope
+1.  A *PowerPoint* presentation that summarizes the investment recommendation; and
+2.  An *Excel* spreadsheet containing the calculations conducted throughout the project
 
-Teams are expected to generate an analysis using **one or more finance concepts** studied in this course or other finance-related concepts that align with the course's focus. The analysis should be conducted using the `R` and incorporate the tools and techniques covered, such as the `tidyverse`, `tidyquant`, `ggplot2`, among others.
 
-More specifically, the expected output must be structured as one of the following deliverables:
+## Step-by-step
 
-1.  An `R` script, well-documented and reproducible
-2.  A *Quarto* document containing a dynamic report with code, analysis, and visualizations; or
-3.  A *Shiny* application file
+The professor will assign each group with a publicly-traded company. Students are expected to complete the following tasks:
 
-::: callout-tip
-### Using Shiny
 
-For groups that are willing to showcase their work using *Shiny*, the professor will provide full support for hosting the application online, ensuring accessibility for external review and future professional showcasing.
+**1. Historical Performance Analysis & Relative Valuation**: analyze the company’s historical performance over the past 5 years, including revenue growth, profitability, capital efficiency, and leverage trends:
 
-For a reference of what can be considered a capstone project for the course, access this link to check a web application that replicates a momentum strategy in the U.S. financial markets. Kindly note that capstone projects are expected to be much simpler than this example, as the goal is to provide students with a first hands-on finance experience on tools for data analysis and reporting in finance.
-:::
+  - Calculate and compare valuation multiples (e.g., P/E, EV/EBITDA, P/B, EV/Sales) against the peer group
+  - Interpret differences between the subject company and its peers
+
+$\rightarrow$ *Students can use [FactSet](https://www.factset.com/marketplace/catalog) to identify and select an appropriate peer group. For details on how to redeem access through *FGV*, follow the instructions outlined on (eClass).*
+
+**2. Calculating Financial Indexes**: using the balance-sheet, income statement, and cash-flow statements, calculate, for the latest 5 (five) fiscal years:
+
+  - *Earnings Before Interest and Taxes (EBIT)*
+  - *Net Operating Profit After Taxes (NOPAT)*
+  - *Free Cash Flow (FCF)*
+
+ Clearly document assumptions and any adjustments (e.g., normalization of earnings, one-off expenses).
+
+**3. Forecasting Free Cash Flows**: project the company’s *Free Cash Flow* for the next **5 years**. State and justify key forecast assumptions (*e.g.*, revenue growth rate, operating margins, reinvestment needs, tax rates, discount rate).
+
+**4. Terminal Value Estimation:** Estimate the (or continuation value) using both the perpetuity growth method or an exit multiple method. Discuss the implications and differences between the two.
+
+**5. Implied share price:** Calculate the firm value, equity value, and the estimated share price using the DCF model
+
+  - Perform **sensitivity analysis** for key inputs (e.g., WACC, terminal growth rate, exit multiple, revenue growth).
+  - Present results in tables and charts.
 
 ## Evaluation Criteria
 
-The evaluation criteria will be mainly take *two* aspects into consideration: a written report ($40\%$) and a project showcase ($15\%$). First, the written report, which should be done using one out of the three aforementioned output formats, will be evaluated on the basis of:
+The evaluation criteria will be mainly take *two* aspects into consideration: a written report ($50\%$) and a project showcase ($30\%$). First, the written report, will be evaluated on the basis of:
 
 1.  The *quality* and *adherence* of the deliverable relative to the expected goals outlined in the guidelines
 2.  The group's ability to *interpret* data using finance theory and *draw insights* from their findings
-3.  Code organization, providing clean, concise, and reproducible results
-4.  Originality, focusing on real-world problems that are not trivial
+3.  Organization, providing clean, concise, and reproducible results
 
-Furthermore, at the end of the semester, each group is also expected to present their project to the course audience. **All individuals from the group are expected to attend and present**. During this showcase, which should last no longer than *10 (ten) minutes*, students will be evaluated on the basis of:
+Furthermore, at the end of the course, each group is also expected to present their project to the course audience. **All individuals from the group are expected to attend and present**. During this showcase, which should last no longer than *10 (ten) minutes*, students will be evaluated on the basis of:
 
 1.  **Ability to Answer Practical and Technical Questions**
     -   Demonstrate a deep understanding of their analysis, methods, and results
@@ -63,11 +77,11 @@ To make sure that you are set up for success, try to follow these best practices
 -   **Start early**: effective time management is crucial for success. Make sure to devote enough time for somewhat cumbersome tasks, such as data collection and manipulation
 -   **Collaborate efficiently**: distribute tasks within your team to leverage individual strengths. Test code snippets and make sure that the whole analysis is reproducible
 -   **Maintain clarity**: ensure that your analysis and conclusions are well-documented and easy to follow
--   **Review and iterate**: test your code, validate results, and refine your presentation
+-   **Review and iterate**: test your calculations, validate results, and refine your presentation
 
 ## Deadlines
 
-The deadline for the submission of the *Capstone Project* is **May, 23rd, at 11:59 PM, Brazilian time**. Submissions made after this date **will not be accepted**. Make sure that one (and only one) member of your group posts the file on *eClass®*.
+The deadline for the submission of the *Capstone Project* is **Sunday, 28th, at 11:59 PM, Brazilian time**. Submissions made after this date **will not be accepted**. Make sure that one (and only one) member of your group posts the file on *eClass®*.
 
 ## Final Thoughts
 
