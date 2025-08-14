@@ -13725,5 +13725,271 @@
     "title": "Lucas S. Macoris",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nSee [@BDM] Comment on mismatched ratios, p. 77↩︎"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#disclaimer",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#disclaimer",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Disclaimer",
+    "text": "Disclaimer\n\n\n\n\n\n\nDisclaimer\n\n\nThe information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.\nAll publicly available content used in this lecture is available and also shared on my GitHub page. Participants are encouraged to review, modify, and use it for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.\nFor any questions or concerns, please feel free to reach out via email at lucas.macoris@fgv.br"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#what-is-capital-budgeting",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#what-is-capital-budgeting",
+    "title": "Capital Budgeting and Free Cash Flow",
+    "section": "What is Capital Budgeting?",
+    "text": "What is Capital Budgeting?\n\nAn important responsibility of corporate financial managers is determining which projects or investments a firm should undertake\n\n\n\n\n\n\n\n\nDefinition\n\n\nCapital Budgeting is the process of analyzing investment opportunities and deciding which ones to accept. It consists of a list of all projects and investments that a company plans to undertake in the near future.\n\n\n\n\nIn our previous lecture, you saw how you can use firm’s financials to draw insightful metrics about its performance and draw forecasts regarding the firms’ value\nYou can draw the same rationale to analyze not only a company that is already up and running, but also an investment project that has not yet started\nAs we’ll see, the Net Present Value (NPV) is the most accurate metric to evaluate investment projects, and there are a couple of other metrics that can help you get a better understanding of the investment opportunity"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#analyzing-expected-future-performance",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#analyzing-expected-future-performance",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Analyzing (expected) future performance",
+    "text": "Analyzing (expected) future performance\n\nSo far, we’ve been concerned about the firm’s past performance:\n\nHow profitability was trending?\nHow does working capital was financed?\n\nNow, we’ll turn our attention to focus on (expected) future performance:\n\nHow much value can a new project bring to the firm?\nWhat are the expected future cash inflows/outflows?\n\nIn what follows, you will learn how to estimate the future cash-flows that will serve as a input to our analysis!"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#introducing-the-free-cash-flow-fcf",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#introducing-the-free-cash-flow-fcf",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Introducing the Free Cash Flow (FCF)",
+    "text": "Introducing the Free Cash Flow (FCF)\n\nHow to measure the incremental gains/losses due to the acceptance of a project? For this, we’ll use the Free Cash Flow measure\n\n\n\n\n\n\n\n\n\nDefinition\n\n\nThe Free Cash Flow is a measure of the project’s available cash to be repaid to its investors after all costs and investments needed to sustain the business plan were taken into account. It is calculated by:\n\nProjecting direct expected Revenue and Cost Estimates\nConsidering indirect revenues/expenses\nCalculating EBIT, Taxes, and NOPAT\nAdjusting for non-cash effects\nConsidering future investments\nDetermining eventual adjustments, if needed\n\n\n\n\n\n\nWe’ll be doing this in using a case study that will guide us through all the steps"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#case-walkthrough",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#case-walkthrough",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Case walkthrough",
+    "text": "Case walkthrough\n\nCia. Amazônia is a manufacturer of sports shoes that is analyzing the possibility of investing in a new line of sneakers, having even incurred research and market testing costs worth \\(\\small \\$125,000\\). The shoes would be manufactured in a warehouse next to the company’s factory, fully depreciated, which is vacant and could be rented for \\(\\small\\$38,000\\) per year.\nThe cost of the machine is \\(\\small \\$200,000\\), depreciated over five years using the straight-line method. Its market value, estimated at the end of five years, is \\(\\small \\$35,000\\)\nThe company needs to maintain a certain investment in working capital. As it is an industrial company, it will purchase raw materials before producing and selling the final product, which will result in an investment in inventories. The firm will maintain a cash balance as protection against unforeseen expenses. Credit sales will generate accounts receivable. In sum, working capital will represent \\(\\small10\\%\\) of sales revenue."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#case-walkthrough-continued",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#case-walkthrough-continued",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Case walkthrough, continued",
+    "text": "Case walkthrough, continued\n\nThe company projects the following sales over a \\(\\small5\\)-year horizon\n\nYear 1: \\(\\small 7,000\\)\nYear 2: \\(\\small 9,000\\)\nYear 3: $10,000\nYear 4: \\(\\small11,000\\)\nYear 5: \\(\\small9,000\\)\n\nThe unit price is \\(\\small\\$28\\), and the unit cost is \\(\\small\\$14\\). It is estimated that its operating costs will rise at an average rate of \\(\\small6\\%\\) each year\nOn the other hand, the company knows that due to market competition, it will not be able to fully pass this on to prices and projects an average increase in sales prices of \\(\\small4\\%\\) each year"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-1-revenue-and-cost-estimates",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-1-revenue-and-cost-estimates",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 1: Revenue and Cost Estimates",
+    "text": "Step 1: Revenue and Cost Estimates\n\nEarnings are not actual cash flows. However, as a practical matter, to derive the forecasted cash flows of a project, financial managers often begin by forecasting earnings\nThus, we begin by determining the incremental earnings of a project—that is, the amount by which the firm’s earnings are expected to change as a result of the investment decision.\nIn our case, we begin by determining the direct earnings and cost estimates from the operation:\n\n\n\\[\n\\small \\text{Gross Profit}_{t}=\\text{Sales}_t\\times(\\text{Price per Unit}_t-\\text{Cost per Unit}_t)\n\\]\n\nThe Gross Profit is our starting point for estimating incremental earnings"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-1-revenue-and-cost-estimates-1",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-1-revenue-and-cost-estimates-1",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 1: Revenue and Cost Estimates",
+    "text": "Step 1: Revenue and Cost Estimates\n\nYour Gross Profit estimation should look like the following:\n\n\n\n\n\n\n\n\nBefore we calculate tax expenses, we need to deduct all other costs that may affect taxes:\n\nFor example, depreciation and amortization are non-cash items, but they are generally tax-deductible\nFurthermore, all other incremental costs, even if they are indirect, need to be taken into account"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-2-consider-indirect-effects",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-2-consider-indirect-effects",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 2: Consider indirect effects",
+    "text": "Step 2: Consider indirect effects\n\nWhen computing the incremental earnings of an investment decision, we should include all changes between:\n\nThe firm’s earnings with the project;\nThe firm’s earnings without the project\n\nThere are two important sources of indirect costs that need to be considered:\n\nOpportunity Costs: many projects use a resource that the company already owns. However, in many cases the resource could provide value for the firm in another opportunity or project.\nProject externalities: indirect effects of the project that may increase or decrease the profits of other business activities of the firm"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-2-consider-indirect-effects-1",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-2-consider-indirect-effects-1",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 2: Consider indirect effects",
+    "text": "Step 2: Consider indirect effects\n\nIn our case, we saw that the firm will use existing assets that otherwise would yield $38,000 yearly. Because of that, we need to take into consideration as an opportunity cost\nWhat about the \\(\\small\\$125,000\\) R&D expenses incurred? This is an example of a sunk cost:\n\nSunk costs have been or will be paid regardless of the decision about whether or not to proceed with the project\nTherefore, they are not incremental with respect to the current decision and should not be included in its analysis\nIf our decision does not affect the cash flow, then the cash flow should not affect our decision!\n\nExamples of sunk costs may include, but are not limited to: past R&D expenses, fixed overhead costs, and unavoidable competition effects"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-3-ebit-and-taxes",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-3-ebit-and-taxes",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 3: EBIT and Taxes",
+    "text": "Step 3: EBIT and Taxes\n\nBefore we calculate tax expenses, if we assume that depreciation is tax-deductible, we can then use the \\(\\small\\$40,000\\) value from the straight-line depreciation to deduct our taxable earnings:\n\n\n\\[\n\\small EBIT_{t}= [\\text{Sales}_t\\times(\\text{Price per Unit}_t-\\text{Cost per Unit}_t)-\\text{Depreciation}_t-\\text{Other Costs}_t]\n\\]\n\nAnd the Income Tax that we’ll deduct is:\n\n\n\n\\[\n\\small \\text{Income Tax}_{t}= EBIT_{t}\\times\\tau_t\n\\]\n\n\n\nWhich tax-rate to use? The correct tax rate to use is the firm’s marginal corporate tax rate, which is the tax rate it will pay on an incremental dollar of pre-tax income"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-3-ebit-and-taxes-1",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-3-ebit-and-taxes-1",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 3: EBIT and Taxes",
+    "text": "Step 3: EBIT and Taxes\n\nWhat if part of the upfront investment was financed using debt? Do we need to include interest expenses in the calculation?\nBecause the Free Cash Flow is the measure of available resources to all investors of the firm (creditors + equityholders), whenever we evaluating a capital budgeting decision, we do not include interest expenses in the calculation\n\nWe wish to evaluate the project on its own, separate from the financing decision\nFurthermore, the cost of debt (along with its tax shield) can be considered in an appropriate estimate of the cost of capital for the project\nFor these reasons, we also call our incremental earnings as unlevered net income\n\n\n\n\\(\\rightarrow\\) Therefore, in our Free Cash Flow estimations, we’ll be focusing on the operating portion as if it were financed without any debt!"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-3-ebit-and-taxes-2",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-3-ebit-and-taxes-2",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 3: EBIT and Taxes",
+    "text": "Step 3: EBIT and Taxes\n\nConsidering both Depreciation and the Opportunity Costs, our Unlevered Net Income is:"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-4-adjust-for-non-cash-effects",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-4-adjust-for-non-cash-effects",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 4: Adjust for non-cash effects",
+    "text": "Step 4: Adjust for non-cash effects\n\nAs discussed in previous lectures, earnings are merely an accounting measure of the firm’s performance:\n\nThey do not represent real profits\nAs a consequence, the firm cannot use its earnings to buy goods, pay employees, fund new investments, or pay dividends to shareholders\n\nOn the other hand, cash does!\n\nBecause of this, to evaluate a capital budgeting decision, we must determine its consequences for the firm’s available cash\nThe incremental effect of a project on the firm’s available cash, separate from any financing decisions, is the project’s Free Cash Flow"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-4-adjust-for-non-cash-effects-1",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-4-adjust-for-non-cash-effects-1",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 4: Adjust for non-cash effects",
+    "text": "Step 4: Adjust for non-cash effects\n\nThere are important differences between earnings and cash flow:\n\nEarnings include non-cash charges, such as depreciation…\nBut do not include the cost of capital investment!\n\nTo determine the Free Cash Flow, we must adjust for these differences by:\n\nAdding back Depreciation: because depreciation is not a cash flow, we do not include it in the cash flow forecast\nCapital Expenditures (CAPEX): to account for the cash that will be used to fund the equipments, we include the actual cash cost of the asset when it is purchased."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-4-adjust-for-non-cash-effects-2",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-4-adjust-for-non-cash-effects-2",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 4: Adjust for non-cash effects",
+    "text": "Step 4: Adjust for non-cash effects\n\nIn our case, we have the following adjustments:\n\n\nFor Depreciation, we need to add back \\(\\small\\$50,000\\) across Year 1-5 to account for non-cash items\nOn the other hand, to consider the actual cost of the machinery by the time that it was bought, we need to include \\(\\small\\$200,000\\) in Year 0 of the analysis\n\n\nWith these adjustments in place, we should have the following values:"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-5-consider-future-investments-in-working-capital",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-5-consider-future-investments-in-working-capital",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 5: Consider future investments in working capital",
+    "text": "Step 5: Consider future investments in working capital\n\nNow that we have considered all cash effects from the investment that is needed, is there anything else that needs to be taken into consideration?\nMost projects will require the firm to continuosly invest in net working capital as time goes by:\n\nFirms may need to maintain a minimum cash balance to meet unexpected expenditures\nInventories of raw materials and finished products are needed to accommodate uncertainties and demand fluctuations\nFinally, customers may not pay for the goods they purchase immediately, and the firm may have credit with its suppliers\n\nAlthough it is difficult to consider all potential fluctuations on working capital, it is expected that a portion of it should be positively correlated with sales:\n\nAs sales go up, firms may want to keep its past terms with suppliers and customers\nAll else equal, an increase in sales should increase the amount of working capital needed"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-5-consider-future-investments-in-working-capital-1",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-5-consider-future-investments-in-working-capital-1",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 5: Consider future investments in working capital",
+    "text": "Step 5: Consider future investments in working capital\n\nIn our case, we summarized this idea by taking into consideration that working capital is 10% of the Sales revenue\nTherefore, our year-over-year change in net working capital reflects the additions/deductions on the amount of net working capital for each year:\n\n\n\\[\n\\small \\Delta NWC_{t}=NWC_{t}-NWC_{t-1}\n\\]\n\nIn our case, our net working capital should look as follows:"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-5-consider-future-investments-in-working-capital-2",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-5-consider-future-investments-in-working-capital-2",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 5: Consider future investments in working capital",
+    "text": "Step 5: Consider future investments in working capital\n\n\n\n\n\n\nIn the beginning of Year 0, we forecast Year 1’s sales and invest in working capital\nFor each Year 1-4, we look forward to period \\(\\small t+1\\) to determine the adequate level of working capital in \\(t\\)\nAt the end of Year 5, we know that the \\(\\small NWC=0\\), assuming that the project ends\nTherefore, \\(\\small \\Delta NWC_{t=5}\\) shows that the firm can recover its investment in working capital"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-6-calculating-the-free-cash-flow",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-6-calculating-the-free-cash-flow",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 6: Calculating the Free Cash Flow",
+    "text": "Step 6: Calculating the Free Cash Flow\n\nWe can summarize what we have so far by:\n\n\n(+) Revenues\n(-) Costs\n(-) Depreciation\n(=) EBIT\n(-) Tax Expenses\n(=) Unlevered Net Income\n(+) Depreciation\n(-) CAPEX\n(-) \\(\\Delta\\) NWC\n(=) Free Cash Flow\n\nThis is the standard estimate of a Free Cash Flow, which is the amount of incremental cash that a project can actually bring to the firm!"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-6-calculating-the-free-cash-flow-1",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-6-calculating-the-free-cash-flow-1",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 6: Calculating the Free Cash Flow",
+    "text": "Step 6: Calculating the Free Cash Flow\n\nWe can summarize the Free Cash Flow calculation as follows:\n\n\n\\[\n\\small FCF_{t}= \\underbrace{(\\text{Revenues}-\\text{Costs}-\\text{Depreciation})\\times(1-\\tau)}_{\\text{Unlevered Net Income}}+\\text{Depreciation}-\\text{CAPEX}-\\Delta NWC\n\\]\n\nNote that we first deduct depreciation when computing the project’s incremental earnings, and then add it back (because it is a non-cash expense) when computing Free Cash Flow\nThus, the only effect of depreciation is to reduce the firm’s taxable income!\nBecause of this, we can rewtrite the same equation as:\n\n\n\n\\[\n\\small FCF_{t}= (\\text{Revenues}-\\text{Costs})\\times(1-\\tau)-\\text{CAPEX}-\\Delta NWC+\\tau\\times\\text{Depreciation}\n\\]\n\nWhere the last term is the depreciation tax shield"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-7-adjustments-to-the-calculating-the-free-cash-flow",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-7-adjustments-to-the-calculating-the-free-cash-flow",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 7: Adjustments to the Calculating the Free Cash Flow",
+    "text": "Step 7: Adjustments to the Calculating the Free Cash Flow\n\nOur standard Free Cash Flow estimates should look like the following:"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-7-adjustments-to-the-calculating-the-free-cash-flow-1",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-7-adjustments-to-the-calculating-the-free-cash-flow-1",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 7: Adjustments to the Calculating the Free Cash Flow",
+    "text": "Step 7: Adjustments to the Calculating the Free Cash Flow\n\nOur final step is to account for any eventual adjustments needed. Some examples include (but are not limited) to:\n\nOther non-cash items: amortization of intangibles, for example, can be taken into consideration\nTiming of cash flows: can be estimated on a monthly or quarterly basis\nDifferent depreciation patterns: straight line depreciation may not apply to all cases\nLiquidation or Salvage value: assets that are no longer needed often have a resale value, or some salvage value if the parts are sold for scrap\nTermination Value: value for the subsequent periods whenever we have infinite-horizon projects"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-7-adjustments-to-the-calculating-the-free-cash-flow-2",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#step-7-adjustments-to-the-calculating-the-free-cash-flow-2",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Step 7: Adjustments to the Calculating the Free Cash Flow",
+    "text": "Step 7: Adjustments to the Calculating the Free Cash Flow\n\nIn our case, we know that the market-value of the machinery is \\(\\small 35,000\\). Since it has been fully depreciated at Year 5, we know that the capital gain is simply \\(\\small 35,000 - 0 = 35,000\\)\nTherefore, we also need to consider that, in Year 5, as the project has ended, we can sell the machine, pay taxes on it, and recover part the liquidation value of our investment:\n\n\n\\[\n\\small \\text{Liquidation Value}= 35,000 \\times (1-\\tau)\\rightarrow 35,000\\times(1-34\\%)=23,100\n\\]\n\nAdding this value as a cash-inflow in the last year of the project:\n\n\n\n\\[\n\\small FCF_{t=5}=107,584+23,100=130,684\n\\]"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#final-result",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#final-result",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Final Result",
+    "text": "Final Result"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#bridging-npv-and-free-cash-flow",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#bridging-npv-and-free-cash-flow",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Bridging NPV and Free Cash Flow",
+    "text": "Bridging NPV and Free Cash Flow\n\nWe can finally use our FCF estimates in the NPV formula to gauge the value of the project:\n\n\n\\[\n\\small\nNPV= \\dfrac{-219,000}{(1+15\\%)^0}+\\dfrac{46,592}{(1+15\\%)^1}+\\dfrac{69,266}{(1+15\\%)^2}+\\dfrac{80,218}{(1+15\\%)^3}+\\dfrac{101,293}{(1+15\\%)^4}+\\dfrac{130,684}{(1+15\\%)^5}=48,922.22\n\\]\n\nWhat else needs to be done? See the Appendix for a detailed discussion on some of the most common adjustments and extensions1:\n\nAdjust FCF estimates to incorporate different depreciation patterns\nIncorporate long-term value for projects that have an infinite-horizon (for example, a firm!)\nTake uncertainty of the inputs that we’re using into account through Sensitivity, Break-Even, and Scenario Analysis\n\n\n\nAll extensions discussed in the Appendix have an accompanying Excel solution that has been posted on eClass®."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#supplementary-reading",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#supplementary-reading",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Supplementary Reading",
+    "text": "Supplementary Reading\n\nSee Note on Capital Budgeting for a detailed discussion on more aspects of the capital budgeting process in practice\n\n\n\\(\\rightarrow\\) All contents are available on eClass®."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#different-depreciation-patterns",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#different-depreciation-patterns",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Different Depreciation Patterns",
+    "text": "Different Depreciation Patterns\nSuppose that instead of using foreign suppliers when buying your machinery, you have received an offer to use new, national supplier, which can provide machinery that is supposedly as efficient as the original one. Notwithstanding, because you’re financing a national capital good, you have access to an accelerated depreciation benefit:\n\nThe market-value of the machine is still worth \\(\\small \\$200,000\\), to be paid in Year 0\nYou’ll fully depreciate the machine in the first three years: \\(\\small 30\\%\\) in the first year, and \\(\\small 35\\%\\) in the second and third year\n\n\nWould you accept the offer?\n\n\n\\(\\rightarrow\\) Answer provided in Excel"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#tax-carryforwards",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#tax-carryforwards",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Tax Carryforwards",
+    "text": "Tax Carryforwards\nSuppose that instead of having the previous accelerated depreciation alternative, you have received a more aggressive one: depreciate 100% of the machine in the first year. You also notice that you can deduct your taxable income with tax carryforward up to a limit of 30% of the taxable income. Calculate the new NPV of the project and discuss how it has changed.\n\n\\(\\rightarrow\\) Answer provided in Excel"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#continuation-value",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#continuation-value",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Continuation Value",
+    "text": "Continuation Value\nIn our standard setting, our assumption was that the firm’s operation would cease after Year 5. Because of that, we initially included in our Free Cash Flow estimates a Termination Value that represented the sale of unused assets, after taking into account its tax effects.\n\nSuppose that the firm is able to continue its operations indefinitely after Year 5, and that the FCF is expected to stay the same as of Year 5. Calculate the new NPV of the project assuming the same cost of capital. Justify why the values have changed significantly.\nHow your answer would change if the FCF grew at a 2% rate after Year 5, indefinitely?\n\n\n\\(\\rightarrow\\) Answer provided in Excel"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#dealing-with-uncertainty",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#dealing-with-uncertainty",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Dealing with Uncertainty",
+    "text": "Dealing with Uncertainty\n\nThe most difficult part of capital budgeting is deciding how to estimate the cash flows and cost of capital. Unfortunately, these estimates are often subject to significant uncertainty:\nHow we can assess the importance of this uncertainty and identify the drivers of value in the project?\nIn what follows, we’ll look at some examples outlining ways to incorporate uncertainty in our valuation model"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#dealing-with-uncertainty-1-break-even-analysis",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#dealing-with-uncertainty-1-break-even-analysis",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Dealing with Uncertainty #1: Break-Even Analysis",
+    "text": "Dealing with Uncertainty #1: Break-Even Analysis\nShareholders at Cia Amazônia are concerned that rising costs of activity may hinder any profitable investment opportunity projected in the original project. More specifically, their main concern is that the average growth rate in Unit Costs, which was estimated to be 6%, is estimated using very unreasonable scenario, and that higher increases in unit costs might induce the project’s NPV to be negative. Estimate what is the maximum average increase in unit costs over the years that would change the decision to invest in the project.\n\\(\\rightarrow\\) Answer provided in Excel"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#dealing-with-uncertainty-2-sensitivity-analysis",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#dealing-with-uncertainty-2-sensitivity-analysis",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Dealing with Uncertainty #2: Sensitivity Analysis",
+    "text": "Dealing with Uncertainty #2: Sensitivity Analysis\nShareholders might be reluctant to trust the NPV estimates if they are unable to understand which drivers potentially affect more the value of the project in best and worst-case situations. Consider that you now have three scenarios: base, worst, and best case scenarios. In each one, you have the following configuration:\n\nBase: the baseline exercise from Cia Amazônia. Growth rate of Unit Costs: \\(\\small4\\%\\); Growth rate of Unit Prices: \\(\\small6%\\); Cost of Capital: \\(\\small15\\%\\)\nWorst: Growth rate of Unit Costs: \\(\\small0%\\); Growth rate of Unit Prices: \\(\\small10\\%\\); Cost of Capital: \\(\\small19\\%\\)\nBest: Growth rate of Unit Costs: \\(\\small10\\%\\); Growth rate of Unit Prices: \\(\\small1\\%\\); Cost of Capital: \\(\\small10\\%\\)\n\n\nEstimate how your NPV estimates change along with your inputs, each one at a time, and identify which input is more important for the project’s NPV.\n\\(\\rightarrow\\) Answer provided in Excel"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#dealing-with-uncertainty-3-scenario-analysis",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#dealing-with-uncertainty-3-scenario-analysis",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Dealing with Uncertainty #3: Scenario Analysis",
+    "text": "Dealing with Uncertainty #3: Scenario Analysis\nWhat if you want to vary over more than one input at a time? Say that, for example, you want to think about a combination of growth rates for unit costs AND unit revenues at the same time? It is very reasonable to assume that more than one driver is going to change at a time. To do that, create a 3x3 grid of combinations considering the growth rates of Unit Costs and Unit Price and show how your NPV estimates change for each pair of growth rate estimates.\n\n\\(\\rightarrow\\) Answer provided in Excel"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#references",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#references",
+    "title": "The Discounted Cash Flow Method",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#moving-past-relative-valuation",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#moving-past-relative-valuation",
+    "title": "The Discounted Cash Flow Method",
+    "section": "Moving past relative valuation",
+    "text": "Moving past relative valuation\n\nAs you saw in the previous lecture, although Relative Valuation can provide a ballpark estimate of what would have been the firm value as-if it was priced similarly to other comparable firms, there were a series of drawbacks and limitations:\n\nSensitive to market mood and choice of comparables\nCaptures market sentiment and industry positioning\nGenerally backward-looking\n\nTo that matter, we need a way to estimate the intrinsic value of a company taking into account specific information regarding its ability to generate future profits"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#the-discounted-cash-flow-dcf-method",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#the-discounted-cash-flow-dcf-method",
+    "title": "The Discounted Cash Flow Method",
+    "section": "The Discounted Cash Flow (DCF) Method",
+    "text": "The Discounted Cash Flow (DCF) Method\n\n\n\n\n\n\n\nDefinition\n\n\nValuation method that estimates the present value of an asset based on its expected future cash flows.. It takes into account measures of expected profits (\\(\\small 1,2,...,\\infty\\) periods ahead) and its underlying risk to come up with an estimate of the opportunity value in \\(\\small t_0\\).\n\n\n\n\nCore Idea: if we are able to estimate the firms’ future cash flows, we can adjust them to present value using a discount rate\nKey Inputs: Cash flow projections, discount rate (often WACC), and terminal value assumptions\nStrengths: Grounded in fundamentals; flexible to different scenarios\nWeaknesses: time-consuming, fully dependend on the forecast assumptions"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#the-discounted-cash-flow-dcf-method-1",
+    "href": "valuation/coursework/Lecture 3 - Fundamentals of Capital Budgeting/index.html#the-discounted-cash-flow-dcf-method-1",
+    "title": "The Discounted Cash Flow Method",
+    "section": "The Discounted Cash Flow (DCF) Method",
+    "text": "The Discounted Cash Flow (DCF) Method\n\nLet \\(CF_t\\) be the amount of cash flow available in period \\(t\\) to all owners of the company, for periods \\(\\small t=1,2,3,...,\\infty\\). The Discounted Cash Flow method estimates the intrinsic value of a company, \\(V_i\\), as:\n\n\\[\nV_i = \\sum_{t=1}^{\\infty} \\dfrac{CF_i}{(1+r_i)},\n\\]\n\nwhere \\(r_i\\) is the opportunity cost of capital associated with undertaking the project\nQuestion: how can we use such rationale to estimate the value of a new investment opportunity?"
   }
 ]
