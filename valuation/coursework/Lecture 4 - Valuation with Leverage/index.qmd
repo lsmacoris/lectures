@@ -1,0 +1,781 @@
+---
+#title: "Risk and Return"
+author: "Lucas S. Macoris"
+format:
+  revealjs:
+    title: 'Valuation with Leverage'
+    theme: [default, ../~ Metadata/custom.scss]
+    auto-stretch: false
+    author: 'Lucas S. Macoris (FGV-EAESP)'
+    logo: 'Images/logo.jpg'
+    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/valuation) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    toc: false
+    cls: ../~ Metadata/abntex2.cls
+    incremental: false
+    bibliography: '../~ Metadata/Bibliography.bib'
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    background-transition: fade
+    chalkboard: true
+    width: 1600
+    height: 900
+    smaller: false
+    
+editor: visual
+from: markdown+emoji
+---
+
+## Disclaimer
+
+::: callout-important
+### Disclaimer
+
+The information presented in this lecture is for educational and informational purposes only and should not be construed as investment advice. Nothing discussed constitutes a recommendation to buy, sell, or hold any financial instrument or security. Investment decisions should be made based on individual research and consultation with a qualified financial professional. The presenter assumes no responsibility for any financial decisions made based on this content.
+
+All publicly available content used in this lecture is available and also shared on my [GitHub](https://github.com/lsmacoris) page. Participants are encouraged to review, modify, and use it for their own learning and research purposes. However, no guarantees are made regarding the accuracy, completeness, or suitability of the code for any specific application.
+
+For any questions or concerns, please feel free to reach out via email at [lucas.macoris\@fgv.br](mailto:lucas.macoris@fgv.br)
+:::
+
+## Revisiting the Free Cash Flow
+
+. . .
+
+[(+) Revenues]{.blue}\
+(-) Costs\
+(-) Depreciation\
+[(=) EBIT]{.blue}\
+(-) Tax Expenses\
+[(=) Unlevered Net Income]{.blue}\
+(+) Depreciation\
+(-) CAPEX\
+(-) $\Delta$ NWC\
+[(=) Free Cash Flow]{.blue}
+
+-   This is the standard estimate of a *Free Cash Flow*, which is the amount of *incremental cash* that a project can actually bring to the firm!
+
+## Introducing different *Financing Decisions*
+
+-   So far, we've assumed that this project was financed *only through* equity
+
+-   How does the [financing decision]{.blue} of a firm can affect both the cost of capital and the set of cash flows that we ultimately discount?
+
+-   There are [three]{.blue} main methods that can consider leverage decisions and market imperfections:
+
+    1.  The *Weighted-Average Cost of Capital (WACC)* method
+    2.  The *Adjusted Present Value* (APV) method
+    3.  The *Flow-to-Equity* (FTE) method
+
+-   While their details differ, when appropriately applied each method produces the same estimate of an investment's (or firm's) value
+
+## Underlying assumptions
+
+1.  [*The project has average risk*]{.blue}: in essence, the market risk of the project is equivalent to the average market risk of the firm's investments. In that case, the project's cost of capital can be assessed based on the risk of the firm
+
+2.  [*The firm's debt-equity ratio is constant*]{.blue}: we consider a firm that adjusts its leverage to maintain a constant debt-equity ratio in terms of market values
+
+3.  [*Corporate taxes are the only imperfection*]{.blue}: we assume that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, are abstracted away
+
+. . .
+
+::: callout-important
+We will be applying each method to a single example in which we have made a number of simplifying assumptions. Although we will only cover the *Weighted Average Cost of Capital (WACC)*, the *Appendix* contains a detailed discussion on the *Adjusted Present Value (APV)* and the *Flow-to-Equity (FTE)* methods. While the assumptions discussed herein are restrictive, they are also a reasonable approximation for many projects and firms.
+:::
+
+## The *Weighted Average Cost of Capital (WACC)*
+
+-   Recall that our definition of free cash flow measures the after-tax cash flow of a project before *regardless* how it is financed
+
+-   In a perfect capital markets, choosing debt of equity shouldn't change the value of the firm. However, because interest expenses are tax deductible, leverage reduces the firm's total tax liability, enhancing its value!
+
+-   We can directly incorporate market imperfections using the *WACC* method:
+
+. . .
+
+$$
+r_{\text{WACC}}=\underbrace{\dfrac{E}{D+E}}_{\text{% of Equity}}\times r_e+ \underbrace{\dfrac{D}{D+E}}_{\text{% of Debt}}\times r_{D}\times (1-\tau)
+$$
+
+where $E$ is the market-value of Equity, $D$ is the market-value of debt, $r_e$ is the cost of equity, $r_d$ is the cost of debt, and $\tau$ is the marginal tax rate
+
+## The *Weighted Average Cost of Capital (WACC)*, continued
+
+-   Because the *WACC* incorporates the tax savings from debt, we can compute the levered value of an investment by looking at its stream of cash flows discounted by $r_{\text{WACC}}$:
+
+. . .
+
+$$
+V^{L}= \dfrac{FCF_1}{(1+r_{\text{WACC}})}+ \dfrac{FCF_2}{(1+r_{\text{WACC}})^2}+...+\dfrac{FCF_n}{(1+r_{\text{WACC}})^n}
+$$
+
+-   In what follows, we'll be using an example taken from [@BDM], *Chapter 18*, to see how the *WACC* and the other methods can be applied in practice for the *RFX* project that is being studied by *AVCO*'s company
+
+## Practical Application: *WACC*
+
+![](Images/F1.jpg){fig-align="center"}
+
+$\rightarrow$ *See accompaining Excel document for the calculations*
+
+## Practical Application: *WACC* (continued)
+
+-   As said before, we'll be assuming that the market risk of the *RFX* project is expected to be similar to that for the company's other lines of business
+
+-   Because of that, we can use Avco's equity and debt to determine the weighted average cost of capital for the new project:
+
+. . .
+
+![](Images/F2.jpg){fig-align="center"}
+
+$\rightarrow$ **Important**: *because market values reflect the true economic claim of each type of financing, while calculating the WACC, market value weights for each financing element (equity, debt, etc.) must be used, and not historical, book values*
+
+## Practical Application: *WACC* (continued)
+
+-   Using our example, we can calculate the *WACC* as[^1]:
+
+[^1]: Note that we're using *Net Debt* $\small (320-20)$ to weigh in the debt potion in the capital structure
+
+. . .
+
+$$
+\small
+r_{\text{WACC}}=\underbrace{\dfrac{300}{300+300}}_{\text{% of Equity}}\times 10\%+ \underbrace{\dfrac{300}{300+300}}_{\text{% of Debt}}\times 6\%\times (1-25\%)=7.25\%
+$$
+
+-   Now, using $\small r_{\text{WACC}}=7.25\%$, we can calculate the value of the project, [including the tax shield from debt]{.blue}, by calculating the present value of its future free cash flows:
+
+. . .
+
+$$
+\small
+V^{L}=\sum_{T=1}^{T=4}\dfrac{21}{(1+7.25\%)^t}=70.73
+$$
+
+-   Because the investment in $\small t=0$ is $\small 29$, NPV is $\small 70.73-29=\$41.73$ million.
+
+## General thoughts on the *WACC* method
+
+-   This is the method that is most commonly used in practice for capital budgeting purposes. An important advantage of the *WACC* method is that you do not need to know how this leverage policy is implemented in order to make the capital budgeting decision
+
+-   After calculating $r_{\text{WACC}}$, the rate can then be used throughout the firm assuming that:
+
+    1.  This rate represents the company-wide cost of capital for new investments that are of comparable risk to the rest of the firm
+    2.  Pursuing the project will not alter the firm's Debt-to-Equity ratio
+
+-   If the firm's Debt-to-Equity ratio is not constant anymore, we cannot reliably use the *WACC* method anymore
+
+. . .
+
+$\rightarrow$ *Refer to the Appendix for a detailed discussion on the Adjusted Present Value (APV) method*
+
+## Project's Based Cost of Capital
+
+-   We began the last section with [three]{.blue} simplifying assumptions:
+
+    1.  [*The project has average risk*]{.blue}: in essence, the market risk of the project is equivalent to the average market risk of the firm's investments. In that case, the project's cost of capital can be assessed based on the risk of the firm
+
+    2.  [*The firm's debt-equity ratio is constant*]{.blue}: we consider a firm that adjusts its leverage to maintain a constant debt-equity ratio in terms of market values
+
+    3.  [*Corporate taxes are the only imperfection*]{.blue}: we assume that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, are abstracted away
+
+-   **Question**: what if we now relax *Assumptions* *1* and *2*?
+
+## Project's Based Cost of Capital
+
+-   Relaxing hypothesis about the project's risk and leverage does have a lot of practical relevance:
+
+    1.  Specific projects often differ from the average investment made by the firm. Therefore, a given project may well be much riskier than the average firm
+    2.  Furthermore, acquisitions of real estate or capital equipment are often highly levered, whereas investments in intellectual property are not. Thus, depending on the specific investment being made, the leverage policy used may differ substantially from the firm's average leverage policy
+
+-   To take into account the differences in the project relative to the average firm's [risk]{.blue} and [leverage]{.blue}, we will proceed by:
+
+    1.  Estimating $r_U$, the unlevered cost of capital, based on a sample of comparable projects;
+    2.  (Re)lever the result based on the specific leverage policy adopted
+
+## The (un)levered cost of capital
+
+-   How can we estimate the cost of capital for a project based on a sample of comparable firms? If the comparable firms are [100% equity]{.blue}, their cost of equity, ($\small r_E$) can be used to assess our project's $\small r_E$ - all in all, the firm's underlying business risk is fully reflect in the cost of equity
+
+-   [The situation is a bit more complicated if the comparable firms have debt]{.blue}. In this case, the cash flows generated by the firm's assets are used to pay *both* [debt]{.blue} and [equity]{.blue} holders
+
+-   Consequently, the returns of the firm's equity (which are being measured using the $\beta$ from its equity returns) alone are not representative of the underlying assets risk!
+
+    1.  In fact, because of the firm's leverage, the equity will often be much [riskier]{.red}
+    2.  Thus, the cost of equity of a sample of levered firm will not be a good estimate of the cost of equity our project!
+
+. . .
+
+$\rightarrow$ *Whenever we are evaluating a project's cost of capital based on a sample of firm comparables that have debt, we cannot directly use the cost of equity!*
+
+## The (un)levered cost of capital
+
+![](Images/F6.png){fig-align="center" width="50%"}
+
+-   Recall that a firm's asset cost of capital or *unlevered cost of capital* ($\small r_U$) is the expected return required by the firm's investors to hold the firm's underlying [assets]{.blue}, and is a weighted average of the firm's equity and debt costs of capital:
+
+. . .
+
+$$\small r_U = \frac{E}{E+D}\times r_E + \frac{D}{E+D} \times r_D$$
+
+## The (un)levered cost of capital, continued
+
+-   Why we should [unlever]{.blue} the return on equity[^2]? Note that whenever we measure the cost of equity, we are measuring the expected returns based on the [equity]{.blue} risk, which has some implications if a given firm has debt:
+
+    1.  Because debt payments are given, equityholders are referred to as *residual claimants* - they'll receive their compensation only after the debtholders receive their payments
+    2.  As such, if a given firm has debt in its financing structure, [this makes the equity to be riskier]{.blue} - all in all, an equityholder may not receive anything after paying out debtholders!
+
+-   But if you are evaluating a project based on a comparable firm that has debt, you want to consider only the risk of the underlying business, but not the risk due to financial leverage!
+
+-   As a consequence, unlevering the required return makes the comparison to be relative to the *investments* of a company, regardless of the financing structure!
+
+[^2]: A similar rationale can be applied to the equity $\small \beta$ - See [@BDM] and the *Appendix* for a detailed discussion.
+
+## Step 1: Project's Based Cost of Capital
+
+-   The first step involves estimating $r_U$ not based on the firm's unlevered cost of capital, but rather a set of comparable projects that share similar risks. Suppose that our project relates to a new plastics manufacturing division that faces different market risks than the firm's main packaging business:
+
+. . .
+
+| **Firm** | **Equity Cost of Capital** | **Debt Cost of Capital** | **D/(D+E)** |
+|:----------------:|:-----------------:|:----------------:|------------------|
+|    1     |            12%             |            6%            | 40%         |
+|    2     |           10.7%            |           5.5%           | 25%         |
+
+-   We can estimate $r_U$ for the plastics division by looking at other single-division plastics firms that have similar business risks. For example, suppose two firms are comparable to the plastics division and have the following characteristics:
+
+## Step 1: Project's Based Cost of Capital
+
+. . .
+
+| **Firm** | **Equity Cost of Capital** | **Debt Cost of Capital** | **D/(D+E)** |
+|:----------------:|:-----------------:|:----------------:|------------------|
+|    1     |            12%             |            6%            | 40%         |
+|    2     |           10.7%            |           5.5%           | 25%         |
+
+-   Based on this, we calculate each firm's $r_U$ and get the average:
+
+    $\small r_U^1= 0.6 \times 12\% + 0.4 \times 6\% = 9.6\%$\
+    $\small r_U^2= 0.75 \times 10.7\% + 0.25 \times 5.5\% = 9.4\%$
+
+-   In this way, a reasonable estimate for $r_U$ of our project is around $\small 9.5\%$. If we wanted to use the *APV* approach to calculate the value of the project, we could use this estimate
+
+-   If we wanted to use the *WACC* or *FTE* methods, however, we still need to estimate $r_E$, which will depend on the incremental debt the firm will take on as a result of the project
+
+## Step 2: Project's Based Cost of Capital
+
+-   Recall that our expression for the unlevered cost of capital, $r_U$, was:
+
+. . .
+
+$$
+\small r_U= \dfrac{E}{E+D}\times r_E + \dfrac{D}{E+D}\times r_D
+$$
+
+-   Rearranging terms, we have:
+
+. . .
+
+$$
+\small  \dfrac{E}{E+D}\times r_E = r_U - \dfrac{D}{E+D}\times r_D \\
+\small r_E=\dfrac{E+D}{E}\times r_U - \dfrac{D}{E}\times r_D \\
+\small r_E = r_U+ \dfrac{D}{E}\times r_U - \dfrac{D}{E}\times r_D \\
+\small r_E = r_U+ \dfrac{D}{E}( r_U -  r_D)
+$$
+
+## Step 2: Project's Based Cost of Capital
+
+-   Our last equation shows us that:
+
+. . .
+
+$$
+\small r_E = r_U+ \dfrac{D}{E}( r_U -  r_D)
+$$
+
+-   In words, the project's cost of capital depends on:
+
+    1.  The unlevered cost of capital, $r_U$
+    2.  The specific debt-to-equity ratio that the project will use
+
+-   Suppose that the firm will use a *debt-to-equity* ratio of 1, and the cost of debt remains at $\small6\%$. Then, we can calculate $\small r_E$ as:
+
+. . .
+
+$$
+\small r_E = 9.5\% + \dfrac{0.5}{0.5}(9.5\% - 6\%) = 13\%
+$$
+
+## Step 2: Project's Based Cost of Capital
+
+-   We can finally plug the estimate of $\small r_E$ to estimate the project's *WACC*, assuming that the tax-rate if 25%:
+
+. . .
+
+$$
+\small r_{\text{WACC}}=50\% \times 13\% + 50\% \times 6\% \times(1-25\%)= 8.75\%
+$$
+
+-   Based on these estimates, *Avco* should use a WACC of $\small8.75\%$ for the plastics division, compared to the WACC of $\small7.25\%$ that has been previously estimated based on the firm's overall
+
+-   *Intuition*: because the project had a higher unlevered risk ($\small9.5\%$ *versus* $\small8\%$), after applying the adopted leverage policy, will also have a higher cost of capital
+
+## Common Misconception I: determining the incremental leverage of a project
+
+-   To determine the equity or weighted average cost of capital for a project, we need to know the amount of debt to associate with the project
+
+-   How to determine the correct $\small D/(D+E)$ ratio to use in our estimations?
+
+1.  Suppose a project involves buying a new warehouse, and the purchase of the warehouse is financed with a mortgage for $\small90\%$ of its value
+
+2.  However, if the firm has an overall policy to maintain a $\small40\%$ debt-to-value ratio, it will reduce debt elsewhere in the firm once the warehouse is purchased in an effort to maintain that ratio
+
+. . .
+
+$\rightarrow$ *In that case, the appropriate debt-to-value ratio to use when evaluating the warehouse project is* $\small40\%$, not $\small90\%$! For capital budgeting purposes, the project's financing is the change in the firm's total debt (net of cash) with the project versus without the project!
+
+## Common Misconception II: (re)levering the WACC
+
+-   Suppose that a firm has a *debt-to-value* ratio of $\small25\%$, a debt cost of capital of $\small5.33\%$, an equity cost of capital of $\small12\%$, and a tax rate of $\small25\%$. The current *WACC* is:
+
+. . .
+
+$$
+\small r_{\text{WACC}}=0.75 \times 12\% + 0.25\times 5.33\% \times (1- 25\%) = 10\%
+$$
+
+-   What happens to *WACC* if the firm [increases]{.blue} its *debt-to-value* ratio to $\small50\%$? It is tempting to do:
+
+. . .
+
+$$
+\small  r_{\text{WACC}}=0.5 \times 12\% + 0.5\times 5.33\% \times (1- 25\%) = 8\%
+$$
+
+-   Note, however, that this is [wrong]{.red}, because we're keeping $\small r_E$ and $\small r_D$ fixed! Since these are the cost of equity and debt, we should expect these to increase with leverage, as the risk of both shareholders and debt holders increase!
+
+## Common misconception: (re)levering the WACC
+
+-   When the firm increases leverage, the risk of its equity and debt will increase, increasing $\small r_E$ and $\small r_D$! To compute the new WACC correctly, we must first determine the firm's *unlevered* cost of capital:
+
+. . .
+
+$$
+\small 
+r_U = 0.75 \times 12\% + 0.25\times 5.33\% = 10.33\%
+$$
+
+-   If $\small r_D$ has risen to $\small 6.67\%$ with the change in leverage, then:
+
+. . .
+
+$$
+\small 
+r_E = 10.33\% + \dfrac{0.5}{0.5}\times(10.33\%-6.67\%)=14\%
+$$
+
+-   Finally, the correct new *WACC* is:
+
+. . .
+
+$$
+\small
+r_{\text{WACC}}=0.5 \times 14\% + 0.5\times 6.67\% \times (1- 25\%) = 9.5\%
+$$
+
+## Industry betas for estimating a project's cost of capital
+
+-   Using a *single* comparable firm is often not a good idea, as there might be a lot of noise in the estimation of the results
+
+-   However, it is possible to combine estimates of asset betas for [multiple firms in the same industry]{.blue} to reduce our estimation error and improve the estimation accuracy:
+
+1.  For example, instead of using only one comparable firm to find the unlevered cost of capital, we may use the average (or median) of several firms that are thought of as comparable peers
+
+2.  As you imagine, *unlevered* betas within an industry are much more stable than the pure *equity* betas: large differences in the firms’ equity betas are mainly due to differences in leverage, whereas the firms’ asset betas are much more similar, suggesting that the underlying businesses in this industry have similar market risk
+
+. . .
+
+$\rightarrow$ *See [Damodaran (here)](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/Betas.html) industry betas for the U.S.*
+
+## Comparing the main methods for valuing levered firms and projects
+
+-   There are [three]{.blue} that we could use value a project's cash flows when there is debt financing:
+
+    1.  The *Weigthed Average Cost of Capital (WACC)* method
+    2.  The *Adjusted Present Value (APV)* method
+    3.  The *Flow-to-Equity (FTE)* method
+
+-   Starting from the same assumptions, [all methods yield the same results]{.blue}. However:
+
+1.  *WACC* is the method that is the easiest to use when the firm will maintain a fixed debt-to-value ratio over the life of the investment
+
+2.  For alternative leverage policies, the *APV* method is usually the most straightforward approach
+
+3.  The *FTE* method is typically used only in complicated settings for which the values of other securities in the firm's capital structure or the interest tax shield are difficult to determine
+
+## Other Effects of Financing
+
+-   Previously, we assumed that: [*Corporate taxes were the only imperfection*]{.blue}. In words, we assumed that the main effect of leverage on valuation is due to the corporate tax shield. Other effects, such as issuance costs, personal costs, and bankruptcy costs, were abstracted away
+
+-   The three methods that we saw determine the value of an investment incorporating the tax shields associated with leverage. [What if we have more than one market imperfection?]{.blue}:
+
+1.  Issuing Costs
+2.  Security Mispricing
+3.  Financial Distress and Bankruptcy Costs
+
+-   In order to for these three potential imperfections, we generally use the *APV* method, since it is the most flexible way of adjusting the estimates that stem from the use of leverage, although we can also adjust the other methods with some underlying assumptions
+
+## Supplementary Reading
+
+-   See [Note on Cash Flow Valuation Methods: Comparison of WACC, FTE, CCF and APV Approaches]{.blue} for a detailed discussion on the valuation methods
+
+-   See [@BDM], *Chapters 14 to 17*, to understand how to account our valuation for the most common market imperfections, such as taxes, financial distress costs, and asymmetric information
+
+. . .
+
+$\rightarrow$ *All contents are available on eClass®.*
+
+# Appendix
+
+## Levered Firms when Debt-to-Equity is not constant
+
+-   **Question:** how to ensure that the *Debt-to-Equity* will remain constant when implementing new projects?
+
+    1.  Thus far, we have simply assumed the firm adopted a policy of keeping its debt-equity ratio constant
+
+    2.  Nevertheless, keeping the *Debt-to-Equity* ratio constant has implications for how the firm's total debt will change with new investment - we'll refer to this as *Debt-Capacity*
+
+## Debt Capacity
+
+-   Debt Capacity refers to the the amount of debt that a firm needs to raise in order to keep its debt-to-equity ratio constant. Why is that important?
+
+1.  *WACC* is a weighted average based on the proportions of Equity and Debt
+
+2.  Because of that, any changes in these proportions affect the *WACC*
+
+3.  Therefore, after calculating $r_\text{WACC}$, to ensure that you can use it over the years, you need to ensure that the firm maintains the same debt-to-equity ratio
+
+-   You can find the the debt capacity for a given period $t$ by:
+
+. . .
+
+$$
+D_t=d\times V^L_t
+$$
+
+Where $d$ is the debt-to-value ratio, which is the proportion of (market-value) debt over the market value of the firm or project (debt + equity)
+
+## Debt Capacity
+
+-   You can estimate the value of the levered firm, $V^L_t$, over each period $t$ by summing up the discounted stream of cash-flows remaining:
+
+. . .
+
+$$
+V^L_t=\dfrac{FCF_{t+1}+V^L_{t+1}}{(1+r_{\text{WACC}})}
+$$ where $V^L_{t+1}$ refers to the continuation value -- see the accompanying *Excel* spreadsheet for a comprehensive example
+
+-   While the *WACC* does not require you to know exactly the debt capacity of the project, this component is essential when calculating the value of the project using other methods, such as the *APV*, as we'll see in the next set of slides
+
+## The *APV Adjusted Present Value (APV)* method
+
+-   Our previous method estimated the value of a levered firm, $\small V^L$, by considering the interest-tax shields into the cost of capital calculation, $r_{\text{WACC}}$
+
+-   What if we wanted to gauge the impact of the interest tax-shields [separately]{.blue} from the actual value of the unlevered project?
+
+-   The *Adjusted Present Value (APV)* method does it so by calculating two components: $V^U$, which is the present value of the *unlevered* project (*i.e*, no debt) and the present value of the interest tax-shields stemming from the financing decision:
+
+. . .
+
+$$
+\small
+V^{L}_{APV}=V^U+ PV(\text{Interest Tax Shield})
+$$
+
+-   The *APV* method incorporates the value of the interest tax shield *directly*, rather than by adjusting the discount rate as in the *WACC* method
+
+## The *APV* method in practice
+
+-   The first step in the *APV* method is to calculate the value of these free cash flows using the project's cost of capital [if it were financed without leverage]{.blue} $\rightarrow V^U$
+
+-   What is the project's unlevered cost of capital?
+
+    1.  Because the RFX project has similar risk to Avco's other investments, its unlevered cost of capital is the same as for the firm as a whole
+
+    2.  We can calculate the unlevered cost of capital using Avco's pre-tax WACC, the average return the firm's investors expect to earn
+
+. . .
+
+$$
+r_U = \dfrac{E}{E+D}\times r_e + \dfrac{D}{E+D}\times r_d=\text{Pre-Tax WACC}
+$$
+
+-   Note that this formula is the same as of the $r_{WACC}$, but we're not including the tax-shield effect, $(1-\tau)$, into account!
+
+## The *APV* method in practice (continued)
+
+-   To understand why the firm's unlevered cost of capital equals its pre-tax WACC, note that the pre-tax WACC represents investors' required return for holding the entire business (equity and debt)
+
+-   So long as the firm's leverage choice does not change the overall risk of the firm, the pre-tax WACC must be the same whether the firm is levered or unlevered!
+
+-   Applying it to our case, we have:
+
+. . .
+
+$$
+r_U = 0.5\times 10\% + 0.5\times 6\% = 8\%
+$$
+
+-   With that, our estimate for $V^U$ is:
+
+. . .
+
+$$
+\small
+V^{U}=\sum_{T=1}^{T=4}\dfrac{21}{(1+8\%)^t}=69.55
+$$
+
+## The *APV* method in practice (continued)
+
+-   The value of the unlevered project, $V^U$, does [not]{.blue} include the value of the tax shield provided by the interest payments on debt
+
+-   Knowing the project's debt capacity for the future, we can explicitly calculate the the present value of the interest tax-shields. First, determine the amount of interest expenses at each period $t$:
+
+. . .
+
+$$
+\small \text{Interest Expenses}_t= r_D\times D_{t-1}
+$$
+
+-   After that, assuming a corporate tax rate of $\tau$, the interest tax-shield is just:
+
+. . .
+
+$$
+\small \text{Interest Tax-Shield}= \text{Interest Expenses}_t\times \tau
+$$
+
+## The *APV* method in practice (continued)
+
+![](Images/F3.jpg){fig-align="center" width="50%"}
+
+-   To compute the present value of the interest tax shield, we need to determine the appropriate cost of capital. [Which rate shall we use?]{.blue} Note that:
+
+    1.  If the project does well, its value will be [higher]{.green} $\rightarrow$ more debt $\rightarrow$ more interest tax-shield
+    2.  If the project performs poorly, its value will be [lower]{.red} $\rightarrow$ less debt $\rightarrow$ less interest tax-shield
+
+-   Because the interest tax-shield fluctuates with the risk of the project, in this specific case should discount it using the same rate[^3], $r_U$!
+
+[^3]: The decision on which rate to use is heavily dependent upon the project's characteristics - see [@BDM] for a detailed discussion on the most common cases.
+
+## The *APV* method in practice (continued)
+
+-   Using $\small r_U=8\%$ and evaluating the present value of the interest tax-shield, we have:
+
+. . .
+
+$$
+\small PV(\text{Interest Tax-Shield})=\dfrac{0.53}{(1+8\%)}+\dfrac{0.41}{(1+8\%)^2}+\dfrac{0.28}{(1+8\%)^3}+\dfrac{0.15}{(1+8\%)^4}=1.18
+$$
+
+-   Now, to determine the value of the [levered firm]{.blue}, $V^L$, we add the value of the interest tax shield to the unlevered value of the project:
+
+. . .
+
+$$
+\small V^L=V^U+PV(\text{Interest Tax-Shield})= 69.55+1.18=70.73
+$$
+
+-   Which is exactly the same value that we've found using the *WACC* method!
+
+## General thoughts on the *APV* method
+
+-   In the *APV* method, we separately calculated the value of the unlevered firm and the value stemming from the tax-shields
+
+-   In this case, the APV method is more complicated than the WACC method because we must compute two separate valuations
+
+-   Notwithstanding, the APV method has some advantages:
+
+    1.  It can be easier to apply than the WACC method when the firm does not maintain a constant debt-equity ratio
+
+    2.  It also provides managers with an explicit valuation of the tax shield itself
+
+-   There could be cases where the value of the project heavily depends on the tax-shield, and not on the operating gains themselves $\rightarrow$ if taxes change, the value of the project may be severely affected!
+
+## Exercise: APV
+
+*Consider again Avco's acquisition from previous examples. The acquisition will contribute* $\small \$4.25$ million in free cash flows the first year, which will grow by $\small 3\%$ per year thereafter. The acquisition cost of $\small \$80$ million will be financed with $\small \$50$ million in new debt initially. Compute the value of the acquisition using the APV method, assuming Avco will maintain a constant debt-equity ratio for the acquisition.
+
+$\rightarrow$ *Taken from [@BDM], p. 689*
+
+. . .
+
+**Solution Rationale**: proceed in the following steps to compute the value using the *APV* method:
+
+1.  Calculate $V^U$ - the value of the unlevered project
+2.  Calculate the present value of the tax-shields
+3.  Sum them up
+
+-   Note that, because the project will grow at a $\small3\%$ rate, debt capacity will also grow at the same rate. Therefore, the growth-rate of the interest tax-shield is also $\small3\%$
+
+## Exercise: APV
+
+1.  Calculating $V^U$: this is just the value of a growing perpetuity for the unlevered cash-flows:
+
+. . .
+
+$$
+\small V^U= \dfrac{FCFC}{r-g}=\dfrac{4.25}{8\%-3\%}= 85
+$$
+
+2.  Now, if the firm will start with $\small\$50$ million in debt, interest expenses are $\small 50\times6\%=3$ million. The present value of the interest tax-shield is:
+
+. . .
+
+$$
+\small \dfrac{25\%\times 3}{8\%-3\%}=\dfrac{0.75}{5\%}=15
+$$
+
+3.  Therefore, $\small V^L=V^U+PV(\text{Tax-Shield})=85+15=100$
+
+## The *Flow-to-Equity (FTE)* Method
+
+-   In the *WACC* and *APV* methods, we value a project based on its [free cash flow]{.blue}, which is computed *ignoring* interest and debt payments
+
+-   What if we take these into consideration and value the cash flows that pertain only to *shareholders*? The *Flow to Equity* method does this by:
+
+    1.  Explicitly calculating the free cash flow available to [equity holders]{.blue} after taking into account all payments to and from debt holders
+
+    2.  The cashflow to equity holders are then discounted using the [equity cost of capital]{.blue}
+
+-   Despite this difference in implementation, the *FTE* method produces the same assessment of the project's value as the *WACC* or *APV* methods
+
+## The *Flow-to-Equity (FTE)* Method, continued
+
+-   In order to implement the *FTE* method, we need to compute the *Free Cash Flow to Equity (FCFE)*, which shows the available proceeds for the shareholders of the firm after paying out all costs, considering all working capital and CAPEX investments, deducting interest expenses and considering the firm's net borrowing activity:
+
+. . .
+
+$$
+\small FCFE = FCF - (1-\tau)\times (\text{Interest Expenses})\pm \text{Net Borrowing}
+$$
+
+-   Compared to our previous case, there will be [two]{.blue} differences:
+
+    1.  First, we deduct interest expenses before calculating taxes
+    2.  We add the proceeds from the firm's net borrowing activity.
+        a.  These will be [positive]{.green} when the firm increases its net debt
+        b.  On the other hand, these will be [negative]{.red} when the firm reduces its net debt
+
+## Previous Estimation of Free Cash Flow (for *WACC* and *APV*)
+
+![](Images/F4.jpg){fig-align="center"}
+
+## Estimation of Free Cash Flow to Equity
+
+![](Images/F5.jpg){fig-align="center"}
+
+$\rightarrow$ *See accompaining Excel document for the calculations*
+
+## Estimation of Free Cash Flow to Equity, explanation
+
+-   From the previous table, you can see that we have made two major changes relative to our regular *Free Cash Flow* estimation:
+
+    1.  We explicitly included interest expenses - as calculated in our previous class - before calculating taxes. As a consequence, our taxable income was lower, and so does the tax expense for each year
+
+    2.  Because we're measuring the cash flows to equity holders and not all the claimants of the firm, we need to include all dynamics in debt levels (inclusions or deductions). We can do it by considering changes in debt levels from one period to the other:
+
+. . .
+
+$$
+\small \text{Net Borrowing}_t= Debt_t-Debt_{t-1}
+$$
+
+-   As we did in our previous class when calculating the amount of necessary Debt that the firm needed in order to keep the debt-to-equity ratio constant, we can use the calculated debt capacity to calculate the increases/decreases in net debt for each period
+
+## Valuing Equity Cash Flows
+
+-   You now have the cash flows that pertain exclusively to the shareholders of the firm. Now what?
+
+-   The project's free cash flow to equity shows the expected amount of additional cash the firm will have available to pay dividends (or conduct share repurchases) each year
+
+-   Because these cash flows represent payments to [equity]{.blue} holders, they should be discounted at the project's [equity]{.blue} cost of capital.
+
+-   Given that the risk and leverage of the *RFX* project are the same as for *Avco* overall, we can use Avco's equity cost of capital of ($r_e=10\%$):
+
+. . .
+
+$$
+\small NPV(FCFE)=6.37 + \dfrac{11.47}{1.10}+ \dfrac{11.25}{1.10^2} +\dfrac{11.02}{1.10^3}+ \dfrac{10.77}{1.10^4}=41.73
+$$
+
+... which yields exactly the same *NPV* as of the previous methods!
+
+## Overall thoughts on the *FTE* method
+
+-   Steps to compute the value using the *FTE* method:
+
+    1.  Compute the Free Cash Flow to Equity by directly including interest expenses and net debt
+    2.  Calculate the project's cost of equity, $r_e$
+    3.  Discount the cash flows using $r_e$
+
+-   Applying the *FTE* method was simplified in our example because the project's risk and leverage matched the firm's, and the firm's equity cost of capital was expected to remain constant.
+
+-   Just as with the *WACC*, however, this assumption is reasonable *only if the firm maintains a constant debt-equity ratio*. If the debt-equity ratio changes over time, the risk of equity---and, therefore, its cost of capital---will change as well
+
+## Overall thoughts on the *FTE* method, continued
+
+. . .
+
+**Limitations**: the *FTE* method carries the same limitations as of the *APV* method: we need to compute the project's debt capacity to determine interest and net borrowing before we can make the capital budgeting decision. Because of that, the *WACC* method is easier to apply
+
+. . .
+
+**Benefits**: whenever we have a complex capital structure, using the *FTE* has some advantages over the other two methods:
+
+1.  The *APV* and *WACC* methods estimate the the firm's enterprise value, and need a separate valuation of the other components to separate the value of equity
+
+2.  In constrast, the *FTE* method can be used to estimate the equity value directly
+
+3.  Finally, by emphasizing a project's implications for the firm's payouts to equity, the FTE method may be viewed as a more transparent method for discussing a project's benefit to shareholders---a managerial concern.
+
+## Other Effects of Financing: Issuing Costs
+
+-   When a firm takes out a loan or raises capital by issuing securities, the banks that provide the loan or underwrite the sale of the securities [charge fees]{.blue}
+
+-   The fees associated with the financing of the project are a cost that should be included as part of the project's required investment, reducing the NPV of the project
+
+. . .
+
+$$
+\small NPV = V^L - \text{Investment} - \text{Issuance Costs}
+$$
+
+-   This calculation presumes the cash flows generated by the project will be paid out. If instead they will be reinvested in a new project, and thereby save future issuance costs, the present value of these savings should also be incorporated and will offset the current issuance costs.
+
+## Other Effects of Financing: Security Mispricing
+
+-   With perfect capital markets, all securities are fairly priced and issuing securities is a zero-NPV transaction. However, there are situations where the pricing is [more]{.green} (or [less]{.red}) relative to the true value!
+
+-   *Equity mispricing*: if management believes that the equity will sell at a price that is less than its true value, this mispricing is a cost of the project for the existing shareholders. It can be deducted from the project NPV in addition to other issuance costs
+
+-   *Loan mispricing*: a firm may pay an interest rate that is too high if news that would improve its credit rating has not yet become public
+
+    1.  With the *WACC*, we could adjust it using the higher interest rate
+
+    2.  With the *APV*, we must add to the value of the project the NPV of the loan cash flows when evaluated at the "correct" rate that corresponds to their actual risk
+
+## Other Effects of Financing: Financial Distress
+
+-   One consequence of debt financing is the possibility of financial distress and agency costs:
+
+    1.  When the debt level - and, therefore, the probability of financial distress - is high, the expected free cash flow will be reduced by the expected costs associated with financial distress and agency problems
+
+    2.  Financial distress costs therefore tend to increase the sensitivity of the firm's value to market risk, further raising the cost of capital for highly levered firms
+
+-   How to adjust for potential financial distress and agency costs?
+
+1.  One approach is to adjust our free cash flow estimates to account for the costs, and increased risk, resulting from financial distress
+
+2.  An alternative method is to first value the project ignoring these costs, and then add the present value of the incremental cash flows associated with financial distress and agency problems separately
+
+## References
