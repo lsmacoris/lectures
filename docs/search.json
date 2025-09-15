@@ -14635,5 +14635,201 @@
     "title": "Equity Valuation and Simulation",
     "section": "References",
     "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#about-this-lecture",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#about-this-lecture",
+    "title": "Mergers and Acquisitions",
+    "section": "About this lecture",
+    "text": "About this lecture\n\nThis lecture aims to walk through a practical application of Valuation and Financial Modeling using the tools that we have developed thus far\n\nA Valuation is nothing more than an assessment of a firm (or project)’s value\nBased on the current and past information about the firm, project, and industry, we estimate its future results and evaluate how much it is worth in terms of the current period\n\nWe will closely follow (Berk and DeMarzo 2023), Chapter 19, which presents the valuation case\nYou can also use these guidelines to value other publicly held companies\nWhenever you’re in doubt regarding a specific term, refer to the previous lectures, which will be, in all possible cases, mentioned throughout these slides\nAn accompanying Microsoft Excel file available on eClass® with all the calculations"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#about-the-company",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#about-the-company",
+    "title": "Mergers and Acquisitions",
+    "section": "About the company",
+    "text": "About the company\n\nIdeko is a privately held designer and manufacturer of specialty sports eyewear\nIn mid-2005, its owner and founder, June Wong, has decided to sell the business, after having relinquished management control about four years ago. As a partner in KKP Investments, you are investigating purchasing the company\nIf a deal can be reached, the acquisition will take place at the end of the current fiscal year. In that event, KKP plans to implement operational and financial improvements at Ideko over the next five years, after which it intends to sell the business\nYou believe a deal could be struck to purchase Ideko’s equity at the end of this fiscal year for an acquisition price of $150 million, which is almost double Ideko’s current book value of equity.\n\n\nQuestion: is this price reasonable?"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 1: analyzing comparable firms",
+    "text": "Step 1: analyzing comparable firms\n\nAs you saw in the Financial Analysis lectures (2-4), one of the first steps in assessing a firm’s value is to understand how comparable firms behave in terms of financial indicators\nA quick way to gauge the reasonableness of the proposed price for Ideko is to compare it to that of other publicly traded firms using the method of comparable firms (also known as multiples)\nMore specifically, market-valuation multiples rely on the fact that a reasonable estimate for a firm’s value should be a factor of its earnings:\n\nIf the industry-median EV/EBITDA is 3.2x, our firm is valued at…\nIf the industry-median EV/Sales is 1.2x, our firm is valued at…\nIf the P/E ratio is 15x, our firm is valued at…\n\n\n\n\\(\\rightarrow\\) For a more detailed discussion on market-valuation ratios, refer to the Financial Analysis lecture here"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms-1",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms-1",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 1: analyzing comparable firms",
+    "text": "Step 1: analyzing comparable firms\n\n\n\n\n\n\n\n\n\n\n\nRatio\nIdeko (proposed)\nOakley\nLuxxotica\nNike\nSporting Goods\n\n\n\n\nP/E\n21.6\n24.8\n28\n18.2\n20.3\n\n\nEV/Sales\n?\n2\n2.7\n1.5\n1.4\n\n\nEV/EBITDA\n?\n11.6\n14.4\n9.3\n11.4\n\n\nEBITDA/Sales\n?\n17%\n18.50%\n15.90%\n21.10%\n\n\n\n\nFor example, at a price of $150 million, which is your first estimate of the acquisition price, Ideko’s price-earnings (P/E) ratio is \\(\\small 150,000/6,939 \\approx 21.6\\)\nUse the numbers presented in the next slide to calculate the:\n\nEV/Sales\nEV/EBITDA\nEBITDA/Sales"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms-2",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms-2",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 1: analyzing comparable firms",
+    "text": "Step 1: analyzing comparable firms\n\n\n\n\n\n\n\n\n\n\n\nRatio\nIdeko (proposed)\nOakley\nLuxxotica\nNike\nIndustry Average\n\n\n\n\nP/E\n21.6\n24.8\n28\n18.2\n20.3\n\n\nEV/Sales\n2\n2\n2.7\n1.5\n1.4\n\n\nEV/EBITDA\n9.1\n11.6\n14.4\n9.3\n11.4\n\n\nEBITDA/Sales\n21.7%\n17%\n18.50%\n15.90%\n21.10%\n\n\n\n\nA quick look at this table reveals that:\n\nSome multiples vary substantially across firms\nOther multiples are more stable\nDifferences may stem from differences in operating performance and other firm-specific characteristics\n\nHow to use these numbers to price Ideko’s shares?"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms-3",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms-3",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 1: analyzing comparable firms",
+    "text": "Step 1: analyzing comparable firms\n\nAt the proposed price, Ideko’s P/E ratio is low relative to those of Oakley and Luxottica, although it is somewhat above the P/E ratios of Nike and the industry overall. The same can be said for Ideko’s valuation as a multiple of sales\nThus, based on these two measures, Ideko looks “cheap” relative to Oakley and Luxottica, but is priced at a premium relative to Nike and the average sporting goods firm\nThe deal stands out, however, when you compare Ideko’s enterprise value relative to EBITDA:\n\n\\(\\small 9.1\\times\\) is below that of all of the comparable firms\nHowever, \\(\\small 21.7\\%\\) EBITDA Margin is higher than all competitors\n\nOverall, using \\(\\small \\$150\\) million as the “correct” price seemed a reasonable estimate\nWhile these multiples provides some reassurance that the acquisition price is reasonable compared to other peers, they ignore important differences such as the operating efficiency and growth prospects of the firms, as well as they look only at past performance"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms-4",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-1-analyzing-comparable-firms-4",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 1: analyzing comparable firms",
+    "text": "Step 1: analyzing comparable firms\n\nFor each multiple, we can find the highest and lowest values across all three firms and the industry portfolio. Applying each multiple to the data for Ideko yields the following results:\n\n\n\n\n\n\n\n\n\n\n\n\n\nMinimum\nMaximum\nLower Bound\nUpper Bound\n\n\n\n\nP/E\n18.2\n28\n$126.3\n$194.3\n\n\nEV/Sales\n1.4\n2.7\n$107.0\n$204.5\n\n\nEV/EBITDA\n9.1\n14.4\n$149.9\n$236.0"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-2-integrating-the-business-plan",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-2-integrating-the-business-plan",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 2: integrating the business plan",
+    "text": "Step 2: integrating the business plan\n\nWhile comparables provide a useful starting point, whether this acquisition is a successful investment for KKP depends on Ideko’s post-acquisition performance:\n\nIf the business plan for the years ahead is substantially different from past performance, then the multiple comparisons may neglect important aspects that should be included in the pricing of the security!\nThus, it is necessary to look in detail at Ideko’s operations, investments, and capital structure, and to assess its potential for improvements and future growth.\n\nAll in all, on the operational side, you are quite optimistic regarding the company’s prospects\nIn the next set of slides, you’ll see some numbers from Ideko’s estimated balance-sheet and income statement data as of 2005, as well as some operating forecasts that will be the basis for building the financial model"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#balance-sheet-and-income-statement",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#balance-sheet-and-income-statement",
+    "title": "Mergers and Acquisitions",
+    "section": "Balance Sheet and Income Statement",
+    "text": "Balance Sheet and Income Statement\n\n\n\n\n\n\\(\\rightarrow\\) You can find the hardcoded numbers in the accompaining Microsoft Excel file"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#income-and-cost-estimates",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#income-and-cost-estimates",
+    "title": "Mergers and Acquisitions",
+    "section": "Income and Cost Estimates",
+    "text": "Income and Cost Estimates\n\n\n\n\n\n\\(\\rightarrow\\) You can find the hardcoded numbers in the accompaining Microsoft Excel file\n\nThe market is expected to grow by \\(\\small 5\\%\\) per year as the company produces a superior product\nKKP plans to cut administrative costs and redirect resources to new product development, sales, and marketing, boosting market share from \\(\\small 10\\%\\) to \\(\\small 15\\%\\) over the next five years"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#capital-expenditures",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#capital-expenditures",
+    "title": "Mergers and Acquisitions",
+    "section": "Capital Expenditures",
+    "text": "Capital Expenditures\n\n\n\n\n\n\\(\\rightarrow\\) You can find the hardcoded numbers in the accompaining Microsoft Excel file\n\nThe increased sales demand can be met in the short run using the existing production lines by increasing overtime and running some weekend shifts\nHowever, once the growth in volume exceeds \\(\\small 50\\%\\), Ideko will definitely need to undertake a major expansion to increase its manufacturing capacity"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#working-capital-requirements",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#working-capital-requirements",
+    "title": "Mergers and Acquisitions",
+    "section": "Working Capital Requirements",
+    "text": "Working Capital Requirements\n\n\n\n\n\n\\(\\rightarrow\\) You can find the hardcoded numbers in the accompaining Microsoft Excel file\n\nActual Credit Policy: \\(\\small 90\\) days. While standard for the industry is \\(\\small 60\\) days, you believe that Ideko can tighten its credit policy to achieve this goal without sacrificing many sales\nWhile maintaining a certain amount of inventory is necessary to avoid production stoppages, with tighter controls of the production process, \\(\\small 30\\) days’ worth of inventory will be adequate"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#planned-debt-and-interest-payments",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#planned-debt-and-interest-payments",
+    "title": "Mergers and Acquisitions",
+    "section": "Planned Debt and Interest Payments",
+    "text": "Planned Debt and Interest Payments\n\n\n\n\n\n\\(\\rightarrow\\) You can find the hardcoded numbers in the accompaining Microsoft Excel file\n\nYou plan to greatly increase the firm’s debt, and have obtained bank commitments for loans of \\(\\small\\$100\\) million should an agreement be reached\nThese term loans will have an interest rate of \\(\\small 6.8\\%\\), and Ideko will pay interest only during the next five years\nYou can compute interest expenses by \\(r_d \\times D_{t-1}\\)"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#sources-and-uses-of-funds",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#sources-and-uses-of-funds",
+    "title": "Mergers and Acquisitions",
+    "section": "Sources and Uses of Funds",
+    "text": "Sources and Uses of Funds\n\n\n\n\n\n\\(\\rightarrow\\) You can find the hardcoded numbers in the accompaining Microsoft Excel file\n\nIn addition to the \\(\\small \\$150\\) million purchase price for Ideko’s equity, \\(\\small \\$4.5\\) million will be used to repay Ideko’s existing debt.\nWith \\(\\small \\$5\\) million in advisory and other fees associated with the transaction, the acquisition will require \\(\\small \\$159.5\\) million in total funds\nRequired Equity: \\(\\small 159.5-100-6.5=53,000\\)"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-2-building-the-financial-model",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-2-building-the-financial-model",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 2: Building the Financial Model",
+    "text": "Step 2: Building the Financial Model\n\nThe value of any investment opportunity arises from the future cash flows it will generate\nWith the past information in mind, you begin to forecast Ideko’s future earnings\nTo convert this to cash flows, you will also consider Ideko’s working capital and investment needs"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-2-the-pro-forma-income-statement",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-2-the-pro-forma-income-statement",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 2: The pro-forma income statement",
+    "text": "Step 2: The pro-forma income statement\n\nWe can forecast Ideko’s income statement for the five years following the acquisition based on the operational and capital structure changes proposed\nThis income statement is often referred to as a pro-forma income statement, because it is not based on actual data but rather depicts the firm’s financials under a given set of hypothetical assumptions\nThe pro-forma income statement translates our expectations regarding the operational improvements KKP can achieve at Ideko into consequences for the firm’s earnings.\nStart from the sales forecast using your inputs for market size, market-share, and unit prices:\n\n\n\\[\n\\small Sales_t=\\text{Market Size}_t\\times \\text{Market Share}_t \\text{Unit Price}_t\n\\]"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-2-the-pro-forma-income-statement-1",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-2-the-pro-forma-income-statement-1",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 2: The pro-forma income statement",
+    "text": "Step 2: The pro-forma income statement\n\nYou can use a similar rationale to project COGS, and use the estimated ratios (in terms of sales) to deduct all other operating costs\nYou can plug in interest expenses and taxes based on the assumptions discussed before\nYou should be able to have your pro-forma income statement like below:"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-3-working-capital-needs",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-3-working-capital-needs",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 3: Working Capital Needs",
+    "text": "Step 3: Working Capital Needs\n\nBased on these working capital requirements, you can forecast Ideko’s net working capital (NWC) over the next five years. For example, for Accounts Receivable:\n\n\n\\[\n\\small \\text{Accounts Receivable}= \\text{Days Required}\\times \\dfrac{Annual Sales}{365}\\rightarrow 60 \\times \\dfrac{88,358}{365}\\approx 14.525\n\\]\n\nYou can then use the same rationale to project all other working capital requirements across the years, always looking at the yearly forecasts for sales and costs\nFinally, you can use the net operating working capital formula to derive the investments needed each year:\n\n\n\n\\[\n\\small \\Delta NWC_{t} = NWC_{t}-NWC_{t-1}\n\\]\nWith \\(\\small NWC_{t}\\) defined as Current Operating Assets minus Current Operating Liabilities"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-3-working-capital-needs-1",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-3-working-capital-needs-1",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 3: Working Capital Needs",
+    "text": "Step 3: Working Capital Needs\n\nUsing the estimates described before, you should be able to find:"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-4-forecasting-the-free-cash-flow",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-4-forecasting-the-free-cash-flow",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 4: Forecasting the Free Cash Flow",
+    "text": "Step 4: Forecasting the Free Cash Flow\n\nWe now have the data needed to forecast Ideko’s free cash flows over the next five years:\n\nEarnings have been estimated in the pro-forma income statement\nYou have estimated working capital requirements\nInterest expenses are a byproduct of the interest rate for the loan and the loan size each year\nDepreciation has been estimated by the tax department\nCapital Expenditures are available\n\nYou can combine these items to form the Free Cash Flow estimates:\n\n\n\\[\n\\small FCF_{t}=EBIT_t\\times(1-\\text{Tax Rate}_t)+\\text{Depreciation}_t\\pm \\Delta NWC_t \\pm CAPEX_t\n\\]\n\n\n\\(\\rightarrow\\) For a detailed discussion on Free Cash Flow, refer to this Fundamentals of Capital Budgeting lecture here."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-4-forecasting-the-free-cash-flow-1",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-4-forecasting-the-free-cash-flow-1",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 4: Forecasting the Free Cash Flow",
+    "text": "Step 4: Forecasting the Free Cash Flow"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-4-valuing-the-investment",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-4-valuing-the-investment",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 4: Valuing the Investment",
+    "text": "Step 4: Valuing the Investment\n\nYou now have the free cash flow estimates, both at the firm level (FCF) and at the equity (FCFE) level\nAs you saw in Valuation with Leverage lecture, you will now have to evaluate these cash flow streams according to one of the methods (WACC, APV, or FTE)\nTo value KKP’s investment in Ideko, we need to assess the risk associated with Ideko and estimate an appropriate cost of capital\nBecause Ideko is a private firm, we cannot use its own past returns to evaluate its risk, but must instead rely on comparable publicly traded firms\nIn this stage, we will use data from the comparable firms identified earlier to estimate a cost of capital for Ideko"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-5-estimating-the-cost-of-capital",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-5-estimating-the-cost-of-capital",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 5: Estimating the Cost of Capital",
+    "text": "Step 5: Estimating the Cost of Capital\n\nBased on Oakley, Luxxotica, and Nike, we estimate the firms’ cost of capital using the CAPM:\n\n\n\\[\n\\small r_U=r_f + \\beta_U\\times(E[r_{mkt}-r_f])\n\\]\nwhere \\(\\small R_f\\) is the risk-free market return (in this case, 4%), \\(\\small r_{mkt}\\) is the return on the market portfolio, assumed to be 9% in this case.\n\nIf we are using the CAPM, finding \\(\\small \\beta_U\\) is the same approach as of finding \\(\\small r^U\\):\n\n\n\n\\[\n\\small \\beta_U= \\text{% of Equity} \\times \\beta_E + \\text{% of Debt} \\times \\beta_D\n\\]\n\nBased on the three comparable firms, we set \\(\\small \\beta_U=1.2\\) and then \\(\\small r_U\\) is:\n\n\n\n\\[\n\\small r_U=4\\%+1.20\\times 5\\% = 10\\%\n\\]"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-6-valuing-the-investment",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-6-valuing-the-investment",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 6: Valuing the Investment",
+    "text": "Step 6: Valuing the Investment\n\nWe can apply several techniques to value the investment:\n\n\nWe can use a multiple (calculated in Step 1) and apply it to the forecasted numbers from Ideko\nBecause We can use the APV Method, knowing that because the debt is paid on a fixed schedule during the forecast period, the APV method is the easiest valuation method to apply\n\n\nIn what follows, we’ll apply each one of these techniques to assess the firm value\n\n\n\\(\\rightarrow\\) See the accompanying Excel file for the numeric calculations"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-6-valuing-the-investment-multiples",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#step-6-valuing-the-investment-multiples",
+    "title": "Mergers and Acquisitions",
+    "section": "Step 6: Valuing the Investment: Multiples",
+    "text": "Step 6: Valuing the Investment: Multiples\n\nPractitioners generally estimate a firm’s continuation value (also called the terminal value) at the end of the forecast horizon using a valuation multiple. While forecasting cash flows explicitly is useful in capturing those specific aspects of a company, in the long run firms in the same industry typically have similar expected growth rates, profitability, and risk\nThus, applying a multiple is potentially as reliable as estimating the value based on an explicit forecast of distant cash flows\nIn most settings, the EBITDA multiple is more reliable than sales or earnings multiples because it accounts for the firm’s operating efficiency and is not affected by leverage differences between firms\n\n\n\\[\n\\small V^L=\\text{Forecasted EBITDA}\\times\\text{EBITDA Multiple}\n\\]\n\\(\\rightarrow\\) See the accompanying Excel file for the numeric calculations"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#a-reality-check",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#a-reality-check",
+    "title": "Mergers and Acquisitions",
+    "section": "A reality check",
+    "text": "A reality check\n\nDoes our estimate make sense? Our estimate for Ideko’s initial enterprise value is \\(\\small \\$213\\) million, with an equity value of \\(\\small \\$113\\) million\nAs KKP’s initial cost to acquire Ideko’s equity is \\(\\small \\$53\\) million, based on these estimates, the deal looks attractive, with an NPV of \\(\\small 113- 53 = 60\\) million\nDoes an initial enterprise value of \\(\\small \\$213\\) million for Ideko seem reasonable compared to the values of other firms in the industry?\nHere again, multiples are helpful. Let’s compute the initial valuation multiples that would be implied by our estimated enterprise value of \\(\\small \\$213\\) million and compare them to Ideko’s closest competitors\n\n\n\\(\\rightarrow\\) See the accompanying Excel file for the numeric calculations"
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#supplementary-reading",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#supplementary-reading",
+    "title": "Mergers and Acquisitions",
+    "section": "Supplementary Reading",
+    "text": "Supplementary Reading\n\nSee Financial Analytics Toolkit: Financial Statement Forecasting for a detailed discussion on how to forecast future cash flows\n\n\n\\(\\rightarrow\\) All contents are available on eClass®."
+  },
+  {
+    "objectID": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#references",
+    "href": "valuation/coursework/Lecture 7 - Mergers and Acquisitions/index.html#references",
+    "title": "Mergers and Acquisitions",
+    "section": "References",
+    "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2023. Corporate Finance, Global Edition. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ."
   }
 ]
