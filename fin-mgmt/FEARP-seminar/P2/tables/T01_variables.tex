@@ -1,0 +1,29 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\newcommand{\D}[1]{\parbox[t]{10.5cm}{\raggedright #1\strut}}
+\begin{document}
+\begin{tabular}{lll}
+\toprule
+\textbf{Name} & \textbf{Variable} & \textbf{Definition} \\
+\midrule
+\multicolumn{3}{l}{\underline{\textit{Deal Information}}} \\
+\textit{Deal Occurrence} & $Deal$ & \D{Indicator equal to 1 if the firm is the target of an acquisition, and 0 otherwise.} \\
+\textit{Deal Stake Acquired (\%)} & $DealStake$ & \D{Percentage of the target's outstanding shares acquired by the acquirer in the transaction.} \\
+\textit{Financing} & $Financing$ & \D{Indicator equal to 1 for deals in which the acquirer's post-deal 10-Q filings or earnings-call transcripts explicitly cite financing relief, improved access to capital markets, liquidity support, or a credit backstop for the target, and 0 otherwise.} \\
+\addlinespace
+\multicolumn{3}{l}{\underline{\textit{Financial Data}}} \\
+\textit{Cash Holdings/Assets} & $CH$ & \D{Cash and short-term investments divided by total assets.} \\
+\textit{PPE/Assets} & $PPE$ & \D{Net property, plant, and equipment divided by total assets.} \\
+\textit{Debt/Assets} & $DA$ & \D{Total debt divided by total assets.} \\
+\textit{Long-Term Debt Ratio} & $LTDebt$ & \D{Long-term debt divided by total debt.} \\
+\textit{Short-Term Debt Ratio} & $STDebt$ & \D{Short-term debt divided by total debt.} \\
+\textit{Ln(Assets)} & $Size$ & \D{Natural logarithm of total assets.} \\
+\textit{Sales Growth} & $SG$ & \D{Annual growth of gross revenues (sales).} \\
+\textit{Maturing Debt} & $Maturing$ & \D{Share of long-term debt maturing within one year.} \\
+\textit{High-rollover} & $FC$ & \D{Indicator equal to 1 if $Maturing$ falls above the industry-year median (Fama--French 48), and 0 otherwise.} \\
+\addlinespace
+\multicolumn{3}{l}{\underline{\textit{Country-Level Data}}} \\
+\textit{Banking Crisis} & $BankCrisis$ & \D{Indicator equal to 1 if a systemic banking crisis occurs in the firm's headquarters country in a given year, and 0 otherwise (Laeven \& Valencia, 2018).} \\
+\bottomrule
+\end{tabular}
+\end{document}

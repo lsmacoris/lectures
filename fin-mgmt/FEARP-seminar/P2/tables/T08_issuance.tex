@@ -1,0 +1,30 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lcccc}
+\toprule
+ & (1) & (2) & (3) & (4)\\
+\cmidrule(r{0.8em}){2-4}\cmidrule(l{0.8em}){5-5}
+ & \multicolumn{3}{c}{log(1+Issuance)} & log(1+Maturity) \\
+\cmidrule(r{0.8em}){2-4}\cmidrule(l{0.8em}){5-5}
+ & Full Sample & Debt & Equity & Debt \\
+\midrule
+$FC$ & $-$0.128$^{**}$ & $-$0.272$^{***}$ & 0.062 & 0.0002 \\
+ & (0.057) & (0.083) & (0.070) & (0.030) \\
+$Post$ & $-$0.078 & $-$4.821$^{***}$ & $-$1.029$^{**}$ & 0.123 \\
+ & (0.403) & (0.446) & (0.411) & (0.133) \\
+\rowcolor{hl!10} \hl{$FC \times Post$} & \hl{0.188$^{***}$} & \hl{0.248$^{**}$} & 0.026 & $-$0.005 \\
+\rowcolor{hl!10} & (0.071) & (0.110) & (0.089) & (0.038) \\
+\midrule
+Controls & \y & \y & \y & \y \\
+Controls $\times$ Crisis & \y & \y & \y & \y \\
+Firm FE & \y & \y & \y & \y \\
+Industry $\times$ Year FE & \y & \y & \y & \y \\
+Country $\times$ Year FE & \y & \y & \y & \y \\
+Observations & 45,537 & 19,109 & 26,428 & 18,257 \\
+R$^{2}$ & 0.554 & 0.651 & 0.580 & 0.577 \\
+Adjusted R$^{2}$ & 0.448 & 0.532 & 0.435 & 0.447 \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize\textit{Note:} Standard errors clustered by deal. \stars}
+\end{tabular}
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lcccccccc}
+\multicolumn{9}{l}{\textbf{Panel A: Cross-Border Acquisitions}}\\
+\toprule
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8)\\
+ & log(Assets) & log(Cash Holdings) & log(LT Debt) & log(ST Debt) & log(Total Debt) & log(CAPEX) & log(PPE) & log(Equity) \\
+\midrule
+$Post$ & $-$0.075$^{***}$ & $-$0.089$^{**}$ & $-$0.844$^{***}$ & 0.586$^{***}$ & $-$0.080$^{***}$ & $-$0.212$^{***}$ & $-$0.064$^{***}$ & $-$0.057$^{***}$ \\
+ & (0.020) & (0.036) & (0.051) & (0.046) & (0.020) & (0.039) & (0.022) & (0.022) \\
+\rowcolor{hl!10} \hl{$Deal \times Post$} & \hl{0.124$^{***}$} & \hl{0.147$^{***}$} & \hl{0.200$^{***}$} & \hl{0.092$^{*}$} & \hl{0.117$^{***}$} & 0.079 & \hl{0.111$^{***}$} & \hl{0.071$^{**}$} \\
+\rowcolor{hl!10} & (0.029) & (0.049) & (0.064) & (0.053) & (0.029) & (0.048) & (0.036) & (0.033) \\
+\midrule
+Year FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Firm FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Observations & 33,850 & 33,602 & 31,029 & 32,925 & 33,845 & 28,443 & 33,662 & 31,505 \\
+R$^{2}$ & 0.976 & 0.944 & 0.925 & 0.933 & 0.976 & 0.945 & 0.975 & 0.967 \\
+\bottomrule
+\addlinespace[10pt]
+\multicolumn{9}{l}{\textbf{Panel B: Domestic Acquisitions}}\\
+\toprule
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8)\\
+ & log(Assets) & log(Cash Holdings) & log(LT Debt) & log(ST Debt) & log(Total Debt) & log(CAPEX) & log(PPE) & log(Equity) \\
+\midrule
+$Post$ & $-$0.062$^{***}$ & $-$0.148$^{***}$ & $-$0.792$^{***}$ & 0.558$^{***}$ & $-$0.052$^{***}$ & $-$0.184$^{***}$ & $-$0.051$^{**}$ & $-$0.044$^{**}$ \\
+ & (0.017) & (0.032) & (0.041) & (0.038) & (0.017) & (0.039) & (0.021) & (0.021) \\
+$Deal \times Post$ & 0.035$^{*}$ & 0.078$^{**}$ & 0.083$^{*}$ & 0.036 & 0.015 & 0.002 & 0.024 & $-$0.011 \\
+ & (0.020) & (0.035) & (0.045) & (0.038) & (0.020) & (0.042) & (0.025) & (0.025) \\
+\midrule
+Year FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Firm FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Observations & 57,585 & 57,216 & 52,943 & 56,115 & 57,580 & 45,597 & 57,341 & 53,833 \\
+R$^{2}$ & 0.979 & 0.947 & 0.929 & 0.938 & 0.979 & 0.942 & 0.977 & 0.968 \\
+\bottomrule
+\multicolumn{9}{l}{\footnotesize\textit{Note:} High-rollover firms in a crisis. Standard errors clustered by firm. \stars}
+\end{tabular}
+\end{document}

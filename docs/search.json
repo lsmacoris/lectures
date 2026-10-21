@@ -14831,5 +14831,201 @@
     "title": "Mergers and Acquisitions",
     "section": "References",
     "text": "References\n\n\n\n\n@ Website | @ Slides | @ Office-hour appointments\n\n\n\n\nBerk, J., and P. DeMarzo. 2023. Corporate Finance, Global Edition. Pearson. https://books.google.com.br/books?id=m78oEAAAQBAJ."
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#banking-crises-and-the-rollover-problem",
+    "href": "fin-mgmt/FEARP-seminar/index.html#banking-crises-and-the-rollover-problem",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Banking Crises and the Rollover Problem",
+    "text": "Banking Crises and the Rollover Problem\n\nWhen a banking system is distressed, the cost of external funding rises for firms that must refinance in the near term – i.e., the credit supply channel (Holmstrom & Tirole, 1997; Bernanke & Gertler, 1989)\nFor many otherwise viable firms, the binding friction is not the absence of investment opportunities, but a lack of rollover capacity: maturing obligations must be refinanced precisely when domestic intermediaries and local capital markets are distressed\n\n\nWhat do we know?\n\nCredit contractions depress corporate investment (Duchin, Ozbas, & Sensoy, 2010)\n…particularly for firms whose long-term debt matures during the shock (Almeida, Campello, Laranjeira, & Weisbenner, 2012)\n\n\n\n\\(\\rightarrow\\) We understand the real effects of credit contractions, but less about the organizational mechanisms through which firms restore funding when domestic refinancing capacity collapses"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#this-paper",
+    "href": "fin-mgmt/FEARP-seminar/index.html#this-paper",
+    "title": "Credit Crisis Acquisitions",
+    "section": "This paper",
+    "text": "This paper\n\n\n\n\n\n\n\nResearch Question\n\n\nCan M&A transactions act as a financing bridge that restores debt capacity for viable firms when domestic intermediation contracts?\n\n\n\n\n\nThe idea: in a crisis, an acquirer with continued access to liquidity can target economically viable but financially constrained firms whose domestic refinancing options have deteriorated\n\nFor the target, the deal need not reflect weak fundamentals, operating synergies, or a desire to transfer control\nInstead, it links the firm to an entity with stronger funding relationships and access to external debt markets\nWhen the acquirer is foreign or internationally connected, the deal can also ease access to deep foreign markets through bonding/certification channels (Burns, Francis, & Hasan, 2007)\n\n\n\n\\(\\rightarrow\\) “Credit crisis acquisitions”: transactions driven by rollover pressure rather than weak fundamentals, functioning as a bridge to debt capacity"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#our-study",
+    "href": "fin-mgmt/FEARP-seminar/index.html#our-study",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Our Study",
+    "text": "Our Study\n\nWhat: we examine whether M&A transactions reallocate financing capacity to firms with acute refinancing needs when domestic credit supply contracts\nHow: use systemic banking crises (Laeven & Valencia, 2018) as negative credit-supply and predetermined rollover exposure (Almeida et al., 2012) in a difference-in-differences design, linking security-level issuance data and post-deal disclosures\n\n\nMain findings\n\nHigh-rollover firms are 14% more likely to become targets in crisis years – concentrated at crisis onset, with no pre-trends\nThey also increase assets (7%), cash (14%), and long-term debt (15%) post-deal, with no change in equity; effects concentrated in minority, cross-border, and financial-acquirer deals\nIssuance is debt-driven (+25% debt issuance) and expands into deeper foreign markets\nAcquirer disclosures explicitly cite financing support for crisis-period, high-rollover targets"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#related-literature",
+    "href": "fin-mgmt/FEARP-seminar/index.html#related-literature",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Related Literature",
+    "text": "Related Literature\nCredit supply shocks and their spillovers to the real economy:\n\nInvestment and real activity (Duchin et al., 2010; Almeida et al., 2012)\nFirm valuations and stock prices (Carvalho, 2015; Tong & Wei, 2011)\nCorporate payouts (Bliss, Cheng, & Denis, 2015)\nAlternative financing, e.g., trade credit (Garcia-Appendini & Montoriol-Garriga, 2013)\n\n\nM&A and financial constraints:\n\nOwnership links reduce information asymmetries (Wruck, 1989; Hertzel & Smith, 1993)\nAcquisitions alleviate target constraints via cash and investment policies (Erel, Jang, & Weisbach, 2015)\nMinority block acquisitions and certification, with an equity issuance response (Liao, 2014)\nM&A as a tool for constrained acquirers to unlock financial synergies (Williamson & Yang, 2021)"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#our-contribution",
+    "href": "fin-mgmt/FEARP-seminar/index.html#our-contribution",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Our Contribution",
+    "text": "Our Contribution\nWe differ from existing studies on the financial motives for M&A in three respects:\n\n\nThe friction we isolate: interacting systemic banking crises with predetermined rollover exposure isolates firms facing a sudden loss of domestic refinancing capacity – rather than generic financial constraints (Erel et al., 2015)\nThe geography of relief: we trace where post-crisis borrowing occurs – additional debt capacity comes from deep foreign debt markets, distinguishing our mechanism from an internal-capital-market story\nThe financing margin: a debt-centered mechanism – high-rollover targets raise debt, not equity, after crisis onset (Liao, 2014)\n\n\n\n\\(\\rightarrow\\) Most of this evidence is built around specific episodes (e.g., 2007–2008), and offers less direct evidence on the mechanisms firms use to offset binding refinancing needs"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#data-sample",
+    "href": "fin-mgmt/FEARP-seminar/index.html#data-sample",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Data & Sample",
+    "text": "Data & Sample\n\nSDC Platinum (Refinitiv): completed M&A deals (1990–2019) + global debt and equity issuance data\nCompustat North America/Global: firm-level financials of targets and non-targets\nLaeven & Valencia (2018) Systemic Banking Crises Database + World Bank GFDD: country-year level\n\n\nTargets are combined with all non-acquired Compustat firms \\(\\rightarrow\\) unbalanced panel with 961,909 firm-year observations coming from 58,814 unique deals\nContinuous variables winsorized by year at the \\(1^{\\text{st}}\\) and \\(99^{\\text{th}}\\) percentiles"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#credit-supply-shock",
+    "href": "fin-mgmt/FEARP-seminar/index.html#credit-supply-shock",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Credit Supply Shock",
+    "text": "Credit Supply Shock\n\nAs in Laeven & Valencia (2018), we define \\(BankCrisis_{m,t}\\) as a dummy variable that assigns 1 if firm \\(i\\) is headquartered in a country \\(m\\) that experiences a systemic banking crisis in year \\(t\\):\n\nSignificant signs of financial distress in the banking system (bank runs, losses in the banking system, and/or bank liquidations); and\nSign. banking policy intervention measures in response to losses in the banking system\n\n\n\n\nThe first year that both criteria are met is the year when the crisis becomes systemic \\(\\rightarrow\\) \\(BankCrisis_{m,t}=1\\)\nThe end of a crisis is the year before both real GDP growth and real credit growth are positive for at least two consecutive years \\(\\rightarrow\\) \\(BankCrisis_{m,t}=0\\)\n\n\n\n\n\n\n\n\n\nAssumption\n\n\nBanking crises are supply-side shocks that tighten domestic credit at short horizons, and are not proxying for decreases in firms’ unobserved investment opportunities."
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#exposure-to-liquidity-shock-rollover-pressure",
+    "href": "fin-mgmt/FEARP-seminar/index.html#exposure-to-liquidity-shock-rollover-pressure",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Exposure to Liquidity Shock: Rollover Pressure",
+    "text": "Exposure to Liquidity Shock: Rollover Pressure\n\nWe follow Almeida et al., 2012 and define our measure of rollover exposure based on the portion of long-term interest-bearing debt due in one year. Define \\(Maturing_{i,t}\\) as:\n\n\n\\[\n\\small Maturing_{i,t} = \\frac{\\text{Long-term debt maturing within one year}_{i,t}}{\\text{Total long-term debt}_{i,t}}\n\\]\n\nWhen \\(\\small Maturing_{i,t}\\) is above the Fama–French 48 industry-year median \\(\\rightarrow\\) \\(FC_{i,t}=1\\)\nIntuition: maturities are hard to adjust in the short run – the measure captures refinancing needs set before the shock, which become salient when domestic credit supply contracts\nRobustness: fixed threshold (\\(\\small Maturing \\geq 20\\%\\)), standardized continuous measure, upper industry tercile, and upper industry quartile"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#empirical-design",
+    "href": "fin-mgmt/FEARP-seminar/index.html#empirical-design",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Empirical Design",
+    "text": "Empirical Design\n\nTo examine whether high-rollover firms are more likely to become targets when their headquarters country is hit by a banking crisis, we run:\n\n\n\\[\n\\begin{aligned}\nDeal_{i,t} = \\; & \\beta_1\\times FC_{i,t} + \\beta_2\\times BankCrisis_{m,t} + {\\color{#42affa}\\beta_{DD}}\\times (BankCrisis_{m,t}\\times FC_{i,t}) \\\\\n& + \\gamma_1'Controls_{i,t-1} + \\gamma_2'(Controls_{i,t-1}\\times BankCrisis_{m,t}) + FEs + \\varepsilon_{i,t}\n\\end{aligned}\n\\]\n\nControls: 1-year lagged Cash Holdings, Cash Flow, Leverage, and PPE (all scaled by Total Assets), Size (log assets), and Sales Growth\nFixed effects: firm + industry \\(\\times\\) year + country \\(\\times\\) year\n\nCountry \\(\\times\\) year FEs absorb the crisis itself, as well as country-level demand shocks in general (macro conditions, local M&A waves, policy interventions, etc)\n\\(\\beta_{DD}\\) captures differential targeting of high-rollover firms within the same crisis environment\n\n\n\n\n\\(\\rightarrow\\) Under a refinancing-risk mechanism: \\(\\beta_{DD}&gt;0\\)"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#testable-predictions",
+    "href": "fin-mgmt/FEARP-seminar/index.html#testable-predictions",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Testable Predictions",
+    "text": "Testable Predictions\nIf credit crisis acquisitions substitute for impaired domestic intermediation:\n\nWho gets targeted? The likelihood of being targeted should spike precisely at crisis onset for firms with high predetermined refinancing pressure\nState- and firm-contingent effects: post-deal effects should be concentrated among crisis-exposed, high-rollover targets – not a generic synergy story\nFinancing margin: relief should show up in the ability to sustain/raise long-maturity debt, with no commensurate increase in equity\nGeography of capital raising: targets should expand issuance beyond disrupted domestic markets and into deeper, more liquid foreign markets"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#high-rollover-firms-are-more-likely-to-become-targets-during-banking-crises",
+    "href": "fin-mgmt/FEARP-seminar/index.html#high-rollover-firms-are-more-likely-to-become-targets-during-banking-crises",
+    "title": "Credit Crisis Acquisitions",
+    "section": "#1: High-rollover firms are more likely to become targets during banking crises",
+    "text": "#1: High-rollover firms are more likely to become targets during banking crises\n\n\n\n\n\n\n\\(0.005/0.036 \\approx\\) 14% higher acquisition likelihood in crisis years (unconditional rate: 3.6%); \\(FC\\) alone has no bite in normal times"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#effects-are-robust-to-alternative-measures-of-exposure",
+    "href": "fin-mgmt/FEARP-seminar/index.html#effects-are-robust-to-alternative-measures-of-exposure",
+    "title": "Credit Crisis Acquisitions",
+    "section": "#2: Effects are robust to alternative measures of exposure",
+    "text": "#2: Effects are robust to alternative measures of exposure"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#deal-likelihood-spikes-at-the-onset-of-the-crisis",
+    "href": "fin-mgmt/FEARP-seminar/index.html#deal-likelihood-spikes-at-the-onset-of-the-crisis",
+    "title": "Credit Crisis Acquisitions",
+    "section": "#3: Deal likelihood spikes at the onset of the crisis",
+    "text": "#3: Deal likelihood spikes at the onset of the crisis"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#assessing-ex-post-effects",
+    "href": "fin-mgmt/FEARP-seminar/index.html#assessing-ex-post-effects",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Assessing ex-post effects",
+    "text": "Assessing ex-post effects\n\nDo acquisitions relax financing frictions? We compare the post-deal trajectory of crisis-year targets vs. non-targets, separately for high- and low-rollover firms:\n\n\n\\[\n\\log(Y_{i,t}) = \\beta_1 Deal_i + \\beta_2 Post_{i,t} + {\\color{#42affa}\\beta_{DD}}\\times(Deal_i \\times Post_{i,t}) + FEs + \\epsilon_{i,t}\n\\]\n\n\\(Deal_i=1\\) if firm \\(i\\) is acquired in a crisis year; firms are tracked from three years before to three years after the crisis/deal year\n\\(Post_{i,t}=1\\) in the crisis/deal year and the three subsequent years\nFirm and year fixed effects; standard errors clustered by firm\n\n\n\n\n\n\n\n\n\nIdentification logic\n\n\nGeneric merger synergies or operational restructuring should benefit targets regardless of their capital structure. Effects concentrated among high-rollover firms help isolating the role of the transaction in relaxing binding financing frictions."
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#high-rollover-targets-preserve-assets-liquidity-and-long-term-debt-capacity",
+    "href": "fin-mgmt/FEARP-seminar/index.html#high-rollover-targets-preserve-assets-liquidity-and-long-term-debt-capacity",
+    "title": "Credit Crisis Acquisitions",
+    "section": "#4: High-rollover targets preserve assets, liquidity, and long-term debt capacity",
+    "text": "#4: High-rollover targets preserve assets, liquidity, and long-term debt capacity"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#issuance-level-data-for-approx.-62-of-targets-shows-that-ex-post-changes-are-driven-by-debt-and-not-equity",
+    "href": "fin-mgmt/FEARP-seminar/index.html#issuance-level-data-for-approx.-62-of-targets-shows-that-ex-post-changes-are-driven-by-debt-and-not-equity",
+    "title": "Credit Crisis Acquisitions",
+    "section": "#5: Issuance-level data for approx. 62% of targets shows that ex-post changes are driven by debt, and not equity",
+    "text": "#5: Issuance-level data for approx. 62% of targets shows that ex-post changes are driven by debt, and not equity"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#what-do-acquirers-say-post-deal-disclosures",
+    "href": "fin-mgmt/FEARP-seminar/index.html#what-do-acquirers-say-post-deal-disclosures",
+    "title": "Credit Crisis Acquisitions",
+    "section": "#6: What do acquirers say? Post-deal disclosures",
+    "text": "#6: What do acquirers say? Post-deal disclosures\n\nIf acquirers substitute for impaired domestic intermediation, managers should be more likely to describe crisis-period, high-rollover deals as providing financing support\n\n\n\n\n\n\n\n\nExample: Deutsche Telekom \\(\\rightarrow\\) OTE (Greece, 2011)\n\n\nDeutsche Telekom acquired a 10% stake in OTE on June 6, 2011. In its Q2 2011 earnings call, the CFO noted that OTE had issued a €500m bond and had credit facilities in place, leaving “no additional refinancing needs” for 2011–2012 – while noting that Deutsche Telekom would be the “last resource” for OTE in a worst-case refinancing scenario.\n\n\n\n\nTwo-stage LLM classification (gpt-4o-mini): i) Is the deal a substantive topic? ii) Does the text tie funding, liquidity, capital-market access, or a credit backstop to the target? + keyword guardrails (e.g., revolver, refinancing, backstop)\n\\(\\small Financing_d=1\\) if the acquirer discusses financial support to the target in an earnings-call transcript or 10-Q within one year of the announcement (U.S. acquirers, 1995 onward)\n\n\n\n\\(\\rightarrow\\) Result: financing-related disclosures occur in \\(\\approx\\) 22% of deals"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#crisis-period-deals-with-high-rollover-targets-feature-explicit-financing-support-language",
+    "href": "fin-mgmt/FEARP-seminar/index.html#crisis-period-deals-with-high-rollover-targets-feature-explicit-financing-support-language",
+    "title": "Credit Crisis Acquisitions",
+    "section": "#7: Crisis-period deals with high-rollover targets feature explicit financing-support language",
+    "text": "#7: Crisis-period deals with high-rollover targets feature explicit financing-support language"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#conclusion",
+    "href": "fin-mgmt/FEARP-seminar/index.html#conclusion",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Conclusion",
+    "text": "Conclusion\nWe investigate whether M&A provides relief when domestic financial intermediation contracts:\n\nAcquisition targeting shifts toward high-rollover firms in banking crises: ~14% more likely to be acquired, concentrated at crisis onset, with no pre-trends\nThe post-deal evidence points to a debt-centered financing channel: high-rollover targets increase assets, liquidity, and long-term debt, with no comparable increase in equity\nIssuance-level data: high-rollover targets raise ~25% more debt, expanding into large, liquid foreign markets; acquirer disclosures corroborate the financing-support interpretation\n\n\n\\(\\rightarrow\\) Credit crisis acquisitions function as a bridge to debt capacity: mergers act as substitutes for impaired domestic intermediation, with implications for how capital reaches viable firms when local credit contracts"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#thank-you-questions",
+    "href": "fin-mgmt/FEARP-seminar/index.html#thank-you-questions",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Thank you & Questions",
+    "text": "Thank you & Questions"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#appendix-variables",
+    "href": "fin-mgmt/FEARP-seminar/index.html#appendix-variables",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Appendix: Variables",
+    "text": "Appendix: Variables"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#appendix-descriptive-statistics",
+    "href": "fin-mgmt/FEARP-seminar/index.html#appendix-descriptive-statistics",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Appendix: Descriptive Statistics",
+    "text": "Appendix: Descriptive Statistics\n\n\n\n\n\n\nTargets are larger and rely more on long-term debt, but look similar in cash, capital intensity, leverage, and crisis exposure"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#appendix-banking-crises-vary-considerably-in-geography-and-timing",
+    "href": "fin-mgmt/FEARP-seminar/index.html#appendix-banking-crises-vary-considerably-in-geography-and-timing",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Appendix: Banking crises vary considerably in geography and timing",
+    "text": "Appendix: Banking crises vary considerably in geography and timing\n\n\n\n\n\nBack\n\n\nTwo clusters: emerging markets in the early-to-mid 1990s (Sub-Saharan Africa, Latin America, Eastern Europe) and the 2007–2012 global financial and euro-area crises \\(\\rightarrow\\) identification does not rely on a single country-specific shock"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#mechsummary",
+    "href": "fin-mgmt/FEARP-seminar/index.html#mechsummary",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Alternative mechanisms",
+    "text": "Alternative mechanisms\n\nPost-deal results alone do not distinguish a credit-supply channel from standard M&A mechanisms (operational synergies, governance, managerial turnover, etc)\nAuxiliary results show that (click here for full tables):\n\nFinancing relief is strongest where formal control is absent\nWhere the acquirer can connect the target to financing outside the crisis country\nAnd where the acquirer is positioned to intermediate external capital"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#mechanisms",
+    "href": "fin-mgmt/FEARP-seminar/index.html#mechanisms",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Appendix: Minority vs. Majority acquisitions",
+    "text": "Appendix: Minority vs. Majority acquisitions\n\n\n\n\n\nBack"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#appendix-cross-border-vs.-domestic-acquisitions",
+    "href": "fin-mgmt/FEARP-seminar/index.html#appendix-cross-border-vs.-domestic-acquisitions",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Appendix: Cross-border vs. Domestic acquisitions",
+    "text": "Appendix: Cross-border vs. Domestic acquisitions\n\n\n\n\n\nBack"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html#appendix-financial-vs.-non-financial-acquirers",
+    "href": "fin-mgmt/FEARP-seminar/index.html#appendix-financial-vs.-non-financial-acquirers",
+    "title": "Credit Crisis Acquisitions",
+    "section": "Appendix: Financial vs. Non-financial acquirers",
+    "text": "Appendix: Financial vs. Non-financial acquirers\n\n\n\n\n\nBack\n\n\n\n@ Website | @ Slides | @ Office-hour appointments"
+  },
+  {
+    "objectID": "fin-mgmt/FEARP-seminar/index.html",
+    "href": "fin-mgmt/FEARP-seminar/index.html",
+    "title": "Lucas S. Macoris",
+    "section": "",
+    "text": "When a banking system is distressed, the cost of external funding rises for firms that must refinance in the near term – i.e., the credit supply channel (Holmstrom & Tirole, 1997; Bernanke & Gertler, 1989)\nFor many otherwise viable firms, the binding friction is not the absence of investment opportunities, but a lack of rollover capacity: maturing obligations must be refinanced precisely when domestic intermediaries and local capital markets are distressed\n\n. . .\nWhat do we know?\n\nCredit contractions depress corporate investment (Duchin, Ozbas, & Sensoy, 2010)\n…particularly for firms whose long-term debt matures during the shock (Almeida, Campello, Laranjeira, & Weisbenner, 2012)\n\n. . .\n\\(\\rightarrow\\) We understand the real effects of credit contractions, but less about the organizational mechanisms through which firms restore funding when domestic refinancing capacity collapses"
   }
 ]

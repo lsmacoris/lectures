@@ -1,0 +1,20 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lccccc}
+\toprule
+ & \multicolumn{5}{c}{$Deal \times Post$ -- High-rollover firms in a crisis} \\ \cmidrule{2-6}
+\textbf{Subsample} & log(Assets) & log(Cash) & log(LT Debt) & log(Total Debt) & log(PPE) \\
+\midrule
+\rowcolor{hl!10} \hl{Minority} (stake $<$ 50\%) & 0.064$^{***}$ & 0.114$^{***}$ & \hl{0.187$^{***}$} & 0.059$^{**}$ & 0.041 \\
+Majority (stake $>$ 50\%) & 0.053$^{**}$ & 0.075$^{**}$ & $-$0.014 & 0.016 & 0.058$^{**}$ \\
+\addlinespace
+\rowcolor{hl!10} \hl{Cross-border} & 0.124$^{***}$ & 0.147$^{***}$ & \hl{0.200$^{***}$} & 0.117$^{***}$ & 0.111$^{***}$ \\
+Domestic & 0.035$^{*}$ & 0.078$^{**}$ & 0.083$^{*}$ & 0.015 & 0.024 \\
+\addlinespace
+\rowcolor{hl!10} \hl{Financial acquirer} & 0.076$^{***}$ & 0.127$^{***}$ & \hl{0.177$^{***}$} & 0.060$^{***}$ & 0.058$^{**}$ \\
+Non-financial acquirer & 0.040$^{*}$ & 0.058 & 0.028 & 0.024 & 0.038 \\
+\bottomrule
+\multicolumn{6}{l}{\footnotesize\textit{Note:} Year and firm FEs; standard errors clustered by firm. \stars}
+\end{tabular}
+\end{document}

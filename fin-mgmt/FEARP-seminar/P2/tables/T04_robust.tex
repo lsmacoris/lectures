@@ -1,0 +1,26 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{4}{c}{\textit{Dependent variable:} $Deal_{i,t}$} \\ \cmidrule{2-5}
+ & (1) & (2) & (3) & (4)\\
+ & Maturing $\geq 20\%$ & Std. Maturing Debt Ratio & Upper Industry Tercile & Upper Industry Quartile \\
+\midrule
+$FC$ & $-$0.018$^{***}$ & $-$0.015$^{***}$ & $-$0.022$^{***}$ & $-$0.022$^{***}$ \\
+ & (0.004) & (0.004) & (0.005) & (0.004) \\
+$BankCrisis$ & 0.003$^{***}$ & 0.002$^{***}$ & 0.004$^{***}$ & 0.004$^{***}$ \\
+ & (0.001) & (0.0003) & (0.001) & (0.001) \\
+\rowcolor{hl!10} \hl{$FC \times BankCrisis$} & \hl{0.007$^{***}$} & \hl{0.003$^{***}$} & \hl{0.008$^{***}$} & \hl{0.008$^{***}$} \\
+\rowcolor{hl!10} & (0.002) & (0.001) & (0.003) & (0.002) \\
+\midrule
+Controls? & \y & \y & \y & \y \\
+Controls $\times$ Crisis? & \y & \y & \y & \y \\
+Industry $\times$ Year FEs & \y & \y & \y & \y \\
+Observations & 498,406 & 498,406 & 331,991 & 398,571 \\
+R$^{2}$ & 0.006 & 0.006 & 0.008 & 0.006 \\
+Adjusted R$^{2}$ & 0.004 & 0.004 & 0.004 & 0.004 \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize\textit{Note:} Standard errors clustered by firm. \stars}
+\end{tabular}
+\end{document}

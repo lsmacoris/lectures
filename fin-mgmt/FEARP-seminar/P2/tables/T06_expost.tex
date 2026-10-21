@@ -1,0 +1,38 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lcccccccc}
+\multicolumn{9}{l}{\textbf{Panel A: High-rollover Firms in a Crisis}}\\
+\toprule
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) \\
+ & log(Assets) & log(Cash Holdings) & log(LT Debt) & log(ST Debt) & log(Total Debt) & log(PPE) & log(CAPEX) & log(Equity) \\
+\midrule
+$Post$ & $-$0.046 & $-$0.127$^{*}$ & $-$0.158$^{**}$ & 0.042 & $-$0.034 & $-$0.011 & $-$0.179$^{**}$ & $-$0.086$^{*}$ \\
+ & (0.044) & (0.066) & (0.079) & (0.058) & (0.041) & (0.045) & (0.076) & (0.052) \\
+\rowcolor{hl!10} \hl{$Deal \times Post$} & \hl{0.069$^{**}$} & \hl{0.139$^{***}$} & \hl{0.152$^{**}$} & 0.071 & \hl{0.060$^{**}$} & 0.029 & 0.036 & 0.020 \\
+\rowcolor{hl!10} & (0.031) & (0.051) & (0.067) & (0.050) & (0.029) & (0.034) & (0.057) & (0.037) \\
+\midrule
+Year FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Firm FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Observations & 41,534 & 41,304 & 38,034 & 41,534 & 41,530 & 41,396 & 34,612 & 38,966 \\
+R$^{2}$ & 0.982 & 0.958 & 0.951 & 0.964 & 0.983 & 0.983 & 0.956 & 0.973 \\
+\bottomrule
+\addlinespace[10pt]
+\multicolumn{9}{l}{\textbf{Panel B: Low-rollover Firms in a Crisis}}\\
+\toprule
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) \\
+ & log(Assets) & log(Cash Holdings) & log(LT Debt) & log(ST Debt) & log(Total Debt) & log(PPE) & log(CAPEX) & log(Equity) \\
+\midrule
+$Post$ & $-$0.012 & $-$0.090 & $-$0.251$^{***}$ & $-$0.126 & $-$0.077$^{*}$ & $-$0.003 & $-$0.040 & 0.089$^{*}$ \\
+ & (0.039) & (0.070) & (0.078) & (0.116) & (0.043) & (0.053) & (0.090) & (0.052) \\
+$Deal \times Post$ & 0.055 & 0.115$^{*}$ & 0.133$^{*}$ & 0.118 & 0.073 & 0.049 & 0.029 & $-$0.002 \\
+ & (0.041) & (0.065) & (0.080) & (0.093) & (0.045) & (0.051) & (0.077) & (0.053) \\
+\midrule
+Year FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Firm FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Observations & 19,872 & 19,763 & 19,872 & 18,972 & 19,871 & 19,825 & 17,498 & 18,503 \\
+R$^{2}$ & 0.984 & 0.962 & 0.964 & 0.954 & 0.983 & 0.982 & 0.961 & 0.976 \\
+\bottomrule
+\multicolumn{9}{l}{\footnotesize\textit{Note:} Standard errors clustered by firm. \stars}
+\end{tabular}
+\end{document}

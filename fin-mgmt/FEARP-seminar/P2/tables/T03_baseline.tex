@@ -1,0 +1,28 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{6}{c}{\textit{Dependent variable:} $Deal_{i,t}$} \\ \cmidrule{2-7}
+ & (1) & (2) & (3) & (4) & (5) & (6)\\
+\midrule
+$FC$ & 0.002$^{***}$ & 0.003$^{***}$ & 0.003$^{***}$ & 0.001 & 0.001 & 0.001$^{*}$ \\
+ & (0.001) & (0.001) & (0.001) & (0.001) & (0.001) & (0.001) \\
+$BankCrisis$ & $-$0.005$^{***}$ & $-$0.005$^{***}$ & $-$0.012$^{***}$ & $-$0.004$^{**}$ & $-$0.008$^{**}$ & -- \\
+ & (0.001) & (0.001) & (0.001) & (0.002) & (0.004) & \\
+\rowcolor{hl!10} \hl{$FC \times BankCrisis$} & \hl{0.004$^{**}$} & \hl{0.004$^{*}$} & \hl{0.006$^{***}$} & \hl{0.005$^{**}$} & \hl{0.005$^{**}$} & \hl{0.005$^{**}$} \\
+\rowcolor{hl!10} & (0.002) & (0.002) & (0.002) & (0.002) & (0.002) & (0.002) \\
+\midrule
+Controls? & \n & \y & \y & \y & \y & \y \\
+Controls $\times$ Crisis? & \n & \n & \n & \n & \y & \y \\
+Firm FEs & \n & \n & \n & \y & \y & \y \\
+Year FEs & \n & \n & \y & \y & \y & \y \\
+Industry $\times$ Year FEs & \n & \n & \n & \n & \n & \y \\
+Country $\times$ Year FEs & \n & \n & \n & \n & \n & \y \\
+Observations & 601,784 & 504,815 & 504,815 & 504,815 & 504,815 & 498,406 \\
+R$^{2}$ & 0.0001 & 0.0003 & 0.002 & 0.086 & 0.086 & 0.098 \\
+Adjusted R$^{2}$ & 0.0001 & 0.0003 & 0.001 & 0.011 & 0.011 & 0.017 \\
+\bottomrule
+\multicolumn{7}{l}{\footnotesize\textit{Note:} Standard errors clustered by firm. \stars}
+\end{tabular}
+\end{document}

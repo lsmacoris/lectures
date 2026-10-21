@@ -1,0 +1,38 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lcccccccc}
+\multicolumn{9}{l}{\textbf{Panel A: Financial Acquirers}}\\
+\toprule
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8)\\
+ & log(Assets) & log(Cash Holdings) & log(LT Debt) & log(ST Debt) & log(Total Debt) & log(CAPEX) & log(PPE) & log(Equity) \\
+\midrule
+$Post$ & $-$0.085$^{***}$ & $-$0.155$^{***}$ & $-$0.869$^{***}$ & 0.550$^{***}$ & $-$0.079$^{***}$ & $-$0.214$^{***}$ & $-$0.072$^{***}$ & $-$0.061$^{***}$ \\
+ & (0.019) & (0.034) & (0.047) & (0.041) & (0.019) & (0.040) & (0.022) & (0.022) \\
+\rowcolor{hl!10} \hl{$Deal \times Post$} & \hl{0.076$^{***}$} & \hl{0.127$^{***}$} & \hl{0.177$^{***}$} & \hl{0.077$^{*}$} & \hl{0.060$^{***}$} & 0.028 & \hl{0.058$^{**}$} & 0.025 \\
+\rowcolor{hl!10} & (0.023) & (0.039) & (0.051) & (0.042) & (0.023) & (0.044) & (0.029) & (0.028) \\
+\midrule
+Year FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Firm FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Observations & 49,733 & 49,395 & 45,767 & 48,516 & 49,728 & 41,281 & 49,521 & 46,370 \\
+R$^{2}$ & 0.978 & 0.945 & 0.925 & 0.934 & 0.978 & 0.942 & 0.975 & 0.967 \\
+\bottomrule
+\addlinespace[10pt]
+\multicolumn{9}{l}{\textbf{Panel B: Non-Financial Acquirers}}\\
+\toprule
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8)\\
+ & log(Assets) & log(Cash Holdings) & log(LT Debt) & log(ST Debt) & log(Total Debt) & log(CAPEX) & log(PPE) & log(Equity) \\
+\midrule
+$Post$ & $-$0.046$^{***}$ & $-$0.092$^{***}$ & $-$0.740$^{***}$ & 0.590$^{***}$ & $-$0.044$^{***}$ & $-$0.173$^{***}$ & $-$0.039$^{*}$ & $-$0.037$^{*}$ \\
+ & (0.017) & (0.031) & (0.041) & (0.039) & (0.017) & (0.037) & (0.020) & (0.020) \\
+$Deal \times Post$ & 0.040$^{*}$ & 0.058 & 0.028 & 0.023 & 0.024 & 0.025 & 0.038 & $-$0.002 \\
+ & (0.021) & (0.036) & (0.048) & (0.041) & (0.020) & (0.042) & (0.026) & (0.025) \\
+\midrule
+Year FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Firm FEs & \y & \y & \y & \y & \y & \y & \y & \y \\
+Observations & 41,702 & 41,423 & 38,205 & 40,524 & 41,697 & 32,759 & 41,482 & 38,968 \\
+R$^{2}$ & 0.977 & 0.947 & 0.931 & 0.939 & 0.978 & 0.944 & 0.977 & 0.968 \\
+\bottomrule
+\multicolumn{9}{l}{\footnotesize\textit{Note:} High-rollover firms in a crisis. Financial acquirers: SIC 6000--6799. Standard errors clustered by firm. \stars}
+\end{tabular}
+\end{document}

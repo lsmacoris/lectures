@@ -1,0 +1,44 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Sun, Jun 05, 2022 - 7:41:31 PM
+\begin{table}[!htbp]
+  \caption{OLS - State-level Market Concentration and Solvency Margin Rule} 
+\begin{center}
+\scalebox{0.65}{
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{log(1+$HHI_{s,t}$)} \\ 
+\cline{2-4} 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ $EmpFlow$ & - & - & 0.012 \\ 
+  &  &  & (0.008) \\ 
+  & & & \\ 
+ $Exposure$ & $-$0.094$^{*}$ & $-$0.105$^{*}$ & $-$0.112$^{**}$ \\ 
+  & (0.046) & (0.051) & (0.051) \\ 
+  & & & \\ 
+ $Rule \times EmpFlow$ &  &  & $-$0.003 \\ 
+  &  &  & (0.008) \\ 
+  & & & \\ 
+ $Rule \times Exposure$ &  & 0.014 & 0.035$^{*}$ \\ 
+  &  & (0.020) & (0.018) \\ 
+  & & & \\ 
+ $EmpFlow \times Exposure$ &  &  & $-$0.121 \\ 
+  &  &  & (0.084) \\ 
+  & & & \\ 
+ $Rule \times EmpFlow \times Exposure $ &  &  & 0.179$^{*}$ \\ 
+  &  &  & (0.088) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Year FE & $\checkmark$ & $\checkmark$ & $\checkmark$ \\ 
+State FE & $\checkmark$ & $\checkmark$ & $\checkmark$ \\ 
+Cluster & State & State & State \\ 
+Observations & 249 & 249 & 246 \\ 
+R$^{2}$ & 0.966 & 0.966 & 0.966 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular}}
+\end{center}
+\end{table} 

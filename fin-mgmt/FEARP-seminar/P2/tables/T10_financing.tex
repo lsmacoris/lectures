@@ -1,0 +1,26 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lccc}
+\toprule
+ & \multicolumn{3}{c}{\textit{Dependent variable:} $Financing_{d}$} \\ \cmidrule{2-4}
+ & (1) & (2) & (3) \\
+\midrule
+$FC$ & $-$0.04 & $-$0.03 & $-$0.04 \\
+ & (0.04) & (0.05) & (0.06) \\
+$BankCrisis$ & $-$0.01 & & \\
+ & (0.14) & & \\
+\rowcolor{hl!10} \hl{$FC \times BankCrisis$} & \hl{0.34$^{*}$} & \hl{0.38$^{*}$} & \hl{0.61$^{***}$} \\
+\rowcolor{hl!10} & (0.17) & (0.22) & (0.22) \\
+\midrule
+Observations & 438 & 438 & 438 \\
+R$^{2}$ & 0.54 & 0.67 & 0.69 \\
+Controls & \n & \n & \y \\
+Controls $\times$ Crisis & \n & \n & \y \\
+Industry $\times$ Year FEs & \n & \y & \y \\
+Country $\times$ Year FEs & \n & \y & \y \\
+Acquirer Industry $\times$ Year FEs & \y & \y & \y \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize\textit{Note:} U.S. acquirers. Standard errors clustered by deal. \stars}
+\end{tabular}
+\end{document}

@@ -1,0 +1,38 @@
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Sat, Feb 25, 2023 - 3:01:49 PM
+\begin{table}[!htbp] \centering
+  \label{DebtReg}
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{3}{c}{log(1+Issuance)} & log(1+Maturity) \\ 
+\\[-1.8ex] & \textbf{Full Sample} & Debt & Equity & Debt\\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ $FC$ & \textbf{$-$0.128$^{**}$} & $-$0.272$^{***}$ & 0.062 & 0.0002 \\ 
+  & (0.057) & (0.083) & (0.070) & (0.030) \\ 
+  & & & & \\ 
+ $After$ & \textbf{$-$0.078} & $-$4.821$^{***}$ & $-$1.029$^{**}$ & 0.123 \\ 
+  & (0.403) & (0.446) & (0.411) & (0.133) \\ 
+  & & & & \\ 
+ \textcolor{blue}{\textbf{$FC \times After$}} &  \textcolor{blue}{\textbf{0.188}$^{***}$} &  \textcolor{blue}{0.248$^{**}$} &  0.026 &  $-$0.005 \\ 
+  & (0.071) & (0.110) & (0.089) & (0.038) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Controls & \checkmark & \checkmark & \checkmark & \checkmark \\ 
+Year x Industry FE & \checkmark & \checkmark & \checkmark & \checkmark \\ 
+Year x Target Country FE & \checkmark & \checkmark & \checkmark & \checkmark \\ 
+Deal fixed FE & \checkmark & \checkmark & \checkmark & \checkmark \\ 
+Controls $\times$ Crisis & \checkmark & \checkmark & \checkmark & \checkmark \\ 
+S.E Clustering & Deal & Deal & Deal & Deal \\ 
+Observations & 45,537 & 19,109 & 26,428 & 18,257 \\ 
+R$^{2}$ & 0.554 & 0.651 & 0.580 & 0.577 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular}}
+\end{table} 

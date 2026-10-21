@@ -1,0 +1,39 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Sun, May 15, 2022 - 8:20:01 PM
+\begin{table}[!htbp]
+\caption{OLS - Growth in Customer Base and Solvency Margin Sufficiency - Only for state-year pairs with negative employment flows and excluding health-cooperatives.}
+\begin{center}
+\scalebox{0.75}{
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{Dependent Variable: log(1 +$Customers_{i,s,t}$)} \\ 
+\cline{2-5} 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ $Exposure$ & 1.082$^{***}$ & 1.063$^{***}$ & - & - \\ 
+  & (0.319) & (0.333) &  & \\ 
+  & & & & \\ 
+ $Rule$ & $-$3.417 & - & - & - \\ 
+  & (2.729) & & & \\ 
+  & & & & \\ 
+ $Exposure$ $\times$ $Rule$ & $-$0.234 & $-$0.240 & $-$0.349$^{*}$ & $-$0.292 \\ 
+  & (0.276) & (0.300) & (0.182) & (0.224) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Firm Controls & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\ 
+Firm Controls $\times$ Post & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\ 
+Year FE & No & $\checkmark$ & $\checkmark$ & $\checkmark$ \\ 
+State FE & No & No & $\checkmark$ & No \\ 
+Firm FE & No & No & $\checkmark$ & No \\ 
+State-Time FE & No & No & No & $\checkmark$ \\ 
+Cluster & Firm & Firm & Firm & Firm \\ 
+Observations & 874 & 874 & 874 & 874 \\ 
+R$^{2}$ & 0.691 & 0.697 & 0.964 & 0.971 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular}}
+\end{center}
+\end{table} 

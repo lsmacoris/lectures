@@ -1,0 +1,30 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lcccc}
+\toprule
+ & (1) & (2) & (3) & (4)\\
+ & Low-High & High-High & Low-Low & High-Low \\
+\cmidrule{2-5}
+ & \multicolumn{4}{c}{log(1+Issuance)} \\
+\midrule
+$FC$ & $-$0.788$^{***}$ & $-$0.055 & 0.121 & 0.802$^{***}$ \\
+ & (0.288) & (0.065) & (0.084) & (0.255) \\
+$Post$ & 2.925$^{***}$ & 0.096 & -- & -- \\
+ & (0.753) & (0.512) & (0.000) & (0.000) \\
+\rowcolor{hl!10} \hl{$FC \times Post$} & \hl{0.451$^{**}$} & 0.096 & $-$0.125 & \hl{$-$0.839$^{***}$} \\
+\rowcolor{hl!10} & (0.227) & (0.079) & (0.145) & (0.315) \\
+\midrule
+Controls & \y & \y & \y & \y \\
+Controls $\times$ Crisis & \y & \y & \y & \y \\
+Firm FE & \y & \y & \y & \y \\
+Industry $\times$ Year FE & \y & \y & \y & \y \\
+Country $\times$ Year FE & \y & \y & \y & \y \\
+Sample & Q1 & Q2 & Q3 & Q4 \\
+Observations & 4,218 & 29,392 & 5,569 & 6,358 \\
+R$^{2}$ & 0.702 & 0.616 & 0.739 & 0.364 \\
+Adjusted R$^{2}$ & 0.591 & 0.519 & 0.600 & 0.225 \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize\textit{Note:} Standard errors clustered by deal. \stars}
+\end{tabular}
+\end{document}

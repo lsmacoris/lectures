@@ -1,0 +1,35 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lcrrcrrrcr}
+\toprule
+ & \textbf{Deal Sample} & $\mu$ & $\sigma$ & & \textbf{Q1} & \textbf{Median} & \textbf{Q3} & & \textit{p-val} \\
+\cmidrule{2-2} \cmidrule{3-4} \cmidrule{6-8} \cmidrule{10-10}
+Total Assets (\$m) & Yes & 8,397 & 17,085 & & 166 & 1,184 & 11,275 & & $<$0.001 \\
+ & No & 5,145 & 10,693 & & 99 & 792 & 6,899 & & \\ \cmidrule{2-10}
+Ln(Assets) & Yes & 7.29 & 3.10 & & 5.11 & 7.08 & 9.33 & & $<$0.001 \\
+ & No & 6.76 & 3.20 & & 4.59 & 6.68 & 8.84 & & \\ \cmidrule{2-10}
+Cash Holdings/Assets & Yes & 0.14 & 0.15 & & 0.03 & 0.09 & 0.19 & & $<$0.001 \\
+ & No & 0.14 & 0.15 & & 0.03 & 0.09 & 0.19 & & \\ \cmidrule{2-10}
+PPE/Assets & Yes & 0.32 & 0.23 & & 0.13 & 0.28 & 0.47 & & $<$0.001 \\
+ & No & 0.31 & 0.23 & & 0.13 & 0.27 & 0.46 & & \\ \cmidrule{2-10}
+Debt/Equity & Yes & 0.87 & 2.03 & & 0.15 & 0.50 & 1.12 & & $<$0.001 \\
+ & No & 0.73 & 1.84 & & 0.11 & 0.41 & 0.96 & & \\ \cmidrule{2-10}
+Cash-Flow/Assets & Yes & 0.01 & 0.11 & & $-$0.02 & 0.00 & 0.03 & & $<$0.001 \\
+ & No & 0.01 & 0.10 & & $-$0.01 & 0.00 & 0.03 & & \\ \cmidrule{2-10}
+\hl{Long-Term Debt Ratio} & Yes & \hl{0.52} & 0.35 & & 0.18 & 0.56 & 0.84 & & $<$0.001 \\
+ & No & \hl{0.47} & 0.35 & & 0.11 & 0.48 & 0.80 & & \\ \cmidrule{2-10}
+Short-Term Debt Ratio & Yes & 0.48 & 0.35 & & 0.16 & 0.44 & 0.82 & & $<$0.001 \\
+ & No & 0.53 & 0.35 & & 0.20 & 0.52 & 0.89 & & \\ \cmidrule{2-10}
+Debt/Assets & Yes & 0.29 & 0.26 & & 0.11 & 0.25 & 0.40 & & $<$0.001 \\
+ & No & 0.29 & 0.31 & & 0.10 & 0.23 & 0.39 & & \\ \cmidrule{2-10}
+Sales Growth & Yes & 0.30 & 3.01 & & $-$0.05 & 0.07 & 0.24 & & 0.007 \\
+ & No & 0.27 & 3.81 & & $-$0.05 & 0.07 & 0.22 & & \\ \cmidrule{2-10}
+Bank Crisis & Yes & 0.08 & 0.28 & & 0.00 & 0.00 & 0.00 & & $<$0.001 \\
+ & No & 0.09 & 0.28 & & 0.00 & 0.00 & 0.00 & & \\ \cmidrule{2-10}
+Amount Issued (\$ mil.) & Yes & 204.50 & 786.96 & & 3.81 & 25.67 & 150.00 & & -- \\ \cmidrule{2-10}
+Maturity (years) & Yes & 6.22 & 5.31 & & 3.00 & 5.01 & 7.09 & & -- \\
+\bottomrule
+\multicolumn{10}{l}{\footnotesize\textit{Note:} 58,814 deals and 961,909 firm-year observations. \textit{p-val} from a Welch \textit{t}-test of the difference in means.}
+\end{tabular}
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[border=6pt]{standalone}
+\input{preamble}
+\begin{document}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{4}{c}{\textit{Dependent variable:} $Deal_{i,t}$} \\ \cmidrule{2-5}
+ & (1) & (2) & (3) & (4)\\
+\midrule
+$BankCrisis_{-3}\times FC$ & $-$0.010 & $-$0.031$^{*}$ & $-$0.009 & $-$0.01 \\
+ & (0.010) & (0.016) & (0.010) & (0.010) \\
+$BankCrisis_{-2}\times FC$ & 0.012 & 0.006 & 0.008 & 0.001\\
+ & (0.012) & (0.017) & (0.012) & (0.010) \\
+\rowcolor{hl!10} \hl{$BankCrisis_{0}\times FC$} & \hl{0.023$^{**}$} & \hl{0.028$^{*}$} & \hl{0.024$^{**}$} & \hl{0.017$^{*}$} \\
+\rowcolor{hl!10} & (0.012) & (0.016) & (0.012) & (0.010) \\
+$BankCrisis_{+1}\times FC$ & $-$0.002 & 0.018 & 0.005 & 0.013\\
+ & (0.015) & (0.023) & (0.015) & (0.010) \\
+$BankCrisis_{+2}\times FC$ & $-$0.016 & $-$0.017 & $-$0.014 & $-$0.02$^{**}$ \\
+ & (0.014) & (0.022) & (0.015) & (0.010) \\
+$BankCrisis_{+3}\times FC$ & 0.014 & 0.015 & 0.007 & 0.006\\
+ & (0.009) & (0.013) & (0.010) & (0.010) \\
+\midrule
+Controls & \y & \y & \y & \y \\
+Controls $\times$ Crisis? & \y & \y & \y & \y \\
+Firm FEs & \y & \y & \y & \y \\
+Country $\times$ Year FEs & \n & \y & \n & \y \\
+Industry $\times$ Year FEs & \n & \n & \y & \y \\
+Observations & 67,531 & 50,395 & 66,670 & 62,762 \\
+R$^{2}$ & 0.636 & 0.661 & 0.651 & 0.692 \\
+Adjusted R$^{2}$ & 0.005 & 0.006 & 0.009 & 0.007 \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize\textit{Note:} $\tau=-1$ omitted. Standard errors clustered by firm. \stars}
+\end{tabular}
+\end{document}
