@@ -14879,7 +14879,7 @@
     "href": "fin-mgmt/FEARP-seminar/index.html#credit-supply-shock",
     "title": "Credit Crisis Acquisitions",
     "section": "Credit Supply Shock",
-    "text": "Credit Supply Shock\n\nAs in Laeven & Valencia (2018), we define \\(BankCrisis_{m,t}\\) as a dummy variable that assigns 1 if firm \\(i\\) is headquartered in a country \\(m\\) that experiences a systemic banking crisis in year \\(t\\):\n\nSignificant signs of financial distress in the banking system (bank runs, losses in the banking system, and/or bank liquidations); and\nSign. banking policy intervention measures in response to losses in the banking system\n\n\n\n\nThe first year that both criteria are met is the year when the crisis becomes systemic \\(\\rightarrow\\) \\(BankCrisis_{m,t}=1\\)\nThe end of a crisis is the year before both real GDP growth and real credit growth are positive for at least two consecutive years \\(\\rightarrow\\) \\(BankCrisis_{m,t}=0\\)\n\n\n\n\n\n\n\n\n\nAssumption\n\n\nBanking crises are supply-side shocks that tighten domestic credit at short horizons, and are not proxying for decreases in firms’ unobserved investment opportunities."
+    "text": "Credit Supply Shock\n\nAs in Laeven & Valencia (2018), we define \\(BankCrisis_{m,t}\\) as a dummy variable that assigns 1 if firm \\(i\\) is headquartered in a country \\(m\\) that experiences a systemic banking crisis in year \\(t\\):\n\nSignificant signs of financial distress in the banking system (bank runs, losses in the banking system, and/or bank liquidations); and\nSign. banking policy intervention measures in response to losses in the banking system\n\n\n\n\nThe first year that both criteria are met is the year when the crisis becomes systemic \\(\\rightarrow\\) \\(BankCrisis_{m,t}=1\\)\nThe end of a crisis is the year before both real GDP growth and real credit growth are positive for at least two consecutive years \\(\\rightarrow\\) \\(BankCrisis_{m,t}=0\\)"
   },
   {
     "objectID": "fin-mgmt/FEARP-seminar/index.html#exposure-to-liquidity-shock-rollover-pressure",
@@ -15019,7 +15019,7 @@
     "href": "fin-mgmt/FEARP-seminar/index.html#appendix-financial-vs.-non-financial-acquirers",
     "title": "Credit Crisis Acquisitions",
     "section": "Appendix: Financial vs. Non-financial acquirers",
-    "text": "Appendix: Financial vs. Non-financial acquirers\n\n\n\n\n\nBack\n\n\n\n@ Website | @ Slides | @ Office-hour appointments"
+    "text": "Appendix: Financial vs. Non-financial acquirers\n\n\n\n\n\nBack\n\n\n\nFEA-RP/USP Research Seminars (Economics)"
   },
   {
     "objectID": "fin-mgmt/FEARP-seminar/index.html",

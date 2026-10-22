@@ -10,7 +10,7 @@ format:
     - name: 'Lucas S. Macoris (Chamberlain Group | FGV/EAESP)'
     - name: 'Luiz Ricardo Kabbach de Castro (Kelley School of Business, Indiana University)'
     - name: 'Abed El Karim Farroukh (Kelley School of Business, Indiana University)'
-    footer: "[@ Website](https://lsmacoris.github.io/) | [@ Slides](https://lsmacoris.github.io/lectures/fin-mgmt.html) | [@ Office-hour appointments](https://calendly.com/lucas-macoris-fgv/appointment-lsm)"
+    footer: "FEA-RP/USP Research Seminars (Economics)"
     toc: false
     incremental: true
     bibliography: 'Ref.bib'
@@ -138,13 +138,7 @@ $\rightarrow$ **Most of this evidence is built around specific episodes (*e.g.,*
 
 -   The end of a crisis is the year before both real GDP growth and real credit growth are positive for at least two consecutive years $\rightarrow$ [$BankCrisis_{m,t}=0$]{.blue}
 
-. . .
 
-::: callout-note
-## Assumption
-
-Banking crises are *supply-side* shocks that tighten domestic credit at short horizons, and are not proxying for decreases in firms' unobserved investment opportunities.
-:::
 
 ## Exposure to Liquidity Shock: Rollover Pressure
 
@@ -199,6 +193,7 @@ If credit crisis acquisitions substitute for impaired domestic intermediation:
 
 4.  [**Geography of capital raising:**]{.blue} targets should expand issuance beyond disrupted domestic markets and into *deeper, more liquid foreign markets*
 
+
 ## #1: High-rollover firms are more likely to become targets during banking crises
 
 ![](P2/tables/T03_baseline.svg){fig-align="center" height="700px"}
@@ -238,6 +233,21 @@ Generic merger synergies or operational restructuring should benefit targets *re
 ## #4: High-rollover targets preserve assets, liquidity, and long-term debt capacity
 
 ![](P2/tables/T06_expost.svg){fig-align="center" height="700px"}
+
+## Alternative mechanisms {#mechsummary}
+
+-   Post-deal results alone do not distinguish a credit-supply channel from standard M&A mechanisms (operational synergies, governance, managerial turnover, etc)
+
+-   Auxiliary results show that ([click here for full tables](#mechanisms)):
+
+    1.  Financing relief is strongest where [formal control is absent]{.blue}
+    2.  Where the acquirer can connect the target to [financing outside the crisis country]{.blue}
+    3.  And where the acquirer is positioned to [intermediate external capital]{.blue}
+
+. . .
+
+![](P2/tables/T07_mechsummary.svg){fig-align="center" width="1000px"}
+
 
 ## #5: Issuance-level data for approx. 62% of targets shows that *ex-post* changes are driven by **debt**, and not equity
 
@@ -303,19 +313,6 @@ $\rightarrow$ [**Credit crisis acquisitions**]{.blue} function as a *bridge to d
 -   Two clusters: emerging markets in the early-to-mid 1990s (Sub-Saharan Africa, Latin America, Eastern Europe) and the 2007--2012 global financial and euro-area crises $\rightarrow$ identification does *not* rely on a single country-specific shock
 :::
 
-## Alternative mechanisms {#mechsummary}
-
--   Post-deal results alone do not distinguish a credit-supply channel from standard M&A mechanisms (operational synergies, governance, managerial turnover, etc)
-
--   Auxiliary results show that ([click here for full tables](#mechanisms)):
-
-    1.  Financing relief is strongest where [formal control is absent]{.blue}
-    2.  Where the acquirer can connect the target to [financing outside the crisis country]{.blue}
-    3.  And where the acquirer is positioned to [intermediate external capital]{.blue}
-
-. . .
-
-![](P2/tables/T07_mechsummary.svg){fig-align="center" width="1000px"}
 
 ## Appendix: Minority vs. Majority acquisitions {#mechanisms}
 
